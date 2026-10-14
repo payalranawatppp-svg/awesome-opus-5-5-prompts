@@ -1,5 +1,5 @@
 import React from "react";
-import { AbsoluteFill, interpolate, interpolateColors, useCurrentFrame } from "remotion";
+import { AbsoluteFill, Easing, interpolate, interpolateColors, useCurrentFrame } from "remotion";
 import { SECTION_CUTS } from "../camera";
 import { SEGMENTS } from "../edit";
 import { COLORS, HEIGHT, WIDTH } from "../theme";
@@ -102,12 +102,37 @@ export const TopWash: React.FC = () => (
   />
 );
 
+/** Procedural film grain + vignette: the top of the layer stack, so footage, graphics and
+ *  type share one texture (remotion-motion-graphics skill: grain + vignette on top). */
+const NOISE = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E")`;
+export const GrainVignette: React.FC = () => {
+  const frame = useCurrentFrame();
+  return (
+    <AbsoluteFill style={{ pointerEvents: "none" }}>
+      <AbsoluteFill
+        style={{
+          backgroundImage: NOISE,
+          backgroundSize: "220px",
+          backgroundPosition: `${(frame * 7) % 220}px ${(frame * 13) % 220}px`,
+          opacity: 0.06,
+          mixBlendMode: "overlay",
+        }}
+      />
+      <AbsoluteFill style={{ background: "radial-gradient(ellipse at 50% 55%, rgba(0,0,0,0) 60%, rgba(0,0,0,0.2) 100%)" }} />
+    </AbsoluteFill>
+  );
+};
+
 /** Diagonal light sweep across section cuts (paired with a whoosh in the sound design). */
 export const LightSweep: React.FC = () => {
   const frame = useCurrentFrame();
   const cut = [...SECTION_CUTS].find((c) => frame >= c - 5 && frame <= c + 9);
   if (cut === undefined) return null;
-  const p = interpolate(frame, [cut - 5, cut + 9], [0, 1]);
+  const p = interpolate(frame, [cut - 5, cut + 9], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+    easing: Easing.inOut(Easing.cubic),
+  });
   const x = interpolate(p, [0, 1], [-WIDTH * 0.9, WIDTH * 1.1]);
   const o = interpolate(p, [0, 0.35, 0.65, 1], [0, 0.55, 0.45, 0]);
   return (

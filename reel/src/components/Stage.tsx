@@ -41,6 +41,11 @@ export const Stage: React.FC = () => {
     scene.to >= DURATION
       ? 0
       : interpolate(frame, [scene.to - EXIT, scene.to], [0, 1], { ...clamp, easing: Easing.in(Easing.cubic) });
+  // Idle breathing once the scene has landed: graphics never sit dead-still for seconds.
+  const settle = interpolate(frame, [scene.from + 12, scene.from + 30], [0, 1], { ...clamp, easing: Easing.inOut(Easing.sin) });
+  const t = (frame - scene.from) / 30;
+  const breatheY = settle * 3 * Math.sin(t * Math.PI * 2 * 0.35);
+  const breatheS = 1 + settle * 0.004 * Math.sin(t * Math.PI * 2 * 0.35 + 1.2);
   return (
     <AbsoluteFill>
       <div
@@ -51,7 +56,7 @@ export const Stage: React.FC = () => {
           width: w,
           height: h,
           transformOrigin: "50% 0%",
-          transform: `scale(${box.scale * (1 - 0.06 * out)}) translateY(${-24 * out}px)`,
+          transform: `scale(${box.scale * (1 - 0.06 * out) * breatheS}) translateY(${-24 * out + breatheY}px)`,
           opacity: 1 - out,
           filter: out > 0 ? `blur(${out * 6}px)` : undefined,
         }}

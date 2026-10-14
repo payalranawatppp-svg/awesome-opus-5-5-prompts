@@ -1,5 +1,5 @@
 import React from "react";
-import { AbsoluteFill, interpolate, interpolateColors, spring, useCurrentFrame, useVideoConfig } from "remotion";
+import { AbsoluteFill, Easing, interpolate, interpolateColors, spring, useCurrentFrame, useVideoConfig } from "remotion";
 import { CAPTION_EXIT, CHUNKS, type Chunk } from "../edit";
 import { useFontsReady } from "../fonts";
 import { CAPTION, type CaptionLayout, layoutCaption } from "../layout";
@@ -26,6 +26,7 @@ const ChunkView: React.FC<{ chunk: Chunk; frame: number }> = ({ chunk, frame }) 
   const exitP = interpolate(frame, [chunk.end, chunk.end + CAPTION_EXIT], [0, 1], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
+    easing: Easing.in(Easing.cubic),
   });
   const lineH = layout.fontSize * CAPTION.lineHeight;
   const pad = layout.fontSize * CAPTION.padEm;
@@ -60,6 +61,7 @@ const ChunkView: React.FC<{ chunk: Chunk; frame: number }> = ({ chunk, frame }) 
           const pillOut = interpolate(frame, [activeEnd - 1, activeEnd + 2], [1, 0], {
             extrapolateLeft: "clamp",
             extrapolateRight: "clamp",
+            easing: Easing.out(Easing.quad),
           });
           const pill = active || frame < activeEnd + 2 ? pillIn * pillOut : 0;
           const accent = w.accent;

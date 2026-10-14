@@ -5,8 +5,8 @@ kinetic captions, context-specific motion graphics and synchronized sound design
 Everything is rendered by Remotion from code. All audio is synthesized or derived from the
 footage, so the project has no third-party media.
 
-**Final render:** [`renders/signal-reach-reel.mp4`](renders/signal-reach-reel.mp4) — H.264 + AAC 256k,
-−14.9 LUFS integrated, −2.1 dBTP true peak, 877 frames.
+**Final render:** [`renders/signal-reach-reel.mp4`](renders/signal-reach-reel.mp4) — H.264 (CRF 16) + AAC 256k,
+ElevenLabs voice, −15.2 LUFS integrated, −2.1 dBTP true peak, 877 frames. Post caption: [`CAPTION.md`](CAPTION.md).
 
 ## The edit
 
@@ -27,7 +27,11 @@ Editorial decisions:
   The framing never shows source y below ≈ 815, so both stay out of frame on every shot.
 - **Section transitions** (problem → solution → outcome → CTA) are zoom-throughs with motion blur and a
   light sweep, each with a whoosh peaking on the cut. Jump cuts inside a section are plain cuts.
-- The last frame is held for 20 frames under the end card while the music's final chord rings out.
+- The generated clips fade toward grey over their final ~0.3 s, so the last segment stops at 7.6 s and that
+  clean frame is held for 32 frames under the end card while the music's final chord rings out.
+- Polish pass against the `remotion-motion-graphics` skill's delivery checklist: procedural film grain and
+  a vignette on top of the whole stack, subtle idle breathing on graphics that stay on screen, eased (not
+  linear) caption exits, highlight fades and light sweeps, and a CRF 16 master for platform re-compression.
 
 ## Layout: the avatar is never covered
 
@@ -50,10 +54,17 @@ Fixed safe zones (`src/theme.ts`), top to bottom: **caption band** (y 150–372)
 
 ## Sound
 
-- **Voice:** each clip's audio is high-passed, lightly de-noised and compressed, then levelled to the same loudness
-  behind a −1.5 dBFS limiter (`scripts/process_voice.sh`). The voice is cut with the same in/out points as the
-  picture, with 2-frame fades at every cut. Each segment was cross-correlated against its source and lands
-  within ±0.3 ms of its intended time.
+- **Voice (ElevenLabs):** the four clips were generated separately, so their voices drifted in pitch
+  (median 114–137 Hz) and carried AI-audio artefacts. `scripts/elevenlabs_sts.sh` re-voices each clip with
+  ElevenLabs **speech-to-speech** (model `eleven_multilingual_sts_v2`, premade voice "Chris", the closest
+  pitch match at ≈132 Hz, background-noise removal on). Speech-to-speech keeps the original performance's
+  timing, so lip-sync, captions and every cue stay locked. Verified per clip with `scripts/verify_voice.py`:
+  a Whisper re-transcription matches the original word for word, and the timing offset is 0 ms
+  (−5 ms on clip 1). The raw takes live in `public/audio/voice-elevenlabs/`. Set `VOICE_SOURCE=original` for
+  `process_voice.sh` to fall back to the clips' own voice.
+- **Voice processing:** high-passed and compressed, then levelled to the same loudness behind a −1.5 dBFS
+  limiter (`scripts/process_voice.sh`). The voice is cut with the same in/out points as the picture, with
+  2-frame fades at every cut. Each segment was cross-correlated against its source and lands within ±0.3 ms.
 - **Music bed** (`scripts/synth_audio.py`, numpy-synthesized, 109 BPM): a sparse filtered pad with clock-like
   woodblock ticks under the problem section, a drop **exactly on the brand cut** (three intro bars are sized to
   land on it), a breakdown under "Need a hand…", and a final C-major chord **on the CTA button click**.
@@ -77,6 +88,7 @@ npm run render          # → out/signal-reach-reel.mp4
 npm run qa:layout       # per-frame caption / graphics / avatar overlap check
 npm run stems           # out/stem-{voice,music,sfx}.wav for mix checks
 npm run audio           # re-synthesize SFX + music and re-level the voice
+ELEVENLABS_API_KEY=… ./scripts/elevenlabs_sts.sh   # regenerate the ElevenLabs voice takes (uses credits)
 node scripts/stills.mjs 0 200 437 827   # review stills → out/stills/
 ```
 

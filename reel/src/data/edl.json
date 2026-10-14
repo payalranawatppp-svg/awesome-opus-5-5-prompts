@@ -1,15 +1,63 @@
 {
   "fps": 30,
-  "note": "Source in/out are frames at 30 fps within each clip. Cuts sit in measured pauses (see reel/README.md). Clip 3 of the upload was a byte-identical duplicate of clip 2 and is not used.",
+  "note": "Source in/out are frames at 30 fps within each clip. Cuts sit in measured pauses (see reel/README.md). Clip 3 of the upload was a byte-identical duplicate of clip 2 and is not used. The last segment stops at 7.6 s because the generated clip fades toward grey over its final ~0.3 s; the end card holds that clean frame instead.",
   "segments": [
-    { "id": "hook-a", "clip": "01-hook", "in": 0, "out": 50, "section": "problem" },
-    { "id": "hook-b", "clip": "01-hook", "in": 60, "out": 134, "section": "problem" },
-    { "id": "hook-c", "clip": "01-hook", "in": 153, "out": 227, "section": "problem" },
-    { "id": "solution", "clip": "02-solution", "in": 2, "out": 230, "section": "solution" },
-    { "id": "outcome", "clip": "03-outcome", "in": 2, "out": 219, "section": "outcome" },
-    { "id": "cta-a", "clip": "04-cta", "in": 4, "out": 111, "section": "cta" },
-    { "id": "cta-b", "clip": "04-cta", "in": 126, "out": 179, "section": "cta" },
-    { "id": "cta-c", "clip": "04-cta", "in": 186, "out": 240, "section": "cta" }
+    {
+      "id": "hook-a",
+      "clip": "01-hook",
+      "in": 0,
+      "out": 50,
+      "section": "problem"
+    },
+    {
+      "id": "hook-b",
+      "clip": "01-hook",
+      "in": 60,
+      "out": 134,
+      "section": "problem"
+    },
+    {
+      "id": "hook-c",
+      "clip": "01-hook",
+      "in": 153,
+      "out": 227,
+      "section": "problem"
+    },
+    {
+      "id": "solution",
+      "clip": "02-solution",
+      "in": 2,
+      "out": 230,
+      "section": "solution"
+    },
+    {
+      "id": "outcome",
+      "clip": "03-outcome",
+      "in": 2,
+      "out": 219,
+      "section": "outcome"
+    },
+    {
+      "id": "cta-a",
+      "clip": "04-cta",
+      "in": 4,
+      "out": 111,
+      "section": "cta"
+    },
+    {
+      "id": "cta-b",
+      "clip": "04-cta",
+      "in": 126,
+      "out": 179,
+      "section": "cta"
+    },
+    {
+      "id": "cta-c",
+      "clip": "04-cta",
+      "in": 186,
+      "out": 228,
+      "section": "cta"
+    }
   ],
-  "tailHoldFrames": 20
+  "tailHoldFrames": 32
 }
