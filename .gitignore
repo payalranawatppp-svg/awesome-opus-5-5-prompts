@@ -6,3 +6,6 @@ node_modules/
 .cache/
 work/
 *.log
+
+# Anthropic pdf skill: licence forbids redistribution; restore with `npx skills experimental_install`
+.claude/skills/pdf/

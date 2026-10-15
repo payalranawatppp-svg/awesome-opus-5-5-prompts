@@ -16,6 +16,14 @@ contains a `SKILL.md`.
 | graphify (Apache-2.0) | graphify |
 | skills-only bundle | banner-design, brand, brandkit, design, design-system, design-taste-frontend(-v1), full-output-enforcement, gpt-taste, high-end-visual-design, image-to-code, imagegen-frontend-mobile/web, industrial-brutalist-ui, minimalist-ui, redesign-existing-projects, slides, stitch-design-taste, ui-styling, ui-ux-pro-max |
 | awesome-design-md (MIT) | awesome-design-md (74 brand DESIGN.md files; SKILL.md written for this repo) |
+| anthropics/skills (Apache-2.0), via `npx skills add` | canvas-design, frontend-design |
+| pbakaus/impeccable (Apache-2.0), via `npx skills add` | impeccable (design audit/polish/critique; downloads its own engine binary to `~/.impeccable` on first run) |
+| lewislulu/html-ppt-skill (MIT), via `npx skills add` | html-ppt |
+
+`skills-lock.json` at the repo root records the five skills installed with the `skills` CLI;
+`npx skills experimental_install` restores them. Anthropic's `pdf` skill is installed locally
+through that lock file but is not committed: its licence does not allow redistribution, so it is
+listed in `.gitignore`.
 
 Not installed: `dev` (playwright-cli's own repo maintenance) and
 `everything-claude-code-conventions` (another repository's conventions) — both describe
