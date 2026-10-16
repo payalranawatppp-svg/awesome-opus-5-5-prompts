@@ -125,25 +125,39 @@ const Intro: React.FC = () => {
 const EffectLabel: React.FC<{ n: number; name: string }> = ({ n, name }) => {
   const frame = useCurrentFrame();
   const { fps, durationInFrames } = useVideoConfig();
-  const chip = springAt(frame, fps, 3, SPRING.snappy);
+  const pill = springAt(frame, fps, 2, SPRING.snappy);
   const word = springAt(frame, fps, 6, SPRING.snappy);
   const exit = interpolate(frame, [durationInFrames - 7, durationInFrames - 1], [0, 1], { ...clamp, easing: EASE.in });
+  // One dark glass pill holds the counter and the name, so the label reads over any effect
+  // (white pages, newsprint, paper, bright footage).
   return (
-    <AbsoluteFill style={{ alignItems: "center", paddingTop: 150, opacity: 1 - exit, translate: `0px ${-24 * exit}px` }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
+    <AbsoluteFill style={{ alignItems: "center", paddingTop: 140, opacity: 1 - exit, translate: `0px ${-24 * exit}px` }}>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: 16,
+          padding: "10px 28px 12px 12px",
+          borderRadius: 999,
+          background: "rgba(7,11,26,0.78)",
+          border: "1.5px solid rgba(255,255,255,0.2)",
+          boxShadow: "0 12px 34px rgba(0,0,0,0.38)",
+          backdropFilter: "blur(14px)",
+          opacity: pill,
+          scale: String(interpolate(pill, [0, 1], [0.86, 1])),
+          translate: `0px ${interpolate(pill, [0, 1], [-14, 0])}px`,
+        }}
+      >
         <div
           style={{
-            opacity: chip,
-            scale: String(interpolate(chip, [0, 1], [0.7, 1])),
             fontFamily: FONT_MONO,
             fontWeight: 700,
-            fontSize: 28,
-            color: COLORS.text,
-            padding: "10px 18px",
+            fontSize: 26,
+            color: COLORS.ink,
+            background: COLORS.text,
+            padding: "7px 14px",
             borderRadius: 999,
-            background: "rgba(7,11,26,0.72)",
-            border: "1.5px solid rgba(255,255,255,0.22)",
-            boxShadow: "0 10px 30px rgba(0,0,0,0.35)",
+            fontVariantNumeric: "tabular-nums",
           }}
         >
           {`${pad2(n)}/${EFFECTS.length}`}
@@ -151,13 +165,13 @@ const EffectLabel: React.FC<{ n: number; name: string }> = ({ n, name }) => {
         <div
           style={{
             opacity: word,
-            translate: `${interpolate(word, [0, 1], [-18, 0])}px 0px`,
+            translate: `${interpolate(word, [0, 1], [-14, 0])}px 0px`,
             fontFamily: FONT_DISPLAY,
             fontWeight: 800,
-            fontSize: 58,
-            letterSpacing: -1.4,
+            fontSize: 48,
+            letterSpacing: -1.2,
+            lineHeight: 1.1,
             color: COLORS.text,
-            textShadow: "0 4px 24px rgba(0,0,0,0.65), 0 1px 3px rgba(0,0,0,0.6)",
           }}
         >
           {name.toLowerCase()}

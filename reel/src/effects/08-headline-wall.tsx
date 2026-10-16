@@ -183,7 +183,10 @@ export const HeadlineWall: React.FC<HeadlineWallProps> = ({
 
   const fall = Math.round(5 * unit); // frames from launch to impact
   const exitLen = Math.round(0.36 * fps);
-  const exitStart = durationInFrames - exitLen;
+  // the staggered drop-off must be finished on the last rendered frame (durationInFrames - 1):
+  // the last card to leave has exit order 3 + (n - 1)
+  const lastExitOrder = 3 + Math.max(0, n - 1);
+  const exitStart = durationInFrames - 1 - (lastExitOrder * 0.45 * unit + exitLen * 0.58);
 
   // wall shake: every impact rings the wall; the hero rings it harder
   const impacts = [...slamAt.map((a, i) => ({ at: a + fall, amp: i === n - 1 ? 16 : 7 })), ...FILLERS.map((_, k) => ({ at: fillerAt + k * 2 + fall, amp: 3 }))];
@@ -252,7 +255,9 @@ export const HeadlineWall: React.FC<HeadlineWallProps> = ({
             width: WIDTH + 80,
             height: HEIGHT + 80,
             objectFit: "cover",
-            filter: `blur(${(4 + darken * 6).toFixed(2)}px) brightness(${(0.7 - darken * 0.38).toFixed(3)}) saturate(0.8)`,
+            // The plate's inpainted speaker area is larger and higher than this smaller cutout, so it
+            // must never read as a shape: heavy blur and darkness from the first frame on.
+            filter: `blur(${(16 + darken * 12).toFixed(2)}px) brightness(${(0.42 - darken * 0.2).toFixed(3)}) saturate(0.75)`,
           }}
         />
         <AbsoluteFill style={{ background: "radial-gradient(ellipse 80% 60% at 50% 38%, rgba(10,11,16,0.15), rgba(10,11,16,0.75))", opacity: darken }} />

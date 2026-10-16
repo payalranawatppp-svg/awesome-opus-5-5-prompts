@@ -123,8 +123,16 @@ import { Checklist, TALENT } from "./effects";
 
 - The effect draws the whole frame, including the clip, so set `startAt` to the source time of the
   footage underneath at the Sequence's first frame: lip sync stays intact and the cut is invisible.
-- Effects open and close on the speaker in the default `frameOnFace(talent)` framing. Use that framing for
-  the plain shots around them, or put the effect on a cut.
+- How each effect meets the shots around it (checked on the first and last rendered frames):
+  - **Seamless in and out** (open and close on the plain shot in the default `frameOnFace(talent)`
+    framing, so they can sit in the middle of a shot): Orbit, Frame break, Digital zoom, Phone mockup,
+    Green screen, Doodle boil, Vertigo, Cover story, Glass type. Zoom-through cut opens on clip A and
+    lands on clip B's plain framing.
+  - **Seamless in, own ending** (cut away on their last frame): Couch wall (ends on the wall), Pull-back
+    reveal (ends on the desk scene).
+  - **Own framing throughout** (put them on a cut): UI world, Checklist, Chart grow (speaker lower and
+    smaller), Headline wall (speaker at scale 1.55 on a dark wall), Paper cut (opens and closes on paper).
+  Use the default framing for the plain talking-head shots so the seamless ones join invisibly.
 - The clip must have `startAt + length` seconds of footage left (the zoom-through cut needs that for
   both clips).
 - Sound: give each effect's main hit a SFX 2-3 frames early (`public/audio/sfx/`: whooshes, pops,
