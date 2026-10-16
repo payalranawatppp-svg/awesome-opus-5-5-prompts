@@ -7,6 +7,8 @@ alpha is temporally stable (no edge flicker), and writes:
   <out>/<name>-plate.jpg   a clean plate: the background with the speaker removed (median of every
                            revealed pixel, the never-revealed region inpainted). Used by Vertigo.
   <out>/<name>-matte.mp4   the raw RVM alpha as a greyscale video (check it by eye; --reuse-matte reads it back)
+  <clip-dir>/<name>.webm   a VP9 copy of the full clip, if missing. The render browser cannot decode
+                           H.264, and an H.264 <Video> silently drops @remotion/effects.
 
 The cutout keeps only the main figure (small stray blobs such as a corner watermark are dropped), and
 --fade-bottom Y0:Y1 fades the alpha out between source rows Y0 and Y1, for clips with burned-in text
@@ -147,6 +149,10 @@ plate = (plate * (1 - soft) + filled * soft).astype(np.uint8)
 cv2.imwrite(str(out / f"{name}-plate.jpg"), plate, [cv2.IMWRITE_JPEG_QUALITY, 92])
 
 (out / f"{name}-matte.tmp.mp4").unlink(missing_ok=True)
+full_webm = clip.with_suffix(".webm")
+if clip.suffix != ".webm" and not full_webm.exists():
+    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(clip), "-c:v", "libvpx-vp9", "-b:v", "0", "-crf", "24",
+                    "-row-mt", "1", "-an", str(full_webm)], check=True)
 cover = float(np.mean([a.mean() for a in alphas]))
 print(f"{name}: {len(frames)} frames {w}x{h}@{fps}, speaker covers {cover:.0%} of the frame, "
       f"plate hole {hole.mean():.0%}")
