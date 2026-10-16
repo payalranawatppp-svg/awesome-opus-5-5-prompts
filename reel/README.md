@@ -76,6 +76,25 @@ Fixed safe zones (`src/theme.ts`), top to bottom: **caption band** (y 150–372)
   transients sit 2–3 dB under the voice peaks, and the arrow thud lands in the pause after "aim?" so it
   never masks the word.
 
+## Effects library
+
+`src/effects/` holds 17 reusable effects for talking-head Reels, inspired by a creator's "17 video effects
+Claude can create" reel and built for the next videos: orbit, couch wall, UI world, frame break, digital zoom,
+phone mockup, checklist, headline wall, zoom-through cut, chart grow, pull-back reveal, green screen, paper
+cut, doodle boil, vertigo, cover story and glass type. Each file exports `meta` (what it is, when to use it,
+when not to) and one component with defaults; preview any of them in Studio as `Fx-NN-slug`.
+**Showcase:** [`renders/effects-showcase.mp4`](renders/effects-showcase.mp4) plays all 17 (59.5 s, every cut on
+the beat of a 120 BPM bed made by `scripts/synth_showcase.py`).
+
+How to pick effects for a script, prepare new footage and verify the result is in the project skill
+[`.claude/skills/reel-effects/SKILL.md`](../.claude/skills/reel-effects/SKILL.md). The building blocks:
+
+- `scripts/matte.py` cuts the speaker out locally with Robust Video Matting (ONNX, model downloaded at run
+  time): a VP9 cutout with alpha, a clean background plate and a VP9 copy of the clip (the render browser
+  cannot decode H.264, and `@remotion/effects` need the browser to decode the video).
+- `src/effects/shared.tsx`: talents (clip + cutout + plate + face track), `frameOnFace` framing that keeps
+  burned-in text off screen, `useFace`, `TalentLayer`, and the shared motion vocabulary.
+
 ## Run it
 
 Requires Node ≥ 22, ffmpeg, and Python 3 with `numpy` (plus `faster-whisper` and `opencv-python-headless<5` only to redo the analysis).
@@ -85,6 +104,7 @@ cd reel
 npm ci
 npm run studio          # preview in Remotion Studio
 npm run render          # → out/signal-reach-reel.mp4
+npm run showcase        # → out/effects-showcase.mp4 (all 17 effects)
 npm run qa:layout       # per-frame caption / graphics / avatar overlap check
 npm run stems           # out/stem-{voice,music,sfx}.wav for mix checks
 npm run audio           # re-synthesize SFX + music and re-level the voice
@@ -108,12 +128,15 @@ src/
   layout.ts        measured caption fitting + stage sizing against the avatar
   theme.ts         palette, fonts, safe zones
   components/      Footage, Backdrop, Captions, Stage, SoundTrack, kit (icons/helpers), scenes/*
+  effects/         the 17-effect library (NN-slug.tsx), shared.tsx, index.ts, FxPreview.tsx
+  showcase/        EffectsShowcase: all 17 effects back to back
   LayoutQA.tsx     silhouette render used by the overlap check
   data/            edl.json, transcript.json, faces.json
 public/
-  footage/         the four source clips (renamed by story beat)
+  footage/         the four source clips (renamed by story beat) + VP9 copies for the effects
+  cutouts/         speaker cutouts (VP9 + alpha), clean plates and raw mattes from scripts/matte.py
   audio/           processed voice, synthesized music bed + SFX
-  fonts/           Plus Jakarta Sans, Inter (SIL OFL 1.1 — licences included)
+  fonts/           Plus Jakarta Sans, Inter, Instrument Serif, Caveat, JetBrains Mono (SIL OFL 1.1 — licences included)
 scripts/           analysis, audio synthesis, voice processing, QA, review tools
-renders/           final MP4
+renders/           final MP4s (the reel and the effects showcase)
 ```
