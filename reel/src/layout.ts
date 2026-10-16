@@ -69,11 +69,12 @@ const balancedSplit = (widths: number[], gap: number, n: number): number[][] | n
  * Tries the largest font first, fewest balanced lines first; shrinks until the block
  * fits both the band and the space above the avatar for the chunk's whole lifetime.
  */
-export const layoutCaption = (chunk: Chunk): CaptionLayout => {
+export const layoutCaption = (chunk: Chunk, band?: { top: number; bottom: number }): CaptionLayout => {
   const maxWidth = WIDTH - ZONES.sideMargin * 2;
-  const avatarLimit = minAvatarTop(chunk.start, chunk.end) - ZONES.avatarGap;
-  const bottomLimit = Math.min(ZONES.caption.bottom, avatarLimit);
-  const available = bottomLimit - ZONES.caption.top;
+  // Without a band: the reel's caption band, kept above the avatar. With one: the caller placed it.
+  const top = band ? band.top : ZONES.caption.top;
+  const bottomLimit = band ? band.bottom : Math.min(ZONES.caption.bottom, minAvatarTop(chunk.start, chunk.end) - ZONES.avatarGap);
+  const available = bottomLimit - top;
 
   for (let fontSize = CAPTION.maxFont; fontSize >= CAPTION.minFont; fontSize -= CAPTION.step) {
     const pad = fontSize * CAPTION.padEm;
@@ -89,8 +90,8 @@ export const layoutCaption = (chunk: Chunk): CaptionLayout => {
       // Prefer two balanced lines over one very long line for readability on phones.
       if (n === 1 && lineWidths[0] > maxWidth * 0.82 && chunk.words.length > 3) continue;
       const blockH = n * lineH;
-      const center = (ZONES.caption.top + bottomLimit) / 2;
-      const y0 = Math.max(ZONES.caption.top, center - blockH / 2);
+      const center = (top + bottomLimit) / 2;
+      const y0 = Math.max(top, center - blockH / 2);
       const lines = split.map((idx, li) => {
         let x = (WIDTH - lineWidths[li]) / 2;
         const words = idx.map((i) => {

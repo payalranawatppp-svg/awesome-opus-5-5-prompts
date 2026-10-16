@@ -20,9 +20,10 @@ export const activeChunkAt = (frame: number) => CHUNKS.find((c) => frame >= c.st
 /** Readable ink on light accents, white on saturated/dark ones. */
 const LIGHT_ACCENTS = new Set([COLORS.amber, COLORS.mint, COLORS.cyan]);
 
-const ChunkView: React.FC<{ chunk: Chunk; frame: number }> = ({ chunk, frame }) => {
+/** One caption chunk; `layout` overrides the reel's own placement (used by the effects re-edit). */
+export const ChunkView: React.FC<{ chunk: Chunk; frame: number; layout?: CaptionLayout }> = ({ chunk, frame, layout: given }) => {
   const { fps } = useVideoConfig();
-  const layout = captionLayoutFor(chunk);
+  const layout = given ?? captionLayoutFor(chunk);
   const exitP = interpolate(frame, [chunk.end, chunk.end + CAPTION_EXIT], [0, 1], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",

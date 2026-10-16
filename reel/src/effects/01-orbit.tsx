@@ -35,7 +35,9 @@ export const meta: EffectMeta = {
 // Content
 
 export type OrbitIcon = "post" | "chat" | "plane" | "inbox" | "person" | "chart" | "bell" | "spark";
-export type OrbitItem = { label: string; icon?: OrbitIcon };
+/** `at`: seconds into the effect when this chip is named. When every chip has one, the ring turns so
+ *  each chip arrives at the front (lit in the accent) exactly on its word. */
+export type OrbitItem = { label: string; icon?: OrbitIcon; at?: number };
 
 const DEFAULT_ITEMS: OrbitItem[] = [
   { label: "Posts", icon: "post" },
@@ -308,6 +310,25 @@ export const Orbit: React.FC<OrbitProps> = ({
   const exitStart = durationInFrames - exitLen;
   const rollRad = (roll * Math.PI) / 180;
 
+  // Synced mode: every chip has an `at`. Keys: spin = 0.5 + i * 2pi/n puts chip i at the front.
+  const synced = list.length > 0 && list.every((it) => typeof it.at === "number");
+  const syncedSpin = (f: number) => {
+    const turn = (2 * Math.PI) / n;
+    const lead = Math.round(0.4 * fps); // the ring turns in the last 0.4 s before each word
+    const keys = list.map((it, i) => ({ f: Math.round((it.at as number) * fps), s: 0.5 + i * turn }));
+    const xs = [Math.min(0, keys[0].f - 1), keys[0].f];
+    const ys = [keys[0].s - 0.7, keys[0].s];
+    for (let i = 1; i < keys.length; i++) {
+      const turnFrom = Math.max(xs[xs.length - 1] + 1, keys[i].f - lead);
+      xs.push(turnFrom, Math.max(turnFrom + 1, keys[i].f));
+      ys.push(keys[i - 1].s + 0.06, keys[i].s); // a slow drift between words, then the turn
+    }
+    const last = keys[keys.length - 1];
+    xs.push(Math.max(xs[xs.length - 1] + 1, durationInFrames));
+    ys.push(last.s + 0.06 * Math.max(1, (durationInFrames - last.f) / lead));
+    return interpolate(f, xs, ys, { ...clamp, easing: EASE.inOut });
+  };
+
   /** Every chip's screen state at any frame (pure, so velocity = state(f) - state(f-1)). */
   const stateAt = (f: number) => {
     const face = smoothFace(talent, framing, startAt + f / fps);
@@ -319,13 +340,15 @@ export const Orbit: React.FC<OrbitProps> = ({
     const ry = face.h * 0.54;
     const grow = springAt(f, fps, 0, SPRING.smooth);
     const fling = interpolate(f, [exitStart, durationInFrames], [0, 1], { ...clamp, easing: EASE.in });
-    // spin: steady drift plus a decelerating whip on entry and a flick on exit
-    const spin =
-      f * ((2 * Math.PI * speed) / fps) +
-      interpolate(f, [0, Math.round(1.1 * fps)], [0, Math.PI * 0.55], { ...clamp, easing: EASE.expoOut }) +
-      fling * Math.PI * 0.35;
-    const chips: ChipState[] = list.map((_, i) => {
-      const at = Math.round(0.1 * fps) + i * 4;
+    // spin: steady drift plus a decelerating whip on entry and a flick on exit; in synced mode the
+    // ring is keyed so chip i sits at the front (theta = pi/2) on its own word
+    const spin = synced
+      ? syncedSpin(f) + fling * Math.PI * 0.35
+      : f * ((2 * Math.PI * speed) / fps) +
+        interpolate(f, [0, Math.round(1.1 * fps)], [0, Math.PI * 0.55], { ...clamp, easing: EASE.expoOut }) +
+        fling * Math.PI * 0.35;
+    const chips: ChipState[] = list.map((item, i) => {
+      const at = synced ? Math.round((item.at as number) * fps) - 5 : Math.round(0.1 * fps) + i * 4;
       const pop = springAt(f, fps, at, SPRING.snappy);
       const r = interpolate(pop, [0, 1], [0.72, 1]) * (1 + fling * 2.2);
       const theta = Math.PI / 2 + 0.5 + (i * 2 * Math.PI) / n - spin;

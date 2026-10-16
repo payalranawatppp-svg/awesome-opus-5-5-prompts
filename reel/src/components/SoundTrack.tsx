@@ -6,7 +6,7 @@ import { CUES, DURATION, SEGMENTS, WORDS } from "../edit";
 // Voice: cleaned + levelled per clip (scripts/process_voice.sh), cut with the
 // same in/out points as the picture, with 2-frame fades to avoid clicks at cuts.
 // ---------------------------------------------------------------------------
-const Voice: React.FC = () => (
+export const Voice: React.FC = () => (
   <>
     {SEGMENTS.map((seg) => (
       <Sequence key={seg.id} from={seg.from} durationInFrames={seg.duration} layout="none" name={`voice ${seg.id}`}>
@@ -55,7 +55,7 @@ const musicGain: number[] = (() => {
   return g;
 })();
 
-const Music: React.FC = () => (
+export const Music: React.FC = () => (
   <Audio src={staticFile("audio/music/bed.wav")} volume={(f) => musicGain[Math.min(DURATION - 1, Math.max(0, Math.round(f)))]} />
 );
 

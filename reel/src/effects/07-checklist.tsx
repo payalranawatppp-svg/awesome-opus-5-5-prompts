@@ -39,6 +39,8 @@ export type ChecklistProps = {
   title?: string;
   /** 3-5 short items; they tick in order */
   items?: string[];
+  /** seconds into the effect when each item ticks (put them on the words); default: evenly spaced */
+  tickAt?: number[];
   /** colour of the active tick (the frame's hero colour) */
   accent?: string;
 };
@@ -87,6 +89,7 @@ export const Checklist: React.FC<ChecklistProps> = ({
   title = "Growth checklist",
   items = DEFAULT_ITEMS,
   accent = COLORS.mint,
+  tickAt: tickTimes,
 }) => {
   const exitLen = 10;
   const { frame, fps, durationInFrames: D } = useEnvelope(exitLen);
@@ -116,7 +119,8 @@ export const Checklist: React.FC<ChecklistProps> = ({
   const tickFirst = Math.round(0.31 * D);
   const tickLast = Math.round(0.7 * D);
   const tickGap = n > 1 ? (tickLast - tickFirst) / (n - 1) : 0;
-  const tickAt = (i: number) => Math.round(tickFirst + i * tickGap);
+  const tickAt = (i: number) =>
+    tickTimes && tickTimes[i] !== undefined ? Math.round(tickTimes[i] * fps) : Math.round(tickFirst + i * tickGap);
 
   // --- card envelope
   const cardIn = springAt(frame, fps, cardAt, SPRING.snappy);
