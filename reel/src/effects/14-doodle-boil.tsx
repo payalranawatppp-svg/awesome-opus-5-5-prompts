@@ -43,6 +43,8 @@ export type DoodleBoilProps = {
   outline?: string;
   /** frames between boil redraws (3 = 10 fps wobble at 30 fps) */
   boilEvery?: number;
+  /** output y of the note's baseline (default: under the chin); set it to dodge burned-in captions */
+  noteY?: number;
 };
 
 const INK = {
@@ -115,6 +117,7 @@ export const DoodleBoil: React.FC<DoodleBoilProps> = ({
   color = COLORS.amber,
   outline = INK.outline,
   boilEvery = 3,
+  noteY,
 }) => {
   const exitLen = 9;
   const { frame, fps, durationInFrames: D } = useEnvelope(exitLen);
@@ -126,7 +129,7 @@ export const DoodleBoil: React.FC<DoodleBoilProps> = ({
   // --- camera: full clip, slow push-in (every frame obeys the bottom rule via placeTalent)
   const push = interpolate(frame, [0, D], [0, 1], { ...clamp, easing: EASE.inOut });
   // full clip: frameOnFace's fill keeps the frame covered and the unusable rows below it on every frame
-  const cam = frameOnFace(talent, { scale: 2.0 + push * 0.05, faceY: 850 });
+  const cam = frameOnFace(talent, { scale: (talent.frameScale ?? 2.0) + push * 0.05, faceY: 850 });
   const c = useSmoothFaceCentre(talent, cam, startAt);
   const mf = meanFace(talent);
   const fw = mf.w * cam.scale;
@@ -166,7 +169,7 @@ export const DoodleBoil: React.FC<DoodleBoilProps> = ({
   // label (measured so long notes stay inside the side margins)
   const labelW = textWidth(label, LABEL_SIZE);
   const labelLeft = Math.max(72, Math.min(WIDTH - 72 - labelW, c.x + fw * 0.05));
-  const baseline = Math.min(1640, c.y + fh * 1.07);
+  const baseline = noteY ?? Math.min(1640, c.y + fh * 1.07);
   const labelRot = -6 + (rand(boil * 3.7 + 11) - 0.5) * 1.6;
   const labelShift = jitter(9, 0, boil, 1.8);
 

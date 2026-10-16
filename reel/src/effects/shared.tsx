@@ -80,7 +80,7 @@ export const rand = (seed: number) => {
 // ---------------------------------------------------------------------------------------------------
 // Talent: the clip, its cutout and its clean plate
 
-export type TalentId = "01-hook" | "02-solution" | "03-outcome" | "04-cta";
+export type TalentId = "01-hook" | "02-solution" | "03-outcome" | "04-cta" | "05-talk";
 export type Talent = {
   id: TalentId;
   /** public/ paths. `video` is a VP9 WebM copy of the clip: the render browser cannot decode H.264, and
@@ -97,6 +97,9 @@ export type Talent = {
   /** Source rows at and below this are unusable (burned-in captions, generator watermark).
    *  The cutout already fades out between 980 and 1040; keep the full clip's rows below this off screen. */
   usableBottom: number;
+  /** Default framing scale for frameOnFace (2.0 when absent). 1.5 shows a 720x1280 clip whole, e.g. an
+   *  already-edited video whose burned-in captions must stay in frame. */
+  frameScale?: number;
 };
 
 type FaceTrack = { fps: number; w: number; h: number; faces: number[][] };
@@ -109,7 +112,7 @@ const TRACKS = faces as Record<TalentId, FaceTrack>;
  */
 export const makeTalent = (
   id: TalentId,
-  spec: { w: number; h: number; fps: number; seconds: number; usableBottom?: number },
+  spec: { w: number; h: number; fps: number; seconds: number; usableBottom?: number; frameScale?: number },
 ): Talent => ({
   id,
   video: `footage/${id}.webm`,
@@ -126,6 +129,8 @@ export const TALENT: Record<TalentId, Talent> = {
   "02-solution": makeTalent("02-solution", REEL_CLIP),
   "03-outcome": makeTalent("03-outcome", REEL_CLIP),
   "04-cta": makeTalent("04-cta", REEL_CLIP),
+  /** ToothReferral UGC video: already edited (burned-in captions, UI inserts), so effects keep it whole. */
+  "05-talk": makeTalent("05-talk", { w: 720, h: 1280, fps: 24, seconds: 43.7, frameScale: 1.5 }),
 };
 export const DEFAULT_TALENT = TALENT["01-hook"];
 
@@ -166,7 +171,8 @@ export const frameOnFace = (
 ): Framing => {
   const fill = opts.fill ?? true;
   const minScale = Math.max(HEIGHT / tl.usableBottom, WIDTH / tl.w);
-  const scale = fill ? Math.max(opts.scale ?? 2.0, minScale) : opts.scale ?? 2.0;
+  const want = opts.scale ?? tl.frameScale ?? 2.0;
+  const scale = fill ? Math.max(want, minScale) : want;
   const f = meanFace(tl);
   const cx = f.x + f.w / 2;
   const cy = f.y + f.h / 2;
