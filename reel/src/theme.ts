@@ -26,6 +26,11 @@ export const BRAND_GRADIENT = `linear-gradient(120deg, ${COLORS.cyan} 0%, ${COLO
 
 export const FONT_DISPLAY = "Plus Jakarta Sans";
 export const FONT_UI = "Inter";
+/** Effects library faces: a serif for editorial looks (cover story, headline wall), a marker hand for
+ *  doodles, a mono for HUD readouts. All SIL OFL, bundled in public/fonts. */
+export const FONT_SERIF = "Instrument Serif";
+export const FONT_HAND = "Caveat";
+export const FONT_MONO = "JetBrains Mono";
 
 /**
  * Fixed safe zones (output pixels). Overlays live strictly above the avatar:

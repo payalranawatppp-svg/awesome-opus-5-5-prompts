@@ -9,3 +9,6 @@ work/
 
 # Anthropic pdf skill: licence forbids redistribution; restore with `npx skills experimental_install`
 .claude/skills/pdf/
+
+# Remotion's agent skills ship without a licence file; restore with `npx skills experimental_install`
+.claude/skills/remotion-best-practices/
