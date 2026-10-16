@@ -26,6 +26,9 @@ import {
 } from "./shared";
 import { COLORS, FONT_DISPLAY, HEIGHT, WIDTH } from "../theme";
 
+/** Map a spring value (0..1, may overshoot on purpose) onto a range. Springs drive these, never linear time. */
+const mix = (s: number, a: number, b: number) => a + (b - a) * s;
+
 export const meta: EffectMeta = {
   n: 17,
   slug: "glass-type",
@@ -144,16 +147,16 @@ export const GlassType: React.FC<GlassTypeProps> = ({
       ...clamp,
       easing: EASE.in,
     });
-    const rise = interpolate(enter, [0, 1], [110, 0]) - ex * 70;
-    const scale = interpolate(pop, [0, 1], [0.82, 1]) + ex * 0.12;
+    const rise = mix(enter, 110, 0) - ex * 70;
+    const scale = mix(pop, 0.82, 1) + ex * 0.12;
     const opacity = Math.min(1, enter * 1.6) * (1 - ex);
-    const blurPx = interpolate(enter, [0, 1], [22, 0], clamp) + ex * 16;
+    const blurPx = Math.max(0, mix(enter, 22, 0)) + ex * 16;
     const breathe = Math.sin(frame / 24 + g.i * 0.9) * 2.2 * enter;
     const cx = g.x + g.w / 2;
     const dy = rise + bob + breathe;
     const transform = `translate(${cx} ${g.baseline + dy}) scale(${scale}) translate(${-cx} ${-g.baseline})`;
     /** bevel + rim fade in as the letter comes into focus */
-    const sharp = interpolate(blurPx, [0, 10], [1, 0], clamp);
+    const sharp = interpolate(blurPx, [0, 10], [1, 0], { ...clamp, easing: EASE.out });
     return { g, opacity, blurPx, transform, sharp };
   });
 

@@ -30,6 +30,9 @@ import {
 } from "./shared";
 import { COLORS, FONT_MONO, HEIGHT, WIDTH } from "../theme";
 
+/** Map a spring value (0..1, may overshoot on purpose) onto a range. Springs drive these, never linear time. */
+const mix = (s: number, a: number, b: number) => a + (b - a) * s;
+
 export const meta: EffectMeta = {
   n: 5,
   slug: "digital-zoom",
@@ -213,7 +216,7 @@ export const DigitalZoom: React.FC<DigitalZoomProps> = ({ talent = DEFAULT_TALEN
   const lock = springAt(frame, fps, lockAt, SPRING.snappy);
   const fb = smoothFace(talent, t, 0.15);
   const fbox = { x: cam.x + fb.x * cam.scale, y: cam.y + fb.y * cam.scale, w: fb.w * cam.scale, h: fb.h * cam.scale };
-  const spread = interpolate(hunt, [0, 1], [1.9, 1.12]) - 0.04 * lock + 0.05 * Math.max(0, 1 - Math.abs(frame - lockAt) / 3);
+  const spread = mix(hunt, 1.9, 1.12) - 0.04 * lock + 0.05 * Math.max(0, 1 - Math.abs(frame - lockAt) / 3);
   const bw = fbox.w * spread;
   const bh = fbox.h * spread * 1.08;
   const bcx = fbox.x + fbox.w / 2;

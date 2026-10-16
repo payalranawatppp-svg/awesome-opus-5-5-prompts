@@ -28,6 +28,9 @@ import {
 } from "./shared";
 import { COLORS, FONT_DISPLAY, FONT_UI, HEIGHT, WIDTH } from "../theme";
 
+/** Map a spring value (0..1, may overshoot on purpose) onto a range. Springs drive these, never linear time. */
+const mix = (s: number, a: number, b: number) => a + (b - a) * s;
+
 export const meta: EffectMeta = {
   n: 9,
   slug: "zoom-through-cut",
@@ -119,9 +122,9 @@ export const ZoomThroughCut: React.FC<ZoomThroughCutProps> = ({
 
   // ----- card pose in the scene (entrance + breathing fade out as the dive takes over, so it lands exactly)
   const settleIn = 1 - e;
-  const cardScale = interpolate(cardIn, [0, 1], [0.72, 1]) * (1 - 0.035 * dip);
-  const cardDy = interpolate(cardInSoft, [0, 1], [160, 0]) + float(frame, 7, 24) * settleIn;
-  const cardRot = interpolate(cardInSoft, [0, 1], [-11, CARD.rot]) * settleIn;
+  const cardScale = mix(cardIn, 0.72, 1) * (1 - 0.035 * dip);
+  const cardDy = mix(cardInSoft, 160, 0) + float(frame, 7, 24) * settleIn;
+  const cardRot = mix(cardInSoft, -11, CARD.rot) * settleIn;
   const cardO = Math.min(1, cardIn * 1.5);
   const chrome = 1 - interpolate(e, [0.0, 0.3], [0, 1], { ...clamp, easing: EASE.out }); // labels, bar
   const land = interpolate(e, [0.55, 1], [0, 1], { ...clamp, easing: EASE.inOut }); // radius, border, shadow
