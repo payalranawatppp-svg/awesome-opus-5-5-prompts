@@ -17,7 +17,7 @@ const PAGE = {
   mark: COLORS.coral,
 };
 
-export const QUIET_PAGE_SCROLL = 90;
+export const QUIET_PAGE_SCROLL = 30; // small: the logo tile must stay clear of the caption band above it
 
 /** `circleAt`: frame (inside the effect) when the loop around "4 months" starts drawing. */
 export const QuietPage: React.FC<{ circleAt: number }> = ({ circleAt }) => {

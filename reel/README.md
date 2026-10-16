@@ -76,6 +76,25 @@ Fixed safe zones (`src/theme.ts`), top to bottom: **caption band** (y 150–372)
   transients sit 2–3 dB under the voice peaks, and the arrow thud lands in the pause after "aim?" so it
   never masks the word.
 
+## Effects re-edit
+
+[`renders/signal-reach-reel-fx.mp4`](renders/signal-reach-reel-fx.mp4) (`SignalReachReelFx`, `src/reelfx/`) is the same
+cut, voice and music rebuilt with the effects library below. Three effects, each on the line it illustrates, with
+plain talking-head shots between them so the speaker stays the hero and his face is never covered:
+
+| Line | Treatment |
+| --- | --- |
+| "Quiet page, hardly any updates?" | Green screen: he steps down in front of a neglected company page; "4 months since the last post" is circled on "updates?" |
+| "At Signal Reach, we help with the whole picture." | Brand super; the orbit ring opens on "whole picture" |
+| "Useful posts, thoughtful comment replies, personalized outreach, and managing your inbox." | Orbit: each chip turns to the front, lit, on the word that names it (`items[].at`) |
+| "…conversations that could become leads" | A punch-in on "leads" (no effect: contrast) |
+| "Start with one useful post and a few genuine replies." | Checklist: items tick on "post" and "replies" (`tickAt`); it sits exactly between two cuts |
+| "Let's build your plan." | End panel under the chin: the headline lights word by word, the button clicks on "plan." |
+
+Captions keep the reel's style but move with each moment (lower third by default, the page header during the green
+screen, between the card and his head during the checklist). Section changes get a short zoom transition; the SFX are
+re-cut to the new hits. 29.2 s, −15.4 LUFS.
+
 ## Effects library
 
 `src/effects/` holds 17 reusable effects for talking-head Reels, inspired by a creator's "17 video effects
