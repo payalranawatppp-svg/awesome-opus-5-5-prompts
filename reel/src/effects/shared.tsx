@@ -61,7 +61,8 @@ export const useEnvelope = (exitFrames?: number) => {
   const { fps, durationInFrames } = useVideoConfig();
   const exitLen = exitFrames ?? Math.round(0.33 * fps);
   const enter = springAt(frame, fps, 0, SPRING.snappy);
-  const exit = interpolate(frame, [durationInFrames - exitLen, durationInFrames], [0, 1], { ...clamp, easing: EASE.in });
+  // the last rendered frame is durationInFrames - 1: the exit must be complete there
+  const exit = interpolate(frame, [durationInFrames - 1 - exitLen, durationInFrames - 1], [0, 1], { ...clamp, easing: EASE.in });
   return { frame, fps, durationInFrames, enter, exit };
 };
 
@@ -176,11 +177,29 @@ export const usableBottomY = (tl: Talent, f: Framing) => f.y + tl.usableBottom *
 
 export type Face = Box & { cx: number; cy: number; /** top of the hair (40% of face height above the box) */ top: number };
 
-/** Face box in output px for the current frame. `startAt`: seconds into the clip at Sequence frame 0. */
-export const useFace = (tl: Talent, f: Framing, startAt = 0): Face => {
+/** Face box averaged over t ± `window` seconds (the raw track jitters a little frame to frame). */
+export const smoothFaceAt = (tl: Talent, t: number, window: number): Box => {
+  if (window <= 0) return faceAt(tl, t);
+  const step = 1 / TRACKS[tl.id].fps;
+  const n = Math.max(1, Math.round(window / step));
+  const acc = { x: 0, y: 0, w: 0, h: 0 };
+  for (let k = -n; k <= n; k++) {
+    const b = faceAt(tl, Math.max(0, t + k * step));
+    acc.x += b.x;
+    acc.y += b.y;
+    acc.w += b.w;
+    acc.h += b.h;
+  }
+  const c = 2 * n + 1;
+  return { x: acc.x / c, y: acc.y / c, w: acc.w / c, h: acc.h / c };
+};
+
+/** Face box in output px for the current frame. `startAt`: seconds into the clip at Sequence frame 0.
+ *  `smooth`: average the track over ± this many seconds (0.2 suits graphics that follow the head). */
+export const useFace = (tl: Talent, f: Framing, startAt = 0, smooth = 0): Face => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const b = faceAt(tl, startAt + frame / fps);
+  const b = smoothFaceAt(tl, startAt + frame / fps, smooth);
   const x = f.x + b.x * f.scale;
   const y = f.y + b.y * f.scale;
   const w = b.w * f.scale;

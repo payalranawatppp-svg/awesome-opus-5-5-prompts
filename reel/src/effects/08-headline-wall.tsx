@@ -65,12 +65,12 @@ export type HeadlineWallProps = {
 
 type Slot = { x: number; y: number; w: number; h: number; rot: number; size: number; photo?: boolean };
 const SLOTS: Slot[] = [
-  { x: 262, y: 300, w: 420, h: 300, rot: -4, size: 44 },
-  { x: 884, y: 840, w: 312, h: 400, rot: 4, size: 38, photo: true },
-  { x: 196, y: 846, w: 312, h: 380, rot: -3, size: 38 },
+  { x: 274, y: 300, w: 420, h: 300, rot: -4, size: 44 },
+  { x: 900, y: 826, w: 300, h: 400, rot: 4, size: 38, photo: true },
+  { x: 210, y: 846, w: 312, h: 380, rot: -3, size: 38 },
   { x: 822, y: 290, w: 420, h: 300, rot: 3.5, size: 44 },
-  { x: 186, y: 1236, w: 300, h: 320, rot: 3, size: 35, photo: true },
-  { x: 898, y: 1250, w: 300, h: 320, rot: -3, size: 35 },
+  { x: 200, y: 1236, w: 300, h: 320, rot: 3, size: 35, photo: true },
+  { x: 906, y: 1236, w: 290, h: 320, rot: -3, size: 35 },
   { x: 540, y: 112, w: 380, h: 230, rot: 1.5, size: 36 },
   { x: 540, y: 500, w: 610, h: 330, rot: -2, size: 62 },
 ];

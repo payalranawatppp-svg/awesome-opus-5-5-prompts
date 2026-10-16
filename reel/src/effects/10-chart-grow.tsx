@@ -69,7 +69,7 @@ const UI = {
   barEdge: "rgba(255,255,255,0.45)",
   line: "rgba(255,255,255,0.95)",
   lineShadow: "rgba(4,6,20,0.55)",
-  tip: "#FFFFFF",
+  tip: COLORS.white,
   scrim: "rgba(7,11,26,",
 };
 
