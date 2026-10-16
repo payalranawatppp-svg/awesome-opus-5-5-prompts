@@ -8,7 +8,7 @@ export const meta: EffectMeta = {
   slug: "headline-wall",
   name: "Headline wall",
   durationInFrames: 120,
-  needs: ["cutout", "plate"],
+  needs: ["cutout", "plate", "face"],
   what: "Newsprint headline cards slam onto the darkened wall behind the speaker one by one, each impact shaking the wall, until they cover it; the last, biggest one carries the point.",
   bestFor: "Problem framing, trends and \"everyone is talking about this\" lines.",
   avoid: "Real outlets' names or branding (keep mastheads generic); upbeat or celebratory moments.",

@@ -46,4 +46,21 @@ export const EFFECTS: EffectEntry[] = [
   { meta: e17.meta, Component: e17.GlassType as React.FC<EffectProps> },
 ];
 
+export { Orbit, type OrbitProps } from "./01-orbit";
+export { CouchWall, type CouchWallProps } from "./02-couch-wall";
+export { UiWorld, type UiWorldProps } from "./03-ui-world";
+export { FrameBreak, type FrameBreakProps } from "./04-frame-break";
+export { DigitalZoom, type DigitalZoomProps } from "./05-digital-zoom";
+export { PhoneMockup, type PhoneMockupProps } from "./06-phone-mockup";
+export { Checklist, type ChecklistProps } from "./07-checklist";
+export { HeadlineWall, type HeadlineWallProps } from "./08-headline-wall";
+export { ZoomThroughCut, type ZoomThroughCutProps } from "./09-zoom-through-cut";
+export { ChartGrow, type ChartGrowProps } from "./10-chart-grow";
+export { PullBackReveal, type PullBackRevealProps } from "./11-pull-back-reveal";
+export { GreenScreen, type GreenScreenProps } from "./12-green-screen";
+export { PaperCut, type PaperCutProps } from "./13-paper-cut";
+export { DoodleBoil, type DoodleBoilProps } from "./14-doodle-boil";
+export { Vertigo, type VertigoProps } from "./15-vertigo";
+export { CoverStory, type CoverStoryProps } from "./16-cover-story";
+export { GlassType, type GlassTypeProps } from "./17-glass-type";
 export * from "./shared";

@@ -24,7 +24,7 @@ export const meta: EffectMeta = {
   slug: "ui-world",
   name: "UI world",
   durationInFrames: 105,
-  needs: ["cutout"],
+  needs: ["cutout", "face"],
   what: "The speaker stands inside a deep 3D space: a glowing grid floor and floating app panels (chart, post, profile, alerts, chat) at different depths, some behind him and two in front; the camera arcs so they parallax.",
   bestFor: "Product explanations and \"here is how it works\" walkthroughs; naming what the service touches.",
   avoid: "Videos with no product or interface to show; intimate or serious lines.",
@@ -58,7 +58,7 @@ const DEFAULT_CONTENT: UiWorldContent = {
     ["312", "Replies"],
   ],
   alertTitle: "New lead",
-  alertBody: "from your latest post",
+  alertBody: "via your post",
   chatIn: "Saw your post. Do you do audits?",
   chatOut: "We do! Free for a quick call?",
   doneTitle: "Post scheduled",
@@ -213,7 +213,7 @@ const BellGlyph: React.FC<{ size: number; color: string }> = ({ size, color }) =
 );
 
 const AlertPanel: React.FC<{ c: UiWorldContent; accent: string }> = ({ c, accent }) => (
-  <div style={{ ...glassPanel(60), width: 420, height: 116, padding: "0 30px 0 22px", display: "flex", alignItems: "center", gap: 18 }}>
+  <div style={{ ...glassPanel(60), width: 380, height: 116, padding: "0 30px 0 22px", display: "flex", alignItems: "center", gap: 18 }}>
     <div style={{ width: 72, height: 72, borderRadius: 36, background: accent, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
       <BellGlyph size={40} color={COLORS.white} />
     </div>

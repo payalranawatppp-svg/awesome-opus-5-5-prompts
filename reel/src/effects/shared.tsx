@@ -102,23 +102,30 @@ export type Talent = {
 type FaceTrack = { fps: number; w: number; h: number; faces: number[][] };
 const TRACKS = faces as Record<TalentId, FaceTrack>;
 
-const talent = (id: TalentId): Talent => ({
+/**
+ * A talent from the standard file layout (public/footage/<id>.webm, public/cutouts/<id>.webm and
+ * <id>-plate.jpg, a face track under <id> in src/data/faces.json). Pass the clip's real size, fps and
+ * length; `usableBottom` defaults to the full height (no burned-in text to hide).
+ */
+export const makeTalent = (
+  id: TalentId,
+  spec: { w: number; h: number; fps: number; seconds: number; usableBottom?: number },
+): Talent => ({
   id,
   video: `footage/${id}.webm`,
   cutout: `cutouts/${id}.webm`,
   plate: `cutouts/${id}-plate.jpg`,
-  w: 720,
-  h: 1280,
-  fps: 24,
-  seconds: 8,
-  usableBottom: 980,
+  ...spec,
+  usableBottom: spec.usableBottom ?? spec.h,
 });
 
+/** The four reel clips: 720x1280, 24 fps, 8 s, burned-in captions and a watermark from row 980 down. */
+const REEL_CLIP = { w: 720, h: 1280, fps: 24, seconds: 8, usableBottom: 980 };
 export const TALENT: Record<TalentId, Talent> = {
-  "01-hook": talent("01-hook"),
-  "02-solution": talent("02-solution"),
-  "03-outcome": talent("03-outcome"),
-  "04-cta": talent("04-cta"),
+  "01-hook": makeTalent("01-hook", REEL_CLIP),
+  "02-solution": makeTalent("02-solution", REEL_CLIP),
+  "03-outcome": makeTalent("03-outcome", REEL_CLIP),
+  "04-cta": makeTalent("04-cta", REEL_CLIP),
 };
 export const DEFAULT_TALENT = TALENT["01-hook"];
 

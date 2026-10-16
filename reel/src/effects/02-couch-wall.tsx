@@ -21,7 +21,7 @@ export const meta: EffectMeta = {
   slug: "couch-wall",
   name: "Couch wall",
   durationInFrames: 105,
-  needs: ["cutout"],
+  needs: ["cutout", "face"],
   what: "The room behind the speaker is papered over, row by row, with a wall of content tiles (posts, thumbnails, stats); the camera eases back to show the whole wall while the speaker stays in front, casting a soft shadow on it.",
   bestFor: "Showing volume or a body of work (\"30 posts a month\", \"everything you've published\") and social proof.",
   avoid: "Serious or personal lines; moments where the face needs all the attention.",
