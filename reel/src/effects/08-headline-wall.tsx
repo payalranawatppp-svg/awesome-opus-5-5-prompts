@@ -65,14 +65,14 @@ export type HeadlineWallProps = {
 
 type Slot = { x: number; y: number; w: number; h: number; rot: number; size: number; photo?: boolean };
 const SLOTS: Slot[] = [
-  { x: 262, y: 318, w: 420, h: 300, rot: -4, size: 44 },
+  { x: 262, y: 300, w: 420, h: 300, rot: -4, size: 44 },
   { x: 884, y: 840, w: 312, h: 400, rot: 4, size: 38, photo: true },
   { x: 196, y: 846, w: 312, h: 380, rot: -3, size: 38 },
-  { x: 822, y: 300, w: 420, h: 300, rot: 3.5, size: 44 },
+  { x: 822, y: 290, w: 420, h: 300, rot: 3.5, size: 44 },
   { x: 186, y: 1236, w: 300, h: 320, rot: 3, size: 35, photo: true },
   { x: 898, y: 1250, w: 300, h: 320, rot: -3, size: 35 },
-  { x: 540, y: 150, w: 420, h: 260, rot: 1.5, size: 40 },
-  { x: 540, y: 478, w: 610, h: 330, rot: -2, size: 62 },
+  { x: 540, y: 112, w: 380, h: 230, rot: 1.5, size: 36 },
+  { x: 540, y: 500, w: 610, h: 330, rot: -2, size: 62 },
 ];
 
 /** Small texture cards in the unsafe top corners: masthead and column lines only. */
@@ -198,6 +198,8 @@ export const HeadlineWall: React.FC<HeadlineWallProps> = ({
   }
 
   const darken = rampAt(frame, 0, Math.round(0.8 * fps), EASE.out);
+  // the wall drifts toward the lens over the whole effect (a slow push that keeps the hold alive)
+  const drift = interpolate(frame, [0, durationInFrames], [1, 1.035], { ...clamp, easing: EASE.inOut });
 
   const renderCard = (slot: Slot, h: Headline | undefined, hero: boolean, at: number, key: string, seed: number, exitOrder: number) => {
     const p = interpolate(frame, [at, at + fall], [0, 1], { ...clamp, easing: EASE.in }); // flight
@@ -240,7 +242,7 @@ export const HeadlineWall: React.FC<HeadlineWallProps> = ({
   return (
     <AbsoluteFill style={{ background: PAPER.wall, overflow: "hidden" }}>
       {/* the wall: the room's clean plate, pushed back into darkness */}
-      <AbsoluteFill style={{ transform: `translate(${shakeX}px, ${shakeY}px)` }}>
+      <AbsoluteFill style={{ transform: `translate(${shakeX}px, ${shakeY}px) scale(${drift})`, transformOrigin: "50% 36%" }}>
         <Img
           src={staticFile(talent.plate)}
           style={{

@@ -218,7 +218,7 @@ export const DigitalZoom: React.FC<DigitalZoomProps> = ({ talent = DEFAULT_TALEN
   const bh = fbox.h * spread * 1.08;
   const bcx = fbox.x + fbox.w / 2;
   const bcy = fbox.y + fbox.h / 2 - fbox.h * 0.04;
-  const bracketO = Math.min(1, hunt * 1.4) * (1 - interpolate(frame, [snap - 1, snap + 2], [0, 1], { ...clamp, easing: EASE.in }));
+  const bracketO = Math.min(1, hunt * 1.4) * (1 - interpolate(frame, [snap - 2, snap + 1], [0, 1], { ...clamp, easing: EASE.out }));
   const bracketCol = interpolateColors(lock, [0, 1], [HUD.line, HUD.lock]);
   const arm = Math.min(bw, bh) * 0.2;
 
