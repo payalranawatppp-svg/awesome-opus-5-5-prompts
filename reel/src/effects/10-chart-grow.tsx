@@ -76,8 +76,8 @@ const UI = {
 // Layout (output px). The card owns the upper safe area; the speaker sits below it.
 const CARD = { x: 84, top: 250, w: WIDTH - 168, padX: 44, padTop: 38, padBottom: 30 };
 const PLOT = { w: CARD.w - CARD.padX * 2, h: 306, top: 24, labelH: 44, barW: 78 };
-const CAM_FROM = { scale: 1.6, faceY: 1300 };
-const CAM_TO = { scale: 1.64, faceY: 1268 };
+const CAM_FROM = { scale: 1.6, faceY: 1322 };
+const CAM_TO = { scale: 1.64, faceY: 1292 };
 
 /**
  * Low framing: frameOnFace without `fill` (the clip's top edge is allowed inside the frame, it is feathered
