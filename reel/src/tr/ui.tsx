@@ -61,7 +61,11 @@ export const TransparentContext = React.createContext(false);
 export const Stage: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const frame = useCurrentFrame();
   const transparent = React.useContext(TransparentContext);
-  if (transparent) return <AbsoluteFill style={{ fontFamily: FONT_UI, color: TR.ink }}>{children}</AbsoluteFill>;
+  if (transparent) {
+    // no background; darker glass so the dark-stage elements still read over bright footage
+    const glassVar = { "--tr-glass": "linear-gradient(150deg, rgba(27,18,64,0.62), rgba(27,18,64,0.42))" } as React.CSSProperties;
+    return <AbsoluteFill style={{ fontFamily: FONT_UI, color: TR.ink, ...glassVar }}>{children}</AbsoluteFill>;
+  }
   const d = Math.sin(frame / 50) * 40;
   return (
     <AbsoluteFill style={{ background: `linear-gradient(165deg, ${TR.stage1} 0%, #24145C 55%, ${TR.stage2} 100%)`, fontFamily: FONT_UI, color: TR.ink }}>

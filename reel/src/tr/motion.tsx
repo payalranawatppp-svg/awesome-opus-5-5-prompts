@@ -27,7 +27,8 @@ export const ramp = (frame: number, a: number, b: number, ease = easeIO) => ease
 /** Dark glass surface for elements sitting on the stage (not product UI). */
 export const glass = (radius = 28): React.CSSProperties => ({
   borderRadius: radius,
-  background: "linear-gradient(150deg, rgba(255,255,255,0.14), rgba(255,255,255,0.05))",
+  // transparent mode (ui.tsx Stage) swaps in a darker glass so it stays legible over footage
+  background: "var(--tr-glass, linear-gradient(150deg, rgba(255,255,255,0.14), rgba(255,255,255,0.05)))",
   border: "1.5px solid rgba(255,255,255,0.22)",
   boxShadow: "0 24px 60px rgba(4,2,20,0.45), inset 0 1px 0 rgba(255,255,255,0.25)",
   backdropFilter: "blur(16px)",
@@ -89,7 +90,7 @@ export const KineticLine: React.FC<{ text: string; at: number; size: number; col
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   return (
-    <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", columnGap: size * 0.26, fontFamily: FONT_DISPLAY, fontWeight: 800, fontSize: size, lineHeight: 1.05, letterSpacing: -size * 0.03, ...style }}>
+    <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", columnGap: size * 0.26, fontFamily: FONT_DISPLAY, fontWeight: 800, fontSize: size, lineHeight: 1.05, letterSpacing: -size * 0.03, textShadow: `0 ${size * 0.05}px ${size * 0.3}px rgba(10,5,40,0.45)`, ...style }}>
       {text.split(" ").map((w, i) => {
         const p = frame < at + i * stagger ? 0 : spring({ frame: frame - at - i * stagger, fps, config: { damping: 14, stiffness: 170, mass: 0.7 } });
         return (

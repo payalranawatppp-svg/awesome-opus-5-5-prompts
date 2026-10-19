@@ -7,6 +7,7 @@ import { LayoutQA } from "./LayoutQA";
 import { Reel } from "./Reel";
 import { ReelFx } from "./reelfx/ReelFx";
 import { TOOTH_DURATION, ToothFx } from "./reelfx/ToothFx";
+import { DEPTH_DURATION, ToothDepth } from "./reelfx/ToothDepth";
 import { TrDashboardTour } from "./tr/scenes";
 import { TR_ALL, TrFormatted } from "./tr/formats";
 import { TR_V2 } from "./tr/v2";
@@ -19,6 +20,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="SignalReachReel" component={Reel} durationInFrames={DURATION} fps={FPS} width={WIDTH} height={HEIGHT} />
     <Composition id="LayoutQA" component={LayoutQA} durationInFrames={DURATION} fps={FPS} width={WIDTH * 3} height={HEIGHT} />
     <Composition id="SignalReachReelFx" component={ReelFx} durationInFrames={DURATION} fps={FPS} width={WIDTH} height={HEIGHT} />
+    <Composition id="ToothReferralDepth" component={ToothDepth} durationInFrames={DEPTH_DURATION} fps={30} width={WIDTH} height={HEIGHT} />
     <Composition id="ToothReferralFx" component={ToothFx} durationInFrames={TOOTH_DURATION} fps={30} width={WIDTH} height={HEIGHT} />
     <Composition id="TR-Dashboard-Tour" component={() => <FontGate><TrDashboardTour scenes={TR_ALL} /></FontGate>} durationInFrames={TR_ALL.reduce((s, x) => s + x.dur, 0)} fps={30} width={WIDTH} height={HEIGHT} />
     <Composition id="TR-V2-Showreel" component={() => <FontGate><TrDashboardTour scenes={TR_V2} /></FontGate>} durationInFrames={TR_V2.reduce((s, x) => s + x.dur, 0)} fps={30} width={WIDTH} height={HEIGHT} />
