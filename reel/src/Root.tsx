@@ -7,7 +7,8 @@ import { LayoutQA } from "./LayoutQA";
 import { Reel } from "./Reel";
 import { ReelFx } from "./reelfx/ReelFx";
 import { TOOTH_DURATION, ToothFx } from "./reelfx/ToothFx";
-import { TR_SCENES, TR_TOUR_DURATION, TrDashboardTour } from "./tr/scenes";
+import { TrDashboardTour } from "./tr/scenes";
+import { TR_ALL, TrFormatted } from "./tr/formats";
 import { FontGate } from "./effects";
 import { EffectsShowcase, SHOWCASE_DURATION } from "./showcase/EffectsShowcase";
 import { HEIGHT, WIDTH } from "./theme";
@@ -18,9 +19,12 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="LayoutQA" component={LayoutQA} durationInFrames={DURATION} fps={FPS} width={WIDTH * 3} height={HEIGHT} />
     <Composition id="SignalReachReelFx" component={ReelFx} durationInFrames={DURATION} fps={FPS} width={WIDTH} height={HEIGHT} />
     <Composition id="ToothReferralFx" component={ToothFx} durationInFrames={TOOTH_DURATION} fps={30} width={WIDTH} height={HEIGHT} />
-    <Composition id="TR-Dashboard-Tour" component={() => <FontGate><TrDashboardTour /></FontGate>} durationInFrames={TR_TOUR_DURATION} fps={30} width={WIDTH} height={HEIGHT} />
-    {TR_SCENES.map(({ id, C, dur }) => (
-      <Composition key={id} id={id} component={() => <FontGate><C /></FontGate>} durationInFrames={dur} fps={30} width={WIDTH} height={HEIGHT} />
+    <Composition id="TR-Dashboard-Tour" component={() => <FontGate><TrDashboardTour scenes={TR_ALL} /></FontGate>} durationInFrames={TR_ALL.reduce((s, x) => s + x.dur, 0)} fps={30} width={WIDTH} height={HEIGHT} />
+    {TR_ALL.map(({ id, dur }) => (
+      <React.Fragment key={id}>
+        <Composition id={id} component={TrFormatted} defaultProps={{ id }} durationInFrames={dur} fps={30} width={WIDTH} height={HEIGHT} />
+        <Composition id={`${id}-h`} component={TrFormatted} defaultProps={{ id, horizontal: true }} durationInFrames={dur} fps={30} width={1920} height={1080} />
+      </React.Fragment>
     ))}
     <Composition id="EffectsShowcase" component={EffectsShowcase} durationInFrames={SHOWCASE_DURATION} fps={30} width={WIDTH} height={HEIGHT} />
     {EFFECTS.map(({ meta }) => (

@@ -491,9 +491,9 @@ export const TR_SCENES = [
 ];
 
 /** All seven scenes back to back, for review. */
-export const TrDashboardTour: React.FC = () => (
+export const TrDashboardTour: React.FC<{ scenes?: { id: string; C: React.FC; dur: number }[] }> = ({ scenes = TR_SCENES }) => (
   <Series>
-    {TR_SCENES.map(({ id, C, dur }) => (
+    {scenes.map(({ id, C, dur }) => (
       <Series.Sequence key={id} durationInFrames={dur}>
         <C />
       </Series.Sequence>

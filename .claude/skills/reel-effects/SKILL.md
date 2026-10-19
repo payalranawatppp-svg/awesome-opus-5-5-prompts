@@ -147,3 +147,13 @@ import { Checklist, TALENT } from "./effects";
 - Check: no source rows below `usableBottom`, no floating faded torso (the cutout's soft bottom must be
   off frame or covered), text inside the safe zone and readable, and the last frame back to the speaker.
 - `npx tsc --noEmit` clean.
+
+## 6. ToothReferral product animations
+
+For ToothReferral videos (or any dental-referral explainer), `reel/src/tr/` has 11 animated dashboard scenes:
+new referral, incoming, office chat, case lifecycle, analytics, needs attention, referral journey,
+insurance link, notification stack, funnel and an overview. Each comes vertical (`TR-NN-slug`), horizontal
+(`TR-NN-slug-h`) and transparent (`--props='{"transparent":true}'`, ProRes 4444 via
+`reel/scripts/render_tr_alpha.sh`). `reel/TOOTHREFERRAL-DASHBOARD.md` explains every dashboard screen and which
+scene fits which line. Use them as cut-away inserts or as alpha overlays beside the speaker; analytics numbers
+are illustrative until the client confirms real ones.

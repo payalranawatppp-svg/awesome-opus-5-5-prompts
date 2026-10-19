@@ -53,9 +53,14 @@ export const useExit = (len = 9) => {
   return interpolate(frame, [durationInFrames - 1 - len, durationInFrames - 1], [0, 1], clamp);
 };
 
+/** Transparent mode: the stage drops its background so only the floating UI renders (for alpha overlays). */
+export const TransparentContext = React.createContext(false);
+
 /** Deep purple stage the white UI floats on (matches the UI inserts in the brand's UGC videos). */
 export const Stage: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const frame = useCurrentFrame();
+  const transparent = React.useContext(TransparentContext);
+  if (transparent) return <AbsoluteFill style={{ fontFamily: FONT_UI, color: TR.ink }}>{children}</AbsoluteFill>;
   const d = Math.sin(frame / 50) * 40;
   return (
     <AbsoluteFill style={{ background: `linear-gradient(165deg, ${TR.stage1} 0%, #24145C 55%, ${TR.stage2} 100%)`, fontFamily: FONT_UI, color: TR.ink }}>
@@ -143,7 +148,7 @@ export const Toast: React.FC<{ at: number; title: string; body: string; icon?: s
   const p = useIn(at, 15, 180);
   void icon;
   return (
-    <div style={{ position: "absolute", left: 60, right: 60, top: 150, ...rise(p, -60) }}>
+    <div style={{ position: "absolute", left: 60, right: 60, top: 320, ...rise(p, -60) }}>
       <Card style={{ display: "flex", gap: 22, alignItems: "center", padding: "26px 30px", borderRadius: 26 }}>
         <div style={{ width: 64, height: 64, borderRadius: 18, background: TR.purple, display: "flex", alignItems: "center", justifyContent: "center", flex: "none" }}>
           <svg width={34} height={34} viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth={2.2} strokeLinecap="round" strokeLinejoin="round">

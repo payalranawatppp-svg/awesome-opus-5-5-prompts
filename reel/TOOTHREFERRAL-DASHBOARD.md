@@ -56,7 +56,7 @@ purple #774AEE for actions and highlights, green for good or verified, amber for
 
 ## The animations (src/tr/)
 
-Seven 9:16 scenes (1080×1920, 30 fps). Each shows white UI cards rebuilt from the real dashboard, floating on the
+Eleven scenes (seven screen-based, four custom). The table lists the 9:16 versions (1080×1920, 30 fps). Each shows white UI cards rebuilt from the real dashboard, floating on the
 deep purple stage used in the brand's UGC inserts. They are made to cut into talking-head videos. Preview any of
 them in Studio, or render one with `npx remotion render <id> out/<id>.mp4`.
 
@@ -69,7 +69,32 @@ them in Studio, or render one with `npx remotion render <id> out/<id>.mp4`.
 | `TR-05-case-lifecycle` | 5 s | Received → Contacted → Scheduled → Completed lights up step by step while the activity log fills | "both offices track the same case" |
 | `TR-06-analytics` | 4.5 s | The four KPIs count up and the volume chart draws against the prior period | "you can see how fast your team responds" |
 | `TR-07-needs-attention` | 4.5 s | Needs attention: the cursor clicks Send reminder on an outstanding insurance request | "nothing slips through" |
-| `TR-Dashboard-Tour` | 32.5 s | All seven back to back (render: `renders/toothreferral-dashboard-tour.mp4`) | review |
+| `TR-08-referral-journey` | 4.5 s | *Custom.* A referral package (patient, attachments) flies from the general dentist's office card to the specialist's along a glowing path and lands as **New referral** | "the whole referral goes out in minutes" |
+| `TR-09-insurance-link` | 4.7 s | *Custom.* A phone gets the secure link; the patient adds Delta Dental and their member ID, it turns **Verified**, and an "Insurance verified" chip pops beside it | "the patient adds their insurance from their phone" |
+| `TR-10-notification-stack` | 5 s | *Custom.* The day's events cascade in: new referral, insurance added, message, appointment, case completed | "both offices see every step" |
+| `TR-11-referral-funnel` | 4 s | *Custom.* Received → Contacted → Scheduled → Completed bars grow with counts (illustrative numbers) | results, "nothing gets lost" |
+| `TR-Dashboard-Tour` | 50 s | All eleven back to back (render: `renders/toothreferral-dashboard-tour.mp4`) | review |
+
+### Three formats: vertical, horizontal, transparent
+
+Every animation exists in each of these:
+
+- **Vertical 9:16** (1080×1920): `TR-05-case-lifecycle`, on the purple stage.
+- **Horizontal 16:9** (1920×1080): `TR-05-case-lifecycle-h`. The same animation is framed for landscape videos.
+- **Transparent**: no background, only the floating UI and its shadows, ready to lay over footage. Pass
+  `--props='{"transparent":true}'`. For horizontal, `"side": "left" | "center" | "right"` puts the UI beside the
+  speaker.
+
+Ready-made transparent files come from `scripts/render_tr_alpha.sh` (all scenes, or pass ids):
+
+- **ProRes 4444 with alpha** (`out/tr-alpha/<id>-h.mov`, `<id>-v.mov`): drag into Premiere, Final Cut, DaVinci
+  Resolve or CapCut and place it on a track above the footage. These are large, so they aren't committed; re-render
+  them with the script.
+- **VP9 WebM with alpha** (`renders/tr-alpha/<id>-h.webm`, `-v.webm`): small, committed, for web players or web
+  editors.
+
+To use one inside a Remotion video, render `<TrFormatted id="TR-09-insurance-link" horizontal transparent side="right" />`
+(src/tr/formats.tsx) in a `<Sequence>` over the footage.
 
 Notes:
 
