@@ -9,6 +9,7 @@ import { FONT_UI } from "../theme";
 
 export const TR = {
   purple: "#774AEE",
+  purpleBright: "#9B7BFF",
   purpleSoft: "#F3EEFE",
   purpleLine: "#E7E3F7",
   sidebar: "#D9E8F8",

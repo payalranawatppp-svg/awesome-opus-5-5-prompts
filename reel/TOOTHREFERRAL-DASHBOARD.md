@@ -56,7 +56,7 @@ purple #774AEE for actions and highlights, green for good or verified, amber for
 
 ## The animations (src/tr/)
 
-Eleven scenes (seven screen-based, four custom). The table lists the 9:16 versions (1080×1920, 30 fps). Each shows white UI cards rebuilt from the real dashboard, floating on the
+Sixteen scenes (seven screen-based, four custom, five v2 brand pieces). The table lists the 9:16 versions (1080×1920, 30 fps). Each shows white UI cards rebuilt from the real dashboard, floating on the
 deep purple stage used in the brand's UGC inserts. They are made to cut into talking-head videos. Preview any of
 them in Studio, or render one with `npx remotion render <id> out/<id>.mp4`.
 
@@ -73,7 +73,13 @@ them in Studio, or render one with `npx remotion render <id> out/<id>.mp4`.
 | `TR-09-insurance-link` | 4.7 s | *Custom.* A phone gets the secure link; the patient adds Delta Dental and their member ID, it turns **Verified**, and an "Insurance verified" chip pops beside it | "the patient adds their insurance from their phone" |
 | `TR-10-notification-stack` | 5 s | *Custom.* The day's events cascade in: new referral, insurance added, message, appointment, case completed | "both offices see every step" |
 | `TR-11-referral-funnel` | 4 s | *Custom.* Received → Contacted → Scheduled → Completed bars grow with counts (illustrative numbers) | results, "nothing gets lost" |
-| `TR-Dashboard-Tour` | 50 s | All eleven back to back (render: `renders/toothreferral-dashboard-tour.mp4`) | review |
+| `TR-12-before-after` | 5 s | *v2.* Fax sheets, a ringing phone and red pain tags ("Phone tag", "Missing X-rays", "Insurance unknown"); a purple shock ring clears it and one clean referral checks off notes, X-rays and insurance, then **Sent securely · 2 min** | the problem / "no more faxing" |
+| `TR-13-referral-network` | 5 s | *v2.* Eight practices orbit a glowing ToothReferral hub; lines draw in and referrals flow in (purple) and out (green); "38 referrals this week" (illustrative) | "your whole network in one place" |
+| `TR-14-case-stack` | 5 s | *v2.* Patient, X-ray, insurance and messages layers fan out in 3D, then flatten into one tidy column | "everything is inside the referral" |
+| `TR-15-big-stats` | 4.5 s | *v2.* Three kinetic number beats with a ring: **2 min** to send, **0** faxes, **100%** HIPAA-secure messaging (claims to confirm with the client) | results, punchlines |
+| `TR-16-cta` | 4 s | *v2.* End card: logo reveal with a light sweep, "Refer patients in minutes.", "Free for general dentists", cursor clicks **Start referring**, toothreferral.com. Holds on the last frame | the call to action |
+| `TR-V2-Showreel` | 24 s | The five v2 pieces back to back (`renders/toothreferral-v2-showreel.mp4`) | review |
+| `TR-Dashboard-Tour` | 74 s | All sixteen back to back (render: `renders/toothreferral-dashboard-tour.mp4`) | review |
 
 ### Three formats: vertical, horizontal, transparent
 
@@ -102,4 +108,7 @@ Notes:
   numbers are illustrative** (the demo account shows zeros); use real figures only once the client confirms them.
 - Each scene enters and exits by itself, so it can be dropped on a cut. The text sits in the middle of the frame,
   leaving room for captions top and bottom.
-- Code: `src/tr/ui.tsx` (palette, cards, badges, cursor, toast) and `src/tr/scenes.tsx` (the scenes).
+- Code: `src/tr/ui.tsx` (palette, cards, badges, cursor, toast), `src/tr/motion.tsx` (v2 motion toolkit),
+  `src/tr/scenes.tsx`, `src/tr/custom.tsx` and `src/tr/v2.tsx` (the scenes).
+- To make a new one in the same style, follow `.claude/skills/tr-animations/SKILL.md` (design rules, toolkit,
+  recipe, unbuilt ideas).

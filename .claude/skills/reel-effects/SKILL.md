@@ -150,10 +150,12 @@ import { Checklist, TALENT } from "./effects";
 
 ## 6. ToothReferral product animations
 
-For ToothReferral videos (or any dental-referral explainer), `reel/src/tr/` has 11 animated dashboard scenes:
+For ToothReferral videos (or any dental-referral explainer), `reel/src/tr/` has 16 animated scenes:
 new referral, incoming, office chat, case lifecycle, analytics, needs attention, referral journey,
-insurance link, notification stack, funnel and an overview. Each comes vertical (`TR-NN-slug`), horizontal
+insurance link, notification stack, funnel, an overview, and the v2 brand pieces (before/after, referral network,
+3D case stack, big stats, CTA end card). Each comes vertical (`TR-NN-slug`), horizontal
 (`TR-NN-slug-h`) and transparent (`--props='{"transparent":true}'`, ProRes 4444 via
 `reel/scripts/render_tr_alpha.sh`). `reel/TOOTHREFERRAL-DASHBOARD.md` explains every dashboard screen and which
 scene fits which line. Use them as cut-away inserts or as alpha overlays beside the speaker; analytics numbers
-are illustrative until the client confirms real ones.
+are illustrative until the client confirms real ones. To build new ones in the same style, use the
+`tr-animations` skill.

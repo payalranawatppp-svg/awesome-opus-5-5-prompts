@@ -9,6 +9,7 @@ import { ReelFx } from "./reelfx/ReelFx";
 import { TOOTH_DURATION, ToothFx } from "./reelfx/ToothFx";
 import { TrDashboardTour } from "./tr/scenes";
 import { TR_ALL, TrFormatted } from "./tr/formats";
+import { TR_V2 } from "./tr/v2";
 import { FontGate } from "./effects";
 import { EffectsShowcase, SHOWCASE_DURATION } from "./showcase/EffectsShowcase";
 import { HEIGHT, WIDTH } from "./theme";
@@ -20,6 +21,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="SignalReachReelFx" component={ReelFx} durationInFrames={DURATION} fps={FPS} width={WIDTH} height={HEIGHT} />
     <Composition id="ToothReferralFx" component={ToothFx} durationInFrames={TOOTH_DURATION} fps={30} width={WIDTH} height={HEIGHT} />
     <Composition id="TR-Dashboard-Tour" component={() => <FontGate><TrDashboardTour scenes={TR_ALL} /></FontGate>} durationInFrames={TR_ALL.reduce((s, x) => s + x.dur, 0)} fps={30} width={WIDTH} height={HEIGHT} />
+    <Composition id="TR-V2-Showreel" component={() => <FontGate><TrDashboardTour scenes={TR_V2} /></FontGate>} durationInFrames={TR_V2.reduce((s, x) => s + x.dur, 0)} fps={30} width={WIDTH} height={HEIGHT} />
     {TR_ALL.map(({ id, dur }) => (
       <React.Fragment key={id}>
         <Composition id={id} component={TrFormatted} defaultProps={{ id }} durationInFrames={dur} fps={30} width={WIDTH} height={HEIGHT} />

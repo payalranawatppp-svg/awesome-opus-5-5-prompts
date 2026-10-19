@@ -11,9 +11,10 @@ import { AbsoluteFill, getInputProps } from "remotion";
 import { FontGate } from "../effects";
 import { TR_CUSTOM } from "./custom";
 import { TR_SCENES } from "./scenes";
+import { TR_V2 } from "./v2";
 import { Stage, TransparentContext } from "./ui";
 
-export const TR_ALL = [...TR_SCENES, ...TR_CUSTOM];
+export const TR_ALL = [...TR_SCENES, ...TR_CUSTOM, ...TR_V2];
 
 /** The scenes keep their content between these rows of the vertical canvas. */
 const BAND = { top: 280, bottom: 1700 };
