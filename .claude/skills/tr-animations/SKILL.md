@@ -70,7 +70,11 @@ that hand off with blur-up exits (`BigStats`), a clip-path logo reveal plus a cu
 5. Render: `npx remotion render TR-17-<slug> out/x.mp4`; transparent overlays with
    `scripts/render_tr_alpha.sh TR-17-<slug>` (ProRes 4444 in `out/tr-alpha/`, uncommitted; WebM alpha in
    `renders/tr-alpha/`, committed). `SIDE=left|right` places the horizontal version beside a speaker.
-6. Add a row to the animations table in `reel/TOOTHREFERRAL-DASHBOARD.md`.
+6. To put it in a reel without the purple background and keep it looking polished, follow
+   `reel/src/reelfx/ToothDepth.tsx`: frost the room, push the speaker cutout back, float `<TrFormatted id transparent />`
+   on top, and mask the cutout above any burned-in captions. A `<Sequence>` shorter than the scene still exits
+   cleanly, because `useExit` reads the sequence length.
+7. Add a row to the animations table in `reel/TOOTHREFERRAL-DASHBOARD.md`.
 
 ## Ideas not built yet
 

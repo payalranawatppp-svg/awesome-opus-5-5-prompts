@@ -99,6 +99,14 @@ Ready-made transparent files come from `scripts/render_tr_alpha.sh` (all scenes,
 - **VP9 WebM with alpha** (`renders/tr-alpha/<id>-h.webm`, `-v.webm`): small, committed, for web players or web
   editors.
 
+**Inside a reel, behind-glass look** (`ToothReferralDepth`, `src/reelfx/ToothDepth.tsx`, render
+`renders/toothreferral-depth.mp4`). The UGC video plays as usual. On three lines the room frosts over (blur, dim,
+purple tint), the speaker (a cutout from `scripts/matte.py`) eases back behind it, and the transparent animation
+floats on top: before/after on "phone and fax", the case stack on "With ToothReferral…", and the CTA on "It is free
+for general dentists". There's no cut to a purple slide, so the animations look like part of the shot. In
+transparent mode the glass panels turn darker and headlines get a soft shadow, so they stay readable over bright
+footage. To reuse it, copy `MOMENTS` (scene id, start frame, length) for another clip that has a cutout.
+
 To use one inside a Remotion video, render `<TrFormatted id="TR-09-insurance-link" horizontal transparent side="right" />`
 (src/tr/formats.tsx) in a `<Sequence>` over the footage.
 

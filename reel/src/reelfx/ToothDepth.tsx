@@ -38,6 +38,8 @@ const MOMENTS = [
 ];
 
 const FULL = { scale: 1.5, x: 0, y: 0 };
+/** Burned-in captions sit around output rows 1330-1490. */
+const CAPTION_MASK = "linear-gradient(180deg, #000 0px, #000 1200px, transparent 1310px)";
 
 /** Frosted room + speaker pushed back, for one moment. `hold` keeps it on to the end (no ease-out). */
 const Depth: React.FC<{ startAt: number; hold?: boolean }> = ({ startAt, hold }) => {
@@ -49,7 +51,8 @@ const Depth: React.FC<{ startAt: number; hold?: boolean }> = ({ startAt, hold })
     <AbsoluteFill>
       <TalentLayer talent={TL} layer="full" framing={FULL} startAt={startAt} style={{ filter: `blur(${(k * 28).toFixed(1)}px) brightness(${1 - k * 0.4}) saturate(${1 + k * 0.2})`, scale: String(1 + k * 0.08) }} />
       <AbsoluteFill style={{ background: `linear-gradient(180deg, ${TR.stage1}CC 0%, ${TR.stage2}66 55%, ${TR.stage1}CC 100%)`, opacity: k * 0.75 }} />
-      <AbsoluteFill style={{ scale: String(push), transformOrigin: "50% 100%", filter: `blur(${(k * 2.5).toFixed(1)}px) brightness(${1 - k * 0.25})`, opacity: k }}>
+      {/* the cutout carries the burned-in captions where they cross the speaker; fade it out above them */}
+      <AbsoluteFill style={{ scale: String(push), transformOrigin: "50% 100%", filter: `blur(${(k * 2.5).toFixed(1)}px) brightness(${1 - k * 0.25})`, opacity: k, maskImage: CAPTION_MASK, WebkitMaskImage: CAPTION_MASK }}>
         <TalentLayer talent={TL} layer="cutout" framing={FULL} startAt={startAt} />
       </AbsoluteFill>
     </AbsoluteFill>
