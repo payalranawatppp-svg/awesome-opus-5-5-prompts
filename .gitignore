@@ -12,3 +12,6 @@ work/
 
 # Remotion's agent skills ship without a licence file; restore with `npx skills experimental_install`
 .claude/skills/remotion-best-practices/
+
+# Satori skill: private conversation memory, never commit
+.satori/
