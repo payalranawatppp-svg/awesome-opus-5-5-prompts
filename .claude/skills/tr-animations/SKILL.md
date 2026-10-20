@@ -52,6 +52,15 @@ Patterns worth copying from `v2.tsx`: a phase switch with a shock-ring wipe (`Be
 dots (`NetworkMap`), CSS 3D with `perspective` + `preserve-3d` that flattens into a column (`CaseStack3D`), beats
 that hand off with blur-up exits (`BigStats`), a clip-path logo reveal plus a cursor click and ripple (`CtaEndCard`).
 
+## Using GSAP (gsap-* skills) inside these videos
+
+GSAP is fine for choreography (timelines, SplitText, MorphSVG, DrawSVG, CustomEase), but Remotion renders frames
+out of order and in parallel, so GSAP must never run on its own clock. Build the timeline **paused** inside
+`useGSAP`/`useLayoutEffect` with a ref scope, then drive it from the frame on every render:
+`tl.seek(frame / fps)` (or `tl.progress(...)`). No `ScrollTrigger`, `repeat: -1`, `delay`-based waits or
+`requestAnimationFrame`. The Remotion springs in `motion.tsx` remain the default; reach for GSAP when its plugins
+or timeline sequencing save real work.
+
 ## Recipe: add a new animation
 
 1. Write the component in `v2.tsx` (or a new `src/tr/<name>.tsx`): `<Stage><Exit>…</Exit></Stage>`; skip `Exit`
