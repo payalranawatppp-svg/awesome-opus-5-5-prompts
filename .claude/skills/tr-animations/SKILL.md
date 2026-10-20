@@ -52,14 +52,16 @@ Patterns worth copying from `v2.tsx`: a phase switch with a shock-ring wipe (`Be
 dots (`NetworkMap`), CSS 3D with `perspective` + `preserve-3d` that flattens into a column (`CaseStack3D`), beats
 that hand off with blur-up exits (`BigStats`), a clip-path logo reveal plus a cursor click and ripple (`CtaEndCard`).
 
-## Using GSAP or Anime.js (gsap-* / animejs skills) inside these videos
+## Using GSAP, Anime.js or Three.js (gsap-* / animejs / threejs-* skills) inside these videos
 
 GSAP is fine for choreography (timelines, SplitText, MorphSVG, DrawSVG, CustomEase), but Remotion renders frames
 out of order and in parallel, so GSAP must never run on its own clock. Build the timeline **paused** inside
 `useGSAP`/`useLayoutEffect` with a ref scope, then drive it from the frame on every render:
 `tl.seek(frame / fps)` (or `tl.progress(...)`). No `ScrollTrigger`, `repeat: -1`, `delay`-based waits or
 `requestAnimationFrame`. The same rule applies to Anime.js v4 (`animejs` skill): create it with `autoplay: false` and call
-`anim.seek(frame / fps * 1000)` (milliseconds) each render. The Remotion springs in `motion.tsx` remain the default; reach for GSAP when its plugins
+`anim.seek(frame / fps * 1000)` (milliseconds) each render. For 3D (`threejs-*` skills), render inside `@remotion/three`'s `<ThreeCanvas>` and derive every position,
+rotation and camera move from `useCurrentFrame()`, never from React Three Fiber's `useFrame` delta or `THREE.Clock`.
+The Remotion springs in `motion.tsx` remain the default; reach for GSAP when its plugins
 or timeline sequencing save real work.
 
 ## Recipe: add a new animation
