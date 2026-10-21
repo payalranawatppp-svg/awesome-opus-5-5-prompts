@@ -9,8 +9,8 @@
  * Demo data throughout; patient and practice names are fictional.
  */
 import React from "react";
-import { AbsoluteFill, Audio, Freeze, Sequence, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
-import { DigitalZoom, FontGate, TALENT, TalentLayer, type Framing } from "../effects";
+import { AbsoluteFill, Audio, Freeze, Img, Sequence, interpolate, spring, staticFile, useCurrentFrame } from "remotion";
+import { FontGate, TALENT, TalentLayer, type Framing } from "../effects";
 import transcript from "../data/transcript-tr2.json";
 import cut from "../data/tr2-cut-segments.json";
 import { FONT_SERIF, FONT_UI } from "../theme";
@@ -48,6 +48,8 @@ const PUNCH = (() => {
   const s = 1.65;
   return { scale: s, x: FACE.x * 1.5 - FACE.x * s, y: FACE.y * 1.5 - FACE.y * s };
 })();
+/** Face-centred framing at any scale (same face position as the wide shot). */
+const onFace = (s: number): Framing => ({ scale: s, x: FACE.x * 1.5 - FACE.x * s, y: FACE.y * 1.5 - FACE.y * s });
 const SEG_STARTS = cut.segments.map((s) => Math.round(s.at * FPS));
 const framingAt = (frame: number): Framing => {
   let i = 0;
@@ -162,17 +164,63 @@ const Chaos: React.FC<{ from: number; to: number }> = ({ from, to }) => {
   );
 };
 
-/** From "ToothReferral" on, the studio wall becomes the brand stage, wiping out from behind the head. */
-const BrandWall: React.FC<{ from: number }> = ({ from }) => {
+/** The studio room behind the speaker (public/bg/studio-room.jpg), a touch out of focus like a shallow lens.
+ *  Scaled so the desk stays below the hands; a very slow drift keeps it alive. */
+const ROOM = { w: 1674, h: 3000, x: -297, y: -40 };
+const Room: React.FC<{ blur?: number; style?: React.CSSProperties }> = ({ blur = 3, style }) => {
+  const frame = useCurrentFrame();
+  const drift = Math.sin(frame / 90) * 6;
+  return (
+    <AbsoluteFill style={style}>
+      <Img src={staticFile("bg/studio-room.jpg")} style={{ position: "absolute", left: ROOM.x + drift, top: ROOM.y, width: ROOM.w, height: ROOM.h, filter: `blur(${blur}px)` }} />
+    </AbsoluteFill>
+  );
+};
+
+/** From "ToothReferral" on, the room racks further out of focus and takes the brand grade, wiping out from
+ *  behind the head, so the product animations read clearly against it. */
+const BrandGrade: React.FC<{ from: number }> = ({ from }) => {
   const frame = useCurrentFrame();
   const k = ramp(frame, from, from + 16, easeIO);
   if (frame < from) return null;
   const d = Math.sin(frame / 60) * 40;
   return (
     <AbsoluteFill style={{ clipPath: `circle(${k * 1500}px at 618px 600px)` }}>
-      <AbsoluteFill style={{ background: `linear-gradient(170deg, ${TR.stage1} 0%, #261562 55%, ${TR.stage2} 100%)` }} />
-      <div style={{ position: "absolute", width: 1200, height: 1200, left: 18 + d, top: 40, borderRadius: "50%", background: `radial-gradient(circle, ${TR.purple}66, transparent 62%)`, filter: "blur(30px)" }} />
-      <div style={{ position: "absolute", width: 900, height: 900, right: -320 - d, bottom: 200, borderRadius: "50%", background: "radial-gradient(circle, #4C7DFF2E, transparent 64%)", filter: "blur(40px)" }} />
+      <Room blur={12} />
+      <AbsoluteFill style={{ background: `linear-gradient(170deg, ${TR.stage1}E0 0%, #261562C8 55%, ${TR.stage2}B8 100%)` }} />
+      <div style={{ position: "absolute", width: 1200, height: 1200, left: 18 + d, top: 40, borderRadius: "50%", background: `radial-gradient(circle, ${TR.purple}55, transparent 62%)`, filter: "blur(30px)" }} />
+    </AbsoluteFill>
+  );
+};
+
+/** "Every answer means another interruption": calls, faxes and voicemails stack up on the wall behind him. */
+const Interruptions: React.FC<{ at: number[]; to: number }> = ({ at: ats, to }) => {
+  const frame = useCurrentFrame();
+  const out = interpolate(frame, [to - 7, to], [0, 1], clamp);
+  if (frame < ats[0] - 2 || frame > to) return null;
+  const items = [
+    { t: "Incoming call", s: "Bright Smile Dental", icon: "M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z", c: TR.green, x: 40, y: 150, r: -4 },
+    { t: "Fax received", s: "3 pages · X-rays", icon: "M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z", c: TR.amber, x: 600, y: 120, r: 3 },
+    { t: "Voicemail", s: "Toledo Family Dental", icon: "M5.5 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM18.5 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM5.5 15.5h13", c: TR.purple, x: 70, y: 400, r: 2 },
+    { t: "Missed call", s: "Holland General", icon: "M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z", c: TR.red, x: 640, y: 380, r: -3 },
+  ];
+  return (
+    <AbsoluteFill style={{ opacity: 1 - out, filter: out > 0 ? `blur(${out * 8}px)` : undefined }}>
+      {items.map((it, i) => {
+        const p = sp(frame, ats[i], 11, 230);
+        const buzz = frame >= ats[i] && frame < ats[i] + 8 ? Math.sin((frame - ats[i]) * 2.6) * 5 * (1 - (frame - ats[i]) / 8) : 0;
+        return (
+          <div key={i} style={{ position: "absolute", left: it.x, top: it.y, width: 380, display: "flex", alignItems: "center", gap: 16, padding: "16px 20px", borderRadius: 24, background: "rgba(255,255,255,0.94)", boxShadow: "0 16px 40px rgba(20,12,40,0.35)", fontFamily: FONT_UI, scale: String(0.7 + p * 0.3), opacity: Math.min(1, p * 2), rotate: `${it.r}deg`, translate: `${buzz}px ${(1 - p) * -40}px` }}>
+            <div style={{ width: 52, height: 52, borderRadius: 14, background: it.c, display: "flex", alignItems: "center", justifyContent: "center", flex: "none" }}>
+              <Icon d={it.icon} size={28} color="#fff" />
+            </div>
+            <div style={{ minWidth: 0 }}>
+              <div style={{ fontSize: 24, fontWeight: 600, color: TR.ink }}>{it.t}</div>
+              <div style={{ fontSize: 19, color: TR.muted }}>{it.s}</div>
+            </div>
+          </div>
+        );
+      })}
     </AbsoluteFill>
   );
 };
@@ -608,15 +656,16 @@ const T = {
   your: at("your", 5),
   focus: at("focus"),
 };
-/** Digital zoom: brackets lock for 1 s, snap on "interruption", ease straight back out (its exit needs ~1 s). */
-const ZOOM_FROM = T.interruption - 30;
-const ZOOM_LEN = 60;
-const WALL_AT = Math.max(T.tooth - 4, ZOOM_FROM + ZOOM_LEN);
+/** "Every answer means another interruption": a slow push-in on the face, released on the next cut. */
+const PUSH = { from: T.every - 4, to: T.interruption + 10, scale: 1.8 };
+const WALL_AT = T.tooth - 4;
 
 export const ToothUgc2: React.FC = () => {
   const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
-  const fr = framingAt(Math.min(frame, CUT_FRAMES - 1));
+  const f0 = Math.min(frame, CUT_FRAMES - 1);
+  const base = framingAt(f0);
+  const pushK = base === WIDE && f0 >= PUSH.from ? ramp(f0, PUSH.from, PUSH.to, easeIO) : 0;
+  const fr = pushK > 0 ? onFace(interpolate(pushK, [0, 1], [WIDE.scale, PUSH.scale])) : base;
   const freeze = frame >= CUT_FRAMES - 1;
   const speaker = (layer: "full" | "cutout", style?: React.CSSProperties) => {
     const el = <TalentLayer talent={TL} layer={layer} framing={fr} style={style} />;
@@ -625,8 +674,8 @@ export const ToothUgc2: React.FC = () => {
   return (
     <AbsoluteFill style={{ background: "#1B1240" }}>
       <FontGate>
-        {speaker("full")}
-        <BrandWall from={WALL_AT} />
+        <Room />
+        <BrandGrade from={WALL_AT} />
 
         {/* behind the speaker */}
         <DepthWords
@@ -643,6 +692,7 @@ export const ToothUgc2: React.FC = () => {
           ]}
         />
         <Chaos from={T.theyre - 2} to={T.ifYou} />
+        <Interruptions at={[at("every"), at("answer"), at("means"), at("interruption")].map((x) => x - 2)} to={WALL_AT + 4} />
         <LogoBehind from={T.tooth} to={T.one - 4} top={36} width={500} />
         <Journey from={T.referring - 4} to={T.keeping - 2} sendAt={T.sends} attachAt={T.attached - 4} />
         <DepthWords from={T.giving - 4} to={T.once - 2} top={170} size={140} color="#FFFFFF" italic lines={[[{ text: "Fewer", at: at("fewer") }, { text: "calls.", at: at("calls") }]]} />
@@ -650,14 +700,10 @@ export const ToothUgc2: React.FC = () => {
         <Updates from={T.instead} to={T.focus - 6} at={[T.see2 - 4, T.see2 + 2, T.see2 + 8, T.see2 + 14]} />
         <LogoBehind from={T.focus - 2} to={UGC2_DURATION + 30} top={36} width={500} />
 
-        {speaker("cutout", frame >= WALL_AT ? { filter: "drop-shadow(0 24px 50px rgba(4,2,20,0.45))" } : undefined)}
+        {speaker("cutout", { filter: "drop-shadow(0 24px 50px rgba(4,2,20,0.4))" })}
         {/* the mic sits in front of the speaker but the matte half-drops it: put it back from the footage */}
         {speaker("full", MIC_MASK)}
 
-        {/* camera moment: snap in on "interruption" (effects library) */}
-        <Sequence from={ZOOM_FROM} durationInFrames={ZOOM_LEN} premountFor={fps} name="digital zoom">
-          <DigitalZoom talent={TL} startAt={ZOOM_FROM / FPS} zoom={1.35} snapAt={(T.interruption - ZOOM_FROM) / FPS} />
-        </Sequence>
 
         {/* in front of the speaker */}
         <Pill from={T.ifYou + 10} to={T.q1 - 4} top={1300}>
@@ -665,7 +711,7 @@ export const ToothUgc2: React.FC = () => {
           For endo and oral surgery practices
         </Pill>
         <Questions
-          to={T.every + 4}
+          to={T.every}
           qs={[
             { t: "Did anyone call this patient?", at: T.q1, x: 560, y: 930, side: "r" },
             { t: "Where does this referral stand?", at: T.q2, x: 50, y: 820, side: "l" },
@@ -690,6 +736,7 @@ export const ToothUgc2: React.FC = () => {
         { f: T.q1 - 3, s: "pop-1", v: 0.16 },
         { f: T.q2 - 3, s: "pop-2", v: 0.16 },
         { f: T.q3 - 3, s: "pop-3", v: 0.16 },
+        ...["every", "answer", "means", "interruption"].map((w, i) => ({ f: at(w) - 3, s: `tick-${i + 2}`, v: 0.14 })),
         { f: WALL_AT, s: "whoosh-long", v: 0.2 },
         { f: T.tooth + 10, s: "shimmer", v: 0.16 },
         { f: T.one - 4, s: "whoosh-short", v: 0.16 },
