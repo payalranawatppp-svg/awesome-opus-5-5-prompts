@@ -7,7 +7,7 @@
 import React from "react";
 import { AbsoluteFill, interpolate, useCurrentFrame } from "remotion";
 import { FONT_DISPLAY } from "../theme";
-import { Counter, FlowDot, KineticLine, LightSweep, LogoWhite, easeIO, easeOut, glass, ramp, useSpring } from "./motion";
+import { Counter, FlowDot, KineticLine, LightSweep, LogoReveal, LogoWhite, easeIO, easeOut, glass, ramp, useSpring } from "./motion";
 import { Avatar, Badge, Button, Card, Cursor, ICON, Icon, Stage, TR, clamp, rise, useExit } from "./ui";
 
 const Exit: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -397,7 +397,6 @@ export const BigStats: React.FC = () => (
 export const CtaEndCard: React.FC = () => {
   const frame = useCurrentFrame();
   const logo = useSpring(0, { damping: 15, stiffness: 120 });
-  const reveal = ramp(frame, 2, 26, easeOut);
   const pill = useSpring(34, { damping: 12, stiffness: 200 });
   const btn = useSpring(44, { damping: 13, stiffness: 180 });
   const press = interpolate(frame, [84, 92], [0, 1], clamp);
@@ -405,11 +404,8 @@ export const CtaEndCard: React.FC = () => {
   const url = useSpring(60, { damping: 14, stiffness: 160 });
   return (
     <Stage>
-      <div style={{ position: "absolute", left: 140, right: 140, top: 520, height: 300, display: "flex", justifyContent: "center", alignItems: "center", overflow: "hidden", scale: String(interpolate(logo, [0, 1], [0.86, 1])) }}>
-        <div style={{ clipPath: `inset(0 ${(1 - reveal) * 100}% 0 0)`, position: "relative" }}>
-          <LogoWhite width={620} />
-        </div>
-        <LightSweep at={26} dur={26} opacity={0.7} />
+      <div style={{ position: "absolute", left: 140, right: 140, top: 520, height: 300, display: "flex", justifyContent: "center", alignItems: "center", scale: String(interpolate(logo, [0, 1], [0.86, 1])) }}>
+        <LogoReveal at={2} width={620} revealDur={24} shineAt={26} shineDur={26} />
       </div>
       <div style={{ position: "absolute", left: 0, right: 0, top: 880 }}>
         <KineticLine text="Refer patients in minutes." accent={["minutes."]} at={18} size={82} style={{ padding: "0 60px" }} />

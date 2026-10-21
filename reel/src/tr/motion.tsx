@@ -131,3 +131,48 @@ export const FlowDot: React.FC<{ from: number[]; to: number[]; at: number; dur?:
 export const LogoWhite: React.FC<{ width?: number; style?: React.CSSProperties }> = ({ width = 420, style }) => (
   <Img src={staticFile("tr/logo.png")} style={{ width, height: "auto", filter: "brightness(0) invert(1)", ...style }} />
 );
+
+/** Logo shape as a CSS mask, so effects can be drawn through the letters only. */
+const LOGO_MASK = (): React.CSSProperties => ({
+  maskImage: `url(${staticFile("tr/logo.png")})`,
+  WebkitMaskImage: `url(${staticFile("tr/logo.png")})`,
+  maskSize: "100% 100%",
+  WebkitMaskSize: "100% 100%",
+});
+
+/**
+ * The white wordmark with a clean reveal and shine: it wipes in left to right through a feathered edge
+ * (no hard line), and a light band then passes through the letters only (never a box around them).
+ */
+export const LogoReveal: React.FC<{ at: number; width?: number; revealDur?: number; shineAt?: number; shineDur?: number }> = ({
+  at,
+  width = 500,
+  revealDur = 20,
+  shineAt,
+  shineDur = 26,
+}) => {
+  const frame = useCurrentFrame();
+  const h = width * (292 / 641);
+  const r = easeOut(interpolate(frame, [at, at + revealDur], [0, 1], clamp));
+  // feathered wipe: the visible edge is a 25% soft ramp travelling from left to right
+  const edge = -25 + r * 125;
+  const wipe = `linear-gradient(90deg, #000 ${edge}%, transparent ${edge + 25}%)`;
+  const s0 = shineAt ?? at + revealDur - 2;
+  const t = interpolate(frame, [s0, s0 + shineDur], [0, 1], clamp);
+  const band = -30 + easeIO(t) * 160;
+  return (
+    <div style={{ position: "relative", width, height: h, maskImage: wipe, WebkitMaskImage: wipe }}>
+      <LogoWhite width={width} style={{ display: "block" }} />
+      {t > 0 && t < 1 && (
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            ...LOGO_MASK(),
+            background: `linear-gradient(105deg, transparent ${band - 14}%, rgba(255,255,255,0) ${band - 10}%, rgba(214,200,255,0.95) ${band}%, rgba(255,255,255,0) ${band + 10}%, transparent ${band + 14}%)`,
+          }}
+        />
+      )}
+    </div>
+  );
+};

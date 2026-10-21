@@ -14,7 +14,7 @@ import { FontGate, TALENT, TalentLayer, type Framing } from "../effects";
 import transcript from "../data/transcript-tr2.json";
 import cut from "../data/tr2-cut-segments.json";
 import { FONT_SERIF, FONT_UI } from "../theme";
-import { LightSweep, LogoWhite, easeIO, easeOut, glass, ramp, useSpring } from "../tr/motion";
+import { LightSweep, LogoReveal, easeIO, easeOut, glass, ramp, useSpring } from "../tr/motion";
 import { Avatar, Badge, Card, Cursor, ICON, Icon, TR, clamp } from "../tr/ui";
 
 const TL = TALENT["tr2-cut"];
@@ -233,10 +233,7 @@ const LogoBehind: React.FC<{ from: number; to: number; top?: number; width?: num
   if (frame < from || frame > to) return null;
   return (
     <div style={{ position: "absolute", left: 0, right: 0, top, display: "flex", justifyContent: "center", opacity: Math.min(1, p * 1.6) * (1 - out), scale: String(interpolate(p, [0, 1], [0.9, 1])), filter: out > 0 ? `blur(${out * 8}px)` : undefined }}>
-      <div style={{ position: "relative", overflow: "hidden", padding: "10px 20px" }}>
-        <LogoWhite width={width} />
-        <LightSweep at={from + 12} dur={26} opacity={0.6} />
-      </div>
+      <LogoReveal at={from} width={width} revealDur={18} shineDur={28} />
     </div>
   );
 };
