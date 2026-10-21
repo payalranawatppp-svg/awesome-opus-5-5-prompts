@@ -43,7 +43,7 @@ const endOf = (word: string, n = 1) => {
 // Framing: wide on even pieces of the cut, a 1.1x punch-in on the face on odd ones
 
 const WIDE: Framing = { scale: 1.5, x: 0, y: 0 };
-const FACE = { x: 412, y: 423 }; // mean face centre in the source (src/data/faces.json)
+export const FACE = { x: 412, y: 423 }; // mean face centre in the source (src/data/faces.json)
 const PUNCH = (() => {
   const s = 1.65;
   return { scale: s, x: FACE.x * 1.5 - FACE.x * s, y: FACE.y * 1.5 - FACE.y * s };
@@ -61,7 +61,7 @@ const framingAt = (frame: number): Framing => {
 // Small pieces
 
 /** Static mask of the mic and its arm (camera is locked off), built from the median frame. */
-const MIC_MASK: React.CSSProperties = {
+export const MIC_MASK: React.CSSProperties = {
   maskImage: `url(${staticFile("cutouts/tr2-cut-mic.png")})`,
   WebkitMaskImage: `url(${staticFile("cutouts/tr2-cut-mic.png")})`,
   maskSize: "100% 100%",
@@ -167,7 +167,7 @@ const Chaos: React.FC<{ from: number; to: number }> = ({ from, to }) => {
 /** The studio room behind the speaker (public/bg/studio-room.jpg), a touch out of focus like a shallow lens.
  *  Scaled so the desk stays below the hands; a very slow drift keeps it alive. */
 const ROOM = { w: 1674, h: 3000, x: -297, y: -40 };
-const Room: React.FC<{ blur?: number; style?: React.CSSProperties }> = ({ blur = 3, style }) => {
+export const Room: React.FC<{ blur?: number; style?: React.CSSProperties }> = ({ blur = 3, style }) => {
   const frame = useCurrentFrame();
   const drift = Math.sin(frame / 90) * 6;
   return (
