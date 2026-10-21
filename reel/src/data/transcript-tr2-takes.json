@@ -1,0 +1,924 @@
+{
+ "c1.wav": {
+  "text": "Nobody tells you this, but your front office isn't underperforming. They're stuck chasing referrals instead of helping patients.",
+  "words": [
+   {
+    "word": " Nobody",
+    "start": 0.0,
+    "end": 0.82,
+    "p": 0.295
+   },
+   {
+    "word": " tells",
+    "start": 0.82,
+    "end": 1.16,
+    "p": 0.993
+   },
+   {
+    "word": " you",
+    "start": 1.16,
+    "end": 1.36,
+    "p": 0.998
+   },
+   {
+    "word": " this,",
+    "start": 1.36,
+    "end": 1.6,
+    "p": 0.997
+   },
+   {
+    "word": " but",
+    "start": 1.88,
+    "end": 2.0,
+    "p": 0.998
+   },
+   {
+    "word": " your",
+    "start": 2.0,
+    "end": 2.12,
+    "p": 0.994
+   },
+   {
+    "word": " front",
+    "start": 2.12,
+    "end": 2.34,
+    "p": 0.998
+   },
+   {
+    "word": " office",
+    "start": 2.34,
+    "end": 2.64,
+    "p": 0.998
+   },
+   {
+    "word": " isn't",
+    "start": 2.64,
+    "end": 3.08,
+    "p": 0.996
+   },
+   {
+    "word": " underperforming.",
+    "start": 3.08,
+    "end": 3.72,
+    "p": 0.962
+   },
+   {
+    "word": " They're",
+    "start": 4.34,
+    "end": 4.52,
+    "p": 0.962
+   },
+   {
+    "word": " stuck",
+    "start": 4.52,
+    "end": 4.82,
+    "p": 0.997
+   },
+   {
+    "word": " chasing",
+    "start": 4.82,
+    "end": 5.26,
+    "p": 0.998
+   },
+   {
+    "word": " referrals",
+    "start": 5.26,
+    "end": 5.82,
+    "p": 0.997
+   },
+   {
+    "word": " instead",
+    "start": 5.82,
+    "end": 6.22,
+    "p": 0.979
+   },
+   {
+    "word": " of",
+    "start": 6.22,
+    "end": 6.36,
+    "p": 1.0
+   },
+   {
+    "word": " helping",
+    "start": 6.36,
+    "end": 6.58,
+    "p": 0.998
+   },
+   {
+    "word": " patients.",
+    "start": 6.58,
+    "end": 7.12,
+    "p": 0.996
+   }
+  ]
+ },
+ "c2.wav": {
+  "text": "If you run an endo or oral surgery practice, you know the questions. Did anyone call this patient?",
+  "words": [
+   {
+    "word": " If",
+    "start": 0.64,
+    "end": 1.24,
+    "p": 0.914
+   },
+   {
+    "word": " you",
+    "start": 1.24,
+    "end": 1.38,
+    "p": 0.998
+   },
+   {
+    "word": " run",
+    "start": 1.38,
+    "end": 1.56,
+    "p": 0.997
+   },
+   {
+    "word": " an",
+    "start": 1.56,
+    "end": 1.72,
+    "p": 0.976
+   },
+   {
+    "word": " endo",
+    "start": 1.72,
+    "end": 2.16,
+    "p": 0.941
+   },
+   {
+    "word": " or",
+    "start": 2.16,
+    "end": 2.36,
+    "p": 0.946
+   },
+   {
+    "word": " oral",
+    "start": 2.36,
+    "end": 2.66,
+    "p": 0.991
+   },
+   {
+    "word": " surgery",
+    "start": 2.66,
+    "end": 3.04,
+    "p": 0.995
+   },
+   {
+    "word": " practice,",
+    "start": 3.04,
+    "end": 3.5,
+    "p": 0.998
+   },
+   {
+    "word": " you",
+    "start": 3.96,
+    "end": 4.06,
+    "p": 0.997
+   },
+   {
+    "word": " know",
+    "start": 4.06,
+    "end": 4.2,
+    "p": 1.0
+   },
+   {
+    "word": " the",
+    "start": 4.2,
+    "end": 4.36,
+    "p": 0.998
+   },
+   {
+    "word": " questions.",
+    "start": 4.36,
+    "end": 4.74,
+    "p": 0.991
+   },
+   {
+    "word": " Did",
+    "start": 6.12,
+    "end": 6.24,
+    "p": 0.989
+   },
+   {
+    "word": " anyone",
+    "start": 6.24,
+    "end": 6.46,
+    "p": 0.997
+   },
+   {
+    "word": " call",
+    "start": 6.46,
+    "end": 6.8,
+    "p": 0.998
+   },
+   {
+    "word": " this",
+    "start": 6.8,
+    "end": 7.0,
+    "p": 0.997
+   },
+   {
+    "word": " patient?",
+    "start": 7.0,
+    "end": 7.34,
+    "p": 0.998
+   }
+  ]
+ },
+ "c3.wav": {
+  "text": "Where does this referral stand? Did the GP send the updated x-rays? Every answer means another interruption.",
+  "words": [
+   {
+    "word": " Where",
+    "start": 0.88,
+    "end": 1.52,
+    "p": 0.905
+   },
+   {
+    "word": " does",
+    "start": 1.52,
+    "end": 1.68,
+    "p": 0.997
+   },
+   {
+    "word": " this",
+    "start": 1.68,
+    "end": 1.84,
+    "p": 0.991
+   },
+   {
+    "word": " referral",
+    "start": 1.84,
+    "end": 2.16,
+    "p": 0.988
+   },
+   {
+    "word": " stand?",
+    "start": 2.16,
+    "end": 2.6,
+    "p": 0.998
+   },
+   {
+    "word": " Did",
+    "start": 3.16,
+    "end": 3.18,
+    "p": 0.989
+   },
+   {
+    "word": " the",
+    "start": 3.18,
+    "end": 3.34,
+    "p": 0.996
+   },
+   {
+    "word": " GP",
+    "start": 3.34,
+    "end": 3.56,
+    "p": 0.894
+   },
+   {
+    "word": " send",
+    "start": 3.56,
+    "end": 3.92,
+    "p": 0.987
+   },
+   {
+    "word": " the",
+    "start": 3.92,
+    "end": 4.06,
+    "p": 0.996
+   },
+   {
+    "word": " updated",
+    "start": 4.06,
+    "end": 4.42,
+    "p": 0.996
+   },
+   {
+    "word": " x",
+    "start": 4.42,
+    "end": 4.64,
+    "p": 0.656
+   },
+   {
+    "word": "-rays?",
+    "start": 4.64,
+    "end": 4.82,
+    "p": 0.972
+   },
+   {
+    "word": " Every",
+    "start": 5.44,
+    "end": 5.64,
+    "p": 0.996
+   },
+   {
+    "word": " answer",
+    "start": 5.64,
+    "end": 5.92,
+    "p": 0.999
+   },
+   {
+    "word": " means",
+    "start": 5.92,
+    "end": 6.3,
+    "p": 0.994
+   },
+   {
+    "word": " another",
+    "start": 6.3,
+    "end": 6.8,
+    "p": 0.912
+   },
+   {
+    "word": " interruption.",
+    "start": 6.8,
+    "end": 7.32,
+    "p": 0.994
+   }
+  ]
+ },
+ "c4.wav": {
+  "text": "Tooth referral brings every referral into one live dashboard so your team can see where each case stands.",
+  "words": [
+   {
+    "word": " Tooth",
+    "start": 0.0,
+    "end": 1.2,
+    "p": 0.743
+   },
+   {
+    "word": " referral",
+    "start": 1.2,
+    "end": 1.54,
+    "p": 0.923
+   },
+   {
+    "word": " brings",
+    "start": 1.54,
+    "end": 1.88,
+    "p": 0.995
+   },
+   {
+    "word": " every",
+    "start": 1.88,
+    "end": 2.28,
+    "p": 0.998
+   },
+   {
+    "word": " referral",
+    "start": 2.28,
+    "end": 2.8,
+    "p": 0.996
+   },
+   {
+    "word": " into",
+    "start": 2.8,
+    "end": 3.46,
+    "p": 0.969
+   },
+   {
+    "word": " one",
+    "start": 3.46,
+    "end": 3.82,
+    "p": 0.991
+   },
+   {
+    "word": " live",
+    "start": 3.82,
+    "end": 4.1,
+    "p": 0.958
+   },
+   {
+    "word": " dashboard",
+    "start": 4.1,
+    "end": 4.66,
+    "p": 0.987
+   },
+   {
+    "word": " so",
+    "start": 4.66,
+    "end": 5.18,
+    "p": 0.741
+   },
+   {
+    "word": " your",
+    "start": 5.18,
+    "end": 5.36,
+    "p": 0.985
+   },
+   {
+    "word": " team",
+    "start": 5.36,
+    "end": 5.58,
+    "p": 0.999
+   },
+   {
+    "word": " can",
+    "start": 5.58,
+    "end": 5.8,
+    "p": 0.999
+   },
+   {
+    "word": " see",
+    "start": 5.8,
+    "end": 6.1,
+    "p": 0.998
+   },
+   {
+    "word": " where",
+    "start": 6.1,
+    "end": 6.46,
+    "p": 0.998
+   },
+   {
+    "word": " each",
+    "start": 6.46,
+    "end": 6.68,
+    "p": 0.999
+   },
+   {
+    "word": " case",
+    "start": 6.68,
+    "end": 6.9,
+    "p": 0.999
+   },
+   {
+    "word": " stands.",
+    "start": 6.9,
+    "end": 7.34,
+    "p": 0.997
+   }
+  ]
+ },
+ "c5.wav": {
+  "text": "The referring office sends the case with the x-rays attached, keeping the information together from the start.",
+  "words": [
+   {
+    "word": " The",
+    "start": 0.0,
+    "end": 0.66,
+    "p": 0.751
+   },
+   {
+    "word": " referring",
+    "start": 0.66,
+    "end": 0.98,
+    "p": 0.816
+   },
+   {
+    "word": " office",
+    "start": 0.98,
+    "end": 1.38,
+    "p": 0.998
+   },
+   {
+    "word": " sends",
+    "start": 1.38,
+    "end": 1.84,
+    "p": 0.984
+   },
+   {
+    "word": " the",
+    "start": 1.84,
+    "end": 2.06,
+    "p": 0.996
+   },
+   {
+    "word": " case",
+    "start": 2.06,
+    "end": 2.3,
+    "p": 0.999
+   },
+   {
+    "word": " with",
+    "start": 2.3,
+    "end": 2.56,
+    "p": 0.997
+   },
+   {
+    "word": " the",
+    "start": 2.56,
+    "end": 2.7,
+    "p": 0.99
+   },
+   {
+    "word": " x",
+    "start": 2.7,
+    "end": 2.92,
+    "p": 0.738
+   },
+   {
+    "word": "-rays",
+    "start": 2.92,
+    "end": 3.08,
+    "p": 0.981
+   },
+   {
+    "word": " attached,",
+    "start": 3.08,
+    "end": 3.56,
+    "p": 0.999
+   },
+   {
+    "word": " keeping",
+    "start": 4.22,
+    "end": 4.4,
+    "p": 0.994
+   },
+   {
+    "word": " the",
+    "start": 4.4,
+    "end": 4.6,
+    "p": 0.993
+   },
+   {
+    "word": " information",
+    "start": 4.6,
+    "end": 5.12,
+    "p": 0.994
+   },
+   {
+    "word": " together",
+    "start": 5.12,
+    "end": 5.68,
+    "p": 0.992
+   },
+   {
+    "word": " from",
+    "start": 5.68,
+    "end": 6.18,
+    "p": 0.988
+   },
+   {
+    "word": " the",
+    "start": 6.18,
+    "end": 6.34,
+    "p": 0.998
+   },
+   {
+    "word": " start.",
+    "start": 6.34,
+    "end": 6.64,
+    "p": 0.999
+   }
+  ]
+ },
+ "c6.wav": {
+  "text": "The patient gets a text and an email, asking them to book, giving your team fewer calls to make.",
+  "words": [
+   {
+    "word": " The",
+    "start": 0.0,
+    "end": 0.66,
+    "p": 0.848
+   },
+   {
+    "word": " patient",
+    "start": 0.66,
+    "end": 0.96,
+    "p": 0.999
+   },
+   {
+    "word": " gets",
+    "start": 0.96,
+    "end": 1.22,
+    "p": 0.993
+   },
+   {
+    "word": " a",
+    "start": 1.22,
+    "end": 1.7,
+    "p": 0.971
+   },
+   {
+    "word": " text",
+    "start": 1.7,
+    "end": 2.04,
+    "p": 0.997
+   },
+   {
+    "word": " and",
+    "start": 2.04,
+    "end": 2.62,
+    "p": 0.943
+   },
+   {
+    "word": " an",
+    "start": 2.62,
+    "end": 2.76,
+    "p": 0.985
+   },
+   {
+    "word": " email,",
+    "start": 2.76,
+    "end": 3.16,
+    "p": 0.896
+   },
+   {
+    "word": " asking",
+    "start": 3.94,
+    "end": 4.28,
+    "p": 0.994
+   },
+   {
+    "word": " them",
+    "start": 4.28,
+    "end": 4.5,
+    "p": 0.999
+   },
+   {
+    "word": " to",
+    "start": 4.5,
+    "end": 4.66,
+    "p": 0.998
+   },
+   {
+    "word": " book,",
+    "start": 4.66,
+    "end": 4.9,
+    "p": 0.997
+   },
+   {
+    "word": " giving",
+    "start": 5.38,
+    "end": 5.58,
+    "p": 0.998
+   },
+   {
+    "word": " your",
+    "start": 5.58,
+    "end": 5.84,
+    "p": 0.998
+   },
+   {
+    "word": " team",
+    "start": 5.84,
+    "end": 6.1,
+    "p": 0.999
+   },
+   {
+    "word": " fewer",
+    "start": 6.1,
+    "end": 6.4,
+    "p": 0.997
+   },
+   {
+    "word": " calls",
+    "start": 6.4,
+    "end": 6.72,
+    "p": 0.999
+   },
+   {
+    "word": " to",
+    "start": 6.72,
+    "end": 6.94,
+    "p": 0.999
+   },
+   {
+    "word": " make.",
+    "start": 6.94,
+    "end": 7.16,
+    "p": 0.999
+   }
+  ]
+ },
+ "c7.wav": {
+  "text": "Once treatment is complete your notes go back to the referring dentist in one click closing the communication loop",
+  "words": [
+   {
+    "word": " Once",
+    "start": 0.0,
+    "end": 0.6,
+    "p": 0.977
+   },
+   {
+    "word": " treatment",
+    "start": 0.6,
+    "end": 0.86,
+    "p": 0.992
+   },
+   {
+    "word": " is",
+    "start": 0.86,
+    "end": 1.08,
+    "p": 0.998
+   },
+   {
+    "word": " complete",
+    "start": 1.08,
+    "end": 1.46,
+    "p": 0.996
+   },
+   {
+    "word": " your",
+    "start": 1.46,
+    "end": 2.16,
+    "p": 0.157
+   },
+   {
+    "word": " notes",
+    "start": 2.16,
+    "end": 2.44,
+    "p": 0.998
+   },
+   {
+    "word": " go",
+    "start": 2.44,
+    "end": 2.64,
+    "p": 0.927
+   },
+   {
+    "word": " back",
+    "start": 2.64,
+    "end": 2.96,
+    "p": 0.998
+   },
+   {
+    "word": " to",
+    "start": 2.96,
+    "end": 3.62,
+    "p": 0.985
+   },
+   {
+    "word": " the",
+    "start": 3.62,
+    "end": 3.74,
+    "p": 0.996
+   },
+   {
+    "word": " referring",
+    "start": 3.74,
+    "end": 4.06,
+    "p": 0.981
+   },
+   {
+    "word": " dentist",
+    "start": 4.06,
+    "end": 4.48,
+    "p": 0.993
+   },
+   {
+    "word": " in",
+    "start": 4.48,
+    "end": 4.8,
+    "p": 0.992
+   },
+   {
+    "word": " one",
+    "start": 4.8,
+    "end": 5.06,
+    "p": 0.99
+   },
+   {
+    "word": " click",
+    "start": 5.06,
+    "end": 5.36,
+    "p": 0.991
+   },
+   {
+    "word": " closing",
+    "start": 5.36,
+    "end": 6.02,
+    "p": 0.507
+   },
+   {
+    "word": " the",
+    "start": 6.02,
+    "end": 6.26,
+    "p": 0.998
+   },
+   {
+    "word": " communication",
+    "start": 6.26,
+    "end": 6.68,
+    "p": 0.988
+   },
+   {
+    "word": " loop",
+    "start": 6.68,
+    "end": 7.08,
+    "p": 0.987
+   }
+  ]
+ },
+ "c8.wav": {
+  "text": "Instead of asking for updates, you can see them. Your team knows what's next and can focus on patience.",
+  "words": [
+   {
+    "word": " Instead",
+    "start": 0.0,
+    "end": 0.56,
+    "p": 0.933
+   },
+   {
+    "word": " of",
+    "start": 0.56,
+    "end": 0.68,
+    "p": 0.999
+   },
+   {
+    "word": " asking",
+    "start": 0.68,
+    "end": 0.98,
+    "p": 0.999
+   },
+   {
+    "word": " for",
+    "start": 0.98,
+    "end": 1.22,
+    "p": 0.999
+   },
+   {
+    "word": " updates,",
+    "start": 1.22,
+    "end": 1.62,
+    "p": 0.997
+   },
+   {
+    "word": " you",
+    "start": 2.24,
+    "end": 2.44,
+    "p": 0.993
+   },
+   {
+    "word": " can",
+    "start": 2.44,
+    "end": 2.58,
+    "p": 0.999
+   },
+   {
+    "word": " see",
+    "start": 2.58,
+    "end": 2.84,
+    "p": 0.987
+   },
+   {
+    "word": " them.",
+    "start": 2.84,
+    "end": 3.12,
+    "p": 1.0
+   },
+   {
+    "word": " Your",
+    "start": 3.98,
+    "end": 4.08,
+    "p": 0.994
+   },
+   {
+    "word": " team",
+    "start": 4.08,
+    "end": 4.3,
+    "p": 0.999
+   },
+   {
+    "word": " knows",
+    "start": 4.3,
+    "end": 4.56,
+    "p": 0.995
+   },
+   {
+    "word": " what's",
+    "start": 4.56,
+    "end": 4.86,
+    "p": 0.997
+   },
+   {
+    "word": " next",
+    "start": 4.86,
+    "end": 5.28,
+    "p": 1.0
+   },
+   {
+    "word": " and",
+    "start": 5.28,
+    "end": 5.72,
+    "p": 0.842
+   },
+   {
+    "word": " can",
+    "start": 5.72,
+    "end": 5.88,
+    "p": 0.999
+   },
+   {
+    "word": " focus",
+    "start": 5.88,
+    "end": 6.1,
+    "p": 1.0
+   },
+   {
+    "word": " on",
+    "start": 6.1,
+    "end": 6.38,
+    "p": 1.0
+   },
+   {
+    "word": " patience.",
+    "start": 6.38,
+    "end": 6.74,
+    "p": 0.801
+   }
+  ]
+ }
+}

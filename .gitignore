@@ -12,3 +12,6 @@ work/
 
 # Remotion's agent skills ship without a licence file; restore with `npx skills experimental_install`
 .claude/skills/remotion-best-practices/
+
+# ToothReferral UGC #2 intermediate: regenerate with reel/scripts/build_cut.py (the takes in reel/public/footage/tr2/ are committed)
+reel/public/footage/tr2-cut.mp4

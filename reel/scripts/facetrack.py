@@ -35,7 +35,7 @@ for path in sys.argv[2:]:
     k = 5
     pad = np.pad(arr, ((k // 2, k // 2), (0, 0)), mode="edge")
     smooth = np.stack([pad[i : i + len(arr)] for i in range(k)]).mean(axis=0)
-    name = path.rsplit("/", 1)[-1]
+    name = path.rsplit("/", 1)[-1].rsplit(".", 1)[0]  # key by clip id (TalentId), not file name
     result[name] = {
         "fps": fps,
         "w": int(cap.get(cv2.CAP_PROP_FRAME_WIDTH)),
