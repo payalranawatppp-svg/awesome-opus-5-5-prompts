@@ -1,6 +1,6 @@
 {
  "tr2-cut": {
-  "text": "Nobody tells you this, but your front office isn't underperforming. They're stuck chasing referrals instead of helping patients. If you run an endo or oral surgery practice, you know the questions. Did anyone call this patient? Where does this referral stand? Did the GP send the updated x-rays? Every answer means another interruption. Tooth referral brings every referral into one live dashboard so your team can see where each case stands. The referring office sends the case with the x-rays attached, keeping the information together from the start. The patient gets a text and an email asking them to book, giving your team fewer calls to make. Once treatment is complete, your notes go back to the referring dentist in one click, closing the communication loop. Instead of asking for updates, you can see them. Your team knows what's next and can focus on patients.",
+  "text": "Nobody tells you this, but your front office isn't underperforming. They're stuck chasing referrals instead of helping patients. If you run an endo or oral surgery practice, you know the questions. Did anyone call this patient? Where does this referral stand? Did the GP send the updated x-rays? Every answer means another interruption. Tooth referral brings every referral into one live dashboard so your team can see where each case stands. The referring office sends the case with the x-rays attached, keeping the information together from the start. Once treatment is complete, your notes go back to the referring dentist in one click, closing the communication loop. Instead of asking for updates, you can see them. Your team knows what's next and can focus on patients.",
   "words": [
    {
     "word": " Nobody",
@@ -543,345 +543,231 @@
     "p": 1.0
    },
    {
-    "word": " The",
-    "start": 31.24,
-    "end": 31.3,
-    "p": 0.987
-   },
-   {
-    "word": " patient",
-    "start": 31.3,
-    "end": 31.54,
-    "p": 0.994
-   },
-   {
-    "word": " gets",
-    "start": 31.54,
-    "end": 31.9,
-    "p": 0.997
-   },
-   {
-    "word": " a",
-    "start": 31.9,
-    "end": 32.36,
-    "p": 0.988
-   },
-   {
-    "word": " text",
-    "start": 32.36,
-    "end": 32.7,
-    "p": 0.999
-   },
-   {
-    "word": " and",
-    "start": 32.7,
-    "end": 33.24,
-    "p": 0.959
-   },
-   {
-    "word": " an",
-    "start": 33.24,
-    "end": 33.38,
-    "p": 0.984
-   },
-   {
-    "word": " email",
-    "start": 33.38,
-    "end": 33.74,
-    "p": 0.969
-   },
-   {
-    "word": " asking",
-    "start": 33.74,
-    "end": 34.26,
-    "p": 0.91
-   },
-   {
-    "word": " them",
-    "start": 34.26,
-    "end": 34.48,
-    "p": 0.998
-   },
-   {
-    "word": " to",
-    "start": 34.48,
-    "end": 34.68,
-    "p": 0.999
-   },
-   {
-    "word": " book,",
-    "start": 34.68,
-    "end": 34.94,
-    "p": 0.997
-   },
-   {
-    "word": " giving",
-    "start": 35.3,
-    "end": 35.58,
-    "p": 0.999
-   },
-   {
-    "word": " your",
-    "start": 35.58,
-    "end": 35.82,
-    "p": 0.998
-   },
-   {
-    "word": " team",
-    "start": 35.82,
-    "end": 36.08,
-    "p": 0.998
-   },
-   {
-    "word": " fewer",
-    "start": 36.08,
-    "end": 36.44,
-    "p": 0.998
-   },
-   {
-    "word": " calls",
-    "start": 36.44,
-    "end": 36.72,
-    "p": 0.999
-   },
-   {
-    "word": " to",
-    "start": 36.72,
-    "end": 36.92,
-    "p": 0.999
-   },
-   {
-    "word": " make.",
-    "start": 36.92,
-    "end": 37.18,
-    "p": 0.999
-   },
-   {
     "word": " Once",
-    "start": 37.44,
-    "end": 37.56,
+    "start": 31.232,
+    "end": 31.352,
     "p": 0.997
    },
    {
     "word": " treatment",
-    "start": 37.56,
-    "end": 37.86,
+    "start": 31.352,
+    "end": 31.652,
     "p": 0.983
    },
    {
     "word": " is",
-    "start": 37.86,
-    "end": 38.08,
+    "start": 31.652,
+    "end": 31.872,
     "p": 0.999
    },
    {
     "word": " complete,",
-    "start": 38.08,
-    "end": 38.48,
+    "start": 31.872,
+    "end": 32.272,
     "p": 0.998
    },
    {
     "word": " your",
-    "start": 38.66,
-    "end": 38.76,
+    "start": 32.452,
+    "end": 32.552,
     "p": 0.996
    },
    {
     "word": " notes",
-    "start": 38.76,
-    "end": 39.0,
+    "start": 32.552,
+    "end": 32.792,
     "p": 0.998
    },
    {
     "word": " go",
-    "start": 39.0,
-    "end": 39.2,
+    "start": 32.792,
+    "end": 32.992,
     "p": 0.996
    },
    {
     "word": " back",
-    "start": 39.2,
-    "end": 39.54,
+    "start": 32.992,
+    "end": 33.332,
     "p": 0.999
    },
    {
     "word": " to",
-    "start": 39.54,
-    "end": 39.9,
+    "start": 33.332,
+    "end": 33.692,
     "p": 0.996
    },
    {
     "word": " the",
-    "start": 39.9,
-    "end": 40.04,
+    "start": 33.692,
+    "end": 33.832,
     "p": 0.993
    },
    {
     "word": " referring",
-    "start": 40.04,
-    "end": 40.38,
+    "start": 33.832,
+    "end": 34.172,
     "p": 0.988
    },
    {
     "word": " dentist",
-    "start": 40.38,
-    "end": 40.74,
+    "start": 34.172,
+    "end": 34.532,
     "p": 0.994
    },
    {
     "word": " in",
-    "start": 40.74,
-    "end": 41.06,
+    "start": 34.532,
+    "end": 34.852,
     "p": 0.993
    },
    {
     "word": " one",
-    "start": 41.06,
-    "end": 41.32,
+    "start": 34.852,
+    "end": 35.112,
     "p": 0.977
    },
    {
     "word": " click,",
-    "start": 41.32,
-    "end": 41.7,
+    "start": 35.112,
+    "end": 35.492,
     "p": 0.977
    },
    {
     "word": " closing",
-    "start": 41.96,
-    "end": 42.34,
+    "start": 35.752,
+    "end": 36.132,
     "p": 0.999
    },
    {
     "word": " the",
-    "start": 42.34,
-    "end": 42.56,
+    "start": 36.132,
+    "end": 36.352,
     "p": 0.999
    },
    {
     "word": " communication",
-    "start": 42.56,
-    "end": 43.08,
+    "start": 36.352,
+    "end": 36.872,
     "p": 0.995
    },
    {
     "word": " loop.",
-    "start": 43.08,
-    "end": 43.42,
+    "start": 36.872,
+    "end": 37.212,
     "p": 0.999
    },
    {
     "word": " Instead",
-    "start": 43.58,
-    "end": 43.82,
+    "start": 37.372,
+    "end": 37.612,
     "p": 0.995
    },
    {
     "word": " of",
-    "start": 43.82,
-    "end": 44.02,
+    "start": 37.612,
+    "end": 37.812,
     "p": 0.999
    },
    {
     "word": " asking",
-    "start": 44.02,
-    "end": 44.26,
+    "start": 37.812,
+    "end": 38.052,
     "p": 1.0
    },
    {
     "word": " for",
-    "start": 44.26,
-    "end": 44.5,
+    "start": 38.052,
+    "end": 38.292,
     "p": 1.0
    },
    {
     "word": " updates,",
-    "start": 44.5,
-    "end": 44.96,
+    "start": 38.292,
+    "end": 38.752,
     "p": 0.999
    },
    {
     "word": " you",
-    "start": 45.22,
-    "end": 45.34,
+    "start": 39.012,
+    "end": 39.132,
     "p": 0.999
    },
    {
     "word": " can",
-    "start": 45.34,
-    "end": 45.5,
+    "start": 39.132,
+    "end": 39.292,
     "p": 0.999
    },
    {
     "word": " see",
-    "start": 45.5,
-    "end": 45.74,
+    "start": 39.292,
+    "end": 39.532,
     "p": 0.992
    },
    {
     "word": " them.",
-    "start": 45.74,
-    "end": 46.0,
+    "start": 39.532,
+    "end": 39.792,
     "p": 0.999
    },
    {
     "word": " Your",
-    "start": 46.22,
-    "end": 46.38,
+    "start": 40.012,
+    "end": 40.172,
     "p": 0.994
    },
    {
     "word": " team",
-    "start": 46.38,
-    "end": 46.6,
+    "start": 40.172,
+    "end": 40.392,
     "p": 0.999
    },
    {
     "word": " knows",
-    "start": 46.6,
-    "end": 46.86,
+    "start": 40.392,
+    "end": 40.652,
     "p": 0.999
    },
    {
     "word": " what's",
-    "start": 46.86,
-    "end": 47.18,
+    "start": 40.652,
+    "end": 40.972,
     "p": 0.995
    },
    {
     "word": " next",
-    "start": 47.18,
-    "end": 47.52,
+    "start": 40.972,
+    "end": 41.312,
     "p": 1.0
    },
    {
     "word": " and",
-    "start": 47.52,
-    "end": 47.98,
+    "start": 41.312,
+    "end": 41.772,
     "p": 0.859
    },
    {
     "word": " can",
-    "start": 47.98,
-    "end": 48.16,
+    "start": 41.772,
+    "end": 41.952,
     "p": 0.998
    },
    {
     "word": " focus",
-    "start": 48.16,
-    "end": 48.42,
+    "start": 41.952,
+    "end": 42.212,
     "p": 0.999
    },
    {
     "word": " on",
-    "start": 48.42,
-    "end": 48.68,
+    "start": 42.212,
+    "end": 42.472,
     "p": 1.0
    },
    {
     "word": " patients.",
-    "start": 48.68,
-    "end": 49.1,
+    "start": 42.472,
+    "end": 42.892,
     "p": 0.987
    }
   ]

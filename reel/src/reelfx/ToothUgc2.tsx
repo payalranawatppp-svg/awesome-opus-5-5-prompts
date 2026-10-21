@@ -500,43 +500,6 @@ const Together: React.FC<{ from: number; to: number }> = ({ from, to }) => {
   );
 };
 
-/** The patient's phone, held up by the raised hand: the text, the email, then the booking. */
-const PatientPhone: React.FC<{ from: number; to: number; textAt: number; emailAt: number; bookAt: number }> = ({ from, to, textAt, emailAt, bookAt }) => {
-  const frame = useCurrentFrame();
-  const { p, out, on } = useWindow(from, to, 9);
-  const sms = sp(frame, textAt, 13, 200);
-  const mail = sp(frame, emailAt, 13, 200);
-  const booked = sp(frame, bookAt + 4, 12, 210);
-  if (!on) return null;
-  const press = interpolate(frame, [bookAt, bookAt + 4, bookAt + 8], [0, 1, 0], clamp);
-  return (
-    <div style={{ position: "absolute", left: 60, top: 560, width: 330, height: 660, opacity: Math.min(1, p * 1.5) * (1 - out), translate: `${(1 - p) * -60}px ${(1 - p) * 80}px`, rotate: `${-6 + (1 - p) * -8}deg` }}>
-      <div style={{ position: "absolute", inset: 0, borderRadius: 52, background: "#111", padding: 12, boxShadow: "0 30px 70px rgba(10,6,40,0.55)" }}>
-        <div style={{ position: "relative", width: "100%", height: "100%", borderRadius: 42, overflow: "hidden", background: "linear-gradient(180deg, #F6F4FB, #ECE8F7)", fontFamily: FONT_UI }}>
-          <div style={{ position: "absolute", top: 12, left: "50%", translate: "-50% 0px", width: 100, height: 28, borderRadius: 14, background: "#111" }} />
-          <div style={{ position: "absolute", top: 54, left: 0, right: 0, textAlign: "center", fontSize: 15, color: TR.muted }}>Messages</div>
-          <div style={{ position: "absolute", top: 92, left: 18, right: 36, padding: "16px 18px", borderRadius: 22, borderBottomLeftRadius: 6, background: "#fff", fontSize: 19, lineHeight: 1.3, color: TR.ink, boxShadow: "0 4px 14px rgba(20,16,40,0.08)", opacity: sms, translate: `0px ${(1 - sms) * 20}px` }}>
-            <div style={{ fontWeight: 600, color: TR.purple, fontSize: 16, marginBottom: 4 }}>Endo Specialists</div>
-            Hi Maria, Dr. Patel referred you to us. Book your consult here:
-            <div style={{ marginTop: 10, padding: "10px 0", textAlign: "center", borderRadius: 12, background: booked > 0.5 ? TR.green : TR.purple, color: "#fff", fontWeight: 600, fontSize: 18, scale: String(1 - press * 0.06) }}>
-              {booked > 0.5 ? "Booked · Thu 9:30" : "Book appointment"}
-            </div>
-          </div>
-          <div style={{ position: "absolute", top: 330, left: 14, right: 14, padding: "14px 16px", borderRadius: 20, background: "rgba(255,255,255,0.95)", display: "flex", gap: 12, alignItems: "center", boxShadow: "0 10px 24px rgba(20,16,40,0.14)", opacity: mail, translate: `0px ${(1 - mail) * -30}px` }}>
-            <div style={{ width: 40, height: 40, borderRadius: 10, background: TR.purpleSoft, display: "flex", alignItems: "center", justifyContent: "center", flex: "none" }}>
-              <Icon d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zM22 6l-10 7L2 6" size={22} />
-            </div>
-            <div style={{ minWidth: 0 }}>
-              <div style={{ fontSize: 16, fontWeight: 600, color: TR.ink }}>Email · Endo Specialists</div>
-              <div style={{ fontSize: 15, color: TR.muted }}>Your referral is ready to book</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
 /** Treatment notes on the open palm; one click sends them back to the referring dentist. */
 const NotesBack: React.FC<{ from: number; to: number; clickAt: number }> = ({ from, to, clickAt }) => {
   const frame = useCurrentFrame();
@@ -640,12 +603,6 @@ const T = {
   attached: at("attached"),
   keeping: at("keeping"),
   start: endOf("start"),
-  patient2: at("the", 9),
-  text: at("text"),
-  email: at("email"),
-  book: at("book"),
-  giving: at("giving"),
-  make: endOf("make"),
   once: at("once"),
   notes: at("notes"),
   click: at("click"),
@@ -653,7 +610,6 @@ const T = {
   loop: endOf("loop"),
   instead: at("instead", 2),
   see2: at("see", 2),
-  your: at("your", 5),
   focus: at("focus"),
 };
 /** "Every answer means another interruption": a slow push-in on the face, released on the next cut. */
@@ -695,7 +651,6 @@ export const ToothUgc2: React.FC = () => {
         <Interruptions at={[at("every"), at("answer"), at("means"), at("interruption")].map((x) => x - 2)} to={WALL_AT + 4} />
         <LogoBehind from={T.tooth} to={T.one - 4} top={36} width={500} />
         <Journey from={T.referring - 4} to={T.keeping - 2} sendAt={T.sends} attachAt={T.attached - 4} />
-        <DepthWords from={T.giving - 4} to={T.once - 2} top={170} size={140} color="#FFFFFF" italic lines={[[{ text: "Fewer", at: at("fewer") }, { text: "calls.", at: at("calls") }]]} />
         <Loop from={T.closing - 6} to={T.instead - 2} closeAt={T.loop - 4} />
         <Updates from={T.instead} to={T.focus - 6} at={[T.see2 - 4, T.see2 + 2, T.see2 + 8, T.see2 + 14]} />
         <LogoBehind from={T.focus - 2} to={UGC2_DURATION + 30} top={36} width={500} />
@@ -719,8 +674,7 @@ export const ToothUgc2: React.FC = () => {
           ]}
         />
         <LiveBoard from={T.one - 4} to={T.referring - 6} updateAt={T.stands - 8} />
-        <Together from={T.keeping - 2} to={T.patient2 - 2} />
-        <PatientPhone from={T.patient2} to={T.giving - 2} textAt={T.text - 2} emailAt={T.email - 2} bookAt={T.book} />
+        <Together from={T.keeping - 2} to={T.once - 4} />
         <NotesBack from={T.notes - 8} to={T.closing - 4} clickAt={T.click} />
 
         <Captions hide={[[0, T.but - 2]]} />
@@ -742,9 +696,6 @@ export const ToothUgc2: React.FC = () => {
         { f: T.one - 4, s: "whoosh-short", v: 0.16 },
         { f: T.sends, s: "whoosh-short", v: 0.14 },
         { f: T.keeping + 14, s: "chime", v: 0.12 },
-        { f: T.text - 2, s: "blip-1", v: 0.16 },
-        { f: T.email - 2, s: "blip-2", v: 0.16 },
-        { f: T.book, s: "click", v: 0.2 },
         { f: T.click, s: "click", v: 0.24 },
         { f: T.click + 10, s: "whoosh-short", v: 0.14 },
         { f: T.loop - 4, s: "chime", v: 0.14 },

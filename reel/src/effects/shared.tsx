@@ -132,7 +132,7 @@ export const TALENT: Record<TalentId, Talent> = {
   /** ToothReferral UGC video: already edited (burned-in captions, UI inserts), so effects keep it whole. */
   "05-talk": makeTalent("05-talk", { w: 720, h: 1280, fps: 24, seconds: 43.7, frameScale: 1.5 }),
   /** ToothReferral UGC #2: eight takes joined by scripts/build_cut.py (clean studio wall, no burned-in text). */
-  "tr2-cut": makeTalent("tr2-cut", { w: 720, h: 1280, fps: 24, seconds: 49.25, frameScale: 1.5 }),
+  "tr2-cut": makeTalent("tr2-cut", { w: 720, h: 1280, fps: 24, seconds: 43.04, frameScale: 1.5 }),
 };
 export const DEFAULT_TALENT = TALENT["01-hook"];
 
