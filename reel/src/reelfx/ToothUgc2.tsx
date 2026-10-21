@@ -9,7 +9,7 @@
  * Demo data throughout; patient and practice names are fictional.
  */
 import React from "react";
-import { AbsoluteFill, Audio, Freeze, Sequence, interpolate, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
+import { AbsoluteFill, Audio, Freeze, Sequence, interpolate, spring, staticFile, useCurrentFrame, useVideoConfig } from "remotion";
 import { DigitalZoom, FontGate, TALENT, TalentLayer, type Framing } from "../effects";
 import transcript from "../data/transcript-tr2.json";
 import cut from "../data/tr2-cut-segments.json";
@@ -67,6 +67,10 @@ const MIC_MASK: React.CSSProperties = {
 };
 
 const SERIF: React.CSSProperties = { fontFamily: FONT_SERIF, fontWeight: 400 };
+
+/** Pure spring 0→1 from frame `at` (safe after early returns and inside loops, unlike a hook). */
+const sp = (frame: number, at: number, damping = 15, stiffness = 160) =>
+  frame < at ? 0 : spring({ frame: frame - at, fps: FPS, config: { damping, stiffness, mass: 0.75 } });
 
 /** Fade + lift in from `from`, quick fade out ending at `to`. */
 const useWindow = (from: number, to: number, outLen = 8) => {
@@ -132,7 +136,7 @@ const Chaos: React.FC<{ from: number; to: number }> = ({ from, to }) => {
     <AbsoluteFill style={{ opacity: 1 - out }}>
       <AbsoluteFill style={{ background: "radial-gradient(ellipse at 50% 30%, rgba(20,16,40,0) 30%, rgba(20,16,40,0.28) 100%)", opacity: ramp(frame, from, from + 10) }} />
       {sheets.map((s, i) => {
-        const p = useSpring(from + s.d, { damping: 13, stiffness: 110 });
+        const p = sp(frame, from + s.d, 13, 110);
         const drift = Math.sin((frame + i * 40) / 22) * 6;
         return (
           <div key={i} style={{ position: "absolute", left: s.x, top: s.y + drift, width: 230, height: 290, background: "#F1EFEA", borderRadius: 6, padding: 22, rotate: `${s.r + Math.sin((frame + i * 17) / 30) * 2}deg`, scale: String(0.85 + p * 0.15), opacity: Math.min(1, p * 1.6), boxShadow: "0 18px 40px rgba(20,16,40,0.28)" }}>
@@ -144,7 +148,7 @@ const Chaos: React.FC<{ from: number; to: number }> = ({ from, to }) => {
         );
       })}
       {tags.map((g, i) => {
-        const p = useSpring(from + g.d, { damping: 11, stiffness: 210 });
+        const p = sp(frame, from + g.d, 11, 210);
         return (
           <div key={i} style={{ position: "absolute", left: g.x, top: g.y + Math.sin((frame + i * 30) / 18) * 4, scale: String(p), opacity: Math.min(1, p * 2) }}>
             <Badge color="#fff" bg={TR.red} style={{ fontFamily: FONT_UI, fontSize: 26, fontWeight: 500, padding: "10px 22px", boxShadow: `0 10px 26px ${TR.red}55` }}>
@@ -176,7 +180,7 @@ const BrandWall: React.FC<{ from: number }> = ({ from }) => {
 /** "ToothReferral": the wordmark lands on the wall above the head, behind the hair. */
 const LogoBehind: React.FC<{ from: number; to: number; top?: number; width?: number }> = ({ from, to, top = 150, width = 640 }) => {
   const frame = useCurrentFrame();
-  const p = useSpring(from, { damping: 15, stiffness: 120 });
+  const p = sp(frame, from, 15, 120);
   const out = interpolate(frame, [to - 9, to], [0, 1], clamp);
   if (frame < from || frame > to) return null;
   return (
@@ -202,10 +206,10 @@ const Journey: React.FC<{ from: number; to: number; sendAt: number; attachAt: nu
   const u = 1 - t;
   const P = [0, 1].map((k) => u * u * u * A[k] + 3 * u * u * t * C1[k] + 3 * u * t * t * C2[k] + t * t * t * B[k]);
   const draw = ramp(frame, from + 4, from + 22);
-  const landed = useSpring(sendAt + 34, { damping: 12, stiffness: 200 });
-  const att = useSpring(attachAt, { damping: 12, stiffness: 220 });
+  const landed = sp(frame, sendAt + 34, 12, 200);
+  const att = sp(frame, attachAt, 12, 220);
   const Office: React.FC<{ x: number; name: string; initials: string; d: number }> = ({ x, name, initials, d }) => {
-    const p = useSpring(from + d, { damping: 14, stiffness: 170 });
+    const p = sp(frame, from + d, 14, 170);
     return (
       <div style={{ position: "absolute", left: x - 120, top: 270, width: 240, display: "flex", flexDirection: "column", alignItems: "center", scale: String(p), opacity: Math.min(1, p * 1.6) }}>
         <div style={{ ...glass(60), width: 120, height: 120, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: FONT_UI, fontSize: 38, fontWeight: 600 }}>{initials}</div>
@@ -244,11 +248,11 @@ const Loop: React.FC<{ from: number; to: number; closeAt: number }> = ({ from, t
   const R = 420;
   const C = 2 * Math.PI * R;
   const k = ramp(frame, from, closeAt, easeIO);
-  const done = useSpring(closeAt, { damping: 11, stiffness: 200 });
+  const done = sp(frame, closeAt, 11, 200);
   const node = (a: number, label: string, i: number) => {
     const x = 618 + Math.cos(a) * R;
     const y = 700 + Math.sin(a) * R;
-    const p = useSpring(from + i * 4, { damping: 13, stiffness: 190 });
+    const p = sp(frame, from + i * 4, 13, 190);
     return (
       <div key={label} style={{ position: "absolute", left: x - 34, top: y - 34, width: 68, height: 68, borderRadius: 34, background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: FONT_UI, fontWeight: 600, fontSize: 24, color: TR.purple, scale: String(p), boxShadow: `0 10px 30px rgba(4,2,20,0.4)` }}>
         {label}
@@ -284,7 +288,7 @@ const Updates: React.FC<{ from: number; to: number; at: number[] }> = ({ from, t
   return (
     <AbsoluteFill style={{ opacity: 1 - out }}>
       {items.map((it, i) => {
-        const p = useSpring(ats[i], { damping: 13, stiffness: 200 });
+        const p = sp(frame, ats[i], 13, 200);
         return (
           <div key={i} style={{ position: "absolute", left: it.x, top: it.y, ...glass(999), padding: "14px 22px", display: "flex", alignItems: "center", gap: 12, fontFamily: FONT_UI, fontSize: 25, fontWeight: 500, opacity: Math.min(1, p * 1.6), translate: `${(1 - p) * (it.x < 500 ? -40 : 40)}px 0px` }}>
             <div style={{ width: 30, height: 30, borderRadius: 15, background: TR.green, display: "flex", alignItems: "center", justifyContent: "center", flex: "none" }}>
@@ -321,7 +325,7 @@ const Questions: React.FC<{ qs: { t: string; at: number; x: number; y: number; s
   return (
     <AbsoluteFill>
       {qs.map((q, i) => {
-        const p = useSpring(q.at - 3, { damping: 12, stiffness: 190 });
+        const p = sp(frame, q.at - 3, 12, 190);
         const fall = interpolate(frame, [to - 12 + i * 2, to], [0, 1], clamp);
         return (
           <div
@@ -360,7 +364,7 @@ const Questions: React.FC<{ qs: { t: string; at: number; x: number; y: number; s
 const LiveBoard: React.FC<{ from: number; to: number; updateAt: number }> = ({ from, to, updateAt }) => {
   const frame = useCurrentFrame();
   const { p, out, on } = useWindow(from, to, 10);
-  const upd = useSpring(updateAt, { damping: 12, stiffness: 200 });
+  const upd = sp(frame, updateAt, 12, 200);
   if (!on) return null;
   const rows = [
     { n: "Maria Alvarez", o: "Bright Smile Dental", s: "New", c: TR.purple, bg: TR.purpleSoft },
@@ -379,7 +383,7 @@ const LiveBoard: React.FC<{ from: number; to: number; updateAt: number }> = ({ f
           </div>
         </div>
         {rows.map((r, i) => {
-          const rp = useSpring(from + 8 + i * 5, { damping: 14, stiffness: 190 });
+          const rp = sp(frame, from + 8 + i * 5, 14, 190);
           const isUpd = i === 1;
           const s = isUpd && upd > 0.5 ? "Completed" : r.s;
           const c = isUpd && upd > 0.5 ? TR.green : r.c;
@@ -452,9 +456,9 @@ const Together: React.FC<{ from: number; to: number }> = ({ from, to }) => {
 const PatientPhone: React.FC<{ from: number; to: number; textAt: number; emailAt: number; bookAt: number }> = ({ from, to, textAt, emailAt, bookAt }) => {
   const frame = useCurrentFrame();
   const { p, out, on } = useWindow(from, to, 9);
-  const sms = useSpring(textAt, { damping: 13, stiffness: 200 });
-  const mail = useSpring(emailAt, { damping: 13, stiffness: 200 });
-  const booked = useSpring(bookAt + 4, { damping: 12, stiffness: 210 });
+  const sms = sp(frame, textAt, 13, 200);
+  const mail = sp(frame, emailAt, 13, 200);
+  const booked = sp(frame, bookAt + 4, 12, 210);
   if (!on) return null;
   const press = interpolate(frame, [bookAt, bookAt + 4, bookAt + 8], [0, 1, 0], clamp);
   return (
@@ -489,7 +493,7 @@ const PatientPhone: React.FC<{ from: number; to: number; textAt: number; emailAt
 const NotesBack: React.FC<{ from: number; to: number; clickAt: number }> = ({ from, to, clickAt }) => {
   const frame = useCurrentFrame();
   const { p, on } = useWindow(from, to + 20, 6);
-  const sent = useSpring(clickAt + 3, { damping: 12, stiffness: 220 });
+  const sent = sp(frame, clickAt + 3, 12, 220);
   const fly = ramp(frame, clickAt + 10, clickAt + 26, (t) => t * t * t);
   if (!on || frame > to) return null;
   return (
