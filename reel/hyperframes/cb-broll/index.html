@@ -1,0 +1,168 @@
+<!doctype html>
+<!--
+  B-roll collage for the Chocolate Box edit: three photos as torn paper scraps, taped up, on a transparent ground.
+  Rendered to VP9 WebM with alpha and composited in Remotion BEHIND the speaker cutout, so the speaker stays in
+  shot (one continuous take) while the collage builds around his head and shoulders.
+
+  Motion follows motion-doctrine / cut-the-curve:
+    entry  waterfall from below: +230px -> 0, power4.out 0.5s, opacity 0.35 -> 1 (mid-flight ignition),
+           gaps 0.05s x 0.84 decay; the tape lands ON the frame each scrap stops (causal, same-frame).
+    hold   camera with intent: one slow push (scale 1 -> 1.045) and a 26px travel left, in the film's current.
+    exit   cut-the-curve leftward: x 0 -> -230 power4.in 0.34s, fade 0.18s with x, +0.022s per scrap.
+  Deckle edge and paper grain after the registry's paper-collage-reveal (seeded SVG turbulence).
+  Photos: CC0 / public domain via Openverse, see assets/broll/CREDITS.json.
+-->
+<html
+  lang="en"
+  data-resolution="portrait"
+  data-composition-variables='[
+    { "id": "img_c", "type": "string", "label": "Centre photo", "default": "assets/broll/operatory.jpg" },
+    { "id": "img_l", "type": "string", "label": "Left photo", "default": "assets/broll/hygienist-p.jpg" },
+    { "id": "img_r", "type": "string", "label": "Right photo", "default": "assets/broll/dentist-p.jpg" }
+  ]'
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      :root {
+        --paper: #f4eedf;
+        --tape: rgba(243, 221, 114, 0.82);
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1080px;
+        height: 1920px;
+        overflow: hidden;
+        background: transparent;
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        background: transparent;
+      }
+      #collage {
+        position: absolute;
+        inset: 0;
+      }
+      #cam {
+        position: absolute;
+        inset: 0;
+        transform-origin: 540px 520px;
+      }
+      .scrap {
+        position: absolute;
+        filter: drop-shadow(0 14px 22px rgba(16, 10, 30, 0.38)) drop-shadow(0 2px 4px rgba(16, 10, 30, 0.25));
+      }
+      .torn {
+        position: absolute;
+        inset: 0;
+        filter: url(#deckle);
+      }
+      .paper {
+        position: absolute;
+        inset: 0;
+        background: var(--paper);
+      }
+      .grain {
+        position: absolute;
+        inset: 0;
+        filter: url(#grain);
+        mix-blend-mode: multiply;
+      }
+      .photo {
+        position: absolute;
+        inset: 18px 18px 18px 18px;
+        width: calc(100% - 36px);
+        height: calc(100% - 36px);
+        object-fit: cover;
+      }
+      .tape {
+        position: absolute;
+        width: 150px;
+        height: 42px;
+        background: var(--tape);
+        mix-blend-mode: multiply;
+      }
+    </style>
+  </head>
+  <body>
+    <svg aria-hidden="true" width="0" height="0" style="position: absolute">
+      <defs>
+        <filter id="grain" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB">
+          <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="3" seed="41" stitchTiles="stitch" />
+          <feColorMatrix type="matrix" values="0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0.33 0.33 0.33 0 0  0 0 0 0 1" />
+          <feComponentTransfer>
+            <feFuncR type="linear" slope="0.6" intercept="0.62" />
+            <feFuncG type="linear" slope="0.6" intercept="0.62" />
+            <feFuncB type="linear" slope="0.6" intercept="0.62" />
+          </feComponentTransfer>
+        </filter>
+        <filter id="deckle" x="-4%" y="-4%" width="108%" height="108%">
+          <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="4" seed="7" />
+          <feDisplacementMap in="SourceGraphic" scale="14" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+      </defs>
+    </svg>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="3.6" data-width="1080" data-height="1920">
+      <div id="collage" class="clip" data-layout-allow-overflow data-start="0" data-duration="3.6" data-track-index="0" data-track-kind="graphics">
+        <div id="cam">
+          <!-- left, portrait, behind the speaker's shoulder -->
+          <div id="s-l" class="scrap" style="left: 34px; top: 520px; width: 380px; height: 500px">
+            <div class="torn"><div class="paper"></div><div class="grain"></div></div>
+            <img class="photo" src="assets/broll/hygienist-p.jpg" data-var-src="img_l" alt="" />
+            <div id="t-l" class="tape" style="left: 115px; top: -16px"></div>
+          </div>
+          <!-- right, portrait -->
+          <div id="s-r" class="scrap" style="left: 668px; top: 560px; width: 380px; height: 500px">
+            <div class="torn"><div class="paper"></div><div class="grain"></div></div>
+            <img class="photo" src="assets/broll/dentist-p.jpg" data-var-src="img_r" alt="" />
+            <div id="t-r" class="tape" style="left: 115px; top: -16px"></div>
+          </div>
+          <!-- centre, landscape, behind the head -->
+          <div id="s-c" class="scrap" style="left: 190px; top: 150px; width: 700px; height: 540px">
+            <div class="torn"><div class="paper"></div><div class="grain"></div></div>
+            <img class="photo" src="assets/broll/operatory.jpg" data-var-src="img_c" alt="" />
+            <div id="t-c1" class="tape" style="left: -30px; top: 20px"></div>
+            <div id="t-c2" class="tape" style="right: -30px; top: 20px"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const tl = gsap.timeline({ paused: true });
+      // entry: a waterfall from below, centre first (the head sits on it), then left, then right
+      const order = [
+        ["#s-c", -3, ["#t-c1", "#t-c2"]],
+        ["#s-l", -7, ["#t-l"]],
+        ["#s-r", 6, ["#t-r"]],
+      ];
+      let at = 0.0;
+      let gap = 0.05;
+      order.forEach(([sel, rot, tapes]) => {
+        tl.fromTo(sel, { y: 230, rotation: rot - 4, opacity: 0.35 }, { y: 0, rotation: rot, opacity: 1, duration: 0.5, ease: "power4.out" }, at);
+        // tape slaps down the moment the scrap lands
+        tl.fromTo(tapes, { scale: 1.35, opacity: 0, rotation: (i) => (i % 2 ? 9 : -9) }, { scale: 1, opacity: 1, rotation: (i) => (i % 2 ? 6 : -6), duration: 0.16, ease: "power3.out" }, at + 0.34);
+        at += 0.14 + gap;
+        gap *= 0.84;
+      });
+      // hold: camera with intent, one slow push travelling with the current (left)
+      tl.fromTo("#cam", { scale: 1, x: 0 }, { scale: 1.045, x: -26, duration: 3.6 - 0.36, ease: "none" }, 0);
+      // exit: cut-the-curve leftward, scrap by scrap
+      ["#s-c", "#s-l", "#s-r"].forEach((sel, i) => {
+        const t0 = 3.24 + i * 0.022 - 0.044;
+        tl.to(sel, { x: "-=230", duration: 0.34, ease: "power4.in" }, t0);
+        tl.to(sel, { opacity: 0, duration: 0.18, ease: "none" }, t0 + 0.12);
+      });
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>

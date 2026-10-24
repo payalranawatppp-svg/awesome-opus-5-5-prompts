@@ -1,27 +1,30 @@
 /**
  * "The Chocolate Box Delusion": ToothReferral podcast take, edited to the script's emotional arc.
  *
- *   1  the psychological joke (ironic)     swag with price tags, a $50,000 count-up, a tipping scale, a dying chart
- *   2  the market tension (serious)        GPs and specialists pulling apart, a pie eaten from both sides, an ad that
- *                                          skips the GP, front-desk "interrogation" bubbles
- *   3  flipping the script (the turn)      a self-check card, a full-frame 3D flip, what GPs actually want
+ *   1  the psychological joke (ironic)     a study-club b-roll collage, a $50,000 count-up, a 3D box of chocolates
+ *                                          tipping a scale against it, a dying chart
+ *   2  the market tension (serious)        GPs and specialists pulling apart, a pie eaten from both sides, an
+ *                                          Instagram-ads b-roll collage, front-desk "interrogation" bubbles
+ *   3  flipping the script (the turn)      a self-check card, what GPs actually want, a patient-relationship collage
  *   4  the ToothReferral fix (confident)   the wall turns brand purple; schedule embed; three feature cards
  *   5  the close (firm)                    GP and specialist reconnect (two-way); end card
  *
  * Captions take their style from the client's reference: lowercase heavy grotesk, built word by word low on the
- * chest; big pale-yellow words behind the head (speaker cutout in front). No chapter titles, so it plays as one
- * continuous talk. Footage: public/footage/cb-cut (scripts/cut_by_words.py), word timings src/data/transcript-cb.json.
+ * chest; big pale-yellow words behind the head (speaker cutout in front). It plays as ONE continuous take: no chapter
+ * titles, morph cuts in the footage (scripts/morph_cuts.py), one continuous camera move, b-roll that never cuts away
+ * from the speaker. Footage: public/footage/cb-cut (scripts/build_cb_src.sh), word timings src/data/transcript-cb.json.
  * Demo data; practice and patient names are fictional.
  */
 import React from "react";
 import { Swag3D } from "./Swag3D";
 import { AbsoluteFill, Audio, Freeze, Sequence, interpolate, spring, staticFile, useCurrentFrame } from "remotion";
+import { Video } from "@remotion/media";
 import { FontGate, TALENT, TalentLayer, type Framing } from "../effects";
 import transcript from "../data/transcript-cb.json";
 import cut from "../data/cb-cut-segments.json";
 import { FONT_UI } from "../theme";
 import { LogoReveal, easeIO, easeOut, ramp } from "../tr/motion";
-import { Avatar, ICON, Icon, TR, clamp } from "../tr/ui";
+import { ICON, Icon, TR, clamp } from "../tr/ui";
 
 const TL = TALENT["cb-cut"];
 const FPS = 30;
@@ -133,35 +136,52 @@ const T = {
   upgrade: at("upgrade"),
 };
 // section changes: no on-screen chapter titles, just a light push so the talk flows as one piece
-const SECTIONS = [T.here - 2, T.there - 2, T.that - 2, T.stop2 - 2];
 const WALL_AT = T.that - 4;
 
 // ---------------------------------------------------------------------------------------------------
-// Camera: wide on even pieces of the cut, a punch-in on odd ones; a light push on section changes; a
-// 3D flip on "flip the script".
+// Camera: ONE continuous move for the whole film, so the edit reads as a single take (motion-doctrine:
+// camera with intent, never a framing jump at a cut; the cuts themselves are hidden by morph cuts in the
+// footage). It pushes in on the emotional peaks and eases back out in between; every key is an ease, so the
+// camera never stops dead or snaps.
 
 const FACE = { x: 408, y: 423 };
 const onFace = (s: number): Framing => ({ scale: s, x: FACE.x * 1.5 - FACE.x * s, y: FACE.y * 1.5 - FACE.y * s });
-const SEG_STARTS = cut.segments.map((s) => Math.round(s.at * FPS));
-const segIndex = (frame: number) => {
-  let i = 0;
-  while (i + 1 < SEG_STARTS.length && SEG_STARTS[i + 1] <= frame) i++;
-  return i;
-};
-/** Slow emotional pushes: [from, to, extra scale]. */
-const PUSHES: [number, number, number][] = [
-  [at("act"), T.here - 4, 0.07], // "...and then act surprised"
-  [T.it, T.calling, 0.06], // "it wasn't your clinical skill"
-  [at("its"), T.they2, 0.05], // "it's time to flip the script"
-  [T.stop2, CUT_FRAMES, 0.06], // the close
+const CAMERA: [number, number][] = [
+  [0, 1.5],
+  [at("act"), 1.55],
+  [T.here - 4, 1.64], // "...and then act surprised"
+  [T.here + 45, 1.54],
+  [T.it, 1.56],
+  [T.calling, 1.66], // "it wasn't your clinical skill"
+  [T.calling + 45, 1.55],
+  [at("its"), 1.56],
+  [T.they2, 1.64], // "it's time to flip the script"
+  [WALL_AT - 15, 1.6],
+  [WALL_AT + 30, 1.5], // pulls back as the purple wall lands: an arrival
+  [T.not - 20, 1.58],
+  [T.stop2, 1.56],
+  [CUT_FRAMES, 1.68], // the close
 ];
 const framingAt = (frame: number): Framing => {
-  const base = segIndex(frame) % 2 === 0 ? 1.5 : 1.64;
-  let extra = 0;
-  for (const [a, b, e] of PUSHES) if (frame >= a && frame <= b) extra = Math.max(extra, e * ramp(frame, a, Math.min(b, a + 90), easeIO));
-  return onFace(base * (1 + extra));
+  let i = 0;
+  while (i + 2 < CAMERA.length && CAMERA[i + 1][0] <= frame) i++;
+  const [a, sa] = CAMERA[i];
+  const [b, sb] = CAMERA[i + 1];
+  return onFace(sa + (sb - sa) * easeIO(interpolate(frame, [a, b], [0, 1], clamp)));
 };
-const KICKS = SECTIONS;
+
+// ---------------------------------------------------------------------------------------------------
+// B-roll collages (HyperFrames: reel/hyperframes/cb-broll, rendered to VP9 with alpha). They sit BEHIND the
+// speaker cutout, so he stays in shot and the take never breaks; each enters as a waterfall and leaves with a
+// leftward cut-the-curve, the film's one direction.
+
+const Collage: React.FC<{ name: string; from: number }> = ({ name, from }) => (
+  <Sequence from={from} durationInFrames={108} layout="none">
+    <AbsoluteFill>
+      <Video src={staticFile(`broll/collage-${name}.webm`)} muted style={{ width: 1080, height: 1920 }} />
+    </AbsoluteFill>
+  </Sequence>
+);
 
 // ---------------------------------------------------------------------------------------------------
 // Captions
@@ -292,7 +312,7 @@ const PriceTag: React.FC<{ text: string; p: number }> = ({ text, p }) => (
 const SwagAndScale: React.FC = () => {
   const frame = useCurrentFrame();
   const end = T.swag + 20;
-  if (frame < T.plastic - 4 || frame > end) return null;
+  if (frame < T.chocolates - 8 || frame > end) return null;
   const out = interpolate(frame, [end - 8, end], [0, 1], clamp);
   const toScale = ramp(frame, T.profit, T.profit + 18, easeIO);
   // the scale draws in once the swag has cleared the left side, so nothing crosses the $50,000 label
@@ -300,9 +320,7 @@ const SwagAndScale: React.FC = () => {
   const tilt = interpolate(sp(frame, T.profit + 22, 9, 90), [0, 1], [0, -14]);
   const items = [
     // w and h: the item's footprint in pixels at full size; unit: pixels per model unit (see Swag3D)
-    { kind: "bottle" as const, tag: "$2", at: T.plastic - 2, x: 150, w: 84, h: 200, unit: 200, dx: -52 },
-    { kind: "pen" as const, tag: "pen", at: T.pen - 4, x: 400, w: 20, h: 190, unit: 190, dx: -14 },
-    { kind: "choc" as const, tag: "$5", at: T.chocolates - 6, x: 700, w: 240, h: 150, unit: 150, dx: 42 },
+    { kind: "choc" as const, tag: "$5", at: T.chocolates - 6, x: 600, w: 240, h: 150, unit: 150, dx: 0 },
   ];
   // the scale: beam centred above the head
   const cx = 540;
@@ -357,8 +375,8 @@ const SwagAndScale: React.FC = () => {
                 x: bx,
                 y: bottom,
                 size: it.unit * S,
-                // spins in on arrival, then a slow turntable sway
-                turn: (1 - p) * 1.6 + 0.32 * Math.sin((frame - it.at) / 26) + (it.kind === "pen" ? -0.3 : 0),
+                // spins in on arrival, then one slow turn
+                turn: (1 - p) * 1.6 + interpolate(frame, [it.at, T.swag], [-0.35, 0.2], clamp),
                 lean: (-leanDeg * Math.PI) / 180,
               }))}
             />
@@ -497,43 +515,6 @@ const InHouse: React.FC = () => {
   );
 };
 
-/** Specialists "running direct-to-consumer Instagram ads to bypass the GP": a sponsored post on a phone. */
-const AdPhone: React.FC = () => {
-  const frame = useCurrentFrame();
-  const { p, out, on } = win(frame, T.meanwhile + 4, T.why - 2);
-  if (!on) return null;
-  const skip = sp(frame, T.bypass - 2, 11, 200);
-  return (
-    <div style={{ position: "absolute", left: 50, top: 170, width: 300, height: 600, opacity: Math.min(1, p * 1.5) * (1 - out), translate: `${(1 - p) * -80}px ${(1 - p) * 40}px`, rotate: `${-5 + (1 - p) * -10}deg`, filter: out > 0 ? `blur(${out * 8}px)` : undefined }}>
-      <div style={{ position: "absolute", inset: 0, borderRadius: 46, background: "#0E0E12", padding: 10, boxShadow: "0 30px 70px rgba(10,6,24,0.5)" }}>
-        <div style={{ position: "relative", width: "100%", height: "100%", borderRadius: 38, overflow: "hidden", background: "#fff", fontFamily: FONT_UI }}>
-          <div style={{ position: "absolute", top: 10, left: "50%", translate: "-50% 0px", width: 90, height: 24, borderRadius: 12, background: "#0E0E12" }} />
-          <div style={{ position: "absolute", top: 48, left: 14, right: 14, display: "flex", alignItems: "center", gap: 8 }}>
-            <Avatar initials="ES" size={34} />
-            <div>
-              <div style={{ fontSize: 15, fontWeight: 700, color: INK }}>Endo Specialists</div>
-              <div style={{ fontSize: 12, color: "#8A8799" }}>Sponsored</div>
-            </div>
-          </div>
-          <div style={{ position: "absolute", top: 96, left: 0, right: 0, height: 270, background: "linear-gradient(160deg, #F6E7C8, #E6B87A)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <svg width={120} height={140} viewBox="0 0 24 28">
-              <path d="M12 2c-2.5 0-4 1.2-5.5 1.2S4 2.5 3 4c-1.6 2.4-.4 7 1 10 .8 1.7 1 5 2.5 7 .8 1 1.8.5 2-.7.3-1.8.6-4.5 3.5-4.5s3.2 2.7 3.5 4.5c.2 1.2 1.2 1.7 2 .7 1.5-2 1.7-5.3 2.5-7 1.4-3 2.6-7.6 1-10-1-1.5-2.5-.8-3.5-.8S14.5 2 12 2z" fill="#fff" stroke="#C48A3E" strokeWidth={0.8} />
-            </svg>
-          </div>
-          <div style={{ position: "absolute", top: 380, left: 14, right: 14, fontSize: 19, fontWeight: 700, color: INK, lineHeight: 1.25 }}>Need an implant? Book direct, no referral needed.</div>
-          <div style={{ position: "absolute", top: 452, left: 14, right: 14, padding: "10px 0", textAlign: "center", borderRadius: 12, background: "#2F6BFF", color: W, fontSize: 17, fontWeight: 700 }}>Book now</div>
-        </div>
-      </div>
-      {skip > 0 && (
-        <div style={{ position: "absolute", left: 150, top: 610, display: "flex", alignItems: "center", gap: 10, padding: "10px 18px", borderRadius: 999, background: INK, color: W, ...TYPE, letterSpacing: "-0.02em", fontSize: 26, scale: String(skip), whiteSpace: "nowrap", boxShadow: "0 10px 24px rgba(10,6,24,0.4)" }}>
-          <span style={{ textDecoration: "line-through", textDecorationColor: RED, textDecorationThickness: 4, opacity: 0.8 }}>GP</span> skipped
-        </div>
-      )}
-    </div>
-  );
-};
-
-/** The front desk "interrogation": a ringing call, then two curt bubbles on either side of the head. */
 const Interrogation: React.FC = () => {
   const frame = useCurrentFrame();
   const { p, out, on } = win(frame, T.calling - 8, T.there - 2);
@@ -614,7 +595,7 @@ const NoChocolates: React.FC = () => {
   return (
     <AbsoluteFill style={{ opacity: Math.min(1, p * 1.5) * (1 - out) }}>
       <div style={{ position: "absolute", left: 120, top: 498, width: 240, height: 22, borderRadius: "50%", background: "rgba(10,6,24,0.4)", filter: "blur(12px)" }} />
-      <Swag3D items={[{ kind: "choc", x: 240, y: 510, size: 175 * s, turn: -0.35 + 0.18 * Math.sin((frame - T.dentists) / 30), lean: 0.08 }]} />
+      <Swag3D items={[{ kind: "choc", x: 240, y: 510, size: 175 * s, turn: interpolate(frame, [T.dentists - 4, T.they2 - 2], [-0.5, -0.1], clamp), lean: 0.08 }]} />
       <svg width={300} height={230} style={{ position: "absolute", left: 90, top: 290 }}>
         <line x1={20} y1={20} x2={20 + 260 * x} y2={20 + 190 * x} stroke={RED} strokeWidth={14} strokeLinecap="round" />
         <line x1={280} y1={20} x2={280 - 260 * Math.max(0, x * 2 - 1)} y2={20 + 190 * Math.max(0, x * 2 - 1)} stroke={RED} strokeWidth={14} strokeLinecap="round" />
@@ -660,7 +641,8 @@ const BrandWall: React.FC = () => {
   const frame = useCurrentFrame();
   const k = ramp(frame, WALL_AT, WALL_AT + 16, easeIO);
   if (frame < WALL_AT) return null;
-  const d = Math.sin(frame / 60) * 40;
+  // the light travels slowly left with the camera, one way, never bobbing back
+  const d = interpolate(frame, [WALL_AT, CUT_FRAMES], [40, -40], clamp);
   return (
     <AbsoluteFill style={{ clipPath: `circle(${k * 1500}px at 612px 600px)` }}>
       <AbsoluteFill style={{ background: `linear-gradient(170deg, ${TR.stage1} 0%, #2A176A 55%, ${TR.stage2} 100%)` }} />
@@ -819,27 +801,22 @@ const Engine: React.FC = () => {
   );
 };
 
-/** "Not just another specialist sending branded swag": the swag line-up, greyed and struck. */
+/** "Not just another specialist sending branded swag": the chocolate box again, greyed and struck. */
 const SwagStruck: React.FC = () => {
   const frame = useCurrentFrame();
   const { p, out, on } = win(frame, T.not - 2, T.stop2 - 4);
   if (!on) return null;
   const strike = ramp(frame, T.branded2, T.branded2 + 10, easeOut);
   const s = interpolate(p, [0, 1], [0.85, 1]);
-  const sway = 0.2 * Math.sin((frame - T.not) / 28);
+  // one slow turn across the beat (it performs, it does not idle-wobble)
+  const turn = interpolate(frame, [T.not - 2, T.stop2 - 4], [-0.45, 0.15], clamp);
   return (
     <AbsoluteFill style={{ opacity: Math.min(1, p * 1.5) * (1 - out) }}>
-      <div style={{ position: "absolute", left: 290, top: 110, width: 500, height: 230, borderRadius: 32, background: "rgba(255,255,255,0.12)", border: "1.5px solid rgba(255,255,255,0.25)", scale: String(s) }} />
+      <div style={{ position: "absolute", left: 360, top: 100, width: 360, height: 250, borderRadius: 32, background: "rgba(255,255,255,0.12)", border: "1.5px solid rgba(255,255,255,0.25)", scale: String(s) }} />
       <AbsoluteFill style={{ filter: `grayscale(${strike}) brightness(${1 - strike * 0.25})`, opacity: 1 - strike * 0.35 }}>
-        <Swag3D
-          items={[
-            { kind: "bottle", x: 380, y: 310, size: 160 * s, turn: -0.3 + sway, lean: 0 },
-            { kind: "pen", x: 470, y: 312, size: 150 * s, turn: 0.2 - sway, lean: -0.12 },
-            { kind: "choc", x: 640, y: 300, size: 120 * s, turn: -0.3 + sway, lean: 0 },
-          ]}
-        />
+        <Swag3D items={[{ kind: "choc", x: 540, y: 300, size: 150 * s, turn, lean: 0 }]} />
       </AbsoluteFill>
-      <div style={{ position: "absolute", left: 300, top: 220, height: 12, width: `${strike * 480}px`, background: RED, borderRadius: 6, rotate: "-6deg", transformOrigin: "0 50%", boxShadow: "0 4px 16px rgba(10,6,24,0.35)" }} />
+      <div style={{ position: "absolute", left: 370, top: 220, height: 12, width: `${strike * 340}px`, background: RED, borderRadius: 6, rotate: "-6deg", transformOrigin: "0 50%", boxShadow: "0 4px 16px rgba(10,6,24,0.35)" }} />
     </AbsoluteFill>
   );
 };
@@ -922,22 +899,20 @@ export const ChocolateBox: React.FC = () => {
     const el = <TalentLayer talent={TL} layer={layer} framing={fr} style={{ ...grade, ...style }} />;
     return freeze ? <Freeze frame={CUT_FRAMES - 2}>{el}</Freeze> : el;
   };
-  // a short, soft push across each section change (no blur, so the flow is never interrupted)
-  const kick = Math.max(0, ...KICKS.map((k) => Math.max(0, 1 - Math.abs(frame - k) / 7)));
-  const kickScale = 1 + 0.035 * easeIO(kick);
-  // "flip the script": the whole frame turns over on its vertical axis
   const F = T.flip;
-  const flipA = frame >= F - 8 && frame < F ? interpolate(frame, [F - 8, F], [0, 90]) : frame >= F && frame < F + 8 ? interpolate(frame, [F, F + 8], [-90, 0]) : 0;
   const endBlur = interpolate(frame, [CUT_FRAMES - 6, CUT_FRAMES + 10], [0, 14], clamp);
   return (
     <AbsoluteFill style={{ background: "#0F0B1C" }}>
       <FontGate>
-        <AbsoluteFill style={{ perspective: 2200 }}>
-          <AbsoluteFill style={{ transform: `rotateY(${flipA}deg)`, backfaceVisibility: "hidden" }}>
-            <AbsoluteFill style={{ scale: String(kickScale), filter: endBlur > 0 ? `blur(${endBlur}px)` : undefined }}>
+        <AbsoluteFill>
+          <AbsoluteFill>
+            <AbsoluteFill style={{ filter: endBlur > 0 ? `blur(${endBlur}px)` : undefined }}>
               {speaker("full")}
               <BrandWall />
               {/* behind the speaker */}
+              <Collage name="studyclub" from={at("meet") - 6} />
+              <Collage name="ads" from={at("instagram") - 10} />
+              <Collage name="relationship" from={T.respect - 6} />
               <BigWord from={T.fifty - 4} to={T.bottle - 30} text="$50,000" size={190} count={{ to: 50000, prefix: "$", dur: 22 }} />
               <SwagAndScale />
               <BigWord from={T.swag - 3} to={T.surprised - 8} text="swag." />
@@ -955,7 +930,6 @@ export const ChocolateBox: React.FC = () => {
             {/* in front */}
             <OpeningTitle to={at("you", 1) + 8} />
             <InHouse />
-            <AdPhone />
             <Interrogation />
             <SelfCheck />
             <NoChocolates />
@@ -991,12 +965,12 @@ export const ChocolateBox: React.FC = () => {
       {[
         { f: 2, s: "impact", v: 0.16 },
         { f: T.fifty - 4, s: "riser", v: 0.1 },
-        { f: T.plastic - 2, s: "pop-1", v: 0.14 },
-        { f: T.pen - 4, s: "pop-2", v: 0.14 },
         { f: T.chocolates - 6, s: "pop-3", v: 0.14 },
         { f: T.profit + 14, s: "thud", v: 0.16 },
         { f: T.stop, s: "flatline", v: 0.08 },
-        ...KICKS.map((k) => ({ f: k - 5, s: "whoosh-short", v: 0.1 })),
+        { f: at("meet") - 6, s: "whoosh-short", v: 0.1 },
+        { f: at("instagram") - 10, s: "whoosh-short", v: 0.1 },
+        { f: T.respect - 6, s: "whoosh-short", v: 0.1 },
         { f: T.pies - 2, s: "pop-1", v: 0.14 },
         { f: T.house - 2, s: "thud", v: 0.14 },
         { f: T.bypass - 2, s: "blip-2", v: 0.14 },
