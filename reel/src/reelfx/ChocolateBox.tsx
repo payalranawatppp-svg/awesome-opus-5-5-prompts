@@ -9,8 +9,8 @@
  *   5  the close (firm)                    GP and specialist reconnect (two-way); end card
  *
  * Captions take their style from the client's reference: lowercase heavy grotesk, built word by word low on the
- * chest; big pale-yellow words behind the head (speaker cutout in front); chapter titles that shrink into a small
- * top label. Footage: public/footage/cb-cut (scripts/cut_by_words.py), word timings src/data/transcript-cb.json.
+ * chest; big pale-yellow words behind the head (speaker cutout in front). No chapter titles, so it plays as one
+ * continuous talk. Footage: public/footage/cb-cut (scripts/cut_by_words.py), word timings src/data/transcript-cb.json.
  * Demo data; practice and patient names are fictional.
  */
 import React from "react";
@@ -131,17 +131,12 @@ const T = {
   two: at("two"),
   upgrade: at("upgrade"),
 };
-const CH = [
-  { from: 0, label: "the psychological joke", n: 1 },
-  { from: T.here - 2, label: "eating each other's pies", n: 2, big: true },
-  { from: T.there - 2, label: "flipping the script", n: 3 },
-  { from: T.that - 2, label: "the toothreferral fix", n: 4 },
-  { from: T.stop2 - 2, label: "the close", n: 5, big: true },
-];
+// section changes: no on-screen chapter titles, just a light push so the talk flows as one piece
+const SECTIONS = [T.here - 2, T.there - 2, T.that - 2, T.stop2 - 2];
 const WALL_AT = T.that - 4;
 
 // ---------------------------------------------------------------------------------------------------
-// Camera: wide on even pieces of the cut, a punch-in on odd ones; a push + blur "kick" on chapter changes; a
+// Camera: wide on even pieces of the cut, a punch-in on odd ones; a light push on section changes; a
 // 3D flip on "flip the script".
 
 const FACE = { x: 408, y: 423 };
@@ -165,7 +160,7 @@ const framingAt = (frame: number): Framing => {
   for (const [a, b, e] of PUSHES) if (frame >= a && frame <= b) extra = Math.max(extra, e * ramp(frame, a, Math.min(b, a + 90), easeIO));
   return onFace(base * (1 + extra));
 };
-const KICKS = CH.slice(1).map((c) => c.from);
+const KICKS = SECTIONS;
 
 // ---------------------------------------------------------------------------------------------------
 // Captions
@@ -229,27 +224,6 @@ const Captions: React.FC = () => {
           </span>
         );
       })}
-    </div>
-  );
-};
-
-/** Chapter title: big for a beat, then shrinks into the small label at the top for the rest of the chapter. */
-const Chapter: React.FC<{ i: number }> = ({ i }) => {
-  const frame = useCurrentFrame();
-  const c = CH[i];
-  const next = CH[i + 1]?.from ?? CUT_FRAMES;
-  if (frame < c.from || frame >= next) return null;
-  const f = frame - c.from;
-  const settle = c.big ? ramp(frame, c.from + 34, c.from + 46, easeIO) : 1;
-  const inK = c.big ? sp(frame, c.from, 14, 150) : interpolate(f, [0, 10], [0, 1], clamp);
-  const out = interpolate(frame, [next - 6, next], [0, 1], clamp);
-  const big = 1 - settle;
-  return (
-    <div style={{ position: "absolute", left: 0, right: 0, top: interpolate(settle, [0, 1], [150, 58]), textAlign: "center", opacity: Math.min(1, inK * 1.4) * (1 - out) }}>
-      <div style={{ ...TYPE, fontSize: interpolate(settle, [0, 1], [150, 30]), color: W, textShadow: SOFT, filter: c.big && inK < 0.7 ? `blur(${(0.7 - inK) * 16}px)` : undefined, scale: String(c.big ? interpolate(inK, [0, 1], [1.12, 1]) : 1) }}>
-        <span style={{ color: YELLOW }}>part {c.n}</span>
-        {big < 0.5 ? <span style={{ fontWeight: 700, opacity: 1 - big * 2 }}>{"  "}{c.label}</span> : null}
-      </div>
     </div>
   );
 };
@@ -355,12 +329,13 @@ const SwagAndScale: React.FC = () => {
   if (frame < T.plastic - 4 || frame > end) return null;
   const out = interpolate(frame, [end - 8, end], [0, 1], clamp);
   const toScale = ramp(frame, T.profit, T.profit + 18, easeIO);
-  const scaleIn = sp(frame, T.profit - 2, 14, 140);
-  const tilt = interpolate(sp(frame, T.profit + 14, 9, 90), [0, 1], [0, -14]);
+  // the scale draws in once the swag has cleared the left side, so nothing crosses the $50,000 label
+  const scaleIn = sp(frame, T.profit + 8, 14, 140);
+  const tilt = interpolate(sp(frame, T.profit + 22, 9, 90), [0, 1], [0, -14]);
   const items = [
-    { el: <Bottle size={170} />, tag: "$2", at: T.plastic - 2, x: 150 },
-    { el: <Pen size={170} />, tag: "pen", at: T.pen - 4, x: 380 },
-    { el: <ChocBox size={210} />, tag: "$5", at: T.chocolates - 6, x: 690 },
+    { el: <Bottle size={170} />, tag: "$2", at: T.plastic - 2, x: 150, w: 71, h: 170, dx: -52 },
+    { el: <Pen size={170} />, tag: "pen", at: T.pen - 4, x: 380, w: 37, h: 170, dx: -18 },
+    { el: <ChocBox size={210} />, tag: "$5", at: T.chocolates - 6, x: 690, w: 210, h: 130, dx: 40 },
   ];
   // the scale: beam centred above the head
   const cx = 540;
@@ -394,8 +369,11 @@ const SwagAndScale: React.FC = () => {
         const p = sp(frame, it.at, 11, 200);
         if (frame < it.at - 1) return null;
         // fly into the right pan
-        const tx = interpolate(toScale, [0, 1], [it.x, R[0] - 110 + i * 60]);
-        const ty = interpolate(toScale, [0, 1], [150, R[1] + 46]);
+        // land standing in the right pan: scale is about the item's bottom centre, so put that on the pan's floor
+        const tx = interpolate(ramp(frame, T.profit + i * 4, T.profit + 18 + i * 4, easeIO), [0, 1], [it.x, R[0] + it.dx - it.w / 2]);
+        // arc up and over, one after another, so nothing crosses the $50,000 label
+        const k = ramp(frame, T.profit + i * 4, T.profit + 18 + i * 4, easeIO);
+        const ty = interpolate(k, [0, 1], [150, R[1] + 124 - it.h]) - Math.sin(k * Math.PI) * 110;
         const s = interpolate(toScale, [0, 1], [1, 0.42]);
         return (
           <div key={i} style={{ position: "absolute", left: tx, top: ty, display: "flex", flexDirection: "column", alignItems: "center", transformOrigin: "50% 100%", scale: String(p * s), opacity: Math.min(1, p * 2), rotate: `${(1 - p) * -12 + tilt * toScale * 0.5}deg`, filter: "drop-shadow(0 14px 22px rgba(10,6,24,0.35))" }}>
@@ -423,7 +401,7 @@ const DyingChart: React.FC = () => {
   const d = pts.slice(0, n).map((q, i) => `${i ? "L" : "M"}${X(q[0])} ${Y(q[1])}`).join(" ");
   const last = pts[n - 1];
   return (
-    <div style={{ position: "absolute", left: 600, top: 380, width: 440, opacity: Math.min(1, p * 1.5) * (1 - out), translate: `0px ${(1 - p) * 30}px`, rotate: "2deg" }}>
+    <div style={{ position: "absolute", left: 44, top: 110, width: 440, opacity: Math.min(1, p * 1.5) * (1 - out), translate: `0px ${(1 - p) * 30}px`, rotate: "-2deg", transformOrigin: "0 0", scale: "0.92" }}>
       <div style={{ ...CARD, padding: "20px 22px 14px" }}>
         <div style={{ fontSize: 22, fontWeight: 700, color: "#6B6880" }}>Referrals from Dr. Lee</div>
         <svg width={400} height={230}>
@@ -443,7 +421,7 @@ const DyingChart: React.FC = () => {
 // Chapter 2: the market tension
 
 const Node: React.FC<{ label: string; x: number; y: number; color: string; s?: number }> = ({ label, x, y, color, s = 1 }) => (
-  <div style={{ position: "absolute", left: x, top: y, translate: "-50% -50%", scale: String(s), padding: "16px 30px", borderRadius: 999, background: color, color: color === YELLOW ? INK : W, ...TYPE, letterSpacing: "-0.03em", fontSize: 44, boxShadow: "0 14px 34px rgba(10,6,24,0.35)", whiteSpace: "nowrap" }}>{label}</div>
+  <div style={{ position: "absolute", left: x, top: y, translate: "-50% -50%", scale: String(s), padding: "16px 30px", borderRadius: 999, background: color, color: color === YELLOW || color === W ? INK : W, ...TYPE, letterSpacing: "-0.03em", fontSize: 44, boxShadow: "0 14px 34px rgba(10,6,24,0.35)", whiteSpace: "nowrap" }}>{label}</div>
 );
 
 /** GPs and specialists pull apart; a pie between them loses a slice to each side. */
@@ -948,9 +926,9 @@ export const ChocolateBox: React.FC = () => {
     const el = <TalentLayer talent={TL} layer={layer} framing={fr} style={{ ...grade, ...style }} />;
     return freeze ? <Freeze frame={CUT_FRAMES - 2}>{el}</Freeze> : el;
   };
-  // chapter "kick": a short push with motion blur across each chapter change
+  // a short, soft push across each section change (no blur, so the flow is never interrupted)
   const kick = Math.max(0, ...KICKS.map((k) => Math.max(0, 1 - Math.abs(frame - k) / 7)));
-  const kickScale = 1 + 0.07 * easeIO(kick);
+  const kickScale = 1 + 0.035 * easeIO(kick);
   // "flip the script": the whole frame turns over on its vertical axis
   const F = T.flip;
   const flipA = frame >= F - 8 && frame < F ? interpolate(frame, [F - 8, F], [0, 90]) : frame >= F && frame < F + 8 ? interpolate(frame, [F, F + 8], [-90, 0]) : 0;
@@ -960,7 +938,7 @@ export const ChocolateBox: React.FC = () => {
       <FontGate>
         <AbsoluteFill style={{ perspective: 2200 }}>
           <AbsoluteFill style={{ transform: `rotateY(${flipA}deg)`, backfaceVisibility: "hidden" }}>
-            <AbsoluteFill style={{ scale: String(kickScale), filter: kick > 0.05 ? `blur(${kick * 5}px)` : endBlur > 0 ? `blur(${endBlur}px)` : undefined }}>
+            <AbsoluteFill style={{ scale: String(kickScale), filter: endBlur > 0 ? `blur(${endBlur}px)` : undefined }}>
               {speaker("full")}
               <BrandWall />
               {/* behind the speaker */}
@@ -1004,9 +982,6 @@ export const ChocolateBox: React.FC = () => {
               <Engine />
             </Feature>
             <SwagStruck />
-            {CH.map((_, i) => (
-              <Chapter key={i} i={i} />
-            ))}
             {frame < CUT_FRAMES - 4 && <Captions />}
             <EndCard />
           </AbsoluteFill>
@@ -1025,7 +1000,7 @@ export const ChocolateBox: React.FC = () => {
         { f: T.chocolates - 6, s: "pop-3", v: 0.14 },
         { f: T.profit + 14, s: "thud", v: 0.16 },
         { f: T.stop, s: "flatline", v: 0.08 },
-        ...KICKS.map((k) => ({ f: k - 5, s: "whoosh-short", v: 0.18 })),
+        ...KICKS.map((k) => ({ f: k - 5, s: "whoosh-short", v: 0.1 })),
         { f: T.pies - 2, s: "pop-1", v: 0.14 },
         { f: T.house - 2, s: "thud", v: 0.14 },
         { f: T.bypass - 2, s: "blip-2", v: 0.14 },
