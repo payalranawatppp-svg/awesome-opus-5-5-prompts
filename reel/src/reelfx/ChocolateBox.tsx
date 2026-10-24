@@ -296,7 +296,8 @@ const PriceTag: React.FC<{ text: string; p: number }> = ({ text, p }) => (
 /** The swag, item by item, then onto the light pan of a scale against $50,000 of cases. */
 const SwagAndScale: React.FC = () => {
   const frame = useCurrentFrame();
-  const end = T.swag + 20;
+  // clears out just before "swag." lands in the same space
+  const end = T.swag - 4;
   if (frame < T.chocolates - 8 || frame > end) return null;
   const out = interpolate(frame, [end - 8, end], [0, 1], clamp);
   const toScale = ramp(frame, T.profit, T.profit + 18, easeIO);
@@ -474,7 +475,7 @@ const InHouse: React.FC = () => {
     const k = ramp(frame, a, a + 16, easeIO);
     const q = sp(frame, a - 4, 12, 200);
     return (
-      <div key={label} style={{ position: "absolute", left: interpolate(k, [0, 1], [380 + i * 20, 92 + i * 150]), top: interpolate(k, [0, 1], [560 + i * 70, 708]), padding: "10px 20px", borderRadius: 999, background: YELLOW, color: INK, ...TYPE, letterSpacing: "-0.02em", fontSize: 30, scale: String(q), opacity: Math.min(1, q * 2), boxShadow: "0 8px 20px rgba(10,6,24,0.3)" }}>
+      <div key={label} style={{ position: "absolute", left: interpolate(k, [0, 1], [130 + i * 60, 92 + i * 150]), top: interpolate(k, [0, 1], [640, 708]), padding: "10px 20px", borderRadius: 999, background: YELLOW, color: INK, ...TYPE, letterSpacing: "-0.02em", fontSize: 30, scale: String(q), opacity: Math.min(1, q * 2), boxShadow: "0 8px 20px rgba(10,6,24,0.3)" }}>
         {label}
       </div>
     );
@@ -600,7 +601,8 @@ const Interrogation: React.FC = () => {
         </div>
       </div>
       {b1 > 0 && bubble("hey, do you have the x-ray?", b1, 60, 350, T.hey - 3, "l")}
-      {b2 > 0 && bubble("what's their insurance info?", b2, 560, 520, T.whats - 3, "r")}
+      {/* on his right shoulder, below the chin: never over the face */}
+      {b2 > 0 && bubble("what's their insurance info?", b2, 560, 880, T.whats - 3, "r")}
     </AbsoluteFill>
   );
 };
