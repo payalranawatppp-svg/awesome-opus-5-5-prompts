@@ -2,15 +2,20 @@
 new background: everything inside a tight outline that differs from an inpainted model of the studio wall,
 plus the matte where the mic lies on the shoulder. Writes reel/public/cutouts/tr2-cut-mic.png; run from reel/
 with the matte venv (cv2). The preview path at the end is a scratch file."""
+import sys
+
 import cv2, numpy as np
+
+# usage: mic_mask.py [CLIP_ID]   (default tr2-cut; reads public/footage/<id>.mp4 and public/cutouts/<id>-matte.mp4)
+CLIP = sys.argv[1] if len(sys.argv) > 1 else "tr2-cut"
 def med(path, k=30):
     cap=cv2.VideoCapture(path); n=int(cap.get(cv2.CAP_PROP_FRAME_COUNT)); fs=[]
     for i in np.linspace(5,n-5,k).astype(int):
         cap.set(cv2.CAP_PROP_POS_FRAMES,int(i)); ok,f=cap.read()
         if ok: fs.append(f)
     return np.median(np.stack(fs),0).astype(np.uint8)
-img=med('public/footage/tr2-cut.mp4')
-alpha=med('public/cutouts/tr2-cut-matte.mp4')[...,0].astype(np.float32)/255
+img=med(f'public/footage/{CLIP}.mp4')
+alpha=med(f'public/cutouts/{CLIP}-matte.mp4')[...,0].astype(np.float32)/255
 H,W=img.shape[:2]
 arm=np.array([[0,428],[130,412],[178,418],[208,468],[222,560],[218,612],[174,612],[162,560],[152,548],[80,548],[0,548]])
 body=np.array([[58,778],[92,834],[165,826],[336,642],[304,566],[258,566],[150,636],[74,716]])
@@ -37,8 +42,8 @@ for k in range(1,nl):
 soft=np.maximum(keep*np.clip(m*1.4,0,1), cv2.erode(keep,np.ones((3,3),np.uint8)).astype(np.float32))
 soft=cv2.GaussianBlur(soft.astype(np.float32),(3,3),0)
 rgba=np.zeros((H,W,4),np.uint8); rgba[...,:3]=255; rgba[...,3]=(soft*255).astype(np.uint8)
-cv2.imwrite('public/cutouts/tr2-cut-mic.png',rgba)
-capv=cv2.VideoCapture('public/footage/tr2-cut.mp4'); capm=cv2.VideoCapture('public/cutouts/tr2-cut-matte.mp4')
+cv2.imwrite(f'public/cutouts/{CLIP}-mic.png',rgba)
+capv=cv2.VideoCapture(f'public/footage/{CLIP}.mp4'); capm=cv2.VideoCapture(f'public/cutouts/{CLIP}-matte.mp4')
 out=[]
 for fi,bgc in [(96,(180,40,200)),(700,(90,30,40)),(840,(120,90,200))]:
     capv.set(cv2.CAP_PROP_POS_FRAMES,fi); _,f=capv.read(); capm.set(cv2.CAP_PROP_POS_FRAMES,fi); _,am=capm.read()

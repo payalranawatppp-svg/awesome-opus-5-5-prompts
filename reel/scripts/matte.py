@@ -39,6 +39,7 @@ ap.add_argument("--ratio", type=float, default=0.4, help="RVM downsample ratio (
 ap.add_argument("--warmup", type=int, default=24, help="frames run once first to settle the recurrent state")
 ap.add_argument("--fade-bottom", default=None, help="Y0:Y1 source rows over which the cutout fades out")
 ap.add_argument("--reuse-matte", action="store_true", help="read <out>/<name>-matte.mp4 instead of running RVM")
+ap.add_argument("--no-plate", action="store_true", help="skip the clean plate (it needs several GB of RAM on long clips)")
 args = ap.parse_args()
 
 clip, out = Path(args.clip), Path(args.out)
@@ -129,24 +130,26 @@ for p in (enc, mat):
     p.stdin.close()
     p.wait()
 
-# 2. clean plate: per-pixel median of the frames where that pixel is clearly background
-stack = np.stack(frames[::3]).astype(np.float32)                    # (n, h, w, 3)
-# a pixel counts as background only when the speaker is >= 12 px away (hair edges and motion blur stain the edge)
-bg = np.stack([cv2.dilate((r > 0.02).astype(np.uint8), np.ones((25, 25), np.uint8)) == 0 for r in raw[::3]])
-masked = np.where(bg[..., None], stack, np.nan)
-with np.errstate(all="ignore"), __import__("warnings").catch_warnings():
-    __import__("warnings").simplefilter("ignore", RuntimeWarning)
-    plate = np.nanmedian(masked, axis=0)
-hole = np.isnan(plate[..., 0])
-plate = np.nan_to_num(plate).astype(np.uint8)
-grow = cv2.dilate(hole.astype(np.uint8) * 255, np.ones((15, 15), np.uint8))   # also redo the hole's rim
-small = cv2.resize(plate, (w // 4, h // 4), interpolation=cv2.INTER_AREA)
-small_hole = cv2.dilate(cv2.resize(grow, (w // 4, h // 4), interpolation=cv2.INTER_NEAREST), np.ones((3, 3), np.uint8))
-filled = cv2.inpaint(small, small_hole, 12, cv2.INPAINT_TELEA)
-filled = cv2.GaussianBlur(cv2.resize(filled, (w, h), interpolation=cv2.INTER_CUBIC), (0, 0), 6)
-soft = np.maximum(cv2.GaussianBlur(grow.astype(np.float32) / 255, (0, 0), 4), hole)[..., None]   # 1 on the hole
-plate = (plate * (1 - soft) + filled * soft).astype(np.uint8)
-cv2.imwrite(str(out / f"{name}-plate.jpg"), plate, [cv2.IMWRITE_JPEG_QUALITY, 92])
+hole = np.zeros(1)
+if not args.no_plate:
+    # 2. clean plate: per-pixel median of the frames where that pixel is clearly background
+    stack = np.stack(frames[::3]).astype(np.float32)                    # (n, h, w, 3)
+    # a pixel counts as background only when the speaker is >= 12 px away (hair edges and motion blur stain the edge)
+    bg = np.stack([cv2.dilate((r > 0.02).astype(np.uint8), np.ones((25, 25), np.uint8)) == 0 for r in raw[::3]])
+    masked = np.where(bg[..., None], stack, np.nan)
+    with np.errstate(all="ignore"), __import__("warnings").catch_warnings():
+        __import__("warnings").simplefilter("ignore", RuntimeWarning)
+        plate = np.nanmedian(masked, axis=0)
+    hole = np.isnan(plate[..., 0])
+    plate = np.nan_to_num(plate).astype(np.uint8)
+    grow = cv2.dilate(hole.astype(np.uint8) * 255, np.ones((15, 15), np.uint8))   # also redo the hole's rim
+    small = cv2.resize(plate, (w // 4, h // 4), interpolation=cv2.INTER_AREA)
+    small_hole = cv2.dilate(cv2.resize(grow, (w // 4, h // 4), interpolation=cv2.INTER_NEAREST), np.ones((3, 3), np.uint8))
+    filled = cv2.inpaint(small, small_hole, 12, cv2.INPAINT_TELEA)
+    filled = cv2.GaussianBlur(cv2.resize(filled, (w, h), interpolation=cv2.INTER_CUBIC), (0, 0), 6)
+    soft = np.maximum(cv2.GaussianBlur(grow.astype(np.float32) / 255, (0, 0), 4), hole)[..., None]   # 1 on the hole
+    plate = (plate * (1 - soft) + filled * soft).astype(np.uint8)
+    cv2.imwrite(str(out / f"{name}-plate.jpg"), plate, [cv2.IMWRITE_JPEG_QUALITY, 92])
 
 (out / f"{name}-matte.tmp.mp4").unlink(missing_ok=True)
 full_webm = clip.with_suffix(".webm")

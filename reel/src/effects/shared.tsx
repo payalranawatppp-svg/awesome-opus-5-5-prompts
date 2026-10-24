@@ -80,7 +80,7 @@ export const rand = (seed: number) => {
 // ---------------------------------------------------------------------------------------------------
 // Talent: the clip, its cutout and its clean plate
 
-export type TalentId = "01-hook" | "02-solution" | "03-outcome" | "04-cta" | "05-talk" | "tr2-cut";
+export type TalentId = "01-hook" | "02-solution" | "03-outcome" | "04-cta" | "05-talk" | "tr2-cut" | "cb-cut";
 export type Talent = {
   id: TalentId;
   /** public/ paths. `video` is a VP9 WebM copy of the clip: the render browser cannot decode H.264, and
@@ -133,6 +133,8 @@ export const TALENT: Record<TalentId, Talent> = {
   "05-talk": makeTalent("05-talk", { w: 720, h: 1280, fps: 24, seconds: 43.7, frameScale: 1.5 }),
   /** ToothReferral UGC #2: eight takes joined by scripts/build_cut.py (clean studio wall, no burned-in text). */
   "tr2-cut": makeTalent("tr2-cut", { w: 720, h: 1280, fps: 24, seconds: 43.04, frameScale: 1.5 }),
+  /** "The Chocolate Box Delusion" podcast take, tightened by scripts/cut_by_words.py (30 fps). */
+  "cb-cut": makeTalent("cb-cut", { w: 720, h: 1280, fps: 30, seconds: 131.1, frameScale: 1.5 }),
 };
 export const DEFAULT_TALENT = TALENT["01-hook"];
 
