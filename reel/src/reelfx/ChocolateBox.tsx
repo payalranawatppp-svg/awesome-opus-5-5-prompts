@@ -1,30 +1,28 @@
 /**
  * "The Chocolate Box Delusion": ToothReferral podcast take, edited to the script's emotional arc.
  *
- *   1  the psychological joke (ironic)     a study-club b-roll collage, a $50,000 count-up, a 3D box of chocolates
+ *   1  the psychological joke (ironic)     a study-club event card, a $50,000 count-up, a 3D box of chocolates
  *                                          tipping a scale against it, a dying chart
  *   2  the market tension (serious)        GPs and specialists pulling apart, a pie eaten from both sides, an
- *                                          Instagram-ads b-roll collage, front-desk "interrogation" bubbles
- *   3  flipping the script (the turn)      a self-check card, what GPs actually want, a patient-relationship collage
+ *                                          ad that skips the GP, front-desk "interrogation" bubbles
+ *   3  flipping the script (the turn)      a self-check card, what GPs actually want
  *   4  the ToothReferral fix (confident)   the wall turns brand purple; schedule embed; three feature cards
  *   5  the close (firm)                    GP and specialist reconnect (two-way); end card
  *
  * Captions take their style from the client's reference: lowercase heavy grotesk, built word by word low on the
  * chest; big pale-yellow words behind the head (speaker cutout in front). It plays as ONE continuous take: no chapter
- * titles, morph cuts in the footage (scripts/morph_cuts.py), one continuous camera move, b-roll that never cuts away
- * from the speaker. Footage: public/footage/cb-cut (scripts/build_cb_src.sh), word timings src/data/transcript-cb.json.
+ * titles, morph cuts in the footage (scripts/morph_cuts.py), one continuous camera move. Footage: public/footage/cb-cut (scripts/build_cb_src.sh), word timings src/data/transcript-cb.json.
  * Demo data; practice and patient names are fictional.
  */
 import React from "react";
 import { Swag3D } from "./Swag3D";
 import { AbsoluteFill, Audio, Freeze, Sequence, interpolate, spring, staticFile, useCurrentFrame } from "remotion";
-import { Video } from "@remotion/media";
 import { FontGate, TALENT, TalentLayer, type Framing } from "../effects";
 import transcript from "../data/transcript-cb.json";
 import cut from "../data/cb-cut-segments.json";
 import { FONT_UI } from "../theme";
 import { LogoReveal, easeIO, easeOut, ramp } from "../tr/motion";
-import { ICON, Icon, TR, clamp } from "../tr/ui";
+import { Avatar, ICON, Icon, TR, clamp } from "../tr/ui";
 
 const TL = TALENT["cb-cut"];
 const FPS = 30;
@@ -169,19 +167,6 @@ const framingAt = (frame: number): Framing => {
   const [b, sb] = CAMERA[i + 1];
   return onFace(sa + (sb - sa) * easeIO(interpolate(frame, [a, b], [0, 1], clamp)));
 };
-
-// ---------------------------------------------------------------------------------------------------
-// B-roll collages (HyperFrames: reel/hyperframes/cb-broll, rendered to VP9 with alpha). They sit BEHIND the
-// speaker cutout, so he stays in shot and the take never breaks; each enters as a waterfall and leaves with a
-// leftward cut-the-curve, the film's one direction.
-
-const Collage: React.FC<{ name: string; from: number }> = ({ name, from }) => (
-  <Sequence from={from} durationInFrames={108} layout="none">
-    <AbsoluteFill>
-      <Video src={staticFile(`broll/collage-${name}.webm`)} muted style={{ width: 1080, height: 1920 }} />
-    </AbsoluteFill>
-  </Sequence>
-);
 
 // ---------------------------------------------------------------------------------------------------
 // Captions
@@ -515,6 +500,81 @@ const InHouse: React.FC = () => {
   );
 };
 
+/** Specialists "running direct-to-consumer Instagram ads to bypass the GP": a sponsored post on a phone. */
+const AdPhone: React.FC = () => {
+  const frame = useCurrentFrame();
+  const { p, out, on } = win(frame, T.meanwhile + 4, T.why - 2);
+  if (!on) return null;
+  const skip = sp(frame, T.bypass - 2, 11, 200);
+  return (
+    <div style={{ position: "absolute", left: 50, top: 170, width: 300, height: 600, opacity: Math.min(1, p * 1.5) * (1 - out), translate: `${(1 - p) * -80}px ${(1 - p) * 40}px`, rotate: `${-5 + (1 - p) * -10}deg`, filter: out > 0 ? `blur(${out * 8}px)` : undefined }}>
+      <div style={{ position: "absolute", inset: 0, borderRadius: 46, background: "#0E0E12", padding: 10, boxShadow: "0 30px 70px rgba(10,6,24,0.5)" }}>
+        <div style={{ position: "relative", width: "100%", height: "100%", borderRadius: 38, overflow: "hidden", background: "#fff", fontFamily: FONT_UI }}>
+          <div style={{ position: "absolute", top: 10, left: "50%", translate: "-50% 0px", width: 90, height: 24, borderRadius: 12, background: "#0E0E12" }} />
+          <div style={{ position: "absolute", top: 48, left: 14, right: 14, display: "flex", alignItems: "center", gap: 8 }}>
+            <Avatar initials="ES" size={34} />
+            <div>
+              <div style={{ fontSize: 15, fontWeight: 700, color: INK }}>Endo Specialists</div>
+              <div style={{ fontSize: 12, color: "#8A8799" }}>Sponsored</div>
+            </div>
+          </div>
+          <div style={{ position: "absolute", top: 96, left: 0, right: 0, height: 270, background: "linear-gradient(160deg, #F6E7C8, #E6B87A)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <svg width={120} height={140} viewBox="0 0 24 28">
+              <path d="M12 2c-2.5 0-4 1.2-5.5 1.2S4 2.5 3 4c-1.6 2.4-.4 7 1 10 .8 1.7 1 5 2.5 7 .8 1 1.8.5 2-.7.3-1.8.6-4.5 3.5-4.5s3.2 2.7 3.5 4.5c.2 1.2 1.2 1.7 2 .7 1.5-2 1.7-5.3 2.5-7 1.4-3 2.6-7.6 1-10-1-1.5-2.5-.8-3.5-.8S14.5 2 12 2z" fill="#fff" stroke="#C48A3E" strokeWidth={0.8} />
+            </svg>
+          </div>
+          <div style={{ position: "absolute", top: 380, left: 14, right: 14, fontSize: 19, fontWeight: 700, color: INK, lineHeight: 1.25 }}>Need an implant? Book direct, no referral needed.</div>
+          <div style={{ position: "absolute", top: 452, left: 14, right: 14, padding: "10px 0", textAlign: "center", borderRadius: 12, background: "#2F6BFF", color: W, fontSize: 17, fontWeight: 700 }}>Book now</div>
+        </div>
+      </div>
+      {skip > 0 && (
+        <div style={{ position: "absolute", left: 150, top: 610, display: "flex", alignItems: "center", gap: 10, padding: "10px 18px", borderRadius: 999, background: INK, color: W, ...TYPE, letterSpacing: "-0.02em", fontSize: 26, scale: String(skip), whiteSpace: "nowrap", boxShadow: "0 10px 24px rgba(10,6,24,0.4)" }}>
+          <span style={{ textDecoration: "line-through", textDecorationColor: RED, textDecorationThickness: 4, opacity: 0.8 }}>GP</span> skipped
+        </div>
+      )}
+    </div>
+  );
+};
+
+/** "You meet a general dentist at a study club": an event card, then the two of you on the guest list. */
+const StudyClub: React.FC = () => {
+  const frame = useCurrentFrame();
+  const { p, out, on } = win(frame, at("meet") - 4, T.fifty - 6);
+  if (!on) return null;
+  const guest = (initials: string, name: string, role: string, a: number, i: number) => {
+    const q = sp(frame, a, 13, 170);
+    return (
+      <div key={name} style={{ display: "flex", alignItems: "center", gap: 12, marginTop: 14, opacity: Math.min(1, q * 2), translate: `${(1 - q) * 30}px 0px` }}>
+        <Avatar initials={initials} size={44} />
+        <div>
+          <div style={{ fontSize: 22, fontWeight: 800, letterSpacing: "-0.02em" }}>{name}</div>
+          <div style={{ fontSize: 17, color: "#6B6880" }}>{role}</div>
+        </div>
+        {i === 0 && <div style={{ marginLeft: "auto", padding: "4px 12px", borderRadius: 999, background: YELLOW, fontSize: 16, fontWeight: 800 }}>refers</div>}
+      </div>
+    );
+  };
+  return (
+    <div style={{ position: "absolute", left: 50, top: 150, width: 420, opacity: Math.min(1, p * 1.5) * (1 - out), translate: `${(1 - p) * -60}px 0px`, rotate: "-2deg", filter: out > 0 ? `blur(${out * 8}px)` : undefined }}>
+      <div style={{ ...CARD, padding: "22px 24px 22px" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+          <div style={{ width: 52, height: 52, borderRadius: 14, background: "#F1EFF7", display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <Icon d={ICON.calendar} size={30} color={INK} />
+          </div>
+          <div>
+            <div style={{ fontSize: 26, fontWeight: 800, letterSpacing: "-0.02em" }}>Study Club</div>
+            <div style={{ fontSize: 18, color: "#6B6880" }}>Implant case review · Thu 7 PM</div>
+          </div>
+        </div>
+        <div style={{ height: 1, background: "#ECEAF2", margin: "16px 0 2px" }} />
+        {guest("JL", "Dr. J. Lee", "General dentist", at("general") - 2, 0)}
+        {guest("YOU", "You", "Specialist", at("study") - 2, 1)}
+      </div>
+    </div>
+  );
+};
+
+/** The front desk "interrogation": a ringing call, then two curt bubbles on either side of the head. */
 const Interrogation: React.FC = () => {
   const frame = useCurrentFrame();
   const { p, out, on } = win(frame, T.calling - 8, T.there - 2);
@@ -910,9 +970,6 @@ export const ChocolateBox: React.FC = () => {
               {speaker("full")}
               <BrandWall />
               {/* behind the speaker */}
-              <Collage name="studyclub" from={at("meet") - 6} />
-              <Collage name="ads" from={at("instagram") - 10} />
-              <Collage name="relationship" from={T.respect - 6} />
               <BigWord from={T.fifty - 4} to={T.bottle - 30} text="$50,000" size={190} count={{ to: 50000, prefix: "$", dur: 22 }} />
               <SwagAndScale />
               <BigWord from={T.swag - 3} to={T.surprised - 8} text="swag." />
@@ -929,7 +986,9 @@ export const ChocolateBox: React.FC = () => {
             </AbsoluteFill>
             {/* in front */}
             <OpeningTitle to={at("you", 1) + 8} />
+            <StudyClub />
             <InHouse />
+            <AdPhone />
             <Interrogation />
             <SelfCheck />
             <NoChocolates />
@@ -968,9 +1027,9 @@ export const ChocolateBox: React.FC = () => {
         { f: T.chocolates - 6, s: "pop-3", v: 0.14 },
         { f: T.profit + 14, s: "thud", v: 0.16 },
         { f: T.stop, s: "flatline", v: 0.08 },
-        { f: at("meet") - 6, s: "whoosh-short", v: 0.1 },
-        { f: at("instagram") - 10, s: "whoosh-short", v: 0.1 },
-        { f: T.respect - 6, s: "whoosh-short", v: 0.1 },
+        { f: at("meet") - 4, s: "pop-1", v: 0.12 },
+        { f: at("general") - 2, s: "tick-1", v: 0.12 },
+        { f: T.meanwhile + 4, s: "whoosh-short", v: 0.1 },
         { f: T.pies - 2, s: "pop-1", v: 0.14 },
         { f: T.house - 2, s: "thud", v: 0.14 },
         { f: T.bypass - 2, s: "blip-2", v: 0.14 },
