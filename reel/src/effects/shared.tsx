@@ -134,7 +134,7 @@ export const TALENT: Record<TalentId, Talent> = {
   /** ToothReferral UGC #2: eight takes joined by scripts/build_cut.py (clean studio wall, no burned-in text). */
   "tr2-cut": makeTalent("tr2-cut", { w: 720, h: 1280, fps: 24, seconds: 43.04, frameScale: 1.5 }),
   /** "The Chocolate Box Delusion" podcast take, tightened by scripts/cut_by_words.py (30 fps). */
-  "cb-cut": makeTalent("cb-cut", { w: 720, h: 1280, fps: 30, seconds: 131.1, frameScale: 1.5 }),
+  "cb-cut": makeTalent("cb-cut", { w: 720, h: 1280, fps: 30, seconds: 127.43, frameScale: 1.5 }),
 };
 export const DEFAULT_TALENT = TALENT["01-hook"];
 

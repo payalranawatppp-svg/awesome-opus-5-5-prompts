@@ -15,5 +15,7 @@ work/
 
 # ToothReferral UGC #2 intermediate: regenerate with reel/scripts/build_cut.py (the takes in reel/public/footage/tr2/ are committed)
 reel/public/footage/tr2-cut.mp4
-# Chocolate Box intermediate: regenerate with reel/scripts/cut_by_words.py from reel/public/footage/cb/cb-src.mp4
+# Chocolate Box: the source is rebuilt from the 19 original clips by reel/scripts/build_cb_src.sh (too big for
+# GitHub), the cut by reel/scripts/cut_by_words.py (command in build_cb_src.sh)
+reel/public/footage/cbq/cbq-src.mp4
 reel/public/footage/cb-cut.mp4

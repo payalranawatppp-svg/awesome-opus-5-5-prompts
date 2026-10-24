@@ -1,2064 +1,2064 @@
 {
  "cb-cut": {
-  "text": "Let's talk about the psychological joke of dental referrals. You meet a general dentist at a study club. Expect them to send you $50 ,000 worth of specialty cases, and in return, you send their office a $2 plastic water bottle, a branded pen, or if you're feeling extra generous, a $5 box of Ferrero Rocher chocolates at Christmas. You profit big time off a single handshake, hand them cheap swag, and then act surprised when they stop sending you patients. Here is what's actually happening. General practitioners and specialists are heading in opposite directions, and both are trying to eat each other's pies. GPs are keeping implants and endo in -house because they feel zero loyalty to specialists who treat them like a transaction. Meanwhile, specialists are running direct -to -consumer Instagram ads to bypass the GP altogether. And why did that dentist stop referring to you in the first place? It wasn't your clinical skill. cuz your entire communication pipeline consists of your front desk calling theirs to bark. Hey, do you have the x -ray? What's their insurance info? There is zero relationship building in an administrative interrogatory call. Ask yourself, how well does your team actually handle the referral experience? Are you actually marketing value to your GPs? Or are you just expecting handouts? It's time to flip the script. General dentists don't want cheap chocolates. They want predictability, speed, and respect for their patient relationship. That is where tooth referral makes the difference. Instead of transactional phone tag and static email chains, tooth referral embeds your specialty practice directly into the GP's daily workflow. Zero friction. No more chasing x -rays or fighting over missing insurance details. Automatic Transpee. The GP sees patient status in real time, closing the loop without picking up the phone. 24 -7 B2B relationship engine. You become their easiest, most indispensable clinical partner. Not just another specialist sending branded swag. Stop bribing your referral network with candy. Start offering them a modern, two -way partnership. Upgrade your referral pipeline today at Tooth Referral.",
+  "text": "Let's talk about the psychological joke of dental referrals. You meet a general dentist at a study club. Expect them to send you $50,000 worth of specialty cases, and in return, you send their office a $2 plastic water bottle, a branded pen, or if you're feeling extra generous, a $5 box of Ferrero Rocher chocolates at Christmas. You profit big time off a single handshake, hand them cheap swag, and then act surprised when they stop sending you patients. Here is what's actually happening. General practitioners and specialists are heading in opposite directions, and both are trying to eat each other's pies. GPs are keeping implants and endo in-house because they feel zero loyalty to specialists who treat them like a transaction. Meanwhile, specialists are running direct-to-consumer Instagram ads to bypass the GP altogether. And why did that dentist stop referring to you in the first place? It wasn't your clinical skill. Because your entire communication pipeline consists of your front desk calling theirs to bark, Hey, do you have the x-ray? What's their insurance info? There is zero relationship building in an administrative interrogatory call. Ask yourself, how well does your team actually handle the referral experience? Are you actually marketing value to your GPs? Or are you just expecting handouts? It's time to flip the script. General dentists don't want cheap chocolates. They want predictability, speed, and respect for their patient relationship. That is where tooth referral makes the difference. Instead of transactional phone tag and static email chains, tooth referral embeds your specialty practice directly into the GP's daily workflow. Zero friction. No more chasing x-rays or fighting over missing insurance details. Automatic Transpee. The GP sees patient status in real time, closing the loop without picking up the phone. 24-7 B2B Relationship Engine. You become their easiest, most indispensable clinical partner. Not just another specialist sending branded swag. Stop bribing your referral network with candy. Start offering them a modern, two-way partnership. Upgrade your referral pipeline today at Tooth Referral.",
   "words": [
    {
     "word": " Let's",
     "start": 0.0,
-    "end": 0.313,
-    "p": 0.898
+    "end": 0.38,
+    "p": 0.98
    },
    {
     "word": " talk",
-    "start": 0.313,
-    "end": 0.553,
-    "p": 0.997
+    "start": 0.38,
+    "end": 0.6,
+    "p": 0.998
    },
    {
     "word": " about",
-    "start": 0.553,
-    "end": 0.793,
+    "start": 0.6,
+    "end": 0.84,
     "p": 0.999
    },
    {
     "word": " the",
-    "start": 0.793,
-    "end": 0.973,
-    "p": 0.987
+    "start": 0.84,
+    "end": 1.04,
+    "p": 0.988
    },
    {
     "word": " psychological",
-    "start": 0.973,
-    "end": 1.573,
-    "p": 0.982
+    "start": 1.04,
+    "end": 1.62,
+    "p": 0.975
    },
    {
     "word": " joke",
-    "start": 1.573,
-    "end": 2.053,
-    "p": 0.992
+    "start": 1.62,
+    "end": 2.1,
+    "p": 0.993
    },
    {
     "word": " of",
-    "start": 2.053,
-    "end": 2.433,
-    "p": 0.995
+    "start": 2.1,
+    "end": 2.48,
+    "p": 0.997
    },
    {
     "word": " dental",
-    "start": 2.433,
-    "end": 2.693,
-    "p": 0.987
+    "start": 2.48,
+    "end": 2.76,
+    "p": 0.988
    },
    {
     "word": " referrals.",
-    "start": 2.693,
-    "end": 3.193,
-    "p": 0.994
+    "start": 2.76,
+    "end": 3.26,
+    "p": 0.995
    },
    {
     "word": " You",
-    "start": 3.587,
-    "end": 3.637,
-    "p": 0.887
+    "start": 3.86,
+    "end": 3.94,
+    "p": 0.948
    },
    {
     "word": " meet",
-    "start": 3.627,
-    "end": 3.807,
-    "p": 0.996
+    "start": 3.94,
+    "end": 4.14,
+    "p": 0.997
    },
    {
     "word": " a",
-    "start": 3.807,
-    "end": 3.967,
-    "p": 0.998
+    "start": 4.14,
+    "end": 4.3,
+    "p": 0.997
    },
    {
     "word": " general",
-    "start": 3.967,
-    "end": 4.247,
-    "p": 0.965
+    "start": 4.3,
+    "end": 4.56,
+    "p": 0.975
    },
    {
     "word": " dentist",
-    "start": 4.247,
-    "end": 4.607,
+    "start": 4.56,
+    "end": 4.92,
     "p": 0.998
    },
    {
     "word": " at",
-    "start": 4.607,
-    "end": 4.847,
-    "p": 0.995
+    "start": 4.92,
+    "end": 5.18,
+    "p": 0.998
    },
    {
     "word": " a",
-    "start": 4.847,
-    "end": 5.027,
-    "p": 0.996
+    "start": 5.18,
+    "end": 5.34,
+    "p": 0.994
    },
    {
     "word": " study",
-    "start": 5.027,
-    "end": 5.207,
-    "p": 0.989
+    "start": 5.34,
+    "end": 5.52,
+    "p": 0.992
    },
    {
     "word": " club.",
-    "start": 5.207,
-    "end": 5.547,
+    "start": 5.52,
+    "end": 5.86,
     "p": 0.996
    },
    {
     "word": " Expect",
-    "start": 6.607,
-    "end": 6.967,
-    "p": 0.573
+    "start": 6.26,
+    "end": 6.54,
+    "p": 0.983
    },
    {
     "word": " them",
-    "start": 6.967,
-    "end": 7.167,
+    "start": 6.54,
+    "end": 6.72,
     "p": 0.997
    },
    {
     "word": " to",
-    "start": 7.167,
-    "end": 7.327,
+    "start": 6.72,
+    "end": 6.86,
     "p": 0.998
    },
    {
     "word": " send",
-    "start": 7.327,
-    "end": 7.487,
+    "start": 6.86,
+    "end": 7.04,
     "p": 0.997
    },
    {
     "word": " you",
-    "start": 7.487,
-    "end": 7.627,
-    "p": 0.995
+    "start": 7.04,
+    "end": 7.18,
+    "p": 0.993
    },
    {
     "word": " $50",
-    "start": 7.627,
-    "end": 7.947,
-    "p": 0.945
+    "start": 7.18,
+    "end": 7.48,
+    "p": 0.931
    },
    {
     "word": ",000",
-    "start": 7.947,
-    "end": 8.367,
-    "p": 0.989
+    "start": 7.48,
+    "end": 7.92,
+    "p": 0.987
    },
    {
     "word": " worth",
-    "start": 8.367,
-    "end": 8.747,
-    "p": 0.955
+    "start": 7.92,
+    "end": 8.3,
+    "p": 0.957
    },
    {
     "word": " of",
-    "start": 8.747,
-    "end": 9.047,
+    "start": 8.3,
+    "end": 8.6,
     "p": 0.998
    },
    {
     "word": " specialty",
-    "start": 9.047,
-    "end": 9.387,
-    "p": 0.972
+    "start": 8.6,
+    "end": 8.94,
+    "p": 0.969
    },
    {
     "word": " cases,",
-    "start": 9.387,
-    "end": 9.927,
-    "p": 0.997
+    "start": 8.94,
+    "end": 9.48,
+    "p": 0.995
    },
    {
     "word": " and",
-    "start": 10.727,
-    "end": 11.107,
-    "p": 0.987
+    "start": 9.9,
+    "end": 10.16,
+    "p": 0.986
    },
    {
     "word": " in",
-    "start": 11.107,
-    "end": 11.247,
-    "p": 0.961
+    "start": 10.16,
+    "end": 10.3,
+    "p": 0.947
    },
    {
     "word": " return,",
-    "start": 11.247,
-    "end": 11.647,
+    "start": 10.3,
+    "end": 10.7,
     "p": 0.999
    },
    {
     "word": " you",
-    "start": 11.887,
-    "end": 11.947,
-    "p": 0.997
-   },
-   {
-    "word": " send",
-    "start": 11.947,
-    "end": 12.167,
-    "p": 0.997
-   },
-   {
-    "word": " their",
-    "start": 12.167,
-    "end": 12.307,
+    "start": 10.96,
+    "end": 11.0,
     "p": 0.996
    },
    {
+    "word": " send",
+    "start": 11.0,
+    "end": 11.22,
+    "p": 0.996
+   },
+   {
+    "word": " their",
+    "start": 11.22,
+    "end": 11.36,
+    "p": 0.994
+   },
+   {
     "word": " office",
-    "start": 12.307,
-    "end": 12.587,
+    "start": 11.36,
+    "end": 11.64,
     "p": 0.998
    },
    {
     "word": " a",
-    "start": 12.587,
-    "end": 12.807,
-    "p": 0.995
+    "start": 11.64,
+    "end": 11.86,
+    "p": 0.997
    },
    {
     "word": " $2",
-    "start": 12.807,
-    "end": 13.087,
-    "p": 0.956
+    "start": 11.86,
+    "end": 12.16,
+    "p": 0.961
    },
    {
     "word": " plastic",
-    "start": 13.087,
-    "end": 13.587,
-    "p": 0.953
+    "start": 12.16,
+    "end": 12.62,
+    "p": 0.941
    },
    {
     "word": " water",
-    "start": 13.587,
-    "end": 13.867,
-    "p": 0.991
+    "start": 12.62,
+    "end": 12.94,
+    "p": 0.99
    },
    {
     "word": " bottle,",
-    "start": 13.867,
-    "end": 14.227,
+    "start": 12.94,
+    "end": 13.22,
     "p": 0.999
    },
    {
     "word": " a",
-    "start": 14.573,
-    "end": 14.773,
+    "start": 13.58,
+    "end": 13.76,
     "p": 0.997
    },
    {
     "word": " branded",
-    "start": 14.773,
-    "end": 15.033,
+    "start": 13.76,
+    "end": 14.02,
     "p": 0.998
    },
    {
     "word": " pen,",
-    "start": 15.033,
-    "end": 15.433,
-    "p": 0.998
-   },
-   {
-    "word": " or",
-    "start": 15.753,
-    "end": 16.053,
-    "p": 0.998
-   },
-   {
-    "word": " if",
-    "start": 16.053,
-    "end": 16.173,
-    "p": 0.847
-   },
-   {
-    "word": " you're",
-    "start": 16.173,
-    "end": 16.353,
-    "p": 0.989
-   },
-   {
-    "word": " feeling",
-    "start": 16.353,
-    "end": 16.593,
+    "start": 14.02,
+    "end": 14.42,
     "p": 0.999
    },
    {
+    "word": " or",
+    "start": 14.78,
+    "end": 15.02,
+    "p": 0.996
+   },
+   {
+    "word": " if",
+    "start": 15.02,
+    "end": 15.16,
+    "p": 0.838
+   },
+   {
+    "word": " you're",
+    "start": 15.16,
+    "end": 15.32,
+    "p": 0.98
+   },
+   {
+    "word": " feeling",
+    "start": 15.32,
+    "end": 15.58,
+    "p": 0.998
+   },
+   {
     "word": " extra",
-    "start": 16.593,
-    "end": 16.933,
-    "p": 0.991
+    "start": 15.58,
+    "end": 15.92,
+    "p": 0.995
    },
    {
     "word": " generous,",
-    "start": 16.933,
-    "end": 17.373,
-    "p": 0.952
+    "start": 15.92,
+    "end": 16.36,
+    "p": 0.9
    },
    {
     "word": " a",
-    "start": 17.733,
-    "end": 17.873,
-    "p": 0.995
+    "start": 16.72,
+    "end": 16.86,
+    "p": 0.992
    },
    {
     "word": " $5",
-    "start": 17.873,
-    "end": 18.253,
-    "p": 0.986
+    "start": 16.86,
+    "end": 17.24,
+    "p": 0.988
    },
    {
     "word": " box",
-    "start": 18.253,
-    "end": 18.673,
-    "p": 0.979
+    "start": 17.24,
+    "end": 17.66,
+    "p": 0.963
    },
    {
     "word": " of",
-    "start": 18.673,
-    "end": 18.913,
-    "p": 0.998
-   },
-   {
-    "word": " Ferrero",
-    "start": 18.913,
-    "end": 19.193,
-    "p": 0.974
-   },
-   {
-    "word": " Rocher",
-    "start": 19.193,
-    "end": 19.573,
-    "p": 0.944
-   },
-   {
-    "word": " chocolates",
-    "start": 19.573,
-    "end": 20.073,
-    "p": 0.989
-   },
-   {
-    "word": " at",
-    "start": 20.073,
-    "end": 20.253,
-    "p": 0.994
-   },
-   {
-    "word": " Christmas.",
-    "start": 20.253,
-    "end": 20.713,
-    "p": 0.998
-   },
-   {
-    "word": " You",
-    "start": 20.713,
-    "end": 21.433,
-    "p": 0.332
-   },
-   {
-    "word": " profit",
-    "start": 21.433,
-    "end": 22.793,
-    "p": 0.956
-   },
-   {
-    "word": " big",
-    "start": 22.793,
-    "end": 23.053,
-    "p": 0.983
-   },
-   {
-    "word": " time",
-    "start": 23.053,
-    "end": 23.353,
-    "p": 0.787
-   },
-   {
-    "word": " off",
-    "start": 23.353,
-    "end": 23.593,
-    "p": 0.976
-   },
-   {
-    "word": " a",
-    "start": 23.593,
-    "end": 23.773,
-    "p": 0.96
-   },
-   {
-    "word": " single",
-    "start": 23.773,
-    "end": 24.013,
-    "p": 0.995
-   },
-   {
-    "word": " handshake,",
-    "start": 24.013,
-    "end": 24.493,
-    "p": 0.989
-   },
-   {
-    "word": " hand",
-    "start": 24.773,
-    "end": 24.913,
-    "p": 0.989
-   },
-   {
-    "word": " them",
-    "start": 24.913,
-    "end": 25.093,
+    "start": 17.66,
+    "end": 17.9,
     "p": 0.997
    },
    {
+    "word": " Ferrero",
+    "start": 17.9,
+    "end": 18.18,
+    "p": 0.973
+   },
+   {
+    "word": " Rocher",
+    "start": 18.18,
+    "end": 18.54,
+    "p": 0.94
+   },
+   {
+    "word": " chocolates",
+    "start": 18.54,
+    "end": 19.06,
+    "p": 0.987
+   },
+   {
+    "word": " at",
+    "start": 19.06,
+    "end": 19.24,
+    "p": 0.991
+   },
+   {
+    "word": " Christmas.",
+    "start": 19.24,
+    "end": 19.6,
+    "p": 0.992
+   },
+   {
+    "word": " You",
+    "start": 19.86,
+    "end": 20.02,
+    "p": 0.996
+   },
+   {
+    "word": " profit",
+    "start": 20.02,
+    "end": 20.34,
+    "p": 0.998
+   },
+   {
+    "word": " big",
+    "start": 20.34,
+    "end": 20.6,
+    "p": 0.988
+   },
+   {
+    "word": " time",
+    "start": 20.6,
+    "end": 20.9,
+    "p": 0.755
+   },
+   {
+    "word": " off",
+    "start": 20.9,
+    "end": 21.14,
+    "p": 0.987
+   },
+   {
+    "word": " a",
+    "start": 21.14,
+    "end": 21.34,
+    "p": 0.977
+   },
+   {
+    "word": " single",
+    "start": 21.34,
+    "end": 21.54,
+    "p": 0.994
+   },
+   {
+    "word": " handshake,",
+    "start": 21.54,
+    "end": 22.02,
+    "p": 0.992
+   },
+   {
+    "word": " hand",
+    "start": 22.38,
+    "end": 22.54,
+    "p": 0.997
+   },
+   {
+    "word": " them",
+    "start": 22.54,
+    "end": 22.7,
+    "p": 0.999
+   },
+   {
     "word": " cheap",
-    "start": 25.093,
-    "end": 25.333,
-    "p": 0.986
+    "start": 22.7,
+    "end": 22.96,
+    "p": 0.993
    },
    {
     "word": " swag,",
-    "start": 25.333,
-    "end": 25.793,
+    "start": 22.96,
+    "end": 23.42,
     "p": 0.997
    },
    {
     "word": " and",
-    "start": 26.093,
-    "end": 26.193,
-    "p": 0.985
+    "start": 23.54,
+    "end": 23.8,
+    "p": 0.993
    },
    {
     "word": " then",
-    "start": 26.193,
-    "end": 26.293,
-    "p": 0.98
+    "start": 23.8,
+    "end": 23.9,
+    "p": 0.981
    },
    {
     "word": " act",
-    "start": 26.293,
-    "end": 26.493,
-    "p": 0.998
+    "start": 23.9,
+    "end": 24.1,
+    "p": 0.999
    },
    {
     "word": " surprised",
-    "start": 26.493,
-    "end": 27.053,
+    "start": 24.1,
+    "end": 24.66,
     "p": 0.999
    },
    {
     "word": " when",
-    "start": 27.053,
-    "end": 27.493,
-    "p": 0.987
+    "start": 24.66,
+    "end": 25.12,
+    "p": 0.976
    },
    {
     "word": " they",
-    "start": 27.493,
-    "end": 27.653,
-    "p": 0.997
+    "start": 25.12,
+    "end": 25.28,
+    "p": 0.998
    },
    {
     "word": " stop",
-    "start": 27.653,
-    "end": 27.853,
+    "start": 25.28,
+    "end": 25.46,
     "p": 0.994
    },
    {
     "word": " sending",
-    "start": 27.853,
-    "end": 28.153,
-    "p": 0.998
+    "start": 25.46,
+    "end": 25.76,
+    "p": 0.999
    },
    {
     "word": " you",
-    "start": 28.153,
-    "end": 28.313,
+    "start": 25.76,
+    "end": 25.94,
     "p": 0.995
    },
    {
     "word": " patients.",
-    "start": 28.313,
-    "end": 28.713,
-    "p": 0.287
+    "start": 25.94,
+    "end": 26.32,
+    "p": 0.929
    },
    {
     "word": " Here",
-    "start": 29.047,
-    "end": 29.127,
-    "p": 0.972
+    "start": 26.88,
+    "end": 27.02,
+    "p": 0.994
    },
    {
     "word": " is",
-    "start": 29.127,
-    "end": 29.287,
-    "p": 0.742
+    "start": 27.02,
+    "end": 27.16,
+    "p": 0.821
    },
    {
     "word": " what's",
-    "start": 29.287,
-    "end": 29.507,
-    "p": 0.98
+    "start": 27.16,
+    "end": 27.4,
+    "p": 0.983
    },
    {
     "word": " actually",
-    "start": 29.507,
-    "end": 29.847,
-    "p": 0.997
+    "start": 27.4,
+    "end": 27.74,
+    "p": 0.998
    },
    {
     "word": " happening.",
-    "start": 29.847,
-    "end": 30.267,
+    "start": 27.74,
+    "end": 28.14,
     "p": 0.999
    },
    {
     "word": " General",
-    "start": 30.587,
-    "end": 30.827,
-    "p": 0.987
+    "start": 28.14,
+    "end": 28.7,
+    "p": 0.482
    },
    {
     "word": " practitioners",
-    "start": 30.827,
-    "end": 31.287,
-    "p": 0.978
+    "start": 28.7,
+    "end": 29.16,
+    "p": 0.966
    },
    {
     "word": " and",
-    "start": 31.287,
-    "end": 31.627,
+    "start": 29.16,
+    "end": 29.52,
     "p": 0.996
    },
    {
     "word": " specialists",
-    "start": 31.627,
-    "end": 32.087,
-    "p": 0.996
+    "start": 29.52,
+    "end": 30.0,
+    "p": 0.997
    },
    {
     "word": " are",
-    "start": 32.087,
-    "end": 32.687,
-    "p": 0.994
+    "start": 30.0,
+    "end": 30.56,
+    "p": 0.986
    },
    {
     "word": " heading",
-    "start": 32.687,
-    "end": 32.887,
-    "p": 0.996
+    "start": 30.56,
+    "end": 30.78,
+    "p": 0.997
    },
    {
     "word": " in",
-    "start": 32.887,
-    "end": 33.107,
-    "p": 0.994
+    "start": 30.78,
+    "end": 31.0,
+    "p": 0.991
    },
    {
     "word": " opposite",
-    "start": 33.107,
-    "end": 33.427,
-    "p": 0.998
+    "start": 31.0,
+    "end": 31.32,
+    "p": 0.997
    },
    {
     "word": " directions,",
-    "start": 33.427,
-    "end": 33.947,
+    "start": 31.32,
+    "end": 31.8,
     "p": 0.998
    },
    {
     "word": " and",
-    "start": 33.967,
-    "end": 34.507,
-    "p": 0.996
+    "start": 32.3,
+    "end": 32.4,
+    "p": 0.991
    },
    {
     "word": " both",
-    "start": 34.507,
-    "end": 34.707,
+    "start": 32.4,
+    "end": 32.6,
     "p": 0.998
    },
    {
     "word": " are",
-    "start": 34.707,
-    "end": 34.927,
-    "p": 0.998
+    "start": 32.6,
+    "end": 32.82,
+    "p": 0.995
    },
    {
     "word": " trying",
-    "start": 34.927,
-    "end": 35.247,
+    "start": 32.82,
+    "end": 33.12,
     "p": 0.999
    },
    {
     "word": " to",
-    "start": 35.247,
-    "end": 35.667,
-    "p": 0.988
+    "start": 33.12,
+    "end": 33.54,
+    "p": 0.973
    },
    {
     "word": " eat",
-    "start": 35.667,
-    "end": 35.807,
-    "p": 0.989
+    "start": 33.54,
+    "end": 33.7,
+    "p": 0.982
    },
    {
     "word": " each",
-    "start": 35.807,
-    "end": 36.007,
-    "p": 0.998
+    "start": 33.7,
+    "end": 33.9,
+    "p": 0.997
    },
    {
     "word": " other's",
-    "start": 36.007,
-    "end": 36.607,
-    "p": 0.957
+    "start": 33.9,
+    "end": 34.54,
+    "p": 0.955
    },
    {
     "word": " pies.",
-    "start": 36.607,
-    "end": 36.657,
+    "start": 34.54,
+    "end": 34.54,
     "p": 0.997
    },
    {
     "word": " GPs",
-    "start": 36.84,
-    "end": 37.22,
-    "p": 0.961
+    "start": 35.02,
+    "end": 35.36,
+    "p": 0.973
    },
    {
     "word": " are",
-    "start": 37.22,
-    "end": 37.44,
-    "p": 0.999
+    "start": 35.36,
+    "end": 35.6,
+    "p": 0.998
    },
    {
     "word": " keeping",
-    "start": 37.44,
-    "end": 37.72,
+    "start": 35.6,
+    "end": 35.88,
     "p": 0.998
    },
    {
     "word": " implants",
-    "start": 37.72,
-    "end": 38.3,
-    "p": 0.847
+    "start": 35.88,
+    "end": 36.44,
+    "p": 0.952
    },
    {
     "word": " and",
-    "start": 38.3,
-    "end": 38.58,
+    "start": 36.44,
+    "end": 36.74,
     "p": 0.996
    },
    {
     "word": " endo",
-    "start": 38.58,
-    "end": 38.9,
-    "p": 0.81
+    "start": 36.74,
+    "end": 37.06,
+    "p": 0.839
    },
    {
     "word": " in",
-    "start": 38.9,
-    "end": 39.18,
-    "p": 0.994
+    "start": 37.06,
+    "end": 37.34,
+    "p": 0.985
    },
    {
     "word": "-house",
-    "start": 39.18,
-    "end": 39.4,
-    "p": 0.9
+    "start": 37.34,
+    "end": 37.54,
+    "p": 0.92
    },
    {
     "word": " because",
-    "start": 39.4,
-    "end": 39.76,
-    "p": 0.934
+    "start": 37.54,
+    "end": 37.9,
+    "p": 0.963
    },
    {
     "word": " they",
-    "start": 39.76,
-    "end": 39.96,
-    "p": 0.999
-   },
-   {
-    "word": " feel",
-    "start": 39.96,
-    "end": 40.2,
+    "start": 37.9,
+    "end": 38.12,
     "p": 0.998
    },
    {
+    "word": " feel",
+    "start": 38.12,
+    "end": 38.34,
+    "p": 0.997
+   },
+   {
     "word": " zero",
-    "start": 40.2,
-    "end": 40.62,
-    "p": 0.976
+    "start": 38.34,
+    "end": 38.76,
+    "p": 0.966
    },
    {
     "word": " loyalty",
-    "start": 40.62,
-    "end": 41.06,
+    "start": 38.76,
+    "end": 39.2,
     "p": 0.997
    },
    {
     "word": " to",
-    "start": 41.06,
-    "end": 41.32,
+    "start": 39.2,
+    "end": 39.48,
     "p": 0.999
    },
    {
     "word": " specialists",
-    "start": 41.32,
-    "end": 41.92,
-    "p": 0.996
+    "start": 39.48,
+    "end": 40.06,
+    "p": 0.994
    },
    {
     "word": " who",
-    "start": 41.92,
-    "end": 42.22,
-    "p": 0.94
+    "start": 40.06,
+    "end": 40.38,
+    "p": 0.924
    },
    {
     "word": " treat",
-    "start": 42.22,
-    "end": 42.44,
+    "start": 40.38,
+    "end": 40.6,
     "p": 0.999
    },
    {
     "word": " them",
-    "start": 42.44,
-    "end": 42.62,
+    "start": 40.6,
+    "end": 40.78,
     "p": 0.999
    },
    {
     "word": " like",
-    "start": 42.62,
-    "end": 42.76,
-    "p": 0.999
+    "start": 40.78,
+    "end": 40.9,
+    "p": 0.998
    },
    {
     "word": " a",
-    "start": 42.76,
-    "end": 42.94,
+    "start": 40.9,
+    "end": 41.1,
     "p": 0.999
    },
    {
     "word": " transaction.",
-    "start": 42.94,
-    "end": 43.5,
-    "p": 0.998
+    "start": 41.1,
+    "end": 41.64,
+    "p": 0.997
    },
    {
     "word": " Meanwhile,",
-    "start": 44.207,
-    "end": 44.887,
-    "p": 0.88
-   },
-   {
-    "word": " specialists",
-    "start": 45.447,
-    "end": 45.807,
-    "p": 0.979
-   },
-   {
-    "word": " are",
-    "start": 45.807,
-    "end": 46.146,
+    "start": 42.2,
+    "end": 42.58,
     "p": 0.996
    },
    {
+    "word": " specialists",
+    "start": 43.04,
+    "end": 43.42,
+    "p": 0.996
+   },
+   {
+    "word": " are",
+    "start": 43.42,
+    "end": 43.72,
+    "p": 0.999
+   },
+   {
     "word": " running",
-    "start": 46.147,
-    "end": 46.366,
+    "start": 43.72,
+    "end": 43.94,
     "p": 0.999
    },
    {
     "word": " direct",
-    "start": 46.367,
-    "end": 46.706,
-    "p": 0.978
-   },
-   {
-    "word": "-to",
-    "start": 46.707,
-    "end": 46.887,
-    "p": 0.881
-   },
-   {
-    "word": "-consumer",
-    "start": 46.887,
-    "end": 47.327,
-    "p": 0.996
-   },
-   {
-    "word": " Instagram",
-    "start": 47.327,
-    "end": 47.847,
-    "p": 0.963
-   },
-   {
-    "word": " ads",
-    "start": 47.847,
-    "end": 48.247,
-    "p": 0.985
-   },
-   {
-    "word": " to",
-    "start": 48.247,
-    "end": 48.527,
-    "p": 0.99
-   },
-   {
-    "word": " bypass",
-    "start": 48.527,
-    "end": 48.947,
-    "p": 0.995
-   },
-   {
-    "word": " the",
-    "start": 48.947,
-    "end": 49.247,
-    "p": 0.993
-   },
-   {
-    "word": " GP",
-    "start": 49.247,
-    "end": 49.627,
-    "p": 0.983
-   },
-   {
-    "word": " altogether.",
-    "start": 49.627,
-    "end": 50.447,
-    "p": 0.947
-   },
-   {
-    "word": " And",
-    "start": 50.593,
-    "end": 50.713,
-    "p": 0.944
-   },
-   {
-    "word": " why",
-    "start": 50.713,
-    "end": 50.913,
-    "p": 0.994
-   },
-   {
-    "word": " did",
-    "start": 50.913,
-    "end": 51.073,
-    "p": 0.998
-   },
-   {
-    "word": " that",
-    "start": 51.073,
-    "end": 51.253,
-    "p": 0.962
-   },
-   {
-    "word": " dentist",
-    "start": 51.253,
-    "end": 51.473,
-    "p": 0.995
-   },
-   {
-    "word": " stop",
-    "start": 51.473,
-    "end": 51.773,
-    "p": 0.989
-   },
-   {
-    "word": " referring",
-    "start": 51.773,
-    "end": 52.113,
-    "p": 0.993
-   },
-   {
-    "word": " to",
-    "start": 52.113,
-    "end": 52.313,
+    "start": 43.94,
+    "end": 44.3,
     "p": 0.991
    },
    {
-    "word": " you",
-    "start": 52.313,
-    "end": 52.453,
+    "word": "-to",
+    "start": 44.3,
+    "end": 44.48,
+    "p": 0.94
+   },
+   {
+    "word": "-consumer",
+    "start": 44.48,
+    "end": 44.9,
     "p": 0.998
    },
    {
-    "word": " in",
-    "start": 52.453,
-    "end": 52.553,
+    "word": " Instagram",
+    "start": 44.9,
+    "end": 45.42,
+    "p": 0.978
+   },
+   {
+    "word": " ads",
+    "start": 45.42,
+    "end": 45.8,
     "p": 0.994
    },
    {
+    "word": " to",
+    "start": 45.8,
+    "end": 46.1,
+    "p": 0.997
+   },
+   {
+    "word": " bypass",
+    "start": 46.1,
+    "end": 46.5,
+    "p": 0.997
+   },
+   {
     "word": " the",
-    "start": 52.553,
-    "end": 52.653,
+    "start": 46.5,
+    "end": 46.84,
+    "p": 0.996
+   },
+   {
+    "word": " GP",
+    "start": 46.84,
+    "end": 47.18,
+    "p": 0.996
+   },
+   {
+    "word": " altogether.",
+    "start": 47.18,
+    "end": 47.98,
+    "p": 0.957
+   },
+   {
+    "word": " And",
+    "start": 48.38,
+    "end": 48.54,
+    "p": 0.971
+   },
+   {
+    "word": " why",
+    "start": 48.54,
+    "end": 48.74,
+    "p": 0.995
+   },
+   {
+    "word": " did",
+    "start": 48.74,
+    "end": 48.88,
+    "p": 0.999
+   },
+   {
+    "word": " that",
+    "start": 48.88,
+    "end": 49.08,
+    "p": 0.984
+   },
+   {
+    "word": " dentist",
+    "start": 49.08,
+    "end": 49.3,
+    "p": 0.994
+   },
+   {
+    "word": " stop",
+    "start": 49.3,
+    "end": 49.6,
+    "p": 0.995
+   },
+   {
+    "word": " referring",
+    "start": 49.6,
+    "end": 49.92,
     "p": 0.998
    },
    {
+    "word": " to",
+    "start": 49.92,
+    "end": 50.14,
+    "p": 0.995
+   },
+   {
+    "word": " you",
+    "start": 50.14,
+    "end": 50.26,
+    "p": 0.999
+   },
+   {
+    "word": " in",
+    "start": 50.26,
+    "end": 50.38,
+    "p": 0.996
+   },
+   {
+    "word": " the",
+    "start": 50.38,
+    "end": 50.48,
+    "p": 0.999
+   },
+   {
     "word": " first",
-    "start": 52.653,
-    "end": 52.853,
+    "start": 50.48,
+    "end": 50.66,
     "p": 0.999
    },
    {
     "word": " place?",
-    "start": 52.853,
-    "end": 53.173,
+    "start": 50.66,
+    "end": 51.0,
     "p": 0.999
    },
    {
     "word": " It",
-    "start": 53.386,
-    "end": 53.507,
-    "p": 0.982
+    "start": 51.38,
+    "end": 51.6,
+    "p": 0.986
    },
    {
     "word": " wasn't",
-    "start": 53.506,
-    "end": 53.907,
-    "p": 0.996
-   },
-   {
-    "word": " your",
-    "start": 53.907,
-    "end": 54.466,
-    "p": 0.534
-   },
-   {
-    "word": " clinical",
-    "start": 54.466,
-    "end": 54.826,
-    "p": 0.956
-   },
-   {
-    "word": " skill.",
-    "start": 54.827,
-    "end": 55.533,
-    "p": 0.989
-   },
-   {
-    "word": " cuz",
-    "start": 55.58,
-    "end": 55.84,
-    "p": 0.509
-   },
-   {
-    "word": " your",
-    "start": 55.84,
-    "end": 56.08,
-    "p": 0.924
-   },
-   {
-    "word": " entire",
-    "start": 56.08,
-    "end": 56.52,
+    "start": 51.6,
+    "end": 51.98,
     "p": 0.999
    },
    {
-    "word": " communication",
-    "start": 56.52,
-    "end": 57.18,
+    "word": " your",
+    "start": 51.98,
+    "end": 52.22,
+    "p": 0.935
+   },
+   {
+    "word": " clinical",
+    "start": 52.22,
+    "end": 52.58,
     "p": 0.985
    },
    {
+    "word": " skill.",
+    "start": 52.58,
+    "end": 53.12,
+    "p": 0.993
+   },
+   {
+    "word": " Because",
+    "start": 53.12,
+    "end": 53.82,
+    "p": 0.29
+   },
+   {
+    "word": " your",
+    "start": 53.82,
+    "end": 54.02,
+    "p": 0.976
+   },
+   {
+    "word": " entire",
+    "start": 54.02,
+    "end": 54.5,
+    "p": 0.998
+   },
+   {
+    "word": " communication",
+    "start": 54.5,
+    "end": 55.18,
+    "p": 0.983
+   },
+   {
     "word": " pipeline",
-    "start": 57.18,
-    "end": 57.86,
-    "p": 0.996
+    "start": 55.18,
+    "end": 55.82,
+    "p": 0.998
    },
    {
     "word": " consists",
-    "start": 57.86,
-    "end": 58.0,
-    "p": 0.915
+    "start": 55.82,
+    "end": 56.4,
+    "p": 0.979
    },
    {
     "word": " of",
-    "start": 58.44,
-    "end": 58.92,
+    "start": 56.4,
+    "end": 56.84,
     "p": 0.997
    },
    {
     "word": " your",
-    "start": 58.92,
-    "end": 59.16,
+    "start": 56.84,
+    "end": 57.1,
     "p": 0.988
    },
    {
     "word": " front",
-    "start": 59.16,
-    "end": 59.38,
+    "start": 57.1,
+    "end": 57.34,
     "p": 0.986
    },
    {
     "word": " desk",
-    "start": 59.38,
-    "end": 59.8,
-    "p": 0.993
+    "start": 57.34,
+    "end": 57.72,
+    "p": 0.992
    },
    {
     "word": " calling",
-    "start": 59.8,
-    "end": 59.867,
-    "p": 0.749
+    "start": 57.72,
+    "end": 58.22,
+    "p": 0.821
    },
    {
     "word": " theirs",
-    "start": 60.267,
-    "end": 60.687,
-    "p": 0.98
+    "start": 58.22,
+    "end": 58.62,
+    "p": 0.988
    },
    {
     "word": " to",
-    "start": 60.687,
-    "end": 61.027,
-    "p": 0.99
+    "start": 58.62,
+    "end": 58.98,
+    "p": 0.987
    },
    {
-    "word": " bark.",
-    "start": 61.027,
-    "end": 61.407,
-    "p": 0.979
+    "word": " bark,",
+    "start": 58.98,
+    "end": 59.36,
+    "p": 0.968
    },
    {
     "word": " Hey,",
-    "start": 61.867,
-    "end": 62.227,
-    "p": 0.629
+    "start": 59.68,
+    "end": 59.96,
+    "p": 0.153
    },
    {
     "word": " do",
-    "start": 62.367,
-    "end": 62.487,
-    "p": 0.994
+    "start": 60.08,
+    "end": 60.22,
+    "p": 0.996
    },
    {
     "word": " you",
-    "start": 62.487,
-    "end": 62.567,
-    "p": 0.998
+    "start": 60.22,
+    "end": 60.28,
+    "p": 0.999
    },
    {
     "word": " have",
-    "start": 62.567,
-    "end": 62.727,
+    "start": 60.28,
+    "end": 60.44,
     "p": 0.999
    },
    {
     "word": " the",
-    "start": 62.727,
-    "end": 62.867,
-    "p": 0.992
+    "start": 60.44,
+    "end": 60.58,
+    "p": 0.991
    },
    {
     "word": " x",
-    "start": 62.867,
-    "end": 63.087,
+    "start": 60.58,
+    "end": 60.82,
     "p": 0.591
    },
    {
     "word": "-ray?",
-    "start": 63.087,
-    "end": 63.227,
-    "p": 0.988
+    "start": 60.82,
+    "end": 60.96,
+    "p": 0.948
    },
    {
     "word": " What's",
-    "start": 63.527,
-    "end": 63.767,
-    "p": 0.992
+    "start": 61.22,
+    "end": 61.48,
+    "p": 0.985
    },
    {
     "word": " their",
-    "start": 63.767,
-    "end": 63.887,
-    "p": 0.963
+    "start": 61.48,
+    "end": 61.6,
+    "p": 0.976
    },
    {
     "word": " insurance",
-    "start": 63.887,
-    "end": 64.307,
+    "start": 61.6,
+    "end": 62.04,
     "p": 0.999
    },
    {
     "word": " info?",
-    "start": 64.307,
-    "end": 64.687,
-    "p": 0.997
+    "start": 62.04,
+    "end": 62.4,
+    "p": 0.993
    },
    {
     "word": " There",
-    "start": 64.687,
-    "end": 64.833,
-    "p": 0.387
+    "start": 62.7,
+    "end": 62.76,
+    "p": 0.983
    },
    {
     "word": " is",
-    "start": 65.04,
-    "end": 65.22,
-    "p": 0.985
+    "start": 62.76,
+    "end": 62.98,
+    "p": 0.995
    },
    {
     "word": " zero",
-    "start": 65.22,
-    "end": 65.58,
-    "p": 0.963
+    "start": 62.98,
+    "end": 63.28,
+    "p": 0.988
    },
    {
     "word": " relationship",
-    "start": 65.58,
-    "end": 66.18,
-    "p": 0.982
+    "start": 63.28,
+    "end": 63.88,
+    "p": 0.992
    },
    {
     "word": " building",
-    "start": 66.18,
-    "end": 66.6,
-    "p": 0.908
+    "start": 63.88,
+    "end": 64.28,
+    "p": 0.97
    },
    {
     "word": " in",
-    "start": 66.6,
-    "end": 66.88,
-    "p": 0.985
+    "start": 64.28,
+    "end": 64.56,
+    "p": 0.982
    },
    {
     "word": " an",
-    "start": 66.88,
-    "end": 67.1,
-    "p": 0.996
+    "start": 64.56,
+    "end": 64.78,
+    "p": 0.998
    },
    {
     "word": " administrative",
-    "start": 67.1,
-    "end": 67.64,
-    "p": 0.959
+    "start": 64.78,
+    "end": 65.32,
+    "p": 0.987
    },
    {
     "word": " interrogatory",
-    "start": 67.64,
-    "end": 68.36,
-    "p": 0.74
+    "start": 65.32,
+    "end": 66.04,
+    "p": 0.882
    },
    {
     "word": " call.",
-    "start": 68.36,
-    "end": 68.72,
-    "p": 0.996
+    "start": 66.04,
+    "end": 66.42,
+    "p": 0.956
    },
    {
     "word": " Ask",
-    "start": 69.08,
-    "end": 69.26,
-    "p": 0.647
+    "start": 67.0,
+    "end": 67.34,
+    "p": 0.499
    },
    {
     "word": " yourself,",
-    "start": 69.26,
-    "end": 69.72,
+    "start": 67.34,
+    "end": 67.74,
     "p": 0.998
    },
    {
     "word": " how",
-    "start": 69.873,
-    "end": 70.053,
-    "p": 0.691
+    "start": 67.86,
+    "end": 68.12,
+    "p": 0.891
    },
    {
     "word": " well",
-    "start": 70.053,
-    "end": 70.253,
-    "p": 0.999
+    "start": 68.12,
+    "end": 68.34,
+    "p": 0.998
    },
    {
     "word": " does",
-    "start": 70.253,
-    "end": 70.433,
-    "p": 0.998
+    "start": 68.34,
+    "end": 68.5,
+    "p": 0.999
    },
    {
     "word": " your",
-    "start": 70.433,
-    "end": 70.613,
-    "p": 0.997
+    "start": 68.5,
+    "end": 68.7,
+    "p": 0.999
    },
    {
     "word": " team",
-    "start": 70.613,
-    "end": 70.833,
-    "p": 0.998
+    "start": 68.7,
+    "end": 68.92,
+    "p": 0.999
    },
    {
     "word": " actually",
-    "start": 70.833,
-    "end": 71.293,
-    "p": 0.994
+    "start": 68.92,
+    "end": 69.38,
+    "p": 0.998
    },
    {
     "word": " handle",
-    "start": 71.293,
-    "end": 71.613,
-    "p": 0.997
+    "start": 69.38,
+    "end": 69.7,
+    "p": 0.999
    },
    {
     "word": " the",
-    "start": 71.613,
-    "end": 71.853,
+    "start": 69.7,
+    "end": 69.94,
     "p": 0.997
    },
    {
     "word": " referral",
-    "start": 71.853,
-    "end": 72.193,
-    "p": 0.996
-   },
-   {
-    "word": " experience?",
-    "start": 72.193,
-    "end": 72.833,
-    "p": 0.999
-   },
-   {
-    "word": " Are",
-    "start": 73.087,
-    "end": 73.167,
-    "p": 0.99
-   },
-   {
-    "word": " you",
-    "start": 73.167,
-    "end": 73.347,
-    "p": 0.999
-   },
-   {
-    "word": " actually",
-    "start": 73.347,
-    "end": 73.667,
+    "start": 69.94,
+    "end": 70.26,
     "p": 0.997
    },
    {
+    "word": " experience?",
+    "start": 70.26,
+    "end": 70.92,
+    "p": 0.997
+   },
+   {
+    "word": " Are",
+    "start": 71.42,
+    "end": 71.62,
+    "p": 0.996
+   },
+   {
+    "word": " you",
+    "start": 71.62,
+    "end": 71.78,
+    "p": 1.0
+   },
+   {
+    "word": " actually",
+    "start": 71.78,
+    "end": 72.14,
+    "p": 0.999
+   },
+   {
     "word": " marketing",
-    "start": 73.667,
-    "end": 74.067,
-    "p": 0.993
+    "start": 72.14,
+    "end": 72.52,
+    "p": 0.996
    },
    {
     "word": " value",
-    "start": 74.067,
-    "end": 74.487,
+    "start": 72.52,
+    "end": 72.94,
     "p": 0.999
    },
    {
     "word": " to",
-    "start": 74.487,
-    "end": 74.707,
-    "p": 0.998
+    "start": 72.94,
+    "end": 73.14,
+    "p": 0.999
    },
    {
     "word": " your",
-    "start": 74.707,
-    "end": 74.867,
-    "p": 0.998
+    "start": 73.14,
+    "end": 73.32,
+    "p": 0.999
    },
    {
     "word": " GPs?",
-    "start": 74.867,
-    "end": 75.307,
-    "p": 0.898
+    "start": 73.32,
+    "end": 73.76,
+    "p": 0.626
    },
    {
     "word": " Or",
-    "start": 75.567,
-    "end": 76.087,
-    "p": 0.947
+    "start": 74.14,
+    "end": 74.38,
+    "p": 0.972
    },
    {
     "word": " are",
-    "start": 76.087,
-    "end": 76.247,
-    "p": 0.961
+    "start": 74.38,
+    "end": 74.54,
+    "p": 0.985
    },
    {
     "word": " you",
-    "start": 76.247,
-    "end": 76.367,
-    "p": 0.998
+    "start": 74.54,
+    "end": 74.66,
+    "p": 1.0
    },
    {
     "word": " just",
-    "start": 76.367,
-    "end": 76.567,
-    "p": 0.997
+    "start": 74.66,
+    "end": 74.86,
+    "p": 0.999
    },
    {
     "word": " expecting",
-    "start": 76.567,
-    "end": 77.047,
+    "start": 74.86,
+    "end": 75.34,
     "p": 0.998
    },
    {
     "word": " handouts?",
-    "start": 77.047,
-    "end": 77.607,
-    "p": 0.993
+    "start": 75.34,
+    "end": 75.92,
+    "p": 0.997
    },
    {
     "word": " It's",
-    "start": 77.867,
-    "end": 78.047,
-    "p": 0.992
+    "start": 76.4,
+    "end": 76.6,
+    "p": 0.994
    },
    {
     "word": " time",
-    "start": 78.047,
-    "end": 78.227,
-    "p": 0.999
+    "start": 76.6,
+    "end": 76.8,
+    "p": 1.0
    },
    {
     "word": " to",
-    "start": 78.227,
-    "end": 78.427,
+    "start": 76.8,
+    "end": 77.0,
     "p": 0.999
    },
    {
     "word": " flip",
-    "start": 78.427,
-    "end": 78.627,
+    "start": 77.0,
+    "end": 77.18,
     "p": 0.998
    },
    {
     "word": " the",
-    "start": 78.627,
-    "end": 78.867,
+    "start": 77.18,
+    "end": 77.4,
     "p": 0.999
    },
    {
     "word": " script.",
-    "start": 78.867,
-    "end": 79.167,
+    "start": 77.4,
+    "end": 77.74,
     "p": 0.999
    },
    {
     "word": " General",
-    "start": 79.647,
-    "end": 79.887,
+    "start": 78.5,
+    "end": 78.74,
     "p": 0.988
    },
    {
     "word": " dentists",
-    "start": 79.887,
-    "end": 80.467,
-    "p": 0.984
+    "start": 78.74,
+    "end": 79.3,
+    "p": 0.987
    },
    {
     "word": " don't",
-    "start": 80.467,
-    "end": 80.827,
-    "p": 0.996
+    "start": 79.3,
+    "end": 79.66,
+    "p": 0.991
    },
    {
     "word": " want",
-    "start": 80.827,
-    "end": 81.027,
+    "start": 79.66,
+    "end": 79.86,
     "p": 0.999
    },
    {
     "word": " cheap",
-    "start": 81.027,
-    "end": 81.247,
+    "start": 79.86,
+    "end": 80.1,
     "p": 0.999
    },
    {
     "word": " chocolates.",
-    "start": 81.247,
-    "end": 81.827,
-    "p": 0.998
+    "start": 80.1,
+    "end": 80.68,
+    "p": 0.997
    },
    {
     "word": " They",
-    "start": 82.907,
-    "end": 83.227,
-    "p": 0.993
+    "start": 80.98,
+    "end": 81.3,
+    "p": 0.825
    },
    {
     "word": " want",
-    "start": 83.227,
-    "end": 83.447,
-    "p": 0.999
+    "start": 81.3,
+    "end": 81.52,
+    "p": 0.997
    },
    {
     "word": " predictability,",
-    "start": 83.447,
-    "end": 84.227,
-    "p": 0.997
+    "start": 81.52,
+    "end": 82.32,
+    "p": 0.992
    },
    {
     "word": " speed,",
-    "start": 84.607,
-    "end": 85.007,
-    "p": 0.999
+    "start": 82.7,
+    "end": 83.06,
+    "p": 0.998
    },
    {
     "word": " and",
-    "start": 85.287,
-    "end": 85.547,
-    "p": 0.999
-   },
-   {
-    "word": " respect",
-    "start": 85.547,
-    "end": 85.907,
-    "p": 0.999
-   },
-   {
-    "word": " for",
-    "start": 85.907,
-    "end": 86.187,
+    "start": 83.34,
+    "end": 83.62,
     "p": 0.997
    },
    {
+    "word": " respect",
+    "start": 83.62,
+    "end": 84.02,
+    "p": 0.998
+   },
+   {
+    "word": " for",
+    "start": 84.02,
+    "end": 84.28,
+    "p": 0.994
+   },
+   {
     "word": " their",
-    "start": 86.187,
-    "end": 86.367,
-    "p": 0.999
+    "start": 84.28,
+    "end": 84.46,
+    "p": 0.996
    },
    {
     "word": " patient",
-    "start": 86.367,
-    "end": 86.647,
-    "p": 0.999
+    "start": 84.46,
+    "end": 84.72,
+    "p": 0.992
    },
    {
     "word": " relationship.",
-    "start": 86.647,
-    "end": 87.247,
-    "p": 0.995
+    "start": 84.72,
+    "end": 85.3,
+    "p": 0.986
    },
    {
     "word": " That",
-    "start": 87.707,
-    "end": 88.027,
-    "p": 0.998
+    "start": 85.98,
+    "end": 86.1,
+    "p": 0.987
    },
    {
     "word": " is",
-    "start": 88.027,
-    "end": 88.147,
-    "p": 0.998
+    "start": 86.1,
+    "end": 86.24,
+    "p": 0.979
    },
    {
     "word": " where",
-    "start": 88.147,
-    "end": 88.367,
-    "p": 0.998
+    "start": 86.24,
+    "end": 86.46,
+    "p": 0.997
    },
    {
     "word": " tooth",
-    "start": 88.367,
-    "end": 88.567,
-    "p": 0.888
+    "start": 86.46,
+    "end": 86.66,
+    "p": 0.49
    },
    {
     "word": " referral",
-    "start": 88.567,
-    "end": 88.967,
-    "p": 0.993
+    "start": 86.66,
+    "end": 86.98,
+    "p": 0.98
    },
    {
     "word": " makes",
-    "start": 88.967,
-    "end": 89.407,
-    "p": 0.998
+    "start": 86.98,
+    "end": 87.48,
+    "p": 0.997
    },
    {
     "word": " the",
-    "start": 89.407,
-    "end": 89.587,
-    "p": 0.998
+    "start": 87.48,
+    "end": 87.66,
+    "p": 0.996
    },
    {
     "word": " difference.",
-    "start": 89.587,
-    "end": 89.947,
-    "p": 1.0
+    "start": 87.66,
+    "end": 88.06,
+    "p": 0.999
    },
    {
     "word": " Instead",
-    "start": 90.647,
-    "end": 91.007,
-    "p": 0.638
+    "start": 88.62,
+    "end": 88.8,
+    "p": 0.933
    },
    {
     "word": " of",
-    "start": 91.007,
-    "end": 91.187,
+    "start": 88.8,
+    "end": 88.94,
     "p": 0.999
    },
    {
     "word": " transactional",
-    "start": 91.187,
-    "end": 91.787,
-    "p": 0.931
+    "start": 88.94,
+    "end": 89.56,
+    "p": 0.979
    },
    {
     "word": " phone",
-    "start": 91.787,
-    "end": 92.027,
-    "p": 0.987
+    "start": 89.56,
+    "end": 89.8,
+    "p": 0.991
    },
    {
     "word": " tag",
-    "start": 92.027,
-    "end": 92.327,
-    "p": 0.977
+    "start": 89.8,
+    "end": 90.12,
+    "p": 0.989
    },
    {
     "word": " and",
-    "start": 92.327,
-    "end": 92.567,
-    "p": 0.976
+    "start": 90.12,
+    "end": 90.32,
+    "p": 0.977
    },
    {
     "word": " static",
-    "start": 92.567,
-    "end": 92.847,
-    "p": 0.99
+    "start": 90.32,
+    "end": 90.62,
+    "p": 0.993
    },
    {
     "word": " email",
-    "start": 92.847,
-    "end": 93.147,
-    "p": 0.91
+    "start": 90.62,
+    "end": 90.94,
+    "p": 0.943
    },
    {
     "word": " chains,",
-    "start": 93.147,
-    "end": 93.607,
-    "p": 0.988
+    "start": 90.94,
+    "end": 91.36,
+    "p": 0.992
    },
    {
     "word": " tooth",
-    "start": 93.84,
-    "end": 93.94,
-    "p": 0.277
+    "start": 91.88,
+    "end": 92.0,
+    "p": 0.849
    },
    {
     "word": " referral",
-    "start": 93.94,
-    "end": 94.36,
-    "p": 0.931
+    "start": 92.0,
+    "end": 92.44,
+    "p": 0.992
    },
    {
     "word": " embeds",
-    "start": 94.36,
-    "end": 94.88,
-    "p": 0.975
+    "start": 92.44,
+    "end": 92.94,
+    "p": 0.987
    },
    {
     "word": " your",
-    "start": 94.88,
-    "end": 95.0,
-    "p": 0.997
+    "start": 92.94,
+    "end": 93.04,
+    "p": 0.998
    },
    {
     "word": " specialty",
-    "start": 95.0,
-    "end": 95.4,
-    "p": 0.979
+    "start": 93.04,
+    "end": 93.46,
+    "p": 0.981
    },
    {
     "word": " practice",
-    "start": 95.4,
-    "end": 95.84,
-    "p": 0.996
+    "start": 93.46,
+    "end": 93.9,
+    "p": 0.997
    },
    {
     "word": " directly",
-    "start": 95.84,
-    "end": 96.32,
-    "p": 0.988
+    "start": 93.9,
+    "end": 94.36,
+    "p": 0.991
    },
    {
     "word": " into",
-    "start": 96.32,
-    "end": 96.58,
-    "p": 0.992
-   },
-   {
-    "word": " the",
-    "start": 96.58,
-    "end": 96.74,
+    "start": 94.36,
+    "end": 94.64,
     "p": 0.995
    },
    {
+    "word": " the",
+    "start": 94.64,
+    "end": 94.78,
+    "p": 0.997
+   },
+   {
     "word": " GP's",
-    "start": 96.74,
-    "end": 97.18,
-    "p": 0.968
+    "start": 94.78,
+    "end": 95.22,
+    "p": 0.963
    },
    {
     "word": " daily",
-    "start": 97.18,
-    "end": 97.42,
-    "p": 0.992
+    "start": 95.22,
+    "end": 95.46,
+    "p": 0.996
    },
    {
     "word": " workflow.",
-    "start": 97.42,
-    "end": 97.84,
-    "p": 0.918
+    "start": 95.46,
+    "end": 95.9,
+    "p": 0.945
    },
    {
     "word": " Zero",
-    "start": 98.16,
-    "end": 98.34,
-    "p": 0.903
+    "start": 96.52,
+    "end": 96.7,
+    "p": 0.811
    },
    {
     "word": " friction.",
-    "start": 98.34,
-    "end": 98.74,
-    "p": 0.979
+    "start": 96.7,
+    "end": 97.08,
+    "p": 0.966
    },
    {
     "word": " No",
-    "start": 99.02,
-    "end": 99.14,
+    "start": 97.38,
+    "end": 97.48,
     "p": 0.997
    },
    {
     "word": " more",
-    "start": 99.14,
-    "end": 99.3,
+    "start": 97.48,
+    "end": 97.64,
     "p": 0.999
    },
    {
     "word": " chasing",
-    "start": 99.3,
-    "end": 99.6,
-    "p": 0.993
+    "start": 97.64,
+    "end": 97.96,
+    "p": 0.995
    },
    {
     "word": " x",
-    "start": 99.6,
-    "end": 99.88,
-    "p": 0.751
+    "start": 97.96,
+    "end": 98.24,
+    "p": 0.748
    },
    {
     "word": "-rays",
-    "start": 99.88,
-    "end": 100.04,
-    "p": 0.978
+    "start": 98.24,
+    "end": 98.4,
+    "p": 0.979
    },
    {
     "word": " or",
-    "start": 100.04,
-    "end": 100.24,
-    "p": 0.956
+    "start": 98.4,
+    "end": 98.6,
+    "p": 0.961
    },
    {
     "word": " fighting",
-    "start": 100.24,
-    "end": 100.48,
+    "start": 98.6,
+    "end": 98.84,
     "p": 0.998
    },
    {
     "word": " over",
-    "start": 100.48,
-    "end": 100.76,
+    "start": 98.84,
+    "end": 99.1,
     "p": 0.998
    },
    {
     "word": " missing",
-    "start": 100.76,
-    "end": 101.0,
-    "p": 0.996
+    "start": 99.1,
+    "end": 99.34,
+    "p": 0.995
    },
    {
     "word": " insurance",
-    "start": 101.0,
-    "end": 101.38,
-    "p": 0.997
+    "start": 99.34,
+    "end": 99.74,
+    "p": 0.998
    },
    {
     "word": " details.",
-    "start": 101.38,
-    "end": 101.94,
-    "p": 0.999
+    "start": 99.74,
+    "end": 100.26,
+    "p": 0.998
    },
    {
     "word": " Automatic",
-    "start": 102.133,
-    "end": 102.473,
-    "p": 0.852
+    "start": 100.76,
+    "end": 101.06,
+    "p": 0.778
    },
    {
     "word": " Transpee.",
-    "start": 102.473,
-    "end": 102.933,
-    "p": 0.468
+    "start": 101.06,
+    "end": 101.52,
+    "p": 0.458
    },
    {
     "word": " The",
-    "start": 103.373,
-    "end": 103.473,
-    "p": 0.99
+    "start": 102.0,
+    "end": 102.06,
+    "p": 0.991
    },
    {
     "word": " GP",
-    "start": 103.473,
-    "end": 103.793,
-    "p": 0.971
+    "start": 102.06,
+    "end": 102.38,
+    "p": 0.972
    },
    {
     "word": " sees",
-    "start": 103.793,
-    "end": 104.133,
+    "start": 102.38,
+    "end": 102.72,
     "p": 0.991
    },
    {
     "word": " patient",
-    "start": 104.133,
-    "end": 104.513,
-    "p": 0.946
+    "start": 102.72,
+    "end": 103.12,
+    "p": 0.941
    },
    {
     "word": " status",
-    "start": 104.513,
-    "end": 104.973,
-    "p": 0.98
+    "start": 103.12,
+    "end": 103.58,
+    "p": 0.985
    },
    {
     "word": " in",
-    "start": 104.973,
-    "end": 105.513,
-    "p": 0.937
+    "start": 103.58,
+    "end": 104.1,
+    "p": 0.886
    },
    {
     "word": " real",
-    "start": 105.513,
-    "end": 105.753,
+    "start": 104.1,
+    "end": 104.36,
     "p": 0.997
    },
    {
     "word": " time,",
-    "start": 105.753,
-    "end": 106.173,
-    "p": 0.816
+    "start": 104.36,
+    "end": 104.76,
+    "p": 0.733
    },
    {
     "word": " closing",
-    "start": 106.313,
-    "end": 106.913,
-    "p": 0.996
+    "start": 105.12,
+    "end": 105.5,
+    "p": 0.994
    },
    {
     "word": " the",
-    "start": 106.913,
-    "end": 107.153,
+    "start": 105.5,
+    "end": 105.74,
     "p": 0.999
    },
    {
     "word": " loop",
-    "start": 107.153,
-    "end": 107.393,
+    "start": 105.74,
+    "end": 105.98,
     "p": 0.999
    },
    {
     "word": " without",
-    "start": 107.393,
-    "end": 107.873,
-    "p": 0.926
+    "start": 105.98,
+    "end": 106.48,
+    "p": 0.889
    },
    {
     "word": " picking",
-    "start": 107.873,
-    "end": 108.193,
+    "start": 106.48,
+    "end": 106.78,
     "p": 0.998
    },
    {
     "word": " up",
-    "start": 108.193,
-    "end": 108.393,
-    "p": 0.999
+    "start": 106.78,
+    "end": 106.98,
+    "p": 0.998
    },
    {
     "word": " the",
-    "start": 108.393,
-    "end": 108.553,
-    "p": 0.999
+    "start": 106.98,
+    "end": 107.14,
+    "p": 0.998
    },
    {
     "word": " phone.",
-    "start": 108.553,
-    "end": 108.893,
+    "start": 107.14,
+    "end": 107.44,
     "p": 1.0
    },
    {
     "word": " 24",
-    "start": 109.873,
-    "end": 110.413,
-    "p": 0.962
+    "start": 107.44,
+    "end": 108.24,
+    "p": 0.872
    },
    {
     "word": "-7",
-    "start": 110.413,
-    "end": 110.773,
-    "p": 0.506
+    "start": 108.24,
+    "end": 108.64,
+    "p": 0.52
    },
    {
     "word": " B2B",
-    "start": 110.773,
-    "end": 111.213,
-    "p": 0.97
+    "start": 108.64,
+    "end": 109.08,
+    "p": 0.944
    },
    {
-    "word": " relationship",
-    "start": 111.213,
-    "end": 111.593,
-    "p": 0.445
+    "word": " Relationship",
+    "start": 109.08,
+    "end": 109.48,
+    "p": 0.479
    },
    {
-    "word": " engine.",
-    "start": 111.593,
-    "end": 111.993,
-    "p": 0.997
-   },
-   {
-    "word": " You",
-    "start": 112.133,
-    "end": 112.183,
-    "p": 0.994
-   },
-   {
-    "word": " become",
-    "start": 112.173,
-    "end": 112.533,
-    "p": 0.996
-   },
-   {
-    "word": " their",
-    "start": 112.533,
-    "end": 112.667,
-    "p": 0.932
-   },
-   {
-    "word": " easiest,",
-    "start": 112.947,
-    "end": 113.627,
-    "p": 0.981
-   },
-   {
-    "word": " most",
-    "start": 114.127,
-    "end": 114.487,
-    "p": 0.996
-   },
-   {
-    "word": " indispensable",
-    "start": 114.487,
-    "end": 115.247,
-    "p": 0.991
-   },
-   {
-    "word": " clinical",
-    "start": 115.247,
-    "end": 115.827,
-    "p": 0.929
-   },
-   {
-    "word": " partner.",
-    "start": 115.827,
-    "end": 116.307,
-    "p": 0.998
-   },
-   {
-    "word": " Not",
-    "start": 117.247,
-    "end": 118.007,
-    "p": 0.568
-   },
-   {
-    "word": " just",
-    "start": 118.007,
-    "end": 118.267,
-    "p": 0.986
-   },
-   {
-    "word": " another",
-    "start": 118.267,
-    "end": 118.647,
-    "p": 0.997
-   },
-   {
-    "word": " specialist",
-    "start": 118.647,
-    "end": 119.207,
+    "word": " Engine.",
+    "start": 109.48,
+    "end": 109.84,
     "p": 0.973
    },
    {
+    "word": " You",
+    "start": 110.04,
+    "end": 110.04,
+    "p": 0.983
+   },
+   {
+    "word": " become",
+    "start": 110.04,
+    "end": 110.38,
+    "p": 0.974
+   },
+   {
+    "word": " their",
+    "start": 110.38,
+    "end": 110.78,
+    "p": 0.944
+   },
+   {
+    "word": " easiest,",
+    "start": 110.78,
+    "end": 111.44,
+    "p": 0.971
+   },
+   {
+    "word": " most",
+    "start": 111.9,
+    "end": 112.06,
+    "p": 0.995
+   },
+   {
+    "word": " indispensable",
+    "start": 112.06,
+    "end": 112.82,
+    "p": 0.986
+   },
+   {
+    "word": " clinical",
+    "start": 112.82,
+    "end": 113.44,
+    "p": 0.93
+   },
+   {
+    "word": " partner.",
+    "start": 113.44,
+    "end": 113.9,
+    "p": 0.997
+   },
+   {
+    "word": " Not",
+    "start": 114.4,
+    "end": 114.54,
+    "p": 0.97
+   },
+   {
+    "word": " just",
+    "start": 114.54,
+    "end": 114.78,
+    "p": 0.997
+   },
+   {
+    "word": " another",
+    "start": 114.78,
+    "end": 115.12,
+    "p": 0.999
+   },
+   {
+    "word": " specialist",
+    "start": 115.12,
+    "end": 115.7,
+    "p": 0.979
+   },
+   {
     "word": " sending",
-    "start": 119.207,
-    "end": 119.647,
-    "p": 0.993
+    "start": 115.7,
+    "end": 116.12,
+    "p": 0.987
    },
    {
     "word": " branded",
-    "start": 119.647,
-    "end": 120.047,
+    "start": 116.12,
+    "end": 116.54,
     "p": 0.995
    },
    {
     "word": " swag.",
-    "start": 120.047,
-    "end": 120.567,
-    "p": 0.981
+    "start": 116.54,
+    "end": 117.04,
+    "p": 0.988
    },
    {
     "word": " Stop",
-    "start": 120.84,
-    "end": 121.1,
+    "start": 117.54,
+    "end": 117.84,
     "p": 0.993
    },
    {
     "word": " bribing",
-    "start": 121.1,
-    "end": 121.54,
-    "p": 0.996
+    "start": 117.84,
+    "end": 118.3,
+    "p": 0.997
    },
    {
     "word": " your",
-    "start": 121.54,
-    "end": 121.82,
+    "start": 118.3,
+    "end": 118.58,
     "p": 0.998
    },
    {
     "word": " referral",
-    "start": 121.82,
-    "end": 122.2,
-    "p": 0.982
+    "start": 118.58,
+    "end": 118.96,
+    "p": 0.984
    },
    {
     "word": " network",
-    "start": 122.2,
-    "end": 122.6,
-    "p": 0.997
+    "start": 118.96,
+    "end": 119.38,
+    "p": 0.999
    },
    {
     "word": " with",
-    "start": 122.6,
-    "end": 122.84,
+    "start": 119.38,
+    "end": 119.62,
     "p": 0.999
    },
    {
     "word": " candy.",
-    "start": 122.84,
-    "end": 123.34,
-    "p": 0.964
+    "start": 119.62,
+    "end": 120.06,
+    "p": 0.977
    },
    {
     "word": " Start",
-    "start": 124.267,
-    "end": 124.407,
-    "p": 0.993
+    "start": 120.76,
+    "end": 120.94,
+    "p": 0.995
    },
    {
     "word": " offering",
-    "start": 124.407,
-    "end": 124.787,
-    "p": 0.998
+    "start": 120.94,
+    "end": 121.32,
+    "p": 0.999
    },
    {
     "word": " them",
-    "start": 124.787,
-    "end": 125.047,
+    "start": 121.32,
+    "end": 121.58,
     "p": 0.999
    },
    {
     "word": " a",
-    "start": 125.047,
-    "end": 125.347,
+    "start": 121.58,
+    "end": 121.86,
     "p": 0.998
    },
    {
     "word": " modern,",
-    "start": 125.347,
-    "end": 125.687,
-    "p": 0.992
+    "start": 121.86,
+    "end": 122.22,
+    "p": 0.994
    },
    {
     "word": " two",
-    "start": 126.027,
-    "end": 126.107,
-    "p": 0.939
+    "start": 122.52,
+    "end": 122.64,
+    "p": 0.933
    },
    {
     "word": "-way",
-    "start": 126.107,
-    "end": 126.287,
-    "p": 0.957
+    "start": 122.64,
+    "end": 122.8,
+    "p": 0.968
    },
    {
     "word": " partnership.",
-    "start": 126.287,
-    "end": 126.887,
-    "p": 0.993
+    "start": 122.8,
+    "end": 123.42,
+    "p": 0.996
    },
    {
     "word": " Upgrade",
-    "start": 127.1,
-    "end": 127.42,
-    "p": 0.986
+    "start": 123.9,
+    "end": 124.2,
+    "p": 0.987
    },
    {
     "word": " your",
-    "start": 127.42,
-    "end": 127.7,
-    "p": 0.998
+    "start": 124.2,
+    "end": 124.48,
+    "p": 0.997
    },
    {
     "word": " referral",
-    "start": 127.7,
-    "end": 128.04,
-    "p": 0.981
+    "start": 124.48,
+    "end": 124.82,
+    "p": 0.984
    },
    {
     "word": " pipeline",
-    "start": 128.04,
-    "end": 128.48,
-    "p": 0.999
-   },
-   {
-    "word": " today",
-    "start": 128.48,
-    "end": 128.92,
+    "start": 124.82,
+    "end": 125.24,
     "p": 0.998
    },
    {
+    "word": " today",
+    "start": 125.24,
+    "end": 125.72,
+    "p": 0.996
+   },
+   {
     "word": " at",
-    "start": 128.92,
-    "end": 129.48,
-    "p": 0.905
+    "start": 125.72,
+    "end": 126.28,
+    "p": 0.877
    },
    {
     "word": " Tooth",
-    "start": 129.48,
-    "end": 129.74,
-    "p": 0.795
+    "start": 126.28,
+    "end": 126.54,
+    "p": 0.816
    },
    {
     "word": " Referral.",
-    "start": 129.74,
-    "end": 130.22,
-    "p": 0.962
+    "start": 126.54,
+    "end": 127.02,
+    "p": 0.938
    }
   ]
  }

@@ -87,7 +87,7 @@ const T = {
   why: at("why"),
   it: at("it", 1),
   skill: at("skill"),
-  cuz: at("cuz"),
+  cuz: at("because", 2), // "...clinical skill. Because your entire..."
   calling: at("calling"),
   hey: at("hey"),
   whats: at("whats", 2),

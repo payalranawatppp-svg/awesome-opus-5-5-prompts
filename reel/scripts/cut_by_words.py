@@ -1,9 +1,12 @@
 """Tighten one long talking-head recording: remove dead air and flubs, never cutting inside a word.
 
 A pause is cut when ffmpeg silencedetect hears silence there AND no transcribed word starts inside it. Each cut
-pause is shortened to --residual seconds of air (split around the cut so breaths land naturally); pauses in
---hold keep a longer, deliberate beat (for a dramatic "...and in return..."). --drop removes explicit spans
-(a stumble, a repeated word). Video and audio are cut together from the same file, so lip sync cannot drift.
+pause keeps the air a speaker would naturally leave, set by the punctuation of the word before it: --air-stop
+after . ? !, --air-comma after , ; : and --residual inside a phrase (split around the cut so breaths land
+naturally). Pauses in --hold keep a longer, deliberate beat (for a dramatic "...and in return..."). --drop removes
+explicit spans (a stumble, a repeated word); a drop next to a pause is merged into it, so the stumble and the dead
+air go together and the pause before the next word still gets its natural length. Video and audio are cut together
+from the same file, so lip sync cannot drift.
 
 Writes <out>.mp4 and <out>.json (segments: in/out in the source, `at` in the output).
 
@@ -21,8 +24,12 @@ ap.add_argument("transcript")
 ap.add_argument("out")
 ap.add_argument("--start", type=float, default=0.0, help="ignore everything before this (leader)")
 ap.add_argument("--keep-gap", type=float, default=0.40)
-ap.add_argument("--residual", type=float, default=0.16)
+ap.add_argument("--residual", type=float, default=0.14, help="air kept for a pause inside a phrase")
+ap.add_argument("--air-comma", type=float, default=0.26, help="air kept after , ; :")
+ap.add_argument("--min-cut", type=float, default=0.2, help="skip cuts that would remove less than this")
+ap.add_argument("--air-stop", type=float, default=0.42, help="air kept after . ? !")
 ap.add_argument("--noise", type=float, default=-38)
+ap.add_argument("--blip", type=float, default=0.35, help="sounds shorter than this between silences (a breath, a click) are not speech, unless a word lies there")
 ap.add_argument("--hold", nargs="*", default=[], help="T:S, the pause containing time T keeps S seconds")
 ap.add_argument("--drop", nargs="*", default=[], help="T0-T1, remove this span outright")
 a = ap.parse_args()
@@ -37,43 +44,75 @@ err = subprocess.run(["ffmpeg", "-i", a.src, "-af", f"silencedetect=noise={a.noi
 st = [float(x) for x in re.findall(r"silence_start: ([0-9.]+)", err)]
 en = [float(x) for x in re.findall(r"silence_end: ([0-9.]+)", err)]
 sil = list(zip(st, en + [dur] * (len(st) - len(en))))
-# merge silences separated by tiny blips (< 60 ms)
+# merge silences separated by short blips (a breath, a lip click, a mic tick): they are not words
 merged = []
 for s, e in sil:
-    if merged and s - merged[-1][1] < 0.06:
+    if merged and s - merged[-1][1] < a.blip:
         merged[-1][1] = e
     else:
         merged.append([s, e])
 
 words = next(iter(json.load(open(a.transcript)).values()))["words"]
 spans = [(w["start"], w["end"]) for w in words]
+texts = [w["word"].strip() for w in words]
 holds = [tuple(map(float, h.split(":"))) for h in a.hold]
 drops = [tuple(map(float, d.split("-"))) for d in a.drop]
 # words inside a dropped span (the stumble itself) protect nothing
-spans = [(ws, we) for ws, we in spans if not any(d0 - 0.05 <= ws <= d1 for d0, d1 in drops)]
+keep_w = [i for i, (ws, we) in enumerate(spans) if not any(d0 - 0.05 <= ws <= d1 for d0, d1 in drops)]
+texts = [texts[i] for i in keep_w]
+spans = [spans[i] for i in keep_w]
+# merge each drop with a pause that touches it (within 0.3 s): they are removed as one piece of dead air
+dropped_in = []
+for d0, d1 in drops:
+    for m in merged:
+        if m[0] - 0.3 <= d1 and d0 <= m[1] + 0.3:
+            m[0], m[1] = min(m[0], d0), max(m[1], d1)
+            dropped_in.append(m)
+            break
+    else:
+        merged.append([d0, d1])
+        dropped_in.append(merged[-1])
+merged.sort()
+
+
+def air_for(s):
+    """Natural pause after the last word that starts before s, from its punctuation."""
+    prev = [t for (ws, we), t in zip(spans, texts) if ws < s + 0.05]
+    if not prev:
+        return a.residual
+    end = prev[-1][-1:]
+    return a.air_stop if end in ".?!" else a.air_comma if end in ",;:" else a.residual
 
 
 def overlaps_word(s, e):
-    # a pause is protected only if a word STARTS inside it: whisper often stretches a word's end into the
-    # silence after it, but a word that begins in the middle of "silence" means quiet speech we must keep
-    return any(s + 0.05 < ws < e - 0.05 for ws, we in spans)
+    # a pause is protected only if a whole word lies inside it (quiet speech we must keep): whisper often
+    # stretches a word's end into the silence after it or starts the next word early, and silencedetect has
+    # already heard that there is no speech in the span
+    return any(s + 0.05 < ws and we < e - 0.05 for ws, we in spans)
 
 
 cuts = []  # (cut_from, cut_to) in source seconds
-for s, e in merged:
-    s = max(s, a.start)
-    if e - s < a.keep_gap or overlaps_word(s, e):
+for m in merged:
+    s, e = max(m[0], a.start), m[1]
+    is_drop = any(m is d for d in dropped_in)
+    if not is_drop and (e - s < a.keep_gap or overlaps_word(s, e)):
         continue
-    keep = a.residual
+    keep = air_for(s)
     for t, k in holds:
         if s - 0.2 <= t <= e + 0.2:
             keep = k
     gap = e - s
+    if is_drop:
+        # the span ends in the stumble itself, so all the air goes before it
+        cuts.append((s + min(keep, gap), e))
+        continue
     if gap <= keep + 0.05:
+        continue
+    # a cut that removes almost nothing is a visible jump in the picture for no gain in pace
+    if gap - keep < a.min_cut:
         continue
     # leave 40% of the kept air after the last word, 60% before the next one
     cuts.append((s + keep * 0.4, e - keep * 0.6))
-cuts += drops
 cuts.append((0.0, a.start))
 cuts.sort()
 # keep = complement of cuts
