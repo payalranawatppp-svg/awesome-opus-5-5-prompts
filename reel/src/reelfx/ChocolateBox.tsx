@@ -14,6 +14,7 @@
  * Demo data; practice and patient names are fictional.
  */
 import React from "react";
+import { Swag3D } from "./Swag3D";
 import { AbsoluteFill, Audio, Freeze, Sequence, interpolate, spring, staticFile, useCurrentFrame } from "remotion";
 import { FontGate, TALENT, TalentLayer, type Framing } from "../effects";
 import transcript from "../data/transcript-cb.json";
@@ -278,42 +279,7 @@ const BigWord: React.FC<{ from: number; to: number; text: string; size?: number;
 };
 
 // ---------------------------------------------------------------------------------------------------
-// Illustrations (generic, unbranded)
-
-const Bottle: React.FC<{ size?: number; grey?: boolean }> = ({ size = 200, grey }) => (
-  <svg width={size * 0.42} height={size} viewBox="0 0 42 100" style={{ filter: grey ? "grayscale(1) opacity(0.6)" : undefined }}>
-    <rect x={15} y={2} width={12} height={9} rx={2} fill="#3B6FE0" />
-    <path d="M14 11h14l3 10v70a6 6 0 0 1-6 6H17a6 6 0 0 1-6-6V21z" fill="#CFE8FF" stroke="#8EC3F5" strokeWidth={1.5} />
-    <rect x={11} y={42} width={20} height={20} fill="#fff" />
-    <text x={21} y={55} fontSize={6} textAnchor="middle" fill="#3B6FE0" fontFamily="Inter" fontWeight={800}>LOGO</text>
-    <path d="M14 26c4 3 10 3 14 0M14 76c4 3 10 3 14 0" stroke="#fff" strokeWidth={1.5} fill="none" opacity={0.7} />
-  </svg>
-);
-const Pen: React.FC<{ size?: number; grey?: boolean }> = ({ size = 200, grey }) => (
-  <svg width={size * 0.22} height={size} viewBox="0 0 22 100" style={{ filter: grey ? "grayscale(1) opacity(0.6)" : undefined }}>
-    <rect x={5} y={4} width={12} height={74} rx={5} fill="#E4473C" />
-    <rect x={14} y={8} width={4} height={30} rx={2} fill="#C9C9C9" />
-    <path d="M5 78h12l-6 18z" fill="#E9E2D6" />
-    <path d="M10 92l1 6 1-6z" fill="#222" />
-    <text x={11} y={56} fontSize={5} textAnchor="middle" fill="#fff" fontFamily="Inter" fontWeight={800} transform="rotate(-90 11 56)">YOUR LOGO</text>
-  </svg>
-);
-const ChocBox: React.FC<{ size?: number; grey?: boolean }> = ({ size = 240, grey }) => (
-  <svg width={size} height={size * 0.62} viewBox="0 0 100 62" style={{ filter: grey ? "grayscale(1) opacity(0.6)" : undefined }}>
-    <rect x={2} y={8} width={96} height={52} rx={5} fill="#5A3A22" />
-    <rect x={6} y={12} width={88} height={44} rx={3} fill="#3A2416" />
-    {[0, 1, 2, 3].map((c) =>
-      [0, 1].map((r) => (
-        <g key={`${c}${r}`}>
-          <circle cx={18 + c * 21.5} cy={23 + r * 21} r={8.2} fill="#D9A93B" />
-          <circle cx={15.5 + c * 21.5} cy={20 + r * 21} r={2.6} fill="#FBE7A6" opacity={0.85} />
-          <path d={`M${11 + c * 21.5} ${26 + r * 21}q7 4 14 0`} stroke="#9C7420" strokeWidth={1} fill="none" />
-        </g>
-      )),
-    )}
-    <path d="M2 8h96l-6-6H8z" fill="#7A5232" />
-  </svg>
-);
+// Swag (generic, unbranded): the 3D models live in Swag3D.tsx
 
 const PriceTag: React.FC<{ text: string; p: number }> = ({ text, p }) => (
   <div style={{ marginTop: 10, padding: "6px 16px", borderRadius: 999, background: YELLOW, color: INK, ...TYPE, letterSpacing: "-0.02em", fontSize: 30, scale: String(p), boxShadow: "0 8px 20px rgba(10,6,24,0.25)" }}>{text}</div>
@@ -333,9 +299,10 @@ const SwagAndScale: React.FC = () => {
   const scaleIn = sp(frame, T.profit + 8, 14, 140);
   const tilt = interpolate(sp(frame, T.profit + 22, 9, 90), [0, 1], [0, -14]);
   const items = [
-    { el: <Bottle size={170} />, tag: "$2", at: T.plastic - 2, x: 150, w: 71, h: 170, dx: -52 },
-    { el: <Pen size={170} />, tag: "pen", at: T.pen - 4, x: 380, w: 37, h: 170, dx: -18 },
-    { el: <ChocBox size={210} />, tag: "$5", at: T.chocolates - 6, x: 690, w: 210, h: 130, dx: 40 },
+    // w and h: the item's footprint in pixels at full size; unit: pixels per model unit (see Swag3D)
+    { kind: "bottle" as const, tag: "$2", at: T.plastic - 2, x: 150, w: 84, h: 200, unit: 200, dx: -52 },
+    { kind: "pen" as const, tag: "pen", at: T.pen - 4, x: 400, w: 20, h: 190, unit: 190, dx: -14 },
+    { kind: "choc" as const, tag: "$5", at: T.chocolates - 6, x: 700, w: 240, h: 150, unit: 150, dx: 42 },
   ];
   // the scale: beam centred above the head
   const cx = 540;
@@ -365,23 +332,45 @@ const SwagAndScale: React.FC = () => {
           <div style={{ ...TYPE, fontSize: 24, letterSpacing: "-0.02em", color: W, textShadow: SOFT, marginTop: 2 }}>of cases from them</div>
         </div>
       )}
-      {items.map((it, i) => {
-        const p = sp(frame, it.at, 11, 200);
-        if (frame < it.at - 1) return null;
-        // fly into the right pan
-        // land standing in the right pan: scale is about the item's bottom centre, so put that on the pan's floor
-        const tx = interpolate(ramp(frame, T.profit + i * 4, T.profit + 18 + i * 4, easeIO), [0, 1], [it.x, R[0] + it.dx - it.w / 2]);
-        // arc up and over, one after another, so nothing crosses the $50,000 label
-        const k = ramp(frame, T.profit + i * 4, T.profit + 18 + i * 4, easeIO);
-        const ty = interpolate(k, [0, 1], [150, R[1] + 124 - it.h]) - Math.sin(k * Math.PI) * 110;
-        const s = interpolate(toScale, [0, 1], [1, 0.42]);
+      {(() => {
+        const placed = items
+          .filter((it) => frame >= it.at - 1)
+          .map((it, i) => {
+            const p = sp(frame, it.at, 11, 200);
+            // arc up and over into the right pan, one after another, so nothing crosses the $50,000 label
+            const k = ramp(frame, T.profit + i * 4, T.profit + 18 + i * 4, easeIO);
+            const bx = interpolate(k, [0, 1], [it.x + it.w / 2, R[0] + it.dx]);
+            const bottom = interpolate(k, [0, 1], [150 + it.h, R[1] + 124]) - Math.sin(k * Math.PI) * 110;
+            const S = p * interpolate(toScale, [0, 1], [1, 0.42]);
+            const leanDeg = (1 - p) * -12 + tilt * toScale * 0.5;
+            return { it, i, p, k, bx, bottom, S, leanDeg };
+          });
         return (
-          <div key={i} style={{ position: "absolute", left: tx, top: ty, display: "flex", flexDirection: "column", alignItems: "center", transformOrigin: "50% 100%", scale: String(p * s), opacity: Math.min(1, p * 2), rotate: `${(1 - p) * -12 + tilt * toScale * 0.5}deg`, filter: "drop-shadow(0 14px 22px rgba(10,6,24,0.35))" }}>
-            {it.el}
-            {toScale < 0.4 && <PriceTag text={it.tag} p={p * (1 - toScale * 2.5)} />}
-          </div>
+          <>
+            {/* soft contact shadows, gone while an item is in the air */}
+            {placed.map(({ it, i, p, k, bx, bottom, S }) => (
+              <div key={`sh${i}`} style={{ position: "absolute", left: bx - (it.w * S * 0.55), top: bottom - 8 * S, width: it.w * S * 1.1, height: 16 * S, borderRadius: "50%", background: "rgba(10,6,24,0.45)", filter: `blur(${8 * S}px)`, opacity: Math.min(1, p * 2) * (1 - Math.sin(k * Math.PI)) }} />
+            ))}
+            <Swag3D
+              items={placed.map(({ it, p, bx, bottom, S, leanDeg }) => ({
+                kind: it.kind,
+                x: bx,
+                y: bottom,
+                size: it.unit * S,
+                // spins in on arrival, then a slow turntable sway
+                turn: (1 - p) * 1.6 + 0.32 * Math.sin((frame - it.at) / 26) + (it.kind === "pen" ? -0.3 : 0),
+                lean: (-leanDeg * Math.PI) / 180,
+              }))}
+            />
+            {toScale < 0.4 &&
+              placed.map(({ it, i, p, bx, bottom }) => (
+                <div key={`t${i}`} style={{ position: "absolute", left: bx, top: bottom + 6, translate: "-50% 0" }}>
+                  <PriceTag text={it.tag} p={p * (1 - toScale * 2.5)} />
+                </div>
+              ))}
+          </>
         );
-      })}
+      })()}
     </AbsoluteFill>
   );
 };
@@ -621,16 +610,16 @@ const NoChocolates: React.FC = () => {
   const { p, out, on } = win(frame, T.dentists - 4, T.they2 - 2);
   if (!on) return null;
   const x = ramp(frame, T.dont, T.dont + 10, easeOut);
+  const s = interpolate(p, [0, 1], [0.8, 1]);
   return (
-    <div style={{ position: "absolute", left: 70, top: 300, width: 340, display: "flex", flexDirection: "column", alignItems: "center", opacity: Math.min(1, p * 1.5) * (1 - out), scale: String(interpolate(p, [0, 1], [0.8, 1])), rotate: "-6deg", filter: "drop-shadow(0 18px 30px rgba(10,6,24,0.4))" }}>
-      <div style={{ position: "relative" }}>
-        <ChocBox size={300} />
-        <svg width={300} height={186} style={{ position: "absolute", inset: 0 }}>
-          <line x1={20} y1={20} x2={20 + 260 * x} y2={20 + 146 * x} stroke={RED} strokeWidth={14} strokeLinecap="round" />
-          <line x1={280} y1={20} x2={280 - 260 * Math.max(0, x * 2 - 1)} y2={20 + 146 * Math.max(0, x * 2 - 1)} stroke={RED} strokeWidth={14} strokeLinecap="round" />
-        </svg>
-      </div>
-    </div>
+    <AbsoluteFill style={{ opacity: Math.min(1, p * 1.5) * (1 - out) }}>
+      <div style={{ position: "absolute", left: 120, top: 498, width: 240, height: 22, borderRadius: "50%", background: "rgba(10,6,24,0.4)", filter: "blur(12px)" }} />
+      <Swag3D items={[{ kind: "choc", x: 240, y: 510, size: 175 * s, turn: -0.35 + 0.18 * Math.sin((frame - T.dentists) / 30), lean: 0.08 }]} />
+      <svg width={300} height={230} style={{ position: "absolute", left: 90, top: 290 }}>
+        <line x1={20} y1={20} x2={20 + 260 * x} y2={20 + 190 * x} stroke={RED} strokeWidth={14} strokeLinecap="round" />
+        <line x1={280} y1={20} x2={280 - 260 * Math.max(0, x * 2 - 1)} y2={20 + 190 * Math.max(0, x * 2 - 1)} stroke={RED} strokeWidth={14} strokeLinecap="round" />
+      </svg>
+    </AbsoluteFill>
   );
 };
 
@@ -836,15 +825,22 @@ const SwagStruck: React.FC = () => {
   const { p, out, on } = win(frame, T.not - 2, T.stop2 - 4);
   if (!on) return null;
   const strike = ramp(frame, T.branded2, T.branded2 + 10, easeOut);
+  const s = interpolate(p, [0, 1], [0.85, 1]);
+  const sway = 0.2 * Math.sin((frame - T.not) / 28);
   return (
-    <div style={{ position: "absolute", left: 0, right: 0, top: 120, display: "flex", justifyContent: "center", opacity: Math.min(1, p * 1.5) * (1 - out) }}>
-      <div style={{ position: "relative", display: "flex", alignItems: "flex-end", gap: 40, padding: "18px 36px", borderRadius: 28, background: "rgba(255,255,255,0.12)", border: "1.5px solid rgba(255,255,255,0.25)", scale: String(interpolate(p, [0, 1], [0.85, 1])) }}>
-        <Bottle size={130} grey={strike > 0.5} />
-        <Pen size={130} grey={strike > 0.5} />
-        <ChocBox size={170} grey={strike > 0.5} />
-        <div style={{ position: "absolute", left: 10, top: "50%", height: 10, width: `${strike * 96}%`, background: RED, borderRadius: 5, rotate: "-6deg" }} />
-      </div>
-    </div>
+    <AbsoluteFill style={{ opacity: Math.min(1, p * 1.5) * (1 - out) }}>
+      <div style={{ position: "absolute", left: 290, top: 110, width: 500, height: 230, borderRadius: 32, background: "rgba(255,255,255,0.12)", border: "1.5px solid rgba(255,255,255,0.25)", scale: String(s) }} />
+      <AbsoluteFill style={{ filter: `grayscale(${strike}) brightness(${1 - strike * 0.25})`, opacity: 1 - strike * 0.35 }}>
+        <Swag3D
+          items={[
+            { kind: "bottle", x: 380, y: 310, size: 160 * s, turn: -0.3 + sway, lean: 0 },
+            { kind: "pen", x: 470, y: 312, size: 150 * s, turn: 0.2 - sway, lean: -0.12 },
+            { kind: "choc", x: 640, y: 300, size: 120 * s, turn: -0.3 + sway, lean: 0 },
+          ]}
+        />
+      </AbsoluteFill>
+      <div style={{ position: "absolute", left: 300, top: 220, height: 12, width: `${strike * 480}px`, background: RED, borderRadius: 6, rotate: "-6deg", transformOrigin: "0 50%", boxShadow: "0 4px 16px rgba(10,6,24,0.35)" }} />
+    </AbsoluteFill>
   );
 };
 
