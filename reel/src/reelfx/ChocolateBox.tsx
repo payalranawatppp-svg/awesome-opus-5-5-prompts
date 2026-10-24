@@ -1016,7 +1016,7 @@ export const ChocolateBox: React.FC = () => {
       </FontGate>
 
       <Audio src={staticFile("audio/voice/cb-cut.wav")} />
-      <Audio src={staticFile("audio/music/showcase-bed.m4a")} loop volume={(f) => 0.075 * interpolate(f, [0, 20, CB_DURATION - 45, CB_DURATION - 1], [0, 1, 1, 0], clamp)} />
+      <Audio src={staticFile("audio/music/cb-bed.ogg")} volume={(f) => 0.075 * interpolate(f, [0, 20, CB_DURATION - 45, CB_DURATION - 1], [0, 1, 1, 0], clamp)} />
       {[
         { f: 2, s: "impact", v: 0.16 },
         { f: T.fifty - 4, s: "riser", v: 0.1 },
