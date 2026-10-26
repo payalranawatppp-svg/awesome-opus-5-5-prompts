@@ -1,0 +1,823 @@
+{
+ "pd-src.wav": {
+  "text": "This was the worst mistake I made, assuming that putting a digital referral form, or PDF, on our website meant we were modern. Here's the truth. A static web form is just a digital dead end. Information gets submitted into an electronic black hole. The patient waits in the dark, files get misplaced, and your front desk ends up spending hours chasing down missing details manually. You need to shift from digital one-way to digital two-way. Toothreferral.com turns that dead end into an active communication engine. Referring offices get real-time status tracking, instant clarity on patient progress, and automated file transfers without picking up the phone. Stop letting web forms kill your momentum. Upgrade to a two-way system at toothreferral.com and turn your pipeline into a high-margin growth engine.",
+  "words": [
+   {
+    "word": " This",
+    "start": 0.98,
+    "end": 1.5,
+    "p": 0.731
+   },
+   {
+    "word": " was",
+    "start": 1.5,
+    "end": 1.68,
+    "p": 0.988
+   },
+   {
+    "word": " the",
+    "start": 1.68,
+    "end": 1.86,
+    "p": 0.997
+   },
+   {
+    "word": " worst",
+    "start": 1.86,
+    "end": 2.04,
+    "p": 0.967
+   },
+   {
+    "word": " mistake",
+    "start": 2.04,
+    "end": 2.38,
+    "p": 0.998
+   },
+   {
+    "word": " I",
+    "start": 2.38,
+    "end": 2.6,
+    "p": 0.985
+   },
+   {
+    "word": " made,",
+    "start": 2.6,
+    "end": 2.78,
+    "p": 0.985
+   },
+   {
+    "word": " assuming",
+    "start": 2.9,
+    "end": 3.22,
+    "p": 0.998
+   },
+   {
+    "word": " that",
+    "start": 3.22,
+    "end": 3.44,
+    "p": 0.978
+   },
+   {
+    "word": " putting",
+    "start": 3.44,
+    "end": 3.6,
+    "p": 0.991
+   },
+   {
+    "word": " a",
+    "start": 3.6,
+    "end": 3.8,
+    "p": 0.981
+   },
+   {
+    "word": " digital",
+    "start": 3.8,
+    "end": 4.1,
+    "p": 0.893
+   },
+   {
+    "word": " referral",
+    "start": 4.1,
+    "end": 4.44,
+    "p": 0.993
+   },
+   {
+    "word": " form,",
+    "start": 4.44,
+    "end": 4.84,
+    "p": 0.996
+   },
+   {
+    "word": " or",
+    "start": 4.96,
+    "end": 5.2,
+    "p": 0.99
+   },
+   {
+    "word": " PDF,",
+    "start": 5.2,
+    "end": 5.5,
+    "p": 0.87
+   },
+   {
+    "word": " on",
+    "start": 5.68,
+    "end": 5.72,
+    "p": 0.991
+   },
+   {
+    "word": " our",
+    "start": 5.72,
+    "end": 5.88,
+    "p": 0.99
+   },
+   {
+    "word": " website",
+    "start": 5.88,
+    "end": 6.2,
+    "p": 0.99
+   },
+   {
+    "word": " meant",
+    "start": 6.2,
+    "end": 6.68,
+    "p": 0.937
+   },
+   {
+    "word": " we",
+    "start": 6.68,
+    "end": 6.84,
+    "p": 0.953
+   },
+   {
+    "word": " were",
+    "start": 6.84,
+    "end": 7.02,
+    "p": 0.992
+   },
+   {
+    "word": " modern.",
+    "start": 7.02,
+    "end": 7.38,
+    "p": 0.973
+   },
+   {
+    "word": " Here's",
+    "start": 9.2,
+    "end": 9.42,
+    "p": 0.972
+   },
+   {
+    "word": " the",
+    "start": 9.42,
+    "end": 9.58,
+    "p": 0.998
+   },
+   {
+    "word": " truth.",
+    "start": 9.58,
+    "end": 9.84,
+    "p": 0.997
+   },
+   {
+    "word": " A",
+    "start": 10.38,
+    "end": 10.54,
+    "p": 0.993
+   },
+   {
+    "word": " static",
+    "start": 10.54,
+    "end": 10.86,
+    "p": 0.992
+   },
+   {
+    "word": " web",
+    "start": 10.86,
+    "end": 11.04,
+    "p": 0.985
+   },
+   {
+    "word": " form",
+    "start": 11.04,
+    "end": 11.3,
+    "p": 0.827
+   },
+   {
+    "word": " is",
+    "start": 11.3,
+    "end": 11.48,
+    "p": 0.997
+   },
+   {
+    "word": " just",
+    "start": 11.48,
+    "end": 11.66,
+    "p": 0.991
+   },
+   {
+    "word": " a",
+    "start": 11.66,
+    "end": 11.84,
+    "p": 0.997
+   },
+   {
+    "word": " digital",
+    "start": 11.84,
+    "end": 12.16,
+    "p": 0.993
+   },
+   {
+    "word": " dead",
+    "start": 12.16,
+    "end": 12.38,
+    "p": 0.989
+   },
+   {
+    "word": " end.",
+    "start": 12.38,
+    "end": 12.66,
+    "p": 0.653
+   },
+   {
+    "word": " Information",
+    "start": 13.04,
+    "end": 13.46,
+    "p": 0.983
+   },
+   {
+    "word": " gets",
+    "start": 13.46,
+    "end": 13.7,
+    "p": 0.99
+   },
+   {
+    "word": " submitted",
+    "start": 13.7,
+    "end": 14.02,
+    "p": 0.998
+   },
+   {
+    "word": " into",
+    "start": 14.02,
+    "end": 14.34,
+    "p": 0.982
+   },
+   {
+    "word": " an",
+    "start": 14.34,
+    "end": 14.54,
+    "p": 0.99
+   },
+   {
+    "word": " electronic",
+    "start": 14.54,
+    "end": 14.98,
+    "p": 0.997
+   },
+   {
+    "word": " black",
+    "start": 14.98,
+    "end": 15.3,
+    "p": 0.988
+   },
+   {
+    "word": " hole.",
+    "start": 15.3,
+    "end": 15.58,
+    "p": 0.974
+   },
+   {
+    "word": " The",
+    "start": 16.54,
+    "end": 16.7,
+    "p": 0.991
+   },
+   {
+    "word": " patient",
+    "start": 16.7,
+    "end": 16.96,
+    "p": 0.998
+   },
+   {
+    "word": " waits",
+    "start": 16.96,
+    "end": 17.16,
+    "p": 1.0
+   },
+   {
+    "word": " in",
+    "start": 17.16,
+    "end": 17.32,
+    "p": 0.999
+   },
+   {
+    "word": " the",
+    "start": 17.32,
+    "end": 17.46,
+    "p": 0.998
+   },
+   {
+    "word": " dark,",
+    "start": 17.46,
+    "end": 17.7,
+    "p": 1.0
+   },
+   {
+    "word": " files",
+    "start": 18.12,
+    "end": 18.4,
+    "p": 0.996
+   },
+   {
+    "word": " get",
+    "start": 18.4,
+    "end": 18.6,
+    "p": 0.993
+   },
+   {
+    "word": " misplaced,",
+    "start": 18.6,
+    "end": 19.1,
+    "p": 0.992
+   },
+   {
+    "word": " and",
+    "start": 19.48,
+    "end": 19.74,
+    "p": 0.994
+   },
+   {
+    "word": " your",
+    "start": 19.74,
+    "end": 19.88,
+    "p": 0.991
+   },
+   {
+    "word": " front",
+    "start": 19.88,
+    "end": 20.1,
+    "p": 0.995
+   },
+   {
+    "word": " desk",
+    "start": 20.1,
+    "end": 20.38,
+    "p": 0.994
+   },
+   {
+    "word": " ends",
+    "start": 20.38,
+    "end": 20.58,
+    "p": 0.988
+   },
+   {
+    "word": " up",
+    "start": 20.58,
+    "end": 20.8,
+    "p": 0.999
+   },
+   {
+    "word": " spending",
+    "start": 20.8,
+    "end": 21.04,
+    "p": 0.994
+   },
+   {
+    "word": " hours",
+    "start": 21.04,
+    "end": 21.44,
+    "p": 0.999
+   },
+   {
+    "word": " chasing",
+    "start": 21.44,
+    "end": 21.88,
+    "p": 0.995
+   },
+   {
+    "word": " down",
+    "start": 21.88,
+    "end": 22.14,
+    "p": 0.998
+   },
+   {
+    "word": " missing",
+    "start": 22.14,
+    "end": 22.44,
+    "p": 0.996
+   },
+   {
+    "word": " details",
+    "start": 22.44,
+    "end": 22.88,
+    "p": 0.998
+   },
+   {
+    "word": " manually.",
+    "start": 22.88,
+    "end": 23.44,
+    "p": 0.993
+   },
+   {
+    "word": " You",
+    "start": 24.84,
+    "end": 25.02,
+    "p": 0.997
+   },
+   {
+    "word": " need",
+    "start": 25.02,
+    "end": 25.18,
+    "p": 0.997
+   },
+   {
+    "word": " to",
+    "start": 25.18,
+    "end": 25.34,
+    "p": 0.998
+   },
+   {
+    "word": " shift",
+    "start": 25.34,
+    "end": 25.56,
+    "p": 0.999
+   },
+   {
+    "word": " from",
+    "start": 25.56,
+    "end": 25.82,
+    "p": 0.996
+   },
+   {
+    "word": " digital",
+    "start": 25.82,
+    "end": 26.1,
+    "p": 0.945
+   },
+   {
+    "word": " one",
+    "start": 26.1,
+    "end": 26.34,
+    "p": 0.928
+   },
+   {
+    "word": "-way",
+    "start": 26.34,
+    "end": 26.46,
+    "p": 0.863
+   },
+   {
+    "word": " to",
+    "start": 26.46,
+    "end": 26.66,
+    "p": 0.989
+   },
+   {
+    "word": " digital",
+    "start": 26.66,
+    "end": 26.96,
+    "p": 0.996
+   },
+   {
+    "word": " two",
+    "start": 26.96,
+    "end": 27.26,
+    "p": 0.988
+   },
+   {
+    "word": "-way.",
+    "start": 27.26,
+    "end": 27.52,
+    "p": 0.989
+   },
+   {
+    "word": " Toothreferral",
+    "start": 28.13,
+    "end": 28.56,
+    "p": 0.684
+   },
+   {
+    "word": ".com",
+    "start": 28.56,
+    "end": 28.94,
+    "p": 0.991
+   },
+   {
+    "word": " turns",
+    "start": 28.94,
+    "end": 29.28,
+    "p": 0.977
+   },
+   {
+    "word": " that",
+    "start": 29.28,
+    "end": 29.5,
+    "p": 0.98
+   },
+   {
+    "word": " dead",
+    "start": 29.5,
+    "end": 29.76,
+    "p": 0.062
+   },
+   {
+    "word": " end",
+    "start": 29.76,
+    "end": 30.04,
+    "p": 0.827
+   },
+   {
+    "word": " into",
+    "start": 30.04,
+    "end": 30.32,
+    "p": 0.991
+   },
+   {
+    "word": " an",
+    "start": 30.32,
+    "end": 30.54,
+    "p": 0.983
+   },
+   {
+    "word": " active",
+    "start": 30.54,
+    "end": 30.84,
+    "p": 0.988
+   },
+   {
+    "word": " communication",
+    "start": 30.84,
+    "end": 31.44,
+    "p": 0.995
+   },
+   {
+    "word": " engine.",
+    "start": 31.44,
+    "end": 31.9,
+    "p": 0.996
+   },
+   {
+    "word": " Referring",
+    "start": 32.52,
+    "end": 32.94,
+    "p": 0.995
+   },
+   {
+    "word": " offices",
+    "start": 32.94,
+    "end": 33.36,
+    "p": 0.984
+   },
+   {
+    "word": " get",
+    "start": 33.36,
+    "end": 34.02,
+    "p": 0.324
+   },
+   {
+    "word": " real",
+    "start": 34.02,
+    "end": 34.36,
+    "p": 0.99
+   },
+   {
+    "word": "-time",
+    "start": 34.36,
+    "end": 34.64,
+    "p": 0.756
+   },
+   {
+    "word": " status",
+    "start": 34.64,
+    "end": 35.06,
+    "p": 0.994
+   },
+   {
+    "word": " tracking,",
+    "start": 35.06,
+    "end": 35.54,
+    "p": 0.919
+   },
+   {
+    "word": " instant",
+    "start": 36.06,
+    "end": 36.5,
+    "p": 0.997
+   },
+   {
+    "word": " clarity",
+    "start": 36.5,
+    "end": 37.04,
+    "p": 0.997
+   },
+   {
+    "word": " on",
+    "start": 37.04,
+    "end": 38.38,
+    "p": 0.891
+   },
+   {
+    "word": " patient",
+    "start": 38.38,
+    "end": 38.76,
+    "p": 0.994
+   },
+   {
+    "word": " progress,",
+    "start": 38.76,
+    "end": 39.36,
+    "p": 0.996
+   },
+   {
+    "word": " and",
+    "start": 39.98,
+    "end": 40.1,
+    "p": 0.975
+   },
+   {
+    "word": " automated",
+    "start": 40.1,
+    "end": 41.16,
+    "p": 0.935
+   },
+   {
+    "word": " file",
+    "start": 41.16,
+    "end": 41.62,
+    "p": 0.997
+   },
+   {
+    "word": " transfers",
+    "start": 41.62,
+    "end": 42.24,
+    "p": 0.994
+   },
+   {
+    "word": " without",
+    "start": 42.24,
+    "end": 43.22,
+    "p": 0.967
+   },
+   {
+    "word": " picking",
+    "start": 43.22,
+    "end": 43.54,
+    "p": 0.998
+   },
+   {
+    "word": " up",
+    "start": 43.54,
+    "end": 43.76,
+    "p": 0.997
+   },
+   {
+    "word": " the",
+    "start": 43.76,
+    "end": 43.9,
+    "p": 0.998
+   },
+   {
+    "word": " phone.",
+    "start": 43.9,
+    "end": 44.38,
+    "p": 0.999
+   },
+   {
+    "word": " Stop",
+    "start": 48.38,
+    "end": 48.74,
+    "p": 0.989
+   },
+   {
+    "word": " letting",
+    "start": 48.74,
+    "end": 49.04,
+    "p": 0.996
+   },
+   {
+    "word": " web",
+    "start": 49.04,
+    "end": 49.3,
+    "p": 0.979
+   },
+   {
+    "word": " forms",
+    "start": 49.3,
+    "end": 49.74,
+    "p": 0.752
+   },
+   {
+    "word": " kill",
+    "start": 49.74,
+    "end": 50.34,
+    "p": 0.993
+   },
+   {
+    "word": " your",
+    "start": 50.34,
+    "end": 50.58,
+    "p": 0.997
+   },
+   {
+    "word": " momentum.",
+    "start": 50.58,
+    "end": 51.06,
+    "p": 0.999
+   },
+   {
+    "word": " Upgrade",
+    "start": 51.71,
+    "end": 52.14,
+    "p": 0.019
+   },
+   {
+    "word": " to",
+    "start": 52.14,
+    "end": 52.58,
+    "p": 0.983
+   },
+   {
+    "word": " a",
+    "start": 52.58,
+    "end": 52.68,
+    "p": 0.986
+   },
+   {
+    "word": " two",
+    "start": 52.68,
+    "end": 52.92,
+    "p": 0.8
+   },
+   {
+    "word": "-way",
+    "start": 52.92,
+    "end": 53.08,
+    "p": 0.907
+   },
+   {
+    "word": " system",
+    "start": 53.08,
+    "end": 53.5,
+    "p": 0.997
+   },
+   {
+    "word": " at",
+    "start": 53.5,
+    "end": 53.84,
+    "p": 0.985
+   },
+   {
+    "word": " toothreferral",
+    "start": 53.84,
+    "end": 54.48,
+    "p": 0.89
+   },
+   {
+    "word": ".com",
+    "start": 54.48,
+    "end": 55.32,
+    "p": 0.997
+   },
+   {
+    "word": " and",
+    "start": 55.32,
+    "end": 56.02,
+    "p": 0.871
+   },
+   {
+    "word": " turn",
+    "start": 56.02,
+    "end": 56.72,
+    "p": 0.968
+   },
+   {
+    "word": " your",
+    "start": 56.72,
+    "end": 56.94,
+    "p": 0.992
+   },
+   {
+    "word": " pipeline",
+    "start": 56.94,
+    "end": 57.36,
+    "p": 0.973
+   },
+   {
+    "word": " into",
+    "start": 57.36,
+    "end": 58.12,
+    "p": 0.992
+   },
+   {
+    "word": " a",
+    "start": 58.12,
+    "end": 58.46,
+    "p": 0.998
+   },
+   {
+    "word": " high",
+    "start": 58.46,
+    "end": 58.66,
+    "p": 0.975
+   },
+   {
+    "word": "-margin",
+    "start": 58.66,
+    "end": 59.26,
+    "p": 0.689
+   },
+   {
+    "word": " growth",
+    "start": 59.79,
+    "end": 60.22,
+    "p": 0.962
+   },
+   {
+    "word": " engine.",
+    "start": 60.22,
+    "end": 60.64,
+    "p": 0.998
+   }
+  ]
+ }
+}

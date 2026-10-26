@@ -1,0 +1,5 @@
+{"effects": [
+  {"fx": "spotlight", "start": 11.85, "end": 15.05, "text": "BLACK HOLE", "push": "1.0"},
+  {"fx": "apple-toggles", "start": 29.3, "end": 37.4, "text": "Live status|Instant clarity|Auto file transfers", "ticks": "1.0|2.2|5.4", "zoom": "1.0", "pos": "below"},
+  {"fx": "glitter-spotlight", "start": 45.45, "end": 48.13, "text": "GROWTH", "push": "1.0"}
+]}

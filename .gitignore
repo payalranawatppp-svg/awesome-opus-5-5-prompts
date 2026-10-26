@@ -19,3 +19,7 @@ reel/public/footage/tr2-cut.mp4
 # GitHub), the cut by reel/scripts/cut_by_words.py (command in build_cb_src.sh)
 reel/public/footage/cbq/cbq-src.mp4
 reel/public/footage/cb-cut.mp4
+# PDF dead end: the graded source and the cut are rebuilt from reel/public/footage/pd/clip01..08.mp4
+# (scripts/match_grade.py, cut_by_words.py, morph_cuts.py; commands in reel/src/reelfx/PdfDeadEnd.tsx header)
+reel/public/footage/pd/pd-src.mp4
+reel/public/footage/pd-cut.mp4
