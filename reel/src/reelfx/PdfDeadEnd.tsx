@@ -648,7 +648,7 @@ export const PdfDeadEnd: React.FC = () => {
           <ShiftArrow />
           <BigWord from={T.two + 2} to={T.tooth1 - 4} text="two-way." size={200} top={330} />
           <EngineLink />
-          <BigWord from={T.momentum - 3} to={T.upgrade - 6} text="momentum." size={180} top={330} />
+          <BigWord from={T.momentum - 1} to={T.upgrade - 6} text="momentum." size={180} top={330} />
           {!inFx && speaker("cutout")}
           {!inFx && speaker("full", MIC)}
         </AbsoluteFill>
@@ -669,7 +669,7 @@ export const PdfDeadEnd: React.FC = () => {
           </div>
         </Sequence>
         <Dashboard />
-        <FormCard from={T.stop - 4} to={T.momentum + 4} stampAt={T.kill} />
+        <FormCard from={T.stop - 4} to={T.momentum - 4} stampAt={T.kill} />
         <UrlLabel />
         {frame < CUT_FRAMES - 4 && <Captions />}
         <EndCard />
