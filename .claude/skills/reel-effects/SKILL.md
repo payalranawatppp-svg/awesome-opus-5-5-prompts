@@ -16,6 +16,31 @@ Also read before editing any Remotion code: `.claude/skills/remotion-motion-grap
 rules) and, if installed, `.claude/skills/remotion-best-practices/` (restore it with
 `npx skills experimental_install` if the folder is missing; it is git-ignored).
 
+## 0. Next edit: also use `/effects` (saved 2026-10-26)
+
+The user asked for the effects from @vibha.in.progress's reel ("One clip. 7 completely different edits",
+instagram.com/reel/De7JFJdo4KX) to be installed and used in the next edit. They are installed as the project
+skill `.claude/skills/effects` (MIT, github.com/Vibha-Ramprakash/claude-video-effects): 42 face-tracked effects
+rendered by one Python script. Read `.claude/skills/effects/SKILL.md` and `.claude/skills/effects/LOCAL.md`.
+
+From the reel, the free pack includes `glass-widgets`, `orbit`, `spotlight` (plus the `glitter-spotlight` look),
+`checklist` and `timeline`. The caption adds `match-cut` and `apple-toggles`. All eight were tested on the Chocolate Box
+footage and work. The reel's "documentary" dot look, the "My top 7 reels" bar chart and the "Claude renders it" studio
+are the creator's paid full style ("coming soon") and are NOT in the pack; do not claim them.
+
+How it fits this pipeline (cut_by_words -> morph_cuts -> Remotion):
+- `/effects` works on a plain video and returns a video with the original audio. Run it on the finished cut
+  (`public/footage/<id>-cut.mp4`, after morph cuts) for the beats you choose, OR on the final Remotion render as a
+  last pass. Do not stack it on a beat that already has a Remotion graphic.
+- Give every effect its own copy: the defaults show the creator's sample content (e.g. glass-widgets' "Top
+  reels 197K", "Edited by Claude"). Keep titles short (timeline runs off the frame past ~12 characters).
+- Keep the skill's rules: never cover the face, 1.5-4 s per effect, camera effects first. Check stills before
+  rendering (`--still`), as with everything else here.
+- Pick by beat, as in section 1: glass-widgets / liquid-glass-graph for a number or result, orbit / carousel-spin
+  for a body of work, spotlight / glitter-spotlight / led-sign for the one word that matters, checklist / todo /
+  apple-toggles for steps or features, match-cut / headline-wall for "everyone is talking about it", timeline for
+  a "how it was made" beat. One or two per minute, not all of them.
+
 ## 1. Choosing effects for a script
 
 Read the script (or transcript), mark its beats, then map beats to effects:
