@@ -1,6 +1,6 @@
 ===== CLIP 01  Hook  (00-08 s) =====
-Vertical 9:16 video, 8 seconds, one continuous shot. The presenter talks to camera.
-Camera: locked off, no zoom, no cuts, the same framing for the whole clip. Both hands always stay inside the frame, between chest and shoulder height.
+Vertical 9:16 video, 8 seconds, one continuous shot of the same presenter, speaking directly to camera.
+Camera: locked off, eye level, medium close-up from mid-chest up, the same framing for the whole clip: no zoom, no cuts, no camera movement. Both hands always stay inside the frame, between chest and shoulder height.
 0.0-0.5 s: Rest pose, hands relaxed together at chest height, shoulders loose, looking straight into the lens, mouth closed.
 0.5-1.5 s: He taps his wrist like checking a watch, on the words "It's 4:58,"
 1.5-6 s: He points down, on the words "the patient is in the chair, and the GP swears they sent the X-ray."
@@ -14,8 +14,8 @@ Audio: only his voice, quiet room tone. No music, no subtitles, no captions, no 
 If the swear word is blocked, use this instead: "Where on earth is it?"
 
 ===== CLIP 02  The usual suspects  (08-16 s) =====
-Vertical 9:16 video, 8 seconds, one continuous shot. The presenter talks to camera.
-Camera: locked off, no zoom, no cuts, the same framing for the whole clip. Both hands always stay inside the frame, between chest and shoulder height.
+Vertical 9:16 video, 8 seconds, one continuous shot of the same presenter, speaking directly to camera.
+Camera: locked off, eye level, medium close-up from mid-chest up, the same framing for the whole clip: no zoom, no cuts, no camera movement. Both hands always stay inside the frame, between chest and shoulder height.
 0.0-0.5 s: Rest pose, hands relaxed together at chest height, shoulders loose, looking straight into the lens, mouth closed.
 0.5-7 s: He counts one, two, three on his fingers, tilting his head a little more on each, on the words "Spoiler: it's buried in someone's inbox, in a fax tray, or on page three of an email chain"
 7-7.5 s: He flicks his fingers away dismissively, on the words "from June."
@@ -27,8 +27,8 @@ Dialogue, spoken to camera in a natural, confident tone and perfectly lip-synced
 Audio: only his voice, quiet room tone. No music, no subtitles, no captions, no on-screen text, no logos.
 
 ===== CLIP 03  How it should work  (16-24 s) =====
-Vertical 9:16 video, 8 seconds, one continuous shot. The presenter talks to camera.
-Camera: locked off, no zoom, no cuts, the same framing for the whole clip. Both hands always stay inside the frame, between chest and shoulder height.
+Vertical 9:16 video, 8 seconds, one continuous shot of the same presenter, speaking directly to camera.
+Camera: locked off, eye level, medium close-up from mid-chest up, the same framing for the whole clip: no zoom, no cuts, no camera movement. Both hands always stay inside the frame, between chest and shoulder height.
 0.0-0.5 s: Rest pose, hands relaxed together at chest height, shoulders loose, looking straight into the lens, mouth closed.
 0.5-2.5 s: He smooths the air with a flat, palm-down hand, calming, on the words "Here's how it should work."
 2.5-7.5 s: He points to the upper left of the frame and holds, on the words "Every incoming referral, from every office, lands in one list you can trust."
@@ -40,8 +40,8 @@ Dialogue, spoken to camera in a natural, confident tone and perfectly lip-synced
 Audio: only his voice, quiet room tone. No music, no subtitles, no captions, no on-screen text, no logos.
 
 ===== CLIP 04  There it is  (24-32 s) =====
-Vertical 9:16 video, 8 seconds, one continuous shot. The presenter talks to camera.
-Camera: locked off, no zoom, no cuts, the same framing for the whole clip. Both hands always stay inside the frame, between chest and shoulder height.
+Vertical 9:16 video, 8 seconds, one continuous shot of the same presenter, speaking directly to camera.
+Camera: locked off, eye level, medium close-up from mid-chest up, the same framing for the whole clip: no zoom, no cuts, no camera movement. Both hands always stay inside the frame, between chest and shoulder height.
 0.0-0.5 s: Rest pose, hands relaxed together at chest height, shoulders loose, looking straight into the lens, mouth closed.
 0.5-1.5 s: He opens his hands like opening a book, on the words "Open the patient,"
 1.5-5 s: He spreads his thumb and index finger apart like zooming in on a phone, on the words "and the X-rays are right there, shared with both offices."
@@ -54,8 +54,8 @@ Dialogue, spoken to camera in a natural, confident tone and perfectly lip-synced
 Audio: only his voice, quiet room tone. No music, no subtitles, no captions, no on-screen text, no logos.
 
 ===== CLIP 05  Ask in the case  (32-40 s) =====
-Vertical 9:16 video, 8 seconds, one continuous shot. The presenter talks to camera.
-Camera: locked off, no zoom, no cuts, the same framing for the whole clip. Both hands always stay inside the frame, between chest and shoulder height.
+Vertical 9:16 video, 8 seconds, one continuous shot of the same presenter, speaking directly to camera.
+Camera: locked off, eye level, medium close-up from mid-chest up, the same framing for the whole clip: no zoom, no cuts, no camera movement. Both hands always stay inside the frame, between chest and shoulder height.
 0.0-0.5 s: Rest pose, hands relaxed together at chest height, shoulders loose, looking straight into the lens, mouth closed.
 0.5-3.5 s: He mimes typing in the air with his fingers, on the words "Is something missing? Message the GP inside the case."
 3.5-4.5 s: He points forward at the camera, on the words "Tag them,"
@@ -68,8 +68,8 @@ Dialogue, spoken to camera in a natural, confident tone and perfectly lip-synced
 Audio: only his voice, quiet room tone. No music, no subtitles, no captions, no on-screen text, no logos.
 
 ===== CLIP 06  No callbacks  (40-48 s) =====
-Vertical 9:16 video, 8 seconds, one continuous shot. The presenter talks to camera.
-Camera: locked off, no zoom, no cuts, the same framing for the whole clip. Both hands always stay inside the frame, between chest and shoulder height.
+Vertical 9:16 video, 8 seconds, one continuous shot of the same presenter, speaking directly to camera.
+Camera: locked off, eye level, medium close-up from mid-chest up, the same framing for the whole clip: no zoom, no cuts, no camera movement. Both hands always stay inside the frame, between chest and shoulder height.
 0.0-0.5 s: Rest pose, hands relaxed together at chest height, shoulders loose, looking straight into the lens, mouth closed.
 0.5-2 s: He makes one small forward tap in the air with his index finger, on the words "Then update the status,"
 2-5 s: He pushes his open palm forward and to the right, like sending something, on the words "and the referring office sees it instantly."
@@ -82,8 +82,8 @@ Dialogue, spoken to camera in a natural, confident tone and perfectly lip-synced
 Audio: only his voice, quiet room tone. No music, no subtitles, no captions, no on-screen text, no logos.
 
 ===== CLIP 07  The network  (48-56 s) =====
-Vertical 9:16 video, 8 seconds, one continuous shot. The presenter talks to camera.
-Camera: locked off, no zoom, no cuts, the same framing for the whole clip. Both hands always stay inside the frame, between chest and shoulder height.
+Vertical 9:16 video, 8 seconds, one continuous shot of the same presenter, speaking directly to camera.
+Camera: locked off, eye level, medium close-up from mid-chest up, the same framing for the whole clip: no zoom, no cuts, no camera movement. Both hands always stay inside the frame, between chest and shoulder height.
 0.0-0.5 s: Rest pose, hands relaxed together at chest height, shoulders loose, looking straight into the lens, mouth closed.
 0.5-3.5 s: He points to three different spots in the air, one after another, on the words "Every office you work with stays connected."
 3.5-7.5 s: He pulls both hands together so they meet in the centre, on the words "That's not just software; it's a referral network that works."
@@ -95,8 +95,8 @@ Dialogue, spoken to camera in a natural, confident tone and perfectly lip-synced
 Audio: only his voice, quiet room tone. No music, no subtitles, no captions, no on-screen text, no logos.
 
 ===== CLIP 08  Close  (56-64 s) =====
-Vertical 9:16 video, 8 seconds, one continuous shot. The presenter talks to camera.
-Camera: locked off, no zoom, no cuts, the same framing for the whole clip. Both hands always stay inside the frame, between chest and shoulder height.
+Vertical 9:16 video, 8 seconds, one continuous shot of the same presenter, speaking directly to camera.
+Camera: locked off, eye level, medium close-up from mid-chest up, the same framing for the whole clip: no zoom, no cuts, no camera movement. Both hands always stay inside the frame, between chest and shoulder height.
 0.0-0.5 s: Rest pose, hands relaxed together at chest height, shoulders loose, looking straight into the lens, mouth closed.
 0.5-2.5 s: He taps his wrist again like checking a watch, on the words "So, next time it's 4:58,"
 2.5-7.5 s: He makes three small, calm downward hand beats, one per word, on the words "you'll know exactly where that X-ray is. Calm, collected, and connected."
