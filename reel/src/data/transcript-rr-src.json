@@ -1,0 +1,997 @@
+{
+ "rr-src": {
+  "text": "Your referral process is facts paper, voicemail, and prayer. That's not a workflow. That's a hostage situation. Every GP is different. An email here, a call there, a sticky note somewhere. Hell, the patient just waits. Now check out tooth referral. Here's what it does. Every incoming referral from every office lands in one list. Each office gets a green dot once it's connected. Build that network once and referrals just flow in. Click one. The diagnosis, the tooth numbers, and what they want done are all there. No detective work is required. Do you need a better x-ray? Message the referring office right inside the case. They answer like adults. Update the status, schedule the consult, and the GP is notified. There's zero phone tag and zero just checking in emails. That's what a referral network should feel like. Connected offices, one place, and nobody left guessing. Want to see it for yourself? Check out tooth referral and start connecting your referral network.",
+  "words": [
+   {
+    "word": " Your",
+    "start": 0.0,
+    "end": 0.28,
+    "p": 0.792
+   },
+   {
+    "word": " referral",
+    "start": 0.28,
+    "end": 0.68,
+    "p": 0.996
+   },
+   {
+    "word": " process",
+    "start": 0.68,
+    "end": 1.24,
+    "p": 0.992
+   },
+   {
+    "word": " is",
+    "start": 1.24,
+    "end": 1.88,
+    "p": 0.981
+   },
+   {
+    "word": " facts",
+    "start": 1.88,
+    "end": 2.16,
+    "p": 0.481
+   },
+   {
+    "word": " paper,",
+    "start": 2.16,
+    "end": 2.66,
+    "p": 0.575
+   },
+   {
+    "word": " voicemail,",
+    "start": 3.06,
+    "end": 3.52,
+    "p": 0.966
+   },
+   {
+    "word": " and",
+    "start": 3.78,
+    "end": 3.86,
+    "p": 0.997
+   },
+   {
+    "word": " prayer.",
+    "start": 3.86,
+    "end": 4.14,
+    "p": 0.996
+   },
+   {
+    "word": " That's",
+    "start": 4.62,
+    "end": 4.78,
+    "p": 0.986
+   },
+   {
+    "word": " not",
+    "start": 4.78,
+    "end": 4.9,
+    "p": 0.998
+   },
+   {
+    "word": " a",
+    "start": 4.9,
+    "end": 5.06,
+    "p": 0.998
+   },
+   {
+    "word": " workflow.",
+    "start": 5.06,
+    "end": 5.38,
+    "p": 0.915
+   },
+   {
+    "word": " That's",
+    "start": 5.94,
+    "end": 6.14,
+    "p": 0.994
+   },
+   {
+    "word": " a",
+    "start": 6.14,
+    "end": 6.24,
+    "p": 0.999
+   },
+   {
+    "word": " hostage",
+    "start": 6.24,
+    "end": 6.6,
+    "p": 0.995
+   },
+   {
+    "word": " situation.",
+    "start": 6.6,
+    "end": 7.22,
+    "p": 0.999
+   },
+   {
+    "word": " Every",
+    "start": 8.18,
+    "end": 8.74,
+    "p": 0.674
+   },
+   {
+    "word": " GP",
+    "start": 8.74,
+    "end": 8.98,
+    "p": 0.986
+   },
+   {
+    "word": " is",
+    "start": 8.98,
+    "end": 9.3,
+    "p": 0.995
+   },
+   {
+    "word": " different.",
+    "start": 9.3,
+    "end": 9.62,
+    "p": 0.999
+   },
+   {
+    "word": " An",
+    "start": 9.9,
+    "end": 10.0,
+    "p": 0.974
+   },
+   {
+    "word": " email",
+    "start": 10.0,
+    "end": 10.32,
+    "p": 0.915
+   },
+   {
+    "word": " here,",
+    "start": 10.32,
+    "end": 10.72,
+    "p": 0.983
+   },
+   {
+    "word": " a",
+    "start": 11.0,
+    "end": 11.14,
+    "p": 0.993
+   },
+   {
+    "word": " call",
+    "start": 11.14,
+    "end": 11.38,
+    "p": 0.998
+   },
+   {
+    "word": " there,",
+    "start": 11.38,
+    "end": 11.78,
+    "p": 0.992
+   },
+   {
+    "word": " a",
+    "start": 11.96,
+    "end": 12.1,
+    "p": 0.991
+   },
+   {
+    "word": " sticky",
+    "start": 12.1,
+    "end": 12.36,
+    "p": 0.997
+   },
+   {
+    "word": " note",
+    "start": 12.36,
+    "end": 12.64,
+    "p": 0.988
+   },
+   {
+    "word": " somewhere.",
+    "start": 12.64,
+    "end": 13.14,
+    "p": 0.995
+   },
+   {
+    "word": " Hell,",
+    "start": 14.06,
+    "end": 14.22,
+    "p": 0.844
+   },
+   {
+    "word": " the",
+    "start": 14.32,
+    "end": 14.36,
+    "p": 0.997
+   },
+   {
+    "word": " patient",
+    "start": 14.36,
+    "end": 14.6,
+    "p": 0.999
+   },
+   {
+    "word": " just",
+    "start": 14.6,
+    "end": 14.84,
+    "p": 0.998
+   },
+   {
+    "word": " waits.",
+    "start": 14.84,
+    "end": 15.16,
+    "p": 1.0
+   },
+   {
+    "word": " Now",
+    "start": 16.6,
+    "end": 16.74,
+    "p": 0.99
+   },
+   {
+    "word": " check",
+    "start": 16.74,
+    "end": 16.96,
+    "p": 0.543
+   },
+   {
+    "word": " out",
+    "start": 16.96,
+    "end": 17.22,
+    "p": 0.997
+   },
+   {
+    "word": " tooth",
+    "start": 17.22,
+    "end": 17.38,
+    "p": 0.591
+   },
+   {
+    "word": " referral.",
+    "start": 17.38,
+    "end": 17.74,
+    "p": 0.988
+   },
+   {
+    "word": " Here's",
+    "start": 18.28,
+    "end": 18.46,
+    "p": 0.994
+   },
+   {
+    "word": " what",
+    "start": 18.46,
+    "end": 18.56,
+    "p": 0.999
+   },
+   {
+    "word": " it",
+    "start": 18.56,
+    "end": 18.66,
+    "p": 0.998
+   },
+   {
+    "word": " does.",
+    "start": 18.66,
+    "end": 18.96,
+    "p": 0.999
+   },
+   {
+    "word": " Every",
+    "start": 19.78,
+    "end": 19.94,
+    "p": 0.929
+   },
+   {
+    "word": " incoming",
+    "start": 19.94,
+    "end": 20.3,
+    "p": 0.998
+   },
+   {
+    "word": " referral",
+    "start": 20.3,
+    "end": 20.76,
+    "p": 0.995
+   },
+   {
+    "word": " from",
+    "start": 20.76,
+    "end": 21.26,
+    "p": 0.944
+   },
+   {
+    "word": " every",
+    "start": 21.26,
+    "end": 21.64,
+    "p": 0.999
+   },
+   {
+    "word": " office",
+    "start": 21.64,
+    "end": 22.16,
+    "p": 0.997
+   },
+   {
+    "word": " lands",
+    "start": 22.16,
+    "end": 22.76,
+    "p": 0.899
+   },
+   {
+    "word": " in",
+    "start": 22.76,
+    "end": 23.0,
+    "p": 0.997
+   },
+   {
+    "word": " one",
+    "start": 23.0,
+    "end": 23.16,
+    "p": 0.997
+   },
+   {
+    "word": " list.",
+    "start": 23.16,
+    "end": 23.54,
+    "p": 0.999
+   },
+   {
+    "word": " Each",
+    "start": 24.78,
+    "end": 24.94,
+    "p": 0.985
+   },
+   {
+    "word": " office",
+    "start": 24.94,
+    "end": 25.32,
+    "p": 0.998
+   },
+   {
+    "word": " gets",
+    "start": 25.32,
+    "end": 25.54,
+    "p": 0.994
+   },
+   {
+    "word": " a",
+    "start": 25.54,
+    "end": 25.74,
+    "p": 0.998
+   },
+   {
+    "word": " green",
+    "start": 25.74,
+    "end": 25.98,
+    "p": 0.994
+   },
+   {
+    "word": " dot",
+    "start": 25.98,
+    "end": 26.26,
+    "p": 0.994
+   },
+   {
+    "word": " once",
+    "start": 26.26,
+    "end": 26.66,
+    "p": 0.971
+   },
+   {
+    "word": " it's",
+    "start": 26.66,
+    "end": 26.92,
+    "p": 0.994
+   },
+   {
+    "word": " connected.",
+    "start": 26.92,
+    "end": 27.34,
+    "p": 0.999
+   },
+   {
+    "word": " Build",
+    "start": 27.96,
+    "end": 28.26,
+    "p": 0.861
+   },
+   {
+    "word": " that",
+    "start": 28.26,
+    "end": 28.5,
+    "p": 0.96
+   },
+   {
+    "word": " network",
+    "start": 28.5,
+    "end": 28.86,
+    "p": 0.983
+   },
+   {
+    "word": " once",
+    "start": 28.86,
+    "end": 29.24,
+    "p": 0.992
+   },
+   {
+    "word": " and",
+    "start": 29.24,
+    "end": 29.92,
+    "p": 0.626
+   },
+   {
+    "word": " referrals",
+    "start": 29.92,
+    "end": 30.28,
+    "p": 0.968
+   },
+   {
+    "word": " just",
+    "start": 30.28,
+    "end": 30.66,
+    "p": 0.961
+   },
+   {
+    "word": " flow",
+    "start": 30.66,
+    "end": 31.04,
+    "p": 0.985
+   },
+   {
+    "word": " in.",
+    "start": 31.04,
+    "end": 31.66,
+    "p": 0.995
+   },
+   {
+    "word": " Click",
+    "start": 32.36,
+    "end": 32.38,
+    "p": 0.83
+   },
+   {
+    "word": " one.",
+    "start": 32.38,
+    "end": 32.68,
+    "p": 0.813
+   },
+   {
+    "word": " The",
+    "start": 33.3,
+    "end": 33.32,
+    "p": 0.972
+   },
+   {
+    "word": " diagnosis,",
+    "start": 33.32,
+    "end": 33.76,
+    "p": 0.989
+   },
+   {
+    "word": " the",
+    "start": 34.42,
+    "end": 34.5,
+    "p": 0.986
+   },
+   {
+    "word": " tooth",
+    "start": 34.5,
+    "end": 34.76,
+    "p": 0.997
+   },
+   {
+    "word": " numbers,",
+    "start": 34.76,
+    "end": 35.06,
+    "p": 0.995
+   },
+   {
+    "word": " and",
+    "start": 35.36,
+    "end": 35.48,
+    "p": 0.997
+   },
+   {
+    "word": " what",
+    "start": 35.48,
+    "end": 35.64,
+    "p": 0.996
+   },
+   {
+    "word": " they",
+    "start": 35.64,
+    "end": 35.8,
+    "p": 0.998
+   },
+   {
+    "word": " want",
+    "start": 35.8,
+    "end": 35.98,
+    "p": 0.998
+   },
+   {
+    "word": " done",
+    "start": 35.98,
+    "end": 36.26,
+    "p": 0.993
+   },
+   {
+    "word": " are",
+    "start": 36.26,
+    "end": 36.58,
+    "p": 0.903
+   },
+   {
+    "word": " all",
+    "start": 36.58,
+    "end": 36.76,
+    "p": 0.997
+   },
+   {
+    "word": " there.",
+    "start": 36.76,
+    "end": 37.04,
+    "p": 0.998
+   },
+   {
+    "word": " No",
+    "start": 37.6,
+    "end": 37.74,
+    "p": 0.992
+   },
+   {
+    "word": " detective",
+    "start": 37.74,
+    "end": 38.08,
+    "p": 0.982
+   },
+   {
+    "word": " work",
+    "start": 38.08,
+    "end": 38.38,
+    "p": 0.999
+   },
+   {
+    "word": " is",
+    "start": 38.38,
+    "end": 38.52,
+    "p": 0.997
+   },
+   {
+    "word": " required.",
+    "start": 38.52,
+    "end": 38.94,
+    "p": 0.999
+   },
+   {
+    "word": " Do",
+    "start": 40.62,
+    "end": 40.7,
+    "p": 0.911
+   },
+   {
+    "word": " you",
+    "start": 40.7,
+    "end": 40.8,
+    "p": 0.998
+   },
+   {
+    "word": " need",
+    "start": 40.8,
+    "end": 40.9,
+    "p": 1.0
+   },
+   {
+    "word": " a",
+    "start": 40.9,
+    "end": 41.0,
+    "p": 0.999
+   },
+   {
+    "word": " better",
+    "start": 41.0,
+    "end": 41.2,
+    "p": 0.999
+   },
+   {
+    "word": " x",
+    "start": 41.2,
+    "end": 41.44,
+    "p": 0.532
+   },
+   {
+    "word": "-ray?",
+    "start": 41.44,
+    "end": 41.62,
+    "p": 0.99
+   },
+   {
+    "word": " Message",
+    "start": 42.54,
+    "end": 42.7,
+    "p": 0.972
+   },
+   {
+    "word": " the",
+    "start": 42.7,
+    "end": 42.94,
+    "p": 0.996
+   },
+   {
+    "word": " referring",
+    "start": 42.94,
+    "end": 43.26,
+    "p": 0.898
+   },
+   {
+    "word": " office",
+    "start": 43.26,
+    "end": 43.64,
+    "p": 0.995
+   },
+   {
+    "word": " right",
+    "start": 43.64,
+    "end": 43.92,
+    "p": 0.962
+   },
+   {
+    "word": " inside",
+    "start": 43.92,
+    "end": 44.22,
+    "p": 0.995
+   },
+   {
+    "word": " the",
+    "start": 44.22,
+    "end": 44.38,
+    "p": 0.994
+   },
+   {
+    "word": " case.",
+    "start": 44.38,
+    "end": 44.66,
+    "p": 0.999
+   },
+   {
+    "word": " They",
+    "start": 45.58,
+    "end": 45.7,
+    "p": 0.989
+   },
+   {
+    "word": " answer",
+    "start": 45.7,
+    "end": 46.04,
+    "p": 0.999
+   },
+   {
+    "word": " like",
+    "start": 46.04,
+    "end": 46.52,
+    "p": 0.478
+   },
+   {
+    "word": " adults.",
+    "start": 46.52,
+    "end": 46.92,
+    "p": 0.994
+   },
+   {
+    "word": " Update",
+    "start": 48.16,
+    "end": 48.44,
+    "p": 0.89
+   },
+   {
+    "word": " the",
+    "start": 48.44,
+    "end": 48.6,
+    "p": 0.997
+   },
+   {
+    "word": " status,",
+    "start": 48.6,
+    "end": 48.98,
+    "p": 0.998
+   },
+   {
+    "word": " schedule",
+    "start": 49.4,
+    "end": 49.52,
+    "p": 0.991
+   },
+   {
+    "word": " the",
+    "start": 49.52,
+    "end": 49.76,
+    "p": 0.992
+   },
+   {
+    "word": " consult,",
+    "start": 49.76,
+    "end": 50.1,
+    "p": 0.979
+   },
+   {
+    "word": " and",
+    "start": 50.42,
+    "end": 50.52,
+    "p": 0.997
+   },
+   {
+    "word": " the",
+    "start": 50.52,
+    "end": 50.64,
+    "p": 0.997
+   },
+   {
+    "word": " GP",
+    "start": 50.64,
+    "end": 50.86,
+    "p": 0.994
+   },
+   {
+    "word": " is",
+    "start": 50.86,
+    "end": 51.22,
+    "p": 0.997
+   },
+   {
+    "word": " notified.",
+    "start": 51.22,
+    "end": 51.66,
+    "p": 0.999
+   },
+   {
+    "word": " There's",
+    "start": 52.2,
+    "end": 52.46,
+    "p": 0.974
+   },
+   {
+    "word": " zero",
+    "start": 52.46,
+    "end": 52.7,
+    "p": 0.917
+   },
+   {
+    "word": " phone",
+    "start": 52.7,
+    "end": 53.02,
+    "p": 0.992
+   },
+   {
+    "word": " tag",
+    "start": 53.02,
+    "end": 53.34,
+    "p": 0.97
+   },
+   {
+    "word": " and",
+    "start": 53.34,
+    "end": 53.68,
+    "p": 0.901
+   },
+   {
+    "word": " zero",
+    "start": 53.68,
+    "end": 54.12,
+    "p": 0.992
+   },
+   {
+    "word": " just",
+    "start": 54.12,
+    "end": 54.44,
+    "p": 0.964
+   },
+   {
+    "word": " checking",
+    "start": 54.44,
+    "end": 54.84,
+    "p": 0.993
+   },
+   {
+    "word": " in",
+    "start": 54.84,
+    "end": 55.06,
+    "p": 0.854
+   },
+   {
+    "word": " emails.",
+    "start": 55.06,
+    "end": 55.44,
+    "p": 0.851
+   },
+   {
+    "word": " That's",
+    "start": 56.62,
+    "end": 57.26,
+    "p": 0.762
+   },
+   {
+    "word": " what",
+    "start": 57.26,
+    "end": 57.36,
+    "p": 0.997
+   },
+   {
+    "word": " a",
+    "start": 57.36,
+    "end": 57.48,
+    "p": 0.994
+   },
+   {
+    "word": " referral",
+    "start": 57.48,
+    "end": 57.8,
+    "p": 0.966
+   },
+   {
+    "word": " network",
+    "start": 57.8,
+    "end": 58.12,
+    "p": 0.997
+   },
+   {
+    "word": " should",
+    "start": 58.12,
+    "end": 58.36,
+    "p": 0.996
+   },
+   {
+    "word": " feel",
+    "start": 58.36,
+    "end": 58.62,
+    "p": 0.998
+   },
+   {
+    "word": " like.",
+    "start": 58.62,
+    "end": 58.96,
+    "p": 0.996
+   },
+   {
+    "word": " Connected",
+    "start": 59.58,
+    "end": 59.82,
+    "p": 0.995
+   },
+   {
+    "word": " offices,",
+    "start": 59.82,
+    "end": 60.22,
+    "p": 0.996
+   },
+   {
+    "word": " one",
+    "start": 60.88,
+    "end": 61.16,
+    "p": 0.974
+   },
+   {
+    "word": " place,",
+    "start": 61.16,
+    "end": 61.54,
+    "p": 0.998
+   },
+   {
+    "word": " and",
+    "start": 62.14,
+    "end": 62.2,
+    "p": 0.997
+   },
+   {
+    "word": " nobody",
+    "start": 62.2,
+    "end": 62.48,
+    "p": 0.998
+   },
+   {
+    "word": " left",
+    "start": 62.48,
+    "end": 62.78,
+    "p": 0.996
+   },
+   {
+    "word": " guessing.",
+    "start": 62.78,
+    "end": 63.16,
+    "p": 0.998
+   },
+   {
+    "word": " Want",
+    "start": 64.82,
+    "end": 65.2,
+    "p": 0.68
+   },
+   {
+    "word": " to",
+    "start": 65.2,
+    "end": 65.32,
+    "p": 0.999
+   },
+   {
+    "word": " see",
+    "start": 65.32,
+    "end": 65.46,
+    "p": 0.999
+   },
+   {
+    "word": " it",
+    "start": 65.46,
+    "end": 65.56,
+    "p": 0.997
+   },
+   {
+    "word": " for",
+    "start": 65.56,
+    "end": 65.7,
+    "p": 0.996
+   },
+   {
+    "word": " yourself?",
+    "start": 65.7,
+    "end": 66.06,
+    "p": 0.999
+   },
+   {
+    "word": " Check",
+    "start": 67.06,
+    "end": 67.2,
+    "p": 0.995
+   },
+   {
+    "word": " out",
+    "start": 67.2,
+    "end": 67.46,
+    "p": 0.993
+   },
+   {
+    "word": " tooth",
+    "start": 67.46,
+    "end": 67.66,
+    "p": 0.314
+   },
+   {
+    "word": " referral",
+    "start": 67.66,
+    "end": 68.06,
+    "p": 0.959
+   },
+   {
+    "word": " and",
+    "start": 68.06,
+    "end": 68.54,
+    "p": 0.801
+   },
+   {
+    "word": " start",
+    "start": 68.54,
+    "end": 68.8,
+    "p": 0.997
+   },
+   {
+    "word": " connecting",
+    "start": 68.8,
+    "end": 69.24,
+    "p": 0.997
+   },
+   {
+    "word": " your",
+    "start": 69.24,
+    "end": 69.56,
+    "p": 0.986
+   },
+   {
+    "word": " referral",
+    "start": 69.56,
+    "end": 69.96,
+    "p": 0.995
+   },
+   {
+    "word": " network.",
+    "start": 69.96,
+    "end": 70.4,
+    "p": 0.999
+   }
+  ]
+ }
+}

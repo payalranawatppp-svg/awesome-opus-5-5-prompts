@@ -80,7 +80,7 @@ export const rand = (seed: number) => {
 // ---------------------------------------------------------------------------------------------------
 // Talent: the clip, its cutout and its clean plate
 
-export type TalentId = "01-hook" | "02-solution" | "03-outcome" | "04-cta" | "05-talk" | "tr2-cut" | "cb-cut" | "pd-cut";
+export type TalentId = "01-hook" | "02-solution" | "03-outcome" | "04-cta" | "05-talk" | "tr2-cut" | "cb-cut" | "pd-cut" | "rr-cut";
 export type Talent = {
   id: TalentId;
   /** public/ paths. `video` is a VP9 WebM copy of the clip: the render browser cannot decode H.264, and
@@ -138,6 +138,8 @@ export const TALENT: Record<TalentId, Talent> = {
   /** "The website PDF dead end": eight takes colour-matched (scripts/match_grade.py), cut, morph-cut, then three
    * /effects baked in (src/data/pd-effects.json), so the full layer plays footage/pd-fx.webm. */
   "pd-cut": { ...makeTalent("pd-cut", { w: 720, h: 1280, fps: 30, seconds: 48.13, frameScale: 1.5 }), video: "footage/pd-fx.webm" },
+  /** "The Referral Roast": nine takes colour-matched, cut (scripts/cut_spans.py) and morph-cut into one take. */
+  "rr-cut": makeTalent("rr-cut", { w: 720, h: 1280, fps: 30, seconds: 63.07, frameScale: 1.5 }),
 };
 export const DEFAULT_TALENT = TALENT["01-hook"];
 

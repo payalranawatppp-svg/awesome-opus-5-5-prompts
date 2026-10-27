@@ -23,3 +23,5 @@ reel/public/footage/cb-cut.mp4
 # (scripts/match_grade.py, cut_by_words.py, morph_cuts.py; commands in reel/src/reelfx/PdfDeadEnd.tsx header)
 reel/public/footage/pd/pd-src.mp4
 reel/public/footage/pd-cut.mp4
+reel/public/footage/rr/rr-src.mp4
+reel/public/footage/rr-cut.mp4

@@ -12,6 +12,7 @@ import { UGC2_DURATION, ToothUgc2 } from "./reelfx/ToothUgc2";
 import { UGC2_REF_DURATION, ToothUgc2Ref } from "./reelfx/ToothUgc2Ref";
 import { CB_DURATION, ChocolateBox } from "./reelfx/ChocolateBox";
 import { PD_DURATION, PdfDeadEnd } from "./reelfx/PdfDeadEnd";
+import { RR_DURATION, RefRoast } from "./reelfx/RefRoast";
 import { TrDashboardTour } from "./tr/scenes";
 import { TR_ALL, TrFormatted } from "./tr/formats";
 import { TR_V2 } from "./tr/v2";
@@ -26,6 +27,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="SignalReachReelFx" component={ReelFx} durationInFrames={DURATION} fps={FPS} width={WIDTH} height={HEIGHT} />
     <Composition id="ChocolateBox" component={ChocolateBox} durationInFrames={CB_DURATION} fps={30} width={WIDTH} height={HEIGHT} />
     <Composition id="PdfDeadEnd" component={PdfDeadEnd} durationInFrames={PD_DURATION} fps={30} width={WIDTH} height={HEIGHT} />
+    <Composition id="RefRoast" component={RefRoast} durationInFrames={RR_DURATION} fps={30} width={WIDTH} height={HEIGHT} />
     <Composition id="ToothReferralUgc2Ad" component={ToothUgc2Ref} durationInFrames={UGC2_REF_DURATION} fps={30} width={WIDTH} height={HEIGHT} />
     <Composition id="ToothReferralUgc2" component={ToothUgc2} durationInFrames={UGC2_DURATION} fps={30} width={WIDTH} height={HEIGHT} />
     <Composition id="ToothReferralDepth" component={ToothDepth} durationInFrames={DEPTH_DURATION} fps={30} width={WIDTH} height={HEIGHT} />
