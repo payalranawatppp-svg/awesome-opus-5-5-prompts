@@ -15,13 +15,14 @@ Audio: only his voice, quiet room tone. No music, no subtitles, no captions, no 
 Vertical 9:16 video, 8 seconds, one continuous shot of the same presenter, speaking directly to camera.
 Camera: locked off, eye level, medium close-up from mid-chest up, the same framing for the whole clip: no zoom, no cuts, no camera movement. Both hands always stay inside the frame, between chest and shoulder height.
 0.0-0.5 s: Rest pose, hands relaxed together at chest height, shoulders loose, looking straight into the lens, mouth closed.
-0.5-3 s: He points to the left, on the words "Every GP is different: an email here,"
-3-4 s: He points to the right, on the words "a call there,"
-4-5.5 s: He points down, on the words "a sticky note somewhere."
-5.5-7.5 s: He drops his hands and loosely folds his arms, on the words "Hell, the patient just waits."
+0.5-2 s: He lifts both hands with palms up and spreads them apart in a helpless, exaggerated shrug, on the words "Every GP is different:"
+2-3 s: He types fast on an invisible keyboard held slightly to his left, fingers moving quickly, on the words "an email here,"
+3-4 s: He raises his right hand to his right ear like a phone, thumb and pinky finger out, on the words "a call there,"
+4-5.5 s: He slaps a flat palm forward toward the camera, as if sticking a sticky note onto a glass wall, and holds it there for a beat, on the words "a sticky note somewhere."
+5.5-7.5 s: He drops his hands, then taps two fingers on his left wrist impatiently, like checking a watch, on the words "Hell, the patient just waits."
 7.5-8.0 s: Returns to the same rest pose, hands relaxed together at chest height, shoulders loose, looking straight into the lens, mouth closed.
-Facial expression: Frustrated, then flat deadpan on "the patient just waits".
-Head movement: Head whips left, right, then down, following his hand.
+Facial expression: Exaggerated frustration, eyebrows high as he acts out each channel; then a flat, deadpan stare into the lens on "the patient just waits".
+Head movement: Turns slightly left on "an email here", slightly right on "a call there", back to centre on "sticky note"; a small exasperated head drop on "Hell".
 Gestures are natural, smooth and deliberate, not rushed; each gesture lands on the words next to it.
 Dialogue, spoken to camera in a natural, confident tone and perfectly lip-synced: "Every GP is different: an email here, a call there, a sticky note somewhere. Hell, the patient just waits."
 Audio: only his voice, quiet room tone. No music, no subtitles, no captions, no on-screen text, no logos.
