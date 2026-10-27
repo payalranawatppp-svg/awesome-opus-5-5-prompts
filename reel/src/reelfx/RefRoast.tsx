@@ -240,7 +240,7 @@ const Captions: React.FC<{ lay: Lay }> = ({ lay }) => {
   const out = interpolate(frame, [c.to - 4, c.to], [0, 1], clamp);
   // on his chest in every layout: full 1440, split A 1680, split B 905
   const top = lay.top > 0.5 ? lerp(1440, 1680, lay.top / 840) : lerp(1440, 770, (1920 - lay.bottom) / 840);
-  const size = lay.mode === "full" ? 70 : 62;
+  const size = 70;
   return (
     <div style={{ position: "absolute", left: 60, right: 60, top, textAlign: "center", ...TYPE, fontSize: size, color: W, textShadow: SOFT, opacity: 1 - out, filter: out > 0 ? `blur(${out * 6}px)` : undefined }}>
       {c.words.map((w, i) => {
@@ -449,25 +449,53 @@ const WaitClock: React.FC = () => {
 
 // ---------------------------------------------------------------------------------------------------
 // 2..4  the dashboard panel
+//
+// Shown like a screen recording: a cursor moves to what he talks about and clicks it (ripple, pressed button), and the
+// camera zooms in on the click and back out, the way screen-recording tools auto-zoom.
 
 const PW = 1032;
-const ZOOM = 1.34; // the rebuilt dashboard cards, scaled up so they read on a phone
 const PH = PANEL - 48;
 type Crop = { x: number; y: number; w: number };
+type Map = (x: number, y: number) => readonly [number, number];
 /** Maps source px of a dashboard still to panel px for a crop. */
-const mapper = (c: Crop) => {
+const mapper = (c: Crop): Map => {
   const s = PW / c.w;
   return (x: number, y: number) => [(x - c.x) * s, (y - c.y) * s] as const;
 };
 const lerpCrop = (a: Crop, b: Crop, k: number): Crop => ({ x: lerp(a.x, b.x, k), y: lerp(a.y, b.y, k), w: lerp(a.w, b.w, k) });
+/** Camera keyframes [frame, crop]: eased moves between them, held before the first and after the last. */
+type CK = [number, Crop];
+const camAt = (frame: number, keys: CK[]): Crop => {
+  if (frame <= keys[0][0]) return keys[0][1];
+  for (let i = 0; i < keys.length - 1; i++) {
+    const [a, ca] = keys[i];
+    const [b, cb] = keys[i + 1];
+    if (frame < b) return lerpCrop(ca, cb, easeIO(interpolate(frame, [a, b], [0, 1], clamp)));
+  }
+  return keys[keys.length - 1][1];
+};
+/** Cursor keyframes [frame, x, y], eased between. */
+type PK = [number, number, number];
+const pathAt = (frame: number, keys: PK[]): [number, number] => {
+  if (frame <= keys[0][0]) return [keys[0][1], keys[0][2]];
+  for (let i = 0; i < keys.length - 1; i++) {
+    const [a, xa, ya] = keys[i];
+    const [b, xb, yb] = keys[i + 1];
+    if (frame < b) {
+      const k = easeIO(interpolate(frame, [a, b], [0, 1], clamp));
+      return [lerp(xa, xb, k), lerp(ya, yb, k)];
+    }
+  }
+  const l = keys[keys.length - 1];
+  return [l[1], l[2]];
+};
 
-/** One shot of the panel: a still from the screen recording, slowly pushing from one crop to another, with
- *  overlays placed in the still's own pixels. Fades and de-blurs in, so shots dissolve into each other. */
-const Shot: React.FC<{ img: string; from: number; to: number; a: Crop; b: Crop; dim?: number; children?: (m: (x: number, y: number) => readonly [number, number], s: number) => React.ReactNode }> = ({ img, from, to, a, b, dim = 0, children }) => {
+/** One shot of the panel: a still from the screen recording under a keyframed camera, with overlays placed in the
+ *  still's own pixels. Fades and de-blurs in, so shots dissolve into each other. */
+const Shot: React.FC<{ img: string; from: number; to: number; keys: CK[]; dim?: number; children?: (m: Map, s: number) => React.ReactNode }> = ({ img, from, to, keys, dim = 0, children }) => {
   const frame = useCurrentFrame();
   if (frame < from - 1 || frame > to + 9) return null;
-  const k = easeIO(interpolate(frame, [from, to + 9], [0, 1], clamp));
-  const c = lerpCrop(a, b, k);
+  const c = camAt(frame, keys);
   const s = PW / c.w;
   const inn = ramp(frame, from, from + 9, easeOut);
   const m = mapper(c);
@@ -481,7 +509,7 @@ const Shot: React.FC<{ img: string; from: number; to: number; a: Crop; b: Crop; 
 };
 
 /** A highlight box in panel px. */
-const Hl: React.FC<{ box: number[]; m: (x: number, y: number) => readonly [number, number]; k: number; color?: string; label?: string; labelSide?: "top" | "bottom"; fill?: boolean; dx?: number }> = ({ box, m, k, color = TR.purple, label, labelSide = "top", fill = true, dx = -4 }) => {
+const Hl: React.FC<{ box: number[]; m: Map; k: number; color?: string; label?: string; labelSide?: "top" | "bottom"; fill?: boolean; dx?: number }> = ({ box, m, k, color = TR.purple, label, labelSide = "top", fill = true, dx = -4 }) => {
   if (k <= 0) return null;
   const [x0, y0] = m(box[0], box[1]);
   const [x1, y1] = m(box[2], box[3]);
@@ -495,25 +523,42 @@ const Hl: React.FC<{ box: number[]; m: (x: number, y: number) => readonly [numbe
   );
 };
 
-/** A click: a ring that expands and fades at a source point. */
-const Tap: React.FC<{ x: number; y: number; at: number; m: (x: number, y: number) => readonly [number, number] }> = ({ x, y, at, m }) => {
+/** A button being pressed: the button's area dips, fills purple and glows for a moment (source px box). */
+const Press: React.FC<{ box: number[]; at: number; m: Map; color?: string }> = ({ box, at, m, color = TR.purple }) => {
   const frame = useCurrentFrame();
-  if (frame < at - 8 || frame > at + 18) return null;
-  const [px, py] = m(x, y);
+  if (frame < at - 1 || frame > at + 16) return null;
+  const [x0, y0] = m(box[0], box[1]);
+  const [x1, y1] = m(box[2], box[3]);
   const k = ramp(frame, at, at + 16, easeOut);
-  const press = frame < at ? 1 : 1 - 0.18 * Math.sin(Math.min(1, (frame - at) / 6) * Math.PI);
+  const dip = Math.sin(Math.min(1, (frame - at) / 7) * Math.PI);
+  return <div style={{ position: "absolute", left: x0, top: y0, width: x1 - x0, height: y1 - y0, borderRadius: 12, background: color, opacity: 0.35 * (1 - k) + 0.05, scale: String(1 - 0.06 * dip), boxShadow: `0 0 ${30 * (1 - k)}px ${color}` }} />;
+};
+
+/** The mouse: follows a keyframed path (in the coordinates `m` maps from), clicks with a ripple and a press. */
+const Mouse: React.FC<{ path: PK[]; clicks: number[]; m: Map; show: [number, number] }> = ({ path, clicks, m, show }) => {
+  const frame = useCurrentFrame();
+  if (frame < show[0] || frame > show[1]) return null;
+  const vis = ramp(frame, show[0], show[0] + 6) * (1 - ramp(frame, show[1] - 6, show[1]));
+  const [sx, sy] = pathAt(frame, path);
+  const [x, y] = m(sx, sy);
+  const press = clicks.reduce((p, c) => (frame >= c && frame < c + 8 ? Math.max(p, Math.sin(((frame - c) / 8) * Math.PI)) : p), 0);
   return (
-    <>
-      <div style={{ position: "absolute", left: px - 40, top: py - 40, width: 80, height: 80, borderRadius: 40, border: `5px solid ${TR.purple}`, scale: String(0.3 + k * 1.4), opacity: frame < at ? 0 : 1 - k }} />
-      <svg width={44} height={52} viewBox="0 0 22 26" style={{ position: "absolute", left: px - 4, top: py - 2, scale: String(press), filter: "drop-shadow(0 4px 8px rgba(0,0,0,0.35))", opacity: ramp(frame, at - 8, at - 3) }}>
-        <path d="M2 2 L2 20 L7 15 L11 24 L14 22.5 L10 14 L17 14 Z" fill={W} stroke={INK} strokeWidth={1.6} strokeLinejoin="round" />
+    <div style={{ position: "absolute", left: 0, top: 0, opacity: vis }}>
+      {clicks.map((c) => {
+        const k = ramp(frame, c, c + 16, easeOut);
+        if (frame < c || k >= 1) return null;
+        const [cx, cy] = m(...pathAt(c, path));
+        return <div key={c} style={{ position: "absolute", left: cx - 40, top: cy - 40, width: 80, height: 80, borderRadius: 40, border: `5px solid ${TR.purple}`, background: `${TR.purple}22`, scale: String(0.3 + k * 1.3), opacity: 1 - k }} />;
+      })}
+      <svg width={46} height={54} viewBox="0 0 22 26" style={{ position: "absolute", left: x - 4, top: y - 2, scale: String(1 - 0.16 * press), transformOrigin: "4px 2px", filter: "drop-shadow(0 4px 8px rgba(0,0,0,0.35))" }}>
+        <path d="M2 2 L2 20 L7 15 L11 24 L14 22.5 L10 14 L17 14 Z" fill={INK} stroke={W} strokeWidth={1.6} strokeLinejoin="round" />
       </svg>
-    </>
+    </div>
   );
 };
 
 /** Green "connected" dots: pulsing rings. */
-const Pulse: React.FC<{ x: number; y: number; at: number; m: (x: number, y: number) => readonly [number, number] }> = ({ x, y, at, m }) => {
+const Pulse: React.FC<{ x: number; y: number; at: number; m: Map }> = ({ x, y, at, m }) => {
   const frame = useCurrentFrame();
   if (frame < at) return null;
   const [px, py] = m(x, y);
@@ -563,125 +608,231 @@ const FlowIn: React.FC = () => {
   );
 };
 
-/** The office chat: "Message the referring office right inside the case. They answer." */
+/** Camera for the rebuilt cards: keyframes [frame, scale, focus x, focus y] in panel px; zooms about the focus. */
+type ZK = [number, number, number, number];
+const zoomAt = (frame: number, keys: ZK[]) => {
+  if (frame <= keys[0][0]) return keys[0].slice(1) as [number, number, number];
+  for (let i = 0; i < keys.length - 1; i++) {
+    const a = keys[i];
+    const b = keys[i + 1];
+    if (frame < b[0]) {
+      const k = easeIO(interpolate(frame, [a[0], b[0]], [0, 1], clamp));
+      return [lerp(a[1], b[1], k), lerp(a[2], b[2], k), lerp(a[3], b[3], k)] as [number, number, number];
+    }
+  }
+  return keys[keys.length - 1].slice(1) as [number, number, number];
+};
+const Cam: React.FC<{ keys: ZK[]; children: React.ReactNode }> = ({ keys, children }) => {
+  const frame = useCurrentFrame();
+  const [s, fx, fy] = zoomAt(frame, keys);
+  // the focus slides toward the panel centre as the zoom grows, so a zoomed corner never sits at the edge
+  const t = Math.min(1, (s - 1) / 0.5);
+  const tx = lerp(fx, PW / 2, t * 0.6) - fx * s;
+  const ty = lerp(fy, PH / 2, t * 0.6) - fy * s;
+  return <AbsoluteFill style={{ transform: `translate(${tx}px, ${ty}px) scale(${s})`, transformOrigin: "0 0" }}>{children}</AbsoluteFill>;
+};
+const ident: Map = (x, y) => [x, y] as const;
+
+/** The office chat, rebuilt from the dashboard's Office Communication panel (panel px). "Message the referring
+ *  office right inside the case. They answer." The cursor clicks into the field, types, sends; the camera leans in
+ *  on the reply. */
 const ChatCard: React.FC = () => {
   const frame = useCurrentFrame();
   const typed = "Can you send me a different x-ray?";
   const t0 = T.message - 2;
+  const sendAt = Math.round(t0 + typed.length / 1.6 + 4);
   const n = Math.max(0, Math.min(typed.length, Math.floor((frame - t0) * 1.6)));
-  const sent = frame >= t0 + typed.length / 1.6 + 4;
-  const sentK = sp(frame, Math.round(t0 + typed.length / 1.6 + 4), 14, 200);
+  const sent = frame >= sendAt;
+  const sentK = sp(frame, sendAt, 14, 200);
   const typing = frame >= T.they - 16 && frame < T.they;
   const reply = sp(frame, T.they, 13, 190);
   const badge = sp(frame, T.adults - 2, 12, 220);
-  const bubble = (who: string, org: string, text: React.ReactNode, mine: boolean, k: number, extra?: React.ReactNode) => (
-    <div style={{ display: "flex", gap: 14, marginTop: 18, opacity: Math.min(1, k * 2), translate: `0px ${(1 - k) * 24}px` }}>
-      <div style={{ width: 54, height: 54, borderRadius: 27, flexShrink: 0, background: mine ? TR.purpleSoft : "#FCE7D6", color: mine ? TR.purple : "#B4541C", fontWeight: 800, fontSize: 21, display: "flex", alignItems: "center", justifyContent: "center" }}>{mine ? "LD" : "SC"}</div>
-      <div style={{ flex: 1, padding: "14px 18px", borderRadius: 18, background: mine ? "#F6F4FB" : TR.purpleSoft }}>
-        <div style={{ fontSize: 21, fontWeight: 800 }}>
+  const bubble = (top: number, who: string, org: string, text: React.ReactNode, mine: boolean, k: number, extra?: React.ReactNode) => (
+    <div style={{ position: "absolute", left: 64, right: 64, top, display: "flex", gap: 18, opacity: Math.min(1, k * 2), translate: `0px ${(1 - k) * 30}px` }}>
+      <div style={{ width: 70, height: 70, borderRadius: 35, flexShrink: 0, background: mine ? TR.purpleSoft : "#FCE7D6", color: mine ? TR.purple : "#B4541C", fontWeight: 800, fontSize: 27, display: "flex", alignItems: "center", justifyContent: "center" }}>{mine ? "LD" : "SC"}</div>
+      <div style={{ flex: 1, padding: "16px 22px", borderRadius: 22, background: mine ? "#F6F4FB" : TR.purpleSoft }}>
+        <div style={{ fontSize: 27, fontWeight: 800 }}>
           {who} <span style={{ fontWeight: 600, color: "#8A8799" }}>· {org}</span>
         </div>
-        <div style={{ fontSize: 27, marginTop: 4, letterSpacing: "-0.01em" }}>{text}</div>
+        <div style={{ fontSize: 34, marginTop: 4, letterSpacing: "-0.01em" }}>{text}</div>
         {extra}
       </div>
     </div>
   );
+  const cam: ZK[] = [
+    [T.message - 10, 1, 500, 400],
+    [T.message, 1.22, 420, 680], // into the message field
+    [sendAt + 6, 1.22, 600, 640],
+    [T.they - 4, 1.0, 516, 396],
+    [T.they + 10, 1.24, 520, 470], // lean in on the reply
+    [T.adults + 6, 1.24, 560, 440],
+    [T.adults + 22, 1.0, 516, 396],
+  ];
   return (
-    <AbsoluteFill style={{ padding: "34px 40px", background: TR.bg }}>
-      <div style={{ ...CARD, position: "relative", zoom: ZOOM, padding: "26px 30px", height: `${100 / ZOOM}%`, boxShadow: "0 10px 30px rgba(30,16,80,0.12)" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-          <Icon d={ICON.chat} size={32} color={TR.purple} />
-          <div style={{ fontSize: 32, fontWeight: 800, letterSpacing: "-0.02em" }}>Office Communication</div>
+    <AbsoluteFill style={{ background: TR.bg, fontFamily: FONT_UI, color: INK }}>
+      <Cam keys={cam}>
+        <div style={{ ...CARD, position: "absolute", left: 28, top: 28, width: PW - 56, height: PH - 56, boxShadow: "0 10px 30px rgba(30,16,80,0.12)" }}>
+          <div style={{ position: "absolute", left: 36, top: 26, display: "flex", alignItems: "center", gap: 14 }}>
+            <Icon d={ICON.chat} size={42} color={TR.purple} />
+            <div style={{ fontSize: 44, fontWeight: 800, letterSpacing: "-0.03em" }}>Office Communication</div>
+          </div>
+          <div style={{ position: "absolute", left: 36, top: 90, fontSize: 29, color: "#6B7085" }}>Bob Smith · with Oral Surgery Associates</div>
+          <div style={{ position: "absolute", left: 36, top: 138, padding: "7px 16px", borderRadius: 999, background: TR.purple, color: W, fontSize: 23, fontWeight: 800 }}>inside the referral · saved with the patient</div>
+          {badge > 0 && (
+            <div style={{ position: "absolute", right: 30, top: 30, padding: "10px 18px", borderRadius: 999, background: TR.greenSoft, color: "#137A4B", fontSize: 25, fontWeight: 800, scale: String(badge), display: "flex", alignItems: "center", gap: 8 }}>
+              <Icon d={ICON.check} size={24} color="#137A4B" />
+              answered in 2 min
+            </div>
+          )}
         </div>
-        <div style={{ fontSize: 22, color: "#6B7085", marginTop: 4 }}>Bob Smith · messaging with Oral Surgery Associates</div>
-        <div style={{ display: "inline-block", marginTop: 10, padding: "6px 14px", borderRadius: 999, background: TR.purple, color: W, fontSize: 19, fontWeight: 800 }}>inside the referral, saved with the patient</div>
-        {sent && bubble("Lee Davis", "D Care Alliance", typed, true, sentK)}
+        {sent && bubble(222, "Lee Davis", "D Care Alliance", typed, true, sentK)}
         {typing && (
-          <div style={{ display: "flex", gap: 8, marginTop: 22, marginLeft: 70 }}>
+          <div style={{ position: "absolute", left: 160, top: 400, display: "flex", gap: 10 }}>
             {[0, 1, 2].map((d) => (
-              <div key={d} style={{ width: 14, height: 14, borderRadius: 7, background: "#A3A8BA", translate: `0px ${-6 * Math.max(0, Math.sin((frame + d * 4) / 3))}px` }} />
+              <div key={d} style={{ width: 16, height: 16, borderRadius: 8, background: "#A3A8BA", translate: `0px ${-7 * Math.max(0, Math.sin((frame + d * 4) / 3))}px` }} />
             ))}
           </div>
         )}
         {reply > 0 &&
           bubble(
+            372,
             "Sarah Chen, DDS",
-            "Oral Surgery Associates",
+            "Oral Surgery Assoc.",
             <>
-              <span style={{ color: TR.purple, fontWeight: 700 }}>@Lee Davis</span> Sure, I can. New one attached.
+              <span style={{ color: TR.purple, fontWeight: 700 }}>@Lee Davis</span> Sure, I can. Attached.
             </>,
             false,
             reply,
-            <div style={{ display: "flex", alignItems: "center", gap: 10, marginTop: 10, padding: "8px 12px", borderRadius: 12, background: W, width: "fit-content", border: "1.5px solid #E7E3F7" }}>
-              <Icon d={ICON.clip} size={22} color={TR.purple} />
-              <div style={{ fontSize: 21, fontWeight: 700 }}>panoramic-xray-2.jpg</div>
+            <div style={{ display: "flex", alignItems: "center", gap: 10, marginTop: 10, padding: "8px 14px", borderRadius: 12, background: W, width: "fit-content", border: "1.5px solid #E7E3F7" }}>
+              <Icon d={ICON.clip} size={26} color={TR.purple} />
+              <div style={{ fontSize: 26, fontWeight: 700 }}>panoramic-xray-2.jpg</div>
             </div>,
           )}
-        {/* typing field */}
-        <div style={{ position: "absolute", left: 30, right: 30, bottom: 26, height: 64, borderRadius: 14, border: "2px solid #E7E8EE", display: "flex", alignItems: "center", padding: "0 18px", fontSize: 25, opacity: 1 - sentK, color: sent || n === 0 ? "#A3A8BA" : INK }}>
+        {/* the message field and its send button */}
+        <div style={{ position: "absolute", left: 64, width: 790, top: 636, height: 88, borderRadius: 18, border: `2.5px solid ${n > 0 && !sent ? TR.purple : "#E7E8EE"}`, display: "flex", alignItems: "center", padding: "0 24px", fontSize: 31, color: sent || n === 0 ? "#A3A8BA" : INK, background: W }}>
           {sent || n === 0 ? "Message Oral Surgery Associates" : typed.slice(0, n)}
-          {!sent && n > 0 && <div style={{ width: 3, height: 30, background: TR.purple, marginLeft: 2, opacity: Math.floor(frame / 8) % 2 ? 1 : 0.2 }} />}
+          {!sent && n > 0 && <div style={{ width: 3, height: 36, background: TR.purple, marginLeft: 2, opacity: Math.floor(frame / 8) % 2 ? 1 : 0.2 }} />}
         </div>
-        {badge > 0 && (
-          <div style={{ position: "absolute", right: 28, top: 26, padding: "10px 18px", borderRadius: 999, background: TR.greenSoft, color: "#137A4B", fontSize: 23, fontWeight: 800, scale: String(badge), display: "flex", alignItems: "center", gap: 8 }}>
-            <Icon d={ICON.check} size={22} color="#137A4B" />
-            answered in 2 min
-          </div>
-        )}
-      </div>
+        <div style={{ position: "absolute", left: 874, top: 636, width: 94, height: 88, borderRadius: 18, background: TR.purple, display: "flex", alignItems: "center", justifyContent: "center", scale: String(1 - 0.1 * Math.sin(Math.min(1, Math.max(0, frame - sendAt) / 7) * Math.PI)) }}>
+          <Icon d={ICON.send} size={40} color={W} />
+        </div>
+        <Mouse
+          path={[
+            [T.message - 14, 700, 560],
+            [T.message - 4, 420, 690],
+            [sendAt - 8, 430, 700],
+            [sendAt - 1, 921, 690],
+            [T.they + 30, 921, 690],
+          ]}
+          clicks={[T.message - 4, sendAt - 1]}
+          m={ident}
+          show={[T.message - 14, T.they + 4]}
+        />
+      </Cam>
     </AbsoluteFill>
   );
 };
 
-/** "Update the status, schedule the consult, and the GP is notified." */
+/** Status & Schedule, rebuilt from the dashboard's panel (panel px). "Update the status, schedule the consult, and
+ *  the GP is notified." The cursor opens the status menu, picks Consultation Scheduled, presses Update Status, then
+ *  Schedule; the success toast drops in. */
 const StatusCard: React.FC = () => {
   const frame = useCurrentFrame();
-  const pick = frame >= T.update + 8;
-  const press1 = sp(frame, T.update + 8, 10, 260);
-  const sched = sp(frame, T.schedule, 12, 220);
+  const open = T.update - 6;
+  const pickAt = T.update + 8;
+  const updAt = T.update + 20;
+  const schedAt = T.schedule + 2;
+  const menu = frame >= open + 2 && frame < pickAt + 3 ? sp(frame, open + 2, 14, 240) : 0;
+  const picked = frame >= pickAt;
+  const pk = sp(frame, pickAt, 12, 220);
+  const booked = sp(frame, schedAt + 4, 12, 220);
   const toast = sp(frame, T.notified - 6, 14, 170);
-  const fly = ramp(frame, T.notified - 2, T.notified + 18, easeIO);
-  const steps = ["New", "Consultation Scheduled"];
+  const note = sp(frame, T.notified + 4, 13, 200);
+  const press = (at: number) => 1 - 0.07 * Math.sin(Math.min(1, Math.max(0, frame - at) / 7) * Math.PI) * (frame >= at ? 1 : 0);
+  const opts = ["New", "Consultation Scheduled", "Treatment Completed", "Cancelled"];
+  const cam: ZK[] = [
+    [open - 10, 1, 516, 396],
+    [open + 2, 1.28, 340, 330], // into the status menu
+    [updAt, 1.24, 560, 250],
+    [schedAt - 2, 1.24, 360, 420], // over to Schedule
+    [T.notified - 8, 1.24, 380, 470],
+    [T.notified + 6, 1.0, 516, 396], // out for the toast and the notification
+  ];
   return (
-    <AbsoluteFill style={{ padding: "34px 40px", background: TR.bg }}>
-      <div style={{ ...CARD, position: "relative", zoom: ZOOM, padding: "26px 32px", height: `${100 / ZOOM}%`, boxShadow: "0 10px 30px rgba(30,16,80,0.12)" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-          <Icon d={ICON.calendar} size={32} color={TR.purple} />
-          <div style={{ fontSize: 32, fontWeight: 800, letterSpacing: "-0.02em" }}>Status &amp; Schedule</div>
+    <AbsoluteFill style={{ background: TR.bg, fontFamily: FONT_UI, color: INK }}>
+      <Cam keys={cam}>
+        <div style={{ ...CARD, position: "absolute", left: 28, top: 28, width: PW - 56, height: PH - 56, boxShadow: "0 10px 30px rgba(30,16,80,0.12)" }} />
+        <div style={{ position: "absolute", left: 64, top: 54, display: "flex", alignItems: "center", gap: 14 }}>
+          <Icon d={ICON.calendar} size={42} color={TR.purple} />
+          <div style={{ fontSize: 44, fontWeight: 800, letterSpacing: "-0.03em" }}>Status &amp; Schedule</div>
         </div>
-        <div style={{ fontSize: 22, color: "#6B7085", marginTop: 4 }}>Bob Smith · referred by Oral Surgery Associates</div>
-        <div style={{ display: "flex", gap: 16, marginTop: 26, alignItems: "center" }}>
-          <div style={{ flex: 1, height: 74, borderRadius: 14, border: `2.5px solid ${pick ? TR.purple : "#E7E8EE"}`, display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 22px", fontSize: 28, fontWeight: 700, background: pick ? TR.purpleSoft : W }}>
-            <span style={{ display: "inline-block", translate: `0px ${pick ? (1 - press1) * 18 : 0}px`, opacity: pick ? press1 : 1 }}>{pick ? steps[1] : steps[0]}</span>
-            <span style={{ fontSize: 22 }}>▾</span>
-          </div>
-          <div style={{ height: 74, padding: "0 26px", borderRadius: 14, background: pick ? TR.purple : W, color: pick ? W : TR.purple, border: `2.5px solid ${TR.purple}`, display: "flex", alignItems: "center", fontSize: 26, fontWeight: 800, scale: String(1 - 0.06 * Math.sin(Math.min(1, press1) * Math.PI)) }}>Update Status</div>
+        <div style={{ position: "absolute", left: 64, top: 118, fontSize: 29, color: "#6B7085" }}>Bob Smith · referred by Oral Surgery Associates</div>
+        {/* status select + Update Status */}
+        <div style={{ position: "absolute", left: 64, top: 190, width: 560, height: 96, borderRadius: 18, border: `3px solid ${menu > 0 || picked ? TR.purple : "#E7E8EE"}`, background: picked ? TR.purpleSoft : W, display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 26px", fontSize: 34, fontWeight: 700 }}>
+          <span style={{ display: "inline-block", translate: `0px ${picked ? (1 - pk) * 20 : 0}px`, opacity: picked ? pk : 1 }}>{picked ? opts[1] : opts[0]}</span>
+          <span style={{ fontSize: 26, rotate: `${menu > 0 ? 180 : 0}deg` }}>▾</span>
         </div>
-        {/* schedule */}
-        <div style={{ display: "flex", alignItems: "center", gap: 16, marginTop: 24, opacity: Math.min(1, sched * 2), translate: `0px ${(1 - sched) * 20}px` }}>
-          <div style={{ width: 70, height: 70, borderRadius: 16, background: TR.purpleSoft, display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <Icon d={ICON.calendar} size={34} color={TR.purple} />
+        <div style={{ position: "absolute", left: 650, top: 190, width: 290, height: 96, borderRadius: 18, background: frame >= updAt ? TR.purple : W, color: frame >= updAt ? W : TR.purple, border: `3px solid ${TR.purple}`, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 32, fontWeight: 800, scale: String(press(updAt)), boxShadow: frame >= updAt && frame < updAt + 14 ? `0 0 30px ${TR.purple}88` : undefined }}>Update Status</div>
+        {/* Schedule / Create a Note */}
+        <div style={{ position: "absolute", left: 64, top: 316, display: "flex", gap: 18 }}>
+          {["Schedule", "Create a Note"].map((b, i) => (
+            <div key={b} style={{ height: 80, padding: "0 26px", borderRadius: 16, border: `2.5px solid ${i === 0 && frame >= schedAt ? TR.purple : "#E7E8EE"}`, background: i === 0 && frame >= schedAt ? TR.purpleSoft : W, display: "flex", alignItems: "center", gap: 12, fontSize: 29, fontWeight: 700, scale: String(i === 0 ? press(schedAt) : 1) }}>
+              <Icon d={i === 0 ? ICON.calendar : ICON.inbox} size={30} color={i === 0 ? TR.purple : "#6B7085"} />
+              {b}
+            </div>
+          ))}
+        </div>
+        {/* consult booked */}
+        <div style={{ position: "absolute", left: 64, top: 430, display: "flex", alignItems: "center", gap: 18, opacity: Math.min(1, booked * 2), translate: `0px ${(1 - booked) * 24}px` }}>
+          <div style={{ width: 84, height: 84, borderRadius: 20, background: TR.greenSoft, display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <Icon d={ICON.check} size={42} color="#137A4B" />
           </div>
           <div>
-            <div style={{ fontSize: 28, fontWeight: 800 }}>Consult booked · Thu 10:30 AM</div>
-            <div style={{ fontSize: 22, color: "#6B7085" }}>Dr. Lee Davis · D Care Alliance</div>
+            <div style={{ fontSize: 36, fontWeight: 800, letterSpacing: "-0.02em" }}>Consult booked · Thu 10:30 AM</div>
+            <div style={{ fontSize: 27, color: "#6B7085" }}>Dr. Lee Davis · D Care Alliance</div>
           </div>
         </div>
-        {/* GP notified: a dot flies from the card to the referring office */}
-        <div style={{ position: "absolute", left: 30, right: 30, bottom: 26, display: "flex", alignItems: "center", gap: 14, padding: "16px 20px", borderRadius: 18, background: "#F6F4FB", opacity: Math.min(1, toast * 2) }}>
-          <div style={{ width: 58, height: 58, borderRadius: 29, background: "#FCE7D6", display: "flex", alignItems: "center", justifyContent: "center", position: "relative" }}>
-            <Icon d={I.bell} size={30} color="#B4541C" />
-            <div style={{ position: "absolute", right: -2, top: -2, width: 20, height: 20, borderRadius: 10, background: TR.red, scale: String(sp(frame, T.notified + 12, 9, 260)) }} />
+        {/* the referring office, notified */}
+        <div style={{ position: "absolute", left: 64, width: 904, top: 566, height: 150, borderRadius: 22, background: "#F6F4FB", display: "flex", alignItems: "center", gap: 20, padding: "0 26px", opacity: Math.min(1, note * 2), translate: `0px ${(1 - note) * 24}px` }}>
+          <div style={{ width: 80, height: 80, borderRadius: 40, background: "#FCE7D6", display: "flex", alignItems: "center", justifyContent: "center", position: "relative", rotate: `${Math.sin((frame - T.notified) * 0.9) * 14 * (1 - ramp(frame, T.notified + 4, T.notified + 24))}deg` }}>
+            <Icon d={I.bell} size={40} color="#B4541C" />
+            <div style={{ position: "absolute", right: -2, top: -2, width: 26, height: 26, borderRadius: 13, background: TR.red, scale: String(sp(frame, T.notified + 10, 9, 260)) }} />
           </div>
           <div>
-            <div style={{ fontSize: 25, fontWeight: 800 }}>Oral Surgery Associates</div>
-            <div style={{ fontSize: 21, color: "#6B7085" }}>notified: Bob Smith's consult is scheduled</div>
+            <div style={{ fontSize: 33, fontWeight: 800 }}>Oral Surgery Associates</div>
+            <div style={{ fontSize: 27, color: "#6B7085" }}>notified: Bob Smith's consult is scheduled</div>
           </div>
         </div>
-        {fly > 0 && fly < 1 && <div style={{ position: "absolute", left: lerp(600, 70, fly), top: lerp(130, 420, fly) - Math.sin(fly * Math.PI) * 120, width: 24, height: 24, borderRadius: 12, background: TR.purple, boxShadow: `0 0 20px ${TR.purple}` }} />}
-      </div>
+        {/* the open status menu */}
+        {menu > 0 && (
+          <div style={{ position: "absolute", left: 64, top: 296, width: 560, borderRadius: 18, background: W, boxShadow: "0 24px 50px rgba(30,16,80,0.25)", border: "1.5px solid #E7E3F7", overflow: "hidden", opacity: Math.min(1, menu * 2), translate: `0px ${(1 - menu) * -16}px` }}>
+            {opts.map((o, i) => {
+              const hover = i === 1 && frame >= open + 8;
+              return (
+                <div key={o} style={{ height: 70, display: "flex", alignItems: "center", padding: "0 26px", fontSize: 30, fontWeight: i === 1 ? 800 : 600, background: hover ? TR.purpleSoft : W, color: hover ? TR.purple : INK }}>
+                  {o}
+                </div>
+              );
+            })}
+          </div>
+        )}
+        <Mouse
+          path={[
+            [open - 14, 760, 600],
+            [open, 360, 240],
+            [open + 8, 380, 400],
+            [pickAt + 2, 380, 400],
+            [updAt - 1, 790, 240],
+            [schedAt - 1, 190, 356],
+            [T.notified + 10, 190, 356],
+          ]}
+          clicks={[open, pickAt, updAt - 1, schedAt - 1]}
+          m={ident}
+          show={[open - 14, T.notified + 4]}
+        />
+      </Cam>
       {/* the real success toast */}
-      <div style={{ position: "absolute", left: 70, right: 70, top: 40, padding: "20px 28px", borderRadius: 20, background: "#EAFBF1", border: "2px solid #BDEBD0", boxShadow: "0 18px 44px rgba(20,60,40,0.25)", fontFamily: FONT_UI, translate: `0px ${(1 - toast) * -220}px`, opacity: Math.min(1, toast * 2) }}>
+      <div style={{ position: "absolute", left: 60, right: 60, top: 40, padding: "20px 28px", borderRadius: 20, background: "#EAFBF1", border: "2px solid #BDEBD0", boxShadow: "0 18px 44px rgba(20,60,40,0.25)", fontFamily: FONT_UI, translate: `0px ${(1 - toast) * -220}px`, opacity: Math.min(1, toast * 2) }}>
         <div style={{ fontSize: 34, fontWeight: 800, color: "#137A4B" }}>Success</div>
         <div style={{ fontSize: 27, color: "#2D5B45", marginTop: 4 }}>Status updated successfully! A notification has been created.</div>
       </div>
@@ -700,7 +851,7 @@ const Dash: React.FC<{ lay: Lay }> = ({ lay }) => {
   const S4 = T.click - 8;
   const S5 = T.click + 10;
   const SB1 = TB[0];
-  const SB2 = T.update - 10;
+  const SB2 = T.update - 14;
   const rows = [
     [392, 445, 1440, 556],
     [392, 560, 1440, 672],
@@ -713,25 +864,61 @@ const Dash: React.FC<{ lay: Lay }> = ({ lay }) => {
   ];
   return (
     <div style={{ position: "absolute", left: 24, top: lay.dashTop + 24, width: PW, height: PH, borderRadius: 30, overflow: "hidden", background: TR.bg, boxShadow: "0 24px 60px rgba(0,0,0,0.45)", border: "1.5px solid rgba(255,255,255,0.18)" }}>
-      {/* the list: every referral, every office, one list */}
-      <Shot img="rec-2.jpg" from={S1} to={S2} a={{ x: 330, y: 0, w: 1180 }} b={LIST}>
+      {/* the list: every referral (zoom on the rows), every office (zoom on the column), one list (zoom out) */}
+      <Shot
+        img="rec-2.jpg"
+        from={S1}
+        to={S2}
+        keys={[
+          [S1, { x: 330, y: 0, w: 1180 }],
+          [T.every2 - 4, { x: 360, y: 60, w: 1040 }],
+          [T.every2 + 10, { x: 380, y: 182, w: 860 }],
+          [T.from - 2, { x: 380, y: 182, w: 860 }],
+          [T.from + 12, { x: 600, y: 380, w: 560 }],
+          [T.lands - 8, { x: 600, y: 380, w: 560 }],
+          [T.lands + 8, LIST],
+        ]}
+      >
         {(m) => (
           <>
             {rows.map((r, i) => (
               <Hl key={i} box={r} m={m} k={sp(frame, T.every2 + i * 5, 14, 200) * (1 - ramp(frame, T.from - 2, T.from + 4))} fill />
             ))}
             {offices.map((r, i) => (
-              <Hl key={i} box={r} m={m} k={sp(frame, T.from + i * 6, 13, 220) * (1 - ramp(frame, T.lands - 2, T.lands + 4))} color="#1FA463" label={i === 0 ? "every office" : undefined} />
+              <Hl key={i} box={r} m={m} k={sp(frame, T.from + 6 + i * 6, 13, 220) * (1 - ramp(frame, T.lands - 2, T.lands + 4))} color="#1FA463" label={i === 0 ? "every office" : undefined} />
             ))}
-            <Hl box={[392, 380, 1440, 790]} m={m} k={sp(frame, T.lands, 12, 180)} color={YELLOW} fill={false} label="one list" labelSide="top" />
+            <Hl box={[392, 380, 1440, 790]} m={m} k={sp(frame, T.lands + 4, 12, 180)} color={YELLOW} fill={false} label="one list" labelSide="top" />
+            <Mouse
+              path={[
+                [S1, 1400, 260],
+                [T.every2, 700, 500],
+                [T.from + 6, 836, 500],
+                [T.from + 14, 836, 616],
+                [T.from + 22, 836, 722],
+                [T.lands + 6, 1200, 300],
+              ]}
+              clicks={[]}
+              m={m}
+              show={[S1 + 4, S2]}
+            />
           </>
         )}
       </Shot>
-      {/* green dots: connected offices */}
-      <Shot img="rec-2.jpg" from={S2} to={S3} a={{ x: 360, y: 290, w: 700 }} b={{ x: 372, y: 300, w: 600 }}>
+      {/* green dots: connected offices (zoom right in on one) */}
+      <Shot
+        img="rec-2.jpg"
+        from={S2}
+        to={S3}
+        keys={[
+          [S2, { x: 360, y: 290, w: 700 }],
+          [T.green - 2, { x: 372, y: 300, w: 560 }],
+          [T.connected1 - 6, { x: 650, y: 400, w: 320 }],
+          [S3, { x: 650, y: 400, w: 320 }],
+        ]}
+      >
         {(m) => (
           <>
-            <Hl box={[388, 316, 620, 340]} m={m} k={sp(frame, T.green - 2, 13, 200)} color="#1FA463" label="connected network member" labelSide="bottom" />
+            <Hl box={[388, 316, 620, 340]} m={m} k={sp(frame, T.green - 2, 13, 200) * (1 - ramp(frame, T.connected1 - 8, T.connected1 - 2))} color="#1FA463" label="connected network member" labelSide="bottom" />
             {[
               [396, 328],
               [797, 476],
@@ -741,31 +928,85 @@ const Dash: React.FC<{ lay: Lay }> = ({ lay }) => {
             ].map(([x, y], i) => (
               <Pulse key={i} x={x} y={y} at={T.green + i * 3} m={m} />
             ))}
+            <Mouse path={[[S2, 900, 700], [T.green, 520, 330], [T.connected1 - 6, 812, 488]]} clicks={[]} m={m} show={[S2 + 2, S3]} />
           </>
         )}
       </Shot>
-      {/* build the network once: invite, then referrals flow in */}
-      <Shot img="rec-2.jpg" from={S3} to={S4} a={{ x: 700, y: 0, w: 800 }} b={LIST} dim={ramp(frame, T.referrals - 8, T.referrals) * 0.55}>
+      {/* build the network once: the cursor presses Invite your Network (zoom in, zoom out), then referrals flow in */}
+      <Shot
+        img="rec-2.jpg"
+        from={S3}
+        to={S4}
+        keys={[
+          [S3, { x: 700, y: 0, w: 800 }],
+          [T.build + 4, { x: 1130, y: 0, w: 440 }],
+          [T.build + 18, { x: 1130, y: 0, w: 440 }],
+          [T.referrals - 6, LIST],
+        ]}
+        dim={ramp(frame, T.referrals - 8, T.referrals) * 0.55}
+      >
         {(m) => (
           <>
             <Hl box={[1232, 22, 1460, 74]} m={m} k={sp(frame, T.build, 13, 200) * (1 - ramp(frame, T.referrals - 8, T.referrals))} label="build it once" labelSide="bottom" />
-            <Tap x={1345} y={48} at={T.build + 8} m={m} />
+            <Press box={[1232, 22, 1460, 74]} at={T.build + 10} m={m} />
+            <Mouse path={[[S3, 900, 400], [T.build + 8, 1345, 50], [T.referrals, 1345, 50]]} clicks={[T.build + 10]} m={m} show={[S3 + 2, T.referrals - 6]} />
           </>
         )}
       </Shot>
       {frame >= S3 && frame < S5 + 4 && <FlowIn />}
-      {/* "Click one." */}
-      <Shot img="rec-2.jpg" from={S4} to={S5} a={LIST} b={{ x: 900, y: 380, w: 900 }}>
-        {(m) => <Tap x={1697} y={500} at={T.click + 2} m={m} />}
+      {/* "Click one.": the cursor clicks View, the camera dives into the click */}
+      <Shot
+        img="rec-2.jpg"
+        from={S4}
+        to={S5}
+        keys={[
+          [S4, LIST],
+          [T.click + 2, { x: 1300, y: 300, w: 600 }],
+          [S5 + 9, { x: 1600, y: 440, w: 200 }],
+        ]}
+      >
+        {(m) => (
+          <>
+            <Press box={[1675, 488, 1720, 514]} at={T.click + 2} m={m} />
+            <Mouse path={[[S4, 1200, 300], [T.click + 1, 1697, 502]]} clicks={[T.click + 2]} m={m} show={[S4, S5 + 6]} />
+          </>
+        )}
       </Shot>
-      {/* the referral: diagnosis, tooth numbers, what they want done */}
-      <Shot img="rec-61.5.jpg" from={S5} to={SB1 + 6} a={{ x: 380, y: 150, w: 840 }} b={{ x: 392, y: 196, w: 760 }}>
+      {/* the referral: zoom on the diagnosis, the tooth numbers, out for the treatment, down to the x-ray */}
+      <Shot
+        img="rec-61.5.jpg"
+        from={S5}
+        to={SB1 + 6}
+        keys={[
+          [S5, { x: 430, y: 290, w: 560 }],
+          [S5 + 12, { x: 380, y: 150, w: 840 }],
+          [T.diagnosis - 4, { x: 410, y: 270, w: 480 }],
+          [T.numbers - 6, { x: 440, y: 270, w: 440 }],
+          [T.what - 4, { x: 380, y: 106, w: 960 }],
+          [T.detective - 10, { x: 380, y: 106, w: 960 }],
+          [T.detective, { x: 380, y: 500, w: 440 }],
+          [SB1 + 6, { x: 380, y: 500, w: 440 }],
+        ]}
+      >
         {(m) => (
           <>
             <Hl box={[444, 358, 528, 388]} m={m} k={sp(frame, T.diagnosis - 2, 12, 220)} label="diagnosis" labelSide="bottom" dx={-70} />
             <Hl box={[530, 358, 614, 388]} m={m} k={sp(frame, T.numbers - 6, 12, 220)} color="#1FA463" label="tooth #s" labelSide="bottom" dx={60} />
             <Hl box={[398, 306, 1286, 344]} m={m} k={sp(frame, T.what - 2, 12, 220)} color="#E89D15" label="what they want done" labelSide="top" />
+            <Press box={[398, 306, 1286, 344]} at={T.what + 2} m={m} color="#E89D15" />
             <Magnifier m={m} />
+            <Mouse
+              path={[
+                [S5 + 6, 700, 500],
+                [T.diagnosis - 2, 486, 380],
+                [T.numbers - 4, 572, 380],
+                [T.what, 700, 330],
+                [T.detective - 10, 760, 560],
+              ]}
+              clicks={[T.what + 2]}
+              m={m}
+              show={[S5 + 8, T.detective - 6]}
+            />
           </>
         )}
       </Shot>
@@ -785,7 +1026,7 @@ const Dash: React.FC<{ lay: Lay }> = ({ lay }) => {
 };
 
 /** "No detective work is required": a lens slides over the x-ray and finds everything already there. */
-const Magnifier: React.FC<{ m: (x: number, y: number) => readonly [number, number] }> = ({ m }) => {
+const Magnifier: React.FC<{ m: Map }> = ({ m }) => {
   const frame = useCurrentFrame();
   const from = T.detective - 6;
   if (frame < from) return null;
