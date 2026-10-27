@@ -946,10 +946,12 @@ const CtaLink: React.FC = () => {
 const FingerOffices: React.FC = () => {
   const frame = useCurrentFrame();
   const from = T.connecting - 4;
-  const { p, out, on } = win(frame, from, CUT_FRAMES - 2, 8);
+  const { p, out, on } = win(frame, from, T.connecting + 52, 8);
   if (!on) return null;
-  const a = handOut(frame, "left", "index", 3);
-  const b = handOut(frame, "right", "index", 3);
+  // pinned to the fingertips while the drawn line is up (the tracker swaps hands once they drop)
+  const fh = Math.max(T.connecting + 12, Math.min(frame, T.connecting + 42));
+  const a = handOut(fh, "left", "index", 3);
+  const b = handOut(fh, "right", "index", 3);
   const node = (t: string, [x, y]: [number, number], c: string) => (
     <div style={{ position: "absolute", left: x, top: y - 70, translate: "-50% -100%", scale: String(p), padding: "10px 18px", borderRadius: 999, background: c, color: c === W ? INK : W, fontFamily: FONT_UI, fontWeight: 800, fontSize: 28, whiteSpace: "nowrap", boxShadow: "0 12px 28px rgba(10,6,24,0.4)" }}>{t}</div>
   );
