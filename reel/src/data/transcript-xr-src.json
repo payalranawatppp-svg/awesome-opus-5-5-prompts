@@ -1,0 +1,1069 @@
+{
+ "xr-src": {
+  "text": "It's $4.58, the patient is in the chair, and the GP swears they sent the X-ray. Where the hell is it? Spoiler, it's buried in someone's inbox, in a fax tray, or on page 3 of an email chain from June. Now, meet tooth referral. Here's how it works. Every incoming referral, from every office, lands in one list you can trust. Open the patient, and the X-rays are right there, shared with both offices. The insurance card is, too, front and back. Is something missing? Message the GP inside the case, tag them, and when they answer, it's saved with the patient. Then update the status, and the referring office sees it instantly. No more callbacks or any update? Emails. Every office you work with stays connected. That's not just software. It's a referral network that works. So, next time it's $4.58, you'll know exactly where that X-ray is. Calm, collected, and connected. Want that calm for your office? Check out tooth referral, and bring every referring office into one place.",
+  "words": [
+   {
+    "word": " It's",
+    "start": 0.0,
+    "end": 0.34,
+    "p": 0.808
+   },
+   {
+    "word": " $4",
+    "start": 0.34,
+    "end": 0.54,
+    "p": 0.506
+   },
+   {
+    "word": ".58,",
+    "start": 0.54,
+    "end": 0.84,
+    "p": 0.997
+   },
+   {
+    "word": " the",
+    "start": 1.28,
+    "end": 1.42,
+    "p": 0.978
+   },
+   {
+    "word": " patient",
+    "start": 1.42,
+    "end": 1.68,
+    "p": 0.994
+   },
+   {
+    "word": " is",
+    "start": 1.68,
+    "end": 1.88,
+    "p": 0.989
+   },
+   {
+    "word": " in",
+    "start": 1.88,
+    "end": 2.02,
+    "p": 0.996
+   },
+   {
+    "word": " the",
+    "start": 2.02,
+    "end": 2.14,
+    "p": 0.992
+   },
+   {
+    "word": " chair,",
+    "start": 2.14,
+    "end": 2.42,
+    "p": 0.993
+   },
+   {
+    "word": " and",
+    "start": 2.66,
+    "end": 2.78,
+    "p": 0.988
+   },
+   {
+    "word": " the",
+    "start": 2.78,
+    "end": 2.9,
+    "p": 0.994
+   },
+   {
+    "word": " GP",
+    "start": 2.9,
+    "end": 3.2,
+    "p": 0.99
+   },
+   {
+    "word": " swears",
+    "start": 3.2,
+    "end": 3.84,
+    "p": 0.941
+   },
+   {
+    "word": " they",
+    "start": 3.84,
+    "end": 4.1,
+    "p": 0.986
+   },
+   {
+    "word": " sent",
+    "start": 4.1,
+    "end": 4.3,
+    "p": 0.975
+   },
+   {
+    "word": " the",
+    "start": 4.3,
+    "end": 4.48,
+    "p": 0.992
+   },
+   {
+    "word": " X",
+    "start": 4.48,
+    "end": 4.7,
+    "p": 0.467
+   },
+   {
+    "word": "-ray.",
+    "start": 4.7,
+    "end": 4.9,
+    "p": 0.874
+   },
+   {
+    "word": " Where",
+    "start": 5.32,
+    "end": 5.48,
+    "p": 0.865
+   },
+   {
+    "word": " the",
+    "start": 5.48,
+    "end": 5.68,
+    "p": 0.978
+   },
+   {
+    "word": " hell",
+    "start": 5.68,
+    "end": 5.86,
+    "p": 0.935
+   },
+   {
+    "word": " is",
+    "start": 5.86,
+    "end": 6.12,
+    "p": 0.994
+   },
+   {
+    "word": " it?",
+    "start": 6.12,
+    "end": 6.46,
+    "p": 0.994
+   },
+   {
+    "word": " Spoiler,",
+    "start": 8.0,
+    "end": 8.52,
+    "p": 0.448
+   },
+   {
+    "word": " it's",
+    "start": 9.1,
+    "end": 9.32,
+    "p": 0.968
+   },
+   {
+    "word": " buried",
+    "start": 9.32,
+    "end": 9.54,
+    "p": 0.998
+   },
+   {
+    "word": " in",
+    "start": 9.54,
+    "end": 9.84,
+    "p": 0.998
+   },
+   {
+    "word": " someone's",
+    "start": 9.84,
+    "end": 10.26,
+    "p": 0.995
+   },
+   {
+    "word": " inbox,",
+    "start": 10.26,
+    "end": 10.64,
+    "p": 0.987
+   },
+   {
+    "word": " in",
+    "start": 11.2,
+    "end": 11.32,
+    "p": 0.991
+   },
+   {
+    "word": " a",
+    "start": 11.32,
+    "end": 11.46,
+    "p": 0.999
+   },
+   {
+    "word": " fax",
+    "start": 11.46,
+    "end": 11.68,
+    "p": 0.985
+   },
+   {
+    "word": " tray,",
+    "start": 11.68,
+    "end": 12.08,
+    "p": 0.997
+   },
+   {
+    "word": " or",
+    "start": 12.56,
+    "end": 12.9,
+    "p": 0.981
+   },
+   {
+    "word": " on",
+    "start": 12.9,
+    "end": 13.28,
+    "p": 0.978
+   },
+   {
+    "word": " page",
+    "start": 13.28,
+    "end": 13.5,
+    "p": 0.952
+   },
+   {
+    "word": " 3",
+    "start": 13.5,
+    "end": 13.92,
+    "p": 0.624
+   },
+   {
+    "word": " of",
+    "start": 13.92,
+    "end": 14.12,
+    "p": 0.995
+   },
+   {
+    "word": " an",
+    "start": 14.12,
+    "end": 14.22,
+    "p": 0.99
+   },
+   {
+    "word": " email",
+    "start": 14.22,
+    "end": 14.5,
+    "p": 0.862
+   },
+   {
+    "word": " chain",
+    "start": 14.5,
+    "end": 14.8,
+    "p": 0.985
+   },
+   {
+    "word": " from",
+    "start": 14.8,
+    "end": 15.06,
+    "p": 0.991
+   },
+   {
+    "word": " June.",
+    "start": 15.06,
+    "end": 15.4,
+    "p": 0.983
+   },
+   {
+    "word": " Now,",
+    "start": 16.72,
+    "end": 16.8,
+    "p": 0.961
+   },
+   {
+    "word": " meet",
+    "start": 17.04,
+    "end": 17.14,
+    "p": 0.878
+   },
+   {
+    "word": " tooth",
+    "start": 17.14,
+    "end": 17.44,
+    "p": 0.946
+   },
+   {
+    "word": " referral.",
+    "start": 17.44,
+    "end": 17.86,
+    "p": 0.997
+   },
+   {
+    "word": " Here's",
+    "start": 18.28,
+    "end": 18.48,
+    "p": 0.995
+   },
+   {
+    "word": " how",
+    "start": 18.48,
+    "end": 18.6,
+    "p": 0.998
+   },
+   {
+    "word": " it",
+    "start": 18.6,
+    "end": 18.72,
+    "p": 0.998
+   },
+   {
+    "word": " works.",
+    "start": 18.72,
+    "end": 18.98,
+    "p": 0.999
+   },
+   {
+    "word": " Every",
+    "start": 19.46,
+    "end": 19.68,
+    "p": 0.991
+   },
+   {
+    "word": " incoming",
+    "start": 19.68,
+    "end": 20.1,
+    "p": 0.999
+   },
+   {
+    "word": " referral,",
+    "start": 20.1,
+    "end": 20.56,
+    "p": 0.996
+   },
+   {
+    "word": " from",
+    "start": 20.94,
+    "end": 21.06,
+    "p": 0.997
+   },
+   {
+    "word": " every",
+    "start": 21.06,
+    "end": 21.36,
+    "p": 0.997
+   },
+   {
+    "word": " office,",
+    "start": 21.36,
+    "end": 21.8,
+    "p": 0.995
+   },
+   {
+    "word": " lands",
+    "start": 22.14,
+    "end": 22.36,
+    "p": 0.997
+   },
+   {
+    "word": " in",
+    "start": 22.36,
+    "end": 22.56,
+    "p": 0.995
+   },
+   {
+    "word": " one",
+    "start": 22.56,
+    "end": 22.78,
+    "p": 0.967
+   },
+   {
+    "word": " list",
+    "start": 22.78,
+    "end": 23.0,
+    "p": 0.998
+   },
+   {
+    "word": " you",
+    "start": 23.0,
+    "end": 23.2,
+    "p": 0.994
+   },
+   {
+    "word": " can",
+    "start": 23.2,
+    "end": 23.34,
+    "p": 0.999
+   },
+   {
+    "word": " trust.",
+    "start": 23.34,
+    "end": 23.66,
+    "p": 0.999
+   },
+   {
+    "word": " Open",
+    "start": 24.54,
+    "end": 24.96,
+    "p": 0.984
+   },
+   {
+    "word": " the",
+    "start": 24.96,
+    "end": 25.12,
+    "p": 0.999
+   },
+   {
+    "word": " patient,",
+    "start": 25.12,
+    "end": 25.44,
+    "p": 0.997
+   },
+   {
+    "word": " and",
+    "start": 25.84,
+    "end": 26.04,
+    "p": 0.997
+   },
+   {
+    "word": " the",
+    "start": 26.04,
+    "end": 26.14,
+    "p": 0.998
+   },
+   {
+    "word": " X",
+    "start": 26.14,
+    "end": 26.34,
+    "p": 0.865
+   },
+   {
+    "word": "-rays",
+    "start": 26.34,
+    "end": 26.46,
+    "p": 0.991
+   },
+   {
+    "word": " are",
+    "start": 26.46,
+    "end": 26.64,
+    "p": 0.999
+   },
+   {
+    "word": " right",
+    "start": 26.64,
+    "end": 26.84,
+    "p": 0.996
+   },
+   {
+    "word": " there,",
+    "start": 26.84,
+    "end": 27.18,
+    "p": 0.995
+   },
+   {
+    "word": " shared",
+    "start": 27.18,
+    "end": 27.64,
+    "p": 0.449
+   },
+   {
+    "word": " with",
+    "start": 27.64,
+    "end": 27.88,
+    "p": 0.993
+   },
+   {
+    "word": " both",
+    "start": 27.88,
+    "end": 28.12,
+    "p": 0.993
+   },
+   {
+    "word": " offices.",
+    "start": 28.12,
+    "end": 28.64,
+    "p": 0.969
+   },
+   {
+    "word": " The",
+    "start": 29.38,
+    "end": 29.4,
+    "p": 0.981
+   },
+   {
+    "word": " insurance",
+    "start": 29.4,
+    "end": 29.7,
+    "p": 0.988
+   },
+   {
+    "word": " card",
+    "start": 29.7,
+    "end": 30.06,
+    "p": 0.992
+   },
+   {
+    "word": " is,",
+    "start": 30.06,
+    "end": 30.24,
+    "p": 0.997
+   },
+   {
+    "word": " too,",
+    "start": 30.54,
+    "end": 30.56,
+    "p": 0.981
+   },
+   {
+    "word": " front",
+    "start": 31.0,
+    "end": 31.08,
+    "p": 0.941
+   },
+   {
+    "word": " and",
+    "start": 31.08,
+    "end": 31.28,
+    "p": 0.982
+   },
+   {
+    "word": " back.",
+    "start": 31.28,
+    "end": 31.56,
+    "p": 1.0
+   },
+   {
+    "word": " Is",
+    "start": 32.88,
+    "end": 32.96,
+    "p": 0.951
+   },
+   {
+    "word": " something",
+    "start": 32.96,
+    "end": 33.2,
+    "p": 0.998
+   },
+   {
+    "word": " missing?",
+    "start": 33.2,
+    "end": 33.56,
+    "p": 0.998
+   },
+   {
+    "word": " Message",
+    "start": 34.06,
+    "end": 34.26,
+    "p": 0.967
+   },
+   {
+    "word": " the",
+    "start": 34.26,
+    "end": 34.54,
+    "p": 0.999
+   },
+   {
+    "word": " GP",
+    "start": 34.54,
+    "end": 34.76,
+    "p": 0.995
+   },
+   {
+    "word": " inside",
+    "start": 34.76,
+    "end": 35.1,
+    "p": 0.997
+   },
+   {
+    "word": " the",
+    "start": 35.1,
+    "end": 35.28,
+    "p": 0.992
+   },
+   {
+    "word": " case,",
+    "start": 35.28,
+    "end": 35.56,
+    "p": 0.999
+   },
+   {
+    "word": " tag",
+    "start": 35.92,
+    "end": 36.22,
+    "p": 0.99
+   },
+   {
+    "word": " them,",
+    "start": 36.22,
+    "end": 36.5,
+    "p": 0.999
+   },
+   {
+    "word": " and",
+    "start": 36.92,
+    "end": 37.04,
+    "p": 0.998
+   },
+   {
+    "word": " when",
+    "start": 37.04,
+    "end": 37.16,
+    "p": 0.968
+   },
+   {
+    "word": " they",
+    "start": 37.16,
+    "end": 37.32,
+    "p": 0.995
+   },
+   {
+    "word": " answer,",
+    "start": 37.32,
+    "end": 37.66,
+    "p": 0.998
+   },
+   {
+    "word": " it's",
+    "start": 38.1,
+    "end": 38.44,
+    "p": 0.987
+   },
+   {
+    "word": " saved",
+    "start": 38.44,
+    "end": 38.64,
+    "p": 0.996
+   },
+   {
+    "word": " with",
+    "start": 38.64,
+    "end": 38.84,
+    "p": 0.999
+   },
+   {
+    "word": " the",
+    "start": 38.84,
+    "end": 38.98,
+    "p": 0.995
+   },
+   {
+    "word": " patient.",
+    "start": 38.98,
+    "end": 39.28,
+    "p": 0.999
+   },
+   {
+    "word": " Then",
+    "start": 40.5,
+    "end": 40.66,
+    "p": 0.982
+   },
+   {
+    "word": " update",
+    "start": 40.66,
+    "end": 41.0,
+    "p": 0.828
+   },
+   {
+    "word": " the",
+    "start": 41.0,
+    "end": 41.16,
+    "p": 0.999
+   },
+   {
+    "word": " status,",
+    "start": 41.16,
+    "end": 41.44,
+    "p": 0.997
+   },
+   {
+    "word": " and",
+    "start": 41.86,
+    "end": 41.94,
+    "p": 0.998
+   },
+   {
+    "word": " the",
+    "start": 41.94,
+    "end": 42.02,
+    "p": 0.997
+   },
+   {
+    "word": " referring",
+    "start": 42.02,
+    "end": 42.36,
+    "p": 0.953
+   },
+   {
+    "word": " office",
+    "start": 42.36,
+    "end": 42.7,
+    "p": 0.998
+   },
+   {
+    "word": " sees",
+    "start": 42.7,
+    "end": 42.94,
+    "p": 0.995
+   },
+   {
+    "word": " it",
+    "start": 42.94,
+    "end": 43.18,
+    "p": 0.999
+   },
+   {
+    "word": " instantly.",
+    "start": 43.18,
+    "end": 43.68,
+    "p": 0.963
+   },
+   {
+    "word": " No",
+    "start": 44.48,
+    "end": 44.62,
+    "p": 0.993
+   },
+   {
+    "word": " more",
+    "start": 44.62,
+    "end": 44.82,
+    "p": 0.999
+   },
+   {
+    "word": " callbacks",
+    "start": 44.82,
+    "end": 45.32,
+    "p": 0.967
+   },
+   {
+    "word": " or",
+    "start": 45.32,
+    "end": 45.76,
+    "p": 0.783
+   },
+   {
+    "word": " any",
+    "start": 45.76,
+    "end": 46.08,
+    "p": 0.989
+   },
+   {
+    "word": " update?",
+    "start": 46.08,
+    "end": 46.5,
+    "p": 0.995
+   },
+   {
+    "word": " Emails.",
+    "start": 47.34,
+    "end": 47.34,
+    "p": 0.86
+   },
+   {
+    "word": " Every",
+    "start": 48.96,
+    "end": 49.22,
+    "p": 0.991
+   },
+   {
+    "word": " office",
+    "start": 49.22,
+    "end": 49.56,
+    "p": 0.996
+   },
+   {
+    "word": " you",
+    "start": 49.56,
+    "end": 49.78,
+    "p": 0.999
+   },
+   {
+    "word": " work",
+    "start": 49.78,
+    "end": 49.98,
+    "p": 0.999
+   },
+   {
+    "word": " with",
+    "start": 49.98,
+    "end": 50.32,
+    "p": 0.999
+   },
+   {
+    "word": " stays",
+    "start": 50.32,
+    "end": 50.72,
+    "p": 0.983
+   },
+   {
+    "word": " connected.",
+    "start": 50.72,
+    "end": 51.26,
+    "p": 0.999
+   },
+   {
+    "word": " That's",
+    "start": 51.9,
+    "end": 52.22,
+    "p": 0.997
+   },
+   {
+    "word": " not",
+    "start": 52.22,
+    "end": 52.38,
+    "p": 0.999
+   },
+   {
+    "word": " just",
+    "start": 52.38,
+    "end": 52.58,
+    "p": 1.0
+   },
+   {
+    "word": " software.",
+    "start": 52.58,
+    "end": 53.06,
+    "p": 0.999
+   },
+   {
+    "word": " It's",
+    "start": 53.66,
+    "end": 53.9,
+    "p": 0.996
+   },
+   {
+    "word": " a",
+    "start": 53.9,
+    "end": 54.02,
+    "p": 0.999
+   },
+   {
+    "word": " referral",
+    "start": 54.02,
+    "end": 54.34,
+    "p": 0.999
+   },
+   {
+    "word": " network",
+    "start": 54.34,
+    "end": 54.82,
+    "p": 0.999
+   },
+   {
+    "word": " that",
+    "start": 54.82,
+    "end": 55.2,
+    "p": 0.994
+   },
+   {
+    "word": " works.",
+    "start": 55.2,
+    "end": 55.5,
+    "p": 0.999
+   },
+   {
+    "word": " So,",
+    "start": 56.22,
+    "end": 56.54,
+    "p": 0.827
+   },
+   {
+    "word": " next",
+    "start": 56.8,
+    "end": 57.04,
+    "p": 0.987
+   },
+   {
+    "word": " time",
+    "start": 57.04,
+    "end": 57.26,
+    "p": 0.998
+   },
+   {
+    "word": " it's",
+    "start": 57.26,
+    "end": 57.46,
+    "p": 0.962
+   },
+   {
+    "word": " $4",
+    "start": 57.46,
+    "end": 57.64,
+    "p": 0.407
+   },
+   {
+    "word": ".58,",
+    "start": 57.64,
+    "end": 57.92,
+    "p": 0.998
+   },
+   {
+    "word": " you'll",
+    "start": 58.46,
+    "end": 58.72,
+    "p": 0.988
+   },
+   {
+    "word": " know",
+    "start": 58.72,
+    "end": 58.86,
+    "p": 0.996
+   },
+   {
+    "word": " exactly",
+    "start": 58.86,
+    "end": 59.24,
+    "p": 0.975
+   },
+   {
+    "word": " where",
+    "start": 59.24,
+    "end": 59.58,
+    "p": 0.994
+   },
+   {
+    "word": " that",
+    "start": 59.58,
+    "end": 59.78,
+    "p": 0.979
+   },
+   {
+    "word": " X",
+    "start": 59.78,
+    "end": 60.0,
+    "p": 0.531
+   },
+   {
+    "word": "-ray",
+    "start": 60.0,
+    "end": 60.18,
+    "p": 0.83
+   },
+   {
+    "word": " is.",
+    "start": 60.18,
+    "end": 60.56,
+    "p": 0.994
+   },
+   {
+    "word": " Calm,",
+    "start": 61.6,
+    "end": 61.68,
+    "p": 0.88
+   },
+   {
+    "word": " collected,",
+    "start": 62.0,
+    "end": 62.48,
+    "p": 0.816
+   },
+   {
+    "word": " and",
+    "start": 63.02,
+    "end": 63.1,
+    "p": 0.988
+   },
+   {
+    "word": " connected.",
+    "start": 63.1,
+    "end": 63.52,
+    "p": 0.999
+   },
+   {
+    "word": " Want",
+    "start": 64.88,
+    "end": 65.12,
+    "p": 0.98
+   },
+   {
+    "word": " that",
+    "start": 65.12,
+    "end": 65.34,
+    "p": 0.996
+   },
+   {
+    "word": " calm",
+    "start": 65.34,
+    "end": 65.6,
+    "p": 0.916
+   },
+   {
+    "word": " for",
+    "start": 65.6,
+    "end": 65.82,
+    "p": 0.997
+   },
+   {
+    "word": " your",
+    "start": 65.82,
+    "end": 65.98,
+    "p": 0.997
+   },
+   {
+    "word": " office?",
+    "start": 65.98,
+    "end": 66.32,
+    "p": 0.995
+   },
+   {
+    "word": " Check",
+    "start": 67.24,
+    "end": 67.44,
+    "p": 0.996
+   },
+   {
+    "word": " out",
+    "start": 67.44,
+    "end": 67.68,
+    "p": 0.986
+   },
+   {
+    "word": " tooth",
+    "start": 67.68,
+    "end": 67.9,
+    "p": 0.254
+   },
+   {
+    "word": " referral,",
+    "start": 67.9,
+    "end": 68.3,
+    "p": 0.969
+   },
+   {
+    "word": " and",
+    "start": 68.84,
+    "end": 68.94,
+    "p": 0.998
+   },
+   {
+    "word": " bring",
+    "start": 68.94,
+    "end": 69.14,
+    "p": 0.997
+   },
+   {
+    "word": " every",
+    "start": 69.14,
+    "end": 69.7,
+    "p": 0.98
+   },
+   {
+    "word": " referring",
+    "start": 69.7,
+    "end": 70.14,
+    "p": 0.956
+   },
+   {
+    "word": " office",
+    "start": 70.14,
+    "end": 70.6,
+    "p": 0.999
+   },
+   {
+    "word": " into",
+    "start": 70.6,
+    "end": 70.98,
+    "p": 0.97
+   },
+   {
+    "word": " one",
+    "start": 70.98,
+    "end": 71.28,
+    "p": 0.982
+   },
+   {
+    "word": " place.",
+    "start": 71.28,
+    "end": 71.56,
+    "p": 0.999
+   }
+  ]
+ }
+}
