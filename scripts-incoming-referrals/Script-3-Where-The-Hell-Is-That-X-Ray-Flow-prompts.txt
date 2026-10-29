@@ -30,13 +30,14 @@ Audio: only his voice, quiet room tone. No music, no subtitles, no captions, no 
 Vertical 9:16 video, 8 seconds, one continuous shot of the same presenter, speaking directly to camera.
 Camera: locked off, eye level, medium close-up from mid-chest up, the same framing for the whole clip: no zoom, no cuts, no camera movement. Both hands always stay inside the frame, between chest and shoulder height.
 0.0-0.5 s: Rest pose, hands relaxed together at chest height, shoulders loose, looking straight into the lens, mouth closed.
-0.5-2.5 s: He smooths the air with a flat, palm-down hand, calming, on the words "Here's how it should work."
-2.5-7.5 s: He points to the upper left of the frame and holds, on the words "Every incoming referral, from every office, lands in one list you can trust."
+0.5-2 s: He smooths the air with a flat, palm-down hand, calming, and ends with an open palm presenting toward the upper left of the frame, on the words "Now, meet Tooth Referral."
+2-3 s: He points with his index finger to the upper left of the frame, on the words "Here's how it works:"
+3-7.5 s: He makes a rectangle frame with both hands (two L-shapes) toward the upper left of the frame, on the words "every incoming referral, from every office, lands in one list you can trust."
 7.5-8.0 s: Returns to the same rest pose, hands relaxed together at chest height, shoulders loose, looking straight into the lens, mouth closed.
-Facial expression: Composed and sincere; the joke steps back.
-Head movement: Slight nod, then turns to look at the upper-left panel.
+Facial expression: Composed and sincere, the panic gone; a proud little smile on "Tooth Referral"; quietly satisfied on "one list you can trust".
+Head movement: Small nod on "meet", turns to look at the upper-left panel on "Here's how it works", back to camera on "trust".
 Gestures are natural, smooth and deliberate, not rushed; each gesture lands on the words next to it.
-Dialogue, spoken to camera in a natural, confident tone and perfectly lip-synced: "Here's how it should work. Every incoming referral, from every office, lands in one list you can trust."
+Dialogue, spoken to camera in a natural, confident tone and perfectly lip-synced: "Now, meet Tooth Referral. Here's how it works: every incoming referral, from every office, lands in one list you can trust."
 Audio: only his voice, quiet room tone. No music, no subtitles, no captions, no on-screen text, no logos.
 
 ===== CLIP 04  There it is  (24-32 s) =====
@@ -105,5 +106,19 @@ Facial expression: Relaxed smile, a small wink at the very end.
 Head movement: Slow nods on the last three words.
 Gestures are natural, smooth and deliberate, not rushed; each gesture lands on the words next to it.
 Dialogue, spoken to camera in a natural, confident tone and perfectly lip-synced: "So, next time it's 4:58, you'll know exactly where that X-ray is. Calm, collected, and connected."
+Audio: only his voice, quiet room tone. No music, no subtitles, no captions, no on-screen text, no logos.
+
+===== CLIP 09  Call to action  (64-72 s) =====
+Vertical 9:16 video, 8 seconds, one continuous shot of the same presenter, speaking directly to camera.
+Camera: locked off, eye level, medium close-up from mid-chest up, the same framing for the whole clip: no zoom, no cuts, no camera movement. Both hands always stay inside the frame, between chest and shoulder height.
+0.0-0.5 s: Rest pose, hands relaxed together at chest height, shoulders loose, looking straight into the lens, mouth closed.
+0.5-3 s: He points his index finger straight at the camera with a friendly smile, on the words "Want that calm for your office?"
+3-4.5 s: He points down toward the bottom of the frame and holds it there, on the words "Check out Tooth Referral"
+4.5-7.5 s: He sweeps both open hands in from the sides toward his chest, as if gathering everything into one place, on the words "and bring every referring office into one place."
+7.5-8.0 s: Returns to the same rest pose, hands relaxed together at chest height, shoulders loose, looking straight into the lens, mouth closed.
+Facial expression: Warm and inviting; eyebrows raised on the question, then a relaxed, sincere smile. No salesy grin.
+Head movement: Slight tilt on the question, a small nod on "Tooth Referral", steady eye contact to the end.
+Gestures are natural, smooth and deliberate, not rushed; each gesture lands on the words next to it.
+Dialogue, spoken to camera in a natural, confident tone and perfectly lip-synced: "Want that calm for your office? Check out Tooth Referral and bring every referring office into one place."
 Audio: only his voice, quiet room tone. No music, no subtitles, no captions, no on-screen text, no logos.
 
