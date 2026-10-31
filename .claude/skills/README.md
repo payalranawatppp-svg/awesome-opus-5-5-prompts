@@ -42,3 +42,25 @@ install locally) so they exist in every session:
 - **video-use** — `ELEVENLABS_API_KEY`, ffmpeg, and its Python deps (`pip install -e .claude/skills/video-use`).
 
 Keep API keys in the environment's secrets/variables, never in files in this repo.
+
+## From the "15 Claude Code skills for motion designers & video editors" reel (installed 2026-10-31)
+
+Copied unmodified from each upstream repository (each folder keeps its licence; existing copies were refreshed):
+
+| # | In the reel | Installed as | Source | Licence |
+|---|---|---|---|---|
+| 1 | GSAP | `gsap-*` (8) | github.com/greensock/gsap-skills | MIT |
+| 2 | Cube Motion | `cube-motion` | github.com/danielwh2/cube-motion | MIT |
+| 3 | Oil Motion | `oil-motion` | github.com/oil-oil/oil-motion | MIT |
+| 4 | ShaderCN | `typegpu`, `launch-shadcn-registry` | github.com/shadcn-labs/shadercn | MIT |
+| 5 | Hairline | `hairline-create`, `hairline-adopt` | github.com/lucasmarkes/hairline | MIT |
+| 6 | Remotion | `remotion-*` (12) | github.com/remotion-dev/skills | none stated: kept local, git-ignored |
+| 7 | Evil Buttons | `evil-button-docs`, `bklit-ui` | github.com/radiumcoders/evil-buttons | Apache-2.0 |
+| 8 | Motion B-roll + object separation | `motion-broll`, `object-separation`, `sound-effects`, `explainer-*` (3) | github.com/barty-bart/motion-graphics | MIT |
+| 9 | Lemo Opuscar | `lemo-opuscar` (fetches its style library on first run) | github.com/lemomo-ai/lemo-opuscar | MIT |
+| 10 | OpenMontage | `tools/openmontage/` (its 47 skills load when working in that folder) | github.com/guyronnen/openmontage | AGPL-3.0 |
+| 11 | HyperFrames | `hyperframes*`, `media-use`, `remotion-to-hyperframes`, `reverse-any-video`, `slideshow`, `figma`, `oversized-cursor`, `changelog-video`, `cut-the-curve`, `seam-craft`, `motion-doctrine`, `captions-overlay` | github.com/heygen-com/hyperframes | Apache-2.0 |
+| 12 | Diffusion Studio | `editor`, `watch` | github.com/diffusionstudio/skills (app: diffusionstudio/editor) | MIT |
+| 13 | Whiteboard Video | `whiteboard-video` (needs `pip install "git+https://github.com/gnipbao/whiteboard-video-engine.git"`) | github.com/gnipbao/codex-whiteboard-video-skill | MIT |
+| 14 | Video Shotcraft | `video-shotcraft` (without its `videos/` demos) | github.com/vincentwei1021/video-shotcraft | Apache-2.0 |
+| 15 | Howseen Motion | `motion-design` | github.com/howseen-ai/claude-motion-design | MIT |

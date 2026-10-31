@@ -1,0 +1,4 @@
+interface:
+  display_name: "Evil Button Docs"
+  short_description: "Generate Evil Buttons docs and registry steps"
+  default_prompt: "Use $evil-button-docs to add docs and registry support for a new Evil Buttons component."
