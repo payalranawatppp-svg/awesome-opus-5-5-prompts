@@ -41,6 +41,12 @@ How it fits this pipeline (cut_by_words -> morph_cuts -> Remotion):
   apple-toggles for steps or features, match-cut / headline-wall for "everyone is talking about it", timeline for
   a "how it was made" beat. One or two per minute, not all of them.
 
+## 0b. Hooks and the first 3 seconds (user's reference, saved 2026-11-01)
+
+For every new script or edit, follow `.claude/skills/hook-reference/SKILL.md`: warning + number + desire hook,
+red/white stacked lower-third text word by word, a red flash on the first trigger word, punch-in zooms, icons for the
+number, a card for the payoff, SFX on every change.
+
 ## 1. Choosing effects for a script
 
 Read the script (or transcript), mark its beats, then map beats to effects:
