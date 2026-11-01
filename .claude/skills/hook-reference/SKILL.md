@@ -1,6 +1,6 @@
 ---
 name: hook-reference
-description: The user's chosen references for hooks and talking-head editing (the Devin Jatho style, broken down layer by layer in instagram.com/reel/DcJNJurOtH9, and the \"10 hooks that always work\" library from instagram.com/reel/DbeVHuGspag). Use whenever writing a script or a hook for a talking-head/avatar video, or editing one (captions, punch-in zooms, flashes, text, cards, SFX), so the first 3 seconds follow this pattern.
+description: The user's chosen references for hooks and talking-head editing (the Devin Jatho style, broken down layer by layer in instagram.com/reel/DcJNJurOtH9, and the "10 hooks that always work" library from instagram.com/reel/DbeVHuGspag). Use whenever writing a script or a hook for a talking-head/avatar video, or editing one (captions, punch-in zooms, flashes, text, cards, SFX), so the first 3 seconds follow this pattern.
 ---
 
 # Hook & edit reference (user-chosen, 2026-11-01)
