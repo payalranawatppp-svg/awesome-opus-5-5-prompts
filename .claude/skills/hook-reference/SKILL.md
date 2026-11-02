@@ -75,6 +75,8 @@ drop to the calmer pace of the rest of the video.
 
 ## 3. Checklist for every new script/edit
 
+- [ ] For ToothReferral: the script also follows `.claude/skills/toothreferral-messaging` (what they get, ROI, 5-minute setup).
+
 - [ ] Hook = warning + number + desire (section 1) or a curiosity hook from the library (section 1b), ≤ 3 s, first word is the hook.
 - [ ] Trigger words red, rest white, stacked lower third, word-by-word.
 - [ ] One red flash on the first trigger word; punch-ins on the 2–3 strongest words.
