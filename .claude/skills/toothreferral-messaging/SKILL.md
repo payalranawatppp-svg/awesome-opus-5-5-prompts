@@ -1,6 +1,6 @@
 ---
 name: toothreferral-messaging
-description: The client's own positioning and must-say points for ToothReferral (brief from the client, 2026-11-02, plus Marketing-tips.pdf in this folder). Use for EVERY ToothReferral script, ad, hook, caption, email or video, together with hook-reference, so each piece says what the specialist gets, why they need it (ROI), and how fast it is to set up.
+description: The client's own positioning, must-say points and full product/dashboard reference (DASHBOARD.md: referrals, statuses, analytics, Website Lead Forms, DocuSign notes, stills) for ToothReferral (brief from the client, 2026-11-02, plus Marketing-tips.pdf in this folder). Use for EVERY ToothReferral script, ad, hook, caption, email or video, together with hook-reference, so each piece says what the specialist gets, why they need it (ROI), and how fast it is to set up.
 ---
 
 # ToothReferral messaging brief (from the client — follow it in every script and ad)
@@ -70,6 +70,11 @@ A script that only tours features is not done. Check every script against these 
 Objection answers to borrow: "We already have a form" → digital fax machine, nobody guarantees it gets booked.
 "Not selling for 10 years" → built-for-sale just means it doesn't break when people leave; profits now.
 "How does it make me money?" → stops leakage, and closes the GP loop so they keep referring.
+
+## 4b. What the product shows
+
+Read `DASHBOARD.md` (this folder) before writing any script or edit: every page, status, analytics card, the Website
+Lead Forms builder, the DocuSign completion note, and the stills/recording to use. Claim only what is listed there.
 
 ## 5. How to use this in scripts
 
