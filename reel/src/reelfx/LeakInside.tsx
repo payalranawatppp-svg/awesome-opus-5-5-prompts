@@ -12,8 +12,8 @@
  *   6  same dashboard (split A)    case, X-ray and message, each a dive into the dashboard; synced to both offices
  *   7  no codes (full)            access codes and portal links struck by her hands; then the Orbit effect: messages,
  *                                  notes, status and the team ring her head ("visible to your whole team")
- *   8  the math (split B -> full)  Needs attention: Re-assign ("anyone can pick up any case"); the Digital zoom effect
- *                                  snaps on "math"; 1 referral that doesn't leak = the system paid for
+ *   8  the math (split B -> full)  Needs attention: Re-assign ("anyone can pick up any case"); "here's the math" punch-in;
+ *                                  1 referral that doesn't leak =, then the Glass type effect: "Paid for."
  *   9  setup (full-screen card)    set up in about five minutes (the spoken "Setup" was re-made in her voice, so the
  *                                  card covers her mouth for that word)
  *  10  call to action (full)       logo behind her, the link, end card
@@ -26,7 +26,7 @@ import React from "react";
 import { AbsoluteFill, Audio, Freeze, Img, Sequence, interpolate, spring, staticFile, useCurrentFrame } from "remotion";
 import { FontGate, TALENT, TalentLayer, type Framing } from "../effects";
 import { Orbit } from "../effects/01-orbit";
-import { DigitalZoom } from "../effects/05-digital-zoom";
+import { GlassType } from "../effects/17-glass-type";
 import transcript from "../data/transcript-lk.json";
 import cut from "../data/lk-cut-segments.json";
 import handsData from "../data/hands-lk.json";
@@ -148,7 +148,7 @@ const FULL = { y: 0, top: 0, bottom: 1920 };
 const TA = [T.quietly - 16, T.quietly + 4] as const; // full -> A
 const TF = [T.access - 18, T.access + 2] as const; // A -> full (no codes, her hands)
 const TB = [T.anyone - 16, T.anyone + 2] as const; // full -> B
-const TC = [T.heres - 18, T.heres] as const; // B -> full
+const TC = [T.heres - 20, T.heres - 2] as const; // B -> full
 
 const lerp = (a: number, b: number, k: number) => a + (b - a) * k;
 type Lay = { y: number; top: number; bottom: number; dashTop: number; mode: "full" | "A" | "B" };
@@ -172,9 +172,9 @@ const layoutAt = (frame: number): Lay => {
 
 /** Installed effects (reel/src/effects), used where they fit the line, one each:
  *  Orbit: "every message, note and status update is visible to your whole team" (the chips ring her head);
- *  Digital zoom: "and here's the math" (the snap lands on "math"). */
+ *  Glass type: "...pays for the system" (frosted "Paid for." over her chest). */
 const ORBIT = { from: T.every4 - 8, to: TB[0] + 2 };
-const ZOOM = { from: TC[1], to: T.one2 - 2 };
+const GLASS = { from: T.pays - 6, to: T.setup - 6 };
 
 /** Punch-in zooms on the strong words (hook-reference): instant in, hold, ease back; about her face. */
 const PUNCH: [number, number][] = [
@@ -183,6 +183,7 @@ const PUNCH: [number, number][] = [
   [T.front, 0.09],
   [T.tens, 0.07],
   [T.fixes, 0.06],
+  [T.math, 0.08],
 ];
 const punchAt = (frame: number) =>
   PUNCH.reduce((z, [a, amt]) => {
@@ -285,7 +286,7 @@ const HOOK_END = T.biggest - 4; // the stacked hook text replaces captions until
 
 const Captions: React.FC<{ lay: Lay }> = ({ lay }) => {
   const frame = useCurrentFrame();
-  if (frame < HOOK_END) return null;
+  if (frame < HOOK_END || (frame >= GLASS.from + 4 && frame < GLASS.to - 2)) return null;
   const c = CHUNKS.find((x) => frame >= x.from && frame < x.to);
   if (!c) return null;
   const out = interpolate(frame, [c.to - 4, c.to], [0, 1], clamp);
@@ -300,12 +301,12 @@ const Captions: React.FC<{ lay: Lay }> = ({ lay }) => {
             key={i}
             style={{
               display: "inline-block",
-              marginRight: i < c.words.length - 1 ? "0.22em" : 0,
+              marginRight: i < c.words.length - 1 ? (hot ? "0.14em" : "0.22em") : 0,
+              marginLeft: hot ? "-0.08em" : 0,
               opacity: k,
               translate: `0px ${(1 - k) * 10}px`,
               filter: k < 1 ? `blur(${(1 - k) * 5}px)` : undefined,
               padding: hot ? "0 0.14em" : undefined,
-              margin: hot ? "0 -0.08em" : undefined,
               borderRadius: 12,
               background: hot ? YELLOW : undefined,
               color: hot ? INK : W,
@@ -481,8 +482,8 @@ const RedFlash: React.FC = () => {
 
 const HookText: React.FC = () => {
   const frame = useCurrentFrame();
-  if (frame > HOOK_END + 10) return null;
-  const out = ramp(frame, HOOK_END, HOOK_END + 10);
+  if (frame > HOOK_END) return null;
+  const out = ramp(frame, HOOK_END - 8, HOOK_END);
   const lines: { w: string; at: number; red?: boolean }[][] = [
     [{ w: "NOBODY", at: T.nobody, red: true }],
     [
@@ -731,7 +732,7 @@ const DashA: React.FC<{ lay: Lay }> = ({ lay }) => {
       >
         {(m) => (
           <>
-            <Hl box={[1393, 377, 1803, 397]} m={m} k={sp(frame, T.costs + 6, 12, 200)} color={RED} label="50% leak" labelSide="bottom" dx={250} />
+            <Hl box={[1393, 377, 1803, 397]} m={m} k={sp(frame, T.costs + 6, 12, 200)} color={RED} />
             <Hl box={[1393, 463, 1803, 483]} m={m} k={sp(frame, T.specialists, 12, 200)} color={RED} />
             <Mouse path={[[S_FUN + 4, 900, 600], [T.costs + 2, 1560, 388], [T.tens, 1560, 474]]} clicks={[]} m={m} show={[S_FUN + 4, S_LOGO]} />
             <Tag x={1880} y={640} m={m} k={sp(frame, T.tens - 2, 12, 200)} text="tens of thousands / month" color={RED} icon={I.drop} anchor="right" />
@@ -776,11 +777,11 @@ const DashA: React.FC<{ lay: Lay }> = ({ lay }) => {
         from={S_CASE}
         to={S_XRAY}
         keys={[
-          [S_CASE, { x: 160, y: 40, w: 1100 }],
-          [T.case1 + 10, { x: 170, y: 60, w: 900 }],
+          [S_CASE, { x: 160, y: 40, w: 1300 }],
+          [T.case1 + 10, { x: 700, y: 120, w: 760 }],
         ]}
       >
-        {(m) => <Hl box={[195, 85, 660, 235]} m={m} k={sp(frame, T.case1 - 2, 12, 200)} label="the case" labelSide="bottom" />}
+        {(m) => <Hl box={[830, 170, 1300, 445]} m={m} k={sp(frame, T.case1 - 2, 12, 200)} label="the case" labelSide="bottom" />}
       </Shot>
       {/* ... X-ray ... */}
       <Shot
@@ -800,11 +801,11 @@ const DashA: React.FC<{ lay: Lay }> = ({ lay }) => {
         from={S_MSG}
         to={S_END}
         keys={[
-          [S_MSG, { x: 1100, y: 140, w: 820 }],
-          [T.message1 + 10, { x: 1300, y: 230, w: 600 }],
+          [S_MSG, { x: 700, y: 120, w: 1200 }],
+          [T.message1 + 10, { x: 760, y: 250, w: 1120 }],
         ]}
       >
-        {(m) => <Hl box={[1322, 610, 1886, 690]} m={m} k={sp(frame, T.message1, 12, 200)} label="message" labelSide="top" />}
+        {(m) => <Hl box={[800, 392, 1862, 540]} m={m} k={sp(frame, T.message1, 12, 200)} label="message" labelSide="top" />}
       </Shot>
       <SyncBoth />
     </div>
@@ -830,8 +831,7 @@ const NoCodes: React.FC = () => {
         if (k <= 0) return null;
         const s = ramp(frame, it.strike, it.strike + 8, easeOut);
         // each chip rides above the hand that strikes it (horizontally only, so it never covers her face)
-        const [hx] = handOut(Math.min(frame, it.strike + 6), it.hand, "palm", 3);
-        const x = it.hand === "left" ? Math.max(30, Math.min(hx - 260, 300)) : Math.max(520, Math.min(hx - 120, 650));
+        const x = it.hand === "left" ? 50 : 590;
         return (
           <div key={it.t} style={{ position: "absolute", left: x, top: 300, scale: String(k), transformOrigin: "50% 50%" }}>
             <div style={{ position: "relative", display: "flex", alignItems: "center", gap: 14, padding: "16px 28px 16px 16px", borderRadius: 999, background: W, color: INK, fontFamily: FONT_UI, fontWeight: 800, fontSize: 40, boxShadow: "0 16px 40px rgba(10,6,24,0.45)", whiteSpace: "nowrap" }}>
@@ -893,7 +893,6 @@ const Math1: React.FC = () => {
   const { p, out, on } = win(frame, from, T.setup - 6, 8);
   if (!on) return null;
   const eq = sp(frame, T.pays - 2, 12, 220);
-  const paid = sp(frame, T.system - 2, 11, 240);
   return (
     <div style={{ position: "absolute", left: 0, right: 0, top: 150, display: "flex", flexDirection: "column", alignItems: "center", gap: 14, opacity: 1 - out, filter: out > 0 ? `blur(${out * 8}px)` : undefined }}>
       <div style={{ scale: String(p), display: "flex", alignItems: "center", gap: 14, padding: "16px 30px 16px 16px", borderRadius: 999, background: W, color: INK, fontFamily: FONT_UI, fontWeight: 800, fontSize: 40, boxShadow: "0 16px 40px rgba(10,6,24,0.45)" }}>
@@ -901,14 +900,6 @@ const Math1: React.FC = () => {
         referral that doesn't leak
       </div>
       {eq > 0 && <div style={{ ...TYPE, fontSize: 90, color: YELLOW, textShadow: SOFT, scale: String(eq), lineHeight: 0.9 }}>=</div>}
-      {paid > 0 && (
-        <div style={{ scale: String(paid), display: "flex", alignItems: "center", gap: 14, padding: "16px 30px 16px 16px", borderRadius: 999, background: GREEN, color: W, fontFamily: FONT_UI, fontWeight: 800, fontSize: 40, boxShadow: "0 0 40px rgba(31,164,99,0.5)" }}>
-          <div style={{ width: 56, height: 56, borderRadius: 28, background: "rgba(255,255,255,0.25)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <Icon d={ICON.check} size={32} color={W} />
-          </div>
-          ToothReferral, paid for
-        </div>
-      )}
     </div>
   );
 };
@@ -985,8 +976,11 @@ const CtaLink: React.FC = () => {
   const from = T.check + 4;
   const { p, out, on } = win(frame, from, CUT_FRAMES - 4, 9);
   if (!on) return null;
+  // the link rises off the hand she points with, to its place under the logo
+  const [hx, hy] = handOut(from, "high", "index", 3);
+  const k = ramp(frame, from, from + 14, easeOut);
   return (
-    <div style={{ position: "absolute", left: 540, top: 380, translate: "-50% -50%", scale: String(interpolate(p, [0, 1], [0.5, 1])), opacity: Math.min(1, p * 2) * (1 - out), padding: "16px 34px", borderRadius: 999, background: YELLOW, color: INK, ...TYPE, letterSpacing: "-0.025em", fontSize: 44, boxShadow: "0 14px 34px rgba(10,6,24,0.45)", whiteSpace: "nowrap" }}>toothreferral.com</div>
+    <div style={{ position: "absolute", left: lerp(hx, 540, k), top: lerp(hy, 380, k), translate: "-50% -50%", scale: String(interpolate(p, [0, 1], [0.5, 1])), opacity: Math.min(1, p * 2) * (1 - out), padding: "16px 34px", borderRadius: 999, background: YELLOW, color: INK, ...TYPE, letterSpacing: "-0.025em", fontSize: 44, boxShadow: "0 14px 34px rgba(10,6,24,0.45)", whiteSpace: "nowrap" }}>toothreferral.com</div>
   );
 };
 
@@ -998,7 +992,7 @@ const Sealed: React.FC = () => {
   if (!on) return null;
   const ok = ramp(frame, T.leak3, T.leak3 + 10, easeOut);
   return (
-    <div style={{ position: "absolute", left: 0, right: 0, top: 470, display: "flex", justifyContent: "center", opacity: 1 - out }}>
+    <div style={{ position: "absolute", left: 0, right: 0, top: 1250, display: "flex", justifyContent: "center", opacity: 1 - out }}>
       <div style={{ scale: String(p), display: "flex", alignItems: "center", gap: 12, padding: "12px 26px 12px 12px", borderRadius: 999, background: ok > 0.5 ? GREEN : "rgba(16,12,30,0.88)", color: W, fontFamily: FONT_UI, fontWeight: 800, fontSize: 32, boxShadow: "0 14px 30px rgba(10,6,24,0.4)" }}>
         <div style={{ width: 48, height: 48, borderRadius: 24, background: ok > 0.5 ? "rgba(255,255,255,0.25)" : "#FFE7E9", display: "flex", alignItems: "center", justifyContent: "center" }}>
           <Icon d={ok > 0.5 ? ICON.check : I.drop} size={26} color={ok > 0.5 ? W : TR.red} />
@@ -1117,8 +1111,8 @@ export const LeakInside: React.FC = () => {
                 ]}
               />
             </Sequence>
-            <Sequence from={ZOOM.from} durationInFrames={ZOOM.to - ZOOM.from} premountFor={30} name="digital zoom">
-              <DigitalZoom talent={TL} startAt={ZOOM.from / FPS} zoom={1.35} snapAt={(T.math - 2 - ZOOM.from) / FPS} />
+            <Sequence from={GLASS.from} durationInFrames={GLASS.to - GLASS.from} premountFor={30} name="glass type">
+              <GlassType talent={TL} startAt={GLASS.from / FPS} text={"Paid\nfor."} y={1180} tint={YELLOW} />
             </Sequence>
             {full && frame >= T.check - 6 && (
               <>
