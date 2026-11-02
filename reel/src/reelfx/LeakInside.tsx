@@ -10,9 +10,10 @@
  *   4  the cost (-> split A)       the real Referral funnel, its "% leak" steps highlighted; tens of thousands a month
  *   5  the fix (split A)           the leaks seal; "not another web form"; one shared network (connected offices)
  *   6  same dashboard (split A)    case, X-ray and message, each a dive into the dashboard; synced to both offices
- *   7  no codes (full -> split B)  access codes and portal links struck by her hands; the Status board, visible to
- *                                  the whole team
- *   8  the math (split B -> full)  Needs attention: Re-assign; then 1 referral that doesn't leak = the system paid for
+ *   7  no codes (full)            access codes and portal links struck by her hands; then the Orbit effect: messages,
+ *                                  notes, status and the team ring her head ("visible to your whole team")
+ *   8  the math (split B -> full)  Needs attention: Re-assign ("anyone can pick up any case"); the Digital zoom effect
+ *                                  snaps on "math"; 1 referral that doesn't leak = the system paid for
  *   9  setup (full-screen card)    set up in about five minutes (the spoken "Setup" was re-made in her voice, so the
  *                                  card covers her mouth for that word)
  *  10  call to action (full)       logo behind her, the link, end card
@@ -24,6 +25,8 @@
 import React from "react";
 import { AbsoluteFill, Audio, Freeze, Img, Sequence, interpolate, spring, staticFile, useCurrentFrame } from "remotion";
 import { FontGate, TALENT, TalentLayer, type Framing } from "../effects";
+import { Orbit } from "../effects/01-orbit";
+import { DigitalZoom } from "../effects/05-digital-zoom";
 import transcript from "../data/transcript-lk.json";
 import cut from "../data/lk-cut-segments.json";
 import handsData from "../data/hands-lk.json";
@@ -144,8 +147,8 @@ const SPLIT_B = { y: -90, top: 0, bottom: 1080 };
 const FULL = { y: 0, top: 0, bottom: 1920 };
 const TA = [T.quietly - 16, T.quietly + 4] as const; // full -> A
 const TF = [T.access - 18, T.access + 2] as const; // A -> full (no codes, her hands)
-const TB = [T.every4 - 14, T.every4 + 6] as const; // full -> B
-const TC = [T.math - 4, T.math + 14] as const; // B -> full
+const TB = [T.anyone - 16, T.anyone + 2] as const; // full -> B
+const TC = [T.heres - 18, T.heres] as const; // B -> full
 
 const lerp = (a: number, b: number, k: number) => a + (b - a) * k;
 type Lay = { y: number; top: number; bottom: number; dashTop: number; mode: "full" | "A" | "B" };
@@ -167,6 +170,12 @@ const layoutAt = (frame: number): Lay => {
   return { ...mix(SPLIT_B, FULL, k), dashTop: lerp(1920 - PANEL, 1960, k), mode: k > 0.5 ? "full" : "B" };
 };
 
+/** Installed effects (reel/src/effects), used where they fit the line, one each:
+ *  Orbit: "every message, note and status update is visible to your whole team" (the chips ring her head);
+ *  Digital zoom: "and here's the math" (the snap lands on "math"). */
+const ORBIT = { from: T.every4 - 8, to: TB[0] + 2 };
+const ZOOM = { from: TC[1], to: T.one2 - 2 };
+
 /** Punch-in zooms on the strong words (hook-reference): instant in, hold, ease back; about her face. */
 const PUNCH: [number, number][] = [
   [T.nobody, 0.1],
@@ -174,7 +183,6 @@ const PUNCH: [number, number][] = [
   [T.front, 0.09],
   [T.tens, 0.07],
   [T.fixes, 0.06],
-  [T.math, 0.07],
 ];
 const punchAt = (frame: number) =>
   PUNCH.reduce((z, [a, amt]) => {
@@ -809,7 +817,7 @@ const DashA: React.FC<{ lay: Lay }> = ({ lay }) => {
 const NoCodes: React.FC = () => {
   const frame = useCurrentFrame();
   const from = T.access - 6;
-  const { p, out, on } = win(frame, from, TB[0] + 4, 8);
+  const { p, out, on } = win(frame, from, ORBIT.from + 6, 8);
   if (!on) return null;
   const items = [
     { t: "access code", icon: I.key, at: T.access - 6, strike: T.codes + 2, hand: "left" as Pick },
@@ -851,32 +859,9 @@ const NoCodes: React.FC = () => {
 const DashB: React.FC<{ lay: Lay }> = ({ lay }) => {
   const frame = useCurrentFrame();
   if (frame < TB[0] - 2 || frame > TC[1] + 2) return null;
-  const S_BOARD = TB[0];
-  const S_NEED = T.anyone - 8;
+  const S_NEED = TB[0];
   return (
     <div style={{ position: "absolute", left: 24, top: lay.dashTop + 24, width: PW, height: PH, borderRadius: 30, overflow: "hidden", background: TR.bg, boxShadow: "0 24px 60px rgba(0,0,0,0.45)", border: "1.5px solid rgba(255,255,255,0.18)" }}>
-      <Shot
-        img={NEW("an-08-status-board")}
-        from={S_BOARD}
-        to={S_NEED}
-        keys={[
-          [S_BOARD, { x: 380, y: 30, w: 1460 }],
-          [T.note, { x: 380, y: 30, w: 1460 }],
-          [T.status2 + 6, { x: 1080, y: 60, w: 780 }],
-          [T.visible, { x: 1080, y: 60, w: 780 }],
-          [T.whole, { x: 380, y: 30, w: 1460 }],
-        ]}
-      >
-        {(m) => (
-          <>
-            <Hl box={[1508, 100, 1827, 313]} m={m} k={sp(frame, T.status2 - 2, 12, 200)} color="#E89D15" />
-            <Hl box={[1133, 380, 1460, 600]} m={m} k={sp(frame, T.status2 + 4, 12, 200)} color={GREEN} />
-            <Hl box={[400, 380, 727, 600]} m={m} k={sp(frame, T.visible, 12, 200)} color={TR.purple} />
-            <Hl box={[400, 40, 1830, 820]} m={m} k={sp(frame, T.whole, 12, 180)} color={YELLOW} fill={false} label="where every referral sits, right now" labelSide="bottom" dx={10} />
-            <TeamRow at={T.whole} m={m} />
-          </>
-        )}
-      </Shot>
       <Shot
         img={NEW("an-07-outcomes-sources")}
         from={S_NEED}
@@ -895,28 +880,6 @@ const DashB: React.FC<{ lay: Lay }> = ({ lay }) => {
           </>
         )}
       </Shot>
-    </div>
-  );
-};
-
-const TeamRow: React.FC<{ at: number; m: Map }> = ({ at }) => {
-  const frame = useCurrentFrame();
-  const k = sp(frame, at + 4, 12, 200);
-  if (k <= 0) return null;
-  const people = [
-    { i: "FD", t: "front desk", c: "#7B4CF0" },
-    { i: "TC", t: "coordinator", c: "#1FA463" },
-    { i: "DR", t: "doctor", c: "#E89D15" },
-  ];
-  return (
-    <div style={{ position: "absolute", left: 0, right: 0, bottom: 30, display: "flex", justifyContent: "center", gap: 14, scale: String(k) }}>
-      {people.map((p) => (
-        <div key={p.i} style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 20px 10px 10px", borderRadius: 999, background: W, boxShadow: "0 12px 28px rgba(10,6,24,0.25)", fontFamily: FONT_UI, fontWeight: 800, fontSize: 26, color: INK }}>
-          <div style={{ width: 44, height: 44, borderRadius: 22, background: p.c, color: W, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 18 }}>{p.i}</div>
-          {p.t}
-          <Icon d={ICON.check} size={22} color={GREEN} />
-        </div>
-      ))}
     </div>
   );
 };
@@ -1098,12 +1061,14 @@ const SFX: { f: number; s: string; v: number }[] = [
   { f: TF[0], s: "whoosh-short", v: 0.12 },
   { f: T.codes + 2, s: "pop-1", v: 0.12 },
   { f: T.links + 2, s: "pop-2", v: 0.12 },
+  { f: ORBIT.from, s: "whoosh-long", v: 0.12 },
+  { f: T.note - 2, s: "pop-2", v: 0.1 },
+  { f: T.status2 - 2, s: "pop-3", v: 0.1 },
+  { f: T.whole - 2, s: "chime", v: 0.1 },
   { f: TB[0], s: "whoosh-short", v: 0.12 },
-  { f: T.status2 - 2, s: "tick-2", v: 0.1 },
-  { f: T.whole, s: "pop-3", v: 0.1 },
   { f: T.case2 + 2, s: "click", v: 0.14 },
   { f: TC[0], s: "whoosh-short", v: 0.12 },
-  { f: T.math - 1, s: "pop-1", v: 0.12 },
+  { f: T.math - 3, s: "impact", v: 0.12 },
   { f: T.pays - 2, s: "tick-3", v: 0.12 },
   { f: T.system - 2, s: "chime", v: 0.14 },
   { f: SETUP_IN, s: "whoosh-long", v: 0.14 },
@@ -1138,6 +1103,23 @@ export const LeakInside: React.FC = () => {
         <AbsoluteFill style={{ filter: endBlur > 0 ? `blur(${endBlur}px)` : undefined }}>
           <AbsoluteFill style={band}>
             {speaker("full")}
+            <Sequence from={ORBIT.from} durationInFrames={ORBIT.to - ORBIT.from} premountFor={30} name="orbit">
+              <Orbit
+                talent={TL}
+                startAt={ORBIT.from / FPS}
+                dim={0.45}
+                accent={YELLOW}
+                items={[
+                  { label: "Messages", icon: "chat", at: (T.every4 + 4 - ORBIT.from) / FPS },
+                  { label: "Notes", icon: "post", at: (T.note - 2 - ORBIT.from) / FPS },
+                  { label: "Status", icon: "bell", at: (T.status2 - 2 - ORBIT.from) / FPS },
+                  { label: "Team", icon: "person", at: (T.whole - 2 - ORBIT.from) / FPS },
+                ]}
+              />
+            </Sequence>
+            <Sequence from={ZOOM.from} durationInFrames={ZOOM.to - ZOOM.from} premountFor={30} name="digital zoom">
+              <DigitalZoom talent={TL} startAt={ZOOM.from / FPS} zoom={1.35} snapAt={(T.math - 2 - ZOOM.from) / FPS} />
+            </Sequence>
             {full && frame >= T.check - 6 && (
               <>
                 <CtaLogo />
