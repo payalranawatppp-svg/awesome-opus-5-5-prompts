@@ -101,7 +101,7 @@ Referral sources shows "Embed widget").
   donut (Embed widget, Network, Manual).
 - **Status board**: every status with count, average and longest wait, and which referring doctors' cases sit there.
 
-## Stills for edits (`reel/public/dash2/`, 1920×965, browser chrome cropped)
+## Stills for edits (`reel/public/dash2/`, 1904×868, page only: browser bars, taskbar and scrollbar cropped)
 
 lf-01-choose-form · lf-02-embed-settings-preview · lf-03-skills-dropdown · lf-04-secure-lead-generator ·
 lf-05-submit-insurance · lf-06-insurance-buttons-preview · lf-07-custom-book-now · an-01-kpis ·
@@ -113,7 +113,7 @@ Earlier stills: `reel/public/dash/rec-*.jpg`. Full recording for motion: `reel/p
 lead forms 0:00–1:50, analytics 1:55–2:20, outgoing/incoming 2:20–2:40, case + consultation note 2:40–2:58,
 DocuSign 2:58–3:55, signed success 3:55–4:10).
 The recording has a Windows taskbar and a screen-share bar ("app.scre.io is sharing your screen") at the bottom of some
-frames: always crop to the page area (y 75–1040) and never show the browser tabs or taskbar.
+frames: always crop to the page area (x 0-1904, y 151-1019 of the 1920x1080 recording) and never show the browser tabs or taskbar.
 
 ## Script ideas these features unlock
 

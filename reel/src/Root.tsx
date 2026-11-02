@@ -14,6 +14,7 @@ import { CB_DURATION, ChocolateBox } from "./reelfx/ChocolateBox";
 import { PD_DURATION, PdfDeadEnd } from "./reelfx/PdfDeadEnd";
 import { RR_DURATION, RefRoast } from "./reelfx/RefRoast";
 import { XR_DURATION, XrayHunt } from "./reelfx/XrayHunt";
+import { LK_DURATION, LeakInside } from "./reelfx/LeakInside";
 import { TrDashboardTour } from "./tr/scenes";
 import { TR_ALL, TrFormatted } from "./tr/formats";
 import { TR_V2 } from "./tr/v2";
@@ -30,6 +31,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="PdfDeadEnd" component={PdfDeadEnd} durationInFrames={PD_DURATION} fps={30} width={WIDTH} height={HEIGHT} />
     <Composition id="RefRoast" component={RefRoast} durationInFrames={RR_DURATION} fps={30} width={WIDTH} height={HEIGHT} />
     <Composition id="XrayHunt" component={XrayHunt} durationInFrames={XR_DURATION} fps={30} width={WIDTH} height={HEIGHT} />
+    <Composition id="LeakInside" component={LeakInside} durationInFrames={LK_DURATION} fps={30} width={WIDTH} height={HEIGHT} />
     <Composition id="ToothReferralUgc2Ad" component={ToothUgc2Ref} durationInFrames={UGC2_REF_DURATION} fps={30} width={WIDTH} height={HEIGHT} />
     <Composition id="ToothReferralUgc2" component={ToothUgc2} durationInFrames={UGC2_DURATION} fps={30} width={WIDTH} height={HEIGHT} />
     <Composition id="ToothReferralDepth" component={ToothDepth} durationInFrames={DEPTH_DURATION} fps={30} width={WIDTH} height={HEIGHT} />
