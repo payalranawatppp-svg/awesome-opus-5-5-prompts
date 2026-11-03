@@ -1,0 +1,204 @@
+SCRIPT 9 · "Dear Doctor First Name" · Google Flow prompts (10 clips × 8 s)
+Same presenter in every clip: the front-desk patient coordinator from the avatar image (early 30s, light stubble, navy staff polo with a blank name badge), standing behind the dental reception counter, waist-up framing. Generate every clip from the same avatar image.
+
+COMMON LINES (already inside every prompt below)
+Camera: locked off, eye level, waist-up, same framing as the previous clips; no zoom, no cuts, no camera movement. The reception area stays softly visible behind him.
+Voice: the same voice in every clip: a warm, friendly, mid-range male voice in his early 30s, natural neutral American accent, relaxed conversational pace, a light smile in the voice.
+Natural movement: real, small, relaxed movements; weight shifts slightly between feet, shoulders loose, natural blinks every few seconds, hands never frozen in a pose, nothing exaggerated or robotic.
+
+===== CLIP 01 · Hook · 0-8 s =====
+Dialogue: I almost didn't post this, because it involves a thank-you letter that said "Dear Doctor First Name."
+
+Vertical 9:16 video, 8 seconds, one continuous shot. The same presenter: a handsome man in his early 30s with a light stubble beard, wearing a navy staff polo with a blank name badge, standing behind a dental office reception counter.
+Camera: locked off, eye level, waist-up framing, the same framing for the whole clip: no zoom, no cuts, no camera movement. The reception area stays softly visible behind him. Both hands stay in frame, above the counter.
+Voice: a warm, friendly, mid-range male voice in his early 30s, natural neutral American accent, relaxed conversational pace.
+0.0-0.5 s: Rest pose, forearms resting lightly on the counter, a slightly guilty half-smile, eyes on the lens.
+0.5-3.0 s: On "I almost didn't post this," he glances down at the counter for a moment as if embarrassed, then looks back up at the lens, rubbing the back of his neck with one hand.
+3.0-5.5 s: On "because it involves a thank-you letter," he lowers the hand and picks up an imaginary sheet of paper from the counter with two fingers, holding it slightly away from himself.
+5.5-7.5 s: On "that said 'Dear Doctor First Name,'" he reads it off the imaginary paper with a slow, pained wince, eyes closing for a second on "First Name," then puts the "paper" down.
+7.5-8.0 s: Returns to the rest pose with a small embarrassed exhale through the nose.
+Emotion: embarrassed and self-aware, as if confessing something a little funny.
+Facial expression: a guilty half-smile, then a natural wince with the corners of the mouth pulled back; not exaggerated.
+Head movement: head dips slightly on "almost," a small tilt as he reads, a tiny shake after "First Name."
+Body: shoulders rise slightly with embarrassment, then relax; a small natural weight shift.
+Gestures are natural, relaxed and timed to the words, never staged; hands never freeze in a pose.
+Dialogue, spoken in a natural, slightly embarrassed conversational tone with a short pause before "Dear Doctor First Name," perfectly lip-synced: "I almost didn't post this, because it involves a thank-you letter that said 'Dear Doctor First Name.'"
+Audio: only his voice, quiet office room tone. No music, no subtitles, no captions, no on-screen text, no logos.
+
+===== CLIP 02 · The mistake · 8-16 s =====
+Dialogue: Someone copied last week's letter, forgot to change the name, and the GP got thanked for somebody else's patient.
+
+Vertical 9:16 video, 8 seconds, one continuous shot. The same presenter: a handsome man in his early 30s with a light stubble beard, navy staff polo with a blank name badge, standing behind a dental office reception counter.
+Camera: locked off, eye level, waist-up framing, the same framing as the previous clips: no zoom, no cuts, no camera movement. Both hands stay in frame, above the counter.
+Voice: the same voice as the previous clips: warm, friendly, mid-range male, natural neutral American accent, relaxed pace.
+0.0-0.5 s: Rest pose, forearms on the counter, a wry look.
+0.5-2.5 s: On "Someone copied last week's letter," he mimes a quick copy-and-paste with two fingers in the air, a knowing look.
+2.5-4.5 s: On "forgot to change the name," he lifts one open palm and gives a small, resigned shrug, eyebrows raised.
+4.5-7.5 s: On "and the GP got thanked for somebody else's patient," he brings one hand up near his mouth in mock horror, then lowers it slowly, eyes wide, holding back a laugh.
+7.5-8.0 s: Back to rest, a small disbelieving head shake.
+Emotion: amused disbelief, retelling an office blunder to a colleague.
+Facial expression: wry at first, then wide-eyed mock horror that turns into a suppressed smile.
+Head movement: a small nod on "copied," a tilt on "forgot," a slow shake on "somebody else's patient."
+Body: leans in very slightly as the story peaks, then settles back.
+Gestures are natural, relaxed and timed to the words; nothing theatrical.
+Dialogue, spoken in a natural, storytelling tone with light humour, perfectly lip-synced: "Someone copied last week's letter, forgot to change the name, and the GP got thanked for somebody else's patient."
+Audio: only his voice, quiet office room tone. No music, no subtitles, no captions, no on-screen text, no logos.
+
+===== CLIP 03 · The front-desk grind · 16-24 s =====
+Dialogue: That's the glamorous life of a front desk: retyping the same consultation letter over and over, every week.
+
+Vertical 9:16 video, 8 seconds, one continuous shot. The same presenter: a handsome man in his early 30s with a light stubble beard, navy staff polo with a blank name badge, standing behind a dental office reception counter with a computer keyboard in front of him.
+Camera: locked off, eye level, waist-up framing, the same framing as the previous clips: no zoom, no cuts, no camera movement. Both hands stay in frame, above the counter.
+Voice: the same voice as the previous clips: warm, friendly, mid-range male, natural neutral American accent, relaxed pace.
+0.0-0.5 s: Rest pose, forearms on the counter, a dry, tired half-smile.
+0.5-2.5 s: On "That's the glamorous life of a front desk," he opens one hand toward the desk around him like presenting it, with obvious sarcasm, eyebrows raised.
+2.5-5.5 s: On "retyping the same consultation letter," he types on the keyboard in front of him with a slightly bored rhythm, glancing down at it once.
+5.5-7.5 s: On "over and over, every week," he makes a slow circular rolling motion with one hand, then lets it drop onto the counter with a small sigh.
+7.5-8.0 s: Back to rest, a tired, sarcastic smile into the lens.
+Emotion: dry sarcasm and mild fatigue, relatable rather than angry.
+Facial expression: a flat, sarcastic smile, heavy-lidded eyes during the typing, a small sigh at the end.
+Head movement: a slow tilt on "glamorous," a glance down at the keyboard, a slow nod on "every week."
+Body: shoulders drop slightly on the sigh; a small slump, then upright again.
+Gestures are natural, relaxed and timed to the words.
+Dialogue, spoken in a natural, dry, sarcastic tone, perfectly lip-synced: "That's the glamorous life of a front desk: retyping the same consultation letter over and over, every week."
+Audio: only his voice and a few soft keyboard taps, quiet office room tone. No music, no subtitles, no captions, no on-screen text, no logos.
+
+===== CLIP 04 · The cost · 24-32 s =====
+Dialogue: And it costs real money: front-desk hours on copy-paste, plus a GP who wonders if anyone read their referral.
+
+Vertical 9:16 video, 8 seconds, one continuous shot. The same presenter: a handsome man in his early 30s with a light stubble beard, navy staff polo with a blank name badge, standing behind a dental office reception counter.
+Camera: locked off, eye level, waist-up framing, the same framing as the previous clips: no zoom, no cuts, no camera movement. Both hands stay in frame, above the counter.
+Voice: the same voice as the previous clips: warm, mid-range male, natural neutral American accent, now calmer and more serious.
+0.0-0.5 s: Rest pose; the humour fades from his face into a serious, focused look.
+0.5-2.5 s: On "And it costs real money," he places both hands flat on the counter and leans forward slightly.
+2.5-5.0 s: On "front-desk hours on copy-paste," he taps the counter twice with his index finger, a firm, measured rhythm.
+5.0-7.5 s: On "plus a GP who wonders if anyone read their referral," he turns one palm up and gives a small, concerned shrug, eyebrows slightly raised.
+7.5-8.0 s: Holds a calm, sincere look into the lens; hands back on the counter.
+Emotion: sincere and concerned; the joke is over and this is the real cost.
+Facial expression: focused, no smile, slight concern in the brows.
+Head movement: a slow lean forward, a firm small nod on "real money," a slight tilt on "wonders."
+Body: weight forward onto the counter, steady and still.
+Gestures are natural, deliberate and timed to the words.
+Dialogue, spoken in a calm, serious, sincere tone, slightly slower, perfectly lip-synced: "And it costs real money: front-desk hours on copy-paste, plus a GP who wonders if anyone read their referral."
+Audio: only his voice, quiet office room tone. No music, no subtitles, no captions, no on-screen text, no logos.
+
+===== CLIP 05 · The template · 32-40 s =====
+Dialogue: In Tooth Referral, the consultation note starts from a template, and Insert Variable fills in the patient, doctor and date.
+
+Vertical 9:16 video, 8 seconds, one continuous shot. The same presenter: a handsome man in his early 30s with a light stubble beard, navy staff polo with a blank name badge, standing behind a dental office reception counter with a computer monitor beside him.
+Camera: locked off, eye level, waist-up framing, the same framing as the previous clips: no zoom, no cuts, no camera movement. Both hands stay in frame, above the counter.
+Voice: the same voice as the previous clips: warm, friendly, mid-range male, natural neutral American accent, relaxed pace.
+0.0-0.5 s: Rest pose, forearms on the counter; his face brightens with relief.
+0.5-2.5 s: On "In Tooth Referral," he glances at the monitor beside him and gestures toward it with an open hand, then looks back to the lens.
+2.5-4.5 s: On "the consultation note starts from a template," he draws a small rectangle in the air with both index fingers, like outlining a document.
+4.5-7.5 s: On "and Insert Variable fills in the patient, doctor and date," he counts three items on his fingers, a small nod on each one.
+7.5-8.0 s: Back to rest with a pleased, easy smile.
+Emotion: relieved and helpful, explaining a simple fix to a colleague.
+Facial expression: open and friendly, eyebrows lifting slightly while counting, a satisfied smile at the end.
+Head movement: a quick turn to the monitor and back, small nods while counting.
+Body: relaxed, upright, a small weight shift toward the monitor and back.
+Gestures are natural, clear and timed to the words.
+Dialogue, spoken in a natural, warm, explanatory tone, perfectly lip-synced: "In Tooth Referral, the consultation note starts from a template, and Insert Variable fills in the patient, doctor and date."
+Audio: only his voice, quiet office room tone. No music, no subtitles, no captions, no on-screen text, no logos.
+
+===== CLIP 06 · Preview and save · 40-48 s =====
+Dialogue: Preview it, tweak a line, and save your best version as a new template for next time.
+
+Vertical 9:16 video, 8 seconds, one continuous shot. The same presenter: a handsome man in his early 30s with a light stubble beard, navy staff polo with a blank name badge, standing behind a dental office reception counter.
+Camera: locked off, eye level, waist-up framing, the same framing as the previous clips: no zoom, no cuts, no camera movement. Both hands stay in frame, above the counter.
+Voice: the same voice as the previous clips: warm, friendly, mid-range male, natural neutral American accent, relaxed pace.
+0.0-0.5 s: Rest pose, forearms on the counter, a relaxed look.
+0.5-2.0 s: On "Preview it," he holds one flat hand up in front of him at chest height, as if looking at a page, eyes scanning it briefly.
+2.0-4.0 s: On "tweak a line," he makes a small, precise pinch-and-adjust motion with his fingertips, a slight squint of concentration.
+4.0-7.5 s: On "and save your best version as a new template for next time," he gives a small, confident tap in the air with his index finger, like pressing a button, then a relaxed thumbs-up held low near the counter.
+7.5-8.0 s: Back to rest, an easy, satisfied smile.
+Emotion: easy and pleased; this part takes seconds.
+Facial expression: calm focus while tweaking, then a relaxed, satisfied smile.
+Head movement: a slight lean in on "tweak," a small nod on "save."
+Body: relaxed, minimal movement, shoulders loose.
+Gestures are small, natural and timed to the words; the thumbs-up stays low and casual, not posed.
+Dialogue, spoken in a natural, relaxed, easy tone, perfectly lip-synced: "Preview it, tweak a line, and save your best version as a new template for next time."
+Audio: only his voice, quiet office room tone. No music, no subtitles, no captions, no on-screen text, no logos.
+
+===== CLIP 07 · Sign inside the app · 48-56 s =====
+Dialogue: Then sign it with DocuSign, right inside Tooth Referral. No printing, no scanning, no hunting for a pen.
+
+Vertical 9:16 video, 8 seconds, one continuous shot. The same presenter: a handsome man in his early 30s with a light stubble beard, navy staff polo with a blank name badge, standing behind a dental office reception counter.
+Camera: locked off, eye level, waist-up framing, the same framing as the previous clips: no zoom, no cuts, no camera movement. Both hands stay in frame, above the counter.
+Voice: the same voice as the previous clips: warm, friendly, mid-range male, natural neutral American accent, relaxed pace.
+0.0-0.5 s: Rest pose, forearms on the counter, a slightly smug smile.
+0.5-3.0 s: On "Then sign it with DocuSign, right inside Tooth Referral," he mimes a quick, small signature in the air with his index finger, finishing with a neat little flick.
+3.0-4.5 s: On "No printing," he gives one small side-to-side wave of an open palm.
+4.5-6.0 s: On "no scanning," a second small wave with the same hand, slightly drier.
+6.0-7.5 s: On "no hunting for a pen," he pats his chest pocket area and the counter as if searching for a pen, then stops and smiles, as if he doesn't need one.
+7.5-8.0 s: Back to rest with a satisfied, slightly smug grin.
+Emotion: satisfied and a little playful.
+Facial expression: a confident smile, a mock-searching frown on "hunting for a pen," then a relaxed grin.
+Head movement: a small nod on "DocuSign," a light head shake on each "no," a quick glance down while patting for the pen.
+Body: a small playful shoulder shrug during the pen search.
+Gestures are natural, quick and timed to the words; never exaggerated.
+Dialogue, spoken in a natural, light, playful tone with a clear rhythm on the three "no" phrases, perfectly lip-synced: "Then sign it with DocuSign, right inside Tooth Referral. No printing, no scanning, no hunting for a pen."
+Audio: only his voice, quiet office room tone. No music, no subtitles, no captions, no on-screen text, no logos.
+
+===== CLIP 08 · The GP's side · 56-64 s =====
+Dialogue: The GP gets a signed note with the right name on it, and the referral is marked Signed Referral.
+
+Vertical 9:16 video, 8 seconds, one continuous shot. The same presenter: a handsome man in his early 30s with a light stubble beard, navy staff polo with a blank name badge, standing behind a dental office reception counter.
+Camera: locked off, eye level, waist-up framing, the same framing as the previous clips: no zoom, no cuts, no camera movement. Both hands stay in frame, above the counter.
+Voice: the same voice as the previous clips: warm, friendly, mid-range male, natural neutral American accent, relaxed pace.
+0.0-0.5 s: Rest pose, forearms on the counter, a warm look.
+0.5-3.0 s: On "The GP gets a signed note," he moves one flat hand forward and slightly away, as if sending a letter across the counter.
+3.0-5.0 s: On "with the right name on it," he points gently at the lens with a small, approving smile, as if saying "this time, correctly."
+5.0-7.5 s: On "and the referral is marked Signed Referral," he makes a small, decisive check-mark motion in the air with his index finger and nods.
+7.5-8.0 s: Back to rest with a proud, friendly smile.
+Emotion: warm and proud, quietly pleased that it's done right.
+Facial expression: a genuine smile, a small playful raise of the eyebrows on "right name."
+Head movement: a small nod on "signed," a tilt toward the lens on "right name," a firm nod on the check mark.
+Body: upright, relaxed, a small lean toward the camera on "right name."
+Gestures are natural, relaxed and timed to the words.
+Dialogue, spoken in a natural, warm, upbeat tone, perfectly lip-synced: "The GP gets a signed note with the right name on it, and the referral is marked Signed Referral."
+Audio: only his voice, quiet office room tone. No music, no subtitles, no captions, no on-screen text, no logos.
+
+===== CLIP 09 · The return · 64-72 s =====
+Dialogue: The return? Even one GP who keeps referring because you always thank them covers the software for a whole year.
+
+Vertical 9:16 video, 8 seconds, one continuous shot. The same presenter: a handsome man in his early 30s with a light stubble beard, navy staff polo with a blank name badge, standing behind a dental office reception counter.
+Camera: locked off, eye level, waist-up framing, the same framing as the previous clips: no zoom, no cuts, no camera movement. Both hands stay in frame, above the counter.
+Voice: the same voice as the previous clips: warm, mid-range male, natural neutral American accent, confident and clear.
+0.0-0.5 s: Rest pose, forearms on the counter, a confident look.
+0.5-1.5 s: On "The return?" he raises his eyebrows and lifts one open palm slightly, as if asking the viewer.
+1.5-4.5 s: On "Even one GP who keeps referring," he holds up one finger clearly at chest height, steady.
+4.5-6.0 s: On "because you always thank them," he places that hand briefly on his chest, a sincere touch.
+6.0-7.5 s: On "covers the software for a whole year," he draws a slow, wide arc in the air from left to right with an open hand, like a full year passing.
+7.5-8.0 s: Back to rest with a calm, confident smile.
+Emotion: confident and sincere; the numbers speak for themselves.
+Facial expression: assured, a small sincere softening on "thank them," a satisfied half-smile at the end.
+Head movement: a small tilt on "The return?", a firm nod on "one GP," a slow nod on "whole year."
+Body: steady and grounded, a slight lean forward on "one."
+Gestures are natural, clear and timed to the words.
+Dialogue, spoken in a natural, confident, clear tone, perfectly lip-synced: "The return? Even one GP who keeps referring because you always thank them covers the software for a whole year."
+Audio: only his voice, quiet office room tone. No music, no subtitles, no captions, no on-screen text, no logos.
+
+===== CLIP 10 · Call to action · 72-80 s =====
+Dialogue: Start your free Tooth Referral trial today, and never send another "Dear Doctor First Name" again.
+
+Vertical 9:16 video, 8 seconds, one continuous shot. The same presenter: a handsome man in his early 30s with a light stubble beard, navy staff polo with a blank name badge, standing behind a dental office reception counter.
+Camera: locked off, eye level, waist-up framing, the same framing as the previous clips: no zoom, no cuts, no camera movement. Both hands stay in frame, above the counter.
+Voice: the same voice as the previous clips: warm, friendly, mid-range male, natural neutral American accent, relaxed pace, a smile in the voice.
+0.0-0.5 s: Rest pose, forearms on the counter, a friendly smile.
+0.5-3.0 s: On "Start your free Tooth Referral trial today," he points warmly toward the lens, then points down toward the bottom of the frame.
+3.0-5.5 s: On "and never send another," he picks up the imaginary letter from clip 1 off the counter with two fingers.
+5.5-7.3 s: On "'Dear Doctor First Name' again," he crumples the imaginary letter in one hand and tosses it lightly off to the side, out of frame, with an easy shrug.
+7.3-8.0 s: A quick, natural wink at the lens, then a warm smile; hands back on the counter.
+Emotion: playful and charming, ending warm and sincere: a friendly recommendation, not a hard sell.
+Facial expression: an easy smile, a playful grin during the crumple, a natural wink, then a genuine smile.
+Head movement: a small tilt toward the lens on "Start," a light nod on "today," the head follows the toss briefly.
+Body: a small relaxed shoulder shrug on the toss.
+Gestures are natural, light and timed to the words; the toss is small and casual, never cartoonish.
+Dialogue, spoken in a natural, warm, friendly tone with light humour, perfectly lip-synced: "Start your free Tooth Referral trial today, and never send another 'Dear Doctor First Name' again."
+Audio: only his voice, quiet office room tone. No music, no subtitles, no captions, no on-screen text, no logos.
+
+TIPS
+- If a take looks stiff, regenerate it with the same prompt; Flow's expressions vary between generations.
+- If a gesture comes out too big, add "smaller, subtler gesture" to that clip's prompt.
+- If one clip's voice comes out different, send it with the others: I can convert it to match clip 1 in the edit.
