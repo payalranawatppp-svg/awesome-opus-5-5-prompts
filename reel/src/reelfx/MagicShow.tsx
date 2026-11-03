@@ -5,10 +5,10 @@
  *
  *   1  hook (full)                red flash, stacked "I SHOULDN'T BE SAYING THIS", punch-ins
  *   2  the magician (full)        a marquee billboard, a stage spotlight; a referral card goes up in smoke
- *   3  the trick (full)           a GP's referral slides in, one voicemail, poof, "0 callbacks"; a gold "TA-DA!" under
- *                                 a spotlight that sags and slides away when nobody claps
+ *   3  the trick (full)           a GP's referral slides in, one voicemail, poof, "0 callbacks" (the "Ta-da!" line
+ *                                 was cut)
  *   4  the best trick (full)      "Scheduled" with no appointment behind it; it fogs over: nobody can tell
- *   5  the cost (full)            "Here's the problem": the Glass type effect, a slow push-in, the room dims; tens of thousands draining away
+ *   5  the cost (full)            "Here's the problem": the Glass type effect, a slow push-in, the room dims; a loss counter ticking to -$10,000+
  *   6  the analytics (split A)    the real Referral funnel row by row, the leak rows; the Ghost rate card with a ghost
  *                                 that turns into "very fixable"; Needs attention, a cold case re-assigned in one click
  *   7  the math (full)            1 rescued referral = system paid for; 1 saved after turnover = 12 months covered
@@ -85,7 +85,6 @@ const T = {
   poof: at("poof"),
   nobody2: at("nobody", 1),
   back: at("back", 1),
-  ta: at("ta"),
   their: at("their"),
   trick: at("trick"),
   marking: at("marking"),
@@ -179,15 +178,19 @@ const layoutAt = (frame: number): Lay => {
  *  the camera steps between two zoom levels on each such cut, the way a jump cut is edited. Near-identical joins keep
  *  their morph. */
 const JOINS: [number, number][] = [
-  [213, 7.2], [223, 19.9], [456, 24.3], [483, 11.4], [583, 13.5], [647, 29.3], [863, 47.5], [965, 22.3], [1083, 31.5],
-  [1156, 7.3], [1241, 12.2], [1275, 7.9], [1449, 9.0], [1474, 3.4], [1549, 2.0], [1769, 10.4], [1844, 24.4], [1898, 2.6],
-  [1941, 8.1], [2033, 3.3],
+  [213, 7.2], [223, 19.9], [429, 24.3], [456, 11.4], [556, 13.5], [620, 29.3], [836, 47.5], [938, 22.3],
+  [1056, 31.5], [1129, 7.3], [1214, 12.2], [1248, 7.9], [1422, 9.0], [1447, 3.4], [1522, 2.0], [1742, 10.4], [1817, 24.4],
+  [1871, 2.6], [1914, 8.1], [2006, 3.3],
 ];
 const HARD = JOINS.filter(([, j]) => j > 4).map(([k]) => k);
+/** The "Ta-da!" line was dropped after the matte and voice (scripts/drop_span.py ms-cut 429 456); its old morph into
+ *  "Their best trick?" now starts right at that cut. */
+const DROPPED = [429];
 /** The source frame to show: inside a hard join's morph window, hold the clean frames either side. */
 const srcFrame = (f: number) => {
   for (const k of HARD) {
-    if (f >= k - 3 && f < k) return k - 4;
+    // at the dropped line the frames before the cut were never morphed; the first three after it still are
+    if (f >= k - 3 && f < k && !DROPPED.includes(k)) return k - 4;
     if (f >= k && f <= k + 2) return k + 3;
   }
   return f;
@@ -321,7 +324,7 @@ const CHUNKS: Chunk[] = (() => {
 
 const Captions: React.FC<{ lay: Lay }> = ({ lay }) => {
   const frame = useCurrentFrame();
-  if (frame < HOOK_END || (frame >= GLASS.from + 4 && frame < GLASS.to - 2) || (frame >= T.ta - 2 && frame < T.their - 2) || (frame >= T.tens - 4 && frame < TA[0])) return null;
+  if (frame < HOOK_END || (frame >= GLASS.from + 4 && frame < GLASS.to - 2) || (frame >= T.tens - 4 && frame < TA[0])) return null;
   const c = CHUNKS.find((x) => frame >= x.from && frame < x.to);
   if (!c) return null;
   const out = interpolate(frame, [c.to - 4, c.to], [0, 1], clamp);
@@ -547,8 +550,7 @@ const Puff: React.FC<{ x: number; y: number; at: number; n?: number; r?: number 
 const Spotlight: React.FC = () => {
   const frame = useCurrentFrame();
   const a = ramp(frame, T.magician - 8, T.magician + 6) * (1 - ramp(frame, T.they - 2, T.they + 8));
-  const b = ramp(frame, T.ta - 4, T.ta + 2) * (1 - ramp(frame, T.their - 4, T.their + 4));
-  const v = Math.max(a * 0.55, b * 0.7);
+  const v = a * 0.55;
   if (v <= 0) return null;
   return <AbsoluteFill style={{ background: "radial-gradient(ellipse 46% 40% at 50% 34%, transparent 55%, rgba(8,5,20,0.95) 100%)", opacity: v }} />;
 };
@@ -650,7 +652,7 @@ const Vanish: React.FC = () => {
 const Trick: React.FC = () => {
   const frame = useCurrentFrame();
   const from = T.gp1 - 6;
-  const end = T.ta - 6;
+  const end = T.their - 10;
   if (frame < from || frame > end + 10) return null;
   const out = ramp(frame, end, end + 10);
   const slide = ramp(frame, from, from + 14, easeOut);
@@ -671,29 +673,6 @@ const Trick: React.FC = () => {
           </div>
         </div>
       )}
-    </AbsoluteFill>
-  );
-};
-
-/** "Ta-da!": big gold letters burst in with sparkles... then nobody claps: they sag, slide down and fade. */
-const TaDa: React.FC = () => {
-  const frame = useCurrentFrame();
-  const from = T.ta - 2;
-  const end = T.their - 2;
-  if (frame < from || frame > end) return null;
-  const pop = sp(frame, from, 9, 260);
-  const sag = ramp(frame, from + 14, end, (t) => t * t);
-  const letters = "TA-DA!".split("");
-  return (
-    <AbsoluteFill>
-      <Puff x={540} y={1250} at={from} n={10} r={260} />
-      <div style={{ position: "absolute", left: 0, right: 0, top: 1150, display: "flex", justifyContent: "center", opacity: 1 - sag * 0.9 }}>
-        {letters.map((c, i) => (
-          <span key={i} style={{ display: "inline-block", ...TYPE, fontSize: 170, color: YELLOW, textShadow: "0 0 40px rgba(243,221,114,0.6), 0 8px 24px rgba(10,6,24,0.5)", scale: String(pop), translate: `0px ${sag * (60 + i * 22)}px`, rotate: `${sag * (i % 2 ? 8 : -6)}deg` }}>
-            {c}
-          </span>
-        ))}
-      </div>
     </AbsoluteFill>
   );
 };
@@ -743,6 +722,23 @@ const Scheduled: React.FC = () => {
 // ---------------------------------------------------------------------------------------------------
 // 4  the cost (serious)
 
+/** The loss ticking down like a counter, from $0 to -$10,000+ ("tens of thousands"), digits rolling, a red pulse
+ *  on each thousand. Only the brief's own figure is shown (the floor of "tens of thousands"), never a made-up total. */
+const Countdown: React.FC<{ a: number }> = ({ a }) => {
+  const frame = useCurrentFrame();
+  const t = ramp(frame, T.tens - 2, T.thousands + 18, (x) => 1 - Math.pow(1 - x, 2.2));
+  const v = Math.round(t * 10000);
+  const done = t >= 1;
+  const txt = "-$" + v.toLocaleString("en-US") + (done ? "+" : "");
+  const pulse = (v % 1000) / 1000;
+  return (
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4, opacity: Math.min(1, a * 2), scale: String(interpolate(a, [0, 1], [1.2, 1])) }}>
+      <div style={{ ...TYPE, fontSize: 132, color: RED, letterSpacing: "-0.03em", fontVariantNumeric: "tabular-nums", textShadow: `0 0 ${30 + 20 * (1 - pulse)}px rgba(255,77,90,0.55), 0 6px 24px rgba(10,6,24,0.5)` }}>{txt}</div>
+      <div style={{ fontFamily: FONT_UI, fontWeight: 800, fontSize: 30, letterSpacing: "0.14em", color: "rgba(255,255,255,0.85)", textShadow: SOFT }}>{done ? "TENS OF THOUSANDS" : "AND COUNTING"}</div>
+    </div>
+  );
+};
+
 const Cost: React.FC = () => {
   const frame = useCurrentFrame();
   const from = T.disappearing - 4;
@@ -756,11 +752,7 @@ const Cost: React.FC = () => {
     <div style={{ position: "absolute", left: 0, right: 0, top: 110, display: "flex", flexDirection: "column", alignItems: "center", gap: 14, opacity: 1 - out, filter: out > 0 ? `blur(${out * 8}px)` : undefined }}>
       <div style={{ scale: String(sp(frame, from, 12, 220)), padding: "8px 20px", borderRadius: 999, background: "rgba(16,12,30,0.88)", color: W, fontFamily: FONT_UI, fontWeight: 800, fontSize: 26, letterSpacing: "0.06em" }}>EVERY DISAPPEARING ACT COSTS</div>
       {a > 0 && (
-        <div style={{ ...TYPE, fontSize: 90, color: RED, textShadow: "0 0 40px rgba(255,77,90,0.55), 0 6px 24px rgba(10,6,24,0.5)", scale: String(interpolate(a, [0, 1], [1.3, 1])), opacity: Math.min(1, a * 2), textAlign: "center" }}>
-          TENS OF
-          <br />
-          THOUSANDS
-        </div>
+        <Countdown a={a} />
       )}
       {a > 0 && (
         <div style={{ width: 560, height: 18, borderRadius: 9, background: "rgba(255,255,255,0.18)", overflow: "hidden" }}>
@@ -1120,14 +1112,13 @@ const SFX: { f: number; s: string; v: number }[] = [
   { f: T.poof + 2, s: "whoosh-short", v: 0.16 },
   { f: T.poof + 3, s: "shimmer", v: 0.12 },
   { f: T.nobody2 - 2, s: "thud", v: 0.12 },
-  { f: T.ta - 4, s: "riser", v: 0.08 },
-  { f: T.ta + 2, s: "chime", v: 0.16 },
   { f: T.their - 4, s: "pop-1", v: 0.12 },
   { f: T.marking - 4, s: "click", v: 0.12 },
   { f: T.nobody3 - 2, s: "blip-2", v: 0.12 },
   { f: T.audience, s: "whoosh-long", v: 0.08 },
   { f: T.heres - 4, s: "riser", v: 0.1 },
   { f: T.tens - 4, s: "impact", v: 0.14 },
+  ...[0, 4, 8, 12, 17, 23, 30, 38].map((d) => ({ f: T.tens + d, s: "tick-2", v: 0.07 })),
   { f: T.month - 6, s: "thud", v: 0.12 },
   { f: TA[0], s: "whoosh-short", v: 0.12 },
   { f: T.received - 2, s: "tick-1", v: 0.1 },
@@ -1208,7 +1199,6 @@ export const MagicShow: React.FC = () => {
           <Marquee />
           <Vanish />
           <Trick />
-          <TaDa />
           <Scheduled />
           <Cost />
           <MathCards />

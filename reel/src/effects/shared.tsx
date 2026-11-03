@@ -145,9 +145,9 @@ export const TALENT: Record<TalentId, Talent> = {
   /** "The Leak Is Inside Your Office": eight takes, subtitles removed, colour-matched, cut and morph-cut (build_lk_src.sh). */
   "lk-cut": makeTalent("lk-cut", { w: 720, h: 1280, fps: 30, seconds: 50.6, frameScale: 1.5 }),
   /** "The Front Desk Magic Show": ten takes colour-matched, cut and morph-cut (build_ms_src.sh). */
-  "ms-cut": makeTalent("ms-cut", { w: 720, h: 1280, fps: 30, seconds: 68.06, frameScale: 1.5 }),
+  "ms-cut": makeTalent("ms-cut", { w: 720, h: 1280, fps: 30, seconds: 67.13, frameScale: 1.5 }),
   /** The same take, but framed on takes 9-10 (closer shot): for effects that frame on the mean face. */
-  "ms-cut-end": { ...makeTalent("ms-cut", { w: 720, h: 1280, fps: 30, seconds: 68.06, frameScale: 1.5 }), id: "ms-cut-end" },
+  "ms-cut-end": { ...makeTalent("ms-cut", { w: 720, h: 1280, fps: 30, seconds: 67.13, frameScale: 1.5 }), id: "ms-cut-end" },
 };
 export const DEFAULT_TALENT = TALENT["01-hook"];
 
