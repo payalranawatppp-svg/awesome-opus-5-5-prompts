@@ -868,11 +868,10 @@ const DashA: React.FC<{ lay: Lay }> = ({ lay }) => {
   );
 };
 
-/** The Ghost rate card shows a realistic value instead of the empty demo account's 0%: it counts up to 38% on
- *  "ghost rate". Industry context: a national survey found 46% of referrals to dental specialists go unfulfilled
- *  (Kelton Research, 2008), and in a U.S. ambulatory study 29% of specialty referrals never led to an appointment
- *  (PMC4469338); 38% sits between the two. Shown with a small "industry" note so it reads as illustrative. */
-const GHOST_PCT = 38;
+/** The Ghost rate card shows the industry figure instead of the empty demo account's 0%: it counts up to 46% on
+ *  "ghost rate", the share of referrals to dental specialists that go unfulfilled in a national survey (Kelton
+ *  Research, 2008), with a source note on the card and a footnote on the end card. */
+const GHOST_PCT = 46;
 const GhostValue: React.FC<{ m: Map; s: number }> = ({ m, s }) => {
   const frame = useCurrentFrame();
   const t = ramp(frame, T.ghost - 4, T.ghost + 26, (x) => 1 - Math.pow(1 - x, 3));
@@ -889,9 +888,9 @@ const GhostValue: React.FC<{ m: Map; s: number }> = ({ m, s }) => {
       </div>
       {note > 0 && (
         <div style={{ position: "absolute", left: nx, top: ny, translate: "-50% 0", scale: String(note), padding: "8px 14px", borderRadius: 12, background: INK, color: W, fontFamily: FONT_UI, fontWeight: 700, fontSize: 20, whiteSpace: "nowrap", textAlign: "center", lineHeight: 1.3 }}>
-          industry: up to 46% of specialist
+          46% of specialist referrals
           <br />
-          referrals go unfulfilled*
+          go unfulfilled (industry)*
         </div>
       )}
     </>
