@@ -5,15 +5,15 @@
  *
  *   1  hook (full)                red flash, stacked "I SHOULDN'T BE SAYING THIS", punch-ins
  *   2  the magician (full)        a marquee billboard, a stage spotlight; a referral card goes up in smoke
- *   3  the trick (full)           a GP's referral slides in, one voicemail, poof, "0 callbacks"; the Glass type effect
- *                                 spells "Ta-da!" under a spotlight and the joke falls flat
+ *   3  the trick (full)           a GP's referral slides in, one voicemail, poof, "0 callbacks"; a gold "TA-DA!" under
+ *                                 a spotlight that sags and slides away when nobody claps
  *   4  the best trick (full)      "Scheduled" with no appointment behind it; it fogs over: nobody can tell
- *   5  the cost (full)            "Here's the problem": a slow push-in, the room dims; tens of thousands draining away
+ *   5  the cost (full)            "Here's the problem": the Glass type effect, a slow push-in, the room dims; tens of thousands draining away
  *   6  the analytics (split A)    the real Referral funnel row by row, the leak rows; the Ghost rate card with a ghost
  *                                 that turns into "very fixable"; Needs attention, a cold case re-assigned in one click
  *   7  the math (full)            1 rescued referral = system paid for; 1 saved after turnover = 12 months covered
  *   8  the signed note (split B)  DocuSign completion note, signed, sent to the GP; the top sender sends more patients
- *   9  setup + CTA (full)         the Orbit effect (network, analytics, lead forms, DocuSign), logo behind his head, the link, "magic act: RETIRED", end card
+ *   9  setup + CTA (full)         a ring of chips (network, analytics, lead forms, DocuSign), logo behind his head, the link, "magic act: RETIRED", end card
  *
  * One continuous take: ten takes colour-matched, cut at the pauses, morph-cut (scripts/build_ms_src.sh). Takes 9-10 are
  * framed closer; that join is a hard cut hidden under the move into split B. One voice: Seed-VC to take 1's voice.
@@ -23,7 +23,6 @@ import React from "react";
 import { AbsoluteFill, Audio, Freeze, Img, Sequence, interpolate, spring, staticFile, useCurrentFrame } from "remotion";
 import { FontGate, TALENT, TalentLayer, faceAt, type Framing } from "../effects";
 import { GlassType } from "../effects/17-glass-type";
-import { Orbit } from "../effects/01-orbit";
 import transcript from "../data/transcript-ms.json";
 import cut from "../data/ms-cut-segments.json";
 import handsData from "../data/hands-ms.json";
@@ -174,11 +173,38 @@ const layoutAt = (frame: number): Lay => {
   return { ...mix(SPLIT_B, FULL, k), dashTop: lerp(1920 - PANEL, 1960, k), mode: k > 0.5 ? "full" : "B" };
 };
 
+/** Joins between takes (scripts/morph_cuts.py targets) and how different the two sides look. A morph between two
+ *  very different poses double-exposes the face for a few frames, which reads as an AI artefact, so those joins are
+ *  played as clean hard cuts (the morphed frames are skipped: the outgoing frame holds, then the incoming one) and
+ *  the camera steps between two zoom levels on each such cut, the way a jump cut is edited. Near-identical joins keep
+ *  their morph. */
+const JOINS: [number, number][] = [
+  [213, 7.2], [223, 19.9], [456, 24.3], [483, 11.4], [583, 13.5], [647, 29.3], [863, 47.5], [965, 22.3], [1083, 31.5],
+  [1156, 7.3], [1241, 12.2], [1275, 7.9], [1449, 9.0], [1474, 3.4], [1549, 2.0], [1769, 10.4], [1844, 24.4], [1898, 2.6],
+  [1941, 8.1], [2033, 3.3],
+];
+const HARD = JOINS.filter(([, j]) => j > 4).map(([k]) => k);
+/** The source frame to show: inside a hard join's morph window, hold the clean frames either side. */
+const srcFrame = (f: number) => {
+  for (const k of HARD) {
+    if (f >= k - 3 && f < k) return k - 4;
+    if (f >= k && f <= k + 2) return k + 3;
+  }
+  return f;
+};
+/** Jump-cut zoom: each hard join flips between the wide and a 5% tighter frame (reset on the take-9 cut). */
+const jumpZoom = (f: number) => {
+  let n = 0;
+  for (const k of HARD) if (f >= k && k > (f >= CUT9 ? CUT9 : 0)) n++;
+  return n % 2 ? 0.05 : 0;
+};
+
 /** Installed effects (reel/src/effects), one each, where they fit the line:
- *  Glass type: the "Ta-da!" (frosted words over his chest, then the joke falls flat);
- *  Orbit: "Setup takes about five minutes" (what gets set up rings his head). */
-const GLASS = { from: T.ta - 4, to: T.their - 2 };
-const ORBIT = { from: T.setup - 8, to: T.check - 2 };
+ *  Glass type: "Here's the problem." (frosted words over his chest as the humour drops);
+ *  The installed Orbit effect re-frames tighter than this closer last take allows (it crops his head), so the setup
+ *  line gets a ring of the same glass chips drawn in the normal framing instead. */
+const GLASS = { from: T.heres - 4, to: T.disappearing - 2 };
+const ORBIT = { from: TC[1] + 2, to: T.check - 2 };
 /** "Here's the problem": the humour drops; a slow push-in, the colour cools and the room dims. */
 const SERIOUS = [T.heres - 4, T.month + 10] as const;
 
@@ -200,7 +226,7 @@ const punchAt = (frame: number) =>
   }, 0);
 const framingFor = (l: Lay, frame: number): Framing => {
   const push = frame >= SERIOUS[0] && frame < TA[1] ? 0.09 * ramp(frame, SERIOUS[0], SERIOUS[0] + 70, easeIO) * (1 - ramp(frame, TA[0] - 6, TA[1])) : 0;
-  const z = l.mode === "full" ? Math.max(punchAt(frame), push) : 0;
+  const z = (l.mode === "full" ? Math.max(punchAt(frame), push) : 0) + jumpZoom(frame);
   const s = 1.5 * (1 + z);
   const f = faceAt(TL, frame / FPS);
   const fx = f.x + f.w / 2;
@@ -295,7 +321,7 @@ const CHUNKS: Chunk[] = (() => {
 
 const Captions: React.FC<{ lay: Lay }> = ({ lay }) => {
   const frame = useCurrentFrame();
-  if (frame < HOOK_END || (frame >= GLASS.from + 4 && frame < GLASS.to - 2) || (frame >= T.tens - 4 && frame < TA[0])) return null;
+  if (frame < HOOK_END || (frame >= GLASS.from + 4 && frame < GLASS.to - 2) || (frame >= T.ta - 2 && frame < T.their - 2) || (frame >= T.tens - 4 && frame < TA[0])) return null;
   const c = CHUNKS.find((x) => frame >= x.from && frame < x.to);
   if (!c) return null;
   const out = interpolate(frame, [c.to - 4, c.to], [0, 1], clamp);
@@ -480,9 +506,9 @@ const Pill: React.FC<{ icon: string; title: React.ReactNode; sub?: React.ReactNo
 
 /** A small referral card (patient + referring office), like a row of the Incoming list. */
 const RefCard: React.FC<{ style?: React.CSSProperties; status?: React.ReactNode }> = ({ style, status }) => (
-  <div style={{ ...CARD, width: 430, padding: "16px 20px", borderRadius: 20, display: "flex", alignItems: "center", gap: 14, ...style }}>
+  <div style={{ ...CARD, width: 560, padding: "16px 20px", borderRadius: 20, display: "flex", alignItems: "center", gap: 14, ...style }}>
     <div style={{ width: 54, height: 54, borderRadius: 27, background: "#E7E1FB", color: TR.purple, display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800, fontSize: 22 }}>BS</div>
-    <div style={{ flex: 1 }}>
+    <div style={{ flex: 1, whiteSpace: "nowrap" }}>
       <div style={{ fontSize: 28, fontWeight: 800, letterSpacing: "-0.02em" }}>Bob Smith</div>
       <div style={{ fontSize: 20, color: "#6B7085", fontWeight: 600, display: "flex", alignItems: "center", gap: 6 }}>
         <span style={{ width: 10, height: 10, borderRadius: 5, background: "#22C55E", display: "inline-block" }} /> Gentle Family Smiles
@@ -545,7 +571,7 @@ const HookText: React.FC = () => {
   const out = ramp(frame, HOOK_END - 8, HOOK_END);
   const lines: { w: string; at: number; red?: boolean }[][] = [
     [
-      { w: "I", at: 0 },
+      { w: "I", at: T.shouldnt - 3 },
       { w: "SHOULDN'T", at: T.shouldnt, red: true },
     ],
     [
@@ -610,7 +636,7 @@ const Vanish: React.FC = () => {
   const gone = ramp(frame, T.disappear + 2, T.disappear + 10, easeOut);
   return (
     <AbsoluteFill>
-      <div style={{ position: "absolute", left: 325, top: 250, scale: String(interpolate(k, [0, 1], [0.7, 1]) * (1 - gone * 0.4)), opacity: Math.min(1, k * 2) * (1 - gone), filter: gone > 0 ? `blur(${gone * 14}px)` : undefined }}>
+      <div style={{ position: "absolute", left: 260, top: 250, scale: String(interpolate(k, [0, 1], [0.7, 1]) * (1 - gone * 0.4)), opacity: Math.min(1, k * 2) * (1 - gone), filter: gone > 0 ? `blur(${gone * 14}px)` : undefined }}>
         <RefCard status={<StatusChip text="New" bg={TR.purpleSoft} fg={TR.purple} />} />
       </div>
       <Puff x={540} y={295} at={T.disappear + 2} />
@@ -633,7 +659,7 @@ const Trick: React.FC = () => {
   const zero = sp(frame, T.nobody2 - 2, 12, 220);
   return (
     <AbsoluteFill style={{ opacity: 1 - out }}>
-      <div style={{ position: "absolute", left: lerp(-480, 325, slide), top: 230, opacity: 1 - gone, scale: String(1 - gone * 0.4), filter: gone > 0 ? `blur(${gone * 14}px)` : undefined }}>
+      <div style={{ position: "absolute", left: lerp(-600, 260, slide), top: 230, opacity: 1 - gone, scale: String(1 - gone * 0.4), filter: gone > 0 ? `blur(${gone * 14}px)` : undefined }}>
         <RefCard status={vm > 0.5 ? <StatusChip text="Left a Voice Message" bg={TR.amberSoft} fg="#B7791F" /> : <StatusChip text="New" bg={TR.purpleSoft} fg={TR.purple} />} />
         {slide > 0 && slide < 1 && <div style={{ position: "absolute", right: "100%", top: 30, width: 200 * (1 - slide), height: 6, background: `linear-gradient(90deg, transparent, ${YELLOW})`, borderRadius: 3 }} />}
       </div>
@@ -645,6 +671,29 @@ const Trick: React.FC = () => {
           </div>
         </div>
       )}
+    </AbsoluteFill>
+  );
+};
+
+/** "Ta-da!": big gold letters burst in with sparkles... then nobody claps: they sag, slide down and fade. */
+const TaDa: React.FC = () => {
+  const frame = useCurrentFrame();
+  const from = T.ta - 2;
+  const end = T.their - 2;
+  if (frame < from || frame > end) return null;
+  const pop = sp(frame, from, 9, 260);
+  const sag = ramp(frame, from + 14, end, (t) => t * t);
+  const letters = "TA-DA!".split("");
+  return (
+    <AbsoluteFill>
+      <Puff x={540} y={1250} at={from} n={10} r={260} />
+      <div style={{ position: "absolute", left: 0, right: 0, top: 1150, display: "flex", justifyContent: "center", opacity: 1 - sag * 0.9 }}>
+        {letters.map((c, i) => (
+          <span key={i} style={{ display: "inline-block", ...TYPE, fontSize: 170, color: YELLOW, textShadow: "0 0 40px rgba(243,221,114,0.6), 0 8px 24px rgba(10,6,24,0.5)", scale: String(pop), translate: `0px ${sag * (60 + i * 22)}px`, rotate: `${sag * (i % 2 ? 8 : -6)}deg` }}>
+            {c}
+          </span>
+        ))}
+      </div>
     </AbsoluteFill>
   );
 };
@@ -664,11 +713,11 @@ const Scheduled: React.FC = () => {
   const hide = ramp(frame, T.audience, T.audience + 14, easeIO);
   return (
     <AbsoluteFill style={{ opacity: 1 - out, filter: out > 0 ? `blur(${out * 8}px)` : undefined }}>
-      <div style={{ position: "absolute", left: 0, right: 0, top: 150, display: "flex", justifyContent: "center" }}>
+      <div style={{ position: "absolute", left: 0, right: 0, top: 90, display: "flex", justifyContent: "center" }}>
         <div style={{ scale: String(chip), padding: "10px 24px", borderRadius: 999, background: YELLOW, color: INK, ...TYPE, fontSize: 34, letterSpacing: "0.04em" }}>THE BEST TRICK</div>
       </div>
       {card > 0 && (
-        <div style={{ position: "absolute", left: 325, top: 240, scale: String(interpolate(card, [0, 1], [0.7, 1])), opacity: Math.min(1, card * 2) }}>
+        <div style={{ position: "absolute", left: 260, top: 160, scale: String(interpolate(card, [0, 1], [0.7, 1])), opacity: Math.min(1, card * 2) }}>
           <RefCard status={<StatusChip text="Scheduled" bg={TR.greenSoft} fg="#137A4B" />} />
           {empty > 0 && (
             <div style={{ marginTop: 14, ...CARD, borderRadius: 18, padding: "14px 18px", display: "flex", alignItems: "center", gap: 12, scale: String(empty), transformOrigin: "50% 0%" }}>
@@ -704,10 +753,10 @@ const Cost: React.FC = () => {
   const b = sp(frame, T.month - 6, 12, 220);
   const drain = ramp(frame, T.tens, T.month + 10, (t) => t);
   return (
-    <div style={{ position: "absolute", left: 0, right: 0, top: 170, display: "flex", flexDirection: "column", alignItems: "center", gap: 18, opacity: 1 - out, filter: out > 0 ? `blur(${out * 8}px)` : undefined }}>
+    <div style={{ position: "absolute", left: 0, right: 0, top: 110, display: "flex", flexDirection: "column", alignItems: "center", gap: 14, opacity: 1 - out, filter: out > 0 ? `blur(${out * 8}px)` : undefined }}>
       <div style={{ scale: String(sp(frame, from, 12, 220)), padding: "8px 20px", borderRadius: 999, background: "rgba(16,12,30,0.88)", color: W, fontFamily: FONT_UI, fontWeight: 800, fontSize: 26, letterSpacing: "0.06em" }}>EVERY DISAPPEARING ACT COSTS</div>
       {a > 0 && (
-        <div style={{ ...TYPE, fontSize: 108, color: RED, textShadow: "0 0 40px rgba(255,77,90,0.55), 0 6px 24px rgba(10,6,24,0.5)", scale: String(interpolate(a, [0, 1], [1.3, 1])), opacity: Math.min(1, a * 2), textAlign: "center" }}>
+        <div style={{ ...TYPE, fontSize: 90, color: RED, textShadow: "0 0 40px rgba(255,77,90,0.55), 0 6px 24px rgba(10,6,24,0.5)", scale: String(interpolate(a, [0, 1], [1.3, 1])), opacity: Math.min(1, a * 2), textAlign: "center" }}>
           TENS OF
           <br />
           THOUSANDS
@@ -916,7 +965,7 @@ const DashB: React.FC<{ lay: Lay }> = ({ lay }) => {
       <Shot img={NEW("cs-04b-docusign-letter")} from={S_DOC} to={S_SIGN} keys={[[S_DOC, { x: 0, y: 0, w: 1904 }], [T.treatment, { x: 380, y: 240, w: 1000 }]]}>
         {(m) => <Hl box={[470, 520, 1300, 545]} m={m} k={sp(frame, T.treatment + 4, 12, 200)} label="Thank you for referring…" labelSide="top" dx={0} />}
       </Shot>
-      <Shot img={NEW("cs-05-signature-placed")} from={S_SIGN} to={S_SENT} keys={[[S_SIGN, { x: 380, y: 240, w: 1000 }], [T.signed + 10, { x: 420, y: 300, w: 700 }]]}>
+      <Shot img={NEW("cs-05-signature-placed")} from={S_SIGN} to={S_SENT} keys={[[S_SIGN, { x: 380, y: 6, w: 1000 }], [T.signed + 10, { x: 420, y: 300, w: 700 }]]}>
         {(m) => (
           <>
             <Hl box={[518, 444, 640, 496]} m={m} k={sp(frame, T.signed, 12, 220)} color={YELLOW} label="signed" labelSide="bottom" dx={0} />
@@ -941,6 +990,50 @@ const DashB: React.FC<{ lay: Lay }> = ({ lay }) => {
 
 // ---------------------------------------------------------------------------------------------------
 // 10  setup and the call to action
+
+/** "Setup takes about five minutes": what gets set up rings his head (glass chips on a slow, tilted ellipse). */
+const SetupRing: React.FC = () => {
+  const frame = useCurrentFrame();
+  const { p, out, on } = win(frame, ORBIT.from, ORBIT.to, 8);
+  if (!on) return null;
+  const f = faceAt(TL, frame / FPS);
+  const cx = (f.x + f.w / 2) * 1.5;
+  const cy = (f.y + f.h * 0.35) * 1.5;
+  const items = [
+    { t: "Network", d: ICON.check, at: T.setup + 6 },
+    { t: "Analytics", d: ICON.check, at: T.setup + 12 },
+    { t: "Lead forms", d: ICON.check, at: T.five - 6 },
+    { t: "DocuSign", d: ICON.check, at: T.five + 2 },
+  ];
+  const slots = [
+    [-320, -150],
+    [320, -150],
+    [-340, 70],
+    [340, 70],
+  ];
+  return (
+    <AbsoluteFill style={{ opacity: 1 - out }}>
+      <svg width={1080} height={1920} style={{ position: "absolute", inset: 0, opacity: 0.45 * p }}>
+        <ellipse cx={cx} cy={cy - 30} rx={330} ry={150} fill="none" stroke="rgba(255,255,255,0.55)" strokeWidth={3} strokeDasharray="8 10" />
+      </svg>
+      {items.map((it, i) => {
+        const k = sp(frame, it.at, 12, 220);
+        if (k <= 0) return null;
+        const [dx, dy] = slots[i];
+        const bob = Math.sin((frame + i * 17) / 14) * 6;
+        const x = Math.max(150, Math.min(930, cx + dx));
+        return (
+          <div key={it.t} style={{ position: "absolute", left: x, top: cy + dy + bob, translate: "-50% -50%", scale: String(k), display: "flex", alignItems: "center", gap: 10, padding: "10px 20px 10px 10px", borderRadius: 999, background: "rgba(16,12,30,0.8)", border: "1.5px solid rgba(255,255,255,0.25)", backdropFilter: "blur(8px)", boxShadow: "0 12px 30px rgba(10,6,24,0.35)", fontFamily: FONT_UI, fontWeight: 800, fontSize: 28, color: W, whiteSpace: "nowrap" }}>
+            <div style={{ width: 38, height: 38, borderRadius: 19, background: YELLOW, display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <Icon d={it.d} size={22} color={INK} />
+            </div>
+            {it.t}
+          </div>
+        );
+      })}
+    </AbsoluteFill>
+  );
+};
 
 const CtaLogo: React.FC = () => {
   const frame = useCurrentFrame();
@@ -1057,7 +1150,7 @@ const SFX: { f: number; s: string; v: number }[] = [
   { f: T.straight + 6, s: "chime", v: 0.12 },
   { f: T.happy, s: "pop-2", v: 0.1 },
   { f: ORBIT.from, s: "whoosh-long", v: 0.12 },
-  { f: T.setup + 6, s: "pop-2", v: 0.1 },
+  { f: T.setup + 12, s: "pop-2", v: 0.1 },
   { f: T.five - 6, s: "pop-3", v: 0.1 },
   { f: T.five + 2, s: "chime", v: 0.1 },
   { f: T.check - 4, s: "shimmer", v: 0.14 },
@@ -1078,7 +1171,9 @@ export const MagicShow: React.FC = () => {
   const grade: React.CSSProperties = { filter: "contrast(1.05) saturate(1.04) brightness(1.0)" };
   const speaker = (layer: "full" | "cutout", style?: React.CSSProperties) => {
     const el = <TalentLayer talent={TL} layer={layer} framing={fr} style={{ ...grade, ...style }} />;
-    return freeze ? <Freeze frame={CUT_FRAMES - 2}>{el}</Freeze> : el;
+    if (freeze) return <Freeze frame={CUT_FRAMES - 2}>{el}</Freeze>;
+    const sf = srcFrame(frame);
+    return sf !== frame ? <Freeze frame={sf}>{el}</Freeze> : el;
   };
   const full = lay.mode === "full" && lay.top < 1 && lay.bottom > 1919;
   const endBlur = interpolate(frame, [CUT_FRAMES - 6, CUT_FRAMES + 10], [0, 14], clamp);
@@ -1093,23 +1188,10 @@ export const MagicShow: React.FC = () => {
           <AbsoluteFill style={band}>
             {speaker("full")}
             <Serious />
-            <Sequence from={ORBIT.from} durationInFrames={ORBIT.to - ORBIT.from} premountFor={30} name="orbit">
-              <Orbit
-                talent={TL}
-                startAt={ORBIT.from / FPS}
-                dim={0.4}
-                accent={YELLOW}
-                items={[
-                  { label: "Network", icon: "person", at: (T.setup - 2 - ORBIT.from) / FPS },
-                  { label: "Analytics", icon: "chart", at: (T.setup + 6 - ORBIT.from) / FPS },
-                  { label: "Lead forms", icon: "post", at: (T.five - 6 - ORBIT.from) / FPS },
-                  { label: "DocuSign", icon: "spark", at: (T.five + 2 - ORBIT.from) / FPS },
-                ]}
-              />
-            </Sequence>
+            <SetupRing />
             <Spotlight />
             <Sequence from={GLASS.from} durationInFrames={GLASS.to - GLASS.from} premountFor={30} name="glass type">
-              <GlassType talent={TL} startAt={GLASS.from / FPS} text={"Ta-da!"} y={1150} tint={YELLOW} />
+              <GlassType talent={TL} startAt={GLASS.from / FPS} text={"The\nproblem."} y={1180} tint="#9FB4FF" />
             </Sequence>
             {full && frame >= T.check - 6 && (
               <>
@@ -1126,6 +1208,7 @@ export const MagicShow: React.FC = () => {
           <Marquee />
           <Vanish />
           <Trick />
+          <TaDa />
           <Scheduled />
           <Cost />
           <MathCards />
