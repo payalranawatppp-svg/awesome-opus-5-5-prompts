@@ -1,131 +1,130 @@
-SCRIPT 9 · "Dear Doctor First Name" · Google Flow prompts (10 clips × 8 s)
-Presenter: the user's avatar image: a woman in her mid-30s, dark brown hair in a low side ponytail over her left shoulder,
-navy short-sleeve scrubs top with a V-neck and a small blank white name badge, standing behind a white-topped, light-oak
-dental reception counter. Her right forearm rests on the raised counter ledge, her left hand lies flat on the desk.
-Behind her: a monitor, desk phone, pen cup, manila folders, coffee mug, a landscape wall calendar, a smile poster, a
-bright window and beige waiting-room chairs. Generate EVERY clip from this image (or the last frame of the clip before).
+SCRIPT 9 · "Dear Doctor First Name" · Google Flow prompts · INFLUENCER (UGC creator) STYLE · 10 clips × 8 s
+Presenter: the user's avatar: a woman in her mid-30s, dark brown low side ponytail, navy short-sleeve scrubs with a small
+blank white name badge, at a white and light-oak dental reception counter (monitor, desk phone, pen cup, folders, coffee
+mug, wall calendar, smile poster, bright window, waiting chairs behind her).
 
-THE VIBE: natural, with spark. She's the funniest, sharpest person at the front desk: quick smile, bright eyes, real
-energy in her face, but her body stays relaxed and her gestures stay small and believable. Think "great coworker telling
-you a story", not "actor on a stage".
-
-VOICE (the same line is in every prompt)
-A bright, warm female voice in her mid-30s: mid-pitch, clear and lively, friendly, a natural neutral American accent,
-conversational pace with natural energy and a smile in the voice. Same voice, pitch and speed in every clip. Not breathy,
-not an announcer, not robotic, no vocal fry.
+THE STYLE: a real front-desk girl filming a "story time" Reel on her phone between patients. She talks TO the viewer like a
+friend, not to an audience: expressive eyebrows, quick genuine smiles and laughs, little head bops on the beat of her words,
+leaning in toward the phone for the juicy parts, hands moving near her chest and face the way creators talk. Casual, fast,
+confident, a little chaotic in a charming way. Never stiff, never posed, never presenter-like.
 
 ====================================================================================================================
-CLIP 01 · Hook · 0-8 s
+1) AVATAR IMAGE PROMPT (influencer framing; use it if you want to regenerate the still in this style)
+
+Vertical 9:16 smartphone photo, front camera held at arm's length slightly above eye level, of a friendly, pretty woman in
+her mid-30s who works the front desk at a dental office, filming a quick social video between patients. Dark brown hair in
+a loose low side ponytail over her left shoulder with a few natural flyaways, navy short-sleeve scrubs top with a V-neck and
+a small blank white name badge, light natural makeup. She leans toward the phone with her forearms on the white reception
+counter, mid-laugh, eyebrows raised, bright eyes, like she's about to tell a funny story. Framing: chest-up, her face in the
+upper third, a little headroom. Behind her, softly out of focus: the dental reception (monitor, desk phone, pen cup, manila
+folders, coffee mug, landscape wall calendar, smile poster, a bright window, beige waiting chairs). Lighting: natural window
+daylight plus office lights, true colours. Real skin texture with pores, slight natural shine, natural flyaways, no beauty
+filter, no airbrushing. Looks like a real iPhone front-camera photo, not a studio shot. No text, no logos, no watermark, no
+extra fingers, no distorted hands.
+
+====================================================================================================================
+2) VOICE (the same line is in every clip prompt)
+A bright, warm, chatty female voice in her mid-30s: mid-pitch, natural neutral American accent, fast-ish conversational
+creator pace with natural energy, real little laughs, a smile in the voice. Same voice, pitch and pace in every clip. Not an
+announcer, not breathy, not robotic, no vocal fry.
+
+====================================================================================================================
+3) CLIP PROMPTS
+
+---------- CLIP 01 · Hook (0-8 s)
 Dialogue: I almost didn't post this, because it involves a thank-you letter that said "Dear Doctor First Name."
 
-Vertical 9:16 video, 8 seconds, one continuous shot. The same woman in her mid-30s with a dark brown low side ponytail, navy short-sleeve scrubs and a small blank name badge, standing behind the white and light-oak dental reception counter, right forearm resting on the raised ledge, left hand on the desk. The same reception background: monitor, desk phone, pen cup, folders, coffee mug, wall calendar, smile poster, bright window, waiting chairs.
-Camera: static, eye level, the same framing as the reference image for the whole clip. No zoom, no cuts, no camera movement.
-Performance: she leans in a little off the ledge with a cheeky, slightly guilty smile, like she's about to spill office gossip. On "almost didn't post this" her eyes flick down to the desk for a second, then back to the lens with a spark of mischief. On "Dear Doctor First Name" she scrunches her nose in a small wince and lets out a quick, genuine laugh. Her left hand lifts off the desk briefly and settles again. Natural blinking, small head tilts, shoulders relaxed.
-Voice: a bright, warm female voice in her mid-30s, mid-pitch, lively and friendly, natural neutral American accent, conversational pace, a smile in the voice; not breathy, not an announcer.
-Dialogue, spoken naturally with a tiny pause before the quote, perfectly lip-synced: "I almost didn't post this, because it involves a thank-you letter that said 'Dear Doctor First Name.'"
+Vertical 9:16 video, 8 seconds, one continuous shot, influencer "story time" style. The same woman in her mid-30s, dark brown low side ponytail, navy short-sleeve scrubs, small blank name badge, at the dental reception counter, filming herself with a phone held at arm's length (front camera, chest-up framing, very slight natural handheld sway, no cuts, no zoom). The same reception softly blurred behind her.
+Performance: she pops into frame already mid-grin, leans close to the phone like she's sharing a secret and glances quickly over her shoulder at the office. On "almost didn't post this" she bites her lip and gives a guilty little eyebrow raise. On "Dear Doctor First Name" she covers half her face with one hand for a second, laughing, then drops it and looks straight into the lens with a "can you believe it" face. Quick, natural, expressive; small head bops on the beats.
+Voice: a bright, warm, chatty female voice in her mid-30s, mid-pitch, natural neutral American accent, creator pace, real laugh in it; not an announcer.
+Dialogue, perfectly lip-synced, natural and fast: "I almost didn't post this, because it involves a thank-you letter that said 'Dear Doctor First Name.'"
 Audio: only her voice and quiet office room tone. No music, no subtitles, no captions, no on-screen text, no logos.
 
-====================================================================================================================
-CLIP 02 · The mistake · 8-16 s
+---------- CLIP 02 · The mistake (8-16 s)
 Dialogue: Someone copied last week's letter, forgot to change the name, and the GP got thanked for somebody else's patient.
 
-Vertical 9:16 video, 8 seconds, one continuous shot. The same woman in her mid-30s, dark brown low side ponytail, navy short-sleeve scrubs, small blank name badge, standing behind the same dental reception counter, right forearm on the raised ledge. Same reception background.
-Camera: static, eye level, the same framing as the reference image. No zoom, no cuts, no camera movement.
-Performance: lively storytelling, amused disbelief. Her eyebrows shoot up on "forgot to change the name," and she presses her lips together to hold in a laugh. On "somebody else's patient" she does a slow, comedic little head shake with wide eyes, then breaks into a quick grin. Her left hand moves loosely while she talks, one open palm turning up for a moment, then back to the desk. Natural blinking, relaxed body.
-Voice: the same bright, warm female voice as the previous clip: mid-30s, mid-pitch, lively, friendly, natural neutral American accent, conversational pace.
-Dialogue, spoken with natural storytelling energy, perfectly lip-synced: "Someone copied last week's letter, forgot to change the name, and the GP got thanked for somebody else's patient."
+Vertical 9:16 video, 8 seconds, one continuous shot, influencer "story time" style. The same woman in her mid-30s, dark brown low side ponytail, navy short-sleeve scrubs, small blank name badge, at the dental reception counter, front-camera phone framing, chest-up, very slight natural handheld sway, no cuts, no zoom.
+Performance: full gossip mode. She talks fast with her hands near her chest, eyes wide. On "forgot to change the name" she does a dramatic little pause and a slow blink at the lens. On "somebody else's patient" she presses her lips together trying not to laugh, shoulders shaking slightly, then a quick "I'm sorry but" giggle. Natural, expressive, relatable.
+Voice: the same bright, warm, chatty female voice as the previous clip: mid-30s, mid-pitch, natural neutral American accent, creator pace.
+Dialogue, perfectly lip-synced, storytelling energy: "Someone copied last week's letter, forgot to change the name, and the GP got thanked for somebody else's patient."
 Audio: only her voice and quiet office room tone. No music, no subtitles, no captions, no on-screen text, no logos.
 
-====================================================================================================================
-CLIP 03 · The front-desk grind · 16-24 s
+---------- CLIP 03 · The grind (16-24 s)
 Dialogue: That's the glamorous life of a front desk: retyping the same consultation letter over and over, every week.
 
-Vertical 9:16 video, 8 seconds, one continuous shot. The same woman in her mid-30s, dark brown low side ponytail, navy short-sleeve scrubs, small blank name badge, standing behind the same dental reception counter, right forearm on the raised ledge. Same reception background with the monitor and keyboard beside her.
-Camera: static, eye level, the same framing as the reference image. No zoom, no cuts, no camera movement.
-Performance: playful, dry sarcasm with a twinkle. On "glamorous life" she gives a quick, knowing smile and a tiny eye-roll toward the monitor beside her. On "over and over" her left hand makes a small, loose rolling motion just above the desk. She ends with a playful sigh and a "you know it" smile into the lens. Natural head movement, shoulders loose, natural blinking.
-Voice: the same bright, warm female voice as the previous clips: mid-30s, mid-pitch, friendly, natural neutral American accent, with a light, playful sarcasm.
-Dialogue, spoken naturally, perfectly lip-synced: "That's the glamorous life of a front desk: retyping the same consultation letter over and over, every week."
+Vertical 9:16 video, 8 seconds, one continuous shot, influencer style. The same woman in her mid-30s, dark brown low side ponytail, navy short-sleeve scrubs, small blank name badge, at the dental reception counter, front-camera phone framing, chest-up, slight natural handheld sway, no cuts, no zoom.
+Performance: sarcastic creator energy. On "glamorous life" she flips her ponytail off her shoulder with mock elegance and does a fake-fancy smile. On "retyping the same consultation letter" the smile drops into a deadpan stare at the lens. On "over and over, every week" she tilts her head side to side with each phrase, then exhales and laughs at herself.
+Voice: the same bright, warm, chatty female voice as the previous clips: mid-30s, mid-pitch, natural neutral American accent, playful sarcasm.
+Dialogue, perfectly lip-synced: "That's the glamorous life of a front desk: retyping the same consultation letter over and over, every week."
 Audio: only her voice and quiet office room tone. No music, no subtitles, no captions, no on-screen text, no logos.
 
-====================================================================================================================
-CLIP 04 · The cost · 24-32 s
+---------- CLIP 04 · The cost (24-32 s)
 Dialogue: And it costs real money: front-desk hours on copy-paste, plus a GP who wonders if anyone read their referral.
 
-Vertical 9:16 video, 8 seconds, one continuous shot. The same woman in her mid-30s, dark brown low side ponytail, navy short-sleeve scrubs, small blank name badge, standing behind the same dental reception counter. Same reception background.
-Camera: static, eye level, the same framing as the reference image. No zoom, no cuts, no camera movement.
-Performance: the jokes pause and she gets real, still warm. She straightens up off the ledge and places both hands lightly on the desk, steady eye contact. A small, firm tap on the desk with her fingertips on "real money." On "wonders if anyone read their referral" her brows pull together with genuine concern and she gives a small, slow nod. Calmer and more still than the other clips, natural blinking.
-Voice: the same bright, warm female voice as the previous clips: mid-30s, mid-pitch, natural neutral American accent, now calmer, slower and sincere.
-Dialogue, spoken sincerely, perfectly lip-synced: "And it costs real money: front-desk hours on copy-paste, plus a GP who wonders if anyone read their referral."
+Vertical 9:16 video, 8 seconds, one continuous shot, influencer style. The same woman in her mid-30s, dark brown low side ponytail, navy short-sleeve scrubs, small blank name badge, at the dental reception counter, front-camera phone framing, chest-up, slight natural handheld sway, no cuts, no zoom.
+Performance: the "okay but seriously" moment creators do. She stops laughing, brings the phone a little closer, and looks straight into the lens with a real, honest face. One hand counts a point on "front-desk hours," then opens palm-up on "a GP who wonders." Still warm, just calmer and direct, with a small sincere nod at the end.
+Voice: the same bright, warm female voice as the previous clips: mid-30s, mid-pitch, natural neutral American accent, now slower, honest and serious.
+Dialogue, perfectly lip-synced: "And it costs real money: front-desk hours on copy-paste, plus a GP who wonders if anyone read their referral."
 Audio: only her voice and quiet office room tone. No music, no subtitles, no captions, no on-screen text, no logos.
 
-====================================================================================================================
-CLIP 05 · The template · 32-40 s
+---------- CLIP 05 · The fix (32-40 s)
 Dialogue: In Tooth Referral, the consultation note starts from a template, and Insert Variable fills in the patient, doctor and date.
 
-Vertical 9:16 video, 8 seconds, one continuous shot. The same woman in her mid-30s, dark brown low side ponytail, navy short-sleeve scrubs, small blank name badge, standing behind the same dental reception counter with the computer monitor beside her. Same reception background.
-Camera: static, eye level, the same framing as the reference image. No zoom, no cuts, no camera movement.
-Performance: the spark comes back, relieved and excited to share a shortcut. On "In Tooth Referral" she brightens, glances at the monitor beside her and gives it a small open-hand gesture, then looks back at the lens with a big, genuine smile. On "the patient, doctor and date" she ticks three items off on her fingers, quick and casual, with a little nod on each. Relaxed body, natural blinking.
-Voice: the same bright, warm female voice as the previous clips: mid-30s, mid-pitch, lively, friendly, natural neutral American accent, upbeat.
-Dialogue, spoken with natural enthusiasm, perfectly lip-synced: "In Tooth Referral, the consultation note starts from a template, and Insert Variable fills in the patient, doctor and date."
+Vertical 9:16 video, 8 seconds, one continuous shot, influencer style. The same woman in her mid-30s, dark brown low side ponytail, navy short-sleeve scrubs, small blank name badge, at the dental reception counter next to the computer monitor, front-camera phone framing, chest-up, slight natural handheld sway, no cuts, no zoom.
+Performance: "okay, here's the hack" energy. Her face lights up, she quickly tilts the phone a little toward the monitor beside her and back to her face, excited. On "the patient, doctor and date" she counts them off on her fingers right in front of the lens, fast, with a little head bop on each. Big genuine smile.
+Voice: the same bright, warm, chatty female voice as the previous clips: mid-30s, mid-pitch, natural neutral American accent, excited.
+Dialogue, perfectly lip-synced: "In Tooth Referral, the consultation note starts from a template, and Insert Variable fills in the patient, doctor and date."
 Audio: only her voice and quiet office room tone. No music, no subtitles, no captions, no on-screen text, no logos.
 
-====================================================================================================================
-CLIP 06 · Preview and save · 40-48 s
+---------- CLIP 06 · Preview and save (40-48 s)
 Dialogue: Preview it, tweak a line, and save your best version as a new template for next time.
 
-Vertical 9:16 video, 8 seconds, one continuous shot. The same woman in her mid-30s, dark brown low side ponytail, navy short-sleeve scrubs, small blank name badge, standing behind the same dental reception counter, right forearm back on the raised ledge. Same reception background.
-Camera: static, eye level, the same framing as the reference image. No zoom, no cuts, no camera movement.
-Performance: easy, breezy confidence, as if it takes ten seconds. She talks with small, relaxed movements of her left hand near the desk. On "save your best version" she gives a satisfied little nod and a quick, proud smile, like "done." A light, natural head tilt, natural blinking, nothing posed.
-Voice: the same bright, warm female voice as the previous clips: mid-30s, mid-pitch, friendly, natural neutral American accent, light and breezy.
-Dialogue, spoken naturally, perfectly lip-synced: "Preview it, tweak a line, and save your best version as a new template for next time."
+Vertical 9:16 video, 8 seconds, one continuous shot, influencer style. The same woman in her mid-30s, dark brown low side ponytail, navy short-sleeve scrubs, small blank name badge, at the dental reception counter, front-camera phone framing, chest-up, slight natural handheld sway, no cuts, no zoom.
+Performance: breezy and quick, like it's the easiest thing ever. She ticks the three steps off with quick little hand flicks near her chest, rhythm-matched to "preview, tweak, save." On "for next time" she gives a cute, satisfied shoulder shimmy and a "you're welcome" smile.
+Voice: the same bright, warm, chatty female voice as the previous clips: mid-30s, mid-pitch, natural neutral American accent, light and breezy.
+Dialogue, perfectly lip-synced: "Preview it, tweak a line, and save your best version as a new template for next time."
 Audio: only her voice and quiet office room tone. No music, no subtitles, no captions, no on-screen text, no logos.
 
-====================================================================================================================
-CLIP 07 · Sign inside the app · 48-56 s
+---------- CLIP 07 · Sign it (48-56 s)
 Dialogue: Then sign it with DocuSign, right inside Tooth Referral. No printing, no scanning, no hunting for a pen.
 
-Vertical 9:16 video, 8 seconds, one continuous shot. The same woman in her mid-30s, dark brown low side ponytail, navy short-sleeve scrubs, small blank name badge, standing behind the same dental reception counter with the pen cup on the desk. Same reception background.
-Camera: static, eye level, the same framing as the reference image. No zoom, no cuts, no camera movement.
-Performance: playful and pleased with herself. A small, easy head shake on "no printing, no scanning," with a growing smile. On "no hunting for a pen" she glances at the pen cup on the desk, laughs, and looks back at the lens with bright eyes, as if every pen at the front desk has gone missing at least once. Her hand moves loosely and naturally, staying near the desk. Relaxed shoulders, natural blinking.
-Voice: the same bright, warm female voice as the previous clips: mid-30s, mid-pitch, lively, natural neutral American accent, with a light, bouncy rhythm on the three "no" phrases.
-Dialogue, spoken with natural playful energy, perfectly lip-synced: "Then sign it with DocuSign, right inside Tooth Referral. No printing, no scanning, no hunting for a pen."
+Vertical 9:16 video, 8 seconds, one continuous shot, influencer style. The same woman in her mid-30s, dark brown low side ponytail, navy short-sleeve scrubs, small blank name badge, at the dental reception counter with the pen cup beside her, front-camera phone framing, chest-up, slight natural handheld sway, no cuts, no zoom.
+Performance: playful listing, creator rhythm. On "no printing, no scanning" she wags one finger side to side with a smile. On "no hunting for a pen" she grabs a pen from the pen cup, holds it up to the lens, rolls her eyes and drops it back, laughing.
+Voice: the same bright, warm, chatty female voice as the previous clips: mid-30s, mid-pitch, natural neutral American accent, bouncy rhythm on the three "no" phrases.
+Dialogue, perfectly lip-synced: "Then sign it with DocuSign, right inside Tooth Referral. No printing, no scanning, no hunting for a pen."
 Audio: only her voice and quiet office room tone. No music, no subtitles, no captions, no on-screen text, no logos.
 
-====================================================================================================================
-CLIP 08 · The GP's side · 56-64 s
+---------- CLIP 08 · The GP's side (56-64 s)
 Dialogue: The GP gets a signed note with the right name on it, and the referral is marked Signed Referral.
 
-Vertical 9:16 video, 8 seconds, one continuous shot. The same woman in her mid-30s, dark brown low side ponytail, navy short-sleeve scrubs, small blank name badge, standing behind the same dental reception counter, right forearm on the raised ledge. Same reception background.
-Camera: static, eye level, the same framing as the reference image. No zoom, no cuts, no camera movement.
-Performance: warm, proud, a little cheeky. On "with the right name on it" she raises her eyebrows with an amused, knowing smile, as in "this time, correctly." On "Signed Referral" she gives a confident little nod and a bright smile. Her left hand rests on the desk with one small natural movement. Relaxed posture, natural blinking.
-Voice: the same bright, warm female voice as the previous clips: mid-30s, mid-pitch, friendly, natural neutral American accent, warm and upbeat.
-Dialogue, spoken naturally, perfectly lip-synced: "The GP gets a signed note with the right name on it, and the referral is marked Signed Referral."
+Vertical 9:16 video, 8 seconds, one continuous shot, influencer style. The same woman in her mid-30s, dark brown low side ponytail, navy short-sleeve scrubs, small blank name badge, at the dental reception counter, front-camera phone framing, chest-up, slight natural handheld sway, no cuts, no zoom.
+Performance: proud and a little cheeky. On "with the right name on it" she leans in, raises one eyebrow and points at the lens with a knowing grin, like "this time." On "Signed Referral" she does a tiny happy nod and a satisfied smile, maybe a little chef's-kiss gesture near her face.
+Voice: the same bright, warm, chatty female voice as the previous clips: mid-30s, mid-pitch, natural neutral American accent, upbeat.
+Dialogue, perfectly lip-synced: "The GP gets a signed note with the right name on it, and the referral is marked Signed Referral."
 Audio: only her voice and quiet office room tone. No music, no subtitles, no captions, no on-screen text, no logos.
 
-====================================================================================================================
-CLIP 09 · The return · 64-72 s
+---------- CLIP 09 · The return (64-72 s)
 Dialogue: The return? Even one GP who keeps referring because you always thank them covers the software for a whole year.
 
-Vertical 9:16 video, 8 seconds, one continuous shot. The same woman in her mid-30s, dark brown low side ponytail, navy short-sleeve scrubs, small blank name badge, standing behind the same dental reception counter. Same reception background.
-Camera: static, eye level, the same framing as the reference image. No zoom, no cuts, no camera movement.
-Performance: confident, with a spark of "here's the best part." She leans in slightly on "The return?" with raised eyebrows. She lifts one finger briefly and naturally on "Even one GP," then lowers it. Her face softens with genuine warmth on "because you always thank them." On "a whole year" she gives a slow, satisfied nod and a bright, confident smile. Steady eye contact, relaxed body, natural blinking.
-Voice: the same bright, warm female voice as the previous clips: mid-30s, mid-pitch, natural neutral American accent, confident and clear.
-Dialogue, spoken naturally, perfectly lip-synced: "The return? Even one GP who keeps referring because you always thank them covers the software for a whole year."
+Vertical 9:16 video, 8 seconds, one continuous shot, influencer style. The same woman in her mid-30s, dark brown low side ponytail, navy short-sleeve scrubs, small blank name badge, at the dental reception counter, front-camera phone framing, chest-up, slight natural handheld sway, no cuts, no zoom.
+Performance: "and here's the best part" energy. On "The return?" she raises her eyebrows and leans in close. She holds up one finger to the lens on "Even one GP." Her face goes soft and genuine on "because you always thank them." On "a whole year" she widens her eyes, nods slowly and mouths "a whole year" with a big smile.
+Voice: the same bright, warm, chatty female voice as the previous clips: mid-30s, mid-pitch, natural neutral American accent, confident.
+Dialogue, perfectly lip-synced: "The return? Even one GP who keeps referring because you always thank them covers the software for a whole year."
 Audio: only her voice and quiet office room tone. No music, no subtitles, no captions, no on-screen text, no logos.
 
-====================================================================================================================
-CLIP 10 · Call to action · 72-80 s
+---------- CLIP 10 · Call to action (72-80 s)
 Dialogue: Start your free Tooth Referral trial today, and never send another "Dear Doctor First Name" again.
 
-Vertical 9:16 video, 8 seconds, one continuous shot. The same woman in her mid-30s, dark brown low side ponytail, navy short-sleeve scrubs, small blank name badge, standing behind the same dental reception counter, right forearm on the raised ledge. Same reception background.
-Camera: static, eye level, the same framing as the reference image. No zoom, no cuts, no camera movement.
-Performance: warm and sparkly, a friendly recommendation, not a hard sell. A small, natural point toward the lens on "Start your free Tooth Referral trial today," then her hand relaxes back to the desk. On "Dear Doctor First Name" she gives a playful little smirk and an easy head shake. She finishes with a quick, natural wink and a big, genuine smile into the lens. Relaxed posture, natural blinking.
-Voice: the same bright, warm female voice as the previous clips: mid-30s, mid-pitch, lively, friendly, natural neutral American accent, a smile in the voice.
-Dialogue, spoken naturally, perfectly lip-synced: "Start your free Tooth Referral trial today, and never send another 'Dear Doctor First Name' again."
+Vertical 9:16 video, 8 seconds, one continuous shot, influencer style. The same woman in her mid-30s, dark brown low side ponytail, navy short-sleeve scrubs, small blank name badge, at the dental reception counter, front-camera phone framing, chest-up, slight natural handheld sway, no cuts, no zoom.
+Performance: the friendly creator sign-off. She points down toward the bottom of the screen on "Start your free Tooth Referral trial today," like pointing at a link. On "Dear Doctor First Name" she cringes playfully and laughs. She ends with a quick wink, a little wave and a big smile, then reaches toward the phone as if to stop recording.
+Voice: the same bright, warm, chatty female voice as the previous clips: mid-30s, mid-pitch, natural neutral American accent, friendly, a smile in the voice.
+Dialogue, perfectly lip-synced: "Start your free Tooth Referral trial today, and never send another 'Dear Doctor First Name' again."
 Audio: only her voice and quiet office room tone. No music, no subtitles, no captions, no on-screen text, no logos.
 
 ====================================================================================================================
 TIPS
-- Generate every clip from your avatar image, or from the last frame of the clip before, so her hair, scrubs and the desk stay identical.
-- If a take looks flat, add "more energy in her face, same small gestures"; if it looks over-acted, add "keep the movements subtle".
+- Generate every clip from the same avatar image (or the last frame of the previous clip) so her face, hair and scrubs match.
+- The "slight natural handheld sway" is what makes it feel like a phone Reel. If Flow moves the camera too much, change it to
+  "almost static, tiny natural handheld movement".
+- If a take is too much, add "same energy but subtler gestures"; if it's flat, add "more animated face, like a TikTok creator".
 - If one clip's voice drifts, send it with the others: I'll convert it to match clip 1 in the edit.
