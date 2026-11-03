@@ -830,8 +830,9 @@ const DashA: React.FC<{ lay: Lay }> = ({ lay }) => {
           [T.ghost + 4, GHOSTC],
         ]}
       >
-        {(m) => (
+        {(m, sc) => (
           <>
+            <GhostValue m={m} s={sc} />
             <Hl box={[1492, 405, 1828, 624]} m={m} k={sp(frame, T.ghost, 12, 200)} color={fixed > 0.5 ? GREEN : TR.purple} fill={false} />
             {spooky > 0 && (
               <div style={{ position: "absolute", left: m(1700, 0)[0] - 10, top: m(0, 470)[1] + ghostWob, scale: String(spooky), opacity: 0.95, filter: "drop-shadow(0 10px 20px rgba(0,0,0,0.25))" }}>
@@ -864,6 +865,36 @@ const DashA: React.FC<{ lay: Lay }> = ({ lay }) => {
         )}
       </Shot>
     </div>
+  );
+};
+
+/** The Ghost rate card shows a realistic value instead of the empty demo account's 0%: it counts up to 38% on
+ *  "ghost rate". Industry context: a national survey found 46% of referrals to dental specialists go unfulfilled
+ *  (Kelton Research, 2008), and in a U.S. ambulatory study 29% of specialty referrals never led to an appointment
+ *  (PMC4469338); 38% sits between the two. Shown with a small "industry" note so it reads as illustrative. */
+const GHOST_PCT = 38;
+const GhostValue: React.FC<{ m: Map; s: number }> = ({ m, s }) => {
+  const frame = useCurrentFrame();
+  const t = ramp(frame, T.ghost - 4, T.ghost + 26, (x) => 1 - Math.pow(1 - x, 3));
+  const v = Math.round(t * GHOST_PCT);
+  const [x0, y0] = m(1510, 452);
+  const [x1, y1] = m(1700, 514);
+  const note = sp(frame, T.real - 2, 12, 220) * (1 - ramp(frame, T.fixable - 4, T.fixable + 4));
+  const [nx, ny] = m(1660, 560);
+  return (
+    <>
+      <div style={{ position: "absolute", left: x0, top: y0, width: x1 - x0, height: y1 - y0, background: "#FFFFFF", display: "flex", alignItems: "baseline", gap: 10 * s, paddingLeft: 7 * s, fontFamily: FONT_UI, color: "#15132B" }}>
+        <span style={{ fontSize: 50 * s, fontWeight: 700, letterSpacing: "-0.02em", lineHeight: 1, fontVariantNumeric: "tabular-nums", color: t > 0.98 ? TR.red : "#15132B" }}>{v}</span>
+        <span style={{ fontSize: 22 * s, fontWeight: 600, color: "#6B7085" }}>%</span>
+      </div>
+      {note > 0 && (
+        <div style={{ position: "absolute", left: nx, top: ny, translate: "-50% 0", scale: String(note), padding: "8px 14px", borderRadius: 12, background: INK, color: W, fontFamily: FONT_UI, fontWeight: 700, fontSize: 20, whiteSpace: "nowrap", textAlign: "center", lineHeight: 1.3 }}>
+          industry: up to 46% of specialist
+          <br />
+          referrals go unfulfilled*
+        </div>
+      )}
+    </>
   );
 };
 
@@ -1089,6 +1120,7 @@ const EndCard: React.FC = () => {
       </div>
       <div style={{ position: "absolute", left: 0, right: 0, top: 960, textAlign: "center", opacity: url, translate: `0px ${(1 - url) * 16}px`, ...TYPE, fontSize: 52, color: W, letterSpacing: "-0.03em" }}>toothreferral.com</div>
       <div style={{ position: "absolute", left: 0, right: 0, top: 1030, textAlign: "center", opacity: url, ...TYPE, fontSize: 34, color: "rgba(255,255,255,0.72)", letterSpacing: "-0.02em", fontWeight: 700 }}>one rescued referral pays for it · live in 5 minutes</div>
+      <div style={{ position: "absolute", left: 0, right: 0, top: 1860, textAlign: "center", opacity: url * 0.6, fontFamily: FONT_UI, fontSize: 18, color: W }}>*Kelton Research national survey of dental referrals (2008). Dashboard values are illustrative demo data.</div>
       <div style={{ position: "absolute", left: 0, right: 0, top: 1120, display: "flex", justifyContent: "center", opacity: Math.min(1, btn * 1.5), scale: String(interpolate(btn, [0, 1], [0.8, 1])) }}>
         <div style={{ padding: "22px 40px", borderRadius: 22, background: YELLOW, color: INK, ...TYPE, letterSpacing: "-0.03em", fontSize: 40, boxShadow: "0 16px 40px rgba(10,6,24,0.45)" }}>retire the magic act →</div>
       </div>
