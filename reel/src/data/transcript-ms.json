@@ -1,0 +1,1099 @@
+{
+ "ms-cut": {
+  "text": "I shouldn't be saying this, but our front desk is the best magician in town. They make referrals disappear. Watch this. A GP sends us a patient, we leave one voicemail, and then poof, nobody ever calls back. Ta-da! Their best trick? Marking a case scheduled when nobody scheduled anything. The audience never even sees it. Here's the problem. Every disappearing act costs specialists tens of thousands in lost production every single month. So I checked tooth referrals analytics. It literally shows the leak. Received, contacted, scheduled, and where patients dropped off. It even tracks our ghost rate. Yes, that's a real number now. Very spooky, very fixable. Needs attention flags the cold cases. And anyone on the team can reassign them in one click. Now the math. One rescued referral pays for the system. One saved after staff turnover covers a whole year. When treatment is done, a signed completion note goes straight back to the GP. Happy GPs send more patients. Setup takes about five minutes. Check out tooth referral and retire your front desk's magic act for good.",
+  "words": [
+   {
+    "word": " I",
+    "start": 0.0,
+    "end": 1.14,
+    "p": 0.462
+   },
+   {
+    "word": " shouldn't",
+    "start": 1.14,
+    "end": 1.36,
+    "p": 0.995
+   },
+   {
+    "word": " be",
+    "start": 1.36,
+    "end": 1.56,
+    "p": 0.998
+   },
+   {
+    "word": " saying",
+    "start": 1.56,
+    "end": 1.78,
+    "p": 0.999
+   },
+   {
+    "word": " this,",
+    "start": 1.78,
+    "end": 2.04,
+    "p": 0.99
+   },
+   {
+    "word": " but",
+    "start": 2.18,
+    "end": 2.22,
+    "p": 0.995
+   },
+   {
+    "word": " our",
+    "start": 2.22,
+    "end": 2.42,
+    "p": 0.981
+   },
+   {
+    "word": " front",
+    "start": 2.42,
+    "end": 2.7,
+    "p": 0.992
+   },
+   {
+    "word": " desk",
+    "start": 2.7,
+    "end": 2.98,
+    "p": 0.997
+   },
+   {
+    "word": " is",
+    "start": 2.98,
+    "end": 3.22,
+    "p": 0.99
+   },
+   {
+    "word": " the",
+    "start": 3.22,
+    "end": 3.46,
+    "p": 0.993
+   },
+   {
+    "word": " best",
+    "start": 3.46,
+    "end": 3.76,
+    "p": 0.979
+   },
+   {
+    "word": " magician",
+    "start": 3.76,
+    "end": 4.26,
+    "p": 0.998
+   },
+   {
+    "word": " in",
+    "start": 4.26,
+    "end": 4.6,
+    "p": 0.998
+   },
+   {
+    "word": " town.",
+    "start": 4.6,
+    "end": 4.9,
+    "p": 0.999
+   },
+   {
+    "word": " They",
+    "start": 5.42,
+    "end": 5.48,
+    "p": 0.978
+   },
+   {
+    "word": " make",
+    "start": 5.48,
+    "end": 5.7,
+    "p": 0.998
+   },
+   {
+    "word": " referrals",
+    "start": 5.7,
+    "end": 6.2,
+    "p": 0.986
+   },
+   {
+    "word": " disappear.",
+    "start": 6.2,
+    "end": 6.9,
+    "p": 0.997
+   },
+   {
+    "word": " Watch",
+    "start": 7.66,
+    "end": 7.76,
+    "p": 0.949
+   },
+   {
+    "word": " this.",
+    "start": 7.76,
+    "end": 8.1,
+    "p": 0.999
+   },
+   {
+    "word": " A",
+    "start": 8.46,
+    "end": 8.5,
+    "p": 0.979
+   },
+   {
+    "word": " GP",
+    "start": 8.5,
+    "end": 8.82,
+    "p": 0.972
+   },
+   {
+    "word": " sends",
+    "start": 8.82,
+    "end": 9.12,
+    "p": 0.996
+   },
+   {
+    "word": " us",
+    "start": 9.12,
+    "end": 9.24,
+    "p": 0.997
+   },
+   {
+    "word": " a",
+    "start": 9.24,
+    "end": 9.46,
+    "p": 0.998
+   },
+   {
+    "word": " patient,",
+    "start": 9.46,
+    "end": 9.76,
+    "p": 0.999
+   },
+   {
+    "word": " we",
+    "start": 10.22,
+    "end": 10.38,
+    "p": 0.988
+   },
+   {
+    "word": " leave",
+    "start": 10.38,
+    "end": 10.58,
+    "p": 0.998
+   },
+   {
+    "word": " one",
+    "start": 10.58,
+    "end": 10.86,
+    "p": 0.986
+   },
+   {
+    "word": " voicemail,",
+    "start": 10.86,
+    "end": 11.38,
+    "p": 0.874
+   },
+   {
+    "word": " and",
+    "start": 11.82,
+    "end": 11.84,
+    "p": 0.991
+   },
+   {
+    "word": " then",
+    "start": 11.84,
+    "end": 12.16,
+    "p": 0.994
+   },
+   {
+    "word": " poof,",
+    "start": 12.16,
+    "end": 12.7,
+    "p": 0.731
+   },
+   {
+    "word": " nobody",
+    "start": 12.92,
+    "end": 13.1,
+    "p": 0.993
+   },
+   {
+    "word": " ever",
+    "start": 13.1,
+    "end": 13.38,
+    "p": 0.983
+   },
+   {
+    "word": " calls",
+    "start": 13.38,
+    "end": 13.62,
+    "p": 0.998
+   },
+   {
+    "word": " back.",
+    "start": 13.62,
+    "end": 14.04,
+    "p": 1.0
+   },
+   {
+    "word": " Ta",
+    "start": 14.52,
+    "end": 14.62,
+    "p": 0.84
+   },
+   {
+    "word": "-da!",
+    "start": 14.62,
+    "end": 14.88,
+    "p": 0.855
+   },
+   {
+    "word": " Their",
+    "start": 15.3,
+    "end": 15.46,
+    "p": 0.986
+   },
+   {
+    "word": " best",
+    "start": 15.46,
+    "end": 15.66,
+    "p": 0.999
+   },
+   {
+    "word": " trick?",
+    "start": 15.66,
+    "end": 16.0,
+    "p": 1.0
+   },
+   {
+    "word": " Marking",
+    "start": 16.3,
+    "end": 16.68,
+    "p": 0.934
+   },
+   {
+    "word": " a",
+    "start": 16.68,
+    "end": 16.84,
+    "p": 0.996
+   },
+   {
+    "word": " case",
+    "start": 16.84,
+    "end": 17.0,
+    "p": 0.999
+   },
+   {
+    "word": " scheduled",
+    "start": 17.0,
+    "end": 17.48,
+    "p": 0.976
+   },
+   {
+    "word": " when",
+    "start": 17.48,
+    "end": 17.88,
+    "p": 0.924
+   },
+   {
+    "word": " nobody",
+    "start": 17.88,
+    "end": 18.4,
+    "p": 0.989
+   },
+   {
+    "word": " scheduled",
+    "start": 18.4,
+    "end": 18.78,
+    "p": 0.897
+   },
+   {
+    "word": " anything.",
+    "start": 18.78,
+    "end": 19.22,
+    "p": 0.999
+   },
+   {
+    "word": " The",
+    "start": 19.64,
+    "end": 20.16,
+    "p": 0.992
+   },
+   {
+    "word": " audience",
+    "start": 20.16,
+    "end": 20.42,
+    "p": 0.999
+   },
+   {
+    "word": " never",
+    "start": 20.42,
+    "end": 20.68,
+    "p": 0.999
+   },
+   {
+    "word": " even",
+    "start": 20.68,
+    "end": 20.88,
+    "p": 0.997
+   },
+   {
+    "word": " sees",
+    "start": 20.88,
+    "end": 21.14,
+    "p": 0.996
+   },
+   {
+    "word": " it.",
+    "start": 21.14,
+    "end": 21.38,
+    "p": 1.0
+   },
+   {
+    "word": " Here's",
+    "start": 21.82,
+    "end": 22.02,
+    "p": 0.991
+   },
+   {
+    "word": " the",
+    "start": 22.02,
+    "end": 22.16,
+    "p": 0.999
+   },
+   {
+    "word": " problem.",
+    "start": 22.16,
+    "end": 22.54,
+    "p": 1.0
+   },
+   {
+    "word": " Every",
+    "start": 22.94,
+    "end": 23.18,
+    "p": 0.995
+   },
+   {
+    "word": " disappearing",
+    "start": 23.18,
+    "end": 23.76,
+    "p": 0.998
+   },
+   {
+    "word": " act",
+    "start": 23.76,
+    "end": 24.18,
+    "p": 0.993
+   },
+   {
+    "word": " costs",
+    "start": 24.18,
+    "end": 24.62,
+    "p": 0.957
+   },
+   {
+    "word": " specialists",
+    "start": 24.62,
+    "end": 25.34,
+    "p": 0.991
+   },
+   {
+    "word": " tens",
+    "start": 25.34,
+    "end": 25.82,
+    "p": 0.989
+   },
+   {
+    "word": " of",
+    "start": 25.82,
+    "end": 26.1,
+    "p": 0.997
+   },
+   {
+    "word": " thousands",
+    "start": 26.1,
+    "end": 26.54,
+    "p": 0.998
+   },
+   {
+    "word": " in",
+    "start": 26.54,
+    "end": 26.86,
+    "p": 0.996
+   },
+   {
+    "word": " lost",
+    "start": 26.86,
+    "end": 27.1,
+    "p": 0.992
+   },
+   {
+    "word": " production",
+    "start": 27.1,
+    "end": 27.56,
+    "p": 0.997
+   },
+   {
+    "word": " every",
+    "start": 27.56,
+    "end": 28.14,
+    "p": 0.64
+   },
+   {
+    "word": " single",
+    "start": 28.14,
+    "end": 28.44,
+    "p": 0.995
+   },
+   {
+    "word": " month.",
+    "start": 28.44,
+    "end": 28.78,
+    "p": 1.0
+   },
+   {
+    "word": " So",
+    "start": 28.78,
+    "end": 29.14,
+    "p": 0.774
+   },
+   {
+    "word": " I",
+    "start": 29.14,
+    "end": 29.28,
+    "p": 0.844
+   },
+   {
+    "word": " checked",
+    "start": 29.28,
+    "end": 29.5,
+    "p": 0.918
+   },
+   {
+    "word": " tooth",
+    "start": 29.5,
+    "end": 29.72,
+    "p": 0.756
+   },
+   {
+    "word": " referrals",
+    "start": 29.72,
+    "end": 30.0,
+    "p": 0.85
+   },
+   {
+    "word": " analytics.",
+    "start": 30.0,
+    "end": 30.52,
+    "p": 0.979
+   },
+   {
+    "word": " It",
+    "start": 31.08,
+    "end": 31.1,
+    "p": 0.987
+   },
+   {
+    "word": " literally",
+    "start": 31.1,
+    "end": 31.44,
+    "p": 0.997
+   },
+   {
+    "word": " shows",
+    "start": 31.44,
+    "end": 31.8,
+    "p": 0.996
+   },
+   {
+    "word": " the",
+    "start": 31.8,
+    "end": 32.04,
+    "p": 0.997
+   },
+   {
+    "word": " leak.",
+    "start": 32.04,
+    "end": 32.22,
+    "p": 0.951
+   },
+   {
+    "word": " Received,",
+    "start": 32.96,
+    "end": 32.96,
+    "p": 0.765
+   },
+   {
+    "word": " contacted,",
+    "start": 33.42,
+    "end": 33.84,
+    "p": 0.985
+   },
+   {
+    "word": " scheduled,",
+    "start": 34.2,
+    "end": 34.46,
+    "p": 0.984
+   },
+   {
+    "word": " and",
+    "start": 34.78,
+    "end": 34.92,
+    "p": 0.986
+   },
+   {
+    "word": " where",
+    "start": 34.92,
+    "end": 35.08,
+    "p": 0.996
+   },
+   {
+    "word": " patients",
+    "start": 35.08,
+    "end": 35.42,
+    "p": 0.989
+   },
+   {
+    "word": " dropped",
+    "start": 35.42,
+    "end": 35.7,
+    "p": 0.993
+   },
+   {
+    "word": " off.",
+    "start": 35.7,
+    "end": 36.06,
+    "p": 0.997
+   },
+   {
+    "word": " It",
+    "start": 36.78,
+    "end": 36.92,
+    "p": 0.977
+   },
+   {
+    "word": " even",
+    "start": 36.92,
+    "end": 37.12,
+    "p": 0.998
+   },
+   {
+    "word": " tracks",
+    "start": 37.12,
+    "end": 37.48,
+    "p": 0.996
+   },
+   {
+    "word": " our",
+    "start": 37.48,
+    "end": 37.7,
+    "p": 0.973
+   },
+   {
+    "word": " ghost",
+    "start": 37.7,
+    "end": 38.08,
+    "p": 0.927
+   },
+   {
+    "word": " rate.",
+    "start": 38.08,
+    "end": 38.44,
+    "p": 0.985
+   },
+   {
+    "word": " Yes,",
+    "start": 38.98,
+    "end": 39.12,
+    "p": 0.987
+   },
+   {
+    "word": " that's",
+    "start": 39.22,
+    "end": 39.52,
+    "p": 0.992
+   },
+   {
+    "word": " a",
+    "start": 39.52,
+    "end": 39.64,
+    "p": 0.994
+   },
+   {
+    "word": " real",
+    "start": 39.64,
+    "end": 39.78,
+    "p": 0.999
+   },
+   {
+    "word": " number",
+    "start": 39.78,
+    "end": 40.04,
+    "p": 0.999
+   },
+   {
+    "word": " now.",
+    "start": 40.04,
+    "end": 40.36,
+    "p": 0.974
+   },
+   {
+    "word": " Very",
+    "start": 40.74,
+    "end": 40.9,
+    "p": 0.995
+   },
+   {
+    "word": " spooky,",
+    "start": 40.9,
+    "end": 41.32,
+    "p": 0.998
+   },
+   {
+    "word": " very",
+    "start": 41.76,
+    "end": 42.0,
+    "p": 0.987
+   },
+   {
+    "word": " fixable.",
+    "start": 42.0,
+    "end": 42.5,
+    "p": 0.995
+   },
+   {
+    "word": " Needs",
+    "start": 42.96,
+    "end": 43.12,
+    "p": 0.912
+   },
+   {
+    "word": " attention",
+    "start": 43.12,
+    "end": 43.54,
+    "p": 0.94
+   },
+   {
+    "word": " flags",
+    "start": 43.54,
+    "end": 43.9,
+    "p": 0.984
+   },
+   {
+    "word": " the",
+    "start": 43.9,
+    "end": 44.1,
+    "p": 0.399
+   },
+   {
+    "word": " cold",
+    "start": 44.1,
+    "end": 44.34,
+    "p": 0.998
+   },
+   {
+    "word": " cases.",
+    "start": 44.34,
+    "end": 44.72,
+    "p": 0.997
+   },
+   {
+    "word": " And",
+    "start": 45.24,
+    "end": 45.32,
+    "p": 0.915
+   },
+   {
+    "word": " anyone",
+    "start": 45.32,
+    "end": 45.68,
+    "p": 0.99
+   },
+   {
+    "word": " on",
+    "start": 45.68,
+    "end": 45.88,
+    "p": 0.997
+   },
+   {
+    "word": " the",
+    "start": 45.88,
+    "end": 46.04,
+    "p": 0.999
+   },
+   {
+    "word": " team",
+    "start": 46.04,
+    "end": 46.3,
+    "p": 0.999
+   },
+   {
+    "word": " can",
+    "start": 46.3,
+    "end": 46.6,
+    "p": 0.989
+   },
+   {
+    "word": " reassign",
+    "start": 46.6,
+    "end": 47.1,
+    "p": 0.978
+   },
+   {
+    "word": " them",
+    "start": 47.1,
+    "end": 47.32,
+    "p": 0.998
+   },
+   {
+    "word": " in",
+    "start": 47.32,
+    "end": 47.62,
+    "p": 0.994
+   },
+   {
+    "word": " one",
+    "start": 47.62,
+    "end": 47.84,
+    "p": 0.98
+   },
+   {
+    "word": " click.",
+    "start": 47.84,
+    "end": 48.16,
+    "p": 0.995
+   },
+   {
+    "word": " Now",
+    "start": 48.8,
+    "end": 48.88,
+    "p": 0.978
+   },
+   {
+    "word": " the",
+    "start": 48.88,
+    "end": 49.0,
+    "p": 0.884
+   },
+   {
+    "word": " math.",
+    "start": 49.0,
+    "end": 49.24,
+    "p": 0.996
+   },
+   {
+    "word": " One",
+    "start": 49.62,
+    "end": 49.76,
+    "p": 0.978
+   },
+   {
+    "word": " rescued",
+    "start": 49.76,
+    "end": 50.14,
+    "p": 0.973
+   },
+   {
+    "word": " referral",
+    "start": 50.14,
+    "end": 50.56,
+    "p": 0.993
+   },
+   {
+    "word": " pays",
+    "start": 50.56,
+    "end": 51.06,
+    "p": 0.955
+   },
+   {
+    "word": " for",
+    "start": 51.06,
+    "end": 51.26,
+    "p": 0.999
+   },
+   {
+    "word": " the",
+    "start": 51.26,
+    "end": 51.4,
+    "p": 0.998
+   },
+   {
+    "word": " system.",
+    "start": 51.4,
+    "end": 51.68,
+    "p": 0.999
+   },
+   {
+    "word": " One",
+    "start": 52.12,
+    "end": 52.26,
+    "p": 0.925
+   },
+   {
+    "word": " saved",
+    "start": 52.26,
+    "end": 52.66,
+    "p": 0.991
+   },
+   {
+    "word": " after",
+    "start": 52.66,
+    "end": 52.9,
+    "p": 0.999
+   },
+   {
+    "word": " staff",
+    "start": 52.9,
+    "end": 53.24,
+    "p": 0.988
+   },
+   {
+    "word": " turnover",
+    "start": 53.24,
+    "end": 53.64,
+    "p": 0.956
+   },
+   {
+    "word": " covers",
+    "start": 53.64,
+    "end": 53.98,
+    "p": 0.976
+   },
+   {
+    "word": " a",
+    "start": 53.98,
+    "end": 54.16,
+    "p": 0.99
+   },
+   {
+    "word": " whole",
+    "start": 54.16,
+    "end": 54.3,
+    "p": 0.998
+   },
+   {
+    "word": " year.",
+    "start": 54.3,
+    "end": 54.62,
+    "p": 0.999
+   },
+   {
+    "word": " When",
+    "start": 54.9,
+    "end": 55.2,
+    "p": 0.941
+   },
+   {
+    "word": " treatment",
+    "start": 55.2,
+    "end": 55.5,
+    "p": 0.979
+   },
+   {
+    "word": " is",
+    "start": 55.5,
+    "end": 55.72,
+    "p": 0.998
+   },
+   {
+    "word": " done,",
+    "start": 55.72,
+    "end": 56.02,
+    "p": 0.999
+   },
+   {
+    "word": " a",
+    "start": 56.46,
+    "end": 56.48,
+    "p": 0.987
+   },
+   {
+    "word": " signed",
+    "start": 56.48,
+    "end": 56.74,
+    "p": 0.968
+   },
+   {
+    "word": " completion",
+    "start": 56.74,
+    "end": 57.22,
+    "p": 0.955
+   },
+   {
+    "word": " note",
+    "start": 57.22,
+    "end": 57.52,
+    "p": 0.98
+   },
+   {
+    "word": " goes",
+    "start": 57.52,
+    "end": 57.82,
+    "p": 0.988
+   },
+   {
+    "word": " straight",
+    "start": 57.82,
+    "end": 58.12,
+    "p": 0.987
+   },
+   {
+    "word": " back",
+    "start": 58.12,
+    "end": 58.36,
+    "p": 0.994
+   },
+   {
+    "word": " to",
+    "start": 58.36,
+    "end": 58.54,
+    "p": 0.997
+   },
+   {
+    "word": " the",
+    "start": 58.54,
+    "end": 58.64,
+    "p": 0.995
+   },
+   {
+    "word": " GP.",
+    "start": 58.64,
+    "end": 58.96,
+    "p": 0.997
+   },
+   {
+    "word": " Happy",
+    "start": 59.52,
+    "end": 59.68,
+    "p": 0.979
+   },
+   {
+    "word": " GPs",
+    "start": 59.68,
+    "end": 60.24,
+    "p": 0.822
+   },
+   {
+    "word": " send",
+    "start": 60.24,
+    "end": 60.6,
+    "p": 0.948
+   },
+   {
+    "word": " more",
+    "start": 60.6,
+    "end": 60.82,
+    "p": 0.998
+   },
+   {
+    "word": " patients.",
+    "start": 60.82,
+    "end": 61.34,
+    "p": 0.991
+   },
+   {
+    "word": " Setup",
+    "start": 62.02,
+    "end": 62.14,
+    "p": 0.811
+   },
+   {
+    "word": " takes",
+    "start": 62.14,
+    "end": 62.46,
+    "p": 0.995
+   },
+   {
+    "word": " about",
+    "start": 62.46,
+    "end": 62.68,
+    "p": 0.993
+   },
+   {
+    "word": " five",
+    "start": 62.68,
+    "end": 62.98,
+    "p": 0.701
+   },
+   {
+    "word": " minutes.",
+    "start": 62.98,
+    "end": 63.32,
+    "p": 0.998
+   },
+   {
+    "word": " Check",
+    "start": 63.8,
+    "end": 63.9,
+    "p": 0.995
+   },
+   {
+    "word": " out",
+    "start": 63.9,
+    "end": 64.1,
+    "p": 0.966
+   },
+   {
+    "word": " tooth",
+    "start": 64.1,
+    "end": 64.34,
+    "p": 0.79
+   },
+   {
+    "word": " referral",
+    "start": 64.34,
+    "end": 64.76,
+    "p": 0.979
+   },
+   {
+    "word": " and",
+    "start": 64.76,
+    "end": 65.32,
+    "p": 0.694
+   },
+   {
+    "word": " retire",
+    "start": 65.32,
+    "end": 65.76,
+    "p": 0.997
+   },
+   {
+    "word": " your",
+    "start": 65.76,
+    "end": 66.02,
+    "p": 0.996
+   },
+   {
+    "word": " front",
+    "start": 66.02,
+    "end": 66.26,
+    "p": 0.994
+   },
+   {
+    "word": " desk's",
+    "start": 66.26,
+    "end": 66.8,
+    "p": 0.981
+   },
+   {
+    "word": " magic",
+    "start": 66.8,
+    "end": 66.98,
+    "p": 0.757
+   },
+   {
+    "word": " act",
+    "start": 66.98,
+    "end": 67.34,
+    "p": 0.99
+   },
+   {
+    "word": " for",
+    "start": 67.34,
+    "end": 67.5,
+    "p": 0.998
+   },
+   {
+    "word": " good.",
+    "start": 67.5,
+    "end": 67.76,
+    "p": 0.999
+   }
+  ]
+ }
+}

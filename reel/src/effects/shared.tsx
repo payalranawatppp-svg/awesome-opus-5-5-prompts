@@ -80,7 +80,7 @@ export const rand = (seed: number) => {
 // ---------------------------------------------------------------------------------------------------
 // Talent: the clip, its cutout and its clean plate
 
-export type TalentId = "01-hook" | "02-solution" | "03-outcome" | "04-cta" | "05-talk" | "tr2-cut" | "cb-cut" | "pd-cut" | "rr-cut" | "xr-cut" | "lk-cut";
+export type TalentId = "01-hook" | "02-solution" | "03-outcome" | "04-cta" | "05-talk" | "tr2-cut" | "cb-cut" | "pd-cut" | "rr-cut" | "xr-cut" | "lk-cut" | "ms-cut";
 export type Talent = {
   id: TalentId;
   /** public/ paths. `video` is a VP9 WebM copy of the clip: the render browser cannot decode H.264, and
@@ -144,6 +144,8 @@ export const TALENT: Record<TalentId, Talent> = {
   "xr-cut": makeTalent("xr-cut", { w: 720, h: 1280, fps: 30, seconds: 65.6, frameScale: 1.5 }),
   /** "The Leak Is Inside Your Office": eight takes, subtitles removed, colour-matched, cut and morph-cut (build_lk_src.sh). */
   "lk-cut": makeTalent("lk-cut", { w: 720, h: 1280, fps: 30, seconds: 50.6, frameScale: 1.5 }),
+  /** "The Front Desk Magic Show": ten takes colour-matched, cut and morph-cut (build_ms_src.sh). */
+  "ms-cut": makeTalent("ms-cut", { w: 720, h: 1280, fps: 30, seconds: 68.06, frameScale: 1.5 }),
 };
 export const DEFAULT_TALENT = TALENT["01-hook"];
 
