@@ -20,7 +20,7 @@ Referral portals fail because they treat your referring doctors like outsiders.
 
 A GP who wants an update on a crown or an implant gets a portal link, an access code, and sometimes a code that expired last week. Many referring offices give up and call your front desk instead, which is the phone tag the portal was meant to end.
 
-ToothReferral puts both offices on the same platform. The GP has their own dashboard and so do you. A case, a message or an X-ray shows up in both, with no codes and no links. Every milestone, from case received to the patient returning for restorative care, reaches the GP in seconds.
+ToothReferral puts both offices on the same platform. The GP has their own dashboard and so do you. A case, a message or a pano shows up in both, with no codes and no links. The referring dentist sees every step, from Received to Consultation Scheduled to Completed, as a live case presentation instead of emails to their office manager.
 
 When the updates stop, GPs look elsewhere: they try another specialist, or they start doing the procedure themselves. Keep them in the loop and you stay their first call, and one extra referral pays for the system. Setup takes about five minutes.
 
