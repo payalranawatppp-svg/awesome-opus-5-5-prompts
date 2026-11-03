@@ -27,6 +27,7 @@ ap.add_argument("out")
 ap.add_argument("--clip-lens", default="", help="source clip lengths in seconds, to find clip joins inside segments")
 ap.add_argument("--half", type=int, default=3, help="frames replaced on each side of a jump")
 ap.add_argument("--all", action="store_true", help="morph every candidate, not only visible jumps")
+ap.add_argument("--skip", default="", help="output seconds of joins to leave as hard cuts (e.g. a change of framing), comma-separated")
 ap.add_argument("--mic", default="", help="RGBA mask of anything fixed in front of the speaker (kept unwarped)")
 a = ap.parse_args()
 
@@ -65,6 +66,8 @@ for k in sorted(cand):
     if k < a.half + 2 or k > len(small) - a.half - 2:
         continue
     local = np.percentile(np.r_[d[k - 8:k - 2], d[k + 1:k + 7]], 90)
+    if a.skip and any(abs(k - float(t) * fps) < 6 for t in a.skip.split(",")):
+        continue
     if a.all or d[k - 1] > 1.3 * local:
         targets.append(k)
 print(f"{len(cand)} candidates, morphing {len(targets)}: {targets}")

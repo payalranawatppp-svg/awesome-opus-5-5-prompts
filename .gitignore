@@ -41,3 +41,5 @@ reel/public/footage/xr-cut.mp4
 # Leak video: the graded source and the cut are rebuilt from reel/public/footage/lk/clip01..08.mp4 by reel/scripts/build_lk_src.sh
 reel/public/footage/lk/lk-src.mp4
 reel/public/footage/lk-cut.mp4
+reel/public/footage/ms/ms-src.mp4
+reel/public/footage/ms-cut.mp4
