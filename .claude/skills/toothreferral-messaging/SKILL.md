@@ -1,12 +1,38 @@
 ---
 name: toothreferral-messaging
-description: The client's own positioning, must-say points and full product/dashboard reference (DASHBOARD.md: referrals, statuses, analytics, Website Lead Forms, DocuSign notes, stills) for ToothReferral (brief from the client, 2026-11-02, plus Marketing-tips.pdf in this folder). Use for EVERY ToothReferral script, ad, hook, caption, email or video, together with hook-reference, so each piece says what the specialist gets, why they need it (ROI), and how fast it is to set up.
+description: The client review rules (no "GP", no red, no doctor names, staff Barbara/Tanya/Amanda/Greg, Gentle Dental / St. Andrew's Family Dental, never condescending to the front desk), the client's own positioning, must-say points and full product/dashboard reference (DASHBOARD.md: referrals, statuses, analytics, Website Lead Forms, DocuSign notes, stills) for ToothReferral (brief from the client, 2026-11-02, plus Marketing-tips.pdf in this folder). Use for EVERY ToothReferral script, ad, hook, caption, email or video, together with hook-reference, so each piece says what the specialist gets, why they need it (ROI), and how fast it is to set up.
 ---
 
 # ToothReferral messaging brief (from the client — follow it in every script and ad)
 
 Source: the client's notes pasted in chat on 2026-11-02 and `Marketing-tips.pdf` (this folder). Audience: dental
 **specialists** (periodontists, endodontists, oral surgeons, orthodontists) and their front office.
+
+## 00. Client review rules (Vejay, 2026-11-04) — apply to EVERY script, video, carousel, caption and still
+
+These override anything below that conflicts (e.g. older lines that say "GP").
+
+1. **Never say or write "GP" / "GPs".** Say **"general dentist(s)"** (or "referring general dentist", "referring
+   office"). This applies to dialogue, captions, on-screen text, carousel copy, hashtags/keywords and prompts.
+2. **Office names** (demo data): use **Gentle Dental** (was "R Dental") for the referring general dentist office and
+   **St. Andrew's Family Dental** (was "D Care Alliance" / "D Alliance") for the specialist office. Oral Surgery
+   Associates, Integrity Specialty Dental etc. may stay.
+3. **People:** dental assistants, office managers, front desk etc. are only **Barbara, Tanya, Amanda, Greg**.
+   **No doctors' names anywhere** (no "Dr. …", no "Lee Davis", "Sarah Chen", "Jonathan Kilbourn" as a doctor). Patient
+   names (e.g. Bob Smith) are fine. Roles: Amanda = Office Manager, Greg = Front Desk, Tanya = Front Desk, Barbara =
+   Office Manager (vary as needed).
+4. **No red** (it reads as blood): alerts, losses, strike-throughs, stamps, flashes and highlights use **amber**
+   (#FFB020 / #E89D15, soft #FFF1D6), purple or yellow. Recolour red/pink/magenta in dashboard stills to amber; brand
+   logos (DocuSign) keep their own colours.
+5. **Never condescend to the front desk.** They make most of the buying decisions. Humour aims at the problem (phone
+   tag, paperwork, scattered tools), never at staff competence. No "our front desk is a magician who makes referrals
+   disappear", no "they mark things scheduled when nobody scheduled anything". Frame staff as overloaded heroes the
+   software helps.
+6. **Avoid an "AI-generated" look and voice:** one consistent voice per presenter (ElevenLabs voice changer to a
+   premade American voice: male "Chris" iP95p4xoKVk53GoZ742B, female "Bella" hpp4J3VqNfWAUOO0d1Us), never an
+   accent that drifts; add fine film grain; avoid glossy, unnatural motion.
+7. Revised dashboard stills already exist: `reel/public/dash2c/` (new dashboard) and `reel/public/dashc/` (older
+   recording), made by `reel/scripts/client_stills.py`. Use these, never the originals in `dash2/` and `dash/`.
 
 ## 0. The one rule
 
