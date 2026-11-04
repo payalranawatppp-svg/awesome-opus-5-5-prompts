@@ -1,22 +1,28 @@
 /**
  * "The Front Desk Magic Show": ToothReferral short (Script 5, male presenter, humour). The front desk "makes referrals
  * disappear"; the new Analytics shows where (the funnel, the ghost rate, Needs attention), then the math, the signed
- * DocuSign completion note to the GP, and a five-minute setup.
+ * DocuSign completion note to the general dentist, and a five-minute setup.
  *
- *   1  hook (full)                red flash, stacked "I SHOULDN'T BE SAYING THIS", punch-ins
+ *   1  hook (full)                light flash, stacked "I SHOULDN'T BE SAYING THIS", punch-ins
  *   2  the magician (full)        a marquee billboard, a stage spotlight; a referral card goes up in smoke
- *   3  the trick (full)           a GP's referral slides in, one voicemail, poof, "0 callbacks" (the "Ta-da!" line
- *                                 was cut)
- *   4  the best trick (full)      "Scheduled" with no appointment behind it; it fogs over: nobody can tell
+ *   3  the trick (full)           cutaway: a general dentist's referral; then one voicemail, poof, "0 callbacks"
+ *                                 (the "Ta-da!" line and "Their best trick..." were cut: client review, it read as
+ *                                 mocking the front desk)
  *   5  the cost (full)            "Here's the problem": the Glass type effect, a slow push-in, the room dims; a loss counter ticking to -$10,000+
  *   6  the analytics (split A)    the real Referral funnel row by row, the leak rows; the Ghost rate card with a ghost
  *                                 that turns into "very fixable"; Needs attention, a cold case re-assigned in one click
  *   7  the math (full)            1 rescued referral = system paid for; 1 saved after turnover = 12 months covered
- *   8  the signed note (split B)  DocuSign completion note, signed, sent to the GP; the top sender sends more patients
+ *   8  the signed note (split B)  DocuSign completion note, signed, sent to the general dentist; the top sender sends more patients
  *   9  setup + CTA (full)         a ring of chips (network, analytics, lead forms, DocuSign), logo behind his head, the link, "magic act: RETIRED", end card
  *
  * One continuous take: ten takes colour-matched, cut at the pauses, morph-cut (scripts/build_ms_src.sh). Takes 9-10 are
- * framed closer; that join is a hard cut hidden under the move into split B. One voice: Seed-VC to take 1's voice.
+ * framed closer; that join is a hard cut hidden under the move into split B.
+ * Voice: ElevenLabs voice changer (speech-to-speech, so the timing and lip sync stay) to one American male voice
+ * ("Chris") over the whole take, so the accent never drifts. The client asked for "general dentist" instead of "GP":
+ * those two lines are ElevenLabs text-to-speech in the same voice, played over cutaways (his face blurred behind a
+ * card) because his lips say "GP" there.
+ * Client review also: no red anywhere (amber instead), no doctors' names, Gentle Dental / St. Andrew's Family Dental,
+ * staff named Barbara, Tanya, Amanda, Greg (dashboard stills: scripts/client_stills.py -> public/dash2c).
  * Demo data; patients, offices and staff are fictional.
  */
 import React from "react";
@@ -40,7 +46,9 @@ export const MS_DURATION = CUT_FRAMES + TAIL;
 // Look
 
 const YELLOW = "#F3DD72";
-const RED = "#FF4D5A";
+/** Alerts and losses are amber, never red (client: red reads as blood). */
+const AMBER = "#FFB020";
+const AMBER_DK = "#E89D15";
 const INK = "#16131F";
 const W = "#FFFFFF";
 const BG = "#0F0B1C";
@@ -79,19 +87,13 @@ const T = {
   they: at("they"),
   disappear: at("disappear"),
   watch: at("watch"),
-  gp1: at("gp", 1),
+  a1: at("a", 1),
+  gp1: at("general", 1),
   patient: at("patient"),
   voicemail: at("voicemail"),
   poof: at("poof"),
   nobody2: at("nobody", 1),
   back: at("back", 1),
-  their: at("their"),
-  trick: at("trick"),
-  marking: at("marking"),
-  sched1: at("scheduled", 1),
-  nobody3: at("nobody", 2),
-  sched2: at("scheduled", 2),
-  audience: at("audience"),
   heres: at("heres"),
   problem: at("problem"),
   disappearing: at("disappearing"),
@@ -104,7 +106,7 @@ const T = {
   leak: at("leak"),
   received: at("received"),
   contacted: at("contacted"),
-  sched3: at("scheduled", 3),
+  sched3: at("scheduled", 1),
   dropped: at("dropped"),
   ghost: at("ghost"),
   real: at("real"),
@@ -124,12 +126,14 @@ const T = {
   saved: at("saved"),
   turnover: at("turnover"),
   year: at("year"),
-  when: at("when", 2),
+  when: at("when", 1),
   treatment: at("treatment"),
   signed: at("signed"),
   straight: at("straight"),
   happy: at("happy"),
-  patients: at("patients"),
+  patients: at("patients", 2),
+  we: at("we", 1),
+  back2: at("back", 2),
   setup: at("setup"),
   five: at("five"),
   check: at("check"),
@@ -137,6 +141,12 @@ const T = {
   magic: at("magic"),
   good: at("good"),
 };
+/** Cutaways over the two re-voiced lines (his lips still say "GP" there): his frame blurs and dims behind a card.
+ *  A: "A general dentist sends us a patient,"  B: "...back to the general dentist. Happy general dentists send more patients." */
+const CUT_A = [T.a1 - 7, T.we - 1] as const;
+const CUT_B = [T.back2 - 5, T.setup] as const;
+const cutawayAt = (f: number) =>
+  Math.max(ramp(f, CUT_A[0] - 6, CUT_A[0], easeIO) * (1 - ramp(f, CUT_A[1] - 6, CUT_A[1], easeIO)), ramp(f, CUT_B[0] - 6, CUT_B[0], easeIO) * (1 - ramp(f, CUT_B[1] - 3, CUT_B[1] + 3, easeIO)));
 /** Take 9 is framed closer than takes 1-8: that join is a hard cut (scripts/build_ms_src.sh), hidden by the layout move. */
 const CUT9 = Math.round((cut.segments.find((s) => s.in > 63.3) ?? cut.segments[cut.segments.length - 1]).at * FPS);
 
@@ -177,14 +187,17 @@ const layoutAt = (frame: number): Lay => {
  *  played as clean hard cuts (the morphed frames are skipped: the outgoing frame holds, then the incoming one) and
  *  the camera steps between two zoom levels on each such cut, the way a jump cut is edited. Near-identical joins keep
  *  their morph. */
-const JOINS: [number, number][] = [
-  [213, 7.2], [223, 19.9], [429, 24.3], [456, 11.4], [556, 13.5], [620, 29.3], [836, 47.5], [938, 22.3],
+const JOINS_SRC: [number, number][] = [
+  [213, 7.2], [223, 19.9], [429, 24.3], [836, 47.5], [938, 22.3],
   [1056, 31.5], [1129, 7.3], [1214, 12.2], [1248, 7.9], [1422, 9.0], [1447, 3.4], [1522, 2.0], [1742, 10.4], [1817, 24.4],
   [1871, 2.6], [1914, 8.1], [2006, 3.3],
 ];
+/** "Their best trick? ... The audience never even sees it." was dropped (scripts/drop_span.py ms-cut 429 624): the
+ *  joins after it moved 195 frames earlier, and the cut at 429 now runs "...calls back." straight into "Here's the problem." */
+const JOINS: [number, number][] = JOINS_SRC.map(([k, j]) => [k > 429 ? k - 195 : k, j]);
 const HARD = JOINS.filter(([, j]) => j > 4).map(([k]) => k);
-/** The "Ta-da!" line was dropped after the matte and voice (scripts/drop_span.py ms-cut 429 456); its old morph into
- *  "Their best trick?" now starts right at that cut. */
+/** Lines dropped after the matte and voice: "Ta-da!" (frames 429-456) and "Their best trick?..." (then 429-624);
+ *  the frames before that cut were never morphed. */
 const DROPPED = [429];
 /** The source frame to show: inside a hard join's morph window, hold the clean frames either side. */
 const srcFrame = (f: number) => {
@@ -217,7 +230,6 @@ const PUNCH: [number, number][] = [
   [T.magician, 0.06],
   [T.disappear, 0.08],
   [T.poof, 0.08],
-  [T.trick, 0.06],
   [T.math, 0.08],
   [T.retire, 0.06],
 ];
@@ -281,7 +293,7 @@ const handOut = (frame: number, p: Pick, key: "palm" | "index" = "palm", smooth 
 // ---------------------------------------------------------------------------------------------------
 // Captions: professional, sentence case, built word by word on her chest; one key phrase per line gets a marker.
 
-const KEY = new Set(["magician", "disappear", "poof", "voicemail", "scheduled", "nobody", "thousands", "month", "analytics", "leak", "dropped", "ghost", "fixable", "cold", "reassign", "click", "math", "system", "year", "signed", "gp", "patients", "five", "minutes", "toothreferral", "retire"]);
+const KEY = new Set(["magician", "disappear", "poof", "voicemail", "scheduled", "nobody", "thousands", "month", "analytics", "leak", "dropped", "ghost", "fixable", "cold", "reassign", "click", "math", "system", "year", "signed", "dentist", "dentists", "patients", "five", "minutes", "toothreferral", "retire"]);
 type Tok = { t: string; at: number; end: number; key: boolean };
 const TOKS: Tok[] = (() => {
   const out: Tok[] = [];
@@ -365,7 +377,8 @@ const Captions: React.FC<{ lay: Lay }> = ({ lay }) => {
 const PW = 1032;
 const PH = PANEL - 48;
 type Img2 = { src: string; w: number; h: number };
-const NEW = (n: string): Img2 => ({ src: `dash2/${n}.jpg`, w: 1904, h: 868 });
+/** Client-revised stills (scripts/client_stills.py): renamed offices and staff, no doctors' names, no red. */
+const NEW = (n: string): Img2 => ({ src: `dash2c/${n}.jpg`, w: 1904, h: 868 });
 type Crop = { x: number; y: number; w: number };
 type Map = (x: number, y: number) => readonly [number, number];
 const mapper = (c: Crop): Map => {
@@ -514,7 +527,7 @@ const RefCard: React.FC<{ style?: React.CSSProperties; status?: React.ReactNode 
     <div style={{ flex: 1, whiteSpace: "nowrap" }}>
       <div style={{ fontSize: 28, fontWeight: 800, letterSpacing: "-0.02em" }}>Bob Smith</div>
       <div style={{ fontSize: 20, color: "#6B7085", fontWeight: 600, display: "flex", alignItems: "center", gap: 6 }}>
-        <span style={{ width: 10, height: 10, borderRadius: 5, background: "#22C55E", display: "inline-block" }} /> Gentle Family Smiles
+        <span style={{ width: 10, height: 10, borderRadius: 5, background: "#22C55E", display: "inline-block" }} /> Gentle Dental
       </div>
     </div>
     {status}
@@ -558,12 +571,12 @@ const Spotlight: React.FC = () => {
 // ---------------------------------------------------------------------------------------------------
 // 1  the hook
 
-const RedFlash: React.FC = () => {
+const Flash: React.FC = () => {
   const frame = useCurrentFrame();
   const flash = (a: number, peak: number) => (frame >= a && frame < a + 8 ? peak * (1 - (frame - a) / 8) : 0);
   const v = Math.max(flash(0, 0.55), flash(T.shouldnt, 0.75));
   if (v <= 0) return null;
-  return <AbsoluteFill style={{ background: RED, opacity: v, mixBlendMode: "screen" }} />;
+  return <AbsoluteFill style={{ background: "#FFF6DA", opacity: v * 0.7, mixBlendMode: "screen" }} />;
 };
 
 const HOOK_END = T.but - 2;
@@ -588,7 +601,7 @@ const HookText: React.FC = () => {
           {l.map((x, j) => {
             const k = interpolate(frame, [x.at - 1, x.at + 4], [0, 1], clamp);
             return (
-              <span key={j} style={{ display: "inline-block", marginRight: j < l.length - 1 ? "0.2em" : 0, color: x.red ? RED : W, textShadow: x.red ? "0 0 40px rgba(255,77,90,0.65), 0 6px 24px rgba(10,6,24,0.5)" : SOFT, opacity: k, scale: String(interpolate(k, [0, 1], [1.3, 1])), filter: k < 1 ? `blur(${(1 - k) * 8}px)` : undefined }}>
+              <span key={j} style={{ display: "inline-block", marginRight: j < l.length - 1 ? "0.2em" : 0, color: x.red ? YELLOW : W, textShadow: x.red ? "0 0 40px rgba(243,221,114,0.5), 0 6px 24px rgba(10,6,24,0.5)" : SOFT, opacity: k, scale: String(interpolate(k, [0, 1], [1.3, 1])), filter: k < 1 ? `blur(${(1 - k) * 8}px)` : undefined }}>
                 {x.w}
               </span>
             );
@@ -647,12 +660,62 @@ const Vanish: React.FC = () => {
 };
 
 // ---------------------------------------------------------------------------------------------------
-// 2  the trick: GP sends a patient, one voicemail, poof
+// 2  the trick: a general dentist sends a patient (cutaway), one voicemail, poof
+
+const CutawayA: React.FC = () => {
+  const frame = useCurrentFrame();
+  const k = cutawayAt(frame);
+  if (k <= 0 || frame > CUT_A[1] + 2) return null;
+  const card = sp(frame, CUT_A[0] - 4, 13, 190);
+  const tag = sp(frame, T.gp1 + 2, 12, 220);
+  return (
+    <AbsoluteFill style={{ opacity: k }}>
+      <AbsoluteFill style={{ background: "radial-gradient(ellipse at 50% 42%, rgba(27,18,64,0.35), rgba(12,8,30,0.7))" }} />
+      <div style={{ position: "absolute", left: 0, right: 0, top: 560, display: "flex", flexDirection: "column", alignItems: "center", gap: 34 }}>
+        <div style={{ scale: String(card), padding: "10px 24px", borderRadius: 999, background: YELLOW, color: INK, ...TYPE, fontSize: 32, letterSpacing: "0.06em" }}>NEW REFERRAL</div>
+        <div style={{ scale: String(1.55 * interpolate(card, [0, 1], [0.8, 1])), opacity: Math.min(1, card * 2), translate: `0px ${(1 - card) * 40}px` }}>
+          <RefCard status={<StatusChip text="New" bg={TR.purpleSoft} fg={TR.purple} />} />
+        </div>
+        <div style={{ marginTop: 40, scale: String(tag) }}>
+          <Pill icon={I.building} title="from a general dentist" sub="Gentle Dental" />
+        </div>
+      </div>
+    </AbsoluteFill>
+  );
+};
+
+/** The signed note, from his side of split B: the general dentist gets it, and sends more patients. */
+const CutawayB: React.FC<{ lay: Lay }> = ({ lay }) => {
+  const frame = useCurrentFrame();
+  const k = cutawayAt(frame);
+  if (k <= 0 || frame < CUT_B[0] - 8) return null;
+  const a = sp(frame, T.back2, 12, 220);
+  const b = sp(frame, T.happy - 2, 12, 220);
+  const mid = (lay.top + lay.bottom) / 2;
+  return (
+    <div style={{ position: "absolute", left: 0, right: 0, top: lay.top, height: lay.bottom - lay.top, opacity: k }}>
+      <div style={{ position: "absolute", inset: 0, background: "rgba(12,8,30,0.45)" }} />
+      <div style={{ position: "absolute", left: 0, right: 0, top: mid - lay.top - 170, display: "flex", flexDirection: "column", alignItems: "center", gap: 26 }}>
+        <div style={{ scale: String(a), display: "flex", alignItems: "center", gap: 14, padding: "18px 32px 18px 18px", borderRadius: 999, background: GREEN, color: W, fontFamily: FONT_UI, fontWeight: 800, fontSize: 40, whiteSpace: "nowrap", boxShadow: "0 16px 36px rgba(10,6,24,0.4)" }}>
+          <div style={{ width: 58, height: 58, borderRadius: 29, background: "rgba(255,255,255,0.25)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <Icon d={ICON.check} size={34} color={W} />
+          </div>
+          Signed note → the general dentist
+        </div>
+        {b > 0 && (
+          <div style={{ scale: String(b) }}>
+            <Pill icon={I.user} title="Happy general dentists" sub="send more patients" />
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
 
 const Trick: React.FC = () => {
   const frame = useCurrentFrame();
-  const from = T.gp1 - 6;
-  const end = T.their - 10;
+  const from = CUT_A[1] - 8;
+  const end = T.heres - 10;
   if (frame < from || frame > end + 10) return null;
   const out = ramp(frame, end, end + 10);
   const slide = ramp(frame, from, from + 14, easeOut);
@@ -669,50 +732,8 @@ const Trick: React.FC = () => {
       {zero > 0 && (
         <div style={{ position: "absolute", left: 0, right: 0, top: 250, display: "flex", justifyContent: "center" }}>
           <div style={{ scale: String(zero) }}>
-            <Pill icon={I.phone} title="0 callbacks" sub="the patient just… vanished" color="#FF9AA2" />
+            <Pill icon={I.phone} title="0 callbacks" sub="the patient just… vanished" color="#FFD27A" />
           </div>
-        </div>
-      )}
-    </AbsoluteFill>
-  );
-};
-
-// ---------------------------------------------------------------------------------------------------
-// 3  the best trick: "Scheduled" with nothing behind it
-
-const Scheduled: React.FC = () => {
-  const frame = useCurrentFrame();
-  const from = T.their - 4;
-  const end = T.heres - 8;
-  if (frame < from || frame > end + 10) return null;
-  const out = ramp(frame, end, end + 10);
-  const chip = sp(frame, from, 12, 220);
-  const card = sp(frame, T.marking - 4, 12, 200);
-  const empty = sp(frame, T.nobody3 - 2, 12, 220);
-  const hide = ramp(frame, T.audience, T.audience + 14, easeIO);
-  return (
-    <AbsoluteFill style={{ opacity: 1 - out, filter: out > 0 ? `blur(${out * 8}px)` : undefined }}>
-      <div style={{ position: "absolute", left: 0, right: 0, top: 90, display: "flex", justifyContent: "center" }}>
-        <div style={{ scale: String(chip), padding: "10px 24px", borderRadius: 999, background: YELLOW, color: INK, ...TYPE, fontSize: 34, letterSpacing: "0.04em" }}>THE BEST TRICK</div>
-      </div>
-      {card > 0 && (
-        <div style={{ position: "absolute", left: 260, top: 160, scale: String(interpolate(card, [0, 1], [0.7, 1])), opacity: Math.min(1, card * 2) }}>
-          <RefCard status={<StatusChip text="Scheduled" bg={TR.greenSoft} fg="#137A4B" />} />
-          {empty > 0 && (
-            <div style={{ marginTop: 14, ...CARD, borderRadius: 18, padding: "14px 18px", display: "flex", alignItems: "center", gap: 12, scale: String(empty), transformOrigin: "50% 0%" }}>
-              <Icon d={ICON.calendar} size={32} color={TR.red} />
-              <div style={{ fontSize: 26, fontWeight: 800 }}>
-                Appointment: <span style={{ color: TR.red }}>none booked</span>
-              </div>
-            </div>
-          )}
-          {/* the audience never sees it: the cards fog over */}
-          {hide > 0 && <div style={{ position: "absolute", inset: -20, borderRadius: 26, backdropFilter: `blur(${hide * 14}px)`, background: `rgba(240,240,248,${hide * 0.55})` }} />}
-          {hide > 0.6 && (
-            <div style={{ position: "absolute", left: 0, right: 0, top: "40%", display: "flex", justifyContent: "center", scale: String(sp(frame, T.audience + 10, 12, 220)) }}>
-              <div style={{ padding: "10px 22px", borderRadius: 999, background: INK, color: W, fontFamily: FONT_UI, fontWeight: 800, fontSize: 28 }}>nobody can tell</div>
-            </div>
-          )}
         </div>
       )}
     </AbsoluteFill>
@@ -722,7 +743,7 @@ const Scheduled: React.FC = () => {
 // ---------------------------------------------------------------------------------------------------
 // 4  the cost (serious)
 
-/** The loss ticking down like a counter, from $0 to -$10,000+ ("tens of thousands"), digits rolling, a red pulse
+/** The loss ticking down like a counter, from $0 to -$10,000+ ("tens of thousands"), digits rolling, an amber pulse
  *  on each thousand. Only the brief's own figure is shown (the floor of "tens of thousands"), never a made-up total. */
 const Countdown: React.FC<{ a: number }> = ({ a }) => {
   const frame = useCurrentFrame();
@@ -733,7 +754,7 @@ const Countdown: React.FC<{ a: number }> = ({ a }) => {
   const pulse = (v % 1000) / 1000;
   return (
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4, opacity: Math.min(1, a * 2), scale: String(interpolate(a, [0, 1], [1.2, 1])) }}>
-      <div style={{ ...TYPE, fontSize: 132, color: RED, letterSpacing: "-0.03em", fontVariantNumeric: "tabular-nums", textShadow: `0 0 ${30 + 20 * (1 - pulse)}px rgba(255,77,90,0.55), 0 6px 24px rgba(10,6,24,0.5)` }}>{txt}</div>
+      <div style={{ ...TYPE, fontSize: 132, color: AMBER, letterSpacing: "-0.03em", fontVariantNumeric: "tabular-nums", textShadow: `0 0 ${30 + 20 * (1 - pulse)}px rgba(255,176,32,0.45), 0 6px 24px rgba(10,6,24,0.5)` }}>{txt}</div>
       <div style={{ fontFamily: FONT_UI, fontWeight: 800, fontSize: 30, letterSpacing: "0.14em", color: "rgba(255,255,255,0.85)", textShadow: SOFT }}>{done ? "TENS OF THOUSANDS" : "AND COUNTING"}</div>
     </div>
   );
@@ -756,7 +777,7 @@ const Cost: React.FC = () => {
       )}
       {a > 0 && (
         <div style={{ width: 560, height: 18, borderRadius: 9, background: "rgba(255,255,255,0.18)", overflow: "hidden" }}>
-          <div style={{ width: `${(1 - drain * 0.8) * 100}%`, height: "100%", background: `linear-gradient(90deg, ${RED}, #FF9AA2)`, borderRadius: 9 }} />
+          <div style={{ width: `${(1 - drain * 0.8) * 100}%`, height: "100%", background: `linear-gradient(90deg, ${AMBER}, #FFD27A)`, borderRadius: 9 }} />
         </div>
       )}
       {b > 0 && <div style={{ scale: String(b), ...TYPE, fontSize: 46, color: W, textShadow: SOFT }}>in lost production, every month</div>}
@@ -813,10 +834,10 @@ const DashA: React.FC<{ lay: Lay }> = ({ lay }) => {
             <Hl box={[1393, 325, 1803, 345]} m={m} k={sp(frame, T.received - 2, 12, 220) * (1 - ramp(frame, T.contacted - 2, T.contacted + 4))} label="Received" labelSide="top" dx={0} />
             <Hl box={[1393, 410, 1803, 430]} m={m} k={sp(frame, T.contacted - 2, 12, 220) * (1 - ramp(frame, T.sched3 - 2, T.sched3 + 4))} label="Contacted" labelSide="top" dx={0} />
             <Hl box={[1393, 495, 1803, 520]} m={m} k={sp(frame, T.sched3 - 2, 12, 220) * (1 - ramp(frame, T.dropped - 4, T.dropped + 2))} label="Scheduled" labelSide="top" dx={0} />
-            <Hl box={[1393, 377, 1803, 397]} m={m} k={sp(frame, T.dropped - 2, 12, 200)} color={RED} />
-            <Hl box={[1393, 463, 1803, 483]} m={m} k={sp(frame, T.dropped + 3, 12, 200)} color={RED} />
+            <Hl box={[1393, 377, 1803, 397]} m={m} k={sp(frame, T.dropped - 2, 12, 200)} color={AMBER_DK} />
+            <Hl box={[1393, 463, 1803, 483]} m={m} k={sp(frame, T.dropped + 3, 12, 200)} color={AMBER_DK} />
             <Mouse path={[[S_FUN + 4, 900, 600], [T.leak, 1600, 390], [T.contacted, 1600, 420], [T.dropped, 1700, 473]]} clicks={[]} m={m} show={[S_FUN + 6, S_GHOST]} />
-            <Tag x={1860} y={620} m={m} k={sp(frame, T.dropped + 6, 12, 200)} text="where patients dropped off" color={RED} icon={ICON.alert} anchor="right" />
+            <Tag x={1860} y={620} m={m} k={sp(frame, T.dropped + 6, 12, 200)} text="where patients dropped off" color={AMBER_DK} icon={ICON.alert} anchor="right" />
           </>
         )}
       </Shot>
@@ -860,7 +881,7 @@ const DashA: React.FC<{ lay: Lay }> = ({ lay }) => {
             <Hl box={[405, 476, 1200, 515]} m={m} k={sp(frame, T.cold - 2, 12, 200)} color="#E89D15" label="cold case: 3+ attempts, no reply" labelSide="top" dx={0} />
             <Press box={[1090, 482, 1195, 512]} at={T.click - 2} m={m} />
             <Mouse path={[[S_NEED + 4, 800, 640], [T.reassign, 1140, 497]]} clicks={[T.click - 2]} m={m} show={[S_NEED + 4, S_END]} />
-            <Tag x={1190} y={570} m={m} k={sp(frame, T.click + 4, 12, 220)} text="re-assigned to Katie" anchor="right" />
+            <Tag x={1190} y={570} m={m} k={sp(frame, T.click + 4, 12, 220)} text="re-assigned to Tanya" anchor="right" />
           </>
         )}
       </Shot>
@@ -883,7 +904,7 @@ const GhostValue: React.FC<{ m: Map; s: number }> = ({ m, s }) => {
   return (
     <>
       <div style={{ position: "absolute", left: x0, top: y0, width: x1 - x0, height: y1 - y0, background: "#FFFFFF", display: "flex", alignItems: "baseline", gap: 10 * s, paddingLeft: 7 * s, fontFamily: FONT_UI, color: "#15132B" }}>
-        <span style={{ fontSize: 50 * s, fontWeight: 700, letterSpacing: "-0.02em", lineHeight: 1, fontVariantNumeric: "tabular-nums", color: t > 0.98 ? TR.red : "#15132B" }}>{v}</span>
+        <span style={{ fontSize: 50 * s, fontWeight: 700, letterSpacing: "-0.02em", lineHeight: 1, fontVariantNumeric: "tabular-nums", color: t > 0.98 ? TR.purple : "#15132B" }}>{v}</span>
         <span style={{ fontSize: 22 * s, fontWeight: 600, color: "#6B7085" }}>%</span>
       </div>
       {note > 0 && (
@@ -903,8 +924,8 @@ const Team: React.FC<{ lay: Lay }> = ({ lay }) => {
   const { p, out, on } = win(frame, T.anyone - 4, T.click + 2, 8);
   if (!on) return null;
   const people = [
-    { i: "BO", t: "Barbara · Office Manager", c: "#7B4CF0" },
-    { i: "KD", t: "Katie · Dental Assistant", c: GREEN },
+    { i: "BA", t: "Barbara · Office Manager", c: "#7B4CF0" },
+    { i: "TA", t: "Tanya · Front Desk", c: GREEN },
   ];
   return (
     <div style={{ position: "absolute", left: 30, top: lay.top + 40, display: "flex", flexDirection: "column", gap: 12, opacity: 1 - out }}>
@@ -996,7 +1017,7 @@ const DashB: React.FC<{ lay: Lay }> = ({ lay }) => {
         )}
       </Shot>
       <Shot img={NEW("cs-07-signed-success")} from={S_SENT} to={S_TOP} keys={[[S_SENT, { x: 380, y: 0, w: 1500 }], [T.straight + 8, { x: 1300, y: 20, w: 600 }]]}>
-        {(m) => <Hl box={[1440, 50, 1845, 128]} m={m} k={sp(frame, T.straight + 6, 12, 200)} color={GREEN} label="sent to the referring GP" labelSide="bottom" dx={0} />}
+        {(m) => <Hl box={[1440, 50, 1845, 128]} m={m} k={sp(frame, T.straight + 6, 12, 200)} color={GREEN} label="sent to the general dentist" labelSide="bottom" dx={0} />}
       </Shot>
       <Shot img={NEW("an-02-senders-procedures")} from={S_TOP} to={S_END} keys={[[S_TOP, { x: 380, y: 260, w: 900 }]]}>
         {(m) => (
@@ -1096,7 +1117,7 @@ const Retired: React.FC = () => {
         <div style={{ fontSize: 20, fontWeight: 800, letterSpacing: "0.16em", color: YELLOW }}>THE GREAT FRONT DESK</div>
         <div style={{ ...TYPE, fontSize: 40, marginTop: 4 }}>magic act</div>
         {stamp > 0 && (
-          <div style={{ position: "absolute", left: "50%", top: "50%", translate: "-50% -50%", rotate: "-10deg", padding: "6px 18px", border: `6px solid ${RED}`, borderRadius: 12, color: RED, background: "rgba(255,255,255,0.94)", ...TYPE, fontSize: 52, letterSpacing: "0.02em", scale: String(interpolate(stamp, [0, 1], [2.2, 1])), opacity: Math.min(1, stamp * 2), whiteSpace: "nowrap" }}>RETIRED</div>
+          <div style={{ position: "absolute", left: "50%", top: "50%", translate: "-50% -50%", rotate: "-10deg", padding: "6px 18px", border: `6px solid ${TR.purple}`, borderRadius: 12, color: TR.purple, background: "rgba(255,255,255,0.94)", ...TYPE, fontSize: 52, letterSpacing: "0.02em", scale: String(interpolate(stamp, [0, 1], [2.2, 1])), opacity: Math.min(1, stamp * 2), whiteSpace: "nowrap" }}>RETIRED</div>
         )}
       </div>
     </div>
@@ -1127,6 +1148,22 @@ const EndCard: React.FC = () => {
   );
 };
 
+/** Fine film grain over everything: takes the plastic, too-clean edge off the generated footage. */
+const Grain: React.FC = () => {
+  const frame = useCurrentFrame();
+  return (
+    <AbsoluteFill style={{ pointerEvents: "none", opacity: 0.09, mixBlendMode: "overlay" }}>
+      <svg width={1080} height={1920}>
+        <filter id="ms-grain">
+          <feTurbulence type="fractalNoise" baseFrequency={0.85} numOctaves={2} seed={frame % 24} stitchTiles="stitch" />
+          <feColorMatrix type="saturate" values="0" />
+        </filter>
+        <rect width={1080} height={1920} filter="url(#ms-grain)" />
+      </svg>
+    </AbsoluteFill>
+  );
+};
+
 // ---------------------------------------------------------------------------------------------------
 // Sound
 
@@ -1138,15 +1175,12 @@ const SFX: { f: number; s: string; v: number }[] = [
   { f: T.they - 2, s: "pop-2", v: 0.1 },
   { f: T.disappear + 2, s: "whoosh-short", v: 0.14 },
   { f: T.disappear + 3, s: "shimmer", v: 0.1 },
-  { f: T.gp1 - 6, s: "whoosh-short", v: 0.1 },
+  { f: CUT_A[0], s: "whoosh-short", v: 0.1 },
+  { f: CUT_A[1] - 8, s: "whoosh-short", v: 0.08 },
   { f: T.voicemail - 4, s: "blip-1", v: 0.12 },
   { f: T.poof + 2, s: "whoosh-short", v: 0.16 },
   { f: T.poof + 3, s: "shimmer", v: 0.12 },
   { f: T.nobody2 - 2, s: "thud", v: 0.12 },
-  { f: T.their - 4, s: "pop-1", v: 0.12 },
-  { f: T.marking - 4, s: "click", v: 0.12 },
-  { f: T.nobody3 - 2, s: "blip-2", v: 0.12 },
-  { f: T.audience, s: "whoosh-long", v: 0.08 },
   { f: T.heres - 4, s: "riser", v: 0.1 },
   { f: T.tens - 4, s: "impact", v: 0.14 },
   ...[0, 4, 8, 12, 17, 23, 30, 38].map((d) => ({ f: T.tens + d, s: "tick-2", v: 0.07 })),
@@ -1190,7 +1224,8 @@ export const MagicShow: React.FC = () => {
   const lay = layoutAt(f0);
   const fr = framingFor(lay, f0);
   const freeze = frame >= CUT_FRAMES - 1;
-  const grade: React.CSSProperties = { filter: "contrast(1.05) saturate(1.04) brightness(1.0)" };
+  const ck = cutawayAt(f0);
+  const grade: React.CSSProperties = { filter: `contrast(1.05) saturate(1.04) brightness(${1 - 0.3 * ck})${ck > 0 ? ` blur(${(40 * ck).toFixed(1)}px)` : ""}` };
   const speaker = (layer: "full" | "cutout", style?: React.CSSProperties) => {
     const el = <TalentLayer talent={TL} layer={layer} framing={fr} style={{ ...grade, ...style }} />;
     if (freeze) return <Freeze frame={CUT_FRAMES - 2}>{el}</Freeze>;
@@ -1212,6 +1247,7 @@ export const MagicShow: React.FC = () => {
             <Serious />
             <SetupRing />
             <Spotlight />
+            <CutawayA />
             <Sequence from={GLASS.from} durationInFrames={GLASS.to - GLASS.from} premountFor={30} name="glass type">
               <GlassType talent={TL} startAt={GLASS.from / FPS} text={"The\nproblem."} y={1180} tint="#9FB4FF" />
             </Sequence>
@@ -1226,20 +1262,21 @@ export const MagicShow: React.FC = () => {
           <DashA lay={lay} />
           <DashB lay={lay} />
           <Team lay={lay} />
+          <CutawayB lay={lay} />
           <HookText />
           <Marquee />
           <Vanish />
           <Trick />
-          <Scheduled />
           <Cost />
           <MathCards />
           <CtaLink />
           <Retired />
         </AbsoluteFill>
         {frame < CUT_FRAMES - 4 && <Captions lay={lay} />}
-        <RedFlash />
+        <Flash />
         {cutFlash > 0 && <AbsoluteFill style={{ background: W, opacity: cutFlash }} />}
         <EndCard />
+        <Grain />
         <AbsoluteFill style={{ background: "radial-gradient(ellipse at 50% 42%, transparent 55%, rgba(8,5,18,0.34) 100%)", pointerEvents: "none" }} />
       </FontGate>
 
