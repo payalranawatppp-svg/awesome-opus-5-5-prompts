@@ -1,6 +1,6 @@
 {
  "lk-cut": {
-  "text": "Nobody tells you this. Your biggest referral problem isn't GPs who stop sending cases. It's inside your own front office, a voicemail nobody returns, a status clicked by accident, a coordinator quits and takes every follow-up with them that quietly costs specialists tens of thousands every month. Tooth referral fixes the leak. It isn't just another web form. It's one shared referral network. You and your referring offices work in the same dashboard. Every case, X-ray, and message syncs between both. No access codes, no portal links. Every message, note, and status update is visible to your whole team. Anyone can pick up any case. And here's the math. One referral that doesn't leak pays for the system. Setup takes about five minutes. Check out tooth referral and stop the leak inside your own office.",
+  "text": "Nobody tells you this. Your biggest referral problem isn't general dentists who stop sending cases. It's inside your own front office, a voicemail nobody returns, a status clicked by accident, a coordinator quits and takes every follow -up with them that quietly costs specialists tens of thousands every month. Tooth referral fixes the leak. It isn't just another web form. It's one shared referral network. You and your referring offices work in the same dashboard. Every case, X -ray, and message syncs between both. No access codes, no portal links. Every message, note, and status update is visible to your whole team. Anyone can pick up any case. And here's the math. One referral that doesn't leak pays for the system. Setup takes about five minutes. Check out tooth referral and stop the leak inside your own office.",
   "words": [
    {
     "word": " Nobody",
@@ -52,39 +52,45 @@
    },
    {
     "word": " isn't",
-    "start": 3.64,
-    "end": 4.3,
-    "p": 0.971
+    "start": 3.58,
+    "end": 4.0,
+    "p": 0.916
    },
    {
-    "word": " GPs",
+    "word": " general",
+    "start": 4.0,
+    "end": 4.3,
+    "p": 0.954
+   },
+   {
+    "word": " dentists",
     "start": 4.3,
-    "end": 4.88,
-    "p": 0.873
+    "end": 4.96,
+    "p": 0.996
    },
    {
     "word": " who",
-    "start": 4.88,
-    "end": 5.28,
-    "p": 0.988
+    "start": 4.96,
+    "end": 5.18,
+    "p": 0.975
    },
    {
     "word": " stop",
-    "start": 5.28,
-    "end": 5.62,
-    "p": 0.917
+    "start": 5.18,
+    "end": 5.42,
+    "p": 0.978
    },
    {
     "word": " sending",
-    "start": 5.62,
-    "end": 6.06,
+    "start": 5.42,
+    "end": 5.74,
     "p": 0.998
    },
    {
     "word": " cases.",
-    "start": 6.06,
-    "end": 6.56,
-    "p": 0.998
+    "start": 5.74,
+    "end": 6.22,
+    "p": 0.996
    },
    {
     "word": " It's",

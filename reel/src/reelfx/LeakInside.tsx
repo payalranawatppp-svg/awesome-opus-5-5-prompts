@@ -1,10 +1,15 @@
 /**
  * "The Leak Is Inside Your Own Office": ToothReferral short (Script 4, female presenter). The referral problem isn't
- * GPs who stop sending, it's the front office: one beat per line, answered on the real dashboard (the Incoming
+ * general dentists who stop sending, it's the front office: one beat per line, answered on the real dashboard (the Incoming
  * Referrals recording and the newer Analytics / Website Lead Forms recording).
  *
- *   1  hook (full)                 red flash, stacked "NOBODY TELLS YOU THIS", punch-ins on the trigger words
- *   2  the myth (full)             "GPs stopped sending" is struck out
+ * Client review (applied here as in MagicShow.tsx): "general dentist" instead of "GP" (the spoken line is ElevenLabs
+ * text-to-speech in her voice over a cutaway, her face blurred behind the card); no red anywhere (amber instead);
+ * no doctors' names; offices Gentle Dental / St. Andrew's Family Dental and staff Amanda, Greg, Tanya in the
+ * dashboard stills (scripts/client_stills.py -> public/dash2c, public/dashc).
+ *
+ *   1  hook (full)                 light flash, stacked "NOBODY TELLS YOU THIS", punch-ins on the trigger words
+ *   2  the myth (cutaway)          "General dentists stopped sending" is struck out
  *   3  the leak (full)             "your front office", then three leaks drop in above her head: Left a Voice
  *                                  Message, a status clicked by accident, a coordinator who quit; they drain away
  *   4  the cost (-> split A)       the real Referral funnel, its "% leak" steps highlighted; tens of thousands a month
@@ -19,8 +24,10 @@
  *  10  call to action (full)       logo behind her, the link, end card
  *
  * One continuous take: eight takes with Flow's burned-in subtitles removed (scripts/remove_subtitles.py), colour-matched,
- * cut at hand-picked pauses and two garbled phrases (scripts/build_lk_src.sh), joins morph-cut. One voice: Seed-VC to
- * take 1's voice. Demo data; patients and offices are fictional.
+ * cut at hand-picked pauses and two garbled phrases (scripts/build_lk_src.sh), joins morph-cut. One voice: ElevenLabs
+ * voice changer (speech-to-speech, timing kept) to one American female voice ("Bella") over the whole take, so the
+ * accent never drifts; "fixes the leak" re-spoken in the same voice where the conversion slurred it.
+ * Demo data; patients and offices are fictional.
  */
 import React from "react";
 import { AbsoluteFill, Audio, Freeze, Img, Sequence, interpolate, spring, staticFile, useCurrentFrame } from "remotion";
@@ -44,7 +51,10 @@ export const LK_DURATION = CUT_FRAMES + TAIL;
 // Look
 
 const YELLOW = "#F3DD72";
-const RED = "#FF4D5A";
+/** Alerts and losses are amber, never red (client: red reads as blood). */
+const AMBER = "#FFB020";
+const AMBER_DK = "#E89D15";
+const AMBER_SOFT = "#FFF1D6";
 const INK = "#16131F";
 const W = "#FFFFFF";
 const BG = "#0F0B1C";
@@ -78,7 +88,7 @@ const T = {
   biggest: at("biggest"),
   problem: at("problem"),
   isnt: at("isnt", 1),
-  gps: at("gps"),
+  gps: at("general", 1),
   stop: at("stop", 1),
   cases: at("cases"),
   its: at("its", 1),
@@ -242,7 +252,7 @@ const handOut = (frame: number, p: Pick, key: "palm" | "index" = "palm", smooth 
 // ---------------------------------------------------------------------------------------------------
 // Captions: professional, sentence case, built word by word on her chest; one key phrase per line gets a marker.
 
-const KEY = new Set(["leak", "front", "office", "voicemail", "accident", "quits", "thousands", "toothreferral", "network", "dashboard", "syncs", "codes", "links", "team", "math", "pays", "system", "five", "minutes", "everything"]);
+const KEY = new Set(["leak", "dentists", "front", "office", "voicemail", "accident", "quits", "thousands", "toothreferral", "network", "dashboard", "syncs", "codes", "links", "team", "math", "pays", "system", "five", "minutes", "everything"]);
 type Tok = { t: string; at: number; end: number; key: boolean };
 const TOKS: Tok[] = (() => {
   const out: Tok[] = [];
@@ -328,8 +338,9 @@ const Captions: React.FC<{ lay: Lay }> = ({ lay }) => {
 const PW = 1032;
 const PH = PANEL - 48;
 type Img2 = { src: string; w: number; h: number };
-const OLD = (n: string): Img2 => ({ src: `dash/${n}.jpg`, w: 1920, h: 842 });
-const NEW = (n: string): Img2 => ({ src: `dash2/${n}.jpg`, w: 1904, h: 868 });
+/** Client-revised stills (scripts/client_stills.py): renamed offices and staff, no doctors' names, no red. */
+const OLD = (n: string): Img2 => ({ src: `dashc/${n}.jpg`, w: 1920, h: 842 });
+const NEW = (n: string): Img2 => ({ src: `dash2c/${n}.jpg`, w: 1904, h: 868 });
 type Crop = { x: number; y: number; w: number };
 type Map = (x: number, y: number) => readonly [number, number];
 const mapper = (c: Crop): Map => {
@@ -470,14 +481,14 @@ const I = {
 };
 
 // ---------------------------------------------------------------------------------------------------
-// 1  hook: red flash, stacked lower-third text, punch-ins
+// 1  hook: light flash, stacked lower-third text, punch-ins
 
-const RedFlash: React.FC = () => {
+const Flash: React.FC = () => {
   const frame = useCurrentFrame();
   const flash = (a: number, peak: number) => (frame >= a && frame < a + 8 ? peak * (1 - (frame - a) / 8) : 0);
   const v = Math.max(flash(T.nobody, 0.75), flash(T.this, 0.35));
   if (v <= 0) return null;
-  return <AbsoluteFill style={{ background: RED, opacity: v, mixBlendMode: "screen" }} />;
+  return <AbsoluteFill style={{ background: "#FFF6DA", opacity: v * 0.7, mixBlendMode: "screen" }} />;
 };
 
 const HookText: React.FC = () => {
@@ -499,7 +510,7 @@ const HookText: React.FC = () => {
           {l.map((x, j) => {
             const k = interpolate(frame, [x.at - 1, x.at + 4], [0, 1], clamp);
             return (
-              <span key={j} style={{ display: "inline-block", marginRight: j < l.length - 1 ? "0.18em" : 0, color: x.red ? RED : W, textShadow: x.red ? "0 0 40px rgba(255,77,90,0.65), 0 6px 24px rgba(10,6,24,0.5)" : SOFT, opacity: k, scale: String(interpolate(k, [0, 1], [1.3, 1])), filter: k < 1 ? `blur(${(1 - k) * 8}px)` : undefined }}>
+              <span key={j} style={{ display: "inline-block", marginRight: j < l.length - 1 ? "0.18em" : 0, color: x.red ? YELLOW : W, textShadow: x.red ? "0 0 40px rgba(243,221,114,0.5), 0 6px 24px rgba(10,6,24,0.5)" : SOFT, opacity: k, scale: String(interpolate(k, [0, 1], [1.3, 1])), filter: k < 1 ? `blur(${(1 - k) * 8}px)` : undefined }}>
                 {x.w}
               </span>
             );
@@ -511,7 +522,11 @@ const HookText: React.FC = () => {
 };
 
 // ---------------------------------------------------------------------------------------------------
-// 2  the myth: "GPs stopped sending" struck out
+// 2  the myth: "General dentists stopped sending" struck out, over a cutaway (her lips say "GPs" there)
+
+/** The re-voiced "isn't general dentists who stop sending cases" (her lips say "GPs"): her frame blurs and dims. */
+const CUT_MYTH = [T.isnt - 2, T.its] as const;
+const cutawayAt = (f: number) => ramp(f, CUT_MYTH[0] - 6, CUT_MYTH[0], easeIO) * (1 - ramp(f, CUT_MYTH[1] - 5, CUT_MYTH[1] + 1, easeIO));
 
 const Myth: React.FC = () => {
   const frame = useCurrentFrame();
@@ -520,16 +535,16 @@ const Myth: React.FC = () => {
   if (!on) return null;
   const strike = ramp(frame, T.cases - 2, T.cases + 8, easeOut);
   return (
-    <div style={{ position: "absolute", left: 0, right: 0, top: 210, display: "flex", justifyContent: "center", opacity: 1 - out, filter: out > 0 ? `blur(${out * 8}px)` : undefined }}>
-      <div style={{ position: "relative", scale: String(p), display: "flex", alignItems: "center", gap: 16, padding: "18px 30px 18px 18px", borderRadius: 999, background: "rgba(16,12,30,0.88)", border: "1.5px solid rgba(255,255,255,0.16)", boxShadow: "0 16px 40px rgba(10,6,24,0.45)", fontFamily: FONT_UI, color: W }}>
+    <div style={{ position: "absolute", left: 0, right: 0, top: 700, display: "flex", justifyContent: "center", opacity: 1 - out, filter: out > 0 ? `blur(${out * 8}px)` : undefined }}>
+      <div style={{ position: "relative", scale: String(p * 1.12), display: "flex", alignItems: "center", gap: 16, padding: "18px 30px 18px 18px", borderRadius: 999, background: "rgba(16,12,30,0.88)", border: "1.5px solid rgba(255,255,255,0.16)", boxShadow: "0 16px 40px rgba(10,6,24,0.45)", fontFamily: FONT_UI, color: W }}>
         <div style={{ width: 60, height: 60, borderRadius: 30, background: "rgba(255,255,255,0.12)", display: "flex", alignItems: "center", justifyContent: "center" }}>
           <Icon d={I.building} size={32} color={W} />
         </div>
         <div>
           <div style={{ fontSize: 22, fontWeight: 700, opacity: 0.6, letterSpacing: "0.04em" }}>THE USUAL GUESS</div>
-          <div style={{ fontSize: 40, fontWeight: 800, letterSpacing: "-0.02em" }}>GPs stopped sending cases</div>
+          <div style={{ fontSize: 40, fontWeight: 800, letterSpacing: "-0.02em" }}>General dentists stopped sending</div>
         </div>
-        {strike > 0 && <div style={{ position: "absolute", left: 10, top: "50%", height: 9, width: `calc(${strike * 100}% - 20px)`, background: RED, borderRadius: 6, rotate: "-3deg", boxShadow: "0 4px 14px rgba(10,6,24,0.35)" }} />}
+        {strike > 0 && <div style={{ position: "absolute", left: 10, top: "50%", height: 9, width: `calc(${strike * 100}% - 20px)`, background: AMBER, borderRadius: 6, rotate: "-3deg", boxShadow: "0 4px 14px rgba(10,6,24,0.35)" }} />}
       </div>
     </div>
   );
@@ -562,9 +577,9 @@ const LeakCard: React.FC<{ at: number; y: number; icon: string; title: React.Rea
   const drip = ((frame - at) % 30) / 30;
   return (
     <div style={{ position: "absolute", left: 120, right: 120, top: y, scale: String(interpolate(k, [0, 1], [0.7, 1])), opacity: Math.min(1, k * 2) * (1 - fall), translate: `0px ${fall * 220}px`, filter: fall > 0.05 ? `blur(${fall * 10}px)` : undefined }}>
-      <div style={{ ...CARD, display: "flex", alignItems: "center", gap: 18, padding: "16px 22px", borderRadius: 22, borderLeft: `8px solid ${RED}` }}>
-        <div style={{ width: 62, height: 62, borderRadius: 16, background: "#FFE7E9", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-          <Icon d={icon} size={34} color={TR.red} />
+      <div style={{ ...CARD, display: "flex", alignItems: "center", gap: 18, padding: "16px 22px", borderRadius: 22, borderLeft: `8px solid ${AMBER_DK}` }}>
+        <div style={{ width: 62, height: 62, borderRadius: 16, background: AMBER_SOFT, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+          <Icon d={icon} size={34} color={AMBER_DK} />
         </div>
         <div style={{ flex: 1, minWidth: 0 }}>
           <div style={{ fontSize: 32, fontWeight: 800, letterSpacing: "-0.02em" }}>{title}</div>
@@ -572,7 +587,7 @@ const LeakCard: React.FC<{ at: number; y: number; icon: string; title: React.Rea
         </div>
         <div style={{ position: "relative", width: 40, height: 60, flexShrink: 0 }}>
           <div style={{ position: "absolute", left: 6, top: 6 + drip * 30, opacity: 1 - drip }}>
-            <Icon d={I.drop} size={28} color={TR.red} />
+            <Icon d={I.drop} size={28} color={AMBER_DK} />
           </div>
         </div>
       </div>
@@ -607,7 +622,7 @@ const Leaks: React.FC = () => {
         drain={drain}
         title={
           <span>
-            Marked <span style={{ color: TR.red }}>“Scheduled”</span> by mistake
+            Marked <span style={{ color: AMBER_DK }}>“Scheduled”</span> by mistake
           </span>
         }
         sub="no appointment behind it · case vanished"
@@ -645,7 +660,7 @@ const WebForm: React.FC<{ from: number; to: number }> = ({ from, to }) => {
       </div>
       {stamp > 0 && (
         <div style={{ position: "absolute", left: 0, right: 0, top: 300, display: "flex", justifyContent: "center" }}>
-          <div style={{ padding: "12px 30px", border: `8px solid ${RED}`, color: RED, borderRadius: 16, ...TYPE, letterSpacing: "0.01em", fontSize: 70, lineHeight: 0.95, textAlign: "center", rotate: "-8deg", scale: String(interpolate(stamp, [0, 1], [2.2, 1])), opacity: Math.min(1, stamp * 2), background: "rgba(255,255,255,0.92)", boxShadow: "0 20px 50px rgba(10,6,24,0.35)" }}>
+          <div style={{ padding: "12px 30px", border: `8px solid ${TR.purple}`, color: TR.purple, borderRadius: 16, ...TYPE, letterSpacing: "0.01em", fontSize: 70, lineHeight: 0.95, textAlign: "center", rotate: "-8deg", scale: String(interpolate(stamp, [0, 1], [2.2, 1])), opacity: Math.min(1, stamp * 2), background: "rgba(255,255,255,0.92)", boxShadow: "0 20px 50px rgba(10,6,24,0.35)" }}>
             NOT ANOTHER
             <br />
             WEB FORM
@@ -693,7 +708,7 @@ const SyncBoth: React.FC = () => {
           <div style={{ position: "absolute", left: `${flow * 100}%`, top: -7, width: 20, height: 20, borderRadius: 10, background: "#22C55E", translate: "-50% 0", boxShadow: "0 0 14px #22C55E" }} />
           <div style={{ position: "absolute", left: `${(1 - flow) * 100}%`, top: -7, width: 20, height: 20, borderRadius: 10, background: YELLOW, translate: "-50% 0", boxShadow: `0 0 14px ${YELLOW}` }} />
         </div>
-        <span>GP office</span>
+        <span>General dentist</span>
         <div style={{ marginLeft: 6, padding: "6px 14px", borderRadius: 999, background: GREEN, fontSize: 24 }}>synced</div>
       </div>
     </div>
@@ -732,10 +747,10 @@ const DashA: React.FC<{ lay: Lay }> = ({ lay }) => {
       >
         {(m) => (
           <>
-            <Hl box={[1393, 377, 1803, 397]} m={m} k={sp(frame, T.costs + 6, 12, 200)} color={RED} />
-            <Hl box={[1393, 463, 1803, 483]} m={m} k={sp(frame, T.specialists, 12, 200)} color={RED} />
+            <Hl box={[1393, 377, 1803, 397]} m={m} k={sp(frame, T.costs + 6, 12, 200)} color={AMBER_DK} />
+            <Hl box={[1393, 463, 1803, 483]} m={m} k={sp(frame, T.specialists, 12, 200)} color={AMBER_DK} />
             <Mouse path={[[S_FUN + 4, 900, 600], [T.costs + 2, 1560, 388], [T.tens, 1560, 474]]} clicks={[]} m={m} show={[S_FUN + 4, S_LOGO]} />
-            <Tag x={1880} y={640} m={m} k={sp(frame, T.tens - 2, 12, 200)} text="tens of thousands / month" color={RED} icon={I.drop} anchor="right" />
+            <Tag x={1880} y={640} m={m} k={sp(frame, T.tens - 2, 12, 200)} text="tens of thousands / month" color={AMBER_DK} icon={I.drop} anchor="right" />
           </>
         )}
       </Shot>
@@ -835,11 +850,11 @@ const NoCodes: React.FC = () => {
         return (
           <div key={it.t} style={{ position: "absolute", left: x, top: 300, scale: String(k), transformOrigin: "50% 50%" }}>
             <div style={{ position: "relative", display: "flex", alignItems: "center", gap: 14, padding: "16px 28px 16px 16px", borderRadius: 999, background: W, color: INK, fontFamily: FONT_UI, fontWeight: 800, fontSize: 40, boxShadow: "0 16px 40px rgba(10,6,24,0.45)", whiteSpace: "nowrap" }}>
-              <div style={{ width: 56, height: 56, borderRadius: 28, background: "#FFE7E9", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <Icon d={it.icon} size={30} color={TR.red} />
+              <div style={{ width: 56, height: 56, borderRadius: 28, background: AMBER_SOFT, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <Icon d={it.icon} size={30} color={AMBER_DK} />
               </div>
               {it.t}
-              {s > 0 && <div style={{ position: "absolute", left: 12, top: "48%", height: 9, width: `calc(${s * 100}% - 24px)`, background: RED, borderRadius: 6, rotate: "-4deg" }} />}
+              {s > 0 && <div style={{ position: "absolute", left: 12, top: "48%", height: 9, width: `calc(${s * 100}% - 24px)`, background: AMBER, borderRadius: 6, rotate: "-4deg" }} />}
             </div>
           </div>
         );
@@ -994,8 +1009,8 @@ const Sealed: React.FC = () => {
   return (
     <div style={{ position: "absolute", left: 0, right: 0, top: 1250, display: "flex", justifyContent: "center", opacity: 1 - out }}>
       <div style={{ scale: String(p), display: "flex", alignItems: "center", gap: 12, padding: "12px 26px 12px 12px", borderRadius: 999, background: ok > 0.5 ? GREEN : "rgba(16,12,30,0.88)", color: W, fontFamily: FONT_UI, fontWeight: 800, fontSize: 32, boxShadow: "0 14px 30px rgba(10,6,24,0.4)" }}>
-        <div style={{ width: 48, height: 48, borderRadius: 24, background: ok > 0.5 ? "rgba(255,255,255,0.25)" : "#FFE7E9", display: "flex", alignItems: "center", justifyContent: "center" }}>
-          <Icon d={ok > 0.5 ? ICON.check : I.drop} size={26} color={ok > 0.5 ? W : TR.red} />
+        <div style={{ width: 48, height: 48, borderRadius: 24, background: ok > 0.5 ? "rgba(255,255,255,0.25)" : AMBER_SOFT, display: "flex", alignItems: "center", justifyContent: "center" }}>
+          <Icon d={ok > 0.5 ? ICON.check : I.drop} size={26} color={ok > 0.5 ? W : AMBER_DK} />
         </div>
         {ok > 0.5 ? "leak stopped" : "the leak"}
       </div>
@@ -1073,6 +1088,22 @@ const SFX: { f: number; s: string; v: number }[] = [
   { f: CUT_FRAMES - 6, s: "whoosh-long", v: 0.16 },
 ];
 
+/** Fine film grain over everything: takes the plastic, too-clean edge off the generated footage. */
+const Grain: React.FC = () => {
+  const frame = useCurrentFrame();
+  return (
+    <AbsoluteFill style={{ pointerEvents: "none", opacity: 0.09, mixBlendMode: "overlay" }}>
+      <svg width={1080} height={1920}>
+        <filter id="lk-grain">
+          <feTurbulence type="fractalNoise" baseFrequency={0.85} numOctaves={2} seed={frame % 24} stitchTiles="stitch" />
+          <feColorMatrix type="saturate" values="0" />
+        </filter>
+        <rect width={1080} height={1920} filter="url(#lk-grain)" />
+      </svg>
+    </AbsoluteFill>
+  );
+};
+
 // ---------------------------------------------------------------------------------------------------
 // The edit
 
@@ -1082,7 +1113,8 @@ export const LeakInside: React.FC = () => {
   const lay = layoutAt(f0);
   const fr = framingFor(lay, f0);
   const freeze = frame >= CUT_FRAMES - 1;
-  const grade: React.CSSProperties = { filter: "contrast(1.05) saturate(1.05) brightness(1.01)" };
+  const ck = cutawayAt(f0);
+  const grade: React.CSSProperties = { filter: `contrast(1.05) saturate(1.05) brightness(${1.01 - 0.32 * ck})${ck > 0 ? ` blur(${(40 * ck).toFixed(1)}px)` : ""}` };
   const speaker = (layer: "full" | "cutout", style?: React.CSSProperties) => {
     const el = <TalentLayer talent={TL} layer={layer} framing={fr} style={{ ...grade, ...style }} />;
     return freeze ? <Freeze frame={CUT_FRAMES - 2}>{el}</Freeze> : el;
@@ -1136,8 +1168,9 @@ export const LeakInside: React.FC = () => {
           <SetupCard />
         </AbsoluteFill>
         {frame < CUT_FRAMES - 4 && <Captions lay={lay} />}
-        <RedFlash />
+        <Flash />
         <EndCard />
+        <Grain />
         <AbsoluteFill style={{ background: "radial-gradient(ellipse at 50% 42%, transparent 55%, rgba(8,5,18,0.36) 100%)", pointerEvents: "none" }} />
       </FontGate>
 
