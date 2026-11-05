@@ -34,6 +34,59 @@ These override anything below that conflicts (e.g. older lines that say "GP").
 7. Revised dashboard stills already exist: `reel/public/dash2c/` (new dashboard) and `reel/public/dashc/` (older
    recording), made by `reel/scripts/client_stills.py`. Use these, never the originals in `dash2/` and `dash/`.
 
+## 01. Client call (Vejay, 2026-11-05, voice memo) — the strategy now; follow it over older sections
+
+**Goal:** a brand-awareness campaign that makes the front desk *like* us ("we're here to help your staff"), shows the
+owner the value, and proves ToothReferral's efficiency with real numbers. Carousels and videos must follow ONE
+brand-awareness strategy and complement each other. "Go slow and think it through" — understand before writing.
+
+**Brand-awareness structure (in this order):**
+1. Present a problem — as *human error*, never as staff fault: someone forgot, someone was out, someone thought they
+   called, a referral wasn't processed in time / no first point of contact. You don't fix human error by blaming
+   people; you fix it with software that builds a system (an agentic workflow that does the follow-up).
+2. Their form vs. our form — research 20+ oral surgery / endodontic / perio websites: why is ToothReferral's
+   referral flow better than the forms specialists use today? (A form sends an email; ToothReferral starts a
+   tracked, shared case.)
+3. Return on investment, with numbers (below). "People have to have a reason to switch."
+4. Internal marketing / peer networking is the best way to get patients: show how to market through your own network.
+
+**Story to use (relationship → referrals):** a staff member at a specialist office and one at a general dentist's
+office start talking about one patient in ToothReferral; they keep talking; the relationship grows; "when everybody
+keeps talking, it's hard to forget you", and sending a referral is easy because nobody has to call. Communication is
+the number-one tool for efficiency; even a well-established practice can be 10x better. (He told it with doctor names
+— keep to the review rules: staff names Barbara/Tanya/Amanda/Greg, no doctors' names.)
+
+**Show the product doing real work, quickly, by staff:** an assistant writing the consultation note from a template,
+signing it, or **routing the note to the doctor** to sign (a routing feature exists — no screenshot yet, ask for one);
+the oral surgeon sharing a **case presentation instead of five emails**; all files in the case so nobody ever calls to
+ask how to download anything.
+
+**Owner value:** keeps employees on track; the owner can check what's going on any time; it won't break the bank.
+
+**ROI numbers he gave (use as "potential" / "up to", attribute to typical usage, never as guarantees):**
+- Cost: about $150–$300 a month (about $1,000–$3,000 a year).
+- Saving referrals that would have slipped: potentially about $5,000 a year.
+- New referrals from the network: potentially $5,000–$10,000 a year.
+- Over 10 years: about $100,000 from referrals (compounding).
+- A turnkey, data-backed referral system raises practice value about 5–10% (on a $1M practice: $50,000–$100,000).
+- Total: up to about $150,000 back on $10,000–$15,000 spent over 10 years, roughly 10x. (He said "over 150%";
+  the correct figure is about 900% net / 10x. Show the math.)
+- If owners don't check their referral systems they can lose thousands, and it adds up over time.
+
+**Corrections to earlier scripts:**
+- "A status clicked by accident" / "marked Scheduled by mistake" — NOT realistic (Consultation Scheduled etc. are
+  unique to ToothReferral). Use "left a voice message, but nobody followed up" (common).
+- "A coordinator quits and takes every follow-up with them" — wrong; nobody steals follow-ups. Say: "a coordinator
+  leaves, and now nobody knows what still needs to be done."
+- No per-incident dollar countdowns ("every disappearing act costs $7,933") — not believable. Say it adds up over time.
+- Spliced text-to-speech lines are audible as an accent change (he heard it on "goes straight back to the general
+  dentist" in Magic Show). Avoid splicing TTS into a converted take; re-voice whole lines from one source.
+
+**Formats:** he finds every video "podcast format" (one talking head). He wants variety like his examples: split
+screens, people moving, B-roll (he suggested Firefly / CapCut). Talking-head is acceptable, but mix in split screens,
+dashboard screen recordings and movement.
+**Avatar:** keep the female presenter ("I like this girl better"); make it obvious it is a dental office.
+
 ## 0. The one rule
 
 Every video and every ad answers three questions, in this order or woven together:
