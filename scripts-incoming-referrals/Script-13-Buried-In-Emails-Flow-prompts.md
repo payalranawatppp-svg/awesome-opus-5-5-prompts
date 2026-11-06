@@ -33,7 +33,7 @@ standing beside her" (use the character lines below).
     accent. She is calm, reassuring and upbeat.
   - Each keeps the same voice in every clip.
 
-**Edit plan (post):** from clip 5 on, split the 16:9 frame (the women on one side, the real ToothReferral dashboard on the other): clip 5–6 the referral's activity log / audit trail (who did what, and when), clip 7 the case picked up by another team member, clip 8 Administrative Notes, clip 9 the X-rays and the insurance cards on the referral, clip 10 the Incoming list with nothing waiting. The monitor in the footage never shows text, so the overlays stay clean.
+**Edit plan (post):** from clip 5 on, split the 16:9 frame (the women on one side, the real ToothReferral dashboard on the other): clip 5 the Incoming list (one place for every referral), clip 6 connected offices on the network, clip 7 the patient's activity log / audit trail, clip 8 Office Communication with the referring general dental office, clip 9 Administrative Notes, clip 10 the X-rays and insurance cards on the referral. The monitor in the footage never shows text, so the overlays stay clean.
 
 ---
 
@@ -67,83 +67,77 @@ standing beside her" (use the character lines below).
 > TANYA speaks, with the same warm mid-to-low female voice, frustrated and a little overwhelmed. Perfectly lip-synced: "Faxes, voicemails, inbox threads… I don't even know where half of them went. I'm so frustrated."
 > Audio: only her voice and quiet office room tone. No music, no subtitles, no on-screen text, no logos, no red, no extra people.
 
-### CLIP 04 · Never miss a referral (24–32 s)
-**Dialogue:** AMANDA: "Hey, that's not on you. That's the system. With Tooth Referral, you won't miss a single referral again."
+### CLIP 04 · The old way (24–32 s)
+**Dialogue:** AMANDA: "Hey, that's not on you. That's the old way. Why don't you use Tooth Referral?" · TANYA: "Tooth Referral? What's that?"
 
 > Horizontal 16:9 video, 8 seconds, one continuous shot. Photorealistic live-action footage that looks professionally filmed, not AI-generated: shot on a cinema camera (Sony FX3 look) with a 35mm lens, natural window daylight plus soft practical office lights, true-to-life colours, real skin texture with pores, subtle film grain, natural imperfections, no glossy or plastic look. Same dental front office (white quartz and light-oak front desk, sage-green wall, the treatment-room doorway with the dental chair on the right).
-> AMANDA (early 30s, shoulder-length light-brown wavy hair, teal scrub top, light grey cardigan, blank name badge) leans one forearm on the front-desk ledge beside Tanya and rests her other hand briefly on Tanya's shoulder, warm and supportive. On "that's the system" she gives a small shrug. On "you won't miss a single referral" she shakes her head slowly and confidently, with a reassuring smile.
-> TANYA (mid-30s, dark brown low side ponytail, navy short-sleeve scrubs, blank name badge) looks up at her, her shoulders softening, curious and a little hopeful.
-> Camera: horizontal medium two-shot, slightly favouring Amanda, eye level, tripod, very slow smooth push-in.
-> AMANDA speaks, with a bright, friendly early-30s female voice and a natural neutral American accent, reassuring and kind. Perfectly lip-synced: "Hey, that's not on you. That's the system. With Tooth Referral, you won't miss a single referral again."
-> Audio: only her voice and quiet office room tone. No music, no subtitles, no captions, no on-screen text, no logos, no red, no extra people.
+> AMANDA (early 30s, shoulder-length light-brown wavy hair, teal scrub top, light grey cardigan, blank name badge) rests one hand briefly on Tanya's shoulder, warm and supportive, and says her line with a small knowing smile, raising her eyebrows on "Why don't you use Tooth Referral?". TANYA (mid-30s, dark brown low side ponytail, navy short-sleeve scrubs, blank name badge) looks up at her, puzzled but curious, tilts her head and asks her line.
+> Camera: horizontal medium two-shot, both faces visible, eye level, static on a tripod with a very slow smooth push-in.
+> Two voices, each perfectly lip-synced, only one speaking at a time. First AMANDA, with a bright, friendly early-30s female voice and a natural neutral American accent, kind and reassuring: "Hey, that's not on you. That's the old way. Why don't you use Tooth Referral?" Then TANYA, with a warm mid-to-low mid-30s female voice and a natural neutral American accent, curious: "Tooth Referral? What's that?"
+> Audio: only their voices and quiet office room tone. No music, no subtitles, no captions, no on-screen text, no logos, no red, no extra people.
 
-### CLIP 05 · The audit trail (32–40 s)
-**Dialogue:** AMANDA: "Every referral has its own audit trail. Every call, every voicemail, every status change is logged automatically."
+### CLIP 05 · Let me show you (32–40 s)
+**Dialogue:** AMANDA: "Let me show you. It's one centralized system, built just for referrals."
 
 > Horizontal 16:9 video, 8 seconds, one continuous shot. Photorealistic live-action footage that looks professionally filmed, not AI-generated: shot on a cinema camera (Sony FX3 look) with a 35mm lens, natural window daylight plus soft practical office lights, true-to-life colours, real skin texture with pores, subtle film grain, natural imperfections, no glossy or plastic look. Same dental front office (white quartz and light-oak front desk, sage-green wall, the treatment-room doorway with the dental chair on the right).
-> AMANDA (early 30s, shoulder-length light-brown wavy hair, teal scrub top, light grey cardigan, blank name badge) pulls a chair over, sits down beside Tanya and gestures toward the monitor. On "every call, every voicemail, every status change" she taps three points in the air with one finger, one per item, as if going down a list. The monitor stays angled away from the camera (soft glow, no readable screen).
-> TANYA (mid-30s, dark brown low side ponytail, navy short-sleeve scrubs, blank name badge) turns toward the screen, leaning in, listening closely.
+> AMANDA (early 30s, shoulder-length light-brown wavy hair, teal scrub top, light grey cardigan, blank name badge) sets her coffee mug on the counter, pulls a chair over and sits down next to Tanya, sliding the mouse toward herself with a friendly "watch this" look. On "one centralized system" she brings both hands together in front of her, as if gathering everything into one place. The monitor stays angled away from the camera (soft glow, no readable screen).
+> TANYA (mid-30s, dark brown low side ponytail, navy short-sleeve scrubs, blank name badge) turns her chair toward the screen, leaning in.
 > Camera: horizontal over-the-shoulder two-shot from slightly behind and beside the desk, the monitor edge in the foreground, eye level, static on a tripod.
-> AMANDA speaks, with a bright, friendly early-30s female voice and a natural neutral American accent, clear and confident. Perfectly lip-synced: "Every referral has its own audit trail. Every call, every voicemail, every status change is logged automatically."
-> Audio: only her voice and quiet office room tone. No music, no subtitles, no captions, no on-screen text, no logos, no red, no extra people.
+> AMANDA speaks, with a bright, friendly early-30s female voice and a natural neutral American accent, upbeat and clear. Perfectly lip-synced: "Let me show you. It's one centralized system, built just for referrals."
+> Audio: only her voice, a soft mouse click and quiet office room tone. No music, no subtitles, no captions, no on-screen text, no logos, no red, no extra people.
 
-### CLIP 06 · Who did what, and when (40–48 s)
-**Dialogue:** AMANDA: "So you see exactly who did what, and when. Someone left a voicemail on Monday? It's right there, with the time."
-
-> Horizontal 16:9 video, 8 seconds, one continuous shot. Photorealistic live-action footage that looks professionally filmed, not AI-generated: shot on a cinema camera (Sony FX3 look) with a 35mm lens, natural window daylight plus soft practical office lights, true-to-life colours, real skin texture with pores, subtle film grain, natural imperfections, no glossy or plastic look. Same dental front office (white quartz and light-oak front desk, sage-green wall, the treatment-room doorway with the dental chair on the right).
-> AMANDA (early 30s, shoulder-length light-brown wavy hair, teal scrub top, light grey cardigan, blank name badge) points at the screen on "who did what", then taps her wrist like a watch on "and when". On "left a voicemail on Monday" she mimes holding a phone to her ear for a beat, then points back at the screen on "it's right there".
-> TANYA (mid-30s, dark brown low side ponytail, navy short-sleeve scrubs, blank name badge) nods slowly, her eyes widening a little: this is new to her.
-> Camera: horizontal medium two-shot across the desk, eye level, static on a tripod. The monitor stays angled away from the camera (soft glow, no readable screen).
-> AMANDA speaks, with a bright, friendly early-30s female voice and a natural neutral American accent, explaining patiently. Perfectly lip-synced: "So you see exactly who did what, and when. Someone left a voicemail on Monday? It's right there, with the time."
-> Audio: only her voice and quiet office room tone. No music, no subtitles, no captions, no on-screen text, no logos, no red, no extra people.
-
-### CLIP 07 · Anyone can pick it up (48–56 s)
-**Dialogue:** TANYA: "So if someone's out sick…" · AMANDA: "Anyone opens the activity and picks it up right where they left off."
+### CLIP 06 · A network of offices (40–48 s)
+**Dialogue:** TANYA: "Just for referrals?" · AMANDA: "Yep. And it builds a real network between dental offices, so the referrals keep coming."
 
 > Horizontal 16:9 video, 8 seconds, one continuous shot. Photorealistic live-action footage that looks professionally filmed, not AI-generated: shot on a cinema camera (Sony FX3 look) with a 35mm lens, natural window daylight plus soft practical office lights, true-to-life colours, real skin texture with pores, subtle film grain, natural imperfections, no glossy or plastic look. Same dental front office (white quartz and light-oak front desk, sage-green wall, the treatment-room doorway with the dental chair on the right).
-> TANYA (mid-30s, dark brown low side ponytail, navy short-sleeve scrubs, blank name badge) turns to Amanda and asks the first line, thinking out loud, one hand open. AMANDA (early 30s, shoulder-length light-brown wavy hair, teal scrub top, light grey cardigan, blank name badge) answers right away with a warm smile and makes a small "pass it on" gesture, one hand moving from her chest toward Tanya.
-> TANYA's face relaxes into a relieved half-smile.
-> Camera: horizontal medium two-shot, both faces visible, eye level, static on a tripod.
-> Two voices, each perfectly lip-synced, only one speaking at a time. First TANYA, with a warm mid-to-low mid-30s female voice and a natural neutral American accent, thoughtful: "So if someone's out sick…" Then AMANDA, with a bright, friendly early-30s female voice and a natural neutral American accent: "Anyone opens the activity and picks it up right where they left off."
+> TANYA (mid-30s, dark brown low side ponytail, navy short-sleeve scrubs, blank name badge) glances at Amanda, surprised, and asks her line. AMANDA (early 30s, shoulder-length light-brown wavy hair, teal scrub top, light grey cardigan, blank name badge) nods and, on "a real network between dental offices", draws a small web in the air with one finger, connecting points, then opens her hand on "the referrals keep coming". The monitor stays angled away from the camera (soft glow, no readable screen).
+> Camera: horizontal medium two-shot across the desk, eye level, static on a tripod.
+> Two voices, each perfectly lip-synced, only one speaking at a time. First TANYA, with a warm mid-to-low mid-30s female voice and a natural neutral American accent, surprised: "Just for referrals?" Then AMANDA, with a bright, friendly early-30s female voice and a natural neutral American accent, enthusiastic: "Yep. And it builds a real network between dental offices, so the referrals keep coming."
 > Audio: only their voices and quiet office room tone. No music, no subtitles, no captions, no on-screen text, no logos, no red, no extra people.
 
-### CLIP 08 · Administrative notes (56–64 s)
-**Dialogue:** AMANDA: "And our team keeps administrative notes right in the case. Private to our office, so nothing gets lost on a sticky note."
+### CLIP 07 · The audit trail (48–56 s)
+**Dialogue:** AMANDA: "Open any patient, and you see the whole audit trail: who called, who updated it, and when." · TANYA: "Everything?"
 
 > Horizontal 16:9 video, 8 seconds, one continuous shot. Photorealistic live-action footage that looks professionally filmed, not AI-generated: shot on a cinema camera (Sony FX3 look) with a 35mm lens, natural window daylight plus soft practical office lights, true-to-life colours, real skin texture with pores, subtle film grain, natural imperfections, no glossy or plastic look. Same dental front office (white quartz and light-oak front desk, sage-green wall, the treatment-room doorway with the dental chair on the right).
-> A yellow sticky note is stuck on the edge of the monitor frame. AMANDA (early 30s, shoulder-length light-brown wavy hair, teal scrub top, light grey cardigan, blank name badge) gestures between herself and Tanya on "our team". On "private to our office" she lowers her voice slightly with a small conspiratorial smile. On "nothing gets lost on a sticky note" she peels the yellow sticky note off the monitor, holds it up and drops it into the bin under the desk.
-> TANYA (mid-30s, dark brown low side ponytail, navy short-sleeve scrubs, blank name badge) laughs softly.
-> Camera: horizontal medium two-shot, eye level, static on a tripod. The monitor stays angled away from the camera (soft glow, no readable screen).
-> AMANDA speaks, with a bright, friendly early-30s female voice and a natural neutral American accent, light and warm. Perfectly lip-synced: "And our team keeps administrative notes right in the case. Private to our office, so nothing gets lost on a sticky note."
-> Audio: only her voice, Tanya's soft laugh and quiet office room tone. No music, no subtitles, no captions, no on-screen text, no logos, no red, no extra people.
+> AMANDA (early 30s, shoulder-length light-brown wavy hair, teal scrub top, light grey cardigan, blank name badge) clicks the mouse once and points at the screen on "open any patient". On "who called, who updated it, and when" she counts three points on her fingers, then taps her wrist like a watch on "when". TANYA (mid-30s, dark brown low side ponytail, navy short-sleeve scrubs, blank name badge) leans closer to the screen, her eyes widening, and asks her one word, impressed. The monitor stays angled away from the camera (soft glow, no readable screen).
+> Camera: horizontal medium two-shot, slightly favouring Amanda, eye level, slow smooth push-in on a tripod.
+> Two voices, each perfectly lip-synced, only one speaking at a time. First AMANDA, with a bright, friendly early-30s female voice and a natural neutral American accent, confident: "Open any patient, and you see the whole audit trail: who called, who updated it, and when." Then TANYA, with a warm mid-to-low mid-30s female voice and a natural neutral American accent, amazed: "Everything?"
+> Audio: only their voices, a soft mouse click and quiet office room tone. No music, no subtitles, no captions, no on-screen text, no logos, no red, no extra people.
 
-### CLIP 09 · X-rays and insurance (64–72 s)
-**Dialogue:** AMANDA: "X-rays and insurance cards? They're attached right to the referral. No calling, no faxing, no digging through emails."
-
-> Horizontal 16:9 video, 8 seconds, one continuous shot. Photorealistic live-action footage that looks professionally filmed, not AI-generated: shot on a cinema camera (Sony FX3 look) with a 35mm lens, natural window daylight plus soft practical office lights, true-to-life colours, real skin texture with pores, subtle film grain, natural imperfections, no glossy or plastic look. Same dental front office (white quartz and light-oak front desk, sage-green wall, the treatment-room doorway with the dental chair on the right).
-> A small stack of printed papers and a desk phone are on the desk. AMANDA (early 30s, shoulder-length light-brown wavy hair, teal scrub top, light grey cardigan, blank name badge) counts on two fingers on "X-rays and insurance cards". On "attached right to the referral" she taps the desk once. On "no calling, no faxing, no digging through emails" she gives the desk phone a light tap, then waves a hand over the paper stack and pushes it aside with a smile.
-> TANYA (mid-30s, dark brown low side ponytail, navy short-sleeve scrubs, blank name badge) watches the papers slide away and grins.
-> Camera: horizontal medium two-shot across the desk, eye level, slow smooth push-in on a tripod.
-> AMANDA speaks, with a bright, friendly early-30s female voice and a natural neutral American accent, upbeat, with a little rhythm on the three "no" phrases. Perfectly lip-synced: "X-rays and insurance cards? They're attached right to the referral. No calling, no faxing, no digging through emails."
-> Audio: only her voice and quiet office room tone. No music, no subtitles, no captions, no on-screen text, no logos, no red, no extra people. No phone ringing.
-
-### CLIP 10 · Nothing gets buried (72–80 s)
-**Dialogue:** TANYA: "So nothing gets buried anymore?" · AMANDA: "Nothing. And saving just one of those twenty covers it for the whole year."
+### CLIP 08 · Talk to the referring office (56–64 s)
+**Dialogue:** TANYA: "And if I need something from the office that referred them?" · AMANDA: "Message that general dental office right here, inside the same case."
 
 > Horizontal 16:9 video, 8 seconds, one continuous shot. Photorealistic live-action footage that looks professionally filmed, not AI-generated: shot on a cinema camera (Sony FX3 look) with a 35mm lens, natural window daylight plus soft practical office lights, true-to-life colours, real skin texture with pores, subtle film grain, natural imperfections, no glossy or plastic look. Same dental front office (white quartz and light-oak front desk, sage-green wall, the treatment-room doorway with the dental chair on the right).
-> TANYA (mid-30s, dark brown low side ponytail, navy short-sleeve scrubs, blank name badge) asks the first line, half-smiling, almost not believing it. AMANDA (early 30s, shoulder-length light-brown wavy hair, teal scrub top, light grey cardigan, blank name badge) answers with a firm, confident nod on "Nothing", then holds up one finger on "just one of those twenty" and opens her hand wide on "the whole year".
-> TANYA sits up straighter, convinced.
+> TANYA (mid-30s, dark brown low side ponytail, navy short-sleeve scrubs, blank name badge) asks her line, half turned to Amanda, one hand gesturing toward the desk phone. AMANDA (early 30s, shoulder-length light-brown wavy hair, teal scrub top, light grey cardigan, blank name badge) smiles, mimes typing a short message with two fingers, then points at the screen on "right here". The monitor stays angled away from the camera (soft glow, no readable screen).
 > Camera: horizontal medium two-shot, both faces visible, eye level, static on a tripod.
-> Two voices, each perfectly lip-synced, only one speaking at a time. First TANYA, with a warm mid-to-low mid-30s female voice and a natural neutral American accent, hopeful: "So nothing gets buried anymore?" Then AMANDA, with a bright, friendly early-30s female voice and a natural neutral American accent, warm and certain: "Nothing. And saving just one of those twenty covers it for the whole year."
+> Two voices, each perfectly lip-synced, only one speaking at a time. First TANYA, with a warm mid-to-low mid-30s female voice and a natural neutral American accent, practical: "And if I need something from the office that referred them?" Then AMANDA, with a bright, friendly early-30s female voice and a natural neutral American accent, easy and confident: "Message that general dental office right here, inside the same case."
 > Audio: only their voices and quiet office room tone. No music, no subtitles, no captions, no on-screen text, no logos, no red, no extra people.
 
-### CLIP 11 · Free trial (80–88 s)
-**Dialogue:** TANYA: "Okay. I'm starting the free trial right now." · AMANDA: "Tooth Referral. Never miss a referral again."
+### CLIP 09 · Administrative notes (64–72 s)
+**Dialogue:** AMANDA: "And for our own team, there are administrative notes. We talk inside our office without a single phone call."
 
 > Horizontal 16:9 video, 8 seconds, one continuous shot. Photorealistic live-action footage that looks professionally filmed, not AI-generated: shot on a cinema camera (Sony FX3 look) with a 35mm lens, natural window daylight plus soft practical office lights, true-to-life colours, real skin texture with pores, subtle film grain, natural imperfections, no glossy or plastic look. Same dental front office (white quartz and light-oak front desk, sage-green wall, the treatment-room doorway with the dental chair on the right).
-> Warm daylight. TANYA (mid-30s, dark brown low side ponytail, navy short-sleeve scrubs, blank name badge) turns back to the computer with new energy, smiling, and starts typing as she says her line. AMANDA (early 30s, shoulder-length light-brown wavy hair, teal scrub top, light grey cardigan, blank name badge) stands, picks up her white coffee mug and says her line. On the last words both glance at the camera with a natural, friendly smile. The monitor stays angled away from the camera (soft glow, no readable screen).
+> AMANDA (early 30s, shoulder-length light-brown wavy hair, teal scrub top, light grey cardigan, blank name badge) gestures between herself and Tanya on "our own team". On "administrative notes" she points at the screen, and on "without a single phone call" she lightly taps the desk phone and shakes her head with a smile. TANYA (mid-30s, dark brown low side ponytail, navy short-sleeve scrubs, blank name badge) laughs softly and nods. The monitor stays angled away from the camera (soft glow, no readable screen).
+> Camera: horizontal medium two-shot across the desk, eye level, static on a tripod.
+> AMANDA speaks, with a bright, friendly early-30s female voice and a natural neutral American accent, warm and light. Perfectly lip-synced: "And for our own team, there are administrative notes. We talk inside our office without a single phone call."
+> Audio: only her voice, Tanya's soft laugh and quiet office room tone. No music, no subtitles, no captions, no on-screen text, no logos, no red, no extra people. No phone ringing.
+
+### CLIP 10 · Everything in one place (72–80 s)
+**Dialogue:** TANYA: "So no more calling around for patient info?" · AMANDA: "None. X-rays, insurance, notes. Everything's managed in one place."
+
+> Horizontal 16:9 video, 8 seconds, one continuous shot. Photorealistic live-action footage that looks professionally filmed, not AI-generated: shot on a cinema camera (Sony FX3 look) with a 35mm lens, natural window daylight plus soft practical office lights, true-to-life colours, real skin texture with pores, subtle film grain, natural imperfections, no glossy or plastic look. Same dental front office (white quartz and light-oak front desk, sage-green wall, the treatment-room doorway with the dental chair on the right).
+> TANYA (mid-30s, dark brown low side ponytail, navy short-sleeve scrubs, blank name badge) asks her line, starting to smile, almost not believing it. AMANDA (early 30s, shoulder-length light-brown wavy hair, teal scrub top, light grey cardigan, blank name badge) answers with a firm little nod on "None", counts "X-rays, insurance, notes" on three fingers, then brings both hands together on "one place". The monitor stays angled away from the camera (soft glow, no readable screen).
+> Camera: horizontal medium two-shot, both faces visible, eye level, static on a tripod.
+> Two voices, each perfectly lip-synced, only one speaking at a time. First TANYA, with a warm mid-to-low mid-30s female voice and a natural neutral American accent, hopeful: "So no more calling around for patient info?" Then AMANDA, with a bright, friendly early-30s female voice and a natural neutral American accent, certain and warm: "None. X-rays, insurance, notes. Everything's managed in one place."
+> Audio: only their voices and quiet office room tone. No music, no subtitles, no captions, no on-screen text, no logos, no red, no extra people.
+
+### CLIP 11 · I'm in (80–88 s)
+**Dialogue:** TANYA: "Okay… I'm in. I'm starting the free trial right now." · AMANDA: "Tooth Referral. Never miss a referral again."
+
+> Horizontal 16:9 video, 8 seconds, one continuous shot. Photorealistic live-action footage that looks professionally filmed, not AI-generated: shot on a cinema camera (Sony FX3 look) with a 35mm lens, natural window daylight plus soft practical office lights, true-to-life colours, real skin texture with pores, subtle film grain, natural imperfections, no glossy or plastic look. Same dental front office (white quartz and light-oak front desk, sage-green wall, the treatment-room doorway with the dental chair on the right).
+> Warm daylight. TANYA (mid-30s, dark brown low side ponytail, navy short-sleeve scrubs, blank name badge) takes the mouse back with new energy, smiling, and starts typing as she says her line. AMANDA (early 30s, shoulder-length light-brown wavy hair, teal scrub top, light grey cardigan, blank name badge) stands, picks up her white coffee mug and says her line. On the last words both glance at the camera with a natural, friendly smile. The monitor stays angled away from the camera (soft glow, no readable screen).
 > Camera: horizontal medium-wide two-shot across the desk, eye level, slow smooth pull-back on a tripod to show more of the dental front office and the treatment-room doorway.
-> Two voices, each perfectly lip-synced, only one speaking at a time. First TANYA, with a warm mid-to-low mid-30s female voice and a natural neutral American accent, relieved and upbeat: "Okay. I'm starting the free trial right now." Then AMANDA, with a bright, friendly early-30s female voice and a natural neutral American accent, warm: "Tooth Referral. Never miss a referral again."
+> Two voices, each perfectly lip-synced, only one speaking at a time. First TANYA, with a warm mid-to-low mid-30s female voice and a natural neutral American accent, relieved and upbeat: "Okay… I'm in. I'm starting the free trial right now." Then AMANDA, with a bright, friendly early-30s female voice and a natural neutral American accent, warm: "Tooth Referral. Never miss a referral again."
 > Audio: only their voices, soft keyboard typing and quiet office room tone. No music, no subtitles, no captions, no on-screen text, no logos, no red, no extra people.
 
 ---
