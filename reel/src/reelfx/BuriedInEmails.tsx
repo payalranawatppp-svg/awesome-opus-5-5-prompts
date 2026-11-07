@@ -285,20 +285,6 @@ const Mouse: React.FC<{ path: PK[]; clicks: number[]; m: Map; show: [number, num
   );
 };
 
-const Tag: React.FC<{ x: number; y: number; m: Map; k: number; text: string; color?: string; icon?: string; anchor?: "left" | "right" | "center" }> = ({ x, y, m, k, text, color = GREEN, icon = ICON.check, anchor = "left" }) => {
-  if (k <= 0) return null;
-  const [px, py] = m(x, y);
-  const tx = anchor === "left" ? "0%" : anchor === "right" ? "-100%" : "-50%";
-  return (
-    <div style={{ position: "absolute", left: px, top: py, translate: `${tx} -50%`, scale: String(k), transformOrigin: anchor === "right" ? "100% 50%" : anchor === "center" ? "50% 50%" : "0% 50%", display: "flex", alignItems: "center", gap: 10, padding: "12px 22px 12px 14px", borderRadius: 999, background: color, color: color === YELLOW ? INK : W, fontFamily: FONT_UI, fontWeight: 800, fontSize: 30, whiteSpace: "nowrap", boxShadow: "0 14px 30px rgba(0,0,0,0.28)" }}>
-      <div style={{ width: 36, height: 36, borderRadius: 18, background: "rgba(255,255,255,0.25)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-        <Icon d={icon} size={22} color={color === YELLOW ? INK : W} />
-      </div>
-      {text}
-    </div>
-  );
-};
-
 const I = {
   fax: "M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z",
   voicemail: "M5.5 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM18.5 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM5.5 15.5h13",
@@ -329,7 +315,6 @@ const DashPanel: React.FC<{ lay: Lay }> = ({ lay }) => {
             {[[440, 398, 1836, 486], [440, 532, 1836, 650], [440, 672, 1836, 770], [440, 800, 1836, 895]].map((b, i) => (
               <Hl key={i} box={b} m={m} k={sp(frame, T.centralized + 6 + i * 5, 14, 200) * (1 - ramp(frame, T.referrals3 + 12, T.referrals3 + 20))} fill />
             ))}
-            <Tag x={1150} y={290} m={m} k={sp(frame, T.centralized + 14, 12, 220)} text="every referral, one place" anchor="center" color={TR.purple} icon={ICON.inbox} />
             <Mouse path={[[S_LIST + 4, 1300, 700], [T.centralized + 20, 1000, 440], [S_NET, 1000, 450]]} clicks={[]} m={m} show={[S_LIST + 6, S_NET]} />
           </>
         )}
@@ -338,9 +323,7 @@ const DashPanel: React.FC<{ lay: Lay }> = ({ lay }) => {
       <Shot img={D3("r3c-referral-source")} from={S_NET} to={S_LOG} keys={[[S_NET, { x: 380, y: 60, w: 1100 }], [T.network - 8, { x: 380, y: 470, w: 760 }]]}>
         {(m) => (
           <>
-            <Hl box={[386, 660, 612, 732]} m={m} k={sp(frame, T.network, 12, 200)} color={GREEN} label="on the network" labelSide="bottom" />
-            <Tag x={1100} y={600} m={m} k={sp(frame, T.network + 10, 12, 220)} text="one shared network" anchor="right" icon={I.net} />
-            <Tag x={1100} y={680} m={m} k={sp(frame, T.coming - 4, 12, 220)} text="more referrals" anchor="right" color={TR.purple} />
+            <Hl box={[386, 660, 612, 732]} m={m} k={sp(frame, T.network, 12, 200)} color={GREEN} />
           </>
         )}
       </Shot>
@@ -348,10 +331,8 @@ const DashPanel: React.FC<{ lay: Lay }> = ({ lay }) => {
       <Shot img={D3("r3c-activity-log")} from={S_LOG} to={S_MSG} keys={[[S_LOG, { x: 380, y: 0, w: 1100 }], [T.audit, { x: 380, y: 90, w: 820 }]]}>
         {(m) => (
           <>
-            <Hl box={[412, 251, 900, 283]} m={m} k={sp(frame, T.added - 2, 12, 220)} label="who added the X-rays" labelSide="bottom" />
-            <Hl box={[412, 208, 870, 239]} m={m} k={sp(frame, T.changed - 2, 12, 220)} color={AMBER_DK} label="who changed the status" labelSide="top" />
-            <Hl box={[476, 104, 672, 444]} m={m} k={sp(frame, T.when - 2, 12, 220)} color={GREEN} fill={false} />
-            <Tag x={1150} y={430} m={m} k={sp(frame, T.everything, 12, 220)} text="every step, time-stamped" anchor="right" icon={I.clock} />
+            <Hl box={[412, 251, 900, 283]} m={m} k={sp(frame, T.added - 2, 12, 220)} />
+            <Hl box={[412, 208, 870, 239]} m={m} k={sp(frame, T.changed - 2, 12, 220)} color={AMBER_DK} />
             <Mouse path={[[S_LOG + 4, 1000, 120], [T.added, 760, 268], [T.changed, 760, 224], [T.when, 600, 330]]} clicks={[]} m={m} show={[S_LOG + 6, S_MSG]} />
           </>
         )}
@@ -360,11 +341,8 @@ const DashPanel: React.FC<{ lay: Lay }> = ({ lay }) => {
       <Shot img={D3("r3c-messages")} from={S_MSG} to={S_NOTE} keys={[[S_MSG, { x: 340, y: 290, w: 1400 }], [T.message, { x: 720, y: 360, w: 960 }]]}>
         {(m) => (
           <>
-            <Hl box={[798, 430, 1600, 498]} m={m} k={sp(frame, T.message, 12, 220) * (1 - ramp(frame, T.platform + 6, T.platform + 12))} label="message the general dentist" labelSide="top" />
-            <Hl box={[798, 505, 1480, 568]} m={m} k={sp(frame, T.platform, 12, 220)} color={GREEN} label="they reply in the same case" labelSide="bottom" />
-            <Tag x={1660} y={640} m={m} k={sp(frame, T.no - 2, 12, 240)} text="No phone calls" anchor="right" color={AMBER_DK} icon={I.x} />
-            <Tag x={1660} y={712} m={m} k={sp(frame, T.no2 - 2, 12, 240)} text="No emails" anchor="right" color={AMBER_DK} icon={I.x} />
-            <Tag x={1240} y={790} m={m} k={sp(frame, T.saves - 2, 12, 220)} text="saves both offices time" anchor="center" icon={I.clock} />
+            <Hl box={[798, 430, 1600, 498]} m={m} k={sp(frame, T.message, 12, 220) * (1 - ramp(frame, T.platform + 6, T.platform + 12))} />
+            <Hl box={[798, 505, 1480, 568]} m={m} k={sp(frame, T.platform, 12, 220)} color={GREEN} />
           </>
         )}
       </Shot>
@@ -372,25 +350,65 @@ const DashPanel: React.FC<{ lay: Lay }> = ({ lay }) => {
       <Shot img={D3("r3c-admin-notes")} from={S_NOTE} to={S_XRAY} keys={[[S_NOTE, { x: 1000, y: 380, w: 900 }], [T.administrative, { x: 1360, y: 470, w: 540 }]]}>
         {(m) => (
           <>
-            <Hl box={[1396, 496, 1832, 590]} m={m} k={sp(frame, T.administrative - 2, 12, 220)} label="Administrative Notes" labelSide="bottom" />
+            <Hl box={[1396, 496, 1832, 590]} m={m} k={sp(frame, T.administrative - 2, 12, 220)} />
             <Hl box={[1412, 672, 1834, 846]} m={m} k={sp(frame, T.inside2 - 2, 12, 220)} color={GREEN} fill={false} />
-            <Tag x={1620} y={640} m={m} k={sp(frame, T.inside2 + 6, 12, 220)} text="private to your team" anchor="center" color={TR.purple} icon={I.lock} />
           </>
         )}
       </Shot>
       {/* X-rays */}
       <Shot img={D3("r3c-status-xrays")} from={S_XRAY} to={S_INS} keys={[[S_XRAY, { x: 380, y: 430, w: 1000 }], [T.patient2, { x: 380, y: 520, w: 820 }]]}>
-        {(m) => <Hl box={[398, 546, 826, 864]} m={m} k={sp(frame, T.patient2 - 2, 12, 220)} label="X-rays, on the referral" labelSide="bottom" />}
+        {(m) => <Hl box={[398, 546, 826, 864]} m={m} k={sp(frame, T.patient2 - 2, 12, 220)} />}
       </Shot>
       {/* insurance, front and back */}
       <Shot img={D3("r3c-insurance")} from={S_INS} to={S_END} keys={[[S_INS, { x: 380, y: 220, w: 960 }]]}>
         {(m) => (
           <>
-            <Hl box={[402, 332, 1292, 772]} m={m} k={sp(frame, T.everythings, 12, 220)} color={GREEN} label="insurance, front and back" labelSide="top" />
-            <Tag x={860} y={820} m={m} k={sp(frame, T.place - 2, 12, 220)} text="everything in one place" anchor="center" color={TR.purple} />
+            <Hl box={[402, 332, 1292, 772]} m={m} k={sp(frame, T.everythings, 12, 220)} color={GREEN} />
           </>
         )}
       </Shot>
+    </div>
+  );
+};
+
+/** Callouts: chips in the strip just under the dashboard panel (over the wall behind the two of them), so they never
+ *  cover the screenshot's own text. One group at a time, centred. */
+type Call = { from: number; to: number; chips: { t: string; c: string; i: string; at?: number }[] };
+const CALLS = (): Call[] => [
+  { from: T.centralized + 12, to: T.just - 6, chips: [{ t: "every referral, one place", c: TR.purple, i: ICON.inbox }] },
+  { from: T.network + 6, to: T.open - 8, chips: [{ t: "one shared network", c: GREEN, i: I.net }, { t: "more referrals", c: TR.purple, i: ICON.check, at: T.coming - 4 }] },
+  { from: T.added - 2, to: T.changed - 4, chips: [{ t: "who added the X-rays", c: TR.purple, i: ICON.check }] },
+  { from: T.changed - 2, to: T.when - 4, chips: [{ t: "who changed the status", c: AMBER_DK, i: ICON.check }] },
+  { from: T.when - 2, to: T.something - 12, chips: [{ t: "every step, time-stamped", c: GREEN, i: I.clock }] },
+  { from: T.message, to: T.no - 4, chips: [{ t: "message the general dentist", c: TR.purple, i: ICON.chat }] },
+  { from: T.no - 2, to: T.saves - 4, chips: [{ t: "No phone calls", c: AMBER_DK, i: I.x }, { t: "No emails", c: AMBER_DK, i: I.x, at: T.no2 - 2 }] },
+  { from: T.saves - 2, to: T.team - 16, chips: [{ t: "saves both offices time", c: GREEN, i: I.clock }] },
+  { from: T.administrative - 2, to: T.inside2 - 4, chips: [{ t: "Administrative Notes", c: TR.purple, i: ICON.check }] },
+  { from: T.inside2 - 2, to: T.calling - 12, chips: [{ t: "private to your team", c: TR.purple, i: I.lock }] },
+  { from: T.patient2 - 2, to: T.everythings - 6, chips: [{ t: "X-rays on the referral", c: TR.purple, i: ICON.check }] },
+  { from: T.everythings - 4, to: T.place - 4, chips: [{ t: "insurance, front and back", c: GREEN, i: ICON.check }] },
+  { from: T.place - 2, to: TF[0] + 2, chips: [{ t: "everything in one place", c: TR.purple, i: ICON.check }] },
+];
+const Callouts: React.FC<{ lay: Lay }> = ({ lay }) => {
+  const frame = useCurrentFrame();
+  if (lay.k < 0.5) return null;
+  const g = CALLS().find((c) => frame >= c.from - 1 && frame <= c.to + 6);
+  if (!g) return null;
+  const out = ramp(frame, g.to, g.to + 6);
+  return (
+    <div style={{ position: "absolute", left: 0, right: 0, top: lay.dashTop + 24 + PH + 22, display: "flex", justifyContent: "center", gap: 14, opacity: 1 - out }}>
+      {g.chips.map((c) => {
+        const k = sp(frame, c.at ?? g.from, 12, 230);
+        if (k <= 0) return null;
+        return (
+          <div key={c.t} style={{ scale: String(k), display: "flex", alignItems: "center", gap: 10, padding: "12px 24px 12px 14px", borderRadius: 999, background: c.c, color: W, fontFamily: FONT_UI, fontWeight: 800, fontSize: 32, whiteSpace: "nowrap", boxShadow: "0 14px 30px rgba(0,0,0,0.3)" }}>
+            <div style={{ width: 38, height: 38, borderRadius: 19, background: "rgba(255,255,255,0.25)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <Icon d={c.i} size={22} color={W} />
+            </div>
+            {c.t}
+          </div>
+        );
+      })}
     </div>
   );
 };
@@ -464,15 +482,17 @@ const Chaos: React.FC = () => {
     { i: I.voicemail, t: "Voicemails", at: T.voicemails - 3 },
     { i: I.mail, t: "Inbox threads", at: T.inbox - 3 },
   ];
-  const stamp = show2 ? sp(frame, T.old - 2, 11, 260) : 0;
+  const stamp = show2 ? sp(frame, T.old + 6, 11, 260) : 0;
   const opacity = show1 ? 1 - ramp(frame, CLOSE[0] - 4, CLOSE[0] + 4) : 1 - ramp(frame, T.why + 2, T.why + 10);
   return (
     <div style={{ position: "absolute", left: 0, right: 0, top: 170, display: "flex", flexDirection: "column", alignItems: "center", gap: 16, opacity }}>
       {items.map((x) => (
-        <Chip key={x.t} icon={x.i} text={x.t} k={show1 ? sp(frame, x.at, 12, 220) : sp(frame, T.old - 10, 12, 220)} color={YELLOW} strike={show2 ? ramp(frame, T.old, T.old + 8) : 0} />
+        <div key={x.t} style={{ opacity: 1 - 0.8 * stamp }}>
+          <Chip icon={x.i} text={x.t} k={show1 ? sp(frame, x.at, 12, 220) : sp(frame, T.old - 10, 12, 220)} color={YELLOW} strike={show2 ? ramp(frame, T.old - 6, T.old + 2) : 0} />
+        </div>
       ))}
       {stamp > 0 && (
-        <div style={{ position: "absolute", top: 70, rotate: "-8deg", padding: "10px 26px", border: `7px solid ${TR.purple}`, color: TR.purple, borderRadius: 14, background: "rgba(255,255,255,0.94)", ...TYPE, fontSize: 66, letterSpacing: "0.01em", scale: String(interpolate(stamp, [0, 1], [2.2, 1])), opacity: Math.min(1, stamp * 2), boxShadow: "0 20px 50px rgba(10,6,24,0.35)" }}>THE OLD WAY</div>
+        <div style={{ position: "absolute", top: 62, rotate: "-6deg", padding: "10px 26px", border: `7px solid ${TR.purple}`, color: TR.purple, borderRadius: 14, background: "rgba(255,255,255,0.94)", ...TYPE, fontSize: 66, letterSpacing: "0.01em", scale: String(interpolate(stamp, [0, 1], [2.2, 1])), opacity: Math.min(1, stamp * 2), boxShadow: "0 20px 50px rgba(10,6,24,0.35)" }}>THE OLD WAY</div>
       )}
     </div>
   );
@@ -608,6 +628,7 @@ export const BuriedInEmails: React.FC = () => {
             <AbsoluteFill style={{ background: "linear-gradient(180deg, rgba(10,6,24,0.30) 0%, transparent 22%, transparent 62%, rgba(10,6,24,0.42) 100%)" }} />
           </AbsoluteFill>
           <DashPanel lay={lay} />
+          <Callouts lay={lay} />
           <Opening />
           <Lost />
           <Chaos />
