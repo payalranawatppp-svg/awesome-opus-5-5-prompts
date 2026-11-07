@@ -105,7 +105,7 @@ e.raw(f'<path d="{monotone(pts)}" fill="none" stroke="rgb{PURPLE}" stroke-width=
 e.raw(f'<circle cx="1297" cy="{pts[-1][1]:.1f}" r="6" fill="rgb(225,215,252)"/><circle cx="1297" cy="{pts[-1][1]:.1f}" r="3.6" fill="rgb{PURPLE}"/>')
 # ---------------------------------------------------------------- referral funnel (leak rows in amber, not red)
 F = D['funnel']
-AMB_BG, AMB_TX = (254, 246, 231), (186, 112, 22)
+AMB_BG, AMB_TX = tuple(int(v) for v in PLATE[1265, 1700]), (196, 56, 72)  # original red leak rows
 rows = [(1228, 1479, 1241), (1313, 1488, 1326), (1398, 1491, 1412), (1483, 1493, 1497)]
 for i, (base, cx, bar) in enumerate(rows):
     r = F[i]
@@ -239,10 +239,9 @@ def donut(cx, cy, segs, total):
     put(cx + 0.5 - (r_ - l) / 2, 3517, str(total), 24, 700, INK)
     l, t, r_, bb = inkbox('referrals', 11, 400)
     put(cx + 0.5 - (r_ - l) / 2, 3540, 'referrals', 11, 400, GRAY)
-OC = [(161, 64, 240), (234, 156, 16), (19, 157, 174), (42, 95, 228), (29, 204, 127), (152, 155, 168)]
+OC = [(161, 64, 240), (234, 156, 16), (19, 157, 174), (42, 95, 228), (29, 204, 127), (223, 48, 69)]
 O = D['outcomes']
 donut(518.5, 3517.5, [(o['count'], c) for o, c in zip(O, OC)], sum(o['count'] for o in O))
-e.fill_bg((645, 3595, 665, 3615)); e.rect(648.6, 3598.6, 12.4, 12.4, OC[5], rx=2.6)  # closed w/o completion: grey, not red
 for i, o in enumerate(O):
     base = 3435 + 35 * i
     e.fill_bg((990, base - 14, 1080, base + 4))

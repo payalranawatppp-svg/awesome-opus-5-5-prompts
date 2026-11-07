@@ -23,9 +23,9 @@ These override anything below that conflicts (e.g. older lines that say "GP").
    Office Manager (vary as needed).
 4. **No red** (it reads as blood): alerts, losses, strike-throughs, stamps, flashes and highlights use **amber**
    (#FFB020 / #E89D15, soft #FFF1D6), purple or yellow. Recolour red/pink/magenta in dashboard stills to amber; brand
-   logos (DocuSign) keep their own colours. User override (2026-11-07): the sidebar **Notifications badge keeps
-   its original red** in real screen recordings; do not recolour it. When editing a real recording, change only the
-   data, never the app's native look.
+   logos (DocuSign) keep their own colours. User override (2026-11-07): in **real screen recordings of the app**
+   keep every original colour, red included (Notifications badge, funnel leak rows, "Closed w/o completion"); change
+   only the data, never the app's native look. The no-red rule applies to our own graphics, captions and stills.
 5. **Never condescend to the front desk.** They make most of the buying decisions. Humour aims at the problem (phone
    tag, paperwork, scattered tools), never at staff competence. No "our front desk is a magician who makes referrals
    disappear", no "they mark things scheduled when nobody scheduled anything". Frame staff as overloaded heroes the
