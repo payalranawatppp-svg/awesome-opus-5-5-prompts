@@ -369,20 +369,21 @@ export const CaseLifecycle: React.FC = () => {
 // ---------------------------------------------------------------------------------------------------
 // 6. Analytics: the four KPI cards count up, the volume chart draws against the prior period.
 
-const VOL = [1, 2, 1, 3, 2, 4, 3, 5, 4, 6, 5, 7, 6, 8];
-const PRIOR = [1, 1, 2, 1, 2, 2, 1, 3, 2, 2, 3, 2, 3, 3];
+// daily volume and prior period from the canonical analytics dataset (src/data/analytics-demo.json)
+const VOL = [0, 1, 0, 0, 1, 1, 1, 2, 0, 1, 2, 0, 0, 0, 0, 1, 2, 3, 1, 1, 2, 0, 2, 2, 0, 0, 2, 0, 0, 3, 0];
+const PRIOR = [2, 0, 1, 1, 0, 2, 2, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 3, 2, 1, 1, 0, 0, 1, 0, 0, 0, 1, 2];
 export const AnalyticsKpis: React.FC = () => {
   const frame = useCurrentFrame();
   const kpis = [
-    { t: "Volume received", v: count(frame, 14, 40, 24), f: (n: number) => Math.round(n).toString(), u: "", c: TR.purple, delta: "+33% vs prior" },
-    { t: "Time to first contact", v: count(frame, 18, 40, 2), f: (n: number) => n.toFixed(1), u: "h", c: TR.green, delta: "−1.5 h vs prior" },
-    { t: "Case acceptance", v: count(frame, 22, 40, 86), f: (n: number) => Math.round(n).toString(), u: "%", c: TR.purple, delta: "+12% vs prior" },
-    { t: "Ghost rate", v: count(frame, 26, 40, 4), f: (n: number) => Math.round(n).toString(), u: "%", c: TR.amber, delta: "−6% vs prior" },
+    { t: "Volume received", v: count(frame, 14, 40, 28), f: (n: number) => Math.round(n).toString(), u: "", c: TR.purple, delta: "+27% vs prior" },
+    { t: "Time to first contact", v: count(frame, 18, 40, 3.7), f: (n: number) => n.toFixed(1), u: "h", c: TR.green, delta: "avg, first call" },
+    { t: "Case acceptance", v: count(frame, 22, 40, 76), f: (n: number) => Math.round(n).toString(), u: "%", c: TR.purple, delta: "13 of 17 consults" },
+    { t: "Ghost rate", v: count(frame, 26, 40, 7), f: (n: number) => Math.round(n).toString(), u: "%", c: TR.amber, delta: "2 of 28 referrals" },
   ];
   const draw = interpolate(frame, [56, 100], [0, 1], clamp);
   const w = 880;
   const h = 300;
-  const pts = (arr: number[]) => arr.map((v, i) => `${(i / (arr.length - 1)) * w},${h - (v / 8) * (h - 20)}`).join(" ");
+  const pts = (arr: number[]) => arr.map((v, i) => `${(i / (arr.length - 1)) * w},${h - (v / 3) * (h - 20)}`).join(" ");
   return (
     <Stage>
       <Exit>
@@ -435,8 +436,8 @@ export const NeedsAttention: React.FC = () => {
   const card = useIn(0, 18, 130);
   const items = [
     { t: "2 appointments past date", s: "no completion note", a: "Mark complete" },
-    { t: "1 ghost referral", s: "3+ contact attempts", a: "Re-assign" },
-    { t: "1 insurance request outstanding", s: "older than 48 h", a: "Send reminder" },
+    { t: "2 ghost referrals", s: "3+ contact attempts", a: "Re-assign" },
+    { t: "3 insurance requests outstanding", s: "older than 48 h", a: "Send reminder" },
   ];
   const doneAt = 92;
   return (
