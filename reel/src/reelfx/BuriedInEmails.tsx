@@ -642,7 +642,8 @@ export const BuriedInEmails: React.FC = () => {
       </FontGate>
 
       <Audio src={staticFile("audio/voice/s13-cut.wav")} volume={(f) => interpolate(f, [CUT_FRAMES - 4, CUT_FRAMES + 4], [1, 0], clamp)} />
-      <Audio src={staticFile("audio/music/cb-bed.ogg")} volume={(f) => 0.06 * interpolate(f, [0, 20, S13_DURATION - 45, S13_DURATION - 1], [0, 1, 1, 0], clamp)} />
+      {/* the bed is composed against this edit (scripts/synth_s13_bed.py): quiet under dialogue, up on the end card */}
+      <Audio src={staticFile("audio/music/s13-bed.wav")} volume={(f) => interpolate(f, [0, CUT_FRAMES - 6, CUT_FRAMES + 6, S13_DURATION - 1], [0.2, 0.2, 0.42, 0.42], clamp)} />
       {SFX.map((x, i) => (
         <Sequence key={i} from={Math.max(0, x.f)} layout="none">
           <Audio src={staticFile(`audio/sfx/${x.s}.wav`)} volume={x.v} />
