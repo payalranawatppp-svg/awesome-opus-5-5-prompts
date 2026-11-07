@@ -120,6 +120,11 @@ const layoutAt = (f: number): Lay => {
 /** The close-up on Tanya that hides the mug slip (clip 3, from just after "threads." to the end of the take). */
 const CLOSE = [Math.round((cut.segments[3].at + (3.0 - cut.segments[3].in)) * FPS), Math.round(cut.segments[6].at * FPS)] as const;
 
+/** Transition punches: a quick zoom with motion blur where the story turns (into the problem, into the close-up,
+ *  into "the old way", into and out of the product). */
+const PUNCHES = (): number[] => [JOINS[0], CLOSE[0], CLOSE[1], TA[0] + 2, TF[0] + 2];
+const punchAt = (f: number) => PUNCHES().reduce((m, p) => (f >= p - 1 && f < p + 9 ? Math.max(m, Math.sin(((f - p + 1) / 10) * Math.PI)) : m), 0);
+
 /** Camera: a slow push on the opening shot, the close-up, and a 6% jump zoom that flips on every join. */
 const camera = (f: number, lay: Lay) => {
   let flips = 0;
@@ -241,9 +246,14 @@ const Shot: React.FC<{ img: Img2; from: number; to: number; keys: CK[]; children
   if (frame < from - 1 || frame > to + 9) return null;
   const c = camAt(frame, keys);
   const s = PW / c.w;
-  const inn = ramp(frame, from, from + 9, easeOut);
+  // push transition: the next screen slides in from the right and pushes this one out to the left
+  const inn = ramp(frame, from, from + 12, easeOut);
+  const gone = ramp(frame, to, to + 9, easeIO);
+  const x = (1 - inn) * PW * 0.9 - gone * PW * 0.35;
+  const sc = interpolate(inn, [0, 1], [0.94, 1]) * interpolate(gone, [0, 1], [1, 0.94]);
+  const blur = Math.max(1 - inn, gone) * 6;
   return (
-    <AbsoluteFill style={{ opacity: inn, filter: inn < 1 ? `blur(${(1 - inn) * 10}px)` : undefined, background: TR.bg }}>
+    <AbsoluteFill style={{ translate: `${x}px 0px`, scale: String(sc), opacity: 1 - gone * 0.6, filter: blur > 0.2 ? `blur(${blur}px)` : undefined, background: TR.bg, boxShadow: inn < 1 ? "-30px 0 60px rgba(0,0,0,0.25)" : undefined }}>
       <Img src={staticFile(img.src)} style={{ position: "absolute", left: -c.x * s, top: -c.y * s, width: img.w * s, height: img.h * s, maxWidth: "none" }} />
       {children?.(mapper(c))}
     </AbsoluteFill>
@@ -307,7 +317,7 @@ const DashPanel: React.FC<{ lay: Lay }> = ({ lay }) => {
   const S_INS = T.everythings - 8;
   const S_END = TF[1];
   return (
-    <div style={{ position: "absolute", left: 24, top: lay.dashTop + 24, width: PW, height: PH, borderRadius: 30, overflow: "hidden", background: TR.bg, boxShadow: "0 24px 60px rgba(0,0,0,0.45)", border: "1.5px solid rgba(255,255,255,0.18)" }}>
+    <div style={{ position: "absolute", left: 24, top: lay.dashTop + 24, width: PW, height: PH, borderRadius: 30, overflow: "hidden", background: TR.bg, boxShadow: "0 24px 60px rgba(0,0,0,0.45)", border: "1.5px solid rgba(255,255,255,0.18)", filter: lay.k > 0.02 && lay.k < 0.98 ? `blur(${(Math.sin(lay.k * Math.PI) * 5).toFixed(1)}px)` : undefined }}>
       {/* one centralized system: the Incoming list */}
       <Shot img={D3("r3c-incoming")} from={S_LIST} to={S_NET} keys={[[S_LIST, { x: 380, y: 130, w: 1520 }], [T.centralized, { x: 380, y: 130, w: 1520 }], [T.centralized + 30, { x: 430, y: 300, w: 1420 }]]}>
         {(m) => (
@@ -320,7 +330,7 @@ const DashPanel: React.FC<{ lay: Lay }> = ({ lay }) => {
         )}
       </Shot>
       {/* the network: the referring office is a connected network member */}
-      <Shot img={D3("r3c-referral-source")} from={S_NET} to={S_LOG} keys={[[S_NET, { x: 380, y: 60, w: 1100 }], [T.network - 8, { x: 380, y: 470, w: 760 }]]}>
+      <Shot img={D3("r3c-referral-source")} from={S_NET} to={S_LOG} keys={[[S_NET, { x: 400, y: 60, w: 1080 }], [T.network - 8, { x: 400, y: 470, w: 760 }]]}>
         {(m) => (
           <>
             <Hl box={[386, 660, 612, 732]} m={m} k={sp(frame, T.network, 12, 200)} color={GREEN} />
@@ -328,7 +338,7 @@ const DashPanel: React.FC<{ lay: Lay }> = ({ lay }) => {
         )}
       </Shot>
       {/* the audit trail */}
-      <Shot img={D3("r3c-activity-log")} from={S_LOG} to={S_MSG} keys={[[S_LOG, { x: 380, y: 0, w: 1100 }], [T.audit, { x: 380, y: 90, w: 820 }]]}>
+      <Shot img={D3("r3c-activity-log")} from={S_LOG} to={S_MSG} keys={[[S_LOG, { x: 400, y: 0, w: 1080 }], [T.audit, { x: 400, y: 90, w: 800 }]]}>
         {(m) => (
           <>
             <Hl box={[412, 251, 900, 283]} m={m} k={sp(frame, T.added - 2, 12, 220)} />
@@ -572,6 +582,46 @@ const Grain: React.FC = () => {
 };
 
 // ---------------------------------------------------------------------------------------------------
+// Sound effects: soft UI sounds only (no whooshes), low under the voices
+
+const SFX = (): { f: number; s: string; v: number }[] => [
+  { f: T.twenty - 4, s: "impact", v: 0.09 },
+  ...[0, 3, 6, 9, 12].map((d) => ({ f: T.twenty - 4 + d, s: "tick-2", v: 0.045 })),
+  ...[0, 5, 10, 15].map((d) => ({ f: T.buried - 2 + d, s: "pop-1", v: 0.045 })),
+  { f: T.faxes - 3, s: "pop-2", v: 0.08 },
+  { f: T.voicemails - 3, s: "pop-3", v: 0.08 },
+  { f: T.inbox - 3, s: "pop-1", v: 0.08 },
+  { f: CLOSE[0], s: "tick-1", v: 0.06 },
+  { f: T.old - 6, s: "tick-3", v: 0.06 },
+  { f: T.old + 6, s: "thud", v: 0.1 },
+  { f: T.tooth2 - 6, s: "shimmer", v: 0.09 },
+  { f: TA[0] + 2, s: "click", v: 0.09 },
+  { f: T.centralized + 12, s: "pop-2", v: 0.08 },
+  { f: T.just - 4, s: "tick-1", v: 0.07 },
+  { f: T.network + 6, s: "chime", v: 0.08 },
+  { f: T.coming - 4, s: "pop-3", v: 0.07 },
+  { f: T.open - 6, s: "tick-1", v: 0.07 },
+  { f: T.added - 2, s: "tick-2", v: 0.08 },
+  { f: T.changed - 2, s: "tick-3", v: 0.08 },
+  { f: T.when - 2, s: "pop-3", v: 0.07 },
+  { f: T.something - 10, s: "tick-1", v: 0.07 },
+  { f: T.message, s: "blip-1", v: 0.08 },
+  { f: T.no - 2, s: "pop-1", v: 0.07 },
+  { f: T.no2 - 2, s: "pop-2", v: 0.07 },
+  { f: T.saves - 2, s: "chime", v: 0.08 },
+  { f: T.team - 14, s: "tick-1", v: 0.07 },
+  { f: T.administrative - 2, s: "pop-3", v: 0.07 },
+  { f: T.inside2 - 2, s: "pop-1", v: 0.07 },
+  { f: T.calling - 10, s: "tick-1", v: 0.07 },
+  { f: T.patient2 - 2, s: "pop-2", v: 0.07 },
+  { f: T.everythings - 8, s: "tick-1", v: 0.07 },
+  { f: T.place - 2, s: "chime", v: 0.08 },
+  { f: TF[0] + 2, s: "click", v: 0.08 },
+  { f: T.try - 4, s: "pop-2", v: 0.09 },
+  { f: CUT_FRAMES - 4, s: "shimmer", v: 0.1 },
+];
+
+// ---------------------------------------------------------------------------------------------------
 // The edit
 
 export const BuriedInEmails: React.FC = () => {
@@ -580,11 +630,12 @@ export const BuriedInEmails: React.FC = () => {
   const lay = layoutAt(f0);
   const cam = camera(f0, lay);
   const endBlur = interpolate(frame, [CUT_FRAMES - 6, CUT_FRAMES + 10], [0, 14], clamp);
+  const punch = punchAt(f0);
   const video = (
     <OffthreadVideo
       src={staticFile("footage/s13-cut.mp4")}
       muted
-      style={{ position: "absolute", left: 0, top: 0, width: 1080, height: 1920, transformOrigin: `${cam.cx}px ${cam.cy}px`, transform: `translateY(${cam.ty}px) scale(${cam.s})`, filter: "contrast(1.04) saturate(1.03)" }}
+      style={{ position: "absolute", left: 0, top: 0, width: 1080, height: 1920, transformOrigin: `${cam.cx}px ${cam.cy}px`, transform: `translateY(${cam.ty}px) scale(${cam.s * (1 + 0.05 * punch)})`, filter: `contrast(1.04) saturate(1.03)${punch > 0.05 ? ` blur(${(punch * 7).toFixed(1)}px)` : ""}` }}
     />
   );
   const band: React.CSSProperties = { clipPath: `inset(${lay.top}px 0px 0px 0px round ${lay.k > 0.01 ? 30 : 0}px)` };
@@ -612,8 +663,13 @@ export const BuriedInEmails: React.FC = () => {
       </FontGate>
 
       <Audio src={staticFile("audio/voice/s13-cut.wav")} volume={(f) => interpolate(f, [CUT_FRAMES - 4, CUT_FRAMES + 4], [1, 0], clamp)} />
-      {/* audio: the two ElevenLabs voices only (speech-to-speech from the original takes, so timing and emotion are the
-          originals'); no music, no sound effects */}
+      {/* audio: the two ElevenLabs voices (speech-to-speech from the original takes, so timing and emotion are the
+          originals') and soft UI sound effects; no music, no whooshes */}
+      {SFX().map((x, i) => (
+        <Sequence key={i} from={Math.max(0, x.f)} layout="none">
+          <Audio src={staticFile(`audio/sfx/${x.s}.wav`)} volume={x.v} />
+        </Sequence>
+      ))}
     </AbsoluteFill>
   );
 };
