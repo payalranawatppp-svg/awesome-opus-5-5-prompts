@@ -212,13 +212,13 @@ export const NotificationStack: React.FC = () => {
 };
 
 // ---------------------------------------------------------------------------------------------------
-// D. Referral funnel: Received → Contacted → Scheduled → Completed (numbers from the canonical analytics dataset).
+// D. Referral funnel: Received → Contacted → Scheduled → Completed (illustrative numbers).
 
 const FUNNEL = [
-  { t: "Received", n: 28, c: TR.purple },
-  { t: "Contacted", n: 25, c: TR.purple },
-  { t: "Scheduled", n: 20, c: "#9A79F5" },
-  { t: "Completed", n: 9, c: TR.green },
+  { t: "Received", n: 50, c: TR.purple },
+  { t: "Contacted", n: 46, c: TR.purple },
+  { t: "Scheduled", n: 41, c: "#9A79F5" },
+  { t: "Completed", n: 37, c: TR.green },
 ];
 export const ReferralFunnel: React.FC = () => {
   const frame = useCurrentFrame();
@@ -248,8 +248,8 @@ export const ReferralFunnel: React.FC = () => {
               );
             })}
             <div style={{ display: "flex", gap: 14, marginTop: 40, ...rise(useIn(80)) }}>
-              <Badge color={TR.green} bg={TR.greenSoft}>32% completed</Badge>
-              <Badge color={TR.amber} bg={TR.amberSoft}>Ghost rate 7%</Badge>
+              <Badge color={TR.green} bg={TR.greenSoft}>74% completed</Badge>
+              <Badge color={TR.amber} bg={TR.amberSoft}>Ghost rate 4%</Badge>
             </div>
           </Card>
         </div>

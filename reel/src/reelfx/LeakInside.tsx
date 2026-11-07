@@ -340,8 +340,7 @@ const PH = PANEL - 48;
 type Img2 = { src: string; w: number; h: number };
 /** Client-revised stills (scripts/client_stills.py): renamed offices and staff, no doctors' names, no red. */
 const OLD = (n: string): Img2 => ({ src: `dashc/${n}.jpg`, w: 1920, h: 842 });
-/** Analytics stills: the canonical edited analytics page (same frames as renders/analytics-demo.mp4). */
-const AN = (n: string): Img2 => ({ src: `analytics-ref/stills/${n}.jpg`, w: 1904, h: 868 });
+const NEW = (n: string): Img2 => ({ src: `dash2c/${n}.jpg`, w: 1904, h: 868 });
 type Crop = { x: number; y: number; w: number };
 type Map = (x: number, y: number) => readonly [number, number];
 const mapper = (c: Crop): Map => {
@@ -737,7 +736,7 @@ const DashA: React.FC<{ lay: Lay }> = ({ lay }) => {
     <div style={{ position: "absolute", left: 24, top: lay.dashTop + 24, width: PW, height: PH, borderRadius: 30, overflow: "hidden", background: TR.bg, boxShadow: "0 24px 60px rgba(0,0,0,0.45)", border: "1.5px solid rgba(255,255,255,0.18)" }}>
       {/* the cost: the real Referral funnel; the leak steps light up */}
       <Shot
-        img={AN("an-03-volume-funnel")}
+        img={NEW("an-03-volume-funnel")}
         from={S_FUN}
         to={S_LOGO}
         keys={[
@@ -879,7 +878,7 @@ const DashB: React.FC<{ lay: Lay }> = ({ lay }) => {
   return (
     <div style={{ position: "absolute", left: 24, top: lay.dashTop + 24, width: PW, height: PH, borderRadius: 30, overflow: "hidden", background: TR.bg, boxShadow: "0 24px 60px rgba(0,0,0,0.45)", border: "1.5px solid rgba(255,255,255,0.18)" }}>
       <Shot
-        img={AN("an-07-outcomes-sources")}
+        img={NEW("an-07-outcomes-sources")}
         from={S_NEED}
         to={TC[1]}
         keys={[
