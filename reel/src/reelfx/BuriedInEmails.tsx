@@ -572,36 +572,6 @@ const Grain: React.FC = () => {
 };
 
 // ---------------------------------------------------------------------------------------------------
-// Sound
-
-const SFX: { f: number; s: string; v: number }[] = [
-  { f: 6, s: "shimmer", v: 0.08 },
-  { f: T.twenty - 4, s: "impact", v: 0.14 },
-  ...[0, 3, 6, 9, 12].map((d) => ({ f: T.twenty - 4 + d, s: "tick-2", v: 0.06 })),
-  ...[0, 5, 10, 15, 20].map((d) => ({ f: T.buried - 2 + d, s: "pop-1", v: 0.06 })),
-  { f: T.faxes - 3, s: "pop-2", v: 0.1 },
-  { f: T.voicemails - 3, s: "pop-3", v: 0.1 },
-  { f: T.inbox - 3, s: "pop-1", v: 0.1 },
-  { f: T.old - 2, s: "thud", v: 0.14 },
-  { f: T.tooth2 - 6, s: "shimmer", v: 0.14 },
-  { f: T.centralized + 6, s: "tick-1", v: 0.08 },
-  { f: T.centralized + 14, s: "pop-2", v: 0.1 },
-  { f: T.network, s: "chime", v: 0.1 },
-  { f: T.added - 2, s: "tick-2", v: 0.1 },
-  { f: T.changed - 2, s: "tick-3", v: 0.1 },
-  { f: T.everything, s: "pop-3", v: 0.1 },
-  { f: T.message, s: "blip-1", v: 0.1 },
-  { f: T.platform, s: "blip-2", v: 0.1 },
-  { f: T.no - 2, s: "pop-1", v: 0.1 },
-  { f: T.no2 - 2, s: "pop-2", v: 0.1 },
-  { f: T.saves - 2, s: "chime", v: 0.1 },
-  { f: T.administrative - 2, s: "tick-1", v: 0.1 },
-  { f: T.inside2 + 6, s: "pop-3", v: 0.1 },
-  { f: T.place - 2, s: "chime", v: 0.1 },
-  { f: T.try - 4, s: "pop-2", v: 0.12 },
-];
-
-// ---------------------------------------------------------------------------------------------------
 // The edit
 
 export const BuriedInEmails: React.FC = () => {
@@ -642,13 +612,8 @@ export const BuriedInEmails: React.FC = () => {
       </FontGate>
 
       <Audio src={staticFile("audio/voice/s13-cut.wav")} volume={(f) => interpolate(f, [CUT_FRAMES - 4, CUT_FRAMES + 4], [1, 0], clamp)} />
-      {/* the bed is composed against this edit (scripts/synth_s13_bed.py): quiet under dialogue, up on the end card */}
-      <Audio src={staticFile("audio/music/s13-bed.wav")} volume={(f) => interpolate(f, [0, CUT_FRAMES - 6, CUT_FRAMES + 6, S13_DURATION - 1], [0.2, 0.2, 0.42, 0.42], clamp)} />
-      {SFX.map((x, i) => (
-        <Sequence key={i} from={Math.max(0, x.f)} layout="none">
-          <Audio src={staticFile(`audio/sfx/${x.s}.wav`)} volume={x.v} />
-        </Sequence>
-      ))}
+      {/* audio: the two ElevenLabs voices only (speech-to-speech from the original takes, so timing and emotion are the
+          originals'); no music, no sound effects */}
     </AbsoluteFill>
   );
 };
