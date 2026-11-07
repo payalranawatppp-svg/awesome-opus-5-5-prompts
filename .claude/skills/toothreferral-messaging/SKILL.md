@@ -8,6 +8,12 @@ description: The client review rules (no "GP", no red, no doctor names, staff Ba
 Source: the client's notes pasted in chat on 2026-11-02 and `Marketing-tips.pdf` (this folder). Audience: dental
 **specialists** (periodontists, endodontists, oral surgeons, orthodontists) and their front office.
 
+## Analytics reference (user rule, 2026-11-07)
+
+Whenever an analytics dashboard image, number or screen is needed, use the canonical edited page in
+`reel/public/analytics-ref/` (see DASHBOARD.md, "Analytics page — CANONICAL REFERENCE"). Do not invent other
+analytics numbers or rebuild the page.
+
 ## 00. Client review rules (Vejay, 2026-11-04) — apply to EVERY script, video, carousel, caption and still
 
 These override anything below that conflicts (e.g. older lines that say "GP").

@@ -150,3 +150,22 @@ Dentist)", plus "Flora Gibson" and "Jane White". Map to staff names: Jane White 
 real-looking email address (umairasma31@gmail.com) and phone numbers. Red buttons (Delete Referral, Delete) → amber.
 Because names move while scrolling, use cleaned stills with animated camera moves (pan, zoom, cursor, highlights),
 not the raw scrolling video.
+
+## Analytics page — CANONICAL REFERENCE (user rule, 2026-11-07)
+
+For **every** analytics visual from now on (videos, stills, carousels, ads, slides, scripts that mention numbers,
+any "analytics reference or anything"), use the edited real page in `reel/public/analytics-ref/` and nothing else:
+
+- `analytics-full-page.png` (1920x4785, whole page), `viewport-01..07.png` (1920x842 screens, 600 px apart),
+  section crops `01-header-kpis` … `08-status-board`.
+- Video version: `reel/renders/analytics-demo.mp4` (the real recording with the data edited in).
+- Data behind it (quote these numbers, they all reconcile): `reel/src/data/analytics-demo.json` made by
+  `reel/scripts/analytics_data.py`; editing pipeline in `reel/scripts/analytics_plate/`.
+
+Numbers on it: 28 received (+27% vs 22 prior), time to first contact 3.7 h, case acceptance 76%, ghost rate 7% (2),
+funnel 28 → 25 → 20 → 9 (leaks 11% / 20% / 55%, conversion 32%), clocks 3.7 h / 16.9 h / 10.3 d / 4.5 d / 8.6 d,
+consultations 20 scheduled, 6 d to completion, 71% referrals to consultation, 85% completed; senders St. Andrew's
+Family Dental 7, Bright Smile Family Dentistry 6, Maple Grove Dental 5, Riverside Dental Care 4, Lakeside Family
+Dentistry 3, Summit Dental Group 3; sources Network 19 / Embed widget 7 / Manual 2; outcomes 3/4/7/4/9/1; staff
+Amanda 24/38m/58, Tanya 21/31m/49, Barbara 11/14m/16; needs attention 2 / 2 / 3. Receiving office: Gentle dental
+clinic; logged-in user Amanda, Office Manager. Original app colours kept (red badge / leak rows are native).
