@@ -1,7 +1,7 @@
 """Music bed for "Buried in Emails" (Script 13), composed against the edit. Numpy only, deterministic.
 
 A modern corporate bed at 96 BPM (A minor -> C major feel): warm electric-piano chords, soft sub bass and a soft pad
-under the problem (0 to "Let me show you"); a light plucked arpeggio, soft kick and shaker join when the dashboard
+under the problem (0 to "Let me show you"); a light plucked arpeggio and a soft shaker join when the dashboard
 slides in; the last chord lands on the end card and rings out. Mixed low, to sit under dialogue.
 
     python3 scripts/synth_s13_bed.py  ->  public/audio/music/s13-bed.wav
@@ -119,14 +119,13 @@ while tb < END:
     for i, nn in enumerate(chord):
         add(epiano(note_hz(nn), BAR * 0.98), tb + i * 0.012, 0.16, pan=(-0.25 + 0.5 * i / 3))
     add(pad(note_hz(chord[0]) * 2, BAR), tb, 0.10 if not after else 0.07)
-    add(sub(note_hz(bass), BAR * 0.95), tb, 0.30 if after else 0.22)
+    add(sub(note_hz(bass) * 2, BAR * 0.95), tb, 0.10 if after else 0.08)  # light bass an octave up: no rumble
     if after:
         arp = chord + chord[1:3]
         for s in range(8):  # eighth-note arpeggio, up an octave
             f = note_hz(arp[s % len(arp)]) * 2
             add(pluck(f), tb + s * BEAT / 2, 0.09, pan=0.35 if s % 2 else -0.35)
         for b in range(4):
-            add(kick(), tb + b * BEAT, 0.28)
             add(shaker(), tb + b * BEAT + BEAT / 2, 0.05, pan=0.2)
             add(shaker(), tb + b * BEAT + BEAT * 0.75, 0.03, pan=-0.2)
     tb += BAR
@@ -139,7 +138,7 @@ while tb < END:
 for i, nn in enumerate(["C3", "G3", "C4", "E4", "G4"]):
     add(epiano(note_hz(nn), TOTAL - END + 0.2), END + i * 0.015, 0.18, pan=-0.3 + 0.15 * i)
 add(pad(note_hz("C4"), TOTAL - END + 0.2), END, 0.1)
-add(sub(note_hz("C2"), TOTAL - END), END, 0.3)
+add(sub(note_hz("C3"), TOTAL - END), END, 0.1)
 
 # soft room: a short stereo reverb tail (noise impulse, exponential decay)
 ir_len = int(1.6 * SR)
@@ -162,6 +161,10 @@ R2 = R + 0.35 * fconv(R, irR)
 fade_in = np.clip(t / 1.5, 0, 1)
 fade_out = np.clip((TOTAL - t) / 1.8, 0, 1)
 mix = np.stack([L2, R2], 1) * (fade_in * fade_out)[:, None]
+# no low end at all under dialogue (anything below ~110 Hz reads as traffic rumble on phone speakers)
+k = np.fft.rfftfreq(len(mix), 1 / SR)
+hp = 1 / np.sqrt(1 + (110 / np.maximum(k, 1e-3)) ** 8)
+mix = np.stack([np.fft.irfft(np.fft.rfft(mix[:, c]) * hp, len(mix)) for c in range(2)], 1)
 mix /= np.abs(mix).max() / 10 ** (-1 / 20)
 pcm = np.clip(mix * 32767 + rng.uniform(-0.5, 0.5, mix.shape), -32768, 32767).astype(np.int16)
 out = ROOT / "public/audio/music/s13-bed.wav"
