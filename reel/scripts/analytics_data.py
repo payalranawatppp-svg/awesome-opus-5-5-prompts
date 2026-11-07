@@ -6,7 +6,8 @@ KPI, table, funnel, clock, donut, status card and chart series on the page is de
 always agree with each other. Writes src/data/analytics-demo.json.
 
 Client rules: no doctors' names (patients and staff only), staff Amanda / Tanya / Barbara / Greg, offices are
-fictional; the receiving specialist office is St. Andrew's Family Dental.
+fictional; the receiving office is Gentle dental clinic (as in the recording) and St. Andrew's Family Dental sends to it.
+The layout constraints of the real page (6 sender rows, 5 procedure rows, 3 staff rows, empty middle status row) are respected.
 """
 import datetime as dt
 import json
@@ -20,19 +21,19 @@ NOW = dt.datetime(2026, 11, 7, 17, 0)
 DAYS = [D0 + dt.timedelta(days=i) for i in range(31)]
 
 SENDERS = [  # name, location, count (sum 28)
-    ("Gentle Dental", "St. George, UT", 7),
+    ("St. Andrew's Family Dental", "St. George, UT", 7),
     ("Bright Smile Family Dentistry", "Cedar City, UT", 6),
     ("Maple Grove Dental", "Hurricane, UT", 5),
     ("Riverside Dental Care", "Washington, UT", 4),
     ("Lakeside Family Dentistry", "Ivins, UT", 3),
     ("Summit Dental Group", "Santa Clara, UT", 3),
 ]
-PROCEDURES = [("Implant Restoration", 8), ("Crown Recementation", 6), ("Wisdom Teeth Extraction", 5), ("Sleep Appliance", 4), ("Bone Graft Evaluation", 3), ("Second opinion", 2)]
+PROCEDURES = [("Implant Restoration", 8), ("Crown Recementation", 6), ("Sleep Appliance", 5), ("New Patient Dental Exam and Dental Cleaning", 5), ("Second opinion", 4)]
 SOURCES = [("Network", 19), ("Embed widget", 7), ("Manual", 2)]
-STAFF = [("Amanda", "Office manager"), ("Tanya", "Front desk"), ("Barbara", "Office manager"), ("Greg", "Dental assistant")]
-STAFF_W = [0.38, 0.34, 0.16, 0.12]
-FINAL = (["Completed"] * 9 + ["Scheduled"] * 4 + ["Consultation Completed"] * 4 + ["Consultation Scheduled"] * 3 + ["Callback Requested", "Left a Voice Message", "In Progress"]
-         + ["Unable to Contact"] * 2 + ["New"] * 2 + ["Declined Appointment"])
+STAFF = [("Amanda", "Office manager"), ("Tanya", "Front desk"), ("Barbara", "Dental assistant")]
+STAFF_W = [0.42, 0.38, 0.20]
+FINAL = (["Completed"] * 9 + ["Scheduled"] * 4 + ["Consultation Completed"] * 4 + ["Consultation Scheduled"] * 3 + ["Left a Voice Message"] * 3 + ["In Progress"]
+         + ["New"] * 2 + ["Received"] + ["Declined Appointment"])
 FIRST = ["Olivia", "Liam", "Emma", "Noah", "Ava", "Mason", "Sophia", "Lucas", "Mia", "Ethan", "Isabella", "Logan", "Harper", "Elijah", "Evelyn", "James", "Abigail", "Benjamin", "Ella", "Henry", "Grace", "Daniel", "Chloe", "Owen", "Lily", "Jack", "Zoe", "Ryan"]
 LAST = ["Parker", "Reed", "Morgan", "Hayes", "Brooks", "Foster", "Bennett", "Coleman", "Russell", "Griffin", "Hughes", "Sanders", "Price", "Myers", "Long", "Ross", "Powell", "Jenkins", "Perry", "Butler", "Barnes", "Fisher", "Henderson", "Ward", "Cox", "Howard", "Kelly", "Bailey"]
 
@@ -48,14 +49,14 @@ senders, procs, srcs = expand(SENDERS), expand(PROCEDURES), expand(SOURCES)
 weights = [0.6 + 0.9 * i / 30 for i in range(31)]
 recv_days = sorted(rng.choices(range(31), weights=weights, k=28))
 # the two "New" referrals must be the most recent ones; closed/completed ones the oldest
-order = sorted(range(28), key=lambda i: {"Completed": 0, "Declined Appointment": 1, "Scheduled": 2, "Consultation Completed": 3, "Unable to Contact": 4, "Consultation Scheduled": 5, "Callback Requested": 6, "Left a Voice Message": 6, "In Progress": 6, "New": 9}[FINAL[i]] + rng.random() * 0.9)
+order = sorted(range(28), key=lambda i: {"Completed": 0, "Declined Appointment": 1, "Scheduled": 2, "Consultation Completed": 3, "Consultation Scheduled": 5, "Left a Voice Message": 6, "In Progress": 6, "Received": 8, "New": 9}[FINAL[i]] + rng.random() * 0.9)
 status_by_slot = [FINAL[i] for i in order]
 
 refs = []
 for k in range(28):
     st = status_by_slot[k]
     day = recv_days[k]
-    if st == "New":
+    if st in ("New", "Received"):
         day = max(day, 29)
     recv = DAYS[day] + dt.timedelta(hours=rng.uniform(8, 16.5))
     r = {"id": k + 1, "patient": f"{FIRST[k]} {LAST[k]}", "sender": senders[k], "procedure": procs[k], "source": srcs[k], "status": st, "received": recv, "events": []}
@@ -64,13 +65,14 @@ for k in range(28):
         return t
     ev(recv, "received", who=rng.choice(["Amanda", "Tanya"]))
     t = recv
-    if st != "New":
+    if st not in ("New", "Received"):
         t = ev(recv + dt.timedelta(hours=rng.uniform(0.4, 6.5)), "first_contact")
         r["first_contact"] = t
-    if st == "Unable to Contact":
+    if st == "Left a Voice Message" and sum(1 for x in refs if x.get("ghost")) < 2:
+        r["ghost"] = True  # 3+ attempts logged, patient never reached
         for _ in range(3):
             t = ev(t + dt.timedelta(hours=rng.uniform(20, 30)), "attempt")
-    if st in ("Callback Requested", "Left a Voice Message", "In Progress"):
+    if st in ("Left a Voice Message", "In Progress"):
         ev(t + dt.timedelta(hours=rng.uniform(1, 20)), "status")
     reached_sched = st in ("Consultation Scheduled", "Consultation Completed", "Scheduled", "Completed")
     if reached_sched or st == "Declined Appointment":
@@ -96,7 +98,8 @@ for r in refs:
 # the consultation dates of "Consultation Scheduled" referrals: one of them is past (needs a completion note)
 cs = [r for r in refs if r["status"] == "Consultation Scheduled"]
 cs[0]["consult_at"] = NOW - dt.timedelta(days=1, hours=3)
-for r in cs[1:]:
+cs[1]["consult_at"] = NOW - dt.timedelta(hours=20)
+for r in cs[2:]:
     r["consult_at"] = max(r["consult_at"], NOW + dt.timedelta(days=1))
 # completed events must be in the past: clamp
 for r in refs:
@@ -124,7 +127,7 @@ contacted = [r for r in refs if "first_contact" in r]
 ttfc = mean([H(r["received"], r["first_contact"]) for r in contacted])
 consult_done = [r for r in refs if "consult_completed" in r]
 accepted = [r for r in consult_done if r["status"] in ("Scheduled", "Completed")]
-ghosts = [r for r in refs if r["status"] == "Unable to Contact"]
+ghosts = [r for r in refs if r.get("ghost")]
 sched = [r for r in refs if "consult_scheduled" in r]
 done = [r for r in refs if r["status"] == "Completed"]
 
@@ -134,6 +137,15 @@ def by_day(items, f, mode="mean"):
     out = []
     for i, d in enumerate(DAYS):
         xs = [f(r) for r in items if (r["received"].date() == d.date())]
+        out.append(round(mean(xs), 2) if xs else None)
+    return out
+
+
+def running(items, f):
+    """running average of everything received up to each day; the last point equals the headline value"""
+    out = []
+    for d in DAYS:
+        xs = [f(r) for r in items if r["received"].date() <= d.date()]
         out.append(round(mean(xs), 2) if xs else None)
     return out
 
@@ -165,9 +177,9 @@ kpi = {
     "case_acceptance": pct(len(accepted), len(consult_done)),
     "ghost_rate": pct(len(ghosts), N),
     "spark_volume": cur_daily,
-    "spark_ttfc": fill(by_day(contacted, lambda r: H(r["received"], r["first_contact"]))),
+    "spark_ttfc": running(contacted, lambda r: H(r["received"], r["first_contact"])),
     "spark_acceptance": cumulative_pct(lambda r: r["status"] in ("Scheduled", "Completed"), lambda r: "consult_completed" in r),
-    "spark_ghost": cumulative_pct(lambda r: r["status"] == "Unable to Contact", lambda r: True),
+    "spark_ghost": cumulative_pct(lambda r: r.get("ghost", False), lambda r: True),
 }
 # ------------------------------------------------------------------ tables
 def tally(key, names):
@@ -208,10 +220,10 @@ def prior(series, f=0.82, jitter=0.18):
 
 
 clocks = {
-    "ttfc": {"value": round(ttfc, 1), "unit": "hours", "line": fill(by_day(contacted, lambda r: H(r["received"], r["first_contact"])))},
-    "tts": {"value": round(tts, 1), "unit": "hours", "line": fill(by_day(sched, lambda r: H(r["first_contact"], r["consult_scheduled"])))},
-    "ttc": {"value": round(ttc, 1), "unit": "days", "line": fill(by_day(done, lambda r: H(r["received"], r["completed"]) / 24))},
-    "wait": {"value": round(wait, 1), "unit": "days", "line": fill(by_day(sched, lambda r: H(r["consult_scheduled"], r["consult_at"]) / 24))},
+    "ttfc": {"value": round(ttfc, 1), "unit": "hours", "line": running(contacted, lambda r: H(r["received"], r["first_contact"]))},
+    "tts": {"value": round(tts, 1), "unit": "hours", "line": running(sched, lambda r: H(r["first_contact"], r["consult_scheduled"]))},
+    "ttc": {"value": round(ttc, 1), "unit": "days", "line": running(done, lambda r: H(r["received"], r["completed"]) / 24)},
+    "wait": {"value": round(wait, 1), "unit": "days", "line": running(sched, lambda r: H(r["consult_scheduled"], r["consult_at"]) / 24)},
     "age": {"value": round(age_now, 1), "unit": "days", "line": open_age_series()},
 }
 for c in clocks.values():
@@ -235,14 +247,14 @@ consult = {
 assert sum(cons_daily) == len(sched)
 # ------------------------------------------------------------------ needs attention
 past_no_note = [r for r in refs if r["status"] == "Consultation Scheduled" and r["consult_at"] < NOW]
-needs = {"past_appointments": len(past_no_note), "ghosts": len(ghosts), "insurance": 1}
+needs = {"past_appointments": len(past_no_note), "ghosts": len(ghosts), "insurance": 3}
 # ------------------------------------------------------------------ staff responsiveness (changes = their logged events)
 staff = []
 for name, role in STAFF:
     ch = sum(1 for r in refs for e in r["events"] if e["who"] == name)
     staff.append({"name": name, "role": role, "changes": ch})
-logins = {"Amanda": 24, "Tanya": 21, "Barbara": 11, "Greg": 8}
-avg = {"Amanda": "38m", "Tanya": "31m", "Barbara": "14m", "Greg": "12m"}
+logins = {"Amanda": 24, "Tanya": 21, "Barbara": 11}
+avg = {"Amanda": "38m", "Tanya": "31m", "Barbara": "14m"}
 for s in staff:
     s["logins"], s["avg"] = logins[s["name"]], avg[s["name"]]
 staff.sort(key=lambda s: -s["changes"])
@@ -274,20 +286,24 @@ for s in board_open:
     rs = sorted([r for r in refs if r["status"] == s], key=lambda r: -since_status(r))
     hs = [since_status(r) for r in rs]
     board.append({"status": s, "count": len(rs), "avg": fmt_dh(mean(hs)) if rs else None, "longest": fmt_dh(max(hs)) if rs else None,
-                  "rows": [{"patient": r["patient"], "initials": "".join(w[0] for w in r["patient"].split()), "age": fmt_dh(since_status(r))} for r in rs[:3]]})
+                  "rows": [{"patient": r["patient"], "initials": ".".join(w[0] for w in r["patient"].split()) + ".", "age": fmt_dh(since_status(r))} for r in rs[:3]]})
 closed = [{"status": s, "count": sum(1 for r in refs if r["status"] == s)} for s in ["Completed", "Cancelled", "Declined Appointment", "Referred Out"]]
 # ------------------------------------------------------------------ checks: everything adds up
 assert sum(o["count"] for o in outcomes) == N
 assert sum(b["count"] for b in board) + sum(c["count"] for c in closed) == N
 assert sum(x["count"] for x in senders_t) == N and sum(x["count"] for x in procs_t) == N and sum(x["count"] for x in sources_t) == N
 assert sum(cur_daily) == N
+assert all(b["count"] == 0 for b in board if b["status"] in ("Voicemail Not Set Up", "Other", "Callback Requested", "Unable to Contact"))
+assert len(ghosts) == 2
+for c in clocks.values():
+    assert round(c["line"][-1], 1) == c["value"], c
 assert funnel[0]["count"] - funnel[0]["dropped"] == funnel[1]["count"]
 
 out = {
-    "office": "St. Andrew's Family Dental",
+    "office": "Gentle dental clinic",
     "user": {"name": "Amanda", "role": "Office Manager", "initials": "AM"},
     "period": {"from": D0.strftime("%b %-d"), "to": DAYS[-1].strftime("%b %-d"), "labels": [d.strftime("%b %-d") for d in DAYS]},
-    "received_tab": N, "sent_tab": 6, "notifications": 12,
+    "received_tab": N, "sent_tab": 3, "notifications": 26,
     "kpi": kpi, "prior_daily": prior_daily, "senders": senders_t, "procedures": procs_t, "sources": sources_t, "funnel": funnel,
     "conversion": funnel[3]["pct"], "clocks": clocks, "consult": consult, "needs": needs, "staff": staff, "outcomes": outcomes,
     "board": board, "closed": closed,
