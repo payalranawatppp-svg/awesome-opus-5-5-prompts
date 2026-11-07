@@ -1,3 +1,4 @@
+import os
 import numpy as np, subprocess, sys
 from PIL import Image
 from scipy.ndimage import binary_dilation, gaussian_filter, maximum_filter, label, find_objects
@@ -16,7 +17,7 @@ print('mask px', M.sum())
 out = sys.argv[1]; limit = int(sys.argv[2]) if len(sys.argv) > 2 else 10**9
 dec = subprocess.Popen(['ffmpeg', '-v', 'error', '-i', '../rec4/rec4.mp4', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-'], stdout=subprocess.PIPE)
 enc = subprocess.Popen(['ffmpeg', '-v', 'error', '-y', '-f', 'rawvideo', '-pix_fmt', 'rgb24', '-s', f'{W}x{H}', '-r', '30', '-i', '-',
-                        '-c:v', 'libx264', '-preset', 'slow', '-crf', '15', '-pix_fmt', 'yuv420p', '-movflags', '+faststart', out], stdin=subprocess.PIPE)
+                        '-c:v', 'libx264', '-preset', 'slow', *os.environ.get('X264', '-crf 15').split(), '-pix_fmt', 'yuv420p', '-movflags', '+faststart', out], stdin=subprocess.PIPE)
 fixed = np.zeros((H, W), bool); fixed[728:828, 1788:1884] = True; fixed[:, 1898:] = True
 start = int(sys.argv[3]) if len(sys.argv) > 3 else 0
 i = 0
