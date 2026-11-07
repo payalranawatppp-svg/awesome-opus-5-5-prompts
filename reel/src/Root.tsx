@@ -17,6 +17,7 @@ import { XR_DURATION, XrayHunt } from "./reelfx/XrayHunt";
 import { LK_DURATION, LeakInside } from "./reelfx/LeakInside";
 import { MS_DURATION, MagicShow } from "./reelfx/MagicShow";
 import { BuriedInEmails, S13_DURATION } from "./reelfx/BuriedInEmails";
+import { AN_DURATION, AN_H, AN_W, AnalyticsDemo } from "./reelfx/AnalyticsDemo";
 import { TrDashboardTour } from "./tr/scenes";
 import { TR_ALL, TrFormatted } from "./tr/formats";
 import { TR_V2 } from "./tr/v2";
@@ -35,6 +36,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="XrayHunt" component={XrayHunt} durationInFrames={XR_DURATION} fps={30} width={WIDTH} height={HEIGHT} />
     <Composition id="LeakInside" component={LeakInside} durationInFrames={LK_DURATION} fps={30} width={WIDTH} height={HEIGHT} />
     <Composition id="MagicShow" component={MagicShow} durationInFrames={MS_DURATION} fps={30} width={WIDTH} height={HEIGHT} />
+    <Composition id="AnalyticsDemo" component={AnalyticsDemo} durationInFrames={AN_DURATION} fps={30} width={AN_W} height={AN_H} />
     <Composition id="BuriedInEmails" component={BuriedInEmails} durationInFrames={S13_DURATION} fps={30} width={WIDTH} height={HEIGHT} />
     <Composition id="ToothReferralUgc2Ad" component={ToothUgc2Ref} durationInFrames={UGC2_REF_DURATION} fps={30} width={WIDTH} height={HEIGHT} />
     <Composition id="ToothReferralUgc2" component={ToothUgc2} durationInFrames={UGC2_DURATION} fps={30} width={WIDTH} height={HEIGHT} />

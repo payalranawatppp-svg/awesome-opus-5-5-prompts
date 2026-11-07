@@ -1,0 +1,1013 @@
+{
+ "office": "St. Andrew's Family Dental",
+ "user": {
+  "name": "Amanda",
+  "role": "Office Manager",
+  "initials": "AM"
+ },
+ "period": {
+  "from": "Oct 8",
+  "to": "Nov 7",
+  "labels": [
+   "Oct 8",
+   "Oct 9",
+   "Oct 10",
+   "Oct 11",
+   "Oct 12",
+   "Oct 13",
+   "Oct 14",
+   "Oct 15",
+   "Oct 16",
+   "Oct 17",
+   "Oct 18",
+   "Oct 19",
+   "Oct 20",
+   "Oct 21",
+   "Oct 22",
+   "Oct 23",
+   "Oct 24",
+   "Oct 25",
+   "Oct 26",
+   "Oct 27",
+   "Oct 28",
+   "Oct 29",
+   "Oct 30",
+   "Oct 31",
+   "Nov 1",
+   "Nov 2",
+   "Nov 3",
+   "Nov 4",
+   "Nov 5",
+   "Nov 6",
+   "Nov 7"
+  ]
+ },
+ "received_tab": 28,
+ "sent_tab": 6,
+ "notifications": 12,
+ "kpi": {
+  "volume": 28,
+  "volume_prior": 22,
+  "volume_vs_prior": 27,
+  "ttfc_h": 3.6,
+  "case_acceptance": 76,
+  "ghost_rate": 7,
+  "spark_volume": [
+   0,
+   1,
+   0,
+   0,
+   1,
+   1,
+   1,
+   2,
+   0,
+   1,
+   2,
+   0,
+   0,
+   0,
+   0,
+   1,
+   2,
+   3,
+   1,
+   1,
+   2,
+   0,
+   2,
+   2,
+   0,
+   0,
+   2,
+   1,
+   0,
+   2,
+   0
+  ],
+  "spark_ttfc": [
+   null,
+   2.79,
+   2.79,
+   2.79,
+   4.16,
+   2.57,
+   0.78,
+   3.69,
+   3.69,
+   0.61,
+   6.29,
+   6.29,
+   6.29,
+   6.29,
+   6.29,
+   1.77,
+   4.37,
+   3.78,
+   2.48,
+   6.34,
+   5.21,
+   5.21,
+   1.53,
+   4.11,
+   4.11,
+   4.11,
+   3.96,
+   2.13,
+   2.13,
+   2.13,
+   2.13
+  ],
+  "spark_acceptance": [
+   0,
+   100.0,
+   100.0,
+   100.0,
+   100.0,
+   100.0,
+   100.0,
+   100.0,
+   100.0,
+   100.0,
+   100.0,
+   100.0,
+   100.0,
+   100.0,
+   100.0,
+   100.0,
+   100.0,
+   92.9,
+   86.7,
+   81.2,
+   76.5,
+   76.5,
+   76.5,
+   76.5,
+   76.5,
+   76.5,
+   76.5,
+   76.5,
+   76.5,
+   76.5,
+   76.5
+  ],
+  "spark_ghost": [
+   0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   5.3,
+   5.3,
+   9.5,
+   8.7,
+   8.7,
+   8.7,
+   8.0,
+   7.7,
+   7.7,
+   7.1,
+   7.1
+  ]
+ },
+ "prior_daily": [
+  1,
+  2,
+  0,
+  0,
+  1,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  3,
+  0,
+  0,
+  1,
+  2,
+  0,
+  2,
+  0,
+  0,
+  0,
+  1,
+  0,
+  1,
+  3,
+  1,
+  1,
+  1,
+  1,
+  1
+ ],
+ "senders": [
+  {
+   "name": "Gentle Dental",
+   "count": 7,
+   "pct": 25,
+   "loc": "St. George, UT"
+  },
+  {
+   "name": "Bright Smile Family Dentistry",
+   "count": 6,
+   "pct": 21,
+   "loc": "Cedar City, UT"
+  },
+  {
+   "name": "Maple Grove Dental",
+   "count": 5,
+   "pct": 18,
+   "loc": "Hurricane, UT"
+  },
+  {
+   "name": "Riverside Dental Care",
+   "count": 4,
+   "pct": 14,
+   "loc": "Washington, UT"
+  },
+  {
+   "name": "Lakeside Family Dentistry",
+   "count": 3,
+   "pct": 11,
+   "loc": "Ivins, UT"
+  },
+  {
+   "name": "Summit Dental Group",
+   "count": 3,
+   "pct": 11,
+   "loc": "Santa Clara, UT"
+  }
+ ],
+ "procedures": [
+  {
+   "name": "Implant Restoration",
+   "count": 8,
+   "pct": 29
+  },
+  {
+   "name": "Crown Recementation",
+   "count": 6,
+   "pct": 21
+  },
+  {
+   "name": "Wisdom Teeth Extraction",
+   "count": 5,
+   "pct": 18
+  },
+  {
+   "name": "Sleep Appliance",
+   "count": 4,
+   "pct": 14
+  },
+  {
+   "name": "Bone Graft Evaluation",
+   "count": 3,
+   "pct": 11
+  },
+  {
+   "name": "Second opinion",
+   "count": 2,
+   "pct": 7
+  }
+ ],
+ "sources": [
+  {
+   "name": "Embed widget",
+   "count": 7,
+   "pct": 25
+  },
+  {
+   "name": "Network",
+   "count": 19,
+   "pct": 68
+  },
+  {
+   "name": "Manual",
+   "count": 2,
+   "pct": 7
+  }
+ ],
+ "funnel": [
+  {
+   "name": "Received",
+   "count": 28,
+   "pct": 100,
+   "dropped": 2,
+   "leak": 7
+  },
+  {
+   "name": "Contacted",
+   "count": 26,
+   "pct": 93,
+   "dropped": 6,
+   "leak": 23
+  },
+  {
+   "name": "Scheduled",
+   "count": 20,
+   "pct": 71,
+   "dropped": 11,
+   "leak": 55
+  },
+  {
+   "name": "Completed",
+   "count": 9,
+   "pct": 32
+  }
+ ],
+ "conversion": 32,
+ "clocks": {
+  "ttfc": {
+   "value": 3.6,
+   "unit": "hours",
+   "line": [
+    null,
+    2.79,
+    2.79,
+    2.79,
+    4.16,
+    2.57,
+    0.78,
+    3.69,
+    3.69,
+    0.61,
+    6.29,
+    6.29,
+    6.29,
+    6.29,
+    6.29,
+    1.77,
+    4.37,
+    3.78,
+    2.48,
+    6.34,
+    5.21,
+    5.21,
+    1.53,
+    4.11,
+    4.11,
+    4.11,
+    3.96,
+    2.13,
+    2.13,
+    2.13,
+    2.13
+   ],
+   "prior": [
+    null,
+    3.16,
+    3.1,
+    2.9,
+    5.21,
+    2.58,
+    1.03,
+    3.93,
+    4.38,
+    0.74,
+    6.59,
+    6.31,
+    8.38,
+    6.3,
+    6.44,
+    1.91,
+    5.92,
+    3.95,
+    2.53,
+    7.64,
+    6.38,
+    5.73,
+    1.94,
+    4.51,
+    4.46,
+    4.39,
+    3.99,
+    2.77,
+    2.87,
+    2.76,
+    2.89
+   ]
+  },
+  "tts": {
+   "value": 14.9,
+   "unit": "hours",
+   "line": [
+    null,
+    26.09,
+    26.09,
+    26.09,
+    4.8,
+    29.16,
+    8.15,
+    23.38,
+    23.38,
+    7.24,
+    23.94,
+    23.94,
+    23.94,
+    23.94,
+    23.94,
+    23.94,
+    18.47,
+    8.0,
+    20.47,
+    11.9,
+    12.17,
+    12.17,
+    7.27,
+    8.01,
+    8.01,
+    8.01,
+    8.01,
+    8.01,
+    8.01,
+    8.01,
+    8.01
+   ],
+   "prior": [
+    null,
+    28.46,
+    27.81,
+    31.47,
+    6.24,
+    38.65,
+    8.34,
+    26.43,
+    25.22,
+    7.84,
+    31.58,
+    31.74,
+    32.12,
+    31.43,
+    27.03,
+    23.96,
+    22.87,
+    8.8,
+    22.66,
+    12.7,
+    13.81,
+    12.22,
+    8.55,
+    9.49,
+    10.08,
+    9.0,
+    8.56,
+    10.77,
+    9.08,
+    9.66,
+    10.1
+   ]
+  },
+  "ttc": {
+   "value": 10.3,
+   "unit": "days",
+   "line": [
+    null,
+    9.86,
+    9.86,
+    9.86,
+    9.28,
+    11.13,
+    11.57,
+    10.97,
+    10.97,
+    8.44,
+    10.22,
+    10.22,
+    10.22,
+    10.22,
+    10.22,
+    10.22,
+    10.22,
+    10.22,
+    10.22,
+    10.22,
+    10.22,
+    10.22,
+    10.22,
+    10.22,
+    10.22,
+    10.22,
+    10.22,
+    10.22,
+    10.22,
+    10.22,
+    10.22
+   ],
+   "prior": [
+    null,
+    10.09,
+    12.61,
+    12.86,
+    10.35,
+    12.18,
+    12.93,
+    13.79,
+    13.52,
+    11.32,
+    13.74,
+    13.18,
+    11.42,
+    11.44,
+    11.11,
+    13.79,
+    10.79,
+    10.59,
+    10.64,
+    13.42,
+    10.83,
+    10.67,
+    12.9,
+    12.34,
+    11.1,
+    12.59,
+    12.69,
+    11.86,
+    12.41,
+    11.6,
+    13.54
+   ]
+  },
+  "wait": {
+   "value": 4.4,
+   "unit": "days",
+   "line": [
+    null,
+    2.36,
+    2.36,
+    2.36,
+    2.28,
+    5.18,
+    3.81,
+    4.47,
+    4.47,
+    3.01,
+    4.11,
+    4.11,
+    4.11,
+    4.11,
+    4.11,
+    4.11,
+    4.34,
+    3.19,
+    5.03,
+    4.24,
+    4.16,
+    4.16,
+    6.81,
+    7.74,
+    7.74,
+    7.74,
+    7.74,
+    7.74,
+    7.74,
+    7.74,
+    7.74
+   ],
+   "prior": [
+    null,
+    2.86,
+    2.47,
+    2.42,
+    2.81,
+    5.87,
+    4.29,
+    5.45,
+    5.41,
+    3.67,
+    4.67,
+    5.33,
+    5.14,
+    5.43,
+    4.82,
+    4.86,
+    5.42,
+    4.07,
+    5.65,
+    5.19,
+    4.6,
+    4.83,
+    8.94,
+    8.31,
+    8.31,
+    9.29,
+    9.87,
+    9.02,
+    8.32,
+    8.47,
+    8.58
+   ]
+  },
+  "age": {
+   "value": 8.7,
+   "unit": "days",
+   "line": [
+    null,
+    0.1,
+    1.1,
+    2.1,
+    1.73,
+    1.91,
+    2.26,
+    2.26,
+    3.26,
+    3.67,
+    3.7,
+    4.02,
+    5.02,
+    5.54,
+    6.54,
+    6.41,
+    5.65,
+    4.73,
+    4.02,
+    4.54,
+    4.13,
+    3.43,
+    3.68,
+    4.0,
+    5.0,
+    6.0,
+    6.07,
+    6.64,
+    7.64,
+    7.7,
+    8.7
+   ],
+   "prior": [
+    null,
+    0.13,
+    1.25,
+    2.72,
+    1.81,
+    2.26,
+    2.63,
+    2.84,
+    3.66,
+    4.57,
+    4.7,
+    5.42,
+    6.22,
+    6.23,
+    7.02,
+    7.99,
+    6.21,
+    4.79,
+    4.88,
+    5.19,
+    4.26,
+    3.59,
+    4.27,
+    5.08,
+    6.8,
+    7.99,
+    8.07,
+    8.09,
+    8.56,
+    8.51,
+    10.29
+   ]
+  }
+ },
+ "consult": {
+  "scheduled": 20,
+  "consult_to_completion_d": 6,
+  "referrals_to_consultation": 71,
+  "consultations_completed": 85,
+  "daily": [
+   0,
+   0,
+   1,
+   0,
+   1,
+   0,
+   2,
+   0,
+   2,
+   1,
+   0,
+   2,
+   0,
+   0,
+   0,
+   0,
+   0,
+   3,
+   2,
+   1,
+   1,
+   1,
+   1,
+   1,
+   1,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "prior": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   2,
+   0,
+   0,
+   0,
+   0,
+   2,
+   0,
+   0,
+   1,
+   1,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   1,
+   4,
+   2,
+   0,
+   0,
+   0,
+   0,
+   1
+  ]
+ },
+ "needs": {
+  "past_appointments": 1,
+  "ghosts": 2,
+  "insurance": 1
+ },
+ "staff": [
+  {
+   "name": "Amanda",
+   "role": "Office manager",
+   "changes": 60,
+   "logins": 24,
+   "avg": "38m"
+  },
+  {
+   "name": "Tanya",
+   "role": "Front desk",
+   "changes": 38,
+   "logins": 21,
+   "avg": "31m"
+  },
+  {
+   "name": "Barbara",
+   "role": "Office manager",
+   "changes": 15,
+   "logins": 11,
+   "avg": "14m"
+  },
+  {
+   "name": "Greg",
+   "role": "Dental assistant",
+   "changes": 10,
+   "logins": 8,
+   "avg": "12m"
+  }
+ ],
+ "outcomes": [
+  {
+   "name": "Awaiting contact",
+   "count": 2,
+   "pct": 7
+  },
+  {
+   "name": "Working",
+   "count": 5,
+   "pct": 18
+  },
+  {
+   "name": "Consultation",
+   "count": 7,
+   "pct": 25
+  },
+  {
+   "name": "Scheduled",
+   "count": 4,
+   "pct": 14
+  },
+  {
+   "name": "Completed",
+   "count": 9,
+   "pct": 32
+  },
+  {
+   "name": "Closed w/o completion",
+   "count": 1,
+   "pct": 4
+  }
+ ],
+ "board": [
+  {
+   "status": "New",
+   "count": 2,
+   "avg": "1d 3h",
+   "longest": "1d 5h",
+   "rows": [
+    {
+     "patient": "Zoe Kelly",
+     "initials": "ZK",
+     "age": "1d 5h"
+    },
+    {
+     "patient": "Ryan Bailey",
+     "initials": "RB",
+     "age": "1d 2h"
+    }
+   ]
+  },
+  {
+   "status": "Received",
+   "count": 0,
+   "avg": null,
+   "longest": null,
+   "rows": []
+  },
+  {
+   "status": "In Progress",
+   "count": 1,
+   "avg": "3d 0h",
+   "longest": "3d 0h",
+   "rows": [
+    {
+     "patient": "Jack Howard",
+     "initials": "JH",
+     "age": "3d 0h"
+    }
+   ]
+  },
+  {
+   "status": "Left a Voice Message",
+   "count": 1,
+   "avg": "3d 17h",
+   "longest": "3d 17h",
+   "rows": [
+    {
+     "patient": "Lily Cox",
+     "initials": "LC",
+     "age": "3d 17h"
+    }
+   ]
+  },
+  {
+   "status": "Voicemail Not Set Up",
+   "count": 0,
+   "avg": null,
+   "longest": null,
+   "rows": []
+  },
+  {
+   "status": "Other",
+   "count": 0,
+   "avg": null,
+   "longest": null,
+   "rows": []
+  },
+  {
+   "status": "Callback Requested",
+   "count": 1,
+   "avg": "3d 14h",
+   "longest": "3d 14h",
+   "rows": [
+    {
+     "patient": "Owen Ward",
+     "initials": "OW",
+     "age": "3d 14h"
+    }
+   ]
+  },
+  {
+   "status": "Unable to Contact",
+   "count": 2,
+   "avg": "5d 15h",
+   "longest": "6d 7h",
+   "rows": [
+    {
+     "patient": "Ella Perry",
+     "initials": "EP",
+     "age": "6d 7h"
+    },
+    {
+     "patient": "Henry Butler",
+     "initials": "HB",
+     "age": "5d 0h"
+    }
+   ]
+  },
+  {
+   "status": "Consultation Scheduled",
+   "count": 3,
+   "avg": "7d 3h",
+   "longest": "7d 22h",
+   "rows": [
+    {
+     "patient": "Grace Barnes",
+     "initials": "GB",
+     "age": "7d 22h"
+    },
+    {
+     "patient": "Daniel Fisher",
+     "initials": "DF",
+     "age": "6d 22h"
+    },
+    {
+     "patient": "Chloe Henderson",
+     "initials": "CH",
+     "age": "6d 13h"
+    }
+   ]
+  },
+  {
+   "status": "Consultation Completed",
+   "count": 4,
+   "avg": "6d 14h",
+   "longest": "8d 10h",
+   "rows": [
+    {
+     "patient": "Evelyn Long",
+     "initials": "EL",
+     "age": "8d 10h"
+    },
+    {
+     "patient": "James Ross",
+     "initials": "JR",
+     "age": "6d 8h"
+    },
+    {
+     "patient": "Abigail Powell",
+     "initials": "AP",
+     "age": "6d 5h"
+    }
+   ]
+  },
+  {
+   "status": "Scheduled",
+   "count": 4,
+   "avg": "8d 20h",
+   "longest": "10d 14h",
+   "rows": [
+    {
+     "patient": "Elijah Myers",
+     "initials": "EM",
+     "age": "10d 14h"
+    },
+    {
+     "patient": "Logan Sanders",
+     "initials": "LS",
+     "age": "9d 1h"
+    },
+    {
+     "patient": "Harper Price",
+     "initials": "HP",
+     "age": "8d 23h"
+    }
+   ]
+  }
+ ],
+ "closed": [
+  {
+   "status": "Completed",
+   "count": 9
+  },
+  {
+   "status": "Cancelled",
+   "count": 0
+  },
+  {
+   "status": "Declined Appointment",
+   "count": 1
+  },
+  {
+   "status": "Referred Out",
+   "count": 0
+  }
+ ]
+}
