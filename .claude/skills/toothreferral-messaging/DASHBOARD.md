@@ -125,3 +125,28 @@ frames: always crop to the page area (x 0-1904, y 151-1019 of the 1920x1080 reco
 - "Which GPs actually send you patients?" → Top senders + Referral sources.
 - "Nothing falls through the cracks" → Needs attention (Mark complete / Re-assign / Send reminder) and the Status board
   (Left a Voice Message, Callback Requested, Unable to Contact).
+
+## Recording 3 (2026-11-07): case detail, messages, notes, insurance, audit trail
+
+`reel/public/screen/dashboard-3-case-audit-trail.mp4` (60.6 s, 1920×912 at 30 fps, browser zoomed in, so text is
+large and crisp). Key stills in `reel/public/dash3/` (r3-01 … r3-09). What it shows, in order:
+
+| Time | Screen | Use it for |
+|---|---|---|
+| 0–8 s | Case detail (patient Carter Wiley, "Referred to Gentle dental clinic"), Office Communication thread on the right | the case, shared by both offices |
+| 9–17 s | **Messages** tab: Office Communication with Apex Dental (x-ray request → "I updated the latest xray" → "Got the updated x-ray thank you"), Referral snapshot (From Apex Dental, To Gentle dental clinic, Consultation Completed) | messaging the referring general dentist inside the platform |
+| 18–20 s | **Incoming Referrals** list (Carter Wiley Consultation completed; Conrad Smith, John Carter, George Miranda New; green "Connected Network Member" dots) | one centralized place for every referral |
+| 21–27 s | Status & Schedule (**Log a contact attempt** chips: Left a Voicemail, Voicemail Not Set Up, Unable to Contact, Declined Appointment, Referred Out, Cancelled, Spoke with Patient / Scheduled), Attachments: X-rays (New Pano 2026, pristine) | X-rays on the referral; contact attempts logged |
+| 27–31 s | **Administrative Notes** ("Company-private notes. Not shared with other parties", 9 notes, @mentions, Journey: Spoke with Patient / Scheduled → Consultation Completed, Build journey document); Signed notes: Consultation Note signed | administrative notes / internal team communication |
+| 31–44 s | **Insurance cards (1)**: Delta Dental front and back, Policy, Group, Subscriber; Add card / Request from patient | insurance already on the referral |
+| 44–51 s | **Activity log** (the audit trail): who did what, with time stamps: consultation completed, scheduled, "updated: x-rays added", received, "new referral created for…" | the patient audit trail |
+| 51–55 s | **All Attachments** (every image and file in one place) and **Primary Referral Source**: Apex Dental, Connected Network Member | the referral network |
+| 55–60 s | back to the top of the case | outro |
+
+**Must be cleaned before use (client rules):** doctor names "Dr Lee Davis DDS, DDS", "Tom Colpack, DDS (Owner
+Dentist)", plus "Flora Gibson" and "Jane White". Map to staff names: Jane White → Tanya (Dental Assistant), Dr Lee Davis
+→ Amanda (Office Manager), Barbara Smith → Barbara, Tom Colpack and Flora Gibson → Greg (Front Desk). Offices: receiving
+"Gentle dental clinic" → St. Andrew's Family Dental, referring "Apex Dental" → Gentle Dental. Also blur or replace the
+real-looking email address (umairasma31@gmail.com) and phone numbers. Red buttons (Delete Referral, Delete) → amber.
+Because names move while scrolling, use cleaned stills with animated camera moves (pan, zoom, cursor, highlights),
+not the raw scrolling video.
