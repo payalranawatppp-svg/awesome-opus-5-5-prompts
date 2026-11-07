@@ -76,6 +76,7 @@ const T = {
   referrals3: at("referrals", 2),
   just: at("just", 2),
   network: at("network"),
+  offices: at("offices"),
   coming: at("coming"),
   open: at("open"),
   audit: at("audit"),
@@ -206,6 +207,8 @@ const PW = 1032;
 const PH = PANEL - 48;
 type Img2 = { src: string; w: number; h: number };
 const D3 = (n: string): Img2 => ({ src: `dash3c/${n}.jpg`, w: 1920, h: 912 });
+/** The canonical analytics page (reel/public/analytics-ref, same frames as renders/analytics-demo.mp4). */
+const AN = (n: string, h = 868): Img2 => ({ src: `analytics-ref/stills/${n}.jpg`, w: 1904, h });
 type Crop = { x: number; y: number; w: number };
 type Map = (x: number, y: number) => readonly [number, number];
 const lerp = (a: number, b: number, k: number) => a + (b - a) * k;
@@ -310,11 +313,13 @@ const DashPanel: React.FC<{ lay: Lay }> = ({ lay }) => {
   if (lay.k <= 0.001) return null;
   const S_LIST = TA[0];
   const S_NET = T.just - 4;
+  const S_AN = T.offices - 2;
   const S_LOG = T.open - 6;
   const S_MSG = T.something - 10;
   const S_NOTE = T.team - 14;
   const S_XRAY = T.calling - 10;
   const S_INS = T.everythings - 8;
+  const S_ALL = T.place - 2;
   const S_END = TF[1];
   return (
     <div style={{ position: "absolute", left: 24, top: lay.dashTop + 24, width: PW, height: PH, borderRadius: 30, overflow: "hidden", background: TR.bg, boxShadow: "0 24px 60px rgba(0,0,0,0.45)", border: "1.5px solid rgba(255,255,255,0.18)", filter: lay.k > 0.02 && lay.k < 0.98 ? `blur(${(Math.sin(lay.k * Math.PI) * 5).toFixed(1)}px)` : undefined }}>
@@ -330,10 +335,20 @@ const DashPanel: React.FC<{ lay: Lay }> = ({ lay }) => {
         )}
       </Shot>
       {/* the network: the referring office is a connected network member */}
-      <Shot img={D3("r3c-referral-source")} from={S_NET} to={S_LOG} keys={[[S_NET, { x: 400, y: 60, w: 1080 }], [T.network - 8, { x: 400, y: 470, w: 760 }]]}>
+      <Shot img={D3("r3c-referral-source")} from={S_NET} to={S_AN} keys={[[S_NET, { x: 400, y: 60, w: 1080 }], [T.network - 8, { x: 400, y: 470, w: 760 }]]}>
         {(m) => (
           <>
             <Hl box={[386, 660, 612, 732]} m={m} k={sp(frame, T.network, 12, 200)} color={GREEN} />
+          </>
+        )}
+      </Shot>
+      {/* "so the referrals keep coming": the analytics page, volume up and the network's top sender */}
+      <Shot img={AN("an-kpis-senders")} from={S_AN} to={S_LOG} keys={[[S_AN, { x: 380, y: 0, w: 1520 }], [T.coming, { x: 390, y: 10, w: 1000 }]]}>
+        {(m) => (
+          <>
+            <Hl box={[392, 22, 732, 246]} m={m} k={sp(frame, S_AN + 8, 12, 220)} color={GREEN} fill={false} />
+            <Hl box={[420, 370, 1190, 408]} m={m} k={sp(frame, T.coming - 6, 12, 220)} color={GREEN} />
+            <Mouse path={[[S_AN + 6, 1100, 300], [T.coming - 4, 900, 390]]} clicks={[]} m={m} show={[S_AN + 8, S_LOG]} />
           </>
         )}
       </Shot>
@@ -370,13 +385,15 @@ const DashPanel: React.FC<{ lay: Lay }> = ({ lay }) => {
         {(m) => <Hl box={[398, 546, 826, 864]} m={m} k={sp(frame, T.patient2 - 2, 12, 220)} />}
       </Shot>
       {/* insurance, front and back */}
-      <Shot img={D3("r3c-insurance")} from={S_INS} to={S_END} keys={[[S_INS, { x: 380, y: 220, w: 960 }]]}>
+      <Shot img={D3("r3c-insurance")} from={S_INS} to={S_ALL} keys={[[S_INS, { x: 380, y: 220, w: 960 }]]}>
         {(m) => (
           <>
             <Hl box={[402, 332, 1292, 772]} m={m} k={sp(frame, T.everythings, 12, 220)} color={GREEN} />
           </>
         )}
       </Shot>
+      {/* "everything's in one place": a slow pass down the whole analytics page */}
+      <Shot img={AN("an-full-page", 4785)} from={S_ALL} to={S_END} keys={[[S_ALL, { x: 330, y: 0, w: 1574 }], [S_END, { x: 330, y: 1500, w: 1574 }]]} />
     </div>
   );
 };
