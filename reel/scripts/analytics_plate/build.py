@@ -283,15 +283,5 @@ for i, c in enumerate(D['closed']):
     x = COLS[i]
     e.fill_bg((x + 230, 4615, x + 292, 4650))
     put(x + 284, 4643, str(c['count']), 24, 700, INK, align='right')
-# ---------------------------------------------------------------- sidebar notification badge: red -> brand purple (hue shift keeps edges)
-import colorsys, numpy as np
-x0, y0, x1, y1 = 40, 548, 74, 576
-reg = e.img[y0:y1, x0:x1]
-for yy in range(reg.shape[0]):
-    for xx in range(reg.shape[1]):
-        r_, g_, b_ = reg[yy, xx] / 255
-        h, s_, v = colorsys.rgb_to_hsv(r_, g_, b_)
-        if s_ > 0.12 and (h > 0.80 or h < 0.06):
-            reg[yy, xx] = np.array(colorsys.hsv_to_rgb(0.708, min(1, s_ * 0.92), v)) * 255
 if __name__ == '__main__':
     out = e.render('edit.png', blur=0.4)
