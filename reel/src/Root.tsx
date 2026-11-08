@@ -2,6 +2,7 @@ import React from "react";
 import { Composition } from "remotion";
 import { DURATION, FPS } from "./edit";
 import { EFFECTS } from "./effects";
+import { CampVideo, CAMP_DURATION } from "./camp/CampVideo";
 import { FxPreview } from "./effects/FxPreview";
 import { LayoutQA } from "./LayoutQA";
 import { Reel } from "./Reel";
@@ -37,6 +38,8 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="LeakInside" component={LeakInside} durationInFrames={LK_DURATION} fps={30} width={WIDTH} height={HEIGHT} />
     <Composition id="MagicShow" component={MagicShow} durationInFrames={MS_DURATION} fps={30} width={WIDTH} height={HEIGHT} />
     <Composition id="AnalyticsDemo" component={AnalyticsDemo} durationInFrames={AN_DURATION} fps={30} width={AN_W} height={AN_H} />
+    <Composition id="Camp-FormVsSoftware" component={() => <CampVideo id="form-vs-software" />} durationInFrames={CAMP_DURATION("form-vs-software")} fps={30} width={1080} height={1920} />
+    <Composition id="Camp-DayInTheLife" component={() => <CampVideo id="day-in-the-life" />} durationInFrames={CAMP_DURATION("day-in-the-life")} fps={30} width={1080} height={1920} />
     <Composition id="BuriedInEmails" component={BuriedInEmails} durationInFrames={S13_DURATION} fps={30} width={WIDTH} height={HEIGHT} />
     <Composition id="ToothReferralUgc2Ad" component={ToothUgc2Ref} durationInFrames={UGC2_REF_DURATION} fps={30} width={WIDTH} height={HEIGHT} />
     <Composition id="ToothReferralUgc2" component={ToothUgc2} durationInFrames={UGC2_DURATION} fps={30} width={WIDTH} height={HEIGHT} />

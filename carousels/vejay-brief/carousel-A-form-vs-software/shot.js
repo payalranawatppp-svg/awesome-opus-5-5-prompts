@@ -1,0 +1,5 @@
+const { chromium } = require('playwright');
+(async () => { const b = await chromium.launch(); const pg = await b.newPage({ viewport: { width: 1080, height: 1350 } });
+for (const p of ['/home/user/awesome-opus-5-5-prompts/carousels/vejay-brief/carousel-A-form-vs-software/01.html', '/home/user/awesome-opus-5-5-prompts/carousels/vejay-brief/carousel-A-form-vs-software/02.html', '/home/user/awesome-opus-5-5-prompts/carousels/vejay-brief/carousel-A-form-vs-software/03.html', '/home/user/awesome-opus-5-5-prompts/carousels/vejay-brief/carousel-A-form-vs-software/04.html', '/home/user/awesome-opus-5-5-prompts/carousels/vejay-brief/carousel-A-form-vs-software/05.html', '/home/user/awesome-opus-5-5-prompts/carousels/vejay-brief/carousel-A-form-vs-software/06.html', '/home/user/awesome-opus-5-5-prompts/carousels/vejay-brief/carousel-A-form-vs-software/07.html', '/home/user/awesome-opus-5-5-prompts/carousels/vejay-brief/carousel-A-form-vs-software/08.html']) { await pg.goto('file://' + p); await pg.evaluate(() => document.fonts.ready); await pg.waitForTimeout(300);
+  await pg.screenshot({ path: p.replace('.html', '.png') }); }
+await b.close(); })();
