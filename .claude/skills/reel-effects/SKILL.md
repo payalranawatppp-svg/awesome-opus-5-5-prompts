@@ -16,6 +16,40 @@ Also read before editing any Remotion code: `.claude/skills/remotion-motion-grap
 rules) and, if installed, `.claude/skills/remotion-best-practices/` (restore it with
 `npx skills experimental_install` if the folder is missing; it is git-ignored).
 
+## 0a. NEXT EDIT: use the editing kit (effects 18-38, saved 2026-11-08)
+
+The user asked (with a screenshot of the "Justyn Berkovits editing kit" reel) to use these effects in the next edit.
+The kit itself is not public (it is sent by DM), so these are our own versions built from the names and the look
+of that reel, in `reel/src/effects/18-*.tsx` ... `38-*.tsx` (shared helpers in `kit.tsx`). Preview each as
+`Fx-NN-slug` in Studio. In the next video, pick 4-7 of them on the beats they fit (never all), plus the usual
+dashboard inserts; keep the client rules (no red in our graphics, staff names only, no doctor names).
+
+| # | Effect (`Component`) | What it does | Best on | Props |
+|---|---|---|---|---|
+| 18 | Live cursor (`LiveCursor`) | Named multiplayer cursor clicks keyword chips beside the head | a list of steps/features | `text` (a\|b\|c), `name`, `color` |
+| 19 | Clone row (`CloneRow`) | Row of smaller copies of the speaker behind him | "five of me", a team, scale | `count`, `label` |
+| 20 | Day dial (`DayDial`) | Big dial behind the head spins between labels | time passing, "in 30 days" | `text` (labels \|), `color` |
+| 21 | Predict keys (`PredictKeys`) | Phone keyboard types, predictive bar suggests, the right one is tapped | the obvious answer, naming the product | `text` (typed\|s1\|s2\|s3), `pick` |
+| 22 | Orbit ring (`OrbitRing`) | Ring of words orbits the head, behind and in front | slogan / brand name | `text`, `color`, `speed` |
+| 23 | Code body (`CodeBody`) | Body below the chin becomes a silhouette of scrolling code | automation, "the system does it" | `color` |
+| 24 | Post wall (`PostWall`) | Social-post cards fill the wall behind | social proof, testimonials | `text` (posts \|), `names` |
+| 25 | Letter dive (`LetterDive`) | Giant word behind, camera dives through a letter | transitions, "go deeper" | `text`, `letter`, `color`, `next` |
+| 26 | Comment drop (`CommentDrop`) | Comments drop and stack beside the head | questions/objections | `text` (name::comment\|...) |
+| 27 | Layer explode (`LayerExplode`) | Room / speaker / title split into 3D layers and back | "let me break it down" | `text`, `color` |
+| 28 | Sketch words (`SketchWords`) | Marker words write themselves with arrows | labelling pains / feelings | `text` (3 words \|), `color` |
+| 29 | Blade slice (`BladeSlice`) | Blade flash slices the frame, halves open on a word | "no more...", hard cut | `text`, `bg`, `color` |
+| 30 | Head stack (`HeadStack`) | Typewriter paper labels stack on/next to the head | feature lists (the kit's signature look) | `text` ("Big small\|..."), `side` |
+| 31 | Rack focus (`RackFocus`) | Sharp stat card in front, focus pulls to the speaker | open on a number | `text`, `sub`, `color` |
+| 32 | Banknote (`Banknote`) | Speaker becomes the portrait on a banknote | ROI / money lines | `value`, `title`, `ink` |
+| 33 | Voice note (`VoiceNote`) | Voice-message bubble plays under the chin | quoting a message / voicemail | `name`, `color`, `seconds` |
+| 34 | Impact frame (`ImpactFrame`) | 1 s manga hit: inverted, ink contrast, speed lines, word | the punch word | `text`, `color` |
+| 35 | Dolly zoom (`DollyZoom`) | Vertigo: room stretches away, speaker holds | a realisation | as `Vertigo` |
+| 36 | Press front (`PressFront`) | Newspaper spins in, speaker is the front-page photo | news-style claims | `text`, `masthead`, `date` |
+| 37 | Paper tear (`PaperTear`) | Frame tears like paper, halves peel to a word | old way -> new way | `text`, `bg`, `color` |
+| 38 | Blow away (`BlowAway`) | Words beside the speaker crumble into dust | getting rid of the old way | `text` (words \|), `color` |
+
+Not built: the "+40 more effects" in that reel are not named on screen.
+
 ## 0. Next edit: also use `/effects` (saved 2026-10-26)
 
 The user asked for the effects from @vibha.in.progress's reel ("One clip. 7 completely different edits",

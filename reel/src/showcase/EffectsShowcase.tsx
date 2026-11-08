@@ -45,7 +45,8 @@ const CASTING: Record<number, { talent: TalentId; startAt: number }> = {
 
 export const SHOWCASE = (() => {
   let from = INTRO;
-  return EFFECTS.map((e) => {
+  // the original showcase covers effects 1-17 (the editing-kit effects 18+ have their own kit sheet)
+  return EFFECTS.filter((e) => CASTING[e.meta.n]).map((e) => {
     const len = Math.max(2 * BEAT, Math.round(e.meta.durationInFrames / BEAT) * BEAT);
     const cast = CASTING[e.meta.n];
     const item = { ...e, from, len, talent: TALENT[cast.talent], startAt: Math.min(cast.startAt, 8 - len / 30) };
