@@ -71,7 +71,7 @@ PLAN = [
  ('Video', 'Form vs Software: "Same referral, two endings"', 'Produced (45 s, voice-over, real screens)', 'Concept 1'),
  ('Video', 'Day in the Life of an Endodontic Start-up', 'Produced (52 s, voice-over, real screens)', 'Concept 2'),
  ('Video', 'What happens after Submit? (screen recording of the inbox vs the case, 20 s)', 'Script ready: Script 13/18 style', 'Concept 1'),
- ('Video', 'The SSN question: why patient data doesn\'t belong in a web form (talking head, 30 s)', 'Script in this report (section 5)', 'Concept 1'),
+ ('Video', 'The SSN question: why patient data doesn\'t belong in a web form (talking head, 30 s)', 'Script in this report (section 4)', 'Concept 1'),
  ('Video', 'Start-up diary ep. 2: inviting my network (Flow, two offices, 45 s)', 'Story beat 5', 'Concept 2'),
  ('Video', 'Start-up diary ep. 3: week 4 analytics (real analytics recording)', 'Uses renders/analytics-demo.mp4', 'Concept 2'),
  ('Video', 'Patient POV: Nothing to Fill Out (Script 14, Flow)', 'Flow prompts ready', 'Both'),
@@ -79,7 +79,7 @@ PLAN = [
  ('Carousel', 'Your referral form is a digital fax machine (8 slides)', 'Produced', 'Concept 1'),
  ('Carousel', 'A day in the life of an endodontic start-up (8 slides)', 'Produced', 'Concept 2'),
  ('Carousel', '17 things a web form can\'t do (feature map)', 'Copy in section 3', 'Concept 1'),
- ('Carousel', 'Start-up checklist: referrals before your first patient', 'Copy in section 6', 'Concept 2'),
+ ('Carousel', 'Start-up checklist: referrals before your first patient', 'Copy in section 5', 'Concept 2'),
 ]
 
 CAPTIONS = [
@@ -151,21 +151,16 @@ tr {{ page-break-inside: avoid; }}
 {''.join(f'<tr><td class="k">{E(a)}</td><td class="no">{E(b)}</td><td class="yes">{E(c)}</td><td class="log">{E(d)}</td></tr>' for a, b, c, d in JOURNEY)}</table>
 <div class="box"><b>The difference in one sentence:</b> with a form, the referral's history lives in inboxes, voicemails and people's memory; with Tooth Referral it lives on the case, and both offices can see it.</div>
 
-<h2><small>4 · Why it's necessary</small>The business case (from the client call of Nov 5)</h2>
-<ul><li>Cost about $150-$300 a month. Saving referrals that would have slipped: potentially about $5,000 a year. New referrals from the network: potentially $5,000-$10,000 a year.</li>
-<li>Over 10 years, up to about $150,000 back on $10,000-$15,000 spent (roughly 10x), including about 5-10% practice value from a turnkey, data-backed referral system.</li>
-<li>One referral that doesn't leak pays for the system; one saved after staff turnover covers a whole year. Set-up takes about five minutes.</li></ul>
-
-<h2 class="pb"><small>5 · Product knowledge</small>Every feature, mapped</h2>
+<h2 class="pb"><small>4 · Product knowledge</small>Every feature, mapped</h2>
 <table>{''.join(f'<tr><td class="k">{E(a)}</td><td>{E(b)}</td></tr>' for a, b in FEATURES)}</table>
 <p class="mut">Talking-head script, "The SSN question" (30 s): "I looked at specialist referral forms this week. One of them asks the referring office for the patient's Social Security number, on a public web page. That's not a referral system. That's a liability. With Tooth Referral, the referral is a case: HIPAA compliant, encrypted, shared only with the two offices, and nobody types a Social Security number into a website. Set up in about five minutes."</p>
 
-<h2 class="pb"><small>6 · Story</small>Day in the Life of an Endodontic Start-up</h2>
+<h2 class="pb"><small>5 · Story</small>Day in the Life of an Endodontic Start-up</h2>
 <table>{''.join(f'<tr><td class="k">{E(a)}</td><td>{E(b)}</td></tr>' for a, b in STORY)}</table>
 <div class="box"><b>Video 2 narration (produced):</b> "Day one of my endodontic practice. The chairs are in, the CBCT works, and the website goes live tomorrow. Every specialist website has a referral form. Mine almost did too. Then I asked one question: what happens after a dentist hits submit? With a form, it lands in an inbox. With Tooth Referral, it lands in a pipeline. So I embedded Tooth Referral on my website... Week four, my analytics show every referral, who sent it, and how fast we called. Twenty-eight referrals, first contact in under four hours. Starting a practice is hard. Losing referrals shouldn't be part of it."</div>
 <p class="mut">Start-up checklist (carousel copy): website live with the Tooth Referral form embedded; locations and doctors added; insurance accepted listed; "What we are known for" filled; network invited; consultation note template saved; email notifications set; first analytics review at week 4.</p>
 
-<h2 class="pb"><small>7 · Campaign</small>Brand-awareness content plan (two concepts)</h2>
+<h2 class="pb"><small>6 · Campaign</small>Brand-awareness content plan (two concepts)</h2>
 <table><tr><th>Format</th><th>Piece</th><th>Status</th><th>Concept</th></tr>
 {''.join(f'<tr><td class="k">{E(a)}</td><td>{E(b)}</td><td>{E(c)}</td><td>{E(d)}</td></tr>' for a, b, c, d in PLAN)}</table>
 <h2>Post captions (ready to use)</h2>
