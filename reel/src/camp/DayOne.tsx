@@ -150,13 +150,16 @@ const Captions: React.FC = () => {
   const c = CHUNKS.find((x) => t >= x.from && t < x.to);
   if (!c || t >= CUT - 0.1) return null;
   const out = interpolate(t, [c.to - 0.13, c.to], [0, 1], clamp);
+  const light = t >= COVER_IN + 0.15 && t < COVER_OUT; // on the light status screen the words turn dark
+  const fg = light ? INK : W;
+  const stroke: React.CSSProperties = light ? {} : { WebkitTextStroke: "9px rgba(12,8,26,0.72)", paintOrder: "stroke fill" };
   return (
-    <div style={{ position: "absolute", left: 50, right: 50, top: 1530, textAlign: "center", fontFamily: FONT_UI, fontWeight: 800, letterSpacing: "-0.025em", lineHeight: 1.12, fontSize: 62, color: W, textShadow: SOFT, opacity: 1 - out, filter: out > 0 ? `blur(${out * 6}px)` : undefined }}>
+    <div style={{ position: "absolute", left: 50, right: 50, top: 1530, textAlign: "center", fontFamily: FONT_UI, fontWeight: 800, letterSpacing: "-0.025em", lineHeight: 1.12, fontSize: 62, color: fg, textShadow: light ? "none" : SOFT, opacity: 1 - out, filter: out > 0 ? `blur(${out * 6}px)` : undefined }}>
       {c.words.map((w, i) => {
         const k = interpolate(t, [w.at - 0.07, w.at + 0.1], [0, 1], clamp);
         const hot = w.key && t >= w.at;
         return (
-          <span key={i} style={{ display: "inline-block", marginRight: i < c.words.length - 1 ? (hot ? "0.14em" : "0.22em") : 0, marginLeft: hot ? "-0.08em" : 0, opacity: k, translate: `0px ${(1 - k) * 10}px`, filter: k < 1 ? `blur(${(1 - k) * 5}px)` : undefined, padding: hot ? "0 0.14em" : undefined, borderRadius: 12, background: hot ? YELLOW : undefined, color: hot ? INK : W, textShadow: hot ? "none" : SOFT, boxShadow: hot ? "0 8px 24px rgba(10,6,24,0.35)" : undefined }}>
+          <span key={i} style={{ display: "inline-block", marginRight: i < c.words.length - 1 ? (hot ? "0.14em" : "0.22em") : 0, marginLeft: hot ? "-0.08em" : 0, opacity: k, translate: `0px ${(1 - k) * 10}px`, filter: k < 1 ? `blur(${(1 - k) * 5}px)` : undefined, padding: hot ? "0 0.14em" : undefined, borderRadius: 12, background: hot ? YELLOW : undefined, color: hot ? INK : fg, textShadow: hot || light ? "none" : SOFT, ...(hot ? {} : stroke), boxShadow: hot ? "0 8px 24px rgba(10,6,24,0.35)" : undefined }}>
             {w.t}
           </span>
         );
@@ -442,7 +445,7 @@ const Inserts: React.FC = () => {
       {/* 11. The patient uploads their own insurance with a secure link */}
       <Pop t={t} t0={T.three + 0.9} t1={T.every - 0.1} y={760} x={80} w={920} tilt={1.5}>
         <div style={CARD}>
-          <Screen t={t} t0={T.three} src="camp/tr-insurance.jpg" iw={980} crop={{ x: 0, y: 0, w: 980 }} w={920} h={560} push={0.05} hl={[{ box: [20, 300, 940, 210], at: T.secure }]} />
+          <Screen t={t} t0={T.three} src="camp/tr-insurance.jpg" iw={980} crop={{ x: 0, y: 0, w: 980 }} w={920} h={560} push={0.05} hl={[{ box: [20, 135, 940, 175], at: T.secure }]} />
         </div>
         <div style={{ position: "absolute", left: 30, top: 600 }}>
           <Chip t={t} at={T.secure + 0.3} bg={GREEN} color={W} size={34} icon={ICON.send}>Secure link sent to the patient</Chip>
@@ -587,8 +590,8 @@ const EndCard: React.FC = () => {
     <AbsoluteFill style={{ opacity: p, background: "linear-gradient(170deg, #FBFAFF 0%, #EFEAFF 60%, #E6DEFF 100%)", alignItems: "center", justifyContent: "center", fontFamily: FONT_UI }}>
       <AbsoluteFill style={{ backgroundImage: "radial-gradient(rgba(109,74,232,0.10) 1.5px, transparent 1.6px)", backgroundSize: "36px 36px", backgroundPosition: `${(t * 8) % 36}px ${(t * 5) % 36}px` }} />
       <Img src={staticFile("tr/logo.png")} style={{ width: 620, scale: String(0.86 + 0.14 * l), opacity: l, marginTop: -120 }} />
-      <div style={{ marginTop: 70, fontSize: 64, fontWeight: 800, letterSpacing: "-0.03em", lineHeight: 1.1, color: INK, textAlign: "center", opacity: l, translate: `0 ${(1 - l) * 30}px` }}>
-        Starting a practice is hard.<br /><span style={{ color: PURPLE }}>Losing referrals shouldn’t be part of it.</span>
+      <div style={{ marginTop: 70, width: 940, fontSize: 56, fontWeight: 800, letterSpacing: "-0.03em", lineHeight: 1.14, color: INK, textAlign: "center", opacity: l, translate: `0 ${(1 - l) * 30}px` }}>
+        Starting a practice is hard.<br /><span style={{ color: PURPLE }}>Losing referrals<br />shouldn’t be part of it.</span>
       </div>
       <div style={{ marginTop: 50, padding: "20px 46px", borderRadius: 999, background: PURPLE, color: "#fff", fontSize: 42, fontWeight: 800, opacity: b, scale: String(0.8 + 0.2 * b) }}>Set up in about 5 minutes</div>
       <div style={{ marginTop: 28, fontSize: 40, color: PURPLE, fontWeight: 800, opacity: c }}>toothreferral.com</div>
