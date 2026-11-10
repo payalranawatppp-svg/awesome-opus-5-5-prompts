@@ -16,6 +16,25 @@ Also read before editing any Remotion code: `.claude/skills/remotion-motion-grap
 rules) and, if installed, `.claude/skills/remotion-best-practices/` (restore it with
 `npx skills experimental_install` if the folder is missing; it is git-ignored).
 
+## 00. NEXT EDIT: also use these four video skills (installed 2026-11-10)
+
+The user asked to install these and use them in the next video edit. All MIT, copied into `.claude/skills/`
+(source and commit in each folder's SOURCE.txt). Use them together with the Remotion effects below; they are
+methods and tools, not a replacement for our pipeline.
+
+| Skill | What it gives us | How to run here |
+|---|---|---|
+| `video-director` | The directing method: one idea, TREATMENT.md, a timeline.json in seconds, look-proof stills, an independent review round, honest delivery report. Plus two checkers. | `python3 .claude/skills/video-director/scripts/check_timeline.py timeline.json` · `python3 .claude/skills/video-director/scripts/qa_video.py <video.mp4> --out <dir>` (cuts, frozen stretches, flashes, loudness -14 LUFS / TP <= -1, hook/phone/beat sheets) |
+| `huashu-motion` | Motion-language library (cursor-demo, data-story, kinetic-type, liquid-glass, system-diagram, talking-head...), director/punch-up method, `om` CLI: grab real product material, sound (SFX + score), voice cues, `om check`, `om qa --sheet`. | `OM_CHROME=/opt/pw-browsers/chromium-1194/chrome-linux/chrome npx --yes huashu-motion <cmd>` (doctor passes with that) |
+| `argo-guide` | Product demo videos from a Playwright script: real app recording + voiceover + overlays (pseudo-cursor, callouts, zooms). Best fit for ToothReferral dashboard walkthroughs from a logged-in session. | `npx --yes @argo-video/cli` (0.42.1); needs a TTS engine (we use ElevenLabs) and app access |
+| `explainroo` | Explainer videos from `script.md` + `scenes.js`, words timed by Whisper, music + SFX, local Kokoro voice or ElevenLabs. | `npx --yes explainroo doctor` passes (Chrome found); first voice run downloads ~400 MB of models |
+
+Apply in the next edit:
+1. Plan with video-director (treatment + timeline in seconds) before building; pick a motion language from the huashu-motion library.
+2. QA every render with `qa_video.py` and fix what it flags. Baseline on `renders/camp-form-vs-software.mp4` (2026-11-10):
+   loudness -16 LUFS (target -14, master to -14 LUFS / -1 dBTP) and eight 1.0-1.9 s near-frozen stretches (add a move or cut).
+3. For dashboard demos, prefer an argo-style real recording with a pseudo-cursor over stills when app access is available.
+
 ## 0a. NEXT EDIT: use the editing kit (effects 18-38, saved 2026-11-08)
 
 The user asked (with a screenshot of the "Justyn Berkovits editing kit" reel) to use these effects in the next edit.

@@ -1,0 +1,1 @@
+huashu-motion <- github.com/alchaincyf/huashu-motion @ 0272906
