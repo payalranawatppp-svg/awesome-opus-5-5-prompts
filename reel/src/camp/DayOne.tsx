@@ -334,7 +334,7 @@ const Inserts: React.FC = () => {
       </Pop>
 
       {/* 2. The equipment checklist */}
-      <Pop t={t} t0={T.ops - 0.1} t1={T.what - 0.15} h={150} w={980}>
+      <Pop t={t} t0={SEG[2].start - 0.3} t1={T.what - 0.15} h={150} w={980}>
         <div style={{ ...CARD, padding: "24px 34px" }}>
           <div style={{ fontSize: 26, fontWeight: 800, letterSpacing: "0.14em", color: PURPLE }}>OPENING CHECKLIST</div>
           <div style={{ display: "flex", justifyContent: "space-between", marginTop: 18 }}>
@@ -348,12 +348,12 @@ const Inserts: React.FC = () => {
       </Pop>
 
       {/* 3. What she doesn't have yet */}
-      <Pop t={t} t0={T.what + 0.6} t1={T.okay - 0.1} h={240} w={860}>
+      <Pop t={t} t0={T.what - 0.15} t1={T.okay - 0.1} h={240} w={860}>
         <Counter t={t} label="Patients booked" from={0} to={0} at={1e9} color={AMBER} sub="Not yet." />
       </Pop>
 
       {/* 4. The designer's template form: the fields, the SSN, Submit */}
-      <Pop t={t} t0={T.okay + 0.35} t1={T.email - 0.05} h={660} w={940} tilt={-2}>
+      <Pop t={t} t0={T.okay - 0.1} t1={T.email - 0.05} h={660} w={940} tilt={-2}>
         <div style={CARD}>
           <Screen t={t} t0={T.okay} src="camp/mock.png" iw={2004} crop={{ x: 0, y: 0, w: 2004 }} w={940} h={640} push={0.04}
             hl={[{ box: [30, 225, 1740, 130], at: T.doctor }, { box: [30, 495, 1740, 130], at: T.patientN }, { box: [30, 640, 720, 135], at: T.social, c: AMBER }]}>
@@ -403,7 +403,7 @@ const Inserts: React.FC = () => {
       </Pop>
 
       {/* 7. So I chose Tooth Referral */}
-      <Pop t={t} t0={T.so + 0.25} t1={T.sits - 0.1} h={230} w={700}>
+      <Pop t={t} t0={T.so - 0.05} t1={T.sits - 0.1} h={230} w={700}>
         <div style={{ ...CARD, padding: "40px 50px", display: "flex", justifyContent: "center", position: "relative" }}>
           <Img src={staticFile("tr/logo.png")} style={{ width: 560 }} />
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(105deg, transparent 35%, rgba(255,255,255,0.85) 50%, transparent 65%)", translate: `${interpolate(t, [T.so + 0.6, T.so + 1.4], [-800, 800], clamp)}px 0` }} />
@@ -538,7 +538,7 @@ const Inserts: React.FC = () => {
       })()}
 
       {/* 15. Our first patient */}
-      <Pop t={t} t0={T.our - 0.05} t1={COVER_IN - 0.05} h={240} w={860}>
+      <Pop t={t} t0={T.our - 0.3} t1={COVER_IN - 0.05} h={240} w={860}>
         <Counter t={t} label="Patients booked" from={0} to={1} at={T.our + 0.25} color={GREEN} sub={t >= T.calling ? "Calling her now." : "Our first patient."} />
       </Pop>
     </AbsoluteFill>
