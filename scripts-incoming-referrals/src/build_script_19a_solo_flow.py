@@ -3,7 +3,7 @@ import html, os, subprocess
 E = html.escape
 OUT = '/home/user/awesome-opus-5-5-prompts/scripts-incoming-referrals/Script-19A-Solo-Day-One-Founder-Only-Google-Flow.pdf'
 
-LOOK = ('Vertical 9:16 video, 8 seconds, one continuous shot. Authentic TikTok vlog recorded by the speaker herself on her smartphone front '
+LOOK = ('She is holding her own phone in her right hand and recording herself through the phone\'s front camera, like a selfie video. Vertical 9:16 video, 8 seconds, one continuous shot. Authentic TikTok vlog recorded by the speaker herself on her smartphone front '
         'camera (selfie mode): she holds the phone in her right hand at arm\'s length, so the frame is slightly wide-angle with mild lens '
         'distortion near the edges, her right shoulder and the top of her arm are partly visible at the frame edge, the phone itself is never '
         'visible, the camera moves with her hand (natural small sways and tiny re-framings, never a tripod or gimbal), she looks into the lens as '
