@@ -50,6 +50,7 @@ type Scene = {
   end?: boolean;
   split?: [Img2, Img2];
   endText?: string;
+  trio?: { img: Img2; crop: Crop; label: string }[];
   bigTop?: number;
 };
 
@@ -64,6 +65,9 @@ const TRL: Img2 = { src: "camp/tr-locations.jpg", w: 980, h: 800 };
 const TRC: Img2 = { src: "camp/tr-chart.jpg", w: 920, h: 1050 };
 const TRU: Img2 = { src: "camp/tr-uploads.jpg", w: 920, h: 640 };
 const TRI: Img2 = { src: "camp/tr-insurance.jpg", w: 980, h: 680 };
+const FA: Img2 = { src: "camp/f1-form.jpg", w: 1366, h: 2600 };
+const FB: Img2 = { src: "camp/f2-form.jpg", w: 1366, h: 2600 };
+const FC: Img2 = { src: "camp/f3-portal.jpg", w: 1366, h: 986 };
 
 const CW = 1000, CH = 860, CX = 40, CY = 560;
 
@@ -130,6 +134,46 @@ const CFG: Record<string, { audio: string; words: string; seconds: number; tag: 
       { from: 50.85, enter: "push", kicker: "5 · IT KEEPS WORKING", title: "A signed completion note", img: D2("cs-07-signed-success"), keys: [[50.85, { x: 380, y: 0, w: 1500 }], [52.6, { x: 1250, y: 0, w: 640 }]],
         fx: [{ k: "stamp", text: "SIGNED ✓", t: 51.5, color: GREEN, x: 540, y: 1000 }] },
       { from: 52.75, enter: "focus", end: true, endText: "The referral form that keeps\nworking after you hit submit.", fx: [{ k: "ring", text: "SECURE • YOURS • COMPLETE • EASY • TRACKED • " }] },
+    ],
+  },
+  "form-compare2": {
+    audio: "audio/voice/camp-form-compare2.wav", words: "form-compare2.16k.wav", seconds: 58.5, tag: "FORM VS FORM",
+    scenes: [
+      { from: 0, kicker: "THREE REAL SPECIALIST FORMS", title: "Names hidden. Same old problems.",
+        trio: [{ img: FA, crop: { x: 300, y: 600, w: 1000 }, label: "Form A" }, { img: FB, crop: { x: 120, y: 380, w: 1100 }, label: "Form B" }, { img: FC, crop: { x: 0, y: 160, w: 700 }, label: "Form C" }] },
+      { from: 2.9, enter: "push", kicker: "FORM A", title: "A long page that ends in an email", img: FA, keys: [[2.9, { x: 0, y: 260, w: 1366 }], [5.2, { x: 300, y: 820, w: 1000 }], [7.1, { x: 380, y: 1330, w: 900 }], [8.8, { x: 380, y: 1360, w: 880 }]],
+        hl: [{ box: [455, 1455, 1250, 1545], at: 7.3, c: AMBER }], chips: [{ t: "Ends in an email", at: 5.4, c: AMBER }, { t: "Asks for SSN", at: 7.3, c: AMBER }] },
+      { from: 8.9, enter: "push", kicker: "FORM B", title: "One file. No insurance.", img: FB, keys: [[8.9, { x: 150, y: 900, w: 1100 }], [10.1, { x: 150, y: 1900, w: 1100 }], [12.0, { x: 180, y: 1960, w: 1000 }]],
+        chips: [{ t: "1 file", at: 10.0, c: AMBER }, { t: "No insurance", at: 10.9, c: AMBER }] },
+      { from: 12.1, enter: "push", kicker: "FORM C", title: "Log in before you can refer", img: FC, keys: [[12.1, { x: 0, y: 120, w: 1140 }], [13.0, { x: 40, y: 230, w: 760 }], [17.3, { x: 60, y: 250, w: 700 }]],
+        fx: [{ k: "cursor", img: true, path: [[12.3, 700, 700], [13.0, 300, 329], [13.9, 300, 368], [14.7, 240, 413]], clicks: [13.1, 14.0, 14.8] }],
+        chips: [{ t: "Doctor ID", at: 13.0, c: AMBER }, { t: "Password", at: 14.0, c: AMBER }, { t: "Math question", at: 14.9, c: AMBER }] },
+      { from: 17.4, enter: "tear", kicker: "NOW, THE TOOTH REFERRAL WEB FORM", title: "Built for referrals, not for email", img: TRM, keys: [[17.4, { x: 0, y: 0, w: 900 }], [19.4, { x: 0, y: 40, w: 820 }]] },
+      { from: 19.5, enter: "blade", kicker: "1 · SECURE", title: "HIPAA compliant and encrypted", img: D3("r3c-messages"), ch: 560, keys: [[19.5, { x: 690, y: 220, w: 1100 }], [22.0, { x: 740, y: 280, w: 960 }], [24.0, { x: 820, y: 330, w: 820 }]],
+        chips: [{ t: "Every referral", at: 20.5, c: PURPLE }, { t: "Every message", at: 21.4, c: PURPLE }], fx: [{ k: "stamp", text: "HIPAA ✓", t: 22.3, color: GREEN, x: 540, y: 1310 }] },
+      { from: 24.1, enter: "push", kicker: "2 · IT'S YOURS", title: "Your logo, your locations", img: TRL, keys: [[24.1, { x: 0, y: 0, w: 900 }], [26.6, { x: 0, y: 250, w: 900 }]], hl: [{ box: [640, 305, 918, 680], at: 26.0, c: PURPLE }],
+        chips: [{ t: "Your logo", at: 25.2, c: PURPLE }, { t: "Your locations", at: 26.0, c: PURPLE }] },
+      { from: 26.7, enter: "push", kicker: "2 · IT'S YOURS", title: "Announcements, insurance, backlinks", img: TRM, keys: [[26.7, { x: 0, y: 0, w: 900 }], [27.6, { x: 0, y: 0, w: 900 }], [28.6, { x: 0, y: 380, w: 900 }], [31.3, { x: 0, y: 420, w: 860 }]],
+        chips: [{ t: "Announcements", at: 26.8, c: PURPLE }, { t: "Insurance accepted", at: 27.8, c: GREEN }, { t: "Backlinks to your site", at: 29.3, c: GREEN }] },
+      { from: 31.4, enter: "blade", kicker: "3 · COMPLETE", title: "Urgency and procedures", img: TRL, keys: [[31.4, { x: 0, y: 420, w: 900 }], [33.2, { x: 0, y: 480, w: 900 }]], hl: [{ box: [45, 715, 935, 790], at: 32.5, c: PURPLE }],
+        chips: [{ t: "Urgent · Routine · Symptomatic", at: 32.5, c: PURPLE }] },
+      { from: 33.3, enter: "push", kicker: "3 · COMPLETE", title: "Tooth chart and diagnosis", img: TRC, keys: [[33.3, { x: 0, y: 0, w: 920 }], [34.8, { x: 0, y: 150, w: 920 }], [35.8, { x: 0, y: 380, w: 920 }]],
+        fx: [{ k: "cursor", img: true, path: [[33.4, 600, 700], [34.2, 744, 282]], clicks: [34.35] }], chips: [{ t: "Tooth #19", at: 34.4, c: PURPLE }, { t: "Diagnosis", at: 35.2, c: GREEN }] },
+      { from: 35.9, enter: "push", kicker: "3 · COMPLETE", title: "Up to 10 X-rays per referral", img: TRU, ch: 600, keys: [[35.9, { x: 0, y: 100, w: 920 }], [37.3, { x: 0, y: 120, w: 860 }]],
+        fx: [{ k: "count", x: 70, y: 1220, items: [["X-rays", 0, 10, "", 36.3], ["documents", 0, 10, "", 36.7]] }] },
+      { from: 37.4, enter: "blade", kicker: "4 · EASY", title: "Three steps. No login.", img: TRL, ch: 440, keys: [[37.4, { x: 0, y: 40, w: 980 }], [39.8, { x: 0, y: 60, w: 900 }]],
+        fx: [{ k: "stack", x: 70, y: 1330, items: [["3", "steps", 38.3], ["No", "login", 39.1]] }] },
+      { from: 39.9, enter: "push", kicker: "4 · EASY", title: "Patients upload their own insurance", img: TRI, keys: [[39.9, { x: 0, y: 0, w: 790 }], [43.1, { x: 0, y: 60, w: 760 }]],
+        chips: [{ t: "Patient uploads the card", at: 40.4, c: PURPLE }, { t: "Secure link", at: 42.0, c: GREEN }] },
+      { from: 43.2, enter: "tear", kicker: "5 · IT KEEPS WORKING", title: "Every referral becomes a tracked case", img: D3("r3c-incoming"), ch: 620, keys: [[43.2, { x: 360, y: 150, w: 1500 }], [46.9, { x: 370, y: 190, w: 1150 }]], hl: [{ box: [380, 250, 1850, 330], at: 46.0, c: PURPLE }],
+        fx: [{ k: "cursor", img: true, name: "Amanda", path: [[43.4, 1500, 700], [45.7, 760, 290]], clicks: [46.0] }] },
+      { from: 47.0, enter: "push", kicker: "5 · IT KEEPS WORKING", title: "Messages and a signed note", img: D2("cs-07-signed-success"), keys: [[47.0, { x: 380, y: 0, w: 1500 }], [49.5, { x: 1250, y: 0, w: 640 }]],
+        fx: [{ k: "drop", x: 70, y: 1100, items: [["Greg · Gentle Dental", "@Amanda is she all set?", 47.1]] }, { k: "stamp", text: "SIGNED ✓", t: 48.4, color: GREEN, x: 540, y: 1000 }] },
+      { from: 49.6, enter: "focus", big: "A monthly report\non your form.", kicker: "UNIQUE TO TOOTH REFERRAL",
+        fx: [{ k: "stack", x: 70, y: 1330, items: [["Visitors", "per day", 50.2], ["Time", "on the form", 50.7], ["Where", "referrals stall", 51.2]] }] },
+      { from: 51.9, enter: "blade", big: "A web form sends\nan email.", kicker: "THE DIFFERENCE", fx: [{ k: "blow", t: 53.4 }] },
+      { from: 54.1, enter: "blade", big: "Tooth Referral\nstarts a case.", kicker: "THE DIFFERENCE", fx: [{ k: "stamp", text: "CASE ✓", t: 54.9, color: GREEN, x: 540, y: 1250 }] },
+      { from: 55.7, enter: "focus", end: true, endText: "Secure. Yours. Complete. Easy.\nThe Tooth Referral web form.", fx: [{ k: "ring", text: "SECURE • YOURS • COMPLETE • EASY • TRACKED • " }] },
     ],
   },
   "day-in-the-life": {
@@ -415,6 +459,16 @@ const SceneView: React.FC<{ sc: Scene; t: number; tag: string }> = ({ sc, t, tag
                 <div key={i} style={{ flex: 1, translate: `0 ${(1 - sp(t, sc.from + i * 0.3, 16)) * 400}px` }}>
                   <div style={{ fontSize: 34, fontWeight: 800, marginBottom: 14, color: i ? PURPLE : "#8A7A63", fontFamily: FONT_UI }}>{i ? "Tooth Referral" : "Web form"}</div>
                   <Card img={im} crop={i ? { x: 360, y: 150, w: 900 } : { x: 0, y: 0, w: 1400 }} w={488} h={760} t={t} />
+                </div>
+              ))}
+            </div>
+          ) : null}
+          {sc.trio ? (
+            <div style={{ position: "absolute", top: 520, left: 30, right: 30, display: "flex", gap: 14 }}>
+              {sc.trio.map((c, i) => (
+                <div key={i} style={{ flex: 1, translate: `0 ${(1 - sp(t, sc.from + i * 0.25, 16)) * 500}px`, rotate: `${(i - 1) * 2}deg` }}>
+                  <div style={{ fontSize: 34, fontWeight: 800, marginBottom: 12, color: "#8A7A63", fontFamily: FONT_UI }}>{c.label}</div>
+                  <Card img={c.img} crop={{ x: c.crop.x, y: c.crop.y + (t - sc.from) * 160, w: c.crop.w * (1 - (t - sc.from) * 0.04) }} w={326} h={760} t={t} />
                 </div>
               ))}
             </div>
