@@ -9,9 +9,20 @@ LOOK = ('Vertical 9:16 video, 8 seconds, one continuous shot. Authentic TikTok s
 NEG = ('Audio: only the spoken line{extra} and quiet room tone. No music, no subtitles, no captions, no on-screen text, no readable screens, '
        'no logos, no name tags with text, no red clothing or props, no extra people, no warped hands or fingers, no lip-sync drift.')
 
-FOUNDER = ('THE FOUNDER: a woman in her mid-30s, an endodontist opening her own practice, shoulder-length dark-brown hair in loose waves tucked '
-           'behind her left ear, warm brown eyes, light freckles, small gold stud earrings, a navy scrub top under an open white clinic jacket '
-           'with a blank chest (no embroidery)')
+FOUNDER = ('THE FOUNDER: a woman in her mid-30s who owns a new endodontic practice, shoulder-length dark-brown hair in soft loose waves '
+           'tucked behind her left ear, warm brown eyes, light freckles, clear tortoiseshell glasses, small gold stud earrings, a thin gold '
+           'necklace and a slim watch, wearing a tailored navy blazer with sleeves slightly pushed up over a fitted cream knit top '
+           '(no scrubs, no white coat, no stethoscope, no name badge)')
+AVATAR = ("Vertical 9:16 photorealistic portrait, shot on a smartphone front camera at arm's length (selfie), natural phone-photo look, real skin "
+          "texture with pores and light freckles, no beauty filter, subtle grain, true-to-life colours. A confident woman in her mid-30s who owns a "
+          "brand-new endodontic dental practice. Shoulder-length dark-brown hair in soft loose waves tucked behind her left ear, warm brown eyes, light "
+          "freckles, natural minimal makeup, small gold stud earrings, a thin gold necklace, a slim minimalist watch, clear tortoiseshell glasses. She "
+          "wears a tailored navy blazer with the sleeves pushed up slightly over a fitted cream knit top, smart and polished but not medical. No scrubs, "
+          "no white coat, no stethoscope, no name badge. She looks clean, precise and calm, like someone who is very good with her hands and her "
+          "patients: steady eye contact, a warm, slightly proud half-smile, relaxed shoulders, one hand lifted near her face holding a ring of new keys. "
+          "Background, softly out of focus: the bright treatment room of her new practice, a modern dental chair, a surgical microscope on an arm, an "
+          "overhead dental light, white walls with a sage-green accent wall, a light-oak cabinet, daylight from a window. Lived-in, professional, real. "
+          "No readable text, no logos, no red clothing or objects, no extra people, no warped hands or fingers.")
 FVOICE = 'a warm, natural, slightly fast female voice in her mid-30s, neutral American accent, excited and a little nervous, the same voice in every clip'
 TANYA = ('TANYA: a woman in her mid-30s with dark-brown hair in a low side ponytail over her left shoulder, navy short-sleeve V-neck scrubs '
          'and a small blank white name badge')
@@ -125,11 +136,14 @@ pre {{ white-space: pre-wrap; font-family: Inter, sans-serif; font-size: 8.2pt; 
 <h1>"Day One" (solo): the founder's selfie vlog</h1>
 <div class="sub">An endodontist's first day: the website, the referral-form decision, and the first referral through Tooth Referral. One character only: the founder films everything herself. 13 clips × 8 s ≈ 1:44. For a 60-80 s TikTok cut, drop clips 02, 05 and 13.</div>
 <div class="box"><b>How to generate in Flow</b><ul>
-<li>Make one still of the founder first (Imagen) from her character line, and use it as the reference image for every clip, so her face, hair and clothes never change.</li>
+<li>Generate the founder still first from the avatar prompt below, and use it as the reference image for every clip, so her face, hair and clothes never change.</li>
 <li>Paste each prompt as it is. Lines are kept to about 20 words so they fit 8 seconds; two-speaker clips say who talks first.</li>
 <li>"Tooth Referral" is written as two words so Flow says it right. If it slips, re-voice that one line in ElevenLabs.</li>
 <li>Use the last frame of a clip to start the next one when they are in the same place (clips 03-08 in the office, 09-11 at the front desk).</li>
 <li>In the edit, add captions and short inserts of the real Tooth Referral form (logo/insurance, tooth chart, insurance link) over clips 06-08 and the incoming referral over clip 10. Screens in the footage stay unreadable on purpose.</li></ul></div>
+<h2>Avatar prompt (generate this first, as an image)</h2>
+<div class="box">Smart-casual, not medical clothing, but a clear doctor vibe from the clinic background, the glasses and watch, and her calm, precise presence. Generate this still in Imagen/Flow and use it as the reference image for every clip. For clip 01 (parking lot) keep the outfit and swap the background for the outside of the new office.</div>
+<pre>{E(AVATAR)}</pre>
 <h2>Characters (built into every prompt)</h2>
 <table class="cast"><tr><td>THE FOUNDER</td><td>{E(FOUNDER[13:])}.<br><span style="color:#6B6880">Voice: {E(FVOICE)}</span></td></tr>
 </table>
