@@ -403,7 +403,7 @@ const Inserts: React.FC = () => {
       </Pop>
 
       {/* 7. So I chose Tooth Referral */}
-      <Pop t={t} t0={T.so - 0.05} t1={T.sits - 0.1} h={230} w={700}>
+      <Pop t={t} t0={Math.min(T.so - 0.05, T.contact + 1.05)} t1={T.sits - 0.1} h={230} w={700}>
         <div style={{ ...CARD, padding: "40px 50px", display: "flex", justifyContent: "center", position: "relative" }}>
           <Img src={staticFile("tr/logo.png")} style={{ width: 560 }} />
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(105deg, transparent 35%, rgba(255,255,255,0.85) 50%, transparent 65%)", translate: `${interpolate(t, [T.so + 0.6, T.so + 1.4], [-800, 800], clamp)}px 0` }} />
