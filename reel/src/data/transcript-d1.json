@@ -1,0 +1,1056 @@
+{
+"d1": {
+"words": [
+{
+"word": "Day",
+"start": 0.0,
+"end": 0.24
+},
+{
+"word": "one,",
+"start": 0.24,
+"end": 0.6
+},
+{
+"word": "14",
+"start": 1.04,
+"end": 1.4
+},
+{
+"word": "years",
+"start": 1.4,
+"end": 1.68
+},
+{
+"word": "of",
+"start": 1.68,
+"end": 1.9
+},
+{
+"word": "school,",
+"start": 1.9,
+"end": 2.26
+},
+{
+"word": "one",
+"start": 2.98,
+"end": 3.18
+},
+{
+"word": "very",
+"start": 3.18,
+"end": 3.54
+},
+{
+"word": "big",
+"start": 3.54,
+"end": 3.78
+},
+{
+"word": "loan,",
+"start": 3.78,
+"end": 4.2
+},
+{
+"word": "and",
+"start": 4.78,
+"end": 4.86
+},
+{
+"word": "a",
+"start": 4.86,
+"end": 5.04
+},
+{
+"word": "building",
+"start": 5.04,
+"end": 5.3
+},
+{
+"word": "that",
+"start": 5.3,
+"end": 5.56
+},
+{
+"word": "smells",
+"start": 5.56,
+"end": 5.86
+},
+{
+"word": "like",
+"start": 5.86,
+"end": 6.14
+},
+{
+"word": "fresh",
+"start": 6.14,
+"end": 6.46
+},
+{
+"word": "paint.",
+"start": 6.46,
+"end": 6.88
+},
+{
+"word": "Two",
+"start": 7.22,
+"end": 7.3
+},
+{
+"word": "operatories,",
+"start": 7.3,
+"end": 7.98
+},
+{
+"word": "a",
+"start": 8.42,
+"end": 8.56
+},
+{
+"word": "microscope,",
+"start": 8.56,
+"end": 9.04
+},
+{
+"word": "a",
+"start": 9.68,
+"end": 9.76
+},
+{
+"word": "CBCT.",
+"start": 9.76,
+"end": 10.62
+},
+{
+"word": "What",
+"start": 11.0,
+"end": 11.1
+},
+{
+"word": "I",
+"start": 11.1,
+"end": 11.26
+},
+{
+"word": "don't",
+"start": 11.26,
+"end": 11.44
+},
+{
+"word": "have",
+"start": 11.44,
+"end": 11.72
+},
+{
+"word": "yet",
+"start": 11.72,
+"end": 12.02
+},
+{
+"word": "is",
+"start": 12.02,
+"end": 12.56
+},
+{
+"word": "patients.",
+"start": 12.56,
+"end": 12.98
+},
+{
+"word": "Okay,",
+"start": 13.36,
+"end": 13.44
+},
+{
+"word": "the",
+"start": 13.54,
+"end": 13.68
+},
+{
+"word": "website.",
+"start": 13.68,
+"end": 14.02
+},
+{
+"word": "My",
+"start": 14.36,
+"end": 14.52
+},
+{
+"word": "designer's",
+"start": 14.52,
+"end": 15.06
+},
+{
+"word": "template",
+"start": 15.06,
+"end": 15.32
+},
+{
+"word": "has",
+"start": 15.32,
+"end": 15.6
+},
+{
+"word": "a",
+"start": 15.6,
+"end": 15.8
+},
+{
+"word": "referral",
+"start": 15.8,
+"end": 16.08
+},
+{
+"word": "form.",
+"start": 16.08,
+"end": 16.56
+},
+{
+"word": "Doctor's",
+"start": 16.94,
+"end": 17.3
+},
+{
+"word": "name,",
+"start": 17.3,
+"end": 17.52
+},
+{
+"word": "patient's",
+"start": 17.94,
+"end": 18.3
+},
+{
+"word": "name,",
+"start": 18.3,
+"end": 18.54
+},
+{
+"word": "social",
+"start": 19.08,
+"end": 19.28
+},
+{
+"word": "security",
+"start": 19.28,
+"end": 19.68
+},
+{
+"word": "number,",
+"start": 19.68,
+"end": 20.04
+},
+{
+"word": "and",
+"start": 20.04,
+"end": 20.36
+},
+{
+"word": "when",
+"start": 20.36,
+"end": 20.5
+},
+{
+"word": "they",
+"start": 20.5,
+"end": 20.64
+},
+{
+"word": "hit",
+"start": 20.64,
+"end": 20.86
+},
+{
+"word": "submit,",
+"start": 20.86,
+"end": 21.18
+},
+{
+"word": "it",
+"start": 21.3,
+"end": 21.5
+},
+{
+"word": "becomes",
+"start": 21.5,
+"end": 21.76
+},
+{
+"word": "an",
+"start": 21.76,
+"end": 21.98
+},
+{
+"word": "email.",
+"start": 21.98,
+"end": 22.28
+},
+{
+"word": "In",
+"start": 22.7,
+"end": 22.84
+},
+{
+"word": "an",
+"start": 22.84,
+"end": 23.02
+},
+{
+"word": "inbox,",
+"start": 23.02,
+"end": 23.36
+},
+{
+"word": "I'll",
+"start": 23.54,
+"end": 23.74
+},
+{
+"word": "check",
+"start": 23.74,
+"end": 23.9
+},
+{
+"word": "between",
+"start": 23.9,
+"end": 24.24
+},
+{
+"word": "patients.",
+"start": 24.24,
+"end": 24.78
+},
+{
+"word": "Maybe.",
+"start": 25.26,
+"end": 25.56
+},
+{
+"word": "Nobody",
+"start": 25.9,
+"end": 26.16
+},
+{
+"word": "tells",
+"start": 26.16,
+"end": 26.46
+},
+{
+"word": "you",
+"start": 26.46,
+"end": 26.62
+},
+{
+"word": "this.",
+"start": 26.62,
+"end": 26.94
+},
+{
+"word": "Your",
+"start": 27.06,
+"end": 27.32
+},
+{
+"word": "referrals",
+"start": 27.32,
+"end": 27.86
+},
+{
+"word": "are",
+"start": 27.86,
+"end": 28.22
+},
+{
+"word": "your",
+"start": 28.22,
+"end": 28.48
+},
+{
+"word": "business.",
+"start": 28.48,
+"end": 28.94
+},
+{
+"word": "And",
+"start": 29.56,
+"end": 29.66
+},
+{
+"word": "I",
+"start": 29.66,
+"end": 29.9
+},
+{
+"word": "almost",
+"start": 29.9,
+"end": 30.24
+},
+{
+"word": "ran",
+"start": 30.24,
+"end": 30.46
+},
+{
+"word": "mine",
+"start": 30.46,
+"end": 30.78
+},
+{
+"word": "through",
+"start": 30.78,
+"end": 30.98
+},
+{
+"word": "a",
+"start": 30.98,
+"end": 31.18
+},
+{
+"word": "contact",
+"start": 31.18,
+"end": 31.52
+},
+{
+"word": "form.",
+"start": 31.52,
+"end": 31.96
+},
+{
+"word": "So",
+"start": 32.74,
+"end": 32.94
+},
+{
+"word": "I",
+"start": 32.94,
+"end": 33.18
+},
+{
+"word": "chose",
+"start": 33.18,
+"end": 33.44
+},
+{
+"word": "tooth",
+"start": 33.44,
+"end": 33.72
+},
+{
+"word": "referral.",
+"start": 33.72,
+"end": 34.1
+},
+{
+"word": "It",
+"start": 34.44,
+"end": 34.56
+},
+{
+"word": "sits",
+"start": 34.56,
+"end": 34.74
+},
+{
+"word": "on",
+"start": 34.74,
+"end": 34.9
+},
+{
+"word": "my",
+"start": 34.9,
+"end": 35.04
+},
+{
+"word": "own",
+"start": 35.04,
+"end": 35.24
+},
+{
+"word": "website,",
+"start": 35.24,
+"end": 35.66
+},
+{
+"word": "with",
+"start": 35.88,
+"end": 36.38
+},
+{
+"word": "my",
+"start": 36.38,
+"end": 36.6
+},
+{
+"word": "logo,",
+"start": 36.6,
+"end": 36.9
+},
+{
+"word": "my",
+"start": 37.4,
+"end": 37.56
+},
+{
+"word": "insurance,",
+"start": 37.56,
+"end": 38.06
+},
+{
+"word": "what",
+"start": 38.56,
+"end": 38.68
+},
+{
+"word": "I'm",
+"start": 38.68,
+"end": 38.92
+},
+{
+"word": "known",
+"start": 38.92,
+"end": 39.06
+},
+{
+"word": "for.",
+"start": 39.06,
+"end": 39.52
+},
+{
+"word": "It's",
+"start": 39.66,
+"end": 40.02
+},
+{
+"word": "HIPAA",
+"start": 40.02,
+"end": 40.22
+},
+{
+"word": "compliant",
+"start": 40.22,
+"end": 40.64
+},
+{
+"word": "and",
+"start": 40.64,
+"end": 40.9
+},
+{
+"word": "encrypted.",
+"start": 40.9,
+"end": 41.32
+},
+{
+"word": "They",
+"start": 41.92,
+"end": 42.1
+},
+{
+"word": "pick",
+"start": 42.1,
+"end": 42.3
+},
+{
+"word": "the",
+"start": 42.3,
+"end": 42.46
+},
+{
+"word": "procedure,",
+"start": 42.46,
+"end": 42.86
+},
+{
+"word": "tap",
+"start": 43.32,
+"end": 43.48
+},
+{
+"word": "the",
+"start": 43.48,
+"end": 43.7
+},
+{
+"word": "tooth,",
+"start": 43.7,
+"end": 44.02
+},
+{
+"word": "attach",
+"start": 44.36,
+"end": 44.56
+},
+{
+"word": "the",
+"start": 44.56,
+"end": 44.8
+},
+{
+"word": "x",
+"start": 44.8,
+"end": 45.02
+},
+{
+"word": "-rays.",
+"start": 45.02,
+"end": 45.24
+},
+{
+"word": "Three",
+"start": 45.72,
+"end": 45.86
+},
+{
+"word": "steps,",
+"start": 45.86,
+"end": 46.22
+},
+{
+"word": "and",
+"start": 46.26,
+"end": 46.56
+},
+{
+"word": "the",
+"start": 46.56,
+"end": 46.72
+},
+{
+"word": "patient",
+"start": 46.72,
+"end": 46.94
+},
+{
+"word": "uploads",
+"start": 46.94,
+"end": 47.46
+},
+{
+"word": "their",
+"start": 47.46,
+"end": 47.56
+},
+{
+"word": "own",
+"start": 47.56,
+"end": 47.78
+},
+{
+"word": "insurance",
+"start": 47.78,
+"end": 48.2
+},
+{
+"word": "with",
+"start": 48.2,
+"end": 48.46
+},
+{
+"word": "a",
+"start": 48.46,
+"end": 48.64
+},
+{
+"word": "secure",
+"start": 48.64,
+"end": 48.9
+},
+{
+"word": "link.",
+"start": 48.9,
+"end": 49.24
+},
+{
+"word": "Every",
+"start": 49.78,
+"end": 50.02
+},
+{
+"word": "referral",
+"start": 50.02,
+"end": 50.4
+},
+{
+"word": "becomes",
+"start": 50.4,
+"end": 50.74
+},
+{
+"word": "a",
+"start": 50.74,
+"end": 50.92
+},
+{
+"word": "case",
+"start": 50.92,
+"end": 51.08
+},
+{
+"word": "we",
+"start": 51.08,
+"end": 51.26
+},
+{
+"word": "can",
+"start": 51.26,
+"end": 51.4
+},
+{
+"word": "track.",
+"start": 51.4,
+"end": 51.7
+},
+{
+"word": "The",
+"start": 52.16,
+"end": 52.32
+},
+{
+"word": "form",
+"start": 52.32,
+"end": 52.52
+},
+{
+"word": "is",
+"start": 52.52,
+"end": 52.72
+},
+{
+"word": "live.",
+"start": 52.72,
+"end": 53.1
+},
+{
+"word": "I",
+"start": 53.48,
+"end": 53.6
+},
+{
+"word": "just",
+"start": 53.6,
+"end": 53.8
+},
+{
+"word": "invited",
+"start": 53.8,
+"end": 54.14
+},
+{
+"word": "the",
+"start": 54.14,
+"end": 54.36
+},
+{
+"word": "five",
+"start": 54.36,
+"end": 54.62
+},
+{
+"word": "offices",
+"start": 54.62,
+"end": 55.0
+},
+{
+"word": "I",
+"start": 55.0,
+"end": 55.22
+},
+{
+"word": "know.",
+"start": 55.22,
+"end": 55.52
+},
+{
+"word": "Gentle",
+"start": 56.2,
+"end": 56.22
+},
+{
+"word": "Dental",
+"start": 56.22,
+"end": 56.52
+},
+{
+"word": "first.",
+"start": 56.52,
+"end": 56.88
+},
+{
+"word": "That",
+"start": 57.52,
+"end": 57.6
+},
+{
+"word": "was",
+"start": 57.6,
+"end": 57.72
+},
+{
+"word": "my",
+"start": 57.72,
+"end": 57.88
+},
+{
+"word": "old",
+"start": 57.88,
+"end": 58.08
+},
+{
+"word": "practice.",
+"start": 58.08,
+"end": 58.58
+},
+{
+"word": "A",
+"start": 59.7,
+"end": 59.82
+},
+{
+"word": "referral.",
+"start": 59.82,
+"end": 60.22
+},
+{
+"word": "Gentle",
+"start": 60.66,
+"end": 60.86
+},
+{
+"word": "Dental.",
+"start": 60.86,
+"end": 61.28
+},
+{
+"word": "Root",
+"start": 61.54,
+"end": 61.64
+},
+{
+"word": "canal,",
+"start": 61.64,
+"end": 61.9
+},
+{
+"word": "tooth",
+"start": 62.1,
+"end": 62.22
+},
+{
+"word": "19,",
+"start": 62.22,
+"end": 62.68
+},
+{
+"word": "x",
+"start": 63.12,
+"end": 63.28
+},
+{
+"word": "-rays",
+"start": 63.28,
+"end": 63.42
+},
+{
+"word": "attached,",
+"start": 63.42,
+"end": 63.9
+},
+{
+"word": "and",
+"start": 63.92,
+"end": 64.26
+},
+{
+"word": "her",
+"start": 64.26,
+"end": 64.42
+},
+{
+"word": "insurance",
+"start": 64.42,
+"end": 64.8
+},
+{
+"word": "is",
+"start": 64.8,
+"end": 65.04
+},
+{
+"word": "already",
+"start": 65.04,
+"end": 65.32
+},
+{
+"word": "uploaded.",
+"start": 65.32,
+"end": 65.8
+},
+{
+"word": "Our",
+"start": 66.12,
+"end": 66.28
+},
+{
+"word": "first",
+"start": 66.28,
+"end": 66.56
+},
+{
+"word": "patient.",
+"start": 66.56,
+"end": 67.0
+},
+{
+"word": "I'm",
+"start": 67.28,
+"end": 67.46
+},
+{
+"word": "calling",
+"start": 67.46,
+"end": 67.68
+},
+{
+"word": "her",
+"start": 67.68,
+"end": 67.88
+},
+{
+"word": "right",
+"start": 67.88,
+"end": 68.08
+},
+{
+"word": "now.",
+"start": 68.08,
+"end": 68.48
+},
+{
+"word": "And",
+"start": 69.02,
+"end": 69.2
+},
+{
+"word": "Gentle",
+"start": 69.2,
+"end": 69.48
+},
+{
+"word": "Dental",
+"start": 69.48,
+"end": 69.8
+},
+{
+"word": "sees",
+"start": 69.8,
+"end": 70.1
+},
+{
+"word": "every",
+"start": 70.1,
+"end": 70.52
+},
+{
+"word": "update,",
+"start": 70.52,
+"end": 70.98
+},
+{
+"word": "so",
+"start": 71.14,
+"end": 71.38
+},
+{
+"word": "nobody",
+"start": 71.38,
+"end": 71.74
+},
+{
+"word": "has",
+"start": 71.74,
+"end": 71.98
+},
+{
+"word": "to",
+"start": 71.98,
+"end": 72.12
+},
+{
+"word": "call",
+"start": 72.12,
+"end": 72.3
+},
+{
+"word": "to",
+"start": 72.3,
+"end": 72.48
+},
+{
+"word": "ask.",
+"start": 72.48,
+"end": 72.86
+},
+{
+"word": "Starting",
+"start": 73.18,
+"end": 73.34
+},
+{
+"word": "a",
+"start": 73.34,
+"end": 73.54
+},
+{
+"word": "practice",
+"start": 73.54,
+"end": 73.78
+},
+{
+"word": "is",
+"start": 73.78,
+"end": 73.98
+},
+{
+"word": "hard.",
+"start": 73.98,
+"end": 74.3
+},
+{
+"word": "Losing",
+"start": 74.78,
+"end": 75.0
+},
+{
+"word": "referrals",
+"start": 75.0,
+"end": 75.58
+},
+{
+"word": "shouldn't",
+"start": 75.58,
+"end": 76.18
+},
+{
+"word": "be",
+"start": 76.18,
+"end": 76.34
+},
+{
+"word": "part",
+"start": 76.34,
+"end": 76.54
+},
+{
+"word": "of",
+"start": 76.54,
+"end": 76.68
+},
+{
+"word": "it.",
+"start": 76.68,
+"end": 76.94
+}
+]
+}
+}

@@ -4,6 +4,7 @@ import { DURATION, FPS } from "./edit";
 import { EFFECTS } from "./effects";
 import { CampFx, CAMPFX_DURATION } from "./camp/CampFx";
 import { TwoWays, TWOWAYS_DURATION } from "./camp/TwoWays";
+import { DayOne, DAYONE_DURATION } from "./camp/DayOne";
 import { FxPreview } from "./effects/FxPreview";
 import { LayoutQA } from "./LayoutQA";
 import { Reel } from "./Reel";
@@ -44,6 +45,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="Camp-FormCompare2" component={() => <CampFx id="form-compare2" />} durationInFrames={CAMPFX_DURATION("form-compare2")} fps={30} width={1080} height={1920} />
     <Composition id="Camp-TwoWays" component={TwoWays} durationInFrames={TWOWAYS_DURATION} fps={30} width={1080} height={1920} />
     <Composition id="Camp-DayInTheLife" component={() => <CampFx id="day-in-the-life" />} durationInFrames={CAMPFX_DURATION("day-in-the-life")} fps={30} width={1080} height={1920} />
+    <Composition id="Camp-DayOne" component={DayOne} durationInFrames={DAYONE_DURATION} fps={30} width={1080} height={1920} />
     <Composition id="BuriedInEmails" component={BuriedInEmails} durationInFrames={S13_DURATION} fps={30} width={WIDTH} height={HEIGHT} />
     <Composition id="ToothReferralUgc2Ad" component={ToothUgc2Ref} durationInFrames={UGC2_REF_DURATION} fps={30} width={WIDTH} height={HEIGHT} />
     <Composition id="ToothReferralUgc2" component={ToothUgc2} durationInFrames={UGC2_DURATION} fps={30} width={WIDTH} height={HEIGHT} />
