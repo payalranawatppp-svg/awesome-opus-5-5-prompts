@@ -17,6 +17,7 @@ import React from "react";
 import { AbsoluteFill, Audio, Img, OffthreadVideo, Sequence, interpolate, spring, staticFile, useCurrentFrame } from "remotion";
 import transcript from "../data/transcript-d1.json";
 import edl from "../data/d1-edl.json";
+import faces from "../data/d1-faces.json";
 import { FontGate } from "../effects/shared";
 import { FONT_UI } from "../theme";
 import { ICON, Icon, TR, clamp } from "../tr/ui";
@@ -71,6 +72,21 @@ const COVER_IN = SEG[17].start - 0.22;
 const COVER_OUT = SEG[18].start;
 
 // ---------------------------------------------------------------------------------------------------
+// Layout: while a product card is up, the footage slides down so her face sits in the lower half and the card gets
+// a clear panel above her head (nothing is ever drawn over her face). Face spans per segment: data/d1-faces.json
+// (OpenCV face detection on the cut, padded for hair and head movement, worst-case zoom).
+
+const FACES = faces as { i: number; top: number; bot: number }[];
+/** how far each segment's footage moves down in split mode: chin lands at y <= 1640, above the captions */
+const SHIFT = FACES.map((f) => Math.max(300, Math.min(700, 1640 - f.bot)));
+const segIndex = (t: number) => Math.max(0, SEG.findIndex((s, k) => t >= s.start && (k === SEG.length - 1 || t < SEG[k + 1].start)));
+const SPLITS: [number, number][] = [[T.fourteen - 0.3, T.nobody + 0.05], [T.and2 - 0.2, COVER_IN]];
+const splitK = (t: number) => Math.max(0, ...SPLITS.map(([a, b]) => Math.min(ramp(t, a, a + 0.4, easeIO), 1 - ramp(t, b - 0.05, b + 0.35, easeIO))));
+/** the smallest panel any segment under this card allows */
+const zoneFor = (a: number, b: number) => Math.min(...SEG.map((s, i) => (s.start < b && s.start + s.dur > a ? SHIFT[i] : 1e9)));
+const ZONE_TOP = 70;
+
+// ---------------------------------------------------------------------------------------------------
 // Footage: per-segment framing
 
 const framing = (t: number) => {
@@ -90,14 +106,18 @@ const Footage: React.FC = () => {
   const frame = useCurrentFrame();
   const t = frame / FPS;
   const f = framing(t);
+  const k = splitK(t);
+  const dy = k * SHIFT[segIndex(t)];
   return (
-    <AbsoluteFill style={{ background: "#000", overflow: "hidden" }}>
-      <AbsoluteFill style={{ scale: String(f.scale), transformOrigin: f.origin }}>
-        <OffthreadVideo src={staticFile("footage/d1-cut.mp4")} muted style={{ width: 1080, height: 1920, objectFit: "cover" }} />
+    <AbsoluteFill style={{ background: "linear-gradient(170deg, #FBFAFF 0%, #EFEAFF 60%, #E6DEFF 100%)", overflow: "hidden" }}>
+      <AbsoluteFill style={{ backgroundImage: "radial-gradient(rgba(109,74,232,0.12) 1.5px, transparent 1.6px)", backgroundSize: "36px 36px", backgroundPosition: `${(t * 10) % 36}px ${(t * 6) % 36}px` }} />
+      <AbsoluteFill style={{ translate: `0 ${dy}px`, borderRadius: 48 * k, overflow: "hidden", boxShadow: k > 0 ? `0 -18px 60px rgba(20,10,60,${0.3 * k})` : undefined, background: "#000" }}>
+        <AbsoluteFill style={{ scale: String(f.scale), transformOrigin: f.origin }}>
+          <OffthreadVideo src={staticFile("footage/d1-cut.mp4")} muted style={{ width: 1080, height: 1920, objectFit: "cover" }} />
+        </AbsoluteFill>
+        <AbsoluteFill style={{ background: "radial-gradient(120% 80% at 50% 35%, rgba(0,0,0,0) 55%, rgba(8,6,20,0.28) 100%)" }} />
       </AbsoluteFill>
-      {/* light grade to make the 720p clips and the 1080p clips sit together, plus a caption-safe gradient */}
-      <AbsoluteFill style={{ background: "radial-gradient(120% 80% at 50% 35%, rgba(0,0,0,0) 55%, rgba(8,6,20,0.28) 100%)" }} />
-      <AbsoluteFill style={{ background: "linear-gradient(180deg, rgba(8,6,20,0) 62%, rgba(8,6,20,0.42) 100%)" }} />
+      <AbsoluteFill style={{ background: "linear-gradient(180deg, rgba(8,6,20,0) 70%, rgba(8,6,20,0.45) 100%)" }} />
     </AbsoluteFill>
   );
 };
@@ -154,7 +174,7 @@ const Captions: React.FC = () => {
   const fg = light ? INK : W;
   const stroke: React.CSSProperties = light ? {} : { WebkitTextStroke: "9px rgba(12,8,26,0.72)", paintOrder: "stroke fill" };
   return (
-    <div style={{ position: "absolute", left: 50, right: 50, top: 1530, textAlign: "center", fontFamily: FONT_UI, fontWeight: 800, letterSpacing: "-0.025em", lineHeight: 1.12, fontSize: 62, color: fg, textShadow: light ? "none" : SOFT, opacity: 1 - out, filter: out > 0 ? `blur(${out * 6}px)` : undefined }}>
+    <div style={{ position: "absolute", left: 50, right: 50, top: 1530 + 180 * splitK(t), textAlign: "center", fontFamily: FONT_UI, fontWeight: 800, letterSpacing: "-0.025em", lineHeight: 1.12, fontSize: 62, color: fg, textShadow: light ? "none" : SOFT, opacity: 1 - out, filter: out > 0 ? `blur(${out * 6}px)` : undefined }}>
       {c.words.map((w, i) => {
         const k = interpolate(t, [w.at - 0.07, w.at + 0.1], [0, 1], clamp);
         const hot = w.key && t >= w.at;
@@ -172,12 +192,15 @@ const Captions: React.FC = () => {
 // Building blocks
 
 /** Card that springs up into place and leaves with a quick scale-down and blur. */
-const Pop: React.FC<{ t: number; t0: number; t1: number; x?: number; y: number; w?: number; tilt?: number; children: React.ReactNode; style?: React.CSSProperties }> = ({ t, t0, t1, x = 90, y, w = 900, tilt = 0, children, style }) => {
+const Pop: React.FC<{ t: number; t0: number; t1: number; h: number; w?: number; tilt?: number; children: React.ReactNode; style?: React.CSSProperties }> = ({ t, t0, t1, h, w = 900, tilt = 0, children, style }) => {
   if (t < t0 - 0.05 || t > t1 + 0.3) return null;
   const p = sp(t, t0, 16, 150);
   const g = ramp(t, t1, t1 + 0.25, easeIO);
+  const avail = zoneFor(t0, t1 + 0.3) - ZONE_TOP - 55;
+  const fit = Math.min(1, avail / h, 1000 / w);
+  const top = ZONE_TOP + Math.max(0, (avail - h * fit) / 2);
   return (
-    <div style={{ position: "absolute", left: x, top: y, width: w, opacity: Math.min(1, p * 1.4) * (1 - g), translate: `0 ${(1 - p) * 120 + g * 30}px`, scale: String((0.9 + 0.1 * p) * (1 - g * 0.06)), rotate: `${tilt * (1 - p * 0.6)}deg`, filter: p < 0.6 || g > 0 ? `blur(${Math.max((0.6 - p) * 10, g * 8)}px)` : undefined, ...style }}>
+    <div style={{ position: "absolute", left: (1080 - w) / 2, top, width: w, transformOrigin: "50% 0%", opacity: Math.min(1, p * 1.4) * (1 - g), translate: `0 ${(1 - p) * -60 - g * 20}px`, scale: String(fit * (0.9 + 0.1 * p) * (1 - g * 0.06)), rotate: `${tilt * (1 - p * 0.6)}deg`, filter: p < 0.6 || g > 0 ? `blur(${Math.max((0.6 - p) * 10, g * 8)}px)` : undefined, ...style }}>
       {children}
     </div>
   );
@@ -298,38 +321,39 @@ const OFFICES = ["Gentle Dental", "Maple Street Dental", "Harbor View Family Den
 const Inserts: React.FC = () => {
   const frame = useCurrentFrame();
   const t = frame / FPS;
-  const nf = (a: number, b: number) => t >= a - 0.1 && t <= b + 0.4;
   return (
     <AbsoluteFill>
       {/* 1. Day one: the stack of what it took */}
-      {nf(0, SEG[2].start) ? (
-        <div style={{ position: "absolute", left: 70, top: 980, display: "flex", flexDirection: "column", gap: 22, opacity: 1 - ramp(t, SEG[2].start - 0.3, SEG[2].start) }}>
-          <Chip t={t} at={0.05} bg={PURPLE} color={W} size={36}>DAY 1</Chip>
+      <Pop t={t} t0={T.fourteen - 0.25} t1={SEG[2].start - 0.3} h={220} w={980}>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 18, justifyContent: "center" }}>
+          <Chip t={t} at={T.fourteen - 0.2} bg={PURPLE} color={W} size={40}>DAY 1</Chip>
           <Chip t={t} at={T.fourteen} icon="M22 10 12 5 2 10l10 5 10-5zM6 12v5c3 2 9 2 12 0v-5"><Type t={t} at={T.fourteen + 0.05} text="14 years of school" /></Chip>
           <Chip t={t} at={T.loan} icon="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"><Type t={t} at={T.loan + 0.05} text="1 very big loan" /></Chip>
           <Chip t={t} at={T.paint} icon="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"><Type t={t} at={T.paint + 0.05} text="1 brand-new practice" /></Chip>
         </div>
-      ) : null}
+      </Pop>
 
       {/* 2. The equipment checklist */}
-      <Pop t={t} t0={T.ops - 0.1} t1={T.what - 0.15} y={1000} x={110} w={760}>
-        <div style={{ ...CARD, padding: "30px 38px" }}>
+      <Pop t={t} t0={T.ops - 0.1} t1={T.what - 0.15} h={150} w={980}>
+        <div style={{ ...CARD, padding: "24px 34px" }}>
           <div style={{ fontSize: 26, fontWeight: 800, letterSpacing: "0.14em", color: PURPLE }}>OPENING CHECKLIST</div>
-          {[["Two operatories", T.ops + 0.1], ["Surgical microscope", T.micro], ["CBCT", T.cbct]].map(([l, a], i) => (
-            <div key={i} style={{ display: "flex", alignItems: "center", gap: 22, marginTop: 22, fontSize: 44, fontWeight: 800, letterSpacing: "-0.02em" }}>
-              <Tick t={t} at={a as number} />{l}
-            </div>
-          ))}
+          <div style={{ display: "flex", justifyContent: "space-between", marginTop: 18 }}>
+            {[["2 operatories", T.ops + 0.1], ["Microscope", T.micro], ["CBCT", T.cbct]].map(([l, a], i) => (
+              <div key={i} style={{ display: "flex", alignItems: "center", gap: 16, fontSize: 40, fontWeight: 800, letterSpacing: "-0.02em" }}>
+                <Tick t={t} at={a as number} size={44} />{l}
+              </div>
+            ))}
+          </div>
         </div>
       </Pop>
 
       {/* 3. What she doesn't have yet */}
-      <Pop t={t} t0={T.what + 0.6} t1={T.okay - 0.1} y={1080} x={110} w={860}>
+      <Pop t={t} t0={T.what + 0.6} t1={T.okay - 0.1} h={240} w={860}>
         <Counter t={t} label="Patients booked" from={0} to={0} at={1e9} color={AMBER} sub="Not yet." />
       </Pop>
 
       {/* 4. The designer's template form: the fields, the SSN, Submit */}
-      <Pop t={t} t0={T.okay + 0.35} t1={T.email - 0.05} y={770} x={70} w={940} tilt={-2}>
+      <Pop t={t} t0={T.okay + 0.35} t1={T.email - 0.05} h={660} w={940} tilt={-2}>
         <div style={CARD}>
           <Screen t={t} t0={T.okay} src="camp/mock.png" iw={2004} crop={{ x: 0, y: 0, w: 2004 }} w={940} h={640} push={0.04}
             hl={[{ box: [30, 225, 1740, 130], at: T.doctor }, { box: [30, 495, 1740, 130], at: T.patientN }, { box: [30, 640, 720, 135], at: T.social, c: AMBER }]}>
@@ -357,7 +381,7 @@ const Inserts: React.FC = () => {
       </Pop>
 
       {/* 5. ...it becomes an email, in an inbox */}
-      <Pop t={t} t0={T.email - 0.05} t1={T.nobody - 0.2} y={790} x={70} w={940} tilt={2}>
+      <Pop t={t} t0={T.email - 0.05} t1={T.nobody - 0.2} h={620} w={940} tilt={2}>
         <div style={CARD}>
           <Screen t={t} t0={T.email} src="camp/mail.png" iw={2000} crop={{ x: 0, y: 0, w: 2000 }} w={940} h={600} push={0.06} hl={[{ box: [0, 120, 1900, 110], at: T.email + 0.35, c: AMBER }]} />
         </div>
@@ -370,7 +394,7 @@ const Inserts: React.FC = () => {
       </Pop>
 
       {/* 6. "...through a contact form": the form crumbles and blows away */}
-      <Pop t={t} t0={T.and2 - 0.05} t1={T.so - 0.05} y={860} x={160} w={760} tilt={-3}>
+      <Pop t={t} t0={T.and2 - 0.05} t1={T.so - 0.05} h={520} w={760} tilt={-3}>
         <Crumble t={t} at={T.contact + 0.45} w={760} h={520}>
           <div style={{ ...CARD, width: 760, height: 520 }}>
             <Screen t={t} t0={T.and2} src="camp/mock.png" iw={2004} crop={{ x: 0, y: 0, w: 2004 }} w={760} h={520} push={0} />
@@ -379,7 +403,7 @@ const Inserts: React.FC = () => {
       </Pop>
 
       {/* 7. So I chose Tooth Referral */}
-      <Pop t={t} t0={T.so + 0.25} t1={T.sits - 0.1} y={1080} x={190} w={700}>
+      <Pop t={t} t0={T.so + 0.25} t1={T.sits - 0.1} h={230} w={700}>
         <div style={{ ...CARD, padding: "40px 50px", display: "flex", justifyContent: "center", position: "relative" }}>
           <Img src={staticFile("tr/logo.png")} style={{ width: 560 }} />
           <div style={{ position: "absolute", inset: 0, background: "linear-gradient(105deg, transparent 35%, rgba(255,255,255,0.85) 50%, transparent 65%)", translate: `${interpolate(t, [T.so + 0.6, T.so + 1.4], [-800, 800], clamp)}px 0` }} />
@@ -387,7 +411,7 @@ const Inserts: React.FC = () => {
       </Pop>
 
       {/* 8. On my own website: my logo, my insurance, what I'm known for */}
-      <Pop t={t} t0={T.sits - 0.05} t1={T.hipaa - 0.05} y={760} x={90} w={900}>
+      <Pop t={t} t0={T.sits - 0.05} t1={T.hipaa - 0.05} h={720} w={900}>
         <Browser url="yourpractice.com/refer" logo t={t} logoAt={T.logo}>
           <Screen t={t} t0={T.sits} src="camp/tr-embed-form.jpg" iw={920} crop={{ x: 0, y: 0, w: 920 }} w={900} h={430} push={0.06} hl={[{ box: [460, 230, 440, 70], at: T.ins }]} />
         </Browser>
@@ -400,12 +424,12 @@ const Inserts: React.FC = () => {
       </Pop>
 
       {/* 9. HIPAA compliant and encrypted: impact stamp */}
-      {nf(T.hipaa, T.pick - 0.1) ? (() => {
+      {t >= T.hipaa - 0.1 && t <= T.pick + 0.3 ? (() => {
         const p = sp(t, T.hipaa, 11, 260);
-        const g = ramp(t, T.pick - 0.25, T.pick);
         const p2 = sp(t, T.encrypted, 12, 220);
         return (
-          <div style={{ position: "absolute", left: 0, right: 0, top: 960, display: "flex", flexDirection: "column", alignItems: "center", gap: 26, opacity: 1 - g }}>
+          <Pop t={t} t0={T.hipaa - 0.05} t1={T.pick - 0.15} h={320} w={900}>
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 30, paddingTop: 30 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 22, padding: "26px 46px", borderRadius: 28, border: `8px solid ${GREEN}`, background: "rgba(255,255,255,0.94)", color: GREEN, fontFamily: FONT_UI, fontWeight: 900, fontSize: 76, letterSpacing: "0.02em", scale: String(interpolate(p, [0, 1], [2.4, 1])), rotate: "-6deg", opacity: Math.min(1, p * 2), boxShadow: "0 24px 60px rgba(10,6,30,0.35)" }}>
               <Icon d={ICON.shield} size={80} color={GREEN} />HIPAA
             </div>
@@ -413,11 +437,12 @@ const Inserts: React.FC = () => {
               <Chip t={t} at={T.encrypted} bg={INK} color={W} size={38} icon="M7 11V7a5 5 0 0 1 10 0v4M5 11h14v10H5z">Encrypted in transit and at rest</Chip>
             </div>
           </div>
+          </Pop>
         );
       })() : null}
 
       {/* 10. Procedure -> tooth -> X-rays: three steps */}
-      <Pop t={t} t0={T.pick - 0.05} t1={T.three + 0.9} y={720} x={80} w={920}>
+      <Pop t={t} t0={T.pick - 0.05} t1={T.three + 0.9} h={670} w={920}>
         <div style={CARD}>
           <div style={{ display: "flex", gap: 10, padding: "22px 26px", borderBottom: "1px solid #EEE" }}>
             {[["Procedure", T.pick], ["Tooth", T.tap], ["X-rays", T.attach]].map(([l, a], i) => {
@@ -443,7 +468,7 @@ const Inserts: React.FC = () => {
       </Pop>
 
       {/* 11. The patient uploads their own insurance with a secure link */}
-      <Pop t={t} t0={T.three + 0.9} t1={T.every - 0.1} y={760} x={80} w={920} tilt={1.5}>
+      <Pop t={t} t0={T.three + 0.9} t1={T.every - 0.1} h={670} w={920} tilt={1.5}>
         <div style={CARD}>
           <Screen t={t} t0={T.three} src="camp/tr-insurance.jpg" iw={980} crop={{ x: 0, y: 0, w: 980 }} w={920} h={560} push={0.05} hl={[{ box: [20, 135, 940, 175], at: T.secure }]} />
         </div>
@@ -453,14 +478,14 @@ const Inserts: React.FC = () => {
       </Pop>
 
       {/* 12. Every referral becomes a case we can track */}
-      <Pop t={t} t0={T.every - 0.05} t1={T.form3 - 0.1} y={800} x={50} w={980}>
+      <Pop t={t} t0={T.every - 0.05} t1={T.form3 - 0.1} h={466} w={980}>
         <div style={CARD}>
           <Screen t={t} t0={T.every} src="dash3c/r3c-incoming.jpg" iw={1920} crop={{ x: 0, y: 0, w: 1920 }} w={980} h={466} push={0.08} hl={[{ box: [160, 140, 1580, 105], at: T.track - 0.2 }]} />
         </div>
       </Pop>
 
       {/* 13. The form is live; five offices invited; Gentle Dental first */}
-      <Pop t={t} t0={T.form3 - 0.05} t1={T.aRef - 0.15} y={820} x={110} w={860}>
+      <Pop t={t} t0={T.form3 - 0.05} t1={T.aRef - 0.15} h={600} w={860}>
         <div style={{ ...CARD, padding: "28px 34px" }}>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
             <div style={{ fontSize: 26, fontWeight: 800, letterSpacing: "0.14em", color: PURPLE }}>INVITE YOUR NETWORK</div>
@@ -482,11 +507,9 @@ const Inserts: React.FC = () => {
       </Pop>
 
       {/* 14. A referral: Gentle Dental, root canal, tooth #19, X-rays, insurance */}
-      {nf(T.aRef - 0.1, T.our - 0.1) ? (() => {
-        const p = sp(t, T.aRef - 0.1, 14, 190);
-        const g = ramp(t, T.our - 0.3, T.our);
+      {(() => {
         return (
-          <div style={{ position: "absolute", left: 60, right: 60, top: 820, opacity: Math.min(1, p * 1.4) * (1 - g), translate: `0 ${(1 - p) * -140 + g * 30}px` }}>
+          <Pop t={t} t0={T.aRef - 0.1} t1={T.our - 0.3} h={450} w={960}>
             <div style={{ ...CARD, padding: "26px 32px" }}>
               <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
                 <div style={{ width: 70, height: 70, borderRadius: 20, background: PURPLE, display: "flex", alignItems: "center", justifyContent: "center", flex: "none" }}>
@@ -510,12 +533,12 @@ const Inserts: React.FC = () => {
                 );
               })}
             </div>
-          </div>
+          </Pop>
         );
-      })() : null}
+      })()}
 
       {/* 15. Our first patient */}
-      <Pop t={t} t0={T.our - 0.05} t1={COVER_IN - 0.05} y={1060} x={110} w={860}>
+      <Pop t={t} t0={T.our - 0.05} t1={COVER_IN - 0.05} h={240} w={860}>
         <Counter t={t} label="Patients booked" from={0} to={1} at={T.our + 0.25} color={GREEN} sub={t >= T.calling ? "Calling her now." : "Our first patient."} />
       </Pop>
     </AbsoluteFill>
