@@ -49,6 +49,7 @@ type Scene = {
   fx?: Fx[];
   end?: boolean;
   split?: [Img2, Img2];
+  endText?: string;
   bigTop?: number;
 };
 
@@ -58,6 +59,11 @@ const FORM: Img2 = { src: "camp/mock.png", w: 2004, h: 1600 };
 const MAIL: Img2 = { src: "camp/mail.png", w: 2000, h: 1600 };
 const EMBED: Img2 = { src: "camp/tr-embed-form.jpg", w: 920, h: 1060 };
 const KPI: Img2 = { src: "analytics-ref/01-header-kpis.png", w: 1920, h: 640 };
+const TRM: Img2 = { src: "camp/tr-marketing.jpg", w: 980, h: 780 };
+const TRL: Img2 = { src: "camp/tr-locations.jpg", w: 980, h: 800 };
+const TRC: Img2 = { src: "camp/tr-chart.jpg", w: 920, h: 1050 };
+const TRU: Img2 = { src: "camp/tr-uploads.jpg", w: 920, h: 640 };
+const TRI: Img2 = { src: "camp/tr-insurance.jpg", w: 980, h: 680 };
 
 const CW = 1000, CH = 860, CX = 40, CY = 560;
 
@@ -84,6 +90,46 @@ const CFG: Record<string, { audio: string; words: string; seconds: number; tag: 
       { from: 37.8, enter: "blade", big: "A web form sends\nan email.", kicker: "THE DIFFERENCE", fx: [{ k: "blow", t: 39.3 }] },
       { from: 40.0, enter: "blade", big: "Tooth Referral starts\na tracked, shared case.", kicker: "THE DIFFERENCE" },
       { from: 42.8, enter: "focus", end: true, fx: [{ k: "ring", text: "TRACKED • SHARED • SIGNED • LOGGED • " }] },
+    ],
+  },
+  "form-compare": {
+    audio: "audio/voice/camp-form-compare.wav", words: "form-compare.16k.wav", seconds: 59.5, tag: "FORM VS FORM",
+    scenes: [
+      { from: 0, kicker: "THE TYPICAL REFERRAL FORM", title: "Every specialist site has the same form", img: FORM, keys: [[0, { x: 0, y: 0, w: 2004 }], [3.2, { x: 0, y: 260, w: 1700 }]] },
+      { from: 3.3, enter: "push", kicker: "THE TYPICAL REFERRAL FORM", title: "A long page of boxes…", img: FORM, keys: [[3.3, { x: 0, y: 300, w: 1500 }], [5.0, { x: 0, y: 760, w: 1100 }]],
+        fx: [{ k: "cursor", img: true, path: [[3.5, 1000, 700], [4.9, 190, 1440]], clicks: [5.1] }] },
+      { from: 5.8, enter: "push", kicker: "AFTER SUBMIT", title: "…an email nobody tracks", img: MAIL, keys: [[5.8, { x: 0, y: 0, w: 2000 }], [7.7, { x: 0, y: 60, w: 1600 }]], hl: [{ box: [0, 132, 1800, 222], at: 6.2, c: AMBER }],
+        chips: [{ t: "No confirmation", at: 6.5, c: AMBER }, { t: "No status", at: 7.0, c: AMBER }] },
+      { from: 7.8, enter: "focus", big: "Some even ask for a\nSocial Security number.", kicker: "ON A PUBLIC WEB PAGE", img: FORM, keys: [[7.8, { x: 0, y: 500, w: 1300 }]],
+        fx: [{ k: "stamp", text: "⚠ RISK", t: 9.8, color: AMBER, x: 540, y: 1330 }] },
+      { from: 10.6, enter: "tear", kicker: "THE TOOTH REFERRAL WEB FORM", title: "Different from the first screen", img: TRM, keys: [[10.6, { x: 0, y: 0, w: 900 }], [13.0, { x: 0, y: 40, w: 820 }]] },
+      { from: 13.1, enter: "blade", kicker: "1 · SECURE", title: "HIPAA compliant and encrypted", img: D3("r3c-messages"), ch: 560, keys: [[13.1, { x: 690, y: 220, w: 1100 }], [17.5, { x: 740, y: 280, w: 960 }], [20.3, { x: 820, y: 330, w: 820 }]],
+        chips: [{ t: "Every referral", at: 14.3, c: PURPLE }, { t: "Every message", at: 15.2, c: PURPLE }, { t: "Spam & bots filtered", at: 18.3, c: GREEN }],
+        fx: [{ k: "stamp", text: "HIPAA ✓", t: 16.1, color: GREEN, x: 540, y: 1310 }] },
+      { from: 20.3, enter: "push", kicker: "2 · IT'S YOURS", title: "Your logo, your locations", img: TRL, keys: [[20.3, { x: 0, y: 0, w: 900 }], [23.2, { x: 0, y: 250, w: 900 }]], hl: [{ box: [640, 305, 918, 680], at: 22.5, c: PURPLE }],
+        chips: [{ t: "Your logo", at: 21.6, c: PURPLE }, { t: "Your locations", at: 22.5, c: PURPLE }] },
+      { from: 23.3, enter: "push", kicker: "2 · IT'S YOURS", title: "Announcements, insurance, what you're known for", img: TRM, keys: [[23.3, { x: 0, y: 0, w: 900 }], [24.4, { x: 0, y: 0, w: 900 }], [25.6, { x: 0, y: 380, w: 900 }], [27.0, { x: 0, y: 420, w: 860 }]],
+        chips: [{ t: "Announcements", at: 23.4, c: PURPLE }, { t: "Insurance accepted", at: 24.5, c: GREEN }, { t: "Known for", at: 26.2, c: PURPLE }] },
+      { from: 27.1, enter: "focus", big: "Backlinks to\nyour own website.", kicker: "BUILT-IN SEO",
+        fx: [{ k: "stack", x: 70, y: 1300, items: [["Backlinks", "to your domain", 27.9], ["Local", "Google search", 28.6], ["Domain", "authority", 29.3]] }] },
+      { from: 30.1, enter: "blade", kicker: "3 · COMPLETE", title: "Urgency and procedures", img: TRL, keys: [[30.1, { x: 0, y: 420, w: 900 }], [31.9, { x: 0, y: 480, w: 900 }]], hl: [{ box: [45, 715, 935, 790], at: 31.3, c: PURPLE }],
+        chips: [{ t: "Urgent · Routine · Symptomatic", at: 31.3, c: PURPLE }] },
+      { from: 32.2, enter: "push", kicker: "3 · COMPLETE", title: "Interactive tooth chart and diagnosis", img: TRC, keys: [[32.2, { x: 0, y: 0, w: 920 }], [34.6, { x: 0, y: 150, w: 920 }], [35.6, { x: 0, y: 380, w: 920 }]],
+        fx: [{ k: "cursor", img: true, path: [[32.4, 600, 700], [33.7, 744, 282]], clicks: [33.9] }],
+        chips: [{ t: "Tooth #19", at: 34.0, c: PURPLE }, { t: "Pulpal & periodontal diagnosis", at: 34.9, c: GREEN }] },
+      { from: 35.7, enter: "push", kicker: "3 · COMPLETE", title: "Up to 10 X-rays and 10 documents", img: TRU, ch: 600, keys: [[35.7, { x: 0, y: 100, w: 920 }], [38.0, { x: 0, y: 120, w: 860 }]],
+        fx: [{ k: "count", x: 70, y: 1220, items: [["X-rays per referral", 0, 10, "", 36.0], ["documents", 0, 10, "", 37.0]] }] },
+      { from: 38.2, enter: "blade", kicker: "4 · EASY", title: "Three short steps. No login.", img: TRL, ch: 440, keys: [[38.2, { x: 0, y: 40, w: 980 }], [40.9, { x: 0, y: 60, w: 900 }]],
+        fx: [{ k: "stack", x: 70, y: 1330, items: [["3", "short steps", 39.2], ["No", "login", 40.4]] }] },
+      { from: 41.2, enter: "push", kicker: "4 · EASY", title: "Insurance from the patient's phone", img: TRI, keys: [[41.2, { x: 0, y: 0, w: 790 }], [44.8, { x: 0, y: 60, w: 760 }]],
+        chips: [{ t: "Secure link", at: 44.0, c: GREEN }, { t: "Patient uploads the card", at: 42.6, c: PURPLE }] },
+      { from: 45.0, enter: "tear", kicker: "5 · IT KEEPS WORKING", title: "Every referral becomes a tracked case", img: D3("r3c-incoming"), ch: 620, keys: [[45.0, { x: 360, y: 150, w: 1500 }], [48.9, { x: 370, y: 190, w: 1150 }]], hl: [{ box: [380, 250, 1850, 330], at: 47.8, c: PURPLE }],
+        fx: [{ k: "cursor", img: true, name: "Amanda", path: [[45.3, 1500, 700], [47.6, 760, 290]], clicks: [47.9] }] },
+      { from: 49.0, enter: "push", kicker: "5 · IT KEEPS WORKING", title: "Status updates and messages", img: D3("r3c-activity-log"), keys: [[49.0, { x: 380, y: 0, w: 920 }], [50.8, { x: 380, y: 10, w: 800 }]],
+        fx: [{ k: "stack", x: 70, y: 1560, items: [["Status", "updates", 49.2], ["Messages", "on the case", 50.3]] }] },
+      { from: 50.85, enter: "push", kicker: "5 · IT KEEPS WORKING", title: "A signed completion note", img: D2("cs-07-signed-success"), keys: [[50.85, { x: 380, y: 0, w: 1500 }], [52.6, { x: 1250, y: 0, w: 640 }]],
+        fx: [{ k: "stamp", text: "SIGNED ✓", t: 51.5, color: GREEN, x: 540, y: 1000 }] },
+      { from: 52.75, enter: "focus", end: true, endText: "The referral form that keeps\nworking after you hit submit.", fx: [{ k: "ring", text: "SECURE • YOURS • COMPLETE • EASY • TRACKED • " }] },
     ],
   },
   "day-in-the-life": {
@@ -337,6 +383,7 @@ const Captions: React.FC<{ words: { word: string; start: number; end: number }[]
 };
 
 const SceneView: React.FC<{ sc: Scene; t: number; tag: string }> = ({ sc, t, tag }) => {
+  const endText = sc.endText ?? "Replace your web form\nwith a referral pipeline.";
   const st = t - sc.from;
   const inn = sp(t, sc.from, 18, 140);
   const blow = sc.fx?.find((f) => f.k === "blow") as Extract<Fx, { k: "blow" }> | undefined;
@@ -352,7 +399,7 @@ const SceneView: React.FC<{ sc: Scene; t: number; tag: string }> = ({ sc, t, tag
         <AbsoluteFill style={{ alignItems: "center", justifyContent: "center", opacity: inn }}>
           <RingFx text={(sc.fx?.find((f) => f.k === "ring") as { text: string } | undefined)?.text ?? ""} t={st} o={inn} />
           <Img src={staticFile("tr/logo.png")} style={{ width: 640, scale: String(0.85 + 0.15 * inn), marginTop: -80 }} />
-          <div style={{ marginTop: 170, fontFamily: FONT_DISPLAY, fontWeight: 800, fontSize: 64, textAlign: "center", lineHeight: 1.1, color: INK }}>Replace your web form<br />with a referral pipeline.</div>
+          <div style={{ marginTop: 170, fontFamily: FONT_DISPLAY, fontWeight: 800, fontSize: 64, textAlign: "center", lineHeight: 1.1, color: INK, whiteSpace: "pre-line" }}>{endText}</div>
           <div style={{ marginTop: 34, padding: "18px 40px", borderRadius: 999, background: PURPLE, color: "#fff", fontSize: 40, fontWeight: 700, fontFamily: FONT_UI }}>Set up in about 5 minutes</div>
           <div style={{ marginTop: 26, fontSize: 36, color: PURPLE, fontWeight: 700, fontFamily: FONT_UI }}>toothreferral.com</div>
         </AbsoluteFill>

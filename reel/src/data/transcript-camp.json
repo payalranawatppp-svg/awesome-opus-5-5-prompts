@@ -1568,5 +1568,910 @@
     "p": 1.0
    }
   ]
+ },
+ "form-compare.16k.wav": {
+  "text": "Most specialist websites use the same referral form. A long page of boxes, a submit button, and an email nobody tracks. Some even ask for a social security number. The tooth referral web form is different. It's secure. Every referral and every message is high pay compliant and encrypted, and spam and bots are filtered out. It's yours. Your logo, your locations, your announcements, the insurance you accept, and what you're known for. It even builds back links to your own website. It's complete. Urgency, procedures, an interactive tooth chart, diagnosis, and up to 10 x-rays and 10 documents. It's easy. Three short steps, no login, and the patient uploads their own insurance card through a secure link, and it doesn't end at submit. Every referral becomes a tracked case with status updates, messages, and a signed completion note. Tooth referral, the referral form that keeps working after you hit submit.",
+  "words": [
+   {
+    "word": " Most",
+    "start": 0.0,
+    "end": 0.34,
+    "p": 0.975
+   },
+   {
+    "word": " specialist",
+    "start": 0.34,
+    "end": 0.86,
+    "p": 0.917
+   },
+   {
+    "word": " websites",
+    "start": 0.86,
+    "end": 1.32,
+    "p": 0.961
+   },
+   {
+    "word": " use",
+    "start": 1.32,
+    "end": 1.62,
+    "p": 0.994
+   },
+   {
+    "word": " the",
+    "start": 1.62,
+    "end": 1.82,
+    "p": 0.998
+   },
+   {
+    "word": " same",
+    "start": 1.82,
+    "end": 2.08,
+    "p": 1.0
+   },
+   {
+    "word": " referral",
+    "start": 2.08,
+    "end": 2.4,
+    "p": 0.998
+   },
+   {
+    "word": " form.",
+    "start": 2.4,
+    "end": 2.86,
+    "p": 0.998
+   },
+   {
+    "word": " A",
+    "start": 3.34,
+    "end": 3.46,
+    "p": 0.987
+   },
+   {
+    "word": " long",
+    "start": 3.46,
+    "end": 3.7,
+    "p": 0.997
+   },
+   {
+    "word": " page",
+    "start": 3.7,
+    "end": 3.96,
+    "p": 0.994
+   },
+   {
+    "word": " of",
+    "start": 3.96,
+    "end": 4.14,
+    "p": 0.998
+   },
+   {
+    "word": " boxes,",
+    "start": 4.14,
+    "end": 4.54,
+    "p": 0.998
+   },
+   {
+    "word": " a",
+    "start": 4.88,
+    "end": 4.96,
+    "p": 0.996
+   },
+   {
+    "word": " submit",
+    "start": 4.96,
+    "end": 5.24,
+    "p": 0.93
+   },
+   {
+    "word": " button,",
+    "start": 5.24,
+    "end": 5.6,
+    "p": 0.999
+   },
+   {
+    "word": " and",
+    "start": 5.72,
+    "end": 5.9,
+    "p": 0.996
+   },
+   {
+    "word": " an",
+    "start": 5.9,
+    "end": 6.02,
+    "p": 0.992
+   },
+   {
+    "word": " email",
+    "start": 6.02,
+    "end": 6.4,
+    "p": 0.886
+   },
+   {
+    "word": " nobody",
+    "start": 6.4,
+    "end": 6.78,
+    "p": 0.932
+   },
+   {
+    "word": " tracks.",
+    "start": 6.78,
+    "end": 7.24,
+    "p": 0.994
+   },
+   {
+    "word": " Some",
+    "start": 7.88,
+    "end": 8.1,
+    "p": 0.998
+   },
+   {
+    "word": " even",
+    "start": 8.1,
+    "end": 8.34,
+    "p": 0.999
+   },
+   {
+    "word": " ask",
+    "start": 8.34,
+    "end": 8.6,
+    "p": 0.993
+   },
+   {
+    "word": " for",
+    "start": 8.6,
+    "end": 8.84,
+    "p": 0.998
+   },
+   {
+    "word": " a",
+    "start": 8.84,
+    "end": 9.0,
+    "p": 0.997
+   },
+   {
+    "word": " Social",
+    "start": 9.0,
+    "end": 9.24,
+    "p": 0.7
+   },
+   {
+    "word": " Security",
+    "start": 9.24,
+    "end": 9.7,
+    "p": 0.994
+   },
+   {
+    "word": " number.",
+    "start": 9.7,
+    "end": 10.06,
+    "p": 0.999
+   },
+   {
+    "word": " The",
+    "start": 10.68,
+    "end": 10.84,
+    "p": 0.995
+   },
+   {
+    "word": " tooth",
+    "start": 10.84,
+    "end": 11.04,
+    "p": 0.496
+   },
+   {
+    "word": " referral",
+    "start": 11.04,
+    "end": 11.44,
+    "p": 0.993
+   },
+   {
+    "word": " web",
+    "start": 11.44,
+    "end": 11.74,
+    "p": 0.985
+   },
+   {
+    "word": " form",
+    "start": 11.74,
+    "end": 12.04,
+    "p": 0.926
+   },
+   {
+    "word": " is",
+    "start": 12.04,
+    "end": 12.3,
+    "p": 0.999
+   },
+   {
+    "word": " different.",
+    "start": 12.3,
+    "end": 12.66,
+    "p": 0.999
+   },
+   {
+    "word": " It's",
+    "start": 13.12,
+    "end": 13.32,
+    "p": 0.989
+   },
+   {
+    "word": " secure.",
+    "start": 13.32,
+    "end": 13.64,
+    "p": 0.999
+   },
+   {
+    "word": " Every",
+    "start": 14.24,
+    "end": 14.5,
+    "p": 0.998
+   },
+   {
+    "word": " referral",
+    "start": 14.5,
+    "end": 14.94,
+    "p": 0.996
+   },
+   {
+    "word": " and",
+    "start": 14.94,
+    "end": 15.16,
+    "p": 0.96
+   },
+   {
+    "word": " every",
+    "start": 15.16,
+    "end": 15.44,
+    "p": 0.998
+   },
+   {
+    "word": " message",
+    "start": 15.44,
+    "end": 15.78,
+    "p": 0.998
+   },
+   {
+    "word": " is",
+    "start": 15.78,
+    "end": 16.04,
+    "p": 0.998
+   },
+   {
+    "word": " HIPAA",
+    "start": 16.04,
+    "end": 16.46,
+    "p": 0.567
+   },
+   {
+    "word": " compliant",
+    "start": 16.46,
+    "end": 16.98,
+    "p": 0.316
+   },
+   {
+    "word": " and",
+    "start": 16.98,
+    "end": 17.32,
+    "p": 0.99
+   },
+   {
+    "word": " encrypted,",
+    "start": 17.32,
+    "end": 17.78,
+    "p": 0.999
+   },
+   {
+    "word": " and",
+    "start": 18.12,
+    "end": 18.3,
+    "p": 0.998
+   },
+   {
+    "word": " spam",
+    "start": 18.3,
+    "end": 18.58,
+    "p": 0.975
+   },
+   {
+    "word": " and",
+    "start": 18.58,
+    "end": 18.78,
+    "p": 0.989
+   },
+   {
+    "word": " bots",
+    "start": 18.78,
+    "end": 19.04,
+    "p": 0.99
+   },
+   {
+    "word": " are",
+    "start": 19.04,
+    "end": 19.26,
+    "p": 0.997
+   },
+   {
+    "word": " filtered",
+    "start": 19.26,
+    "end": 19.52,
+    "p": 0.998
+   },
+   {
+    "word": " out.",
+    "start": 19.52,
+    "end": 19.84,
+    "p": 0.999
+   },
+   {
+    "word": " It's",
+    "start": 20.32,
+    "end": 20.58,
+    "p": 0.996
+   },
+   {
+    "word": " yours.",
+    "start": 20.58,
+    "end": 20.84,
+    "p": 0.987
+   },
+   {
+    "word": " Your",
+    "start": 21.44,
+    "end": 21.62,
+    "p": 0.993
+   },
+   {
+    "word": " logo,",
+    "start": 21.62,
+    "end": 21.9,
+    "p": 0.999
+   },
+   {
+    "word": " your",
+    "start": 22.36,
+    "end": 22.5,
+    "p": 0.995
+   },
+   {
+    "word": " locations,",
+    "start": 22.5,
+    "end": 23.06,
+    "p": 0.992
+   },
+   {
+    "word": " your",
+    "start": 23.32,
+    "end": 23.42,
+    "p": 0.997
+   },
+   {
+    "word": " announcements,",
+    "start": 23.42,
+    "end": 23.88,
+    "p": 0.995
+   },
+   {
+    "word": " the",
+    "start": 24.4,
+    "end": 24.52,
+    "p": 0.999
+   },
+   {
+    "word": " insurance",
+    "start": 24.52,
+    "end": 24.9,
+    "p": 0.997
+   },
+   {
+    "word": " you",
+    "start": 24.9,
+    "end": 25.18,
+    "p": 0.999
+   },
+   {
+    "word": " accept,",
+    "start": 25.18,
+    "end": 25.56,
+    "p": 0.999
+   },
+   {
+    "word": " and",
+    "start": 25.76,
+    "end": 25.86,
+    "p": 0.999
+   },
+   {
+    "word": " what",
+    "start": 25.86,
+    "end": 26.02,
+    "p": 1.0
+   },
+   {
+    "word": " you're",
+    "start": 26.02,
+    "end": 26.22,
+    "p": 0.993
+   },
+   {
+    "word": " known",
+    "start": 26.22,
+    "end": 26.4,
+    "p": 0.997
+   },
+   {
+    "word": " for.",
+    "start": 26.4,
+    "end": 26.78,
+    "p": 1.0
+   },
+   {
+    "word": " It",
+    "start": 27.14,
+    "end": 27.44,
+    "p": 0.853
+   },
+   {
+    "word": " even",
+    "start": 27.44,
+    "end": 27.68,
+    "p": 0.997
+   },
+   {
+    "word": " builds",
+    "start": 27.68,
+    "end": 27.98,
+    "p": 0.995
+   },
+   {
+    "word": " backlinks",
+    "start": 27.98,
+    "end": 28.54,
+    "p": 0.994
+   },
+   {
+    "word": " to",
+    "start": 28.54,
+    "end": 28.78,
+    "p": 0.999
+   },
+   {
+    "word": " your",
+    "start": 28.78,
+    "end": 28.92,
+    "p": 0.998
+   },
+   {
+    "word": " own",
+    "start": 28.92,
+    "end": 29.16,
+    "p": 0.998
+   },
+   {
+    "word": " website.",
+    "start": 29.16,
+    "end": 29.54,
+    "p": 0.947
+   },
+   {
+    "word": " It's",
+    "start": 30.18,
+    "end": 30.36,
+    "p": 0.977
+   },
+   {
+    "word": " complete.",
+    "start": 30.36,
+    "end": 30.68,
+    "p": 0.997
+   },
+   {
+    "word": " Urgency,",
+    "start": 31.3,
+    "end": 31.72,
+    "p": 0.978
+   },
+   {
+    "word": " procedures,",
+    "start": 32.24,
+    "end": 32.6,
+    "p": 0.978
+   },
+   {
+    "word": " an",
+    "start": 33.16,
+    "end": 33.26,
+    "p": 0.981
+   },
+   {
+    "word": " interactive",
+    "start": 33.26,
+    "end": 33.8,
+    "p": 0.997
+   },
+   {
+    "word": " tooth",
+    "start": 33.8,
+    "end": 34.12,
+    "p": 0.985
+   },
+   {
+    "word": " chart,",
+    "start": 34.12,
+    "end": 34.5,
+    "p": 0.989
+   },
+   {
+    "word": " diagnosis,",
+    "start": 34.92,
+    "end": 35.24,
+    "p": 0.994
+   },
+   {
+    "word": " and",
+    "start": 35.7,
+    "end": 35.72,
+    "p": 0.994
+   },
+   {
+    "word": " up",
+    "start": 35.72,
+    "end": 35.84,
+    "p": 0.999
+   },
+   {
+    "word": " to",
+    "start": 35.84,
+    "end": 36.02,
+    "p": 0.997
+   },
+   {
+    "word": " 10",
+    "start": 36.02,
+    "end": 36.24,
+    "p": 0.832
+   },
+   {
+    "word": " x",
+    "start": 36.24,
+    "end": 36.54,
+    "p": 0.743
+   },
+   {
+    "word": "-rays",
+    "start": 36.54,
+    "end": 36.72,
+    "p": 0.98
+   },
+   {
+    "word": " and",
+    "start": 36.72,
+    "end": 37.02,
+    "p": 0.987
+   },
+   {
+    "word": " 10",
+    "start": 37.02,
+    "end": 37.24,
+    "p": 0.977
+   },
+   {
+    "word": " documents.",
+    "start": 37.24,
+    "end": 37.72,
+    "p": 0.999
+   },
+   {
+    "word": " It's",
+    "start": 38.28,
+    "end": 38.48,
+    "p": 0.997
+   },
+   {
+    "word": " easy.",
+    "start": 38.48,
+    "end": 38.68,
+    "p": 0.999
+   },
+   {
+    "word": " Three",
+    "start": 39.18,
+    "end": 39.42,
+    "p": 0.908
+   },
+   {
+    "word": " short",
+    "start": 39.42,
+    "end": 39.68,
+    "p": 0.997
+   },
+   {
+    "word": " steps,",
+    "start": 39.68,
+    "end": 40.1,
+    "p": 0.995
+   },
+   {
+    "word": " no",
+    "start": 40.4,
+    "end": 40.62,
+    "p": 0.999
+   },
+   {
+    "word": " login,",
+    "start": 40.62,
+    "end": 41.0,
+    "p": 0.805
+   },
+   {
+    "word": " and",
+    "start": 41.36,
+    "end": 41.52,
+    "p": 0.996
+   },
+   {
+    "word": " the",
+    "start": 41.52,
+    "end": 41.64,
+    "p": 0.999
+   },
+   {
+    "word": " patient",
+    "start": 41.64,
+    "end": 41.94,
+    "p": 1.0
+   },
+   {
+    "word": " uploads",
+    "start": 41.94,
+    "end": 42.54,
+    "p": 0.997
+   },
+   {
+    "word": " their",
+    "start": 42.54,
+    "end": 42.64,
+    "p": 0.999
+   },
+   {
+    "word": " own",
+    "start": 42.64,
+    "end": 42.88,
+    "p": 0.997
+   },
+   {
+    "word": " insurance",
+    "start": 42.88,
+    "end": 43.34,
+    "p": 0.994
+   },
+   {
+    "word": " card",
+    "start": 43.34,
+    "end": 43.62,
+    "p": 0.998
+   },
+   {
+    "word": " through",
+    "start": 43.62,
+    "end": 43.84,
+    "p": 0.996
+   },
+   {
+    "word": " a",
+    "start": 43.84,
+    "end": 44.0,
+    "p": 0.999
+   },
+   {
+    "word": " secure",
+    "start": 44.0,
+    "end": 44.3,
+    "p": 0.998
+   },
+   {
+    "word": " link,",
+    "start": 44.3,
+    "end": 44.66,
+    "p": 1.0
+   },
+   {
+    "word": " and",
+    "start": 45.02,
+    "end": 45.26,
+    "p": 0.998
+   },
+   {
+    "word": " it",
+    "start": 45.26,
+    "end": 45.38,
+    "p": 0.995
+   },
+   {
+    "word": " doesn't",
+    "start": 45.38,
+    "end": 45.66,
+    "p": 0.999
+   },
+   {
+    "word": " end",
+    "start": 45.66,
+    "end": 45.92,
+    "p": 0.999
+   },
+   {
+    "word": " at",
+    "start": 45.92,
+    "end": 46.16,
+    "p": 0.997
+   },
+   {
+    "word": " submit.",
+    "start": 46.16,
+    "end": 46.44,
+    "p": 0.849
+   },
+   {
+    "word": " Every",
+    "start": 47.08,
+    "end": 47.38,
+    "p": 0.998
+   },
+   {
+    "word": " referral",
+    "start": 47.38,
+    "end": 47.78,
+    "p": 0.999
+   },
+   {
+    "word": " becomes",
+    "start": 47.78,
+    "end": 48.1,
+    "p": 0.994
+   },
+   {
+    "word": " a",
+    "start": 48.1,
+    "end": 48.3,
+    "p": 0.999
+   },
+   {
+    "word": " tracked",
+    "start": 48.3,
+    "end": 48.54,
+    "p": 0.993
+   },
+   {
+    "word": " case",
+    "start": 48.54,
+    "end": 48.96,
+    "p": 0.999
+   },
+   {
+    "word": " with",
+    "start": 48.96,
+    "end": 49.2,
+    "p": 0.839
+   },
+   {
+    "word": " status",
+    "start": 49.2,
+    "end": 49.56,
+    "p": 0.997
+   },
+   {
+    "word": " updates,",
+    "start": 49.56,
+    "end": 50.0,
+    "p": 0.99
+   },
+   {
+    "word": " messages,",
+    "start": 50.26,
+    "end": 50.54,
+    "p": 0.998
+   },
+   {
+    "word": " and",
+    "start": 50.8,
+    "end": 50.88,
+    "p": 0.998
+   },
+   {
+    "word": " a",
+    "start": 50.88,
+    "end": 51.0,
+    "p": 0.697
+   },
+   {
+    "word": " signed",
+    "start": 51.0,
+    "end": 51.28,
+    "p": 0.999
+   },
+   {
+    "word": " completion",
+    "start": 51.28,
+    "end": 51.72,
+    "p": 0.987
+   },
+   {
+    "word": " note.",
+    "start": 51.72,
+    "end": 52.12,
+    "p": 0.998
+   },
+   {
+    "word": " Tooth",
+    "start": 52.82,
+    "end": 52.82,
+    "p": 0.884
+   },
+   {
+    "word": " referral,",
+    "start": 52.82,
+    "end": 53.12,
+    "p": 0.908
+   },
+   {
+    "word": " the",
+    "start": 53.54,
+    "end": 53.74,
+    "p": 0.997
+   },
+   {
+    "word": " referral",
+    "start": 53.74,
+    "end": 54.04,
+    "p": 1.0
+   },
+   {
+    "word": " form",
+    "start": 54.04,
+    "end": 54.36,
+    "p": 0.999
+   },
+   {
+    "word": " that",
+    "start": 54.36,
+    "end": 54.56,
+    "p": 0.999
+   },
+   {
+    "word": " keeps",
+    "start": 54.56,
+    "end": 54.74,
+    "p": 0.997
+   },
+   {
+    "word": " working",
+    "start": 54.74,
+    "end": 55.14,
+    "p": 1.0
+   },
+   {
+    "word": " after",
+    "start": 55.14,
+    "end": 55.44,
+    "p": 0.998
+   },
+   {
+    "word": " you",
+    "start": 55.44,
+    "end": 55.64,
+    "p": 1.0
+   },
+   {
+    "word": " hit",
+    "start": 55.64,
+    "end": 55.84,
+    "p": 0.995
+   },
+   {
+    "word": " submit.",
+    "start": 55.84,
+    "end": 56.16,
+    "p": 0.862
+   }
+  ]
  }
 }

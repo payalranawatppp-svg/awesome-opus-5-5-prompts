@@ -39,6 +39,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="MagicShow" component={MagicShow} durationInFrames={MS_DURATION} fps={30} width={WIDTH} height={HEIGHT} />
     <Composition id="AnalyticsDemo" component={AnalyticsDemo} durationInFrames={AN_DURATION} fps={30} width={AN_W} height={AN_H} />
     <Composition id="Camp-FormVsSoftware" component={() => <CampFx id="form-vs-software" />} durationInFrames={CAMPFX_DURATION("form-vs-software")} fps={30} width={1080} height={1920} />
+    <Composition id="Camp-FormCompare" component={() => <CampFx id="form-compare" />} durationInFrames={CAMPFX_DURATION("form-compare")} fps={30} width={1080} height={1920} />
     <Composition id="Camp-DayInTheLife" component={() => <CampFx id="day-in-the-life" />} durationInFrames={CAMPFX_DURATION("day-in-the-life")} fps={30} width={1080} height={1920} />
     <Composition id="BuriedInEmails" component={BuriedInEmails} durationInFrames={S13_DURATION} fps={30} width={WIDTH} height={HEIGHT} />
     <Composition id="ToothReferralUgc2Ad" component={ToothUgc2Ref} durationInFrames={UGC2_REF_DURATION} fps={30} width={WIDTH} height={HEIGHT} />
