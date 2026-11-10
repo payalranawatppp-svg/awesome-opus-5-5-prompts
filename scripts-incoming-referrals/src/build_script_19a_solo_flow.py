@@ -3,9 +3,12 @@ import html, os, subprocess
 E = html.escape
 OUT = '/home/user/awesome-opus-5-5-prompts/scripts-incoming-referrals/Script-19A-Solo-Day-One-Founder-Only-Google-Flow.pdf'
 
-LOOK = ('Vertical 9:16 video, 8 seconds, one continuous shot. Authentic TikTok selfie footage filmed on a smartphone front camera, '
-        'not AI-generated: natural phone-video look, slight handheld sway, 24mm phone lens, real skin texture with pores and light freckles, '
-        'no beauty filter, natural daylight and practical lights, subtle grain, true-to-life colours.')
+LOOK = ('Vertical 9:16 video, 8 seconds, one continuous shot. Authentic TikTok vlog recorded by the speaker herself on her smartphone front '
+        'camera (selfie mode): she holds the phone in her right hand at arm\'s length, so the frame is slightly wide-angle with mild lens '
+        'distortion near the edges, her right shoulder and the top of her arm are partly visible at the frame edge, the phone itself is never '
+        'visible, the camera moves with her hand (natural small sways and tiny re-framings, never a tripod or gimbal), she looks into the lens as '
+        'if into her own phone screen. Natural phone-video look, auto exposure, real skin texture with pores and light freckles, no beauty filter, '
+        'subtle grain, true-to-life colours. Not AI-looking, not cinematic.')
 NEG = ('Audio: only the spoken line{extra} and quiet room tone. No music, no subtitles, no captions, no on-screen text, no readable screens, '
        'no logos, no name tags with text, no red clothing or props, no extra people, no warped hands or fingers, no lip-sync drift.')
 
@@ -45,14 +48,14 @@ CLIPS = [
   'Proud while listing; then a beat of honest worry on "is patients", a wry half-smile.', 'Phone in right hand; left hand counts on fingers (one, two, three) on the three items, then flips the switch-panel lights on and opens toward the empty room.',
   'Turns her head to look over the room on the list, then back to the lens, a small shrug on "patients".', 'Selfie walking in through the door, the lobby and the treatment room behind her; lights come on mid-clip.', ', a light switch click'),
  ('office', 'The template', ['F'], 'F', 'Okay, the website. My designer\'s template has a referral form. Doctor\'s name, patient\'s name... Social Security number?', None,
-  'Focused, then her face falls into a puzzled frown on "Social Security number?".', 'Phone propped against the coffee mug, both hands free: she scrolls the laptop trackpad with her right index finger, then points at the screen and turns her palm up toward the lens on the question.',
-  'Leans toward the laptop, then pulls back and looks into the lens, one eyebrow raised.', 'Static phone propped on the desk at chest height, slightly low angle, laptop glow on her face.', ', a trackpad click'),
+  'Focused, then her face falls into a puzzled frown on "Social Security number?".', 'Phone in her right hand at arm\'s length; her left index finger scrolls the laptop trackpad, then points at the screen, then her left palm turns up toward the lens on the question.',
+  'Leans toward the laptop, then pulls back and looks into the lens, one eyebrow raised.', 'Handheld front-camera selfie at arm\'s length, seated at the desk, slightly above eye level, laptop glow on her face.', ', a trackpad click'),
  ('office', 'Where does it go?', ['F'], 'F', 'And when they hit submit, it becomes an email, in an inbox I\'ll check between patients. Maybe.', None,
   'Dry, honest; a skeptical squint on "Maybe".', 'Mimes pressing a button with her index finger on "submit", then draws an envelope shape in the air, then a so-so wobble of her flat hand on "Maybe".',
-  'Tilts her head on "inbox", a slow knowing nod at the end.', 'Same propped-phone framing, very slow push-in feel from her leaning closer.', ''),
+  'Tilts her head on "inbox", a slow knowing nod at the end.', 'Handheld front-camera selfie at arm\'s length, she brings the phone a little closer as she talks.', ''),
  ('office', 'The realisation', ['F'], 'F', 'Nobody tells you this: your referrals are your business. And I almost ran mine through a contact form.', None,
-  'Serious and sincere, then self-aware embarrassment, a short laugh at herself.', 'Leans in, picks the phone up off the mug; free hand taps two fingers on the desk on "your business", then covers her eyes for a second on "contact form".',
-  'Leans close to the lens on the first sentence, then tips her head back laughing.', 'Selfie close-up, handheld, slight sway as she picks the phone up.', ''),
+  'Serious and sincere, then self-aware embarrassment, a short laugh at herself.', 'Leans in toward the phone; her free hand taps two fingers on the desk on "your business", then covers her eyes for a second on "contact form".',
+  'Leans close to the lens on the first sentence, then tips her head back laughing.', 'Handheld front-camera selfie close-up, slight natural sway.', ''),
  ('office', 'The choice', ['F'], 'F', 'So I chose Tooth Referral. It sits on my own website, with my logo, my insurance, what I\'m known for.', None,
   'Relief and confidence, a genuine smile.', 'Holding the phone, she turns the laptop slightly toward the lens with her free hand (screen glow only), then ticks off the three items on her fingers.',
   'Confident nod on "Tooth Referral", glances at the laptop and back.', 'Selfie, slightly over her shoulder toward the laptop glow, then back to her face.', ''),
@@ -66,8 +69,8 @@ CLIPS = [
   'Proud, a little emotional on "my old practice".', 'Phone in right hand; left hand taps the monitor edge on "live", counts five fingers on "five offices", then rests on her heart on "my old practice".',
   'Glances at the monitor, back to the lens, a soft nostalgic smile.', 'Selfie at the empty front desk, monitor glow behind her shoulder, afternoon daylight.', ''),
  ('desk', 'The first referral', ['F'], 'F', 'Wait... a referral. Gentle Dental. Root canal, tooth nineteen. X-rays attached, and her insurance is already uploaded.', None,
-  'Surprise turning into delight; she reads fast, eyes widening.', 'A soft notification chime; she spins the phone so the lens catches her and the monitor glow, points at the screen with her free index finger, then covers her mouth.',
-  'Snaps her head toward the monitor on the chime, then back to the lens, eyes wide.', 'Selfie two-shot of her and the glowing monitor, slightly shaky from excitement.', ', a soft notification chime'),
+  'Surprise turning into delight; she reads fast, eyes widening.', 'A soft notification chime; she turns her body so the monitor glow is behind her, points at the screen with her free index finger, then covers her mouth.',
+  'Snaps her head toward the monitor on the chime, then back to the lens, eyes wide.', 'Handheld front-camera selfie, she turns so the glowing monitor is behind her shoulder, slightly shaky from excitement.', ', a soft notification chime'),
  ('desk', 'Our first patient', ['F'], 'F', 'Our first patient. I\'m calling her right now. And Gentle Dental sees every update, so nobody has to call to ask.', None,
   'Quiet and emotional on the first words, then focused and happy.', 'Presses her free hand flat to her chest on "Our first patient", then picks up the desk-phone handset and holds it up to the lens.',
   'Lets out a breath, blinks fast, then a determined nod.', 'Selfie close-up at the desk, phone handset entering frame.', ', a desk-phone dial tone'),
@@ -88,7 +91,7 @@ def prompt(c):
     p.append(f'Emotion: {emo}')
     p.append(f'Hands: {hands}')
     p.append(f'Head and body: {head}')
-    p.append(f'Camera: {cam}')
+    p.append(f'Camera: {cam} Always a handheld front-camera selfie, phone held by her own arm; never a third-person shot.')
     n, _, v = NAMES[spk]
     if second:
         n2, _, v2 = NAMES[second[0]]
@@ -136,6 +139,7 @@ pre {{ white-space: pre-wrap; font-family: Inter, sans-serif; font-size: 8.2pt; 
 <h1>"Day One" (solo): the founder's selfie vlog</h1>
 <div class="sub">An endodontist's first day: the website, the referral-form decision, and the first referral through Tooth Referral. One character only: the founder films everything herself. 13 clips × 8 s ≈ 1:44. For a 60-80 s TikTok cut, drop clips 02, 05 and 13.</div>
 <div class="box"><b>How to generate in Flow</b><ul>
+<li><b>Every clip is filmed by her, on her phone's front camera:</b> arm's-length selfie, slight wide-angle, her arm at the frame edge, natural hand sway, eyes on the lens. Every prompt says this; never a tripod, gimbal or third-person shot.</li>
 <li>Generate the founder still first from the avatar prompt below, and use it as the reference image for every clip, so her face, hair and clothes never change.</li>
 <li>Paste each prompt as it is. Lines are kept to about 20 words so they fit 8 seconds; two-speaker clips say who talks first.</li>
 <li>"Tooth Referral" is written as two words so Flow says it right. If it slips, re-voice that one line in ElevenLabs.</li>
