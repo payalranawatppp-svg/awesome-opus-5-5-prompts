@@ -538,12 +538,12 @@ const StatusCover: React.FC = () => {
   ];
   return (
     <AbsoluteFill style={{ clipPath: `circle(${p * 150}% at 50% 62%)`, background: "linear-gradient(170deg, #FBFAFF 0%, #EFEAFF 60%, #E6DEFF 100%)", fontFamily: FONT_UI }}>
-      <AbsoluteFill style={{ backgroundImage: "radial-gradient(rgba(109,74,232,0.10) 1.5px, transparent 1.6px)", backgroundSize: "36px 36px", backgroundPosition: `${(t * 8) % 36}px ${(t * 5) % 36}px` }} />
+      <AbsoluteFill style={{ backgroundImage: "radial-gradient(rgba(109,74,232,0.10) 1.5px, transparent 1.6px)", backgroundSize: "36px 36px", backgroundPosition: `${(t * 30) % 36}px ${(t * 18) % 36}px` }} />
       <div style={{ position: "absolute", top: 120, left: 70, right: 70, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <Img src={staticFile("tr/logo.png")} style={{ height: 66 }} />
         <div style={{ fontSize: 26, fontWeight: 800, color: PURPLE, letterSpacing: "0.14em" }}>REFERRING OFFICE VIEW</div>
       </div>
-      <div style={{ position: "absolute", left: 70, right: 70, top: 300, ...CARD, padding: "40px 44px", scale: String(0.94 + 0.06 * sp(t, COVER_IN + 0.05, 16, 150)) }}>
+      <div style={{ position: "absolute", left: 70, right: 70, top: 300, ...CARD, padding: "40px 44px", scale: String(0.94 + 0.06 * sp(t, COVER_IN + 0.05, 16, 150) + 0.012 * (t - COVER_IN)), translate: `0 ${-6 * (t - COVER_IN)}px` }}>
         <div style={{ display: "flex", alignItems: "center", gap: 22 }}>
           <div style={{ width: 84, height: 84, borderRadius: 84, background: PURPLE, color: "#fff", fontWeight: 800, fontSize: 34, display: "flex", alignItems: "center", justifyContent: "center" }}>GD</div>
           <div>
@@ -588,13 +588,15 @@ const EndCard: React.FC = () => {
   const c = sp(t, a + 1.3, 14, 180);
   return (
     <AbsoluteFill style={{ opacity: p, background: "linear-gradient(170deg, #FBFAFF 0%, #EFEAFF 60%, #E6DEFF 100%)", alignItems: "center", justifyContent: "center", fontFamily: FONT_UI }}>
-      <AbsoluteFill style={{ backgroundImage: "radial-gradient(rgba(109,74,232,0.10) 1.5px, transparent 1.6px)", backgroundSize: "36px 36px", backgroundPosition: `${(t * 8) % 36}px ${(t * 5) % 36}px` }} />
+      <AbsoluteFill style={{ backgroundImage: "radial-gradient(rgba(109,74,232,0.10) 1.5px, transparent 1.6px)", backgroundSize: "36px 36px", backgroundPosition: `${(t * 30) % 36}px ${(t * 18) % 36}px` }} />
+      <AbsoluteFill style={{ alignItems: "center", justifyContent: "center", scale: String(1 + 0.012 * Math.max(0, t - a)) }}>
       <Img src={staticFile("tr/logo.png")} style={{ width: 620, scale: String(0.86 + 0.14 * l), opacity: l, marginTop: -120 }} />
       <div style={{ marginTop: 70, width: 940, fontSize: 56, fontWeight: 800, letterSpacing: "-0.03em", lineHeight: 1.14, color: INK, textAlign: "center", opacity: l, translate: `0 ${(1 - l) * 30}px` }}>
         Starting a practice is hard.<br /><span style={{ color: PURPLE }}>Losing referrals<br />shouldn’t be part of it.</span>
       </div>
       <div style={{ marginTop: 50, padding: "20px 46px", borderRadius: 999, background: PURPLE, color: "#fff", fontSize: 42, fontWeight: 800, opacity: b, scale: String(0.8 + 0.2 * b) }}>Set up in about 5 minutes</div>
       <div style={{ marginTop: 28, fontSize: 40, color: PURPLE, fontWeight: 800, opacity: c }}>toothreferral.com</div>
+      </AbsoluteFill>
     </AbsoluteFill>
   );
 };
