@@ -1,0 +1,1056 @@
+{
+"b2": {
+"words": [
+{
+"word": "You've",
+"start": 0.54,
+"end": 1.02
+},
+{
+"word": "been",
+"start": 1.02,
+"end": 1.14
+},
+{
+"word": "staring",
+"start": 1.14,
+"end": 1.38
+},
+{
+"word": "at",
+"start": 1.38,
+"end": 1.58
+},
+{
+"word": "that",
+"start": 1.58,
+"end": 1.74
+},
+{
+"word": "screen",
+"start": 1.74,
+"end": 2.04
+},
+{
+"word": "since",
+"start": 2.04,
+"end": 2.3
+},
+{
+"word": "lunch.",
+"start": 2.3,
+"end": 2.64
+},
+{
+"word": "What's",
+"start": 3.24,
+"end": 3.46
+},
+{
+"word": "going",
+"start": 3.46,
+"end": 3.58
+},
+{
+"word": "on?",
+"start": 3.58,
+"end": 3.96
+},
+{
+"word": "I'm",
+"start": 4.6,
+"end": 4.7
+},
+{
+"word": "trying",
+"start": 4.7,
+"end": 4.88
+},
+{
+"word": "to",
+"start": 4.88,
+"end": 5.0
+},
+{
+"word": "figure",
+"start": 5.0,
+"end": 5.12
+},
+{
+"word": "out",
+"start": 5.12,
+"end": 5.3
+},
+{
+"word": "where",
+"start": 5.3,
+"end": 5.42
+},
+{
+"word": "one",
+"start": 5.42,
+"end": 5.58
+},
+{
+"word": "referral",
+"start": 5.58,
+"end": 5.88
+},
+{
+"word": "even",
+"start": 5.88,
+"end": 6.12
+},
+{
+"word": "stands.",
+"start": 6.12,
+"end": 6.6
+},
+{
+"word": "There's",
+"start": 6.88,
+"end": 7.04
+},
+{
+"word": "an",
+"start": 7.04,
+"end": 7.14
+},
+{
+"word": "email,",
+"start": 7.14,
+"end": 7.5
+},
+{
+"word": "a",
+"start": 7.92,
+"end": 7.94
+},
+{
+"word": "voicemail,",
+"start": 7.94,
+"end": 8.44
+},
+{
+"word": "a",
+"start": 8.76,
+"end": 8.78
+},
+{
+"word": "fax,",
+"start": 8.78,
+"end": 9.18
+},
+{
+"word": "and",
+"start": 9.76,
+"end": 10.14
+},
+{
+"word": "none",
+"start": 10.14,
+"end": 10.32
+},
+{
+"word": "of",
+"start": 10.32,
+"end": 10.44
+},
+{
+"word": "them",
+"start": 10.44,
+"end": 10.6
+},
+{
+"word": "match.",
+"start": 10.6,
+"end": 10.88
+},
+{
+"word": "And",
+"start": 11.64,
+"end": 11.74
+},
+{
+"word": "a",
+"start": 11.74,
+"end": 11.84
+},
+{
+"word": "patient",
+"start": 11.84,
+"end": 12.06
+},
+{
+"word": "just",
+"start": 12.06,
+"end": 12.3
+},
+{
+"word": "called,",
+"start": 12.3,
+"end": 12.68
+},
+{
+"word": "upset.",
+"start": 13.0,
+"end": 13.22
+},
+{
+"word": "She",
+"start": 13.9,
+"end": 14.04
+},
+{
+"word": "said",
+"start": 14.04,
+"end": 14.22
+},
+{
+"word": "nobody",
+"start": 14.22,
+"end": 14.44
+},
+{
+"word": "ever",
+"start": 14.44,
+"end": 14.72
+},
+{
+"word": "got",
+"start": 14.72,
+"end": 14.88
+},
+{
+"word": "back",
+"start": 14.88,
+"end": 15.1
+},
+{
+"word": "to",
+"start": 15.1,
+"end": 15.26
+},
+{
+"word": "her.",
+"start": 15.26,
+"end": 15.48
+},
+{
+"word": "Honestly,",
+"start": 16.22,
+"end": 16.62
+},
+{
+"word": "she's",
+"start": 16.98,
+"end": 17.58
+},
+{
+"word": "right.",
+"start": 17.58,
+"end": 17.86
+},
+{
+"word": "Hey,",
+"start": 18.64,
+"end": 18.88
+},
+{
+"word": "it's",
+"start": 19.1,
+"end": 19.26
+},
+{
+"word": "not",
+"start": 19.26,
+"end": 19.42
+},
+{
+"word": "you.",
+"start": 19.42,
+"end": 19.76
+},
+{
+"word": "Half",
+"start": 20.16,
+"end": 20.22
+},
+{
+"word": "the",
+"start": 20.22,
+"end": 20.4
+},
+{
+"word": "team's",
+"start": 20.4,
+"end": 20.68
+},
+{
+"word": "been",
+"start": 20.68,
+"end": 20.8
+},
+{
+"word": "out.",
+"start": 20.8,
+"end": 21.04
+},
+{
+"word": "It's",
+"start": 21.14,
+"end": 21.26
+},
+{
+"word": "the",
+"start": 21.26,
+"end": 21.38
+},
+{
+"word": "holidays.",
+"start": 21.38,
+"end": 21.7
+},
+{
+"word": "And",
+"start": 22.34,
+"end": 22.5
+},
+{
+"word": "we're",
+"start": 22.5,
+"end": 22.66
+},
+{
+"word": "losing",
+"start": 22.66,
+"end": 22.92
+},
+{
+"word": "steam.",
+"start": 22.92,
+"end": 23.34
+},
+{
+"word": "Every",
+"start": 23.96,
+"end": 24.22
+},
+{
+"word": "referral",
+"start": 24.22,
+"end": 24.64
+},
+{
+"word": "lives",
+"start": 24.64,
+"end": 24.9
+},
+{
+"word": "in",
+"start": 24.9,
+"end": 25.12
+},
+{
+"word": "someone's",
+"start": 25.12,
+"end": 25.44
+},
+{
+"word": "inbox",
+"start": 25.44,
+"end": 25.8
+},
+{
+"word": "or",
+"start": 25.8,
+"end": 26.12
+},
+{
+"word": "someone's",
+"start": 26.12,
+"end": 26.54
+},
+{
+"word": "head.",
+"start": 26.54,
+"end": 26.74
+},
+{
+"word": "If",
+"start": 27.16,
+"end": 27.3
+},
+{
+"word": "they're",
+"start": 27.3,
+"end": 27.5
+},
+{
+"word": "out,",
+"start": 27.5,
+"end": 27.74
+},
+{
+"word": "it's",
+"start": 27.84,
+"end": 28.02
+},
+{
+"word": "just",
+"start": 28.02,
+"end": 28.26
+},
+{
+"word": "gone.",
+"start": 28.26,
+"end": 28.76
+},
+{
+"word": "Yeah,",
+"start": 28.76,
+"end": 29.52
+},
+{
+"word": "that's",
+"start": 29.98,
+"end": 30.54
+},
+{
+"word": "the",
+"start": 30.54,
+"end": 30.64
+},
+{
+"word": "old",
+"start": 30.64,
+"end": 30.8
+},
+{
+"word": "way.",
+"start": 30.8,
+"end": 31.22
+},
+{
+"word": "At",
+"start": 32.08,
+"end": 32.08
+},
+{
+"word": "my",
+"start": 32.08,
+"end": 32.22
+},
+{
+"word": "last",
+"start": 32.22,
+"end": 32.5
+},
+{
+"word": "office,",
+"start": 32.5,
+"end": 32.84
+},
+{
+"word": "we",
+"start": 33.26,
+"end": 33.28
+},
+{
+"word": "replaced",
+"start": 33.28,
+"end": 33.58
+},
+{
+"word": "the",
+"start": 33.58,
+"end": 33.76
+},
+{
+"word": "form",
+"start": 33.76,
+"end": 33.94
+},
+{
+"word": "on",
+"start": 33.94,
+"end": 34.12
+},
+{
+"word": "our",
+"start": 34.12,
+"end": 34.24
+},
+{
+"word": "website",
+"start": 34.24,
+"end": 34.58
+},
+{
+"word": "with",
+"start": 34.58,
+"end": 34.8
+},
+{
+"word": "tooth",
+"start": 34.8,
+"end": 34.96
+},
+{
+"word": "referral.",
+"start": 34.96,
+"end": 35.36
+},
+{
+"word": "Every",
+"start": 36.06,
+"end": 36.22
+},
+{
+"word": "referral",
+"start": 36.22,
+"end": 36.64
+},
+{
+"word": "came",
+"start": 36.64,
+"end": 36.9
+},
+{
+"word": "in",
+"start": 36.9,
+"end": 37.06
+},
+{
+"word": "as",
+"start": 37.06,
+"end": 37.2
+},
+{
+"word": "one",
+"start": 37.2,
+"end": 37.4
+},
+{
+"word": "case.",
+"start": 37.4,
+"end": 37.76
+},
+{
+"word": "One",
+"start": 38.08,
+"end": 38.1
+},
+{
+"word": "case.",
+"start": 38.1,
+"end": 38.38
+},
+{
+"word": "It",
+"start": 38.94,
+"end": 39.06
+},
+{
+"word": "puts",
+"start": 39.06,
+"end": 39.22
+},
+{
+"word": "all",
+"start": 39.22,
+"end": 39.5
+},
+{
+"word": "the",
+"start": 39.5,
+"end": 39.64
+},
+{
+"word": "communication",
+"start": 39.64,
+"end": 40.1
+},
+{
+"word": "about",
+"start": 40.1,
+"end": 40.4
+},
+{
+"word": "that",
+"start": 40.4,
+"end": 40.56
+},
+{
+"word": "referral",
+"start": 40.56,
+"end": 40.92
+},
+{
+"word": "in",
+"start": 40.92,
+"end": 41.12
+},
+{
+"word": "one",
+"start": 41.12,
+"end": 41.3
+},
+{
+"word": "place.",
+"start": 41.3,
+"end": 41.62
+},
+{
+"word": "X",
+"start": 42.2,
+"end": 42.26
+},
+{
+"word": "-rays,",
+"start": 42.26,
+"end": 42.44
+},
+{
+"word": "insurance,",
+"start": 42.96,
+"end": 42.96
+},
+{
+"word": "messages,",
+"start": 43.34,
+"end": 43.7
+},
+{
+"word": "status.",
+"start": 43.98,
+"end": 44.22
+},
+{
+"word": "Whoever",
+"start": 44.76,
+"end": 44.96
+},
+{
+"word": "opens",
+"start": 44.96,
+"end": 45.36
+},
+{
+"word": "it",
+"start": 45.36,
+"end": 45.56
+},
+{
+"word": "sees",
+"start": 45.56,
+"end": 45.74
+},
+{
+"word": "everything.",
+"start": 45.74,
+"end": 46.2
+},
+{
+"word": "So",
+"start": 46.66,
+"end": 46.84
+},
+{
+"word": "if",
+"start": 46.84,
+"end": 46.96
+},
+{
+"word": "I'm",
+"start": 46.96,
+"end": 47.16
+},
+{
+"word": "out",
+"start": 47.16,
+"end": 47.3
+},
+{
+"word": "tomorrow,",
+"start": 47.3,
+"end": 47.76
+},
+{
+"word": "Greg",
+"start": 48.36,
+"end": 48.38
+},
+{
+"word": "opens",
+"start": 48.38,
+"end": 48.78
+},
+{
+"word": "it",
+"start": 48.78,
+"end": 49.06
+},
+{
+"word": "and",
+"start": 49.06,
+"end": 49.26
+},
+{
+"word": "knows",
+"start": 49.26,
+"end": 49.44
+},
+{
+"word": "exactly",
+"start": 49.44,
+"end": 49.88
+},
+{
+"word": "where",
+"start": 49.88,
+"end": 50.2
+},
+{
+"word": "it",
+"start": 50.2,
+"end": 50.34
+},
+{
+"word": "stands.",
+"start": 50.34,
+"end": 50.7
+},
+{
+"word": "No",
+"start": 51.22,
+"end": 51.5
+},
+{
+"word": "digging",
+"start": 51.5,
+"end": 51.74
+},
+{
+"word": "through",
+"start": 51.74,
+"end": 52.06
+},
+{
+"word": "anyone's",
+"start": 52.06,
+"end": 52.5
+},
+{
+"word": "email.",
+"start": 52.5,
+"end": 52.74
+},
+{
+"word": "And",
+"start": 53.4,
+"end": 53.52
+},
+{
+"word": "the",
+"start": 53.52,
+"end": 53.66
+},
+{
+"word": "dentist's",
+"start": 53.66,
+"end": 54.12
+},
+{
+"word": "office?",
+"start": 54.12,
+"end": 54.34
+},
+{
+"word": "They",
+"start": 54.8,
+"end": 55.02
+},
+{
+"word": "call",
+"start": 55.02,
+"end": 55.2
+},
+{
+"word": "us",
+"start": 55.2,
+"end": 55.46
+},
+{
+"word": "constantly.",
+"start": 55.46,
+"end": 55.98
+},
+{
+"word": "They",
+"start": 55.98,
+"end": 56.62
+},
+{
+"word": "see",
+"start": 56.62,
+"end": 56.8
+},
+{
+"word": "the",
+"start": 56.8,
+"end": 56.96
+},
+{
+"word": "status",
+"start": 56.96,
+"end": 57.22
+},
+{
+"word": "themselves.",
+"start": 57.22,
+"end": 57.68
+},
+{
+"word": "And",
+"start": 58.26,
+"end": 58.3
+},
+{
+"word": "they",
+"start": 58.3,
+"end": 58.42
+},
+{
+"word": "can",
+"start": 58.42,
+"end": 58.54
+},
+{
+"word": "message",
+"start": 58.54,
+"end": 58.82
+},
+{
+"word": "us",
+"start": 58.82,
+"end": 59.02
+},
+{
+"word": "right",
+"start": 59.02,
+"end": 59.24
+},
+{
+"word": "on",
+"start": 59.24,
+"end": 59.38
+},
+{
+"word": "the",
+"start": 59.38,
+"end": 59.48
+},
+{
+"word": "case.",
+"start": 59.48,
+"end": 59.7
+},
+{
+"word": "That's",
+"start": 60.64,
+"end": 60.86
+},
+{
+"word": "what",
+"start": 60.86,
+"end": 60.92
+},
+{
+"word": "I",
+"start": 60.92,
+"end": 61.04
+},
+{
+"word": "liked.",
+"start": 61.04,
+"end": 61.3
+},
+{
+"word": "It",
+"start": 61.62,
+"end": 61.66
+},
+{
+"word": "didn't",
+"start": 61.66,
+"end": 61.88
+},
+{
+"word": "depend",
+"start": 61.88,
+"end": 62.12
+},
+{
+"word": "on",
+"start": 62.12,
+"end": 62.3
+},
+{
+"word": "who",
+"start": 62.3,
+"end": 62.46
+},
+{
+"word": "was",
+"start": 62.46,
+"end": 62.6
+},
+{
+"word": "working",
+"start": 62.6,
+"end": 62.86
+},
+{
+"word": "that",
+"start": 62.86,
+"end": 63.12
+},
+{
+"word": "day.",
+"start": 63.12,
+"end": 63.38
+},
+{
+"word": "The",
+"start": 63.72,
+"end": 63.8
+},
+{
+"word": "whole",
+"start": 63.8,
+"end": 63.96
+},
+{
+"word": "office",
+"start": 63.96,
+"end": 64.24
+},
+{
+"word": "just",
+"start": 64.24,
+"end": 64.46
+},
+{
+"word": "ran.",
+"start": 64.46,
+"end": 64.76
+},
+{
+"word": "That's",
+"start": 65.52,
+"end": 65.74
+},
+{
+"word": "what",
+"start": 65.74,
+"end": 65.82
+},
+{
+"word": "we",
+"start": 65.82,
+"end": 65.96
+},
+{
+"word": "need.",
+"start": 65.96,
+"end": 66.22
+},
+{
+"word": "Okay,",
+"start": 66.86,
+"end": 67.06
+},
+{
+"word": "I'm",
+"start": 67.38,
+"end": 67.58
+},
+{
+"word": "bringing",
+"start": 67.58,
+"end": 67.74
+},
+{
+"word": "this",
+"start": 67.74,
+"end": 67.98
+},
+{
+"word": "to",
+"start": 67.98,
+"end": 68.12
+},
+{
+"word": "the",
+"start": 68.12,
+"end": 68.24
+},
+{
+"word": "team",
+"start": 68.24,
+"end": 68.42
+},
+{
+"word": "meeting.",
+"start": 68.42,
+"end": 68.68
+},
+{
+"word": "Bring",
+"start": 69.5,
+"end": 69.82
+},
+{
+"word": "it.",
+"start": 69.82,
+"end": 70.0
+},
+{
+"word": "You",
+"start": 70.28,
+"end": 70.36
+},
+{
+"word": "might",
+"start": 70.36,
+"end": 70.48
+},
+{
+"word": "actually",
+"start": 70.48,
+"end": 70.82
+},
+{
+"word": "get",
+"start": 70.82,
+"end": 70.96
+},
+{
+"word": "to",
+"start": 70.96,
+"end": 71.08
+},
+{
+"word": "eat",
+"start": 71.08,
+"end": 71.2
+},
+{
+"word": "lunch.",
+"start": 71.2,
+"end": 71.52
+}
+]
+}
+}
