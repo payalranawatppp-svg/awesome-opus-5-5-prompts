@@ -207,12 +207,12 @@ const Merge: React.FC = () => {
       {items.map((it, i) => {
         const k = sp(frame, T.communication + i * 4, 13, 200);
         return (
-          <div key={it.t} style={{ position: "absolute", left: 450 - 110 + it.x * (1 - fly), top: 280 + it.y * (1 - fly), width: 220, opacity: Math.min(1, k * 1.5) * (1 - ramp(frame, T.place, T.place + 8)), scale: String((0.7 + 0.3 * k) * (1 - fly * 0.5)), display: "flex", alignItems: "center", gap: 12, padding: "14px 18px", borderRadius: 999, background: "#F3F0FB", color: INK, fontWeight: 800, fontSize: 30 }}>
+          <div key={it.t} style={{ position: "absolute", left: 450 - 110 + it.x * (1 - fly), top: 280 + it.y * (1 - fly), width: 220, opacity: Math.min(1, k * 1.5) * (1 - ramp(frame, T.place, T.place + 8)), transform: `perspective(1000px) translateZ(${(1 - Math.min(1, k)) * -700 - fly * 260}px) rotateY(${(1 - Math.min(1, k)) * (it.x < 0 ? -50 : it.x > 0 ? 50 : 0) + fly * (it.x < 0 ? 30 : it.x > 0 ? -30 : 0)}deg)`, display: "flex", alignItems: "center", gap: 12, padding: "14px 18px", borderRadius: 999, background: "#F3F0FB", color: INK, fontWeight: 800, fontSize: 30 }}>
             <Icon d={it.i} size={30} color={AMBER_DK} />{it.t}
           </div>
         );
       })}
-      <div style={{ position: "absolute", left: 210, top: 150, width: 480, opacity: card, scale: String(0.8 + 0.2 * card), borderRadius: 22, background: "#fff", boxShadow: "0 18px 50px rgba(40,20,110,0.22)", padding: "24px 26px", border: `3px solid ${TR.purple}` }}>
+      <div style={{ position: "absolute", left: 210, top: 150, width: 480, opacity: Math.min(1, card * 1.5), transform: `perspective(1200px) rotateX(${(1 - Math.min(1, card)) * -70}deg) scale(${0.85 + 0.15 * card})`, transformOrigin: "50% 100%", borderRadius: 22, background: "#fff", boxShadow: "0 18px 50px rgba(40,20,110,0.22)", padding: "24px 26px", border: `3px solid ${TR.purple}` }}>
         <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
           <div style={{ width: 54, height: 54, borderRadius: 27, background: "#C02AD0", color: W, display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 800, fontSize: 22 }}>CW</div>
           <div><div style={{ fontWeight: 800, fontSize: 30, color: INK }}>Carter Wiley</div><div style={{ fontSize: 22, color: TR.muted, fontWeight: 600 }}>from Gentle Dental · one case</div></div>
@@ -238,7 +238,7 @@ const Grid: React.FC = () => {
         const tw = 472, th = 300;
         const sc = Math.min((tw - 20) / s.crop.w, (th - 62) / s.crop.h);
         return (
-          <div key={label} style={{ height: th, borderRadius: 18, background: "#fff", boxShadow: "0 10px 30px rgba(40,20,110,0.16)", padding: 10, opacity: Math.min(1, k * 1.4), scale: String(0.85 + 0.15 * k), display: "flex", flexDirection: "column", alignItems: "center" }}>
+          <div key={label} style={{ height: th, borderRadius: 18, background: "#fff", boxShadow: "0 10px 30px rgba(40,20,110,0.16)", padding: 10, opacity: Math.min(1, k * 1.6), transform: `perspective(1200px) rotateX(${(1 - Math.min(1, k)) * 75}deg) translateZ(${(1 - Math.min(1, k)) * -160}px)`, transformOrigin: "50% 100%", display: "flex", flexDirection: "column", alignItems: "center" }}>
             <div style={{ alignSelf: "flex-start", display: "flex", alignItems: "center", gap: 8, padding: "4px 6px 10px", fontWeight: 800, fontSize: 24, color: INK }}>
               <Icon d={ICON.check} size={22} color={GREEN} />{label}
             </div>
@@ -285,17 +285,24 @@ const Panel: React.FC<{ k: number }> = ({ k }) => {
   const a = size(prev), b = size(cur);
   const w = a.w + (b.w - a.w) * m, h = a.h + (b.h - a.h) * m;
   const top = 40 + (MAXH - h) / 2 + (1 - k) * -(PANEL_BOTTOM + 60);
-  const inn = ramp(frame, cur.from, cur.from + 9, easeOut);
+  const inn = ramp(frame, cur.from, cur.from + 12, easeOut);
+  // 3D: the card swings in on Y for every new screen, then drifts with a slow parallax tilt
+  const enter = 1 - ramp(frame, SPLIT[0], SPLIT[0] + 18, easeOut);
+  const swing = (1 - inn) * (i % 2 ? -16 : 16);
+  const tiltX = 5 * enter + Math.sin(frame / 55) * 1.6;
+  const tiltY = swing + Math.cos(frame / 70) * 2.2;
   return (
-    <div style={{ position: "absolute", left: (1080 - w) / 2, top, width: w, height: h, borderRadius: 28, background: "#FFFFFF", boxShadow: "0 30px 70px rgba(0,0,0,0.45)", overflow: "hidden", fontFamily: FONT_UI }}>
+    <div style={{ position: "absolute", left: (1080 - w) / 2, top, width: w, height: h, perspective: 1800 }}>
+    <div style={{ position: "absolute", inset: 0, borderRadius: 28, background: "#FFFFFF", boxShadow: `${-tiltY * 1.5}px 34px 70px rgba(0,0,0,0.45)`, overflow: "hidden", fontFamily: FONT_UI, transform: `rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateZ(${-120 * enter}px)`, transformStyle: "preserve-3d" }}>
       <div style={{ position: "absolute", left: PAD, right: PAD, top: PAD - 4, height: HEAD - 10, display: "flex", alignItems: "center", gap: 12 }}>
         <Img src={staticFile("tr/logo.png")} style={{ height: 34 }} />
         <div style={{ width: 1.5, height: 26, background: "#E4E2EE" }} />
         <div style={{ fontWeight: 800, fontSize: 24, color: TR.purple, letterSpacing: "0.02em", whiteSpace: "nowrap" }}>{cur.s?.label ?? cur.label}</div>
       </div>
-      <div style={{ position: "absolute", left: 0, right: 0, top: PAD + HEAD - 6, bottom: PAD, display: "flex", justifyContent: "center", alignItems: "flex-start", opacity: inn, translate: `${(1 - inn) * 40}px 0px` }}>
+      <div style={{ position: "absolute", left: 0, right: 0, top: PAD + HEAD - 6, bottom: PAD, display: "flex", justifyContent: "center", alignItems: "flex-start", opacity: inn, transform: `translateZ(${(1 - inn) * -200}px) translateX(${(1 - inn) * (i % 2 ? -50 : 50)}px)` }}>
         {cur.s ? <Screen s={cur.s} hl={cur.hl} /> : cur.node}
       </div>
+    </div>
     </div>
   );
 };
@@ -400,7 +407,10 @@ const OldWay: React.FC = () => {
   const items = [{ i: I.mail, t: "Emails" }, { i: I.vm, t: "Voicemails" }, { i: I.fax, t: "Faxes" }, { i: I.head, t: "Sticky notes & memory" }];
   return (
     <AbsoluteFill style={{ opacity: k * (1 - out), background: "radial-gradient(ellipse at 50% 42%, rgba(42,27,94,0.92), rgba(15,11,28,0.97))", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: 18, paddingTop: 260 }}>
-      {items.map((x, i) => <div key={x.t} style={{ opacity: 0.85 }}><Chip icon={x.i} text={x.t} k={sp(frame, from + i * 3, 12, 220)} strike={ramp(frame, T.old - 6 + i * 2, T.old + 4 + i * 2)} /></div>)}
+      {items.map((x, i) => {
+        const q = Math.min(1, sp(frame, from + i * 3, 13, 200));
+        return <div key={x.t} style={{ opacity: 0.88, transform: `perspective(1100px) rotateX(${(1 - q) * -85}deg) translateZ(${(1 - q) * -300 + i * -20}px) rotateY(${(i - 1.5) * -4}deg)`, transformOrigin: "50% 0%" }}><Chip icon={x.i} text={x.t} k={1} strike={ramp(frame, T.old - 6 + i * 2, T.old + 4 + i * 2)} /></div>;
+      })}
       <div style={{ position: "absolute", top: 520, rotate: "-6deg", padding: "12px 30px", border: `8px solid ${YELLOW}`, color: YELLOW, borderRadius: 16, background: "rgba(15,11,28,0.6)", ...TYPE, fontSize: 92, letterSpacing: "0.01em", scale: String(interpolate(stamp, [0, 1], [2.2, 1])), opacity: Math.min(1, stamp * 2) }}>THE OLD WAY</div>
     </AbsoluteFill>
   );
@@ -418,7 +428,7 @@ const Replace: React.FC = () => {
     <AbsoluteFill style={{ opacity: k * (1 - out), background: "linear-gradient(170deg, #FBFAFF 0%, #EFEAFF 60%, #E6DEFF 100%)", fontFamily: FONT_UI }}>
       <AbsoluteFill style={{ backgroundImage: "radial-gradient(rgba(109,74,232,0.10) 1.5px, transparent 1.6px)", backgroundSize: "36px 36px" }} />
       <div style={{ position: "absolute", top: 230, left: 0, right: 0, textAlign: "center", color: TR.purple, fontWeight: 800, fontSize: 30, letterSpacing: "0.14em" }}>ON OUR WEBSITE</div>
-      <div style={{ position: "absolute", left: 90, top: 300, width: 900, borderRadius: 24, overflow: "hidden", background: "#fff", boxShadow: "0 30px 70px rgba(40,20,110,0.25)" }}>
+      <div style={{ position: "absolute", left: 90, top: 300, width: 900, borderRadius: 24, overflow: "hidden", background: "#fff", boxShadow: "0 30px 70px rgba(40,20,110,0.25)", transform: `perspective(2000px) rotateY(${Math.sin(sw * Math.PI) * 28 + (1 - k) * -18}deg) rotateX(${(1 - k) * 10}deg) scale(${1 - Math.sin(sw * Math.PI) * 0.06})` }}>
         <div style={{ height: 60, background: "#F1F0F6", display: "flex", alignItems: "center", gap: 10, padding: "0 22px", borderBottom: "1px solid #E4E2EE" }}>
           {[0, 1, 2].map((i) => <div key={i} style={{ width: 14, height: 14, borderRadius: 14, background: "#CFCBDD" }} />)}
           <div style={{ marginLeft: 14, flex: 1, height: 36, borderRadius: 18, background: "#fff", display: "flex", alignItems: "center", padding: "0 16px", fontSize: 22, color: TR.muted, fontWeight: 600 }}>ourpractice.com/referrals</div>
