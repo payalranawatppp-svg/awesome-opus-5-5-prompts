@@ -26,7 +26,7 @@ Amanda: "At my last office, we replaced the form on our website with Tooth Refer
 Tanya: "One case?"  
 
 **07 · All in one place**  
-Amanda: "X-rays, insurance, the messages with the dentist's office, the status. All in one place. Whoever opens it sees everything."  
+Amanda: "It puts all the communication about that referral in one place. X-rays, insurance, messages, status. Whoever opens it sees everything."  
 
 **08 · If I'm out tomorrow**  
 Tanya: "So if I'm out tomorrow..."  
@@ -117,15 +117,15 @@ Amanda: "Bring it. You might actually get to eat lunch."
 *Edit:* Split screen starts: the referral form on a practice website becomes a single Tooth Referral case.
 
 ### CLIP 07 · All in one place
-**Dialogue:** AMANDA: "X-rays, insurance, the messages with the dentist's office, the status. All in one place. Whoever opens it sees everything."
+**Dialogue:** AMANDA: "It puts all the communication about that referral in one place. X-rays, insurance, messages, status. Whoever opens it sees everything."
 
 > Horizontal 16:9 video, 8 seconds, one continuous shot. Photorealistic live-action footage that looks professionally filmed, not AI-generated: shot on a cinema camera (Sony FX3 look) with a 35mm lens, natural window daylight plus soft practical office lights, true-to-life colours, real skin texture with pores, subtle film grain, natural imperfections, no glossy or plastic look. The front office of a real, modern dental practice (the same room as the background image): a long front desk with a white quartz top and a light-oak front panel, a raised ledge, a slim monitor angled away from the camera (soft glow, no readable screen), a black multi-line desk phone, a small paper tray with a few printed pages, a pen cup, manila patient folders, a card reader and a small tooth model. Behind the desk is a sage-green feature wall with a blank brushed-metal sign shape and a framed smiling-tooth illustration. An open doorway on the right shows a treatment room with a dental chair and an overhead dental light. On the left, a window with sheer blinds and soft winter daylight, a small silver-and-white holiday garland along the window ledge, a potted fig and beige waiting chairs. Warm recessed ceiling lights. Lived-in details: a few papers and sticky notes.
-> AMANDA, a woman in her early 30s with shoulder-length light-brown wavy hair worn down, a soft teal scrub top under a light grey cardigan and a small blank white name badge counts the items on her fingers, then gestures toward the monitor (soft glow only, screen not readable) with an open palm on "all in one place". TANYA, a woman in her mid-30s with dark brown hair in a low side ponytail over her left shoulder, navy short-sleeve V-neck scrubs and a small blank white name badge follows her hand to the monitor and back, listening closely.
+> AMANDA, a woman in her early 30s with shoulder-length light-brown wavy hair worn down, a soft teal scrub top under a light grey cardigan and a small blank white name badge brings both hands together as if gathering things into one pile on "in one place", then counts the four items on her fingers and gestures toward the monitor (soft glow only, screen not readable) with an open palm on "sees everything". TANYA, a woman in her mid-30s with dark brown hair in a low side ponytail over her left shoulder, navy short-sleeve V-neck scrubs and a small blank white name badge follows her hand to the monitor and back, listening closely.
 > Camera: medium close-up favouring Amanda, Tanya in the foreground at the left edge, eye level, static.
-> AMANDA speaks with a bright, friendly early-30s female voice with a natural neutral American accent, clear and easy, like explaining to a friend. Perfectly lip-synced: "X-rays, insurance, the messages with the dentist's office, the status. All in one place. Whoever opens it sees everything."
+> AMANDA speaks with a bright, friendly early-30s female voice with a natural neutral American accent, clear and easy, like explaining to a friend. Perfectly lip-synced: "It puts all the communication about that referral in one place. X-rays, insurance, messages, status. Whoever opens it sees everything."
 > Audio: only the spoken lines and quiet office room tone. No music, no subtitles, no captions, no on-screen text, no readable screens, no logos, no red clothing or props, no extra people, no warped hands or fingers, no lip-sync drift, no sudden objects appearing in hands.
 
-*Edit:* Split screen: the real Tooth Referral case with X-rays, insurance, messages and status.
+*Edit:* Split screen: the email, voicemail and fax from clip 2 fly into one Tooth Referral case, which shows the X-rays, insurance, messages and status.
 
 ### CLIP 08 · If I'm out tomorrow
 **Dialogue:** TANYA: "So if I'm out tomorrow..." · AMANDA: "Greg opens it and knows exactly where it stands. No digging through anyone's email."
@@ -169,4 +169,4 @@ Amanda: "Bring it. You might actually get to eat lunch."
 > TANYA speaks with a warm, mid-to-low mid-30s female voice with a natural neutral American accent, energised, a small smile. Perfectly lip-synced: "Okay. I'm bringing this to the team meeting." AMANDA speaks with a bright, friendly early-30s female voice with a natural neutral American accent, playful, warm. Perfectly lip-synced: "Bring it. You might actually get to eat lunch."
 > Audio: only the spoken lines, pen on paper, a soft laugh and quiet office room tone. No music, no subtitles, no captions, no on-screen text, no readable screens, no logos, no red clothing or props, no extra people, no warped hands or fingers, no lip-sync drift, no sudden objects appearing in hands.
 
-*Edit:* End card: "Tooth Referral. One system for every referral." · toothreferral.com
+*Edit:* End card: "Tooth Referral. Every conversation about a referral, in one place." · toothreferral.com

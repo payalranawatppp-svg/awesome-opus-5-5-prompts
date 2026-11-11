@@ -73,10 +73,10 @@ CLIPS = [
   'medium two-shot of both seated at the desk, eye level, static.',
   'a chair rolling on the floor', 'Split screen starts: the referral form on a practice website becomes a single Tooth Referral case.'),
  ('All in one place',
-  [('AMANDA', "X-rays, insurance, the messages with the dentist's office, the status. All in one place. Whoever opens it sees everything.", 'clear and easy, like explaining to a friend')],
-  f'{AMANDA} counts the items on her fingers, then gestures toward the monitor (soft glow only, screen not readable) with an open palm on "all in one place". {TANYA} follows her hand to the monitor and back, listening closely.',
+  [('AMANDA', "It puts all the communication about that referral in one place. X-rays, insurance, messages, status. Whoever opens it sees everything.", 'clear and easy, like explaining to a friend')],
+  f'{AMANDA} brings both hands together as if gathering things into one pile on "in one place", then counts the four items on her fingers and gestures toward the monitor (soft glow only, screen not readable) with an open palm on "sees everything". {TANYA} follows her hand to the monitor and back, listening closely.',
   'medium close-up favouring Amanda, Tanya in the foreground at the left edge, eye level, static.',
-  '', 'Split screen: the real Tooth Referral case with X-rays, insurance, messages and status.'),
+  '', 'Split screen: the email, voicemail and fax from clip 2 fly into one Tooth Referral case, which shows the X-rays, insurance, messages and status.'),
  ('If I\'m out tomorrow',
   [('TANYA', "So if I'm out tomorrow...", 'thinking it through'),
    ('AMANDA', 'Greg opens it and knows exactly where it stands. No digging through anyone\'s email.', 'simple, confident')],
@@ -100,7 +100,7 @@ CLIPS = [
    ('AMANDA', "Bring it. You might actually get to eat lunch.", 'playful, warm')],
   f'{TANYA} grabs a sticky note and a pen and writes something quickly, smiling. {AMANDA} stands up with her mug, gives Tanya a light pat on the shoulder, says her line with a grin and walks back toward the doorway. Tanya laughs softly.',
   'medium-wide two-shot from across the desk, eye level, static.',
-  'pen on paper, a soft laugh', 'End card: "Tooth Referral. One system for every referral." · toothreferral.com'),
+  'pen on paper, a soft laugh', 'End card: "Tooth Referral. Every conversation about a referral, in one place." · toothreferral.com'),
 ]
 
 
@@ -166,7 +166,7 @@ parts = [f'''<div class="k">Tooth Referral · Script 13 v2 · Google Flow</div>
 <li>No "we lost twenty referrals". The pain is the juggling: emails, phone calls, voicemails, faxes and not knowing the status.</li>
 <li>The patient who never got a call back, and the team stretched thin over the holidays ("we're losing steam").</li>
 <li>"That's the old way": every referral living in someone's inbox or someone's head.</li>
-<li>Tooth Referral as the system that <b>replaces the web form</b> and puts X-rays, insurance, messages and status for each referral in one case.</li>
+<li>Tooth Referral as the system that <b>replaces the web form</b> and <b>merges all the communication about each referral in one place</b>, with the X-rays, insurance and status.</li>
 <li>The close: the office runs as one system, whoever is in that day. Nobody on the team is blamed.</li>
 <li>No hard sell or free-trial line in the dialogue; the call to action lives on the end card.</li></ul></div>
 <h2>The script</h2>{script}''',
