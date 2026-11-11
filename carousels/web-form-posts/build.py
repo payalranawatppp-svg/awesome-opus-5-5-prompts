@@ -253,11 +253,12 @@ h2 { font-family: Jakarta; font-size: 17pt; margin: 0 0 1mm; }
 .small { color: #6B7085; font-size: 9pt; }
 ul { margin: 2mm 0; padding-left: 5mm; }
 ''' % (F('fonts/plus-jakarta-sans-latin-800-normal.woff2'), F('fonts/inter-latin-500-normal.woff2'), F('fonts/inter-latin-700-normal.woff2'))
-    parts = [f'''<div><div class="meta">Tooth Referral · social posts</div><h1>Web form videos: 3 carousels + 2 image posts</h1>
-<p>Posts to run alongside the three web-form videos. Each post has the slides, the caption (with the hook first), a shorter version for X/Threads, trending keywords and hashtags. Slides are 1080 × 1350 (4:5), ready for LinkedIn, Instagram and Facebook; the PNG files are in <b>carousels/web-form-posts/slides/</b>.</p>
+    parts = [f'''<div><div class="meta">Tooth Referral · social posts</div><h1>Web form videos: LinkedIn posts (3 carousels + 2 images)</h1>
+<p>LinkedIn posts to run alongside the three web-form videos. Each post has the slides, the LinkedIn caption (with the hook first), hashtags and trending keywords. Slides are 1080 × 1350 (4:5); the PNG files are in <b>carousels/web-form-posts/slides/</b>.</p>
 <div class="box"><h3>How to post</h3><ul>
-<li><b>LinkedIn:</b> upload the slides as a document (PDF carousel) or as images; paste the LinkedIn caption; keep 3 to 5 hashtags.</li>
-<li><b>Instagram / Facebook:</b> upload the slides as a carousel; use the Instagram caption with the full hashtag set.</li>
+<li>Upload the carousel as a <b>document</b> (the slides-only PDF) so it swipes in the feed; single images upload as images.</li>
+<li>Paste the caption as written and keep the 3 to 5 hashtags at the end.</li>
+<li>Put one or two of the trending keywords in the first comment, and reply to comments in the first hour.</li>
 <li><b>Pair with the video:</b> post the carousel 2 to 3 days after its video, or pin the video in the comments.</li>
 <li>Best windows for dental audiences: Tuesday to Thursday, 7 to 9 am or 12 to 1 pm local time.</li></ul></div>
 <div class="box"><h3>The posts</h3><ul>''' + ''.join(f'<li><b>{E(p["title"])}</b> · {E(p["kind"])} · pairs with {E(p["video"])}</li>' for p in POSTS) + '''</ul>
@@ -269,9 +270,7 @@ ul { margin: 2mm 0; padding-left: 5mm; }
         parts.append(f'''<div class="post"><div class="meta">Post {i} · {E(p["kind"])} · pairs with {E(p["video"])}</div><h2>{E(p["title"])}</h2>
 <div class="grid {'one' if len(p['slides']) == 1 else ''}">{imgs}</div>
 <div class="box"><h3>Hook (first line)</h3><div class="cap"><b>{E(c["hook"])}</b></div></div>
-<div class="box"><h3>Caption · LinkedIn</h3><div class="cap">{E(c["linkedin"])}</div><p class="tags">{E(" ".join(c["hashtags_linkedin"]))}</p></div>
-<div class="box"><h3>Caption · Instagram / Facebook</h3><div class="cap">{E(c["instagram"])}</div><p class="tags">{E(" ".join(c["hashtags_instagram"]))}</p></div>
-<div class="box"><h3>Short version · X / Threads</h3><div class="cap">{E(c["short"])}</div></div>
+<div class="box"><h3>Caption</h3><div class="cap">{E(c["linkedin"])}</div><p class="tags">{E(" ".join(c["hashtags_linkedin"]))}</p></div>
 <div class="box kw"><h3>Trending keywords (use in alt text and the first comment)</h3>{''.join(f"<span>{E(k)}</span>" for k in c["keywords"])}
 <p class="small"><b>Alt text:</b> {E(c["alt"])}</p></div></div>''')
         for k in range(1, len(p['slides']) + 1):
