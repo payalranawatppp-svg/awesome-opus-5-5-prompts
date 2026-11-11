@@ -57,20 +57,22 @@ AMANDA_AV = ('Horizontal 16:9 photorealistic portrait, medium shot from the wais
              'quartz and light-oak desk, a sage-green feature wall, the window with sheer blinds and a small silver-and-white holiday garland, beige '
              'waiting chairs). Real, professional, lived-in. No readable text, no logos, no red clothing or objects, no extra people, no warped hands '
              'or fingers.')
-CAST = ('Horizontal 16:9 photograph, the same dental front office as the background image, eye level from across the desk, 35mm lens, '
-        'natural daylight plus warm ceiling lights, real-photo texture. TANYA (the woman from the Tanya avatar image: mid-30s, dark brown low '
-        'side ponytail, navy short-sleeve V-neck scrubs, blank name badge) sits at the left workstation facing the monitor. AMANDA (the woman '
-        'from the Amanda avatar image: early 30s, shoulder-length light-brown wavy hair, teal scrub top under a light grey cardigan, blank name '
-        'badge) stands beside her holding a white coffee mug, both in sharp focus, the treatment-room doorway behind them. Natural, candid, '
-        'professional. No readable text, no logos, no red objects, no extra people, no warped hands.')
+CAST = ('Horizontal 16:9 photograph, the same dental front office as the background image, shot from the waiting-room side looking '
+        'across the front desk, eye level, 35mm lens, natural daylight plus warm ceiling lights, real-photo texture, subtle grain. TANYA (the '
+        'woman from the Tanya avatar image: mid-30s, dark brown low side ponytail, navy short-sleeve V-neck scrubs, blank name badge) sits alone '
+        'behind the front desk at the left workstation, facing the monitor (soft glow, screen not readable), one hand on the mouse, the other '
+        'rubbing her temple, looking stressed. In the background, AMANDA (the woman from the Amanda avatar image: early 30s, shoulder-length '
+        'light-brown wavy hair, teal scrub top under a light grey cardigan, blank name badge) is just stepping out of the treatment-room doorway '
+        'behind the desk, holding a white coffee mug, mid-stride, glancing toward Tanya. Tanya in sharp focus, Amanda slightly softer. Natural, '
+        'candid, professional. No readable text, no logos, no red objects, no extra people, no warped hands.')
 
 # (title, [(speaker, line, delivery)], action, camera, sounds, edit note)
 CLIPS = [
  ('Since lunch',
   [('AMANDA', "You've been staring at that screen since lunch. What's going on?", 'light and teasing, but caring')],
-  f'{TANYA} sits at the left workstation facing the monitor, scrolling with the mouse, eyebrows pulled together, rubbing her temple with two fingers. At 2 seconds, {AMANDA} walks in from the doorway holding a white coffee mug, leans one hip against the edge of the desk beside Tanya and asks the line with a small half-smile. Tanya keeps looking at the screen.',
-  'medium-wide two-shot from across the desk at eye level, both women and the treatment-room doorway in frame, static on a tripod with a very slow, smooth push-in.',
-  'a soft mouse click', 'Full frame. No graphics yet.'),
+  f'The clip opens on {TANYA}, sitting alone behind the front desk at the left workstation, facing the monitor. She scrolls with the mouse, eyebrows pulled together, rubs her temple with two fingers and lets out a quiet sigh. Behind her, {AMANDA} steps out of the treatment-room doorway holding a white coffee mug, notices Tanya, and walks around the end of the desk toward her (0 to 3 seconds). She stops beside Tanya\'s chair, leans one hip against the edge of the desk, tilts her head and asks the line with a small, caring half-smile (3 to 8 seconds). Tanya keeps looking at the screen while Amanda talks.',
+  'medium-wide shot from the waiting-room side, looking across the front desk at eye level, Tanya seated in the foreground of the desk and the treatment-room doorway behind her, so Amanda walks into the frame from the back; static on a tripod with a very slow, smooth push-in as Amanda arrives.',
+  'soft footsteps on the floor, a mouse click', 'Full frame. No graphics yet.'),
  ('None of them match',
   [('TANYA', "I'm trying to figure out where one referral even stands. There's an email, a voicemail, a fax... and none of them match.", 'tired, a little flat, not dramatic')],
   f'{TANYA} turns her chair slightly toward Amanda. On "an email" she taps the edge of the monitor, on "a voicemail" she points at the desk phone (a small light blinking on it), on "a fax" she lifts one printed page from the paper tray and lets it drop back. {AMANDA} listens, holding her mug, and gives a slow "oh no" nod.',
@@ -162,7 +164,7 @@ for i, c in enumerate(CLIPS, 1):
     md.append('')
 md += ['## Step 1 · Reference images (generate these first, in this order)', '', '### 1. Front office background', '', '> ' + BG, '',
        '### 2. Tanya avatar', '', '> ' + TANYA_AV, '', '### 3. Amanda avatar', '', '> ' + AMANDA_AV, '',
-       '### 4. Cast still (both women in the office)', '', '> ' + CAST, '', '## Clip prompts', '']
+       '### 4. Opening frame (Tanya at the desk, Amanda coming in)', '', '> ' + CAST, '', '## Clip prompts', '']
 for i, c in enumerate(CLIPS, 1):
     md += [f'### CLIP {i:02d} · {c[0]}', '**Dialogue:** ' + ' · '.join(f'{sp}: "{ln}"' for sp, ln, _ in c[1]), '',
            '\n'.join('> ' + l for l in prompt(c).split('\n')), '', f'*Edit:* {c[5]}', '']
@@ -206,7 +208,7 @@ parts = [f'''<div class="k">Tooth Referral · Script 13 v2 · Google Flow</div>
 <div class="prompt">{E(TANYA_AV)}</div></div>''',
  f'''<div class="clip"><div class="k">Step 1 · reference images (continued)</div><h2>3. Amanda avatar</h2><p class="small">Amanda: early 30s, shoulder-length light-brown wavy hair, teal scrub top under a light grey cardigan, blank name badge, white mug. Voice: bright and friendly; calm and easy-going.</p>
 <div class="prompt">{E(AMANDA_AV)}</div>
-<h2>4. Cast still (both women in the office)</h2><p class="small">Use the three images above as references when you create this one; it becomes the starting frame for clip 01.</p>
+<h2>4. Opening frame (Tanya at the desk, Amanda coming in)</h2><p class="small">Use the three images above as references when you create this one; it becomes the starting frame for clip 01.</p>
 <div class="prompt">{E(CAST)}</div></div>''']
 for i, c in enumerate(CLIPS, 1):
     dl = ''.join(f'<div class="ln"><span class="sp">{sp.capitalize()}</span>“{E(ln)}” <span class="small">({E(how)})</span></div>' for sp, ln, how in c[1])
