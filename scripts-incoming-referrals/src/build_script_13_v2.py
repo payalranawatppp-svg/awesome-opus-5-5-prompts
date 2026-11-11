@@ -29,16 +29,16 @@ SET = ('The front office of a real, modern dental practice (the same room as the
        'a window with sheer blinds and soft winter daylight, a small silver-and-white holiday garland along the window ledge, a potted fig '
        'and beige waiting chairs. Warm recessed ceiling lights. Lived-in details: a few papers and sticky notes.')
 TANYA = ('TANYA, a woman in her mid-30s with dark brown hair in a low side ponytail over her left shoulder, navy short-sleeve V-neck '
-         'scrubs and a small blank white name badge')
+         'scrubs and a small blank white name badge,')
 AMANDA = ('AMANDA, a woman in her early 30s with shoulder-length light-brown wavy hair worn down, a soft teal scrub top under a light '
-          'grey cardigan and a small blank white name badge')
+          'grey cardigan and a small blank white name badge,')
 TV = 'a warm, mid-to-low mid-30s female voice with a natural neutral American accent'
 AV = 'a bright, friendly early-30s female voice with a natural neutral American accent'
 NEG = ('No music, no subtitles, no captions, no on-screen text, no readable screens, no logos, no red clothing or props, no extra people, '
        'no warped hands or fingers, no lip-sync drift, no sudden objects appearing in hands.')
 
-REF = ('Use the front-office background image, the Tanya avatar image and the Amanda avatar image as references, so the room and both '
-       'women look exactly the same in every clip.')
+REF = ('Use the combined front-office image (the room with Tanya and Amanda) as the reference, so the room and both women look exactly '
+       'the same in every clip.')
 TANYA_AV = ('Horizontal 16:9 photorealistic portrait, medium shot from the waist up, eye level, 50mm lens, f/2.8, a real photo taken in a '
             'dental office, natural daylight plus warm ceiling lights, true-to-life colours, real skin texture with pores, subtle grain, no beauty '
             'filter. TANYA, a dental front-desk coordinator in her mid-30s, sitting at a reception workstation and turned slightly toward the '
@@ -80,7 +80,7 @@ CLIPS = [
   'paper rustle', 'Pop-ups appear one by one beside Tanya: an email, a voicemail, a fax page, a sticky note.'),
  ('She\'s right',
   [('TANYA', "And a patient just called, upset. She said nobody ever got back to her. Honestly? She's right.", 'quieter, guilty, honest')],
-  f'{TANYA} lowers her voice, glances toward the waiting room on "a patient", then looks down at the desk and lets out a small sigh on "she\'s right". {AMANDA}\'s face softens; she sets her mug on the desk.',
+  f'{TANYA} lowers her voice, glances toward the waiting room on "a patient", then looks down at the desk and lets out a small sigh on "she\'s right". Next to her, {AMANDA} listens; her face softens and she sets her mug on the desk.',
   'medium two-shot across the desk, eye level, static.',
   '', 'Soft amber card: "Patient waiting for a call back".'),
  ('Losing steam',
