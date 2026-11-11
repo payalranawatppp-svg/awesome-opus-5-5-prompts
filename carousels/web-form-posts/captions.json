@@ -1,102 +1,37 @@
 {
- "carousel-1-same-patient-two-endings": {
-  "hook": "Same patient. Same referral. One ends in an inbox, the other ends with a signed note.",
-  "linkedin": "Same patient. Same referral. One ends in an inbox, the other ends with a signed note.\n\nHere's the part most specialist websites don't think about: what happens after a general dentist hits Submit?\n\nWith a web form, the referral turns into an email. It lands in a shared inbox next to supply orders and voicemails. No confirmation, no status. Did anyone call the patient? Usually somebody has to pick up the phone to find out.\n\nWith Tooth Referral, the same referral lands as a case. The X-rays and the insurance come with it, your team sees it right away, and every step is logged: received, contacted, consultation scheduled. The referring dentist sees each update and can message you on the case. When treatment is done, a signed completion note goes back on its own.\n\nNobody did anything wrong in the first version. The form just stops working the moment it's sent.\n\nSwipe through both endings. Which one does your website give the dentists who trust you with their patients?",
-  "hashtags_linkedin": [
-   "#DentalReferrals",
-   "#DentalSpecialist",
-   "#Endodontics",
-   "#DentalPracticeManagement",
-   "#PatientExperience"
-  ],
-  "keywords": [
-   "dental referral software",
-   "referral tracking",
-   "web form vs software",
-   "dental practice workflow",
-   "patient referral status",
-   "specialist referral network",
-   "HIPAA compliant referrals",
-   "front desk efficiency"
-  ],
-  "alt": "Carousel comparing two outcomes of the same dental referral: a web form that becomes an email in an inbox, and Tooth Referral, where the referral becomes a tracked case with X-rays, insurance, a step-by-step activity log, messages between offices and a signed completion note."
+ "carousel-1-web-form-vs-system": {
+  "hook": "A web form and a referral system look the same on your website. They stop being the same the second someone hits Submit.",
+  "linkedin": "A web form and a referral system look the same on your website. They stop being the same the second someone hits Submit.\n\nA web form has one job: collect the details once and send an email. After that, finding it, forwarding it, calling the patient and keeping the referring office posted all depend on someone remembering.\n\nA referral system keeps working. Every referral becomes one case. The X-rays, insurance, messages, status and notes stay on it from the first click to the signed completion note. Your team talks to the referring office right on the case with secure cloud messages, and staff can build notes from templates and copy them straight into your EHR.\n\nThat's the difference we care about. It's not just a form. It's a system for your team.\n\nWhich one is on your website today?",
+  "hashtags_linkedin": ["#DentalReferrals", "#DentalSpecialist", "#DentalPracticeManagement", "#Endodontics", "#Periodontics"],
+  "keywords": ["web form vs referral system", "dental referral software", "referral management system", "dental practice workflow", "secure cloud messaging", "EHR notes", "dental team efficiency"],
+  "alt": "Carousel comparing a dental referral web form, which collects details once and sends an email, with the Tooth Referral system, which opens one case per referral with X-rays, insurance, secure messages with the referring office, notes and templates, for the whole team."
  },
- "carousel-2-what-a-referral-form-should-do": {
-  "hook": "Some specialist referral forms still ask for a Social Security number. On a public web page.",
-  "linkedin": "Some specialist referral forms still ask for a Social Security number. On a public web page.\n\nMost referral forms look the same: a long page of boxes, a Submit button, and an email nobody tracks. They were built to collect a name and a phone number, not to start treatment.\n\nWe think a referral form should do five things:\n\n1. Be secure. Every referral and message HIPAA compliant and encrypted, with spam and bots filtered out.\n2. Be yours. Your logo, your locations, your announcements, the insurance you accept, and backlinks to your own website.\n3. Be complete. Urgency, procedures, an interactive tooth chart, diagnosis, and up to 10 X-rays and 10 documents.\n4. Be easy. Three short steps, no login, and the patient uploads their own insurance card through a secure link.\n5. Keep working after Submit. A tracked case with status updates, messages, a signed completion note and a monthly report on your form.\n\nThat's the Tooth Referral web form. If yours misses even one of these, it's quietly costing you referrals you'll never hear about.\n\nHow many of the five does your form tick?",
-  "hashtags_linkedin": [
-   "#DentalReferrals",
-   "#HIPAACompliance",
-   "#DentalSpecialist",
-   "#DentalMarketing",
-   "#DentalTech"
-  ],
-  "keywords": [
-   "HIPAA compliant referral form",
-   "dental website referral form",
-   "secure patient referral",
-   "online referral form for specialists",
-   "dental SEO backlinks",
-   "patient insurance upload",
-   "dental tooth chart",
-   "referral form best practices"
-  ],
-  "alt": "Carousel listing five things a dental referral form should do: be secure and HIPAA compliant, carry the practice's own branding, collect complete clinical details with a tooth chart and X-rays, take three steps with no login, and keep working after submit as a tracked case."
+ "carousel-2-the-whole-team": {
+  "hook": "Count the people who touch one referral in your office. It's more than you think.",
+  "linkedin": "Count the people who touch one referral in your office. It's more than you think.\n\nThe referring office sends it. The front desk finds it and calls the patient. The office manager makes sure nothing slips. The assistant needs the X-rays. The specialist writes the notes and sends the completion note back.\n\nWith a web form, each of them is working from a different email, phone message or sticky note. With Tooth Referral, they all work from the same case:\n\n• the referring office sends it complete, and sees the status without calling\n• the front desk has every new referral in one list\n• the office manager can see who did what, and anyone can pick a case up when someone is out\n• the assistant has the X-rays on the case, and can ask for a newer one in a message\n• the specialist builds notes from templates, copies them into the EHR, and sends the signed note back\n\nWhen every team member sees the value, the whole office runs better. That's what a referral system is for.",
+  "hashtags_linkedin": ["#DentalTeam", "#DentalReferrals", "#DentalOfficeManager", "#DentalPracticeManagement", "#DentalFrontDesk"],
+  "keywords": ["dental team workflow", "referral process for specialists", "front desk efficiency", "dental office manager", "operational efficiency dental", "patient referral journey"],
+  "alt": "Carousel following one dental referral through the team: the referring office, the front desk, the office manager, the assistant and the specialist, each shown with the Tooth Referral screen they use and what it saves them."
  },
- "carousel-3-one-referral-eight-days": {
-  "hook": "One root canal referral. Eight days from Monday morning to the signed note. Here's every step.",
-  "linkedin": "One root canal referral. Eight days from Monday morning to the signed note. Here's every step.\n\nMonday, 9:41 am. A general dentist refers a patient for a root canal on tooth #19.\n\nThrough a web form, it lands in a shared inbox and waits. Through Tooth Referral, the endodontist's team has the case within minutes, with the X-rays and insurance attached.\n\n11:20 am. The X-ray on file is from 2022. With a form, that's a phone call, a voicemail and a callback tomorrow. On the case, Amanda asks, and Greg at the referring office uploads a current X-ray that afternoon.\n\n3:40 pm. Amanda calls the patient and books the consultation for Thursday. The referring office sees it right away.\n\nThursday, the consultation is done. The next Tuesday, the root canal is complete and the signed completion note goes back the same day.\n\nEight days. Every step logged. No phone tag for either front desk.\n\nSame patient, same people, same X-ray problem. The only difference was what sat behind the website.",
-  "hashtags_linkedin": [
-   "#Endodontics",
-   "#DentalReferrals",
-   "#RootCanal",
-   "#DentalPracticeManagement",
-   "#DentalFrontDesk"
-  ],
-  "keywords": [
-   "endodontic referral",
-   "root canal referral process",
-   "dental referral timeline",
-   "referral turnaround time",
-   "dental phone tag",
-   "case status updates",
-   "signed completion note",
-   "front desk workflow"
-  ],
-  "alt": "Carousel timeline of one root canal referral for tooth number 19, comparing a web form with Tooth Referral from Monday at 9:41 am to the signed completion note the following Tuesday, eight days with every step logged."
+ "carousel-3-direct-communication": {
+  "hook": "\"Do you have a newer X-ray?\" One small question between two offices. Here's how long it takes each way.",
+  "linkedin": "\"Do you have a newer X-ray?\" One small question between two offices. Here's how long it takes each way.\n\nWithout a system: a call that nobody picks up, a voicemail, an email to someone's inbox, and a callback the next day while you're with a patient.\n\nWith Tooth Referral: Amanda asks right on the referral. Greg at the referring office uploads a current X-ray that afternoon and replies in the same thread.\n\nThat's what direct communication looks like. Secure cloud messages between both offices, on the patient's case, HIPAA compliant and encrypted. Inside your own office, administrative notes stay private to your team, and you can @mention a colleague instead of leaving a sticky note.\n\nLess phone tag, more time for patients, and referrals that keep moving.",
+  "hashtags_linkedin": ["#DentalReferrals", "#DentalCommunication", "#HIPAACompliance", "#DentalPracticeManagement", "#Endodontics"],
+  "keywords": ["secure messaging for dental offices", "HIPAA compliant messaging", "dental phone tag", "referring office communication", "cloud messaging healthcare", "dental operational efficiency"],
+  "alt": "Carousel comparing phone tag between two dental offices with a secure message on the Tooth Referral case, followed by private administrative notes with @mentions for the team."
  },
- "post-4-email-vs-case": {
-  "hook": "A web form sends an email. Tooth Referral starts a case.",
-  "linkedin": "A web form sends an email. Tooth Referral starts a case.\n\nThat one sentence is the whole difference. An email has to be found, read, forwarded and remembered. A case comes with its X-rays and insurance, shows both offices where things stand, keeps the messages in one place, and ends with a signed completion note.\n\nIf your referral process depends on someone remembering to check an inbox, it isn't a process yet.",
-  "hashtags_linkedin": [
-   "#DentalReferrals",
-   "#DentalSpecialist",
-   "#DentalPracticeManagement"
-  ],
-  "keywords": [
-   "dental referral software",
-   "referral management",
-   "shared patient case",
-   "dental practice efficiency"
-  ],
-  "alt": "Dark purple quote card reading: A web form sends an email. Tooth Referral starts a case. Below: status, messages, X-rays, insurance and a signed completion note, on one shared case for both offices."
+ "post-4-a-system-for-your-team": {
+  "hook": "It's not just a form. It's a system for your team.",
+  "linkedin": "It's not just a form. It's a system for your team.\n\nA web form collects a referral. A referral system runs it: one case per referral, direct messages with the referring office, notes and templates that go straight into your EHR, and a signed completion note back to the dentist.\n\nWhen every team member works from the same case, nobody chases anything.",
+  "hashtags_linkedin": ["#DentalReferrals", "#DentalTeam", "#DentalPracticeManagement"],
+  "keywords": ["dental referral system", "referral management", "dental team collaboration"],
+  "alt": "Dark purple quote card reading: It's not just a form. It's a system for your team. Below: one case per referral, direct messages with the referring office, notes, templates and a signed note back, every team member on the same page."
  },
- "post-5-five-questions": {
-  "hook": "Five questions to ask your referral form before the next referral comes in.",
-  "linkedin": "Five questions to ask your referral form before the next referral comes in:\n\n1. Is it HIPAA compliant and encrypted?\n2. Does it carry X-rays and insurance, or just a name and phone number?\n3. Can the referring dentist see the status without calling your office?\n4. Does a signed completion note go back when treatment is done?\n5. Can you see who refers to you, and how fast your team made first contact?\n\nIf the answer is mostly no, your form is sending emails, not referrals.\n\nWith Tooth Referral it's yes to all five, and setup takes about five minutes.",
-  "hashtags_linkedin": [
-   "#DentalReferrals",
-   "#HIPAACompliance",
-   "#DentalOfficeManager",
-   "#DentalPracticeManagement"
-  ],
-  "keywords": [
-   "referral form checklist",
-   "HIPAA compliant dental forms",
-   "dental office audit",
-   "referral analytics",
-   "dental office manager tips"
-  ],
-  "alt": "Checklist graphic titled 5 questions to ask your referral form: HIPAA compliant and encrypted, carries X-rays and insurance, status visible without calling, signed completion note sent back, and referral source and first-contact analytics."
+ "post-5-web-form-or-system": {
+  "hook": "Web form or referral system? Five questions tell you which one you have.",
+  "linkedin": "Web form or referral system? Five questions tell you which one you have:\n\n1. Does each referral become one case, or one more email?\n2. Can you message the referring office right on the referral?\n3. Can anyone on your team pick it up and see where it stands?\n4. Can staff build notes from templates and copy them into your EHR?\n5. Does a signed completion note go back when treatment is done?\n\nMostly no? You have a web form, not a referral system. Tooth Referral is yes to all five, and it takes about five minutes to set up.",
+  "hashtags_linkedin": ["#DentalReferrals", "#DentalOfficeManager", "#DentalPracticeManagement", "#DentalSpecialist"],
+  "keywords": ["referral system checklist", "dental office audit", "web form vs system", "EHR notes templates"],
+  "alt": "Checklist graphic titled Web form or system, 5 questions to ask about your referrals: one case per referral, messaging the referring office, anyone on the team can pick it up, notes from templates copied into the EHR, and a signed completion note sent back."
  }
 }

@@ -67,7 +67,7 @@ h2 {{ font-family: Jakarta; font-weight: 800; font-size: 62px; line-height: 1.05
 IMG = {'camp/mock.png': (2004, 1600), 'camp/mail.png': (2000, 1600), 'camp/tr-embed-form.jpg': (920, 1060),
        'camp/tr-chart.jpg': (920, 1050), 'camp/tr-insurance.jpg': (980, 680), 'camp/tr-uploads.jpg': (920, 640),
        'dash3c/r3c-incoming.jpg': (1920, 912), 'dash3c/r3c-activity-log.jpg': (1920, 912), 'dash3c/r3c-messages.jpg': (1920, 912),
-       'dash3c/r3c-status-xrays.jpg': (1920, 912), 'dash2c/cs-07-signed-success.jpg': (1904, 868), 'analytics-ref/01-header-kpis.png': (1920, 640)}
+       'dash3c/r3c-status-xrays.jpg': (1920, 912), 'dash3c/r3c-admin-notes.jpg': (1920, 912), 'dash3c/r3c-insurance.jpg': (1920, 912), 'dash2c/cs-07-signed-success.jpg': (1904, 868), 'analytics-ref/01-header-kpis.png': (1920, 640)}
 
 
 def crop(img, x, y, w, h, out_w, out_h):
@@ -85,126 +85,104 @@ def slide(body, n, total, tag, dark=False):
 
 
 # ---------------------------------------------------------------------------------------------------------------
-# Carousel 1: Same patient, two endings  (video: Form vs Software)
+# v2 (Vejay, 2026-11-11): one clear message per post. Not just a form: a system for the team.
+# No "shared inbox", no contact page. Web form vs system said plainly. Direct cloud messages, the whole team, notes.
 
+# Carousel 1: A web form submits. A system keeps working.
 C1 = [
- '''<div class="k">For dental specialists</div><h1>Same patient. Same referral. Two very different endings.</h1>
-<div class="p">What happens after a general dentist hits Submit depends on what's behind your website.</div>
+ '''<div class="k">For dental specialists</div><h1>A web form submits. A system keeps working.</h1>
+<div class="p">They look alike on your website. What happens after a dentist hits Submit is completely different.</div>
 <div class="split" style="margin-top:60px">
- <div class="col form"><h3>A web form</h3><div class="row"><span class="dotA"></span>Turns into an email</div><div class="row"><span class="dotA"></span>Sits in a shared inbox</div><div class="row"><span class="dotA"></span>Nobody knows what's next</div></div>
- <div class="col tr"><h3>Tooth Referral</h3><div class="row"><span class="dotG"></span>Lands as a case</div><div class="row"><span class="dotG"></span>X-rays and insurance attached</div><div class="row"><span class="dotG"></span>Every step logged</div></div>
+ <div class="col form"><h3>A web form</h3><div class="row"><span class="dotA"></span>Collects the details once</div><div class="row"><span class="dotA"></span>Sends an email</div><div class="row"><span class="dotA"></span>Stops there</div></div>
+ <div class="col tr"><h3>A referral system</h3><div class="row"><span class="dotG"></span>Opens a case</div><div class="row"><span class="dotG"></span>Keeps everything on it</div><div class="row"><span class="dotG"></span>Brings in the whole team</div></div>
 </div>''',
- f'''<div class="k">Ending one · the web form</div><h2>You hit Submit. It becomes an email.</h2>
-<div class="p">One more message in an inbox, between supply orders and voicemails.</div>
-<div style="margin-top:34px">{crop('camp/mail.png', 0, 0, 2000, 1100, 936, 515)}</div>
-<div class="chips"><span class="chip am">No confirmation</span><span class="chip am">No status</span></div>''',
- '''<div class="k">The question nobody can answer</div><h1>Did anyone call the patient?</h1>
-<div class="p">The referring office doesn't know. The specialist's team may not know either. So someone picks up the phone and asks.</div>
-<div class="big" style="font-size:300px;margin-top:60px">?</div>''',
- f'''<div class="k">Ending two · Tooth Referral</div><h2>The referral lands as a case.</h2>
-<div class="p">X-rays and insurance arrive with it, and the specialist's team sees it right away.</div>
+ f'''<div class="k">The web form</div><h2>Its job ends at "Submit".</h2>
+<div class="p">The referral becomes an email in someone's inbox. Finding it, forwarding it, calling back and keeping track all depend on one person remembering.</div>
+<div style="margin-top:34px">{crop('camp/mock.png', 0, 0, 2004, 1300, 936, 607)}</div>''',
+ f'''<div class="k">The system</div><h2>Every referral becomes one case.</h2>
+<div class="p">The details, X-rays, insurance, messages, status and notes stay together, from the first click to the signed note.</div>
 <div style="margin-top:34px">{crop('dash3c/r3c-incoming.jpg', 360, 150, 1500, 700, 936, 437)}</div>''',
- f'''<div class="k">Every step, logged</div><h2>Received. Contacted. Consultation scheduled.</h2>
-<div style="margin-top:34px">{crop('dash3c/r3c-activity-log.jpg', 380, 0, 920, 520, 936, 529)}</div>
-<div class="p">Who did it and when, on one shared timeline.</div>''',
- f'''<div class="k">Both offices, one case</div><h2>The general dentist sees every update.</h2>
-<div class="p">They can message the specialist right on the case. When treatment is done, a signed completion note goes back automatically.</div>
+ f'''<div class="k">Direct communication</div><h2>Talk to the referring office on the case.</h2>
+<div class="p">Secure cloud messages between both offices, right on the referral. No phone tag, no voicemail, no email chain.</div>
 <div style="margin-top:30px">{crop('dash3c/r3c-messages.jpg', 690, 220, 1100, 520, 936, 442)}</div>''',
- '''<div class="k">The difference</div><h1>A web form sends an email. Tooth Referral starts a tracked, shared case.</h1>
-<div class="p">It takes about five minutes to set up.</div>
+ f'''<div class="k">Notes your team actually uses</div><h2>Build notes, use templates, copy them into your EHR.</h2>
+<div class="p">Staff write notes on the case, start from custom templates, and copy and paste them straight into your own electronic health record. Administrative notes stay private to your team.</div>
+<div style="margin-top:30px;display:flex;justify-content:center">{crop('dash3c/r3c-insurance.jpg', 1385, 290, 480, 520, 520, 563)}</div>''',
+ '''<div class="k">The difference</div><h1>It's not just a form. It's a system for your team.</h1>
+<div class="p">One case per referral, direct messages with the referring office, and every team member working from the same information.</div>
 <span class="cta">Set up in about 5 minutes</span>''',
 ]
 
-# ---------------------------------------------------------------------------------------------------------------
-# Carousel 2: What a referral form should do  (video: Form vs Form v2)
-
+# Carousel 2: One referral, the whole team (the journey and the value to each team member)
 C2 = [
- f'''<div class="k">Specialist websites</div><h1>Most referral forms look the same.</h1>
-<div class="p">A long page of boxes, a Submit button, and an email nobody tracks. Some even ask for a Social Security number.</div>
-<div style="margin-top:40px">{crop('camp/mock.png', 0, 0, 2004, 1300, 936, 607)}</div>''',
- '''<div class="k">1 · Secure</div><h2>Built for patient information.</h2>
-<div class="li"><b class="n">✓</b><span>Every referral and every message is <b>HIPAA compliant and encrypted</b>.</span></div>
-<div class="li"><b class="n">✓</b><span><b>Spam and bots are filtered out</b>, so your team only sees real referrals.</span></div>
-<div class="li"><b class="n">✓</b><span>No Social Security numbers on a public web page.</span></div>
-<div class="big" style="font-size:210px;margin-top:70px">HIPAA</div>''',
- f'''<div class="k">2 · Yours</div><h2>It looks like your practice, not ours.</h2>
-<div class="p">On your own website: your logo, your locations, your announcements, the insurance you accept and what you're known for.</div>
-<div style="margin-top:30px">{crop('camp/tr-embed-form.jpg', 0, 0, 920, 600, 936, 610)}</div>
-<div class="chips"><span class="chip pu">Backlinks to your own website</span></div>''',
- f'''<div class="k">3 · Complete</div><h2>Everything you need for a first visit.</h2>
-<div class="p">Urgency, procedures, an interactive tooth chart, diagnosis, and up to 10 X-rays and 10 documents.</div>
-<div style="margin-top:30px">{crop('camp/tr-chart.jpg', 0, 0, 920, 560, 936, 570)}</div>''',
- f'''<div class="k">4 · Easy</div><h2>Three short steps. No login.</h2>
-<div class="p">The patient uploads their own insurance card through a secure link, so the front desk isn't retyping it.</div>
-<div style="margin-top:30px">{crop('camp/tr-insurance.jpg', 0, 100, 980, 480, 936, 458)}</div>''',
- f'''<div class="k">5 · It keeps working</div><h2>It doesn't end at Submit.</h2>
-<div class="p">Every referral becomes a tracked case with status updates, messages, a signed completion note, and a monthly report on your form.</div>
-<div style="margin-top:30px">{crop('dash3c/r3c-status-xrays.jpg', 380, 120, 1400, 700, 936, 468)}</div>''',
- '''<div class="k">The checklist</div><h2>Secure. Yours. Complete. Easy. Still working after Submit.</h2>
-<div class="p">If your referral form misses one of these, it's costing you referrals you never see.</div>
-<div class="p" style="color:#16132B;font-size:40px;font-family:Jakarta;font-weight:800;margin-top:40px">The referral form that keeps working after you hit submit.</div>
+ '''<div class="k">One referral, the whole team</div><h1>Who touches a referral in your office?</h1>
+<div class="p">More people than you think. When all of them work from one system, every one of them gets time back.</div>
+<div class="chips" style="margin-top:50px"><span class="chip pu">Front desk</span><span class="chip pu">Office manager</span><span class="chip pu">Assistant</span><span class="chip pu">Specialist</span><span class="chip gr">The referring office</span></div>''',
+ f'''<div class="k">The referring office</div><h2>Sends it once, complete.</h2>
+<div class="p">Procedure, tooth, X-rays and the patient's insurance through a secure link, in three short steps. Then they can see where it stands without calling.</div>
+<div style="margin-top:30px">{crop('camp/tr-embed-form.jpg', 0, 0, 920, 600, 936, 610)}</div>''',
+ f'''<div class="k">The front desk</div><h2>Every new referral in one list.</h2>
+<div class="p">No hunting through emails, voicemails and faxes. Status, received time and the sending office on every row.</div>
+<div style="margin-top:30px">{crop('dash3c/r3c-incoming.jpg', 360, 150, 1500, 700, 936, 437)}</div>''',
+ f'''<div class="k">The office manager</div><h2>Who did what, and when.</h2>
+<div class="p">Every step is logged on the case. If someone is out, anyone can pick it up and see exactly where it stands.</div>
+<div style="margin-top:30px">{crop('dash3c/r3c-activity-log.jpg', 380, 0, 920, 520, 936, 529)}</div>''',
+ f'''<div class="k">The assistant</div><h2>The X-rays are already on the case.</h2>
+<div class="p">Need a newer image? Ask the referring office in a message on the case and it arrives the same day.</div>
+<div style="margin-top:30px">{crop('dash3c/r3c-status-xrays.jpg', 385, 440, 910, 440, 936, 453)}</div>''',
+ f'''<div class="k">The specialist</div><h2>Notes, templates and a signed note back.</h2>
+<div class="p">Build notes from your own templates, copy them into your EHR, and send the signed completion note to the referring dentist from the case.</div>
+<div style="margin-top:30px;display:flex;justify-content:center">{crop('dash3c/r3c-admin-notes.jpg', 1385, 480, 490, 430, 600, 527)}</div>''',
+ '''<div class="k">The result</div><h1>When everyone sees the value, everyone works better.</h1>
+<div class="p">One referral system for the whole team, instead of one web form and a lot of follow-up.</div>
 <span class="cta">Set up in about 5 minutes</span>''',
 ]
 
-# ---------------------------------------------------------------------------------------------------------------
-# Carousel 3: One referral, eight days  (video: Same referral, two ways)
-
+# Carousel 3: Direct communication (cloud messages instead of phone tag)
 C3 = [
- '''<div class="k">One referral, two ways</div><h1>A root canal on tooth #19. Let's follow it.</h1>
-<div class="p">Monday morning, a general dentist refers a patient to an endodontist. Same patient, same X-rays. One goes through a web form, one through Tooth Referral.</div>
-<div class="big" style="font-size:230px;margin-top:70px">#19</div>''',
- f'''<div class="k">Monday · 9:41 am</div><h2>The referral goes out.</h2>
-<div class="split"><div class="col form"><h3>Web form</h3><div class="row"><span class="dotA"></span>Lands in a shared inbox</div><div class="row"><span class="dotA"></span>Waits until someone opens it</div></div>
-<div class="col tr"><h3>Tooth Referral</h3><div class="row"><span class="dotG"></span>The specialist's team has the case in minutes</div><div class="row"><span class="dotG"></span>X-rays and insurance attached</div></div></div>
-<div style="margin-top:34px">{crop('dash3c/r3c-incoming.jpg', 360, 150, 1500, 560, 936, 350)}</div>''',
- f'''<div class="k">Monday · 11:20 am</div><h2>The X-ray on file is from 2022.</h2>
-<div class="split"><div class="col form"><h3>Web form</h3><div class="row"><span class="dotA"></span>A phone call</div><div class="row"><span class="dotA"></span>A voicemail</div><div class="row"><span class="dotA"></span>A callback tomorrow, maybe</div></div>
-<div class="col tr"><h3>Tooth Referral</h3><div class="row"><span class="dotG"></span>Amanda asks on the case</div><div class="row"><span class="dotG"></span>Greg uploads a current X-ray that afternoon</div></div></div>
-<div style="margin-top:34px">{crop('dash3c/r3c-messages.jpg', 690, 220, 1100, 420, 936, 357)}</div>''',
- f'''<div class="k">Monday · 3:40 pm</div><h2>The consultation is booked.</h2>
-<div class="p">Amanda calls the patient and books the consultation for Thursday. The referring office sees it right away, without picking up the phone.</div>
-<div class="chips" style="margin-top:34px"><span class="chip gr">Received</span><span class="chip gr">Contacted</span><span class="chip gr">Consultation scheduled</span></div>
-<div style="margin-top:34px">{crop('dash3c/r3c-activity-log.jpg', 380, 0, 920, 520, 936, 529)}</div>''',
- f'''<div class="k">Thursday → next Tuesday</div><h2>Consultation done. Root canal complete.</h2>
+ '''<div class="k">Direct communication</div><h1>"Do you have a newer X-ray?"</h1>
+<div class="p">One small question between two offices. Here's how long it takes each way.</div>
+<div class="big" style="font-size:200px;margin-top:60px">?</div>''',
+ '''<div class="k">Without a system</div><h2>A call, a voicemail, a callback.</h2>
 <div class="tl">
- <div class="ti"><span class="t">Thursday</span><span class="d">The consultation is done and logged on the case.</span></div>
- <div class="ti"><span class="t">Next Tuesday</span><span class="d">The root canal is complete. The signed completion note goes back to the general dentist the same day.</span></div>
-</div>
-<div class="card" style="margin-top:30px;padding:34px 38px">
- <div style="display:flex;justify-content:space-between;align-items:center"><div style="font-family:Jakarta;font-weight:800;font-size:40px">Completion note</div><span class="chip gr">Signed ✓</span></div>
- <div class="row" style="margin-top:16px"><span style="width:240px;color:#6B7085">Procedure</span><b>Root canal (NSRCT)</b></div>
- <div class="row"><span style="width:240px;color:#6B7085">Tooth</span><b>#19</b></div>
- <div class="row"><span style="width:240px;color:#6B7085">Sent to</span><b>Gentle Dental · same day</b></div>
- <div class="row"><span style="width:240px;color:#6B7085">Total time</span><b>8 days, every step logged</b></div>
+ <div class="ti"><span class="t">11:20 am</span><span class="d">Your front desk calls the referring office. Nobody picks up.</span></div>
+ <div class="ti"><span class="t">11:22 am</span><span class="d">A voicemail. Then an email to someone's inbox.</span></div>
+ <div class="ti"><span class="t">Next day</span><span class="d">A callback while you're with a patient. The X-ray still isn't here.</span></div>
 </div>''',
- '''<div class="k">The result</div><div class="big" style="font-size:260px;margin-top:20px">8 days</div>
-<h2 style="margin-top:20px">Every step logged. No phone tag.</h2>
-<div class="p">Same patient, same dentists, same X-ray problem. The only thing that changed was what sat behind the website.</div>''',
- '''<div class="k">The difference</div><h1>A web form sends an email. Tooth Referral runs the referral.</h1>
-<span class="cta">Set up in about 5 minutes</span>
-<div class="p" style="margin-top:30px">toothreferral.com</div>''',
+ f'''<div class="k">With Tooth Referral</div><h2>A message on the case.</h2>
+<div class="p">Amanda asks right on the referral. Greg at the referring office uploads a current X-ray that afternoon and replies in the same thread.</div>
+<div style="margin-top:30px">{crop('dash3c/r3c-messages.jpg', 690, 220, 1100, 520, 936, 442)}</div>''',
+ f'''<div class="k">Secure cloud messages</div><h2>Both offices, one conversation, on the case.</h2>
+<div class="li"><b class="n">✓</b><span>HIPAA compliant and encrypted</span></div>
+<div class="li"><b class="n">✓</b><span>@mention the right person on either team</span></div>
+<div class="li"><b class="n">✓</b><span>Every message stays with the patient's referral</span></div>
+<div class="li"><b class="n">✓</b><span>The referring office sees each status update</span></div>''',
+ f'''<div class="k">Inside your own team</div><h2>Notes that never leave your office.</h2>
+<div class="p">Administrative notes are private to your team. @mention a colleague instead of walking over or leaving a sticky note.</div>
+<div style="margin-top:30px;display:flex;justify-content:center">{crop('dash3c/r3c-insurance.jpg', 1385, 290, 480, 520, 520, 563)}</div>''',
+ '''<div class="k">Operational efficiency</div><h1>Less phone tag. More time for patients.</h1>
+<div class="p">When both offices and every team member talk on the case, referrals move faster and nobody has to chase them.</div>
+<span class="cta">Set up in about 5 minutes</span>''',
 ]
 
-# ---------------------------------------------------------------------------------------------------------------
 # Single-image posts
+P4 = ['''<div style="margin-top:150px" class="q">It's not just a form.<br><span>It's a system for your team.</span></div>
+<div class="p" style="margin-top:60px;font-size:36px">One case per referral. Direct messages with the referring office. Notes, templates and a signed note back. Every team member on the same page.</div>''']
 
-P4 = ['''<div style="margin-top:150px" class="q">A web form sends an email.<br><span>Tooth Referral starts a case.</span></div>
-<div class="p" style="margin-top:60px;font-size:36px">Status, messages, X-rays, insurance and a signed completion note, on one shared case for both offices.</div>''']
-
-P5 = ['''<div class="k">Before your next referral</div><h1 style="font-size:76px">5 questions to ask your referral form</h1>
-<div class="li"><b class="n">1</b><span>Is it <b>HIPAA compliant and encrypted</b>?</span></div>
-<div class="li"><b class="n">2</b><span>Does it carry <b>X-rays and insurance</b>, or just a name?</span></div>
-<div class="li"><b class="n">3</b><span>Can the referring dentist <b>see the status</b> without calling?</span></div>
-<div class="li"><b class="n">4</b><span>Does a <b>signed completion note</b> go back when treatment is done?</span></div>
-<div class="li"><b class="n">5</b><span>Can you see <b>who refers, and how fast you called</b>?</span></div>
-<div class="p" style="margin-top:44px;color:#16132B"><b>Five no's? Your form is sending emails, not referrals.</b></div>''']
+P5 = ['''<div class="k">Web form or system?</div><h1 style="font-size:76px">5 questions to ask about your referrals</h1>
+<div class="li"><b class="n">1</b><span>Does each referral become <b>one case</b>, or one more email?</span></div>
+<div class="li"><b class="n">2</b><span>Can you <b>message the referring office</b> right on the referral?</span></div>
+<div class="li"><b class="n">3</b><span>Can <b>anyone on your team</b> pick it up and see where it stands?</span></div>
+<div class="li"><b class="n">4</b><span>Can staff <b>build notes from templates</b> and copy them into your EHR?</span></div>
+<div class="li"><b class="n">5</b><span>Does a <b>signed completion note</b> go back when treatment is done?</span></div>
+<div class="p" style="margin-top:44px;color:#16132B"><b>Mostly no? You have a web form, not a referral system.</b></div>''']
 
 POSTS = [
- dict(id='carousel-1-same-patient-two-endings', kind='Carousel · 7 slides', title='Same patient, two endings', video='camp-form-vs-software.mp4', tag='TWO ENDINGS', slides=C1),
- dict(id='carousel-2-what-a-referral-form-should-do', kind='Carousel · 7 slides', title='What a referral form should do', video='camp-form-compare-v2.mp4', tag='YOUR REFERRAL FORM', slides=C2),
- dict(id='carousel-3-one-referral-eight-days', kind='Carousel · 7 slides', title='One referral, eight days', video='camp-same-referral-two-ways.mp4', tag='ONE REFERRAL', slides=C3),
- dict(id='post-4-email-vs-case', kind='Single image', title='A web form sends an email', video='all three', tag='TOOTH REFERRAL', slides=P4, dark=True),
- dict(id='post-5-five-questions', kind='Single image', title='5 questions to ask your referral form', video='all three', tag='CHECKLIST', slides=P5),
+ dict(id='carousel-1-web-form-vs-system', kind='Carousel · 6 slides', title='A web form submits. A system keeps working.', video='Buried in Emails v2 / Form vs Software', tag='FORM VS SYSTEM', slides=C1),
+ dict(id='carousel-2-the-whole-team', kind='Carousel · 7 slides', title='One referral, the whole team', video='Buried in Emails v2', tag='THE WHOLE TEAM', slides=C2),
+ dict(id='carousel-3-direct-communication', kind='Carousel · 6 slides', title='Direct communication on the case', video='Same Referral, Two Ways', tag='DIRECT COMMUNICATION', slides=C3),
+ dict(id='post-4-a-system-for-your-team', kind='Single image', title="It's not just a form. It's a system for your team.", video='all', tag='TOOTH REFERRAL', slides=P4, dark=True),
+ dict(id='post-5-web-form-or-system', kind='Single image', title='Web form or system? 5 questions', video='all', tag='CHECKLIST', slides=P5),
 ]
 
 CAP = json.load(open(os.path.join(HERE, 'captions.json')))
@@ -253,7 +231,7 @@ h2 { font-family: Jakarta; font-size: 17pt; margin: 0 0 1mm; }
 .small { color: #6B7085; font-size: 9pt; }
 ul { margin: 2mm 0; padding-left: 5mm; }
 ''' % (F('fonts/plus-jakarta-sans-latin-800-normal.woff2'), F('fonts/inter-latin-500-normal.woff2'), F('fonts/inter-latin-700-normal.woff2'))
-    parts = [f'''<div><div class="meta">Tooth Referral · social posts</div><h1>Web form videos: LinkedIn posts (3 carousels + 2 images)</h1>
+    parts = [f'''<div><div class="meta">Tooth Referral · social posts</div><h1>Not just a form: a system for your team · LinkedIn posts (3 carousels + 2 images)</h1>
 <p>LinkedIn posts to run alongside the three web-form videos. Each post has the slides, the LinkedIn caption (with the hook first), hashtags and trending keywords. Slides are 1080 × 1350 (4:5); the PNG files are in <b>carousels/web-form-posts/slides/</b>.</p>
 <div class="box"><h3>How to post</h3><ul>
 <li>Upload the carousel as a <b>document</b> (the slides-only PDF) so it swipes in the feed; single images upload as images.</li>

@@ -14,6 +14,30 @@ Whenever an analytics dashboard image, number or screen is needed, use the canon
 `reel/public/analytics-ref/` (see DASHBOARD.md, "Analytics page — CANONICAL REFERENCE"). Do not invent other
 analytics numbers or rebuild the page.
 
+## 000. "A system for the team" (Vejay, 2026-11-11) — the brand-awareness foundation; follow it over older sections
+
+Vejay approved **Buried in Emails v2** (`reel/src/reelfx/BuriedInEmails2.tsx`, script
+`scripts-incoming-referrals/Script-13-v2-...`) as **the foundation for brand awareness**. Build new content from it.
+
+- **The big idea:** Tooth Referral is **not just a form; it's a system for the team.** It replaces the web form and
+  integrates every team member into the referral process. When every team member sees the value, there are
+  operational benefits for everyone (front desk, office manager, assistants, the doctor, the referring office).
+- **Show the journey and the value to each team member**, not just the specialist: who touches the referral, what
+  each one gains (no digging, no call-backs, the case is complete, anyone can pick it up).
+- **Be clear about web form vs system.** A web form submits once and stops (it becomes an email someone has to find).
+  A system keeps working: one case per referral, every message, file, status and note in one place, the whole team
+  and the referring office on it. Say the difference plainly; don't mix the two ideas on one slide.
+- **Direct communication:** talk about building direct communication with the referring office through **secure
+  cloud messages** on the case (instead of phone tag, voicemail and email), and how that improves operational
+  efficiency.
+- **Notes features to understand and highlight** (more dashboards coming from Vejay; ask for screens before showing
+  them): staff can **build notes**, use **custom note templates**, and **copy and paste notes directly into their
+  own EHR** (electronic health record). Administrative notes stay private to the team.
+- **Never say "shared inbox"** (it suggests offices share one inbox). Say "an inbox", "someone's inbox", "the front
+  desk's email" instead.
+- **No "Contact us" page or contact CTA for now.** CTA stays "Set up in about 5 minutes" / toothreferral.com (or no CTA).
+- One message per post: a carousel or ad must tell one clear story (the mixed-message carousels were the problem).
+
 ## 00. Client review rules (Vejay, 2026-11-04) — apply to EVERY script, video, carousel, caption and still
 
 These override anything below that conflicts (e.g. older lines that say "GP").
