@@ -37,6 +37,33 @@ AV = 'a bright, friendly early-30s female voice with a natural neutral American 
 NEG = ('No music, no subtitles, no captions, no on-screen text, no readable screens, no logos, no red clothing or props, no extra people, '
        'no warped hands or fingers, no lip-sync drift, no sudden objects appearing in hands.')
 
+REF = ('Use the front-office background image, the Tanya avatar image and the Amanda avatar image as references, so the room and both '
+       'women look exactly the same in every clip.')
+TANYA_AV = ('Horizontal 16:9 photorealistic portrait, medium shot from the waist up, eye level, 50mm lens, f/2.8, a real photo taken in a '
+            'dental office, natural daylight plus warm ceiling lights, true-to-life colours, real skin texture with pores, subtle grain, no beauty '
+            'filter. TANYA, a dental front-desk coordinator in her mid-30s, sitting at a reception workstation and turned slightly toward the '
+            'camera. Dark brown hair pulled into a low side ponytail resting over her left shoulder, a few loose strands near her face. Warm hazel '
+            'eyes, light natural makeup, small silver stud earrings, a slim silver watch. She wears navy short-sleeve V-neck scrubs and a small '
+            'blank white name badge clipped on the left (no text). Calm, capable, a little tired: a soft, polite smile. Behind her, softly out of '
+            'focus: the same front office as the background image (white quartz and light-oak desk, a monitor angled away with a soft glow, a desk '
+            'phone, a sage-green feature wall, the doorway to a treatment room with a dental chair). Real, professional, lived-in. No readable text, '
+            'no logos, no red clothing or objects, no extra people, no warped hands or fingers.')
+AMANDA_AV = ('Horizontal 16:9 photorealistic portrait, medium shot from the waist up, eye level, 50mm lens, f/2.8, a real photo taken in a '
+             'dental office, natural daylight plus warm ceiling lights, true-to-life colours, real skin texture with pores, subtle grain, no beauty '
+             'filter. AMANDA, a dental office team member in her early 30s, standing beside the front desk holding a white coffee mug in her right '
+             'hand. Shoulder-length light-brown wavy hair worn down, warm brown eyes, clear, even skin, light natural makeup, small gold '
+             'hoop earrings. She wears a soft teal scrub top under an open light grey cardigan and a small blank white name badge (no text). Friendly, '
+             'relaxed and easy-going: a warm, open smile. Behind her, softly out of focus: the same front office as the background image (white '
+             'quartz and light-oak desk, a sage-green feature wall, the window with sheer blinds and a small silver-and-white holiday garland, beige '
+             'waiting chairs). Real, professional, lived-in. No readable text, no logos, no red clothing or objects, no extra people, no warped hands '
+             'or fingers.')
+CAST = ('Horizontal 16:9 photograph, the same dental front office as the background image, eye level from across the desk, 35mm lens, '
+        'natural daylight plus warm ceiling lights, real-photo texture. TANYA (the woman from the Tanya avatar image: mid-30s, dark brown low '
+        'side ponytail, navy short-sleeve V-neck scrubs, blank name badge) sits at the left workstation facing the monitor. AMANDA (the woman '
+        'from the Amanda avatar image: early 30s, shoulder-length light-brown wavy hair, teal scrub top under a light grey cardigan, blank name '
+        'badge) stands beside her holding a white coffee mug, both in sharp focus, the treatment-room doorway behind them. Natural, candid, '
+        'professional. No readable text, no logos, no red objects, no extra people, no warped hands.')
+
 # (title, [(speaker, line, delivery)], action, camera, sounds, edit note)
 CLIPS = [
  ('Since lunch',
@@ -110,7 +137,7 @@ def prompt(c):
         f'{sp} speaks with {TV if sp == "TANYA" else AV}, {how}. Perfectly lip-synced: "{ln}"' for sp, ln, how in lines)
     who = ' and '.join(sorted({sp.lower().capitalize() for sp, _, _ in lines}))
     snd = f', {sounds}' if sounds else ''
-    return f'{LOOK} {SET}\n{action}\nCamera: {camera}\n{talk}\nAudio: only the spoken lines{snd} and quiet office room tone. {NEG}'
+    return f'{REF}\n{LOOK} {SET}\n{action}\nCamera: {camera}\n{talk}\nAudio: only the spoken lines{snd} and quiet office room tone. {NEG}'
 
 
 BG = ('Horizontal 16:9 photograph of the front office of a real, modern, upscale dental practice, shot from the waiting-room side '
@@ -133,7 +160,9 @@ for i, c in enumerate(CLIPS, 1):
     for sp, ln, _ in c[1]:
         md.append(f'{sp.capitalize()}: "{ln}"  ')
     md.append('')
-md += ['## Background image prompt (generate first)', '', '> ' + BG, '', '## Clip prompts', '']
+md += ['## Step 1 · Reference images (generate these first, in this order)', '', '### 1. Front office background', '', '> ' + BG, '',
+       '### 2. Tanya avatar', '', '> ' + TANYA_AV, '', '### 3. Amanda avatar', '', '> ' + AMANDA_AV, '',
+       '### 4. Cast still (both women in the office)', '', '> ' + CAST, '', '## Clip prompts', '']
 for i, c in enumerate(CLIPS, 1):
     md += [f'### CLIP {i:02d} · {c[0]}', '**Dialogue:** ' + ' · '.join(f'{sp}: "{ln}"' for sp, ln, _ in c[1]), '',
            '\n'.join('> ' + l for l in prompt(c).split('\n')), '', f'*Edit:* {c[5]}', '']
@@ -170,10 +199,15 @@ parts = [f'''<div class="k">Tooth Referral · Script 13 v2 · Google Flow</div>
 <li>The close: the office runs as one system, whoever is in that day. Nobody on the team is blamed.</li>
 <li>No hard sell or free-trial line in the dialogue; the call to action lives on the end card.</li></ul></div>
 <h2>The script</h2>{script}''',
- f'''<div class="clip"><div class="k">Step 1 · background image</div><h2>Front office background prompt</h2>
-<p>Generate this as an image first and use it for every clip so the room never changes. Then create a cast still: "the same dental front office, now with Tanya seated at the left workstation and Amanda standing beside her".</p>
+ f'''<div class="clip"><div class="k">Step 1 · reference images (generate these first)</div><h2>1. Front office background</h2>
+<p>Create these four images before any clip, then add them as references (ingredients) in Google Flow for every clip, so the room, Tanya and Amanda never change.</p>
 <div class="prompt">{E(BG)}</div>
-<div class="box"><b>Characters (built into every prompt)</b><br><b>Tanya:</b> mid-30s, dark brown low side ponytail, navy short-sleeve V-neck scrubs, blank name badge. Warm, mid-to-low voice; tired at first, then decided.<br><b>Amanda:</b> early 30s, shoulder-length light-brown wavy hair, teal scrub top under a light grey cardigan, blank name badge, white mug. Bright, friendly voice; calm and easy-going.</div></div>''']
+<h2>2. Tanya avatar</h2><p class="small">Tanya: mid-30s, dark brown low side ponytail, navy short-sleeve V-neck scrubs, blank name badge. Voice: warm, mid-to-low; tired at first, then decided.</p>
+<div class="prompt">{E(TANYA_AV)}</div></div>''',
+ f'''<div class="clip"><div class="k">Step 1 · reference images (continued)</div><h2>3. Amanda avatar</h2><p class="small">Amanda: early 30s, shoulder-length light-brown wavy hair, teal scrub top under a light grey cardigan, blank name badge, white mug. Voice: bright and friendly; calm and easy-going.</p>
+<div class="prompt">{E(AMANDA_AV)}</div>
+<h2>4. Cast still (both women in the office)</h2><p class="small">Use the three images above as references when you create this one; it becomes the starting frame for clip 01.</p>
+<div class="prompt">{E(CAST)}</div></div>''']
 for i, c in enumerate(CLIPS, 1):
     dl = ''.join(f'<div class="ln"><span class="sp">{sp.capitalize()}</span>“{E(ln)}” <span class="small">({E(how)})</span></div>' for sp, ln, how in c[1])
     parts.append(f'''<div class="clip"><div class="k">Clip {i:02d} · 8 seconds</div><h2>{E(c[0])}</h2>
