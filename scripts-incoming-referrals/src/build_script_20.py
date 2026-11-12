@@ -172,14 +172,14 @@ CLIPS = [
    ('TANYA', "I'll find it.", 'determined, a small sigh')],
   '{TANYA} presses the phone against her shoulder to mute it and turns to {AMANDA}. Amanda pushes her glasses up, thinks for a second, and asks. Tanya shrugs, sits down and starts flipping through the printed pages in the paper tray, then looks at her monitor.',
   'medium two-shot across the desk, eye level, static.',
-  'papers being flipped, quiet office room tone',
+  'papers being flipped',
   'Where did it go? The note splits into an email, a fax page and a sticky note, scattered.'),
  ('Every office is different', 'GD',
   [('BARBARA', "It's nobody's fault. Every office sends things a different way...", 'calm, fair, honest'),
    ('GREG', '...and the patient waits.', 'quiet, matter-of-fact')],
   '{BARBARA} hangs up the phone gently and leans back in her chair, taking her glasses off. {GREG}, still at the door frame, looks toward the waiting area where Sarah is sitting on the grey sofa, softly out of focus, looking at her phone.',
   'medium shot through the office doorway, eye level, slow rack focus from Barbara to Sarah waiting in the background on Greg\'s line.',
-  'the phone being set down, quiet room tone',
+  'the phone being set down',
   'Soft amber card: "Patient waiting".'),
  # ---------------- Bridge: two characters introduce Tooth Referral
  ('Let\'s set up Tooth Referral', 'SA',
@@ -195,7 +195,7 @@ CLIPS = [
    ('TANYA', "Let's invite them today.", 'smiling, energised')],
   '{AMANDA} counts the four items on her fingers, then gestures with an open palm toward the monitor on "all on the case" and points out toward the window on "Gentle Dental". {TANYA} nods along, breaks into a smile, and pulls her keyboard closer.',
   'medium close-up two-shot, eye level, very slow push-in, soft golden light on both faces.',
-  'quiet office room tone, a keyboard pulled across the desk',
+  'a keyboard pulled across the desk',
   'Split screen: the Tooth Referral case with messages, an X-ray, the insurance card and the signed note; then "Invite your network" sends an invite to Gentle Dental. White flash cut to: "One month later".'),
  # ---------------- Act 2: one month later, with Tooth Referral
  ('Already here', 'GD',
@@ -211,7 +211,7 @@ CLIPS = [
    ('BARBARA', 'Right on the case.', 'smiling, simple')],
   '{BARBARA} walks along behind the counter carrying a coffee mug and a folder (0 to 3 seconds), pauses behind Greg\'s chair and glances at his screen. {GREG} looks up at her over his shoulder. Barbara gives a small nod and keeps walking toward her office.',
   'medium shot from across the counter, eye level, the camera follows Barbara as she walks in from the left, holds on the two of them, then lets her walk out of frame on the right.',
-  'footsteps, quiet office room tone',
+  'footsteps',
   'Split screen: "Copy into your electronic health record" on the note, then a message on the case to St. Andrew\'s.'),
  ('Quiet phone', 'SA',
   [('TANYA', "Gentle Dental hasn't called once this week.", 'amused, a little surprised'),
@@ -225,7 +225,7 @@ CLIPS = [
    ('AMANDA', 'Same place. Insurance is one secure link. Setup took five minutes.', 'easy, sure')],
   '{TANYA} turns to {AMANDA} with her question. Amanda taps the desk once on "same place", then leans back with her arms crossed and a small smile. Tanya nods slowly, impressed.',
   'medium close-up two-shot, eye level, static, soft golden light on both faces.',
-  'quiet office room tone',
+  '',
   'Split screen: an X-ray attached on the case, then the HIPAA-secure insurance request link. Chip: "Set up in about 5 minutes".'),
  ('One conversation', 'SA',
   [('TANYA', "Feels like we're one office.", 'warm, smiling'),
@@ -237,12 +237,49 @@ CLIPS = [
 ]
 
 
+# Full avatar looks (the same details as the avatar image prompts, without the portrait pose), pasted into every clip
+APPEAR = {
+ 'GREG': ('GREG (Front Desk, Gentle Dental): a man in his late 20s with warm brown skin, short black curly hair, a neatly trimmed '
+          'beard, warm dark-brown eyes and a black smartwatch. He wears ceil-blue scrubs and a small blank white name badge (no text). '
+          'Friendly and upbeat, with a natural open smile.'),
+ 'BARBARA': ('BARBARA (Office Manager, Gentle Dental): a woman in her early 50s with a silver-blonde chin-length bob, reading glasses '
+             'pushed up on her head, blue-grey eyes, light natural makeup and small pearl earrings. She wears a soft blue blouse under a '
+             'navy cardigan and a small blank white name badge on a navy lanyard (no text). Experienced, warm and calm.'),
+ 'SARAH': ('SARAH (patient): a woman in her late 50s with short grey hair, warm green eyes, light makeup and small silver earrings. She '
+           'wears a cream knit sweater and carries a camel coat over her arm and a brown leather handbag. Friendly and cheerful.'),
+ 'DAVID': ('DAVID (patient): a man in his mid-40s with short brown hair, light stubble and hazel eyes. He wears a navy quarter-zip '
+           'pullover over a white T-shirt and holds car keys. Relaxed and polite.'),
+ 'TANYA': ('TANYA (Front Desk, St. Andrew\'s Family Dental): a woman in her late 20s with long dark curly hair in a high ponytail, warm '
+           'brown eyes, light natural makeup and small gold hoop earrings. She wears lavender scrubs and a small blank white name badge '
+           '(no text). Energetic, quick and friendly.'),
+ 'AMANDA': ('AMANDA (Treatment Coordinator, St. Andrew\'s Family Dental): a woman in her early 40s with straight black hair in a neat '
+            'low bun, black-framed glasses, dark brown eyes, light natural makeup and small silver studs. She wears an olive-green scrub '
+            'top over a white long-sleeve undershirt and a small blank white name badge (no text). Calm, organised and thoughtful.'),
+}
+
+
+def background(loc):
+    """The background image prompt, as a scene description (camera framing and the 'no people' line removed)."""
+    t = BG[loc].replace('Horizontal 16:9 photograph of the', 'The')
+    t = t.split(', shot from the waiting area', 1)[0] + '.' + t.split('a professional interiors photo.', 1)[1]
+    return t.replace(' No people, no readable text, no logos, no red objects, no CGI look.', '').strip()
+
+
+def cast_in(c):
+    _, _, lines, action, _, _, _ = c
+    speakers = {sp for sp, _, _ in lines}
+    return [k for k in ORDER if '{' + k + '}' in action or k in speakers or k.capitalize() in action]
+
+
 def prompt(c):
     title, loc, lines, action, camera, sounds, _ = c
-    act = action.format(**P)
+    act = action.format(**{k: k for k in P})
+    who = '\n'.join(APPEAR[k] for k in cast_in(c))
     talk = ' '.join(f'{sp} speaks with {VOICE[sp]}, {how}. Perfectly lip-synced: "{ln}"' for sp, ln, how in lines)
     snd = f', {sounds}' if sounds else ''
-    return f'{REF[loc]}\n{LOOK} {SET[loc]}\n{act}\nCamera: {camera}\n{talk}\nAudio: only the spoken lines{snd} and quiet office room tone. {NEG}'
+    return (f'{REF[loc]}\n{LOOK}\nBackground (exactly as the {LOCNAME[loc]} background image): {background(loc)}\n'
+            f'Characters (exactly as their avatar images):\n{who}\nAction: {act}\nCamera: {camera}\n{talk}\n'
+            f'Audio: only the spoken lines{snd} and quiet office room tone. {NEG}')
 
 
 LOCNAME = {'GD': 'Gentle Dental', 'SA': "St. Andrew's"}
