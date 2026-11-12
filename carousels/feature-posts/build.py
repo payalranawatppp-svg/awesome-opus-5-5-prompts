@@ -105,21 +105,21 @@ def chip(x, y, text, icon='check', bg='#6D3DF0', rot=0):
 # --------------------------------------------------------------------------- reusable 3D app graphics (demo data)
 def thread(extra_unread=True, w=820):
     return f'''<div class="card" style="width:{w}px">
-  <div class="ch"><span class="ico">{ic('chat')}</span><div style="flex:1"><b>Office Communication</b><small>Messaging with Gentle Dental · Patient: Jordan Ellis</small></div>
+  <div class="ch"><span class="ico">{ic('chat')}</span><div style="flex:1"><b>Office Communication</b><small>With Gentle Dental · Michael Turner</small></div>
   {'<span class="pill pp">2 unread @mentions</span>' if extra_unread else ''}</div>
-  <div class="msg"><span class="av" style="background:#8A63F7">AM</span><div><div class="mh">Amanda <span>St. Andrew's Family Dental · Office Manager · 9:52 AM</span></div>
-   <div class="mb"><span class="at">@Greg</span> the X-ray on file is from May 2022. Do you have a newer one?</div></div></div>
-  <div class="msg"><span class="av" style="background:#1F9D6B">GR</span><div><div class="mh">Greg <span>Gentle Dental · Front Desk · 10:04 AM</span></div>
-   <div class="quote">Amanda: the X-ray on file is from May 2022…</div>
-   <div class="mb"><span class="at">@Amanda</span> just uploaded the latest X-ray to the case.</div></div></div>
-  <div class="msg"><span class="av" style="background:#8A63F7">AM</span><div><div class="mh">Amanda <span>St. Andrew's Family Dental · 10:06 AM</span></div>
-   <div class="mb">Got it, thank you! Booking her consultation for Thursday.</div></div></div>
+  <div class="msg"><span class="av" style="background:#8A63F7">BA</span><div><div class="mh">Barbara <span>St. Andrew's Family Dental · Office Manager · 9:52 AM</span></div>
+   <div class="mb">Good morning <span class="at">@Tanya</span>. We received Michael's referral. The radiograph on file is from May 2022. Could you share a current periapical of #19?</div></div></div>
+  <div class="msg"><span class="av" style="background:#1F9D6B">TA</span><div><div class="mh">Tanya <span>Gentle Dental · Front Desk · 10:04 AM</span></div>
+   <div class="quote">Barbara: Could you share a current periapical of #19?</div>
+   <div class="mb"><span class="at">@Barbara</span> Of course. Yesterday's periapical is now attached to the case.</div></div></div>
+  <div class="msg"><span class="av" style="background:#8A63F7">BA</span><div><div class="mh">Barbara <span>St. Andrew's Family Dental · 10:06 AM</span></div>
+   <div class="mb">Thank you. His consultation is booked for Thursday at 10:30 AM. We'll share the notes once it's complete.</div></div></div>
   <div class="compose">Message Gentle Dental…<span class="send"></span></div>
   <div class="hip">{ic('lock', '#1F9D6B', 18)} All communications are HIPAA compliant and encrypted · Secure</div></div>'''
 
 def case_card(w=700):
     return f'''<div class="card" style="width:{w}px">
-  <div class="ch"><span class="av" style="background:#6D3DF0">JE</span><div style="flex:1"><b>Jordan Ellis</b><small>From Gentle Dental · Root canal · Tooth #19</small></div><span class="pill ps">Consultation Scheduled</span></div>
+  <div class="ch"><span class="av" style="background:#6D3DF0">MT</span><div style="flex:1"><b>Michael Turner</b><small>From Gentle Dental · Root canal · Tooth #19</small></div><span class="pill ps">Consultation Scheduled</span></div>
   <div style="padding:20px 26px;display:grid;grid-template-columns:1fr 1fr;gap:16px">
    <div style="border:1px solid #EEEAF8;border-radius:16px;padding:14px"><div style="font:700 18px InterW;color:#6B7085">X-RAYS (2)</div>
      <div style="display:flex;gap:10px;margin-top:10px"><div style="width:110px;height:72px;border-radius:10px;background:linear-gradient(135deg,#2a2f3a,#555b66)"></div><div style="width:110px;height:72px;border-radius:10px;background:linear-gradient(135deg,#3a3f4a,#6b717c)"></div></div></div>
@@ -143,8 +143,8 @@ def note_card(codes=True, w=820):
   <div style="padding:14px 26px 0" class="row"><span class="pill {'pp' if not codes else 'ps'}">Show values</span><span class="pill {'pp' if codes else 'ps'}">Show codes</span><span style="margin-left:auto" class="pill ps">+ Insert Variable</span></div>
   <div style="padding:22px 30px 26px;font:500 23px/1.75 InterW;color:#2D2A40">
    {v('todaysDate','11/12/2026')}<br>{v('referringOfficeName','Gentle Dental')}<br>
-   Re: {v('patientName','Jordan Ellis')} · DOB {v('patientDob','04/18/1988')}<br><br>
-   Thank you for referring {v('patientName','Jordan Ellis')} to {v('receivingOfficeName',"St. Andrew's Family Dental")} for treatment.
+   Re: {v('patientName','Michael Turner')} · DOB {v('patientDob','04/18/1988')}<br><br>
+   Thank you for referring {v('patientName','Michael Turner')} to {v('receivingOfficeName',"St. Andrew's Family Dental")} for treatment.
    The consultation is complete and treatment is scheduled. {v('xrayImages','2 X-rays')}
   </div></div>'''
 
@@ -154,7 +154,7 @@ def ehr_modal(w=640):
   <div style="padding:18px 26px;font:500 19px/1.5 InterW;color:#4A4563">
    <div><b style="color:#16132B">Privacy:</b> saved for your staff only.</div>
    <div style="margin-top:6px"><b style="color:#16132B">EHR Export:</b> copy and paste this note into your own patient health record.</div>
-   <div style="margin-top:14px;border:1px solid #E4E0F2;border-radius:14px;padding:14px 16px;color:#2D2A40;font-size:21px">Spoke with Jordan Ellis on 11/12/2026. Consultation booked for Thursday.</div>
+   <div style="margin-top:14px;border:1px solid #E4E0F2;border-radius:14px;padding:14px 16px;color:#2D2A40;font-size:21px">Spoke with Michael Turner on 11/12/2026. Consultation booked for Thursday.</div>
    <div style="margin-top:14px;background:#F3EEFE;border-radius:14px;padding:14px 16px"><b style="color:#6D3DF0">Next step</b><div style="margin-top:4px">Check back in 2 business days?</div><span class="pill pp" style="margin-top:10px">Remind me on 11/16</span></div>
   </div></div>'''
 
@@ -163,7 +163,7 @@ def ehr_window(w=560):
   <div style="height:46px;background:#E9ECF2;display:flex;align-items:center;gap:8px;padding:0 18px">{''.join('<i style="width:12px;height:12px;border-radius:12px;background:#C9CED8;display:block"></i>' for _ in range(3))}<span style="margin-left:12px;font:700 18px InterW;color:#5B6274">Your EHR · Patient chart</span></div>
   <div style="padding:20px 22px;font:500 19px/1.5 InterW;color:#3A3F55">
    <div style="font:700 17px InterW;color:#8A90A2;letter-spacing:.06em">CLINICAL NOTES</div>
-   <div style="margin-top:10px;background:#fff;border:2px solid #6D3DF0;border-radius:12px;padding:12px 14px;color:#2D2A40">Spoke with Jordan Ellis on 11/12/2026. Consultation booked for Thursday.</div>
+   <div style="margin-top:10px;background:#fff;border:2px solid #6D3DF0;border-radius:12px;padding:12px 14px;color:#2D2A40">Spoke with Michael Turner on 11/12/2026. Consultation booked for Thursday.</div>
    <div style="margin-top:10px;height:12px;width:80%;background:#E6E8EE;border-radius:6px"></div><div style="margin-top:8px;height:12px;width:60%;background:#E6E8EE;border-radius:6px"></div></div></div>'''
 
 def signer_card(w=640):
@@ -179,7 +179,7 @@ def signed_card(w=700):
    <span class="pill ps">View</span><span class="pill ps">Download</span></div></div></div>'''
 
 def ins_card_graphic(side='FRONT', w=300):
-    body = ('<div style="font:800 20px Jakarta;color:#2D5BD8">Dental PPO</div><div style="margin-top:14px;font:600 15px InterW;color:#5B6274">Member</div><div style="font:800 19px Jakarta">Jordan Ellis</div><div style="margin-top:8px;font:600 15px InterW;color:#5B6274">ID 0482 1193 77</div>'
+    body = ('<div style="font:800 20px Jakarta;color:#2D5BD8">Dental PPO</div><div style="margin-top:14px;font:600 15px InterW;color:#5B6274">Member</div><div style="font:800 19px Jakarta">Michael Turner</div><div style="margin-top:8px;font:600 15px InterW;color:#5B6274">ID 0482 1193 77</div>'
             if side == 'FRONT' else '<div style="font:700 15px InterW;color:#5B6274">Member services</div>' + ''.join('<div style="margin-top:8px;height:9px;width:%d%%;background:#D9DDE6;border-radius:5px"></div>' % x for x in (90, 75, 85, 60, 70)))
     return f'<div style="width:{w}px;height:{int(w*0.63)}px;border-radius:16px;background:linear-gradient(135deg,#FFFFFF,#EEF2FB);border:1px solid #DDE3EF;padding:16px 18px;position:relative;box-shadow:0 12px 30px -12px rgba(30,40,80,.35)">{body}<span style="position:absolute;right:12px;bottom:10px;font:700 13px InterW;color:#8A90A2">{side}</span></div>'
 
@@ -204,7 +204,7 @@ def phone(w=380):
   </div></div></div>'''
 
 def activity(w=700, rows=None):
-    rows = rows or [('Amanda', 'sent secure insurance request to patient', '9:41 AM'), ('Patient', 'submitted insurance (front and back)', '10:12 AM'), ('Tanya', 'verified coverage and scheduled Referral', '10:30 AM')]
+    rows = rows or [('Barbara', 'sent secure insurance request to patient', '9:41 AM'), ('Patient', 'submitted insurance (front and back)', '10:12 AM'), ('Amanda', 'verified coverage and scheduled the consultation', '10:30 AM')]
     return f'''<div class="card" style="width:{w}px"><div class="ch"><span class="ico">{ic('clock')}</span><div><b>Activity log</b><small>Every step, who did it and when</small></div></div>
   <div style="padding:10px 26px 22px">{''.join(f'<div class="row" style="padding:12px 0;border-bottom:1px solid #F2EFF9;font:500 21px InterW"><i style="width:12px;height:12px;border-radius:12px;background:#6D3DF0;display:block;flex:none"></i><b style="font-weight:700">{E(a)}</b><span style="color:#4A4563;flex:1">{E(b)}</span><span style="color:#8A90A2;font-size:17px">{t}</span></div>' for a,b,t in rows)}</div></div>'''
 
@@ -234,22 +234,22 @@ A = [
  dict(dark=True, body=f'''<div class="txt"><div class="k">Tooth Referral · Office Communication</div><h1>End the phone tag<br>between offices.</h1>
   <div class="p">One referral. One conversation. Right on the case.</div></div>
   <div class="glow" style="left:560px;top:620px;width:420px;height:420px;background:#6D3DF0"></div>
-  {stage(520, place(thread(), 150, 0, rx=14, ry=-20, rz=2, scale=.94) + chip(70, 600, '2 unread @mentions', 'at', '#6D3DF0', -4) + chip(660, 10, 'HIPAA-secure', 'lock', '#1F9D6B', 4))}'''),
+  {stage(520, place(thread(), 150, 0, rx=14, ry=-20, rz=2, scale=.94) + chip(600, 640, 'Tag the right person', 'at', '#6D3DF0', -3) + chip(80, -30, 'HIPAA-secure', 'lock', '#1F9D6B', -3))}'''),
  dict(body=f'''<div class="txt"><div class="k">Sound familiar?</div><h2>One small question.<br>Four phone calls.</h2>
   <div class="p">"Do you have a newer X-ray?" turns into a call, a voicemail, an email to someone's inbox and a callback while you're with a patient.</div></div>
   {stage(640, place(call_card('phone', 'Missed call', 'Gentle Dental · 11:20 AM'), 120, 0, rx=18, ry=-14, rz=-4, z=-60)
              + place(call_card('vm', 'Voicemail (0:41)', '"Calling about the X-ray…"'), 280, 150, rx=18, ry=-14, rz=-4, z=-20)
-             + place(call_card('mail', 'Email', 'Re: Re: Fwd: X-ray for Jordan E.'), 200, 300, rx=18, ry=-14, rz=-4, z=20)
+             + place(call_card('mail', 'Email', 'Re: Re: Fwd: X-ray for Michael T.'), 200, 300, rx=18, ry=-14, rz=-4, z=20)
              + place(call_card('clock', 'Callback', 'Next day · still no X-ray'), 340, 450, rx=18, ry=-14, rz=-4, z=60))}'''),
  dict(body=f'''<div class="txt"><div class="k">The feature</div><h2>Message the other office<br>right on the referral.</h2>
   <div class="p">Secure cloud messages between both offices, attached to the patient's case.</div></div>
   {stage(560, place(thread(False, 860), 110, 0, rx=8, ry=12, rz=-1.5))}'''),
  dict(body=f'''<div class="txt"><div class="k">@mentions</div><h2>Tag the right person.<br>They see it right away.</h2>
   <div class="p">An @mention reaches the right teammate on either office, with an unread badge until they've seen it.</div></div>
-  {stage(560, place(thread(True, 800), 170, 20, rx=10, ry=-16, rz=1, z=-80, scale=.86) + chip(70, 40, '@Greg', 'at', '#6D3DF0', -5) + chip(70, 560, 'Unread until seen', 'bell', '#E89D15', 3) + chip(600, 600, 'Reply in the thread', 'chat', '#1F9D6B', -2))}'''),
+  {stage(560, place(thread(True, 800), 170, 20, rx=10, ry=-16, rz=1, z=-80, scale=.86) + chip(70, 40, '@Tanya', 'at', '#6D3DF0', -5) + chip(40, 300, 'Unread until seen', 'bell', '#E89D15', 3) + chip(640, -20, 'Reply in the thread', 'chat', '#1F9D6B', -2))}'''),
  dict(body=f'''<div class="txt"><div class="k">Context included</div><h2>Every message stays<br>with the patient's case.</h2>
   <div class="p">X-rays, insurance, status and the conversation, together. Nobody digs through email to find it.</div></div>
-  {stage(560, place(case_card(700), 40, 0, rx=16, ry=18, rz=-2, z=-140, scale=.9) + place(thread(False, 640), 330, 190, rx=16, ry=-14, rz=2, z=80, scale=.72, origin='50% 0%') + chip(60, 560, 'X-rays · insurance · status', 'check', '#1F9D6B', -3))}'''),
+  {stage(560, place(case_card(700), 40, 0, rx=16, ry=18, rz=-2, z=-140, scale=.9) + place(thread(False, 640), 330, 190, rx=16, ry=-14, rz=2, z=80, scale=.72, origin='50% 0%') + chip(40, 430, 'X-rays · insurance · status', 'check', '#1F9D6B', -3))}'''),
  dict(body=f'''<div class="txt"><div class="k">Value for the whole team</div><h2>Less phone tag for everyone.</h2>
   {team_rows([('users', 'Front desk', 'Ask once, in writing. No hold music, no voicemail.'),
               ('clock', 'Office manager', 'Every question and answer is on the case, with a time stamp.'),
