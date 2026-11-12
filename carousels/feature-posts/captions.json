@@ -1,0 +1,23 @@
+{
+ "post-A-direct-messages": {
+  "hook": "One small question between two dental offices shouldn't take four phone calls.",
+  "linkedin": "One small question between two dental offices shouldn't take four phone calls.\n\n\"Do you have a newer X-ray?\" usually turns into a call nobody picks up, a voicemail, an email to someone's inbox, and a callback while you're with a patient.\n\nIn Tooth Referral, the two offices talk right on the referral. Amanda asks the question on the case, @mentions Greg at the referring office, and he uploads the new X-ray and replies in the same thread. The X-rays, insurance, status and the whole conversation stay together with the patient's case, HIPAA compliant and encrypted.\n\nThe front desk asks once. The office manager can see every question and answer. The referring office replies on their own time. Nobody plays phone tag.\n\nEvery conversation about a referral, in one secure place.",
+  "hashtags_linkedin": ["#DentalReferrals", "#DentalCommunication", "#DentalFrontDesk", "#DentalPracticeManagement", "#HIPAACompliance"],
+  "keywords": ["secure messaging for dental offices", "end phone tag", "referring office communication", "HIPAA compliant messaging", "dental team efficiency"],
+  "alt": "Carousel with 3D graphics of the Tooth Referral Office Communication thread: a stack of missed calls and voicemails, then secure messages between two dental offices on a patient's referral with @mentions and the case details."
+ },
+ "post-B-notes": {
+  "hook": "How many times this month did someone retype the same consultation letter?",
+  "linkedin": "How many times this month did someone retype the same consultation letter?\n\nSame thank-you, new names, new dates, new tooth numbers. Then print it, sign it and fax it back to the referring office.\n\nIn Tooth Referral, notes write themselves. Build a template once and smart variables fill in the patient, date of birth, both offices, specialty, X-ray images and dates on every note. Your team can copy the note straight into your own EHR so your charts stay in sync.\n\nAn assistant can prepare it, and the doctor signs it, or it's routed to the doctor to sign. Once it's e-signed, the consultation note lands on the case, visible to both offices. No printing, no fax.\n\nNotes that write themselves. Letters that sign themselves.",
+  "hashtags_linkedin": ["#DentalReferrals", "#DentalSpecialist", "#DentalPracticeManagement", "#EHR", "#DentalTeam"],
+  "keywords": ["consultation note template", "dental completion letter", "copy notes into EHR", "e-signature for dental offices", "dental admin time savings"],
+  "alt": "Carousel with 3D graphics of Tooth Referral notes: a consultation note template with auto-filled variables, a note copied into an EHR chart, the choice of who signs, and the signed note visible to both offices."
+ },
+ "post-C-insurance": {
+  "hook": "\"Can you text us a photo of your insurance card?\" There's a better way to ask.",
+  "linkedin": "\"Can you text us a photo of your insurance card?\" There's a better way to ask.\n\nPhotos in personal texts, blurry faxes, a missing back side, and patients rescheduled because coverage wasn't checked in time. That's insurance chaos, and the front desk lives in it.\n\nIn Tooth Referral, one click on the referral, Request from patient, sends the patient a HIPAA-secure link. They snap the front and back of their card on their phone, no account needed, and it lands right on the case with policy and group details, logged with who asked and when.\n\nFewer calls to verify insurance. Coverage on file before the consultation. A patient who only has to share it once.\n\nNo more insurance chaos. Just refer it.",
+  "hashtags_linkedin": ["#DentalInsurance", "#DentalReferrals", "#DentalFrontDesk", "#PatientExperience", "#DentalPracticeManagement"],
+  "keywords": ["dental insurance verification", "secure insurance upload", "patient insurance link", "HIPAA secure patient forms", "front desk insurance chaos"],
+  "alt": "Carousel with 3D graphics of the Tooth Referral insurance feature: a Request from patient button, a phone screen where the patient uploads the front and back of their card through a secure link, and the card arriving on the referral with an activity log."
+ }
+}
