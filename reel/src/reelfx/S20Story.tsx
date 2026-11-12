@@ -23,9 +23,16 @@ const RF = (s: number) => Math.round(s * FPS);
 /** A 3.2 s "one month later" sequence is inserted at the c14 → c15 join; F() maps cut time to output time. */
 const GAP_AT = 73.375;
 const GAP = 3.2;
-const GA = RF(GAP_AT);
+/** The "Let's set up Tooth Referral" clip (6.0 s) arrived later and sits at 60.125 s; F() takes the original cut times. */
+const INS_AT = 60.125;
+const INS = 6.0;
+const GA = RF(GAP_AT + INS);
 const GAPF = RF(GAP);
-const F = (s: number) => RF(s + (s >= GAP_AT ? GAP : 0));
+const F = (s: number) => RF(s + (s >= INS_AT ? INS : 0) + (s >= GAP_AT ? GAP : 0));
+/** Times on the current cut (word timings) → output frames. */
+const N = (s: number) => RF(s + (s >= GAP_AT + INS ? GAP : 0));
+/** Seconds into the inserted clip → output frames. */
+const I = (s: number) => RF(INS_AT + s);
 const CUT = RF(edl.duration);
 const cutF = (f: number) => (f < GA ? f : f < GA + GAPF ? GA : f - GAPF);
 const END_AT = F(93.62);
@@ -101,12 +108,12 @@ const TOKS: Tok[] = (() => {
     let t = w.word.trim();
     if (/^(uh|-?huh\.?)$/i.test(t)) continue;
     const prev = out[out.length - 1];
-    if (prev && t.startsWith("-")) { prev.t += t; prev.end = F(w.end); continue; }
-    if (prev && prev.t.toLowerCase() === "tooth" && /^referral/i.test(t)) { prev.t = "Tooth Referral" + t.slice(8); prev.end = F(w.end); continue; }
+    if (prev && t.startsWith("-")) { prev.t += t; prev.end = N(w.end); continue; }
+    if (prev && prev.t.toLowerCase() === "tooth" && /^referral/i.test(t)) { prev.t = "Tooth Referral" + t.slice(8); prev.end = N(w.end); continue; }
     if (t === "Andrews" || t === "Andrews?") t = t.replace("Andrews", "Andrew's");
     if (t === "10") t = "ten";
     if (/^uh$/i.test(t)) continue;
-    out.push({ t, at: F(w.start), end: F(w.end) });
+    out.push({ t, at: N(w.start), end: N(w.end) });
   }
   return out.filter((x) => !/^-?huh/i.test(x.t));
 })();
@@ -374,17 +381,17 @@ const WaitCut: React.FC = () => {
   );
 };
 
-const LogoCut: React.FC = () => {
+/** Amanda names it: the wordmark in a glass pill inside the card band. */
+const LogoChip: React.FC<{ a: number; b: number }> = ({ a, b }) => {
   const frame = useCurrentFrame();
-  const a = F(59.95), b = F(61.0);
-  const k = ramp(frame, a, b, easeOut);
+  if (frame < a - 1 || frame > b) return null;
+  const p = sp(frame, a, 12, 160);
   return (
-    <Stage a={a} b={b}>
-      <AbsoluteFill style={{ alignItems: "center", justifyContent: "center", flexDirection: "column", gap: 34, transform: `scale(${1 + k * 0.08})`, marginTop: -150 }}>
-        <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: 44, color: VIOLET, opacity: interpolate(frame, [a, a + 6], [0, 1], clamp) }}>There's a better way</div>
-        <LogoReveal at={a + 2} width={640} revealDur={14} />
-      </AbsoluteFill>
-    </Stage>
+    <div style={{ position: "absolute", left: 0, right: 0, top: 1130, display: "flex", justifyContent: "center", perspective: 1000, opacity: life(frame, a, b, 6, 8) }}>
+      <div style={{ padding: "30px 60px", borderRadius: 40, background: "linear-gradient(135deg, rgba(59,30,143,0.95), rgba(27,18,64,0.95))", border: "2px solid rgba(196,181,253,0.6)", boxShadow: "0 30px 70px rgba(10,6,24,0.55), 0 0 50px rgba(139,92,246,0.45)", transform: `rotateX(${(1 - p) * 70}deg) rotateY(${Math.sin((frame - a) / 22) * 5}deg) scale(${0.7 + 0.3 * p})` }}>
+        <LogoReveal at={a + 3} width={520} revealDur={14} />
+      </div>
+    </div>
   );
 };
 
@@ -439,6 +446,9 @@ const Product: React.FC = () => (
     <OnHold />
     <FaxPage />
     <Scatter />
+    <LogoChip a={I(0.95)} b={I(2.95)} />
+    <Chip a={I(3.05)} b={I(4.65)} icon={ICON.clip} text="One case for every referral" tone="purple" y={1240} />
+    <Chip a={I(4.72)} b={I(5.95)} icon={ICON.check} text="Both offices on it" tone="green" y={1240} />
     {/* "Messages, X-rays, insurance, the signed note. All on the case. Gentle Dental sees it too." */}
     <SarahCase a={F(60.9)} b={F(66.35)} msg={F(61.0)} xr={F(61.66)} ins={F(62.3)} sig={F(63.06)} all={F(64.0)} sees={F(65.1)} />
     <Sparkle at={F(65.15)} x={540} y={925} />
@@ -452,7 +462,7 @@ const Product: React.FC = () => (
     <Chip a={F(83.75)} b={F(84.95)} icon={ICON.chat} text="Phone tag" tone="amber" y={1240} strike={F(84.7)} />
     <FollowUp a={F(84.95)} b={F(86.9)} />
     <ReferralList a={F(87.6)} b={F(90.0)} />
-    <LightLeak at={RF(53.45)} /><LightLeak at={RF(59.85)} /><LightLeak at={GA + GAPF - 6} /><LightLeak at={F(86.8)} /><LightLeak at={END_AT - 4} dur={22} />
+    <LightLeak at={RF(53.45)} /><LightLeak at={GA + GAPF - 6} /><LightLeak at={F(86.8)} /><LightLeak at={END_AT - 4} dur={22} />
   </>
 );
 
@@ -470,9 +480,9 @@ const Sfx: React.FC = () => {
   return (
     <>
       {[0, 6, 12, 18, 24, 30, 36, 42].map((k, i) => <React.Fragment key={k}>{g(`tick-${(i % 7) + 1}`, GA + k, 0.14)}</React.Fragment>)}
-      {g("whoosh-short", GA + 48, 0.25)}{g("chime", GA + 62, 0.22)}
+      {g("shimmer", I(0.95), 0.3)}{g("pop-1", I(3.05), 0.22)}{g("pop-2", I(4.72), 0.22)}{g("whoosh-short", GA + 48, 0.25)}{g("chime", GA + 62, 0.22)}
       {s("pop-1", 5.0, 0.25)}{s("pop-2", 5.5, 0.25)}{s("blip-1", 20.3, 0.3)}{s("thud", 31.45, 0.35)}{s("tick-3", 32.2, 0.25)}
-      {s("whoosh-short", 43.6, 0.3)}{s("impact", 44.3, 0.25)}{s("pop-3", 50.2, 0.22)}{s("riser", 59.0, 0.25)}{s("shimmer", 59.95, 0.35)}
+      {s("whoosh-short", 43.6, 0.3)}{s("impact", 44.3, 0.25)}{s("pop-3", 50.2, 0.22)}{s("riser", 59.0, 0.25)}
       {s("whoosh-short", 60.9, 0.28)}{s("pop-1", 61.66, 0.2)}{s("pop-2", 62.3, 0.2)}{s("chime", 63.06, 0.22)}{s("whoosh-short", 53.5, 0.3)}{s("whoosh-short", 86.85, 0.3)}{s("impact", 59.18, 0.2)}
       {s("chime", 65.1, 0.28)}{s("whoosh-short", 66.4, 0.25)}{s("chime", 68.9, 0.3)}{s("whoosh-long", 73.1, 0.3)}
       {s("whoosh-short", 80.6, 0.26)}{s("click", 82.2, 0.3)}{s("chime", 82.35, 0.28)}{s("whoosh-short", 84.95, 0.24)}{s("whoosh-short", 87.6, 0.24)}{s("click", 84.7, 0.35)}{s("pop-1", 85.3, 0.28)}{s("shimmer", END_AT / FPS, 0.35)}
@@ -502,7 +512,6 @@ export const S20Story: React.FC = () => (
       <Label a={87.0} b={89.5} office="St. Andrew's Family Dental" kind="One month later" />
       <Product />
       <WaitCut />
-      <LogoCut />
       <EndCard />
       <Captions />
       <Grain />

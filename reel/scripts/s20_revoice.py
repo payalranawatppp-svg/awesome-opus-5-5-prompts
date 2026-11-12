@@ -33,7 +33,7 @@ LINES_TXT = [
     ("GREG", "barbara sarah's", "minutes"), ("BARBARA", "i know", "it"), ("BARBARA", "yes i'm still", "you"),
     ("GREG", "anything", "anything"), ("BARBARA", "you found", "thank you"), ("BARBARA", "they're faxing", "now"),
     ("GREG", "every office", "way"), ("BARBARA", "and the patient", "waits"), ("AMANDA", "sending it", "that"),
-    ("TANYA", "it was sitting", "friday"), ("AMANDA", "this keeps", "happening"), ("AMANDA", "messages", "too"),
+    ("TANYA", "it was sitting", "friday"), ("AMANDA", "this keeps", "happening"), ("AMANDA", "let's set up", "referral"), ("TANYA", "tooth referral", "referral"), ("AMANDA", "one case", "it"), ("AMANDA", "messages", "too"),
     ("TANYA", "let's invite", "today"), ("TANYA", "and invite", "dental"), ("AMANDA", "that took", "this"),
     ("GREG", "hi david", "day"), ("DAVID", "hey greg", "over"), ("GREG", "already here", "case"),
     ("DAVID", "that fast", "calls"), ("GREG", "not anymore", "referral"), ("TANYA", "gentle dental hasn't", "week"),
