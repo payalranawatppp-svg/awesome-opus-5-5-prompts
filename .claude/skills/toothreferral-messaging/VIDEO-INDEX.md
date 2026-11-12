@@ -13,9 +13,24 @@ Look up the moment you need here; you never need to re-watch the whole video. St
 | Look | whole Chrome window: tab bar, "Claude started debugging" banner, Claude side panel on the right, purple glow border, a "Stop Claude" pill bottom-centre | clean app only, already zoomed/panned like a Screen Studio recording; crisp text; no overlays |
 | Use it for | reference + B-roll of any section (Analytics, Settings, Notifications, Invite, Day-Prep…) | hero footage: messages, insurance request, Consultation note → EHR copy → DocuSign signing |
 
-Download again (both work without login):
-`curl -L -o v1.mp4 "https://drive.usercontent.google.com/download?id=1o1yNDHbrXsIdESUbnHu7SvjyxFMRZ2jb&export=download&confirm=t"`
-(same URL with the V2 id → MKV; `ffmpeg -i v2.mkv -c copy v2.mp4` to get a normal duration).
+**Never download the whole video (user rule, 2026-11-12).** Work from the links and pull only the seconds an edit
+needs; Drive serves byte ranges, so ffmpeg seeks straight to the timestamp (a 4 s clip from V1 takes ~5 s):
+
+```bash
+V1="https://drive.usercontent.google.com/download?id=1o1yNDHbrXsIdESUbnHu7SvjyxFMRZ2jb&export=download&confirm=t"
+V2="https://drive.usercontent.google.com/download?id=1IpIKHHOVlXdvvgGB0dF4u-3c8-bQW1mG&export=download&confirm=t"
+# one clip, e.g. V2 1:50-1:54 (EHR export modal), re-encoded for editing
+ffmpeg -ss 110 -i "$V2" -t 4 -c:v libx264 -crf 16 -an v2_ehr_modal.mp4
+# V1 clip cropped to the app area
+ffmpeg -ss 324 -i "$V1" -t 4 -vf "crop=1420:820:10:182" -c:v libx264 -crf 16 -an v1_messages.mp4
+# a single still
+ffmpeg -ss 10 -i "$V2" -frames:v 1 v2_notes.png
+```
+Pick the times from the tables below (start a second early, trim in the edit). Keep extracted clips in the scratchpad,
+delete them after the render; only the timestamps and the stills live in the repo.
+
+Links: V1 https://drive.google.com/file/d/1o1yNDHbrXsIdESUbnHu7SvjyxFMRZ2jb/view ·
+V2 https://drive.google.com/file/d/1IpIKHHOVlXdvvgGB0dF4u-3c8-bQW1mG/view
 
 **V1 crop to the app only:** `crop=1420:820:10:182` (removes tab bar, address bar, debugging banner and the Claude
 panel; the "Stop Claude" pill at about x=720,y=979 is just below the crop). The crop is 1420 px wide, so scaling to
