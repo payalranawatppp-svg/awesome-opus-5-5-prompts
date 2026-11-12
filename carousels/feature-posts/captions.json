@@ -1,18 +1,18 @@
 {
  "post-A-direct-messages": {
   "hook": "One small question between two dental offices shouldn't take four phone calls.",
-  "linkedin": "One small question between two dental offices shouldn't take four phone calls.\n\n\"Do you have a newer X-ray?\" usually turns into a call nobody picks up, a voicemail, an email to someone's inbox, and a callback while you're with a patient.\n\nIn Tooth Referral, the two offices talk right on the referral. Barbara, the office manager at the specialist's office, asks for a current X-ray on the case and @mentions Tanya at the referring office. Tanya attaches it and replies in the same thread, and the consultation is booked the same morning. The X-rays, insurance, status and the whole conversation stay together with the patient's case, HIPAA compliant and encrypted.\n\nThe front desk asks once. The office manager can see every question and answer. The referring office replies on their own time. Nobody plays phone tag.\n\nEvery conversation about a referral, in one secure place.",
+  "linkedin": "One small question between two dental offices shouldn't take four phone calls.\n\nWhether you're a general dentist sending referrals or a specialist receiving them, you know the routine. \"Has she been scheduled?\" \"Do you have a newer X-ray?\" Each one turns into a call nobody picks up, a voicemail, an email to someone's inbox, and a callback while you're with a patient.\n\nIn Tooth Referral, both offices talk right on the referral. The general dentist's front desk checks on an implant consultation and gets the appointment time back in minutes. The specialist's office manager asks for a current periapical, and it's attached to the case before lunch. A treatment coordinator @mentions the other office for an afternoon slot, and the appointment is moved. When treatment is complete, the signed note is on the case and goes straight into the patient's chart.\n\nX-rays, insurance, status and every conversation stay together with the patient's case, HIPAA compliant and encrypted. The front desk asks once. The office manager sees every question and answer. Each office replies on its own time.\n\nEvery conversation about a referral, in one secure place.",
   "hashtags_linkedin": [
    "#DentalReferrals",
-   "#DentalCommunication",
+   "#GeneralDentistry",
+   "#DentalSpecialist",
    "#DentalFrontDesk",
-   "#DentalPracticeManagement",
    "#HIPAACompliance"
   ],
   "keywords": [
    "secure messaging for dental offices",
+   "general dentist and specialist communication",
    "end phone tag",
-   "referring office communication",
    "HIPAA compliant messaging",
    "dental team efficiency"
   ],
@@ -20,13 +20,13 @@
  },
  "post-B-notes": {
   "hook": "How many times this month did someone retype the same consultation letter?",
-  "linkedin": "How many times this month did someone retype the same consultation letter?\n\nSame thank-you, new names, new dates, new tooth numbers. Then print it, sign it and fax it back to the referring office.\n\nIn Tooth Referral, notes write themselves. Build a template once and smart variables fill in the patient, date of birth, both offices, specialty, X-ray images and dates on every note. Every template is yours to customise: your wording, your letterhead and logo, one for each situation (consultation completed, declined appointment, general), or import the Word or PDF letter you already use. Your team can copy the note straight into your own EHR so your charts stay in sync.\n\nAn assistant can prepare it, and the doctor signs it, or it's routed to the doctor to sign. Once it's e-signed, the consultation note lands on the case, visible to both offices. No printing, no fax.\n\nNotes that write themselves. Letters that sign themselves.",
+  "linkedin": "How many times this month did someone retype the same consultation letter?\n\nGeneral dentist or specialist, the routine is the same: referral letters, consultation notes and completion letters with new names, new dates and new tooth numbers. Then print, sign and fax.\n\nIn Tooth Referral, notes write themselves. Build a template once and smart variables fill in the patient, date of birth, both offices, specialty, X-ray images and dates on every note. Every template is yours to customise: your wording, your letterhead and logo, one for each situation (consultation completed, declined appointment, general), or import the Word or PDF letter you already use. Your team can copy the note straight into your own EHR so your charts stay in sync.\n\nAn assistant can prepare it, and the doctor signs it, or it's routed to the doctor to sign. Once it's e-signed, the consultation note lands on the case, visible to both the general dentist and the specialist. No printing, no fax.\n\nNotes that write themselves. Letters that sign themselves.",
   "hashtags_linkedin": [
    "#DentalReferrals",
+   "#GeneralDentistry",
    "#DentalSpecialist",
    "#DentalPracticeManagement",
-   "#EHR",
-   "#DentalTeam"
+   "#EHR"
   ],
   "keywords": [
    "consultation note template",
@@ -40,7 +40,7 @@
  },
  "post-C-insurance": {
   "hook": "\"Can you text us a photo of your insurance card?\" There's a better way to ask.",
-  "linkedin": "\"Can you text us a photo of your insurance card?\" There's a better way to ask.\n\nPhotos in personal texts, blurry faxes, a missing back side, and patients rescheduled because coverage wasn't checked in time. That's insurance chaos, and the front desk lives in it.\n\nIn Tooth Referral, one click on the referral, Request from patient, sends the patient a HIPAA-secure link. They snap the front and back of their card on their phone, no account needed, and it lands right on the case with policy and group details, logged with who asked and when.\n\nFewer calls to verify insurance. Coverage on file before the consultation. A patient who only has to share it once.\n\nNo more insurance chaos. Just refer it.",
+  "linkedin": "\"Can you text us a photo of your insurance card?\" There's a better way to ask.\n\nPhotos in personal texts, blurry faxes, a missing back side, and patients rescheduled because coverage wasn't checked in time. That's insurance chaos, and the front desk lives in it.\n\nIn Tooth Referral, either office, general dentist or specialist, can click one button on the referral, Request from patient, sends the patient a HIPAA-secure link. They snap the front and back of their card on their phone, no account needed, and it lands right on the case with policy and group details, logged with who asked and when.\n\nFewer calls to verify insurance. The general dentist refers without chasing the card. The specialist has coverage on file before the consultation. The patient shares it once.\n\nNo more insurance chaos. Just refer it.",
   "hashtags_linkedin": [
    "#DentalInsurance",
    "#DentalReferrals",

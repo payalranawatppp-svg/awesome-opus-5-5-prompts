@@ -103,18 +103,35 @@ def chip(x, y, text, icon='check', bg='#6D3DF0', rot=0):
     return f'<div class="chipf" style="left:{x}px;top:{y}px;transform:rotate({rot}deg)"><span class="ic" style="background:{bg}">{ic(icon, "#fff", 22)}</span>{E(text)}</div>'
 
 # --------------------------------------------------------------------------- reusable 3D app graphics (demo data)
-def thread(extra_unread=True, w=820):
+# Each Office Communication slide shows its own conversation (never reuse one thread across slides).
+# Both directions appear: the general dentist's office asking the specialist, and the specialist asking back.
+PURPLE, GREEN, AMBER = '#8A63F7', '#1F9D6B', '#E08A00'
+CONVOS = {
+ 'status': dict(sub="With St. Andrew's Family Dental · Sarah Collins", to="St. Andrew's Family Dental", msgs=[
+   ('TA', GREEN, 'Tanya', 'Gentle Dental · Front Desk · 8:47 AM', None, '<span class="at">@Barbara</span> Good morning. Sarah Collins asked when she will hear from your office about her implant consultation.'),
+   ('BA', PURPLE, 'Barbara', "St. Andrew's Family Dental · Office Manager · 9:02 AM", None, '<span class="at">@Tanya</span> We called her this morning. She is booked for Tuesday at 9:00 AM, and the status is updated on the case.'),
+   ('TA', GREEN, 'Tanya', 'Gentle Dental · 9:05 AM', None, 'Wonderful, thank you. I will let her know we are all set.')]),
+ 'xray': dict(sub='With Gentle Dental · Michael Turner', to='Gentle Dental', msgs=[
+   ('BA', PURPLE, 'Barbara', "St. Andrew's Family Dental · Office Manager · 9:52 AM", None, "Good morning <span class='at'>@Tanya</span>. We received Michael's referral. The radiograph on file is from May 2022. Could you share a current periapical of #19?"),
+   ('TA', GREEN, 'Tanya', 'Gentle Dental · Front Desk · 10:04 AM', 'Barbara: Could you share a current periapical of #19?', "<span class='at'>@Barbara</span> Of course. Yesterday's periapical is now attached to the case."),
+   ('BA', PURPLE, 'Barbara', "St. Andrew's Family Dental · 10:06 AM", None, 'Thank you. His consultation is booked for Thursday at 10:30 AM.')]),
+ 'reschedule': dict(sub="With St. Andrew's Family Dental · David Ross", to="St. Andrew's Family Dental", msgs=[
+   ('AM', AMBER, 'Amanda', 'Gentle Dental · Treatment Coordinator · 1:15 PM', None, '<span class="at">@Barbara</span> David Ross can only come in after 2:00 PM because of work. Is there an afternoon opening this week?'),
+   ('BA', PURPLE, 'Barbara', "St. Andrew's Family Dental · Office Manager · 1:22 PM", 'Amanda: Is there an afternoon opening this week?', '<span class="at">@Amanda</span> Wednesday at 2:30 PM is open. I have moved his appointment and updated the case.')]),
+ 'complete': dict(sub='With Gentle Dental · Michael Turner', to='Gentle Dental', msgs=[
+   ('BA', PURPLE, 'Barbara', "St. Andrew's Family Dental · 3:40 PM", None, '<span class="at">@Tanya</span> Treatment on #19 is complete. The signed consultation note is on the case.'),
+   ('TA', GREEN, 'Tanya', 'Gentle Dental · Front Desk · 3:52 PM', None, 'Thank you, Barbara. We have copied it into his chart and booked his crown visit with us.')]),
+}
+
+def thread(convo='xray', extra_unread=True, w=820):
+    c = CONVOS[convo]
+    rows = ''.join(f'''<div class="msg"><span class="av" style="background:{col}">{ini}</span><div><div class="mh">{name} <span>{meta}</span></div>
+   {f'<div class="quote">{q}</div>' if q else ''}<div class="mb">{body}</div></div></div>''' for ini, col, name, meta, q, body in c['msgs'])
     return f'''<div class="card" style="width:{w}px">
-  <div class="ch"><span class="ico">{ic('chat')}</span><div style="flex:1"><b>Office Communication</b><small>With Gentle Dental · Michael Turner</small></div>
+  <div class="ch"><span class="ico">{ic('chat')}</span><div style="flex:1"><b>Office Communication</b><small>{c['sub']}</small></div>
   {'<span class="pill pp">2 unread @mentions</span>' if extra_unread else ''}</div>
-  <div class="msg"><span class="av" style="background:#8A63F7">BA</span><div><div class="mh">Barbara <span>St. Andrew's Family Dental · Office Manager · 9:52 AM</span></div>
-   <div class="mb">Good morning <span class="at">@Tanya</span>. We received Michael's referral. The radiograph on file is from May 2022. Could you share a current periapical of #19?</div></div></div>
-  <div class="msg"><span class="av" style="background:#1F9D6B">TA</span><div><div class="mh">Tanya <span>Gentle Dental · Front Desk · 10:04 AM</span></div>
-   <div class="quote">Barbara: Could you share a current periapical of #19?</div>
-   <div class="mb"><span class="at">@Barbara</span> Of course. Yesterday's periapical is now attached to the case.</div></div></div>
-  <div class="msg"><span class="av" style="background:#8A63F7">BA</span><div><div class="mh">Barbara <span>St. Andrew's Family Dental · 10:06 AM</span></div>
-   <div class="mb">Thank you. His consultation is booked for Thursday at 10:30 AM. We'll share the notes once it's complete.</div></div></div>
-  <div class="compose">Message Gentle Dental…<span class="send"></span></div>
+  {rows}
+  <div class="compose">Message {c['to']}…<span class="send"></span></div>
   <div class="hip">{ic('lock', '#1F9D6B', 18)} All communications are HIPAA compliant and encrypted · Secure</div></div>'''
 
 def case_card(w=700):
@@ -245,28 +262,28 @@ def brand_close(line1, line2, sub):
 # =========================================================================== POST A — direct messages on the case
 A = [
  dict(dark=True, body=f'''<div class="txt"><div class="k">Tooth Referral · Office Communication</div><h1>End the phone tag<br>between offices.</h1>
-  <div class="p">One referral. One conversation. Right on the case.</div></div>
+  <div class="p">General dentists and specialists, talking right on the case.</div></div>
   <div class="glow" style="left:560px;top:620px;width:420px;height:420px;background:#6D3DF0"></div>
-  {stage(520, place(thread(), 150, 0, rx=14, ry=-20, rz=2, scale=.94) + chip(600, 640, 'Tag the right person', 'at', '#6D3DF0', -3) + chip(80, -30, 'HIPAA-secure', 'lock', '#1F9D6B', -3))}'''),
+  {stage(520, place(thread('status'), 150, 0, rx=14, ry=-20, rz=2, scale=.94) + chip(600, 640, 'Tag the right person', 'at', '#6D3DF0', -3) + chip(80, -30, 'HIPAA-secure', 'lock', '#1F9D6B', -3))}'''),
  dict(body=f'''<div class="txt"><div class="k">Sound familiar?</div><h2>One small question.<br>Four phone calls.</h2>
-  <div class="p">"Do you have a newer X-ray?" turns into a call, a voicemail, an email to someone's inbox and a callback while you're with a patient.</div></div>
+  <div class="p">"Has she been scheduled?" or "Do you have a newer X-ray?" turns into a call, a voicemail, an email to someone's inbox and a callback while you're with a patient.</div></div>
   {stage(640, place(call_card('phone', 'Missed call', 'Gentle Dental · 11:20 AM'), 120, 0, rx=18, ry=-14, rz=-4, z=-60)
              + place(call_card('vm', 'Voicemail (0:41)', '"Calling about the X-ray…"'), 280, 150, rx=18, ry=-14, rz=-4, z=-20)
              + place(call_card('mail', 'Email', 'Re: Re: Fwd: X-ray for Michael T.'), 200, 300, rx=18, ry=-14, rz=-4, z=20)
              + place(call_card('clock', 'Callback', 'Next day · still no X-ray'), 340, 450, rx=18, ry=-14, rz=-4, z=60))}'''),
  dict(body=f'''<div class="txt"><div class="k">The feature</div><h2>Message the other office<br>right on the referral.</h2>
-  <div class="p">Secure cloud messages between both offices, attached to the patient's case.</div></div>
-  {stage(560, place(thread(False, 860), 110, 0, rx=8, ry=12, rz=-1.5))}'''),
+  <div class="p">Secure cloud messages between the general dentist's office and the specialist's office, attached to the patient's case.</div></div>
+  {stage(560, place(thread('xray', False, 860), 110, 0, rx=8, ry=12, rz=-1.5))}'''),
  dict(body=f'''<div class="txt"><div class="k">@mentions</div><h2>Tag the right person.<br>They see it right away.</h2>
-  <div class="p">An @mention reaches the right teammate on either office, with an unread badge until they've seen it.</div></div>
-  {stage(560, place(thread(True, 800), 170, 20, rx=10, ry=-16, rz=1, z=-80, scale=.86) + chip(70, 40, '@Tanya', 'at', '#6D3DF0', -5) + chip(40, 300, 'Unread until seen', 'bell', '#E89D15', 3) + chip(640, -20, 'Reply in the thread', 'chat', '#1F9D6B', -2))}'''),
+  <div class="p">Need an afternoon slot? An @mention reaches the right teammate at either office, with an unread badge until they've seen it.</div></div>
+  {stage(560, place(thread('reschedule', True, 800), 170, 20, rx=10, ry=-16, rz=1, z=-80, scale=.86) + chip(70, 40, '@Barbara', 'at', '#6D3DF0', -5) + chip(40, 300, 'Unread until seen', 'bell', '#E89D15', 3) + chip(640, -20, 'Reply in the thread', 'chat', '#1F9D6B', -2))}'''),
  dict(body=f'''<div class="txt"><div class="k">Context included</div><h2>Every message stays<br>with the patient's case.</h2>
   <div class="p">X-rays, insurance, status and the conversation, together. Nobody digs through email to find it.</div></div>
-  {stage(560, place(case_card(700), 40, 0, rx=16, ry=18, rz=-2, z=-140, scale=.9) + place(thread(False, 640), 330, 190, rx=16, ry=-14, rz=2, z=80, scale=.72, origin='50% 0%') + chip(40, 430, 'X-rays · insurance · status', 'check', '#1F9D6B', -3))}'''),
- dict(body=f'''<div class="txt"><div class="k">Value for the whole team</div><h2>Less phone tag for everyone.</h2>
+  {stage(560, place(case_card(700), 40, 0, rx=16, ry=18, rz=-2, z=-140, scale=.9) + place(thread('complete', False, 640), 330, 190, rx=16, ry=-14, rz=2, z=80, scale=.72, origin='50% 0%') + chip(40, 430, 'X-rays · insurance · status', 'check', '#1F9D6B', -3))}'''),
+ dict(body=f'''<div class="txt"><div class="k">Value for the whole team</div><h2>Less phone tag,<br>whichever side you're on.</h2>
   {team_rows([('users', 'Front desk', 'Ask once, in writing. No hold music, no voicemail.'),
               ('clock', 'Office manager', 'Every question and answer is on the case, with a time stamp.'),
-              ('send', 'The referring office', 'Answers on their own time, from the same case.'),
+              ('send', 'Both offices', 'General dentist or specialist, each side replies on their own time, from the same case.'),
               ('shield', 'Your patients', 'Details travel securely, never through texts or personal email.')])}</div>'''),
  dict(dark=True, body=brand_close('Every conversation about a referral,', 'in one secure place.', 'Tooth Referral is the HIPAA-secure network where general dentists and specialists send, track and talk about every referral.')),
 ]
@@ -278,7 +295,7 @@ B = [
   <div class="glow" style="left:520px;top:640px;width:440px;height:440px;background:#6D3DF0"></div>
   {stage(560, place(note_card(False, 820), 140, 0, rx=12, ry=-18, rz=2, scale=.94) + chip(660, -10, 'Auto-filled', 'check', '#1F9D6B', 4) + chip(80, 590, 'Ready to sign', 'pen', '#6D3DF0', -3))}'''),
  dict(body=f'''<div class="txt"><div class="k">The old way</div><h2>The same letter,<br>retyped for every patient.</h2>
-  <div class="p">Names, dates, offices and tooth numbers copied by hand, printed, signed and faxed back. Every single time.</div></div>
+  <div class="p">Referral letters, consultation notes, completion letters. Names, dates and tooth numbers copied by hand, printed and faxed. Every single time.</div></div>
   {stage(660, ''.join(place(f'<div class="card" style="width:560px;height:330px;padding:30px"><div style="font:800 24px Jakarta">Consultation letter</div>' + ''.join(f'<div style="margin-top:16px;height:13px;width:{w}%;background:#ECE8F6;border-radius:7px"></div>' for w in (92, 80, 88, 70, 84)) + '</div>', 180 + i * 70, i * 90, rx=22, ry=-10, rz=-6 + i * 3, z=i * 30) for i in range(4))
              + chip(640, 30, 'Retype', 'pen', '#E89D15', 5) + chip(70, 520, 'Print, sign, fax', 'doc', '#E89D15', -4))}'''),
  dict(body=f'''<div class="txt"><div class="k">Smart templates</div><h2>Variables fill themselves in.</h2>
@@ -290,7 +307,7 @@ B = [
   {stage(625, place(editor_card(860), 110, 0, rx=10, ry=-14, rz=1.5) + chip(50, 530, 'Your logo & wording', 'pen', '#6D3DF0', -3) + chip(620, 545, 'Import from Word or PDF', 'doc', '#1F9D6B', 3)
              + f'<div style="position:absolute;left:150px;top:-70px;z-index:6;display:flex;gap:12px">' + ''.join(f'<span class="pill {c}" style="box-shadow:0 16px 30px -14px rgba(40,20,110,.5);font-size:20px">{t}</span>' for t,c in [('General','ps'),('Consultation Completed','pp'),('Declined Appointment','ps')]) + '</div>')}'''),
  dict(body=f'''<div class="txt"><div class="k">Works with your records</div><h2>Copy the note straight<br>into your EHR.</h2>
-  <div class="p">Each note is ready to paste into your own patient health record, so your charts stay in sync.</div></div>
+  <div class="p">Whether you refer or receive, each note is ready to paste into your own patient health record, so your charts stay in sync.</div></div>
   {stage(560, place(ehr_modal(600), 70, 0, rx=12, ry=20, rz=-2, z=-40) + place(ehr_window(500), 530, 260, rx=12, ry=-18, rz=2, z=40)
              + f'<div style="position:absolute;left:445px;top:250px;z-index:6;width:110px;height:110px;border-radius:110px;background:linear-gradient(135deg,#6D3DF0,#8A63F7);display:flex;align-items:center;justify-content:center;box-shadow:0 20px 40px -10px rgba(109,61,240,.7)">{ic("copy", "#fff", 50)}</div>'
              + chip(110, 600, 'Copy into your EHR', 'copy', '#6D3DF0', -2))}'''),
@@ -298,10 +315,10 @@ B = [
   <div class="p">An assistant drafts it from the template. The doctor signs it themselves, or a teammate signs on their behalf.</div></div>
   {stage(600, place(signer_card(660), 210, 0, rx=12, ry=-16, rz=1.5) + chip(90, 470, 'E-signature built in', 'pen', '#1F9D6B', -3) + chip(600, 520, 'Save as a template', 'doc', '#6D3DF0', 3))}'''),
  dict(body=f'''<div class="txt"><div class="k">Closing the loop</div><h2>Signed, sent and visible<br>to both offices.</h2>
-  <div class="p">The signed consultation note lands on the case for the referring dentist. No printing, no fax.</div></div>
+  <div class="p">The signed note lands on the case for both the general dentist and the specialist. No printing, no fax.</div></div>
   {stage(600, place(toast('All done, your document is signed!', 'Consultation note signed and sent', 600), 120, 0, rx=14, ry=-12, rz=-2, z=60)
              + place(signed_card(760), 200, 180, rx=14, ry=-12, rz=-2) + chip(90, 520, 'On the referral', 'check', '#1F9D6B', -3) + chip(640, 560, 'No fax', 'x', '#6D3DF0', 3))}'''),
- dict(dark=True, body=brand_close('Notes that write themselves.', 'Letters that sign themselves.', 'Templates, smart variables, EHR-ready notes and e-signatures, built into every Tooth Referral case.')),
+ dict(dark=True, body=brand_close('Notes that write themselves.', 'Letters that sign themselves.', 'Templates, smart variables, EHR-ready notes and e-signatures, built in for general dentists and specialists alike.')),
 ]
 
 # =========================================================================== POST C — the patient sends their own insurance
@@ -316,7 +333,7 @@ C = [
              + place(call_card('doc', 'Fax received', 'Page 2 of 3 unreadable'), 320, 160, rx=18, ry=-14, rz=-4, z=30)
              + place(call_card('clock', 'Appointment rescheduled', 'Coverage not verified'), 220, 320, rx=18, ry=-14, rz=-4, z=60))}'''),
  dict(body=f'''<div class="txt"><div class="k">The feature</div><h2>One click:<br>Request from patient.</h2>
-  <div class="p">The front desk sends a HIPAA-secure link from the referral. No account needed for the patient.</div></div>
+  <div class="p">Either office, general or specialist, sends a HIPAA-secure link from the referral. No account needed for the patient.</div></div>
   {stage(570, place(ins_dash(False, 820), 130, 0, rx=12, ry=16, rz=-1.5) + place(toast('Insurance request sent', 'Secure link sent to the patient', 520), 470, 470, rx=12, ry=16, rz=-1.5, z=120))}'''),
  dict(body=f'''<div class="txt"><div class="k">The patient's side</div><h2>Snap the front and back.<br>Done.</h2>
   <div class="p">Patients upload their own card from their phone, securely, before the first visit.</div></div>
@@ -326,8 +343,8 @@ C = [
   {stage(540, place(ins_dash(False, 780), 70, 0, rx=12, ry=18, rz=-2, z=-40, scale=.92) + place(activity(640), 370, 360, rx=12, ry=-14, rz=1.5, z=60, scale=.9))}'''),
  dict(body=f'''<div class="txt"><div class="k">Value for everyone</div><h2>Fewer calls to verify<br>insurance.</h2>
   {team_rows([('users', 'Front desk', 'No more chasing photos, faxes or callbacks.'),
-              ('card', 'The specialist', 'Coverage is on the case before the consultation.'),
-              ('send', 'The referring office', 'Sends the referral without collecting the card first.'),
+              ('card', "The specialist's office", 'Coverage is on the case before the consultation.'),
+              ('send', "The general dentist's office", 'Refers the patient without chasing the card first.'),
               ('shield', 'The patient', 'Shares it once, securely, from their phone.')])}</div>'''),
  dict(dark=True, body=brand_close('No more insurance chaos.', 'Just refer it.', 'The patient uploads their own card through a HIPAA-secure link, and it arrives on the referral, ready to verify.')),
 ]
