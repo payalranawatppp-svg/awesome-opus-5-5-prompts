@@ -148,6 +148,19 @@ def note_card(codes=True, w=820):
    The consultation is complete and treatment is scheduled. {v('xrayImages','2 X-rays')}
   </div></div>'''
 
+def editor_card(w=860):
+    tools = ''.join(f'<span style="padding:6px 10px;border-radius:8px;background:#F3F1FA;font:700 17px InterW;color:#4A4563">{t}</span>' for t in ['B', 'I', '• List', 'Link', 'Image', 'Paragraph ▾', 'Size ▾'])
+    return f'''<div class="card" style="width:{w}px">
+  <div class="ch"><span class="ico">{ic('pen')}</span><div style="flex:1"><b>Create Note Template</b><small>Reusable templates for your whole team</small></div><span class="pill ps">Import from Word / PDF</span></div>
+  <div style="padding:18px 26px 0;display:flex;gap:16px;align-items:flex-end">
+   <div style="flex:1"><div style="font:700 17px InterW;color:#6B7085">TEMPLATE TITLE</div><div style="margin-top:6px;border:1px solid #E4E0F2;border-radius:12px;padding:10px 14px;font:700 21px InterW">Endo consult · thank-you letter</div></div>
+   <div style="width:300px"><div style="font:700 17px InterW;color:#6B7085">USED FOR</div><div style="margin-top:6px;border:2px solid #6D3DF0;border-radius:12px;padding:10px 14px;font:700 20px InterW;color:#6D3DF0">Consultation Completed ▾</div></div></div>
+  <div style="padding:16px 26px 0;display:flex;flex-wrap:wrap;gap:8px;align-items:center">{tools}<span class="pill pp" style="margin-left:auto">+ Insert Variable</span></div>
+  <div style="margin:16px 26px 24px;border:1px solid #E4E0F2;border-radius:16px;padding:18px 20px;font:500 21px/1.65 InterW;color:#2D2A40">
+   <div class="row" style="justify-content:space-between"><span style="font:800 22px Jakarta;color:#16132B">Your letterhead</span><span class="var">Company Logo</span></div>
+   <div style="margin-top:10px">Thank you for trusting us with <span class="var">Patient Name</span>. Here is what we found and the plan we discussed…</div>
+   <div style="margin-top:8px;color:#8A90A2">Your words, your tone, your signature block.</div></div></div>'''
+
 def ehr_modal(w=640):
     return f'''<div class="card" style="width:{w}px">
   <div class="ch"><span class="ico">{ic('doc')}</span><div><b>Consultation Scheduled</b><small>Administrative note</small></div></div>
@@ -272,6 +285,10 @@ B = [
   <div class="p">Build a template once. Patient, DOB, both offices, specialty, X-ray images and dates appear on every note.</div></div>
   {stage(570, place(note_card(True, 860), 110, 0, rx=10, ry=14, rz=-1.5)
              + chip(640, 560, '17 smart variables', 'doc', '#6D3DF0', 3) + chip(70, 590, 'Import from Word or PDF', 'copy', '#1F9D6B', -3))}'''),
+ dict(body=f'''<div class="txt"><div class="k">Fully customisable</div><h2>Make every template<br>your own.</h2>
+  <div class="p">Your wording, your letterhead and logo, one template per situation. Start from scratch or import the letter you already use.</div></div>
+  {stage(625, place(editor_card(860), 110, 0, rx=10, ry=-14, rz=1.5) + chip(50, 530, 'Your logo & wording', 'pen', '#6D3DF0', -3) + chip(620, 545, 'Import from Word or PDF', 'doc', '#1F9D6B', 3)
+             + f'<div style="position:absolute;left:150px;top:-70px;z-index:6;display:flex;gap:12px">' + ''.join(f'<span class="pill {c}" style="box-shadow:0 16px 30px -14px rgba(40,20,110,.5);font-size:20px">{t}</span>' for t,c in [('General','ps'),('Consultation Completed','pp'),('Declined Appointment','ps')]) + '</div>')}'''),
  dict(body=f'''<div class="txt"><div class="k">Works with your records</div><h2>Copy the note straight<br>into your EHR.</h2>
   <div class="p">Each note is ready to paste into your own patient health record, so your charts stay in sync.</div></div>
   {stage(560, place(ehr_modal(600), 70, 0, rx=12, ry=20, rz=-2, z=-40) + place(ehr_window(500), 530, 260, rx=12, ry=-18, rz=2, z=40)
@@ -317,7 +334,7 @@ C = [
 
 POSTS = [
  dict(id='post-A-direct-messages', title='End the phone tag between offices', feature='Office Communication (secure messages on the case)', tag='MESSAGES', slides=A),
- dict(id='post-B-notes', title='Notes that write themselves', feature='Note templates, EHR copy, e-signature, signed note back', tag='NOTES', slides=B),
+ dict(id='post-B-notes', title='Notes that write themselves', feature='Customisable note templates, EHR copy, e-signature, signed note back', tag='NOTES', slides=B),
  dict(id='post-C-insurance', title='Stop chasing insurance cards', feature='Request from patient (secure insurance link)', tag='INSURANCE', slides=C),
 ]
 
