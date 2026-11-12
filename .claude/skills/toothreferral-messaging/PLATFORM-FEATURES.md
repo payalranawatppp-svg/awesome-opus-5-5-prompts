@@ -142,3 +142,19 @@ Website form builder with live preview; Status board; template editor with Inser
 ## Open questions (do not claim until answered)
 Amended / Draft / Referred Out - Forward meaning; which statuses change automatically; bold row and envelope icon
 meaning; case-acceptance calculation; HIPAA wording approval for marketing; multi-office switcher not yet seen.
+
+## Seen in the V2 recording (2026-11-12) — confirmed features
+- Status-change modals (Consultation Scheduled / Completed) explain: "Administrative Notes: record when…",
+  "Privacy: saved internally for your staff only", "**EHR Export: copy and paste this note into your own patient
+  health record system to keep external charts synchronized**" + "Copy and paste into your patient electronic health
+  record as a note". This is the EHR feature.
+- **Next Step reminders**: "Check back in 2 business days? [Remind me on 11/16]" or pick a date; you get a reminder
+  notification that day.
+- **Referral Timeline** inside Administrative Notes (status steps with dates, Surgery date chip).
+- **Prepare Consultation Note**: template + auto-filled variables, Show values/codes, Preview; **Who signs: I'll sign
+  it myself / Sign on behalf of a doctor / Route to a doctor to sign**; Save Draft / Save as New Template / **Sign and
+  Send Consultation Note** via **DocuSign** → "All done — your document is signed!" → signed note on the case.
+- **Request from patient** → "Success · Insurance request sent" toast → activity log entry.
+- **Create New Referral** wizard (3 steps: Demographic Information, Procedures, Referring information): Office
+  favorites, find a specialist nearby, filters by specialty / insurance plan / skill sets; patient insurance option 1
+  secure link to the patient, option 2 upload manually; won't send without a receiving doctor.

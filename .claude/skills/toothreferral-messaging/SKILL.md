@@ -19,6 +19,13 @@ analytics numbers or rebuild the page.
 Read **`PRODUCT-UNDERSTANDING.md`** first: the one-page product brief (what it is, who it's for, the problem, proof
 points, value per team member, message order, words to use and avoid, production rules, approved formats).
 
+## Screen recordings: VIDEO-INDEX.md
+
+Two real platform recordings (Drive) are indexed second by second in **`VIDEO-INDEX.md`** with download commands,
+crop values, privacy notes and stills (`platform-audit/video-stills/`). Use it to pick footage for any edit instead of
+re-watching. V2 (3:30) is the hero walkthrough: messages, insurance request, EHR-export note, template auto-fill,
+route to a doctor, DocuSign signing.
+
 ## Platform features (permanent reference, 2026-11-12)
 
 Before any script, ad, carousel or caption, read **`PLATFORM-FEATURES.md`** (this folder): the full feature map from
