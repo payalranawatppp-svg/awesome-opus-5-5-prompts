@@ -14,6 +14,11 @@ Whenever an analytics dashboard image, number or screen is needed, use the canon
 `reel/public/analytics-ref/` (see DASHBOARD.md, "Analytics page — CANONICAL REFERENCE"). Do not invent other
 analytics numbers or rebuild the page.
 
+## Start here: PRODUCT-UNDERSTANDING.md
+
+Read **`PRODUCT-UNDERSTANDING.md`** first: the one-page product brief (what it is, who it's for, the problem, proof
+points, value per team member, message order, words to use and avoid, production rules, approved formats).
+
 ## Platform features (permanent reference, 2026-11-12)
 
 Before any script, ad, carousel or caption, read **`PLATFORM-FEATURES.md`** (this folder): the full feature map from
