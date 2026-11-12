@@ -9,17 +9,25 @@
  * Product screens: dash3c stills (approved demo names) + V2/V1 Drive frames (DocuSign done, insurance request, invite).
  */
 import React from "react";
-import { AbsoluteFill, Audio, Img, OffthreadVideo, Sequence, interpolate, spring, staticFile, useCurrentFrame } from "remotion";
+import { AbsoluteFill, Audio, Freeze, OffthreadVideo, Sequence, interpolate, spring, staticFile, useCurrentFrame } from "remotion";
 import words from "../data/s20-words.json";
 import edl from "../data/s20-edl.json";
 import { FontGate } from "../effects";
 import { FONT_DISPLAY, FONT_UI } from "../theme";
 import { LogoReveal, easeIO, easeOut, ramp } from "../tr/motion";
 import { ICON, Icon, TR, clamp } from "../tr/ui";
+import { DavidCase, FollowUp, InboxSearch, InviteFlow, LightLeak, MonthLater, ReferralList, SarahCase, Sparkle } from "./S20Dash";
 
 const FPS = 30;
-const F = (s: number) => Math.round(s * FPS);
-const CUT = F(edl.duration);
+const RF = (s: number) => Math.round(s * FPS);
+/** A 3.2 s "one month later" sequence is inserted at the c14 → c15 join; F() maps cut time to output time. */
+const GAP_AT = 73.375;
+const GAP = 3.2;
+const GA = RF(GAP_AT);
+const GAPF = RF(GAP);
+const F = (s: number) => RF(s + (s >= GAP_AT ? GAP : 0));
+const CUT = RF(edl.duration);
+const cutF = (f: number) => (f < GA ? f : f < GA + GAPF ? GA : f - GAPF);
 const END_AT = F(93.62);
 export const S20_DURATION = END_AT + F(4.2);
 
@@ -42,7 +50,7 @@ const life = (frame: number, a: number, b: number, inD = 10, outD = 8) =>
 // Camera: the 720x1280 cut fills 1080x1920 (x1.5); joins inside one clip alternate a small punch-in
 
 type Seg = { clip: string; in: number; out: number; at: number; freeze?: number };
-const SEG = (edl.segments as Seg[]).map((s) => ({ ...s, f0: F(s.at), f1: F(s.at + (s.freeze ?? s.out - s.in)) }));
+const SEG = (edl.segments as Seg[]).map((s) => ({ ...s, f0: RF(s.at), f1: RF(s.at + (s.freeze ?? s.out - s.in)) }));
 const camera = (f: number) => {
   let i = SEG.findIndex((s) => f >= s.f0 && f < s.f1);
   if (i < 0) i = SEG.length - 1;
@@ -53,14 +61,25 @@ const camera = (f: number) => {
   const hold = s.freeze ? 0.05 * ramp(f, s.f0, s.f1, easeIO) : 0;
   return 1.0 + (run % 2 ? 0.07 : 0) + drift + hold;
 };
+/** Whip pans on the office switches, punch-ins on the two emphasis lines. */
+const WHIPS = [{ f: RF(53.583), dir: 1 }, { f: F(86.917), dir: -1 }];
+const PUNCH = [RF(59.18), F(80.7)];
 const Shot: React.FC<{ cutout?: boolean }> = ({ cutout }) => {
   const frame = useCurrentFrame();
-  const sc = camera(Math.min(frame, CUT - 1));
-  const style: React.CSSProperties = { position: "absolute", left: 0, top: 0, width: 1080, height: 1920, transform: `scale(${sc})`, transformOrigin: "50% 36%" };
-  return cutout ? (
-    <OffthreadVideo src={staticFile("cutouts/s20-cut.webm")} transparent muted style={style} />
-  ) : (
-    <OffthreadVideo src={staticFile("footage/s20-cut.mp4")} style={style} />
+  let sc = camera(Math.min(cutF(frame), CUT - 1));
+  for (const p of PUNCH) if (frame >= p) sc += 0.09 * Math.exp(-(frame - p) / 7);
+  let wx = 0, wb = 0;
+  for (const w of WHIPS) { const k = Math.max(0, 1 - Math.abs(frame - w.f) / 6); wx += (frame < w.f ? -1 : 1) * w.dir * k * 80; wb += k * 18; sc += k * 0.2; }
+  const style: React.CSSProperties = { position: "absolute", left: 0, top: 0, width: 1080, height: 1920, transform: `translateX(${wx}px) scale(${sc})`, transformOrigin: "50% 36%", filter: wb > 0.5 ? `blur(${wb}px)` : undefined };
+  const v = (trim: number) => cutout
+    ? <OffthreadVideo src={staticFile("cutouts/s20-cut.webm")} transparent muted trimBefore={trim} style={style} />
+    : <OffthreadVideo src={staticFile("footage/s20-cut.mp4")} muted trimBefore={trim} style={style} />;
+  return (
+    <>
+      <Sequence durationInFrames={GA}>{v(0)}</Sequence>
+      <Sequence from={GA} durationInFrames={GAPF}><Freeze frame={0}>{v(GA - 1)}</Freeze></Sequence>
+      <Sequence from={GA + GAPF}>{v(GA)}</Sequence>
+    </>
   );
 };
 
@@ -184,32 +203,6 @@ const BehindWords: React.FC = () => {
 // ---------------------------------------------------------------------------------------------------
 // 3D product cards and chips (band y 960-1500)
 
-const Card3D: React.FC<{ src: string; a: number; b: number; w: number; x?: number; y: number; label?: string; from?: "left" | "right"; z?: number; dim?: number; tilt?: number }> = ({ src, a, b, w, x = 540, y, label, from = "right", z = 0, dim = 0, tilt = 0 }) => {
-  const frame = useCurrentFrame();
-  if (frame < a - 1 || frame > b) return null;
-  const p = sp(frame, a, 15, 120);
-  const o = life(frame, a, b, 8, 10);
-  const dir = from === "right" ? 1 : -1;
-  const ry = (1 - p) * 70 * dir + Math.sin((frame - a) / 30) * 4 + tilt;
-  const rx = 6 + Math.cos((frame - a) / 36) * 2;
-  const sweep = interpolate(frame, [a + 12, a + 36], [-40, 140], clamp);
-  return (
-    <div style={{ position: "absolute", left: x - w / 2, top: y, width: w, perspective: 1400, opacity: o * (1 - dim * 0.35) }}>
-      <div style={{ transform: `translateX(${(1 - p) * 520 * dir}px) translateZ(${z - (1 - p) * 300}px) rotateY(${ry}deg) rotateX(${rx}deg) scale(${1 - dim * 0.12})`, transformStyle: "preserve-3d" }}>
-        {label && (
-          <div style={{ display: "inline-flex", alignItems: "center", gap: 10, marginBottom: 14, padding: "10px 22px", borderRadius: 40, background: "rgba(22,14,48,0.82)", border: "1.5px solid rgba(196,181,253,0.5)", color: W, fontFamily: FONT_UI, fontWeight: 700, fontSize: 30, letterSpacing: "-0.01em", boxShadow: "0 10px 30px rgba(10,6,24,0.4)" }}>
-            <div style={{ width: 12, height: 12, borderRadius: 12, background: VIOLET, boxShadow: `0 0 12px ${VIOLET}` }} />
-            {label}
-          </div>
-        )}
-        <div style={{ position: "relative", borderRadius: 26, padding: 16, background: "rgba(255,255,255,0.97)", boxShadow: "0 40px 80px rgba(12,6,30,0.5), 0 0 0 1.5px rgba(139,92,246,0.35)", overflow: "hidden" }}>
-          <Img src={staticFile(`s20/${src}.png`)} style={{ width: "100%", display: "block", borderRadius: 14 }} />
-          <div style={{ position: "absolute", inset: 0, background: `linear-gradient(110deg, transparent ${sweep - 18}%, rgba(255,255,255,0.55) ${sweep}%, transparent ${sweep + 18}%)`, pointerEvents: "none" }} />
-        </div>
-      </div>
-    </div>
-  );
-};
 
 const Chip: React.FC<{ a: number; b: number; icon: string; text: string; tone?: "amber" | "purple" | "green" | "dark"; x?: number; y: number; strike?: number; size?: number }> = ({ a, b, icon, text, tone = "amber", x = 540, y, strike, size = 40 }) => {
   const frame = useCurrentFrame();
@@ -395,21 +388,6 @@ const LogoCut: React.FC = () => {
   );
 };
 
-const MonthCut: React.FC = () => {
-  const frame = useCurrentFrame();
-  const a = F(73.15), b = F(74.4);
-  const p = sp(frame, a, 12, 150);
-  return (
-    <Stage a={a} b={b}>
-      <AbsoluteFill style={{ alignItems: "center", justifyContent: "center", perspective: 1000 }}>
-        <div style={{ transform: `rotateX(${(1 - p) * 70}deg) scale(${0.85 + 0.15 * p})`, textAlign: "center", fontFamily: FONT_DISPLAY, color: W, marginTop: -150 }}>
-          <div style={{ fontSize: 46, fontWeight: 700, color: VIOLET, letterSpacing: "0.12em" }}>GENTLE DENTAL</div>
-          <div style={{ fontSize: 150, fontWeight: 800, letterSpacing: "-0.05em", lineHeight: 0.95, backgroundImage: `linear-gradient(180deg, ${W}, ${VIOLET})`, WebkitBackgroundClip: "text", color: "transparent" }}>One month<br />later</div>
-        </div>
-      </AbsoluteFill>
-    </Stage>
-  );
-};
 
 const EndCard: React.FC = () => {
   const frame = useCurrentFrame();
@@ -457,26 +435,24 @@ const Product: React.FC = () => (
   <>
     {/* Act 1 */}
     <Emails />
-    <Chip a={F(20.3)} b={F(22.5)} icon={ICON.alert} text="Completion note: not received" y={1240} size={40} />
+    <InboxSearch a={F(14.6)} b={F(21.3)} typeAt={F(15.0)} resAt={F(16.6)} emptyAt={F(20.45)} />
     <OnHold />
     <FaxPage />
     <Scatter />
-    {/* "Messages, X-rays, insurance, the signed note. All on the case." */}
-    <Card3D src="messages" a={F(61.0)} b={F(61.62)} w={900} y={1000} label="Messages with Gentle Dental" />
-    <Card3D src="xrays" a={F(61.62)} b={F(62.26)} w={520} y={980} label="X-rays on the case" from="left" />
-    <Card3D src="insurance" a={F(62.26)} b={F(63.0)} w={760} y={990} label="Insurance cards" />
-    <Card3D src="signed" a={F(63.0)} b={F(64.0)} w={900} y={1150} label="Signed note" from="left" />
-    <Card3D src="activity" a={F(64.0)} b={F(66.35)} w={900} y={1020} label="One case · every step, both offices" />
-    <Chip a={F(65.1)} b={F(66.35)} icon={ICON.check} text="Gentle Dental sees it too" tone="green" y={1440} size={36} />
-    <Card3D src="invite" a={F(66.4)} b={F(68.9)} w={420} y={960} label="Invite your network" from="left" />
-    <Chip a={F(68.9)} b={F(70.7)} icon={ICON.send} text="Invite sent to Gentle Dental" tone="green" y={1240} />
+    {/* "Messages, X-rays, insurance, the signed note. All on the case. Gentle Dental sees it too." */}
+    <SarahCase a={F(60.9)} b={F(66.35)} msg={F(61.0)} xr={F(61.66)} ins={F(62.3)} sig={F(63.06)} all={F(64.0)} sees={F(65.1)} />
+    <Sparkle at={F(65.15)} x={540} y={925} />
+    <InviteFlow a={F(66.4)} b={F(70.75)} typeAt={F(66.8)} sendAt={F(68.66)} />
+    <Sparkle at={F(68.7)} x={760} y={1380} color="#5EE6A8" />
     <Chip a={F(70.85)} b={F(72.95)} icon={ICON.calendar} text="Set up in about 5 minutes" tone="purple" y={1240} />
+    <MonthLater a={F(73.15)} b={GA + GAPF + 4} />
     {/* Act 2 */}
-    <Card3D src="signed" a={F(80.6)} b={F(83.0)} w={900} y={1080} label="Signed note · on the case" />
-    <Card3D src="done_toast" a={F(81.2)} b={F(83.0)} w={520} x={640} y={1330} from="left" />
-    <Chip a={F(83.8)} b={F(85.3)} icon={ICON.chat} text="Phone tag" tone="amber" y={1240} strike={F(84.7)} />
-    <Chip a={F(85.3)} b={F(86.9)} icon={ICON.check} text="All on Tooth Referral" tone="purple" y={1240} />
-    <Card3D src="status" a={F(87.6)} b={F(89.95)} w={360} y={960} label="Shared status" />
+    <DavidCase a={F(80.6)} b={F(83.65)} copyAt={F(82.2)} />
+    <Sparkle at={F(82.35)} x={540} y={1460} color="#5EE6A8" />
+    <Chip a={F(83.75)} b={F(84.95)} icon={ICON.chat} text="Phone tag" tone="amber" y={1240} strike={F(84.7)} />
+    <FollowUp a={F(84.95)} b={F(86.9)} />
+    <ReferralList a={F(87.6)} b={F(90.0)} />
+    <LightLeak at={RF(53.45)} /><LightLeak at={RF(59.85)} /><LightLeak at={GA + GAPF - 6} /><LightLeak at={F(86.8)} /><LightLeak at={END_AT - 4} dur={22} />
   </>
 );
 
@@ -486,13 +462,20 @@ const Sfx: React.FC = () => {
       <Audio src={staticFile(`audio/sfx/${f}.wav`)} volume={v} />
     </Sequence>
   );
+  const g = (f: string, at: number, v = 0.22) => (
+    <Sequence from={at} durationInFrames={RF(2)}>
+      <Audio src={staticFile(`audio/sfx/${f}.wav`)} volume={v} />
+    </Sequence>
+  );
   return (
     <>
+      {[0, 6, 12, 18, 24, 30, 36, 42].map((k, i) => <React.Fragment key={k}>{g(`tick-${(i % 7) + 1}`, GA + k, 0.14)}</React.Fragment>)}
+      {g("whoosh-short", GA + 48, 0.25)}{g("chime", GA + 62, 0.22)}
       {s("pop-1", 5.0, 0.25)}{s("pop-2", 5.5, 0.25)}{s("blip-1", 20.3, 0.3)}{s("thud", 31.45, 0.35)}{s("tick-3", 32.2, 0.25)}
       {s("whoosh-short", 43.6, 0.3)}{s("impact", 44.3, 0.25)}{s("pop-3", 50.2, 0.22)}{s("riser", 59.0, 0.25)}{s("shimmer", 59.95, 0.35)}
-      {s("whoosh-short", 61.0, 0.28)}{s("whoosh-short", 61.62, 0.24)}{s("whoosh-short", 62.26, 0.24)}{s("whoosh-short", 63.0, 0.24)}
+      {s("whoosh-short", 60.9, 0.28)}{s("pop-1", 61.66, 0.2)}{s("pop-2", 62.3, 0.2)}{s("chime", 63.06, 0.22)}{s("whoosh-short", 53.5, 0.3)}{s("whoosh-short", 86.85, 0.3)}{s("impact", 59.18, 0.2)}
       {s("chime", 65.1, 0.28)}{s("whoosh-short", 66.4, 0.25)}{s("chime", 68.9, 0.3)}{s("whoosh-long", 73.1, 0.3)}
-      {s("whoosh-short", 80.6, 0.26)}{s("chime", 81.2, 0.28)}{s("click", 84.7, 0.35)}{s("pop-1", 85.3, 0.28)}{s("shimmer", END_AT / FPS, 0.35)}
+      {s("whoosh-short", 80.6, 0.26)}{s("click", 82.2, 0.3)}{s("chime", 82.35, 0.28)}{s("whoosh-short", 84.95, 0.24)}{s("whoosh-short", 87.6, 0.24)}{s("click", 84.7, 0.35)}{s("pop-1", 85.3, 0.28)}{s("shimmer", END_AT / FPS, 0.35)}
     </>
   );
 };
@@ -520,11 +503,12 @@ export const S20Story: React.FC = () => (
       <Product />
       <WaitCut />
       <LogoCut />
-      <MonthCut />
       <EndCard />
       <Captions />
       <Grain />
-      <Audio src={staticFile("audio/music/s13-bed.wav")} volume={0.07} loop />
+      <Sequence durationInFrames={GA}><Audio src={staticFile("audio/voice/s20-mix.wav")} /></Sequence>
+      <Sequence from={GA + GAPF}><Audio src={staticFile("audio/voice/s20-mix.wav")} trimBefore={GA} /></Sequence>
+      <Audio src={staticFile("audio/music/s13-bed.wav")} volume={(f) => (f >= GA && f < GA + GAPF ? 0.16 : 0.07)} loop />
       <Sfx />
     </AbsoluteFill>
   </FontGate>
