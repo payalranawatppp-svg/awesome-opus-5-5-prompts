@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ToothReferral Platform Audit</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root { --accent:#7959F5; --ink:#1f2330; --muted:#5d6475; --line:#e6e3f5; --soft:#f5f2ff; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:#fff; color:var(--ink); font-family:Inter, Arial, sans-serif; font-size:11pt; line-height:1.5; }
+  .page { max-width:900px; margin:0 auto; padding:40px 48px; page-break-after:always; break-after:page; }
+  .page:last-child { page-break-after:auto; break-after:auto; }
+  h1 { font-size:34pt; margin:0 0 8px; color:var(--accent); letter-spacing:-0.5px; }
+  h2 { font-size:19pt; color:var(--accent); border-bottom:3px solid var(--accent); padding-bottom:6px; margin:0 0 18px; }
+  h3 { font-size:13pt; margin:22px 0 6px; color:var(--ink); }
+  h4 { font-size:11pt; margin:14px 0 4px; color:var(--accent); }
+  p { margin:6px 0 10px; }
+  ul { margin:4px 0 10px; padding-left:20px; }
+  li { margin:2px 0; }
+  .muted { color:var(--muted); }
+  .tag { display:inline-block; background:var(--soft); color:var(--accent); border:1px solid var(--line); border-radius:999px; padding:1px 9px; font-size:9pt; margin:2px 3px 2px 0; }
+  .box { background:var(--soft); border-left:4px solid var(--accent); padding:10px 14px; border-radius:6px; margin:10px 0; }
+  .ref { font-size:9pt; color:var(--muted); font-style:italic; }
+  table { width:100%; border-collapse:collapse; margin:8px 0 14px; font-size:10pt; }
+  th { background:var(--accent); color:#fff; text-align:left; padding:6px 8px; font-weight:600; }
+  td { border-bottom:1px solid var(--line); padding:6px 8px; vertical-align:top; }
+  tr:nth-child(even) td { background:#fbfaff; }
+  .cover { display:flex; flex-direction:column; justify-content:center; min-height:900px; }
+  .cover .bar { width:90px; height:8px; background:var(--accent); border-radius:4px; margin-bottom:24px; }
+  .tree { font-family:"SFMono-Regular",Consolas,monospace; font-size:10pt; background:#fbfaff; border:1px solid var(--line); border-radius:8px; padding:14px 18px; white-space:pre; line-height:1.55; }
+  .section { border:1px solid var(--line); border-radius:10px; padding:4px 18px 10px; margin:14px 0; }
+  .num { color:var(--accent); font-weight:700; }
+  @media print { .page { padding:24px 28px; } body { font-size:10pt; } }
+</style>
+</head>
+<body>
+
+<!-- 1. COVER -->
+<div class="page cover">
+  <div class="bar"></div>
+  <h1>ToothReferral Platform Audit</h1>
+  <p style="font-size:14pt;margin:0 0 30px" class="muted">Read-only feature audit for the video &amp; marketing team</p>
+  <table style="max-width:560px">
+    <tr><td><b>Audit date</b></td><td>Thursday, 12 November 2026</td></tr>
+    <tr><td><b>Environment</b></td><td>dev.toothreferral.com (logged-in session)</td></tr>
+    <tr><td><b>Account type</b></td><td>General dental office (specialty shown: General Dentistry). Signed-in user role: Associate Dentist. One office in the company.</td></tr>
+    <tr><td><b>Mode</b></td><td>Read-only. No data saved, sent, updated or deleted. New Referral excluded.</td></tr>
+  </table>
+  <h3>GIFs recorded</h3>
+  <table style="max-width:560px">
+    <tr><th>File</th><th>Covers</th></tr>
+    <tr><td>01_Analytics.gif</td><td>Analytics: Received/Sent toggle, filters, tooltips, all panels</td></tr>
+    <tr><td>02_Referrals_Lists.gif</td><td>Incoming, Outgoing, Cases Completed</td></tr>
+    <tr><td>03_Referral_Detail.gif</td><td>One referral: Details, Messages, Edit Referral (cancelled)</td></tr>
+    <tr><td>04_Notifications.gif</td><td>All / Unread / Read tabs and filters</td></tr>
+    <tr><td>05_Notes_and_Lead_Forms.gif</td><td>Note templates editor, Website Lead Forms builders</td></tr>
+    <tr><td>06_Settings_and_Offices.gif</td><td>Company Settings, Dental Team, Referral Access Code, Memberships, My Settings, Office Details</td></tr>
+    <tr><td>07_Top_Bar_and_Chat.gif</td><td>Day-Prep Station, Invite your Network, user menu, Contact support, AI help box</td></tr>
+  </table>
+  <p class="ref">Privacy: patients are shown as Patient A, B…, partner practices as Office A, B…, and people by role. Aggregate counts are reproduced as seen on screen.</p>
+</div>
+
+<!-- 2. OVERVIEW -->
+<div class="page">
+  <h2>2. Platform overview</h2>
+  <h3>What the product does</h3>
+  <p>ToothReferral (tagline on the logo: <i>"Just Refer it"</i>) is a dental referral workspace. One account sees referrals it <b>receives</b> (Incoming) and referrals it <b>sends</b> (Outgoing), with each referral holding the patient, the requested procedures, X-rays and documents, insurance cards, signed notes, a two-office message thread, a status, and an activity log. Around that core sit analytics, notifications, note templates, embeddable website forms that bring referrals and leads in, and team/office settings.</p>
+  <h3>Who uses it</h3>
+  <ul>
+    <li><b>General dental offices</b> — send patients to specialists and track whether the patient was contacted, scheduled and treated ("Closing the loop", "Patient leakage").</li>
+    <li><b>Specialist offices</b> — receive referrals, work them through call statuses, and send back consultation/completion notes. The embed builder is titled "Referral Web Form for Dental Specialists".</li>
+    <li><b>Front desk and office managers</b> — work the status chips (Left a Voicemail, Callback Requested…), request insurance from the patient, and see "Needs attention" items. Analytics tracks staff log-ins, time in app and changes per person.</li>
+    <li><b>Dentists</b> — @mentioned in case messages, sign notes, prepare their day in the Provider's Day-Prep Station.</li>
+  </ul>
+  <h3>How a referral moves from received to completed</h3>
+  <div class="box">
+    <b>Created / sent</b> by the referring office (or via the website embed) → appears as <b>New</b> at the receiving office → staff work contact statuses (<i>Left a Voicemail, Voicemail Not Set Up, Callback Requested, In Progress, Unable to Contact, Other</i>) → <b>Consultation Scheduled</b> → <b>Consultation Completed</b> (consultation note signed) → <b>Spoke with Patient / Scheduled</b> → <b>Completed</b> (completion note sent back). Exit statuses: <b>Cancelled, Declined Appointment, Referred Out</b>.
+  </div>
+  <p>The example referral's activity log showed this sequence: new referral created → secure insurance request sent to patient → patient submitted insurance → consultation scheduled → consultation completed → a document added.</p>
+  <p class="ref">Screens: 02_Referrals_Lists.gif, 03_Referral_Detail.gif</p>
+</div>
+
+<!-- 3. NAV MAP -->
+<div class="page">
+  <h2>3. Navigation map</h2>
+<div class="tree">Top bar
+├─ Page title
+├─ Office label (Davis General Dentistry — single office, not a dropdown here)
+├─ Provider's Day-Prep Station (full-screen view)
+├─ Invite your Network (modal: Copy Template · Manual Entry · Upload CSV)
+├─ New Referral  ← EXCLUDED
+├─ User menu: Profile Picture · Push Notifications · Account Settings · Help &amp; Support · Sign out
+└─ Ask ToothReferral box: Try asking chips · Places list
+
+Left sidebar
+├─ Analytics
+│   ├─ Received view (default)
+│   └─ Sent view
+├─ Referrals
+│   ├─ Incoming
+│   ├─ Outgoing
+│   └─ Cases Completed
+│       └─ Referral (View)
+│           ├─ Details tab
+│           ├─ Messages tab
+│           └─ Edit Referral screen
+├─ Notifications (badge: 27)
+│   ├─ All · Unread (27) · Read
+│   └─ Filters: Audience · Type · Search
+├─ Notes
+│   └─ Case Communication Templates → Create Completion Note Template (modal)
+├─ Website Lead Forms
+│   ├─ Build a Lead Generating Referral Form  [LIVE]
+│   │   └─ tabs: 1. Demographic Information · 2. Procedures
+│   └─ Build a Lead-Generating Contact Us Page  [NEW] [LIVE]
+├─ Settings
+│   ├─ Company Settings
+│   ├─ Dental Team
+│   ├─ Referral Access Code
+│   ├─ Memberships
+│   └─ My Settings
+└─ Offices
+    └─ Details
+
+Floating button (bottom right) → Contact support dialog</div>
+</div>
+
+<!-- 4. SECTION DETAIL -->
+<div class="page">
+  <h2>4. Section-by-section feature detail</h2>
+
+  <div class="section">
+  <h3>4.1 Analytics — Received view</h3>
+  <p><b>Purpose:</b> show a receiving office how many referrals arrive, how fast staff respond, and where patients drop out.</p>
+  <h4>Controls</h4>
+  <ul>
+    <li><b>Received / Sent toggle</b> with counts (Received 9, Sent 3).</li>
+    <li><b>Date range:</b> Period — Last 7 days, Last 30 days (default), Last 90 days, Quarter to date, Year to date, Last 12 months, Custom range. Granularity — D, W, M, Q, Y.</li>
+    <li><b>Specialty filter:</b> All specialties, General Dentistry.</li>
+    <li><b>Export PDF</b> — seen, not clicked.</li>
+  </ul>
+  <h4>KPI cards (tooltip text as shown)</h4>
+  <table>
+    <tr><th>Card</th><th>Value seen</th><th>Tooltip</th></tr>
+    <tr><td>Volume received</td><td>9 (→ 0% vs prior)</td><td>Total referrals received in the selected period</td></tr>
+    <tr><td>Time to first contact</td><td>10.3 h</td><td>Median wall-clock from receipt to first patient contact</td></tr>
+    <tr><td>Case acceptance</td><td>0 %</td><td>Cohort conversion received → scheduled → completed</td></tr>
+    <tr><td>Ghost rate</td><td>0 %</td><td>Patients we could not reach (voicemail / no callback)</td></tr>
+  </table>
+  <h4>Panels</h4>
+  <ul>
+    <li><b>Top senders</b> — "Practices sending you referrals · click any row to see what they sent". Six offices with count and %. Clicking a row opens a side drawer listing that office's referrals (patient initials, specialty, age) and "View all referrals".</li>
+    <li><b>Top procedures</b> — Crown Recementation 4 (40%), Implant Restoration 2, Sleep Appliance 2, New Patient Dental Exam and Dental Cleaning 1, Second opinion 1.</li>
+    <li><b>Volume received</b> chart — daily receipts, Current vs Prior period.</li>
+    <li><b>Referral funnel</b> — Received 9 (100%) → Contacted 4 (44%, 5 dropped · 56% leak) → Scheduled 1 (11%, 75% leak) → Completed 0 (100% leak). Conversion 0%.</li>
+    <li><b>Lifecycle clocks</b> — Time to first contact 10.3 h, Time to schedule 0 h, Time to completion (No data yet · Awaiting events), Waiting while scheduled 0 h, Open referrals age 9.7 days. Solid line = this period, dashed = previous.</li>
+    <li><b>Consultation cards</b> — Consultations scheduled 3, Consult to completion 6 d, Referrals to consultation 33%, Consultations completed 100%; plus a Consultations scheduled chart.</li>
+    <li><b>Needs attention</b> (read only) — "1 scheduled appointments past appointment date · no completion note" [Mark complete]; "0 ghost referrals — patients we have not reached · 3+ attempts logged" [Re-assign]; "0 insurance requests outstanding · older than 48 h" [Send reminder]. Action links not clicked.</li>
+    <li><b>Staff responsiveness</b> — Staff, Log-ins, Avg time, Changes for each team member (Associate Dentist 19 / 31m / 18; Office Manager 2 / 11m / 8; Dental Assistant 2 / 16m / 8).</li>
+    <li><b>Referral outcomes</b> donut — Awaiting contact, Working, Consultation, Scheduled, Completed, Closed w/o completion.</li>
+    <li><b>Referral sources</b> donut — Embed widget, Network, Manual (Network 9 = 100%).</li>
+    <li><b>Status board</b> — "Where referrals sit right now": one card per status with count, average and longest age, and the oldest cases listed by patient initials and referring doctor. Completed, Cancelled, Declined Appointment and Referred Out show "Last 30 days" totals.</li>
+  </ul>
+  <p><b>Problem solved:</b> no visibility of slow first contact, lost referrals and staff workload; the funnel's "leak" numbers make drop-off concrete.</p>
+  <p class="ref">01_Analytics.gif</p>
+  </div>
+
+  <div class="section">
+  <h3>4.2 Analytics — Sent view</h3>
+  <p><b>Purpose:</b> show a referring office what happens to patients it sends out.</p>
+  <table>
+    <tr><th>Card</th><th>Value</th><th>Tooltip</th></tr>
+    <tr><td>Volume sent</td><td>3</td><td>Total referrals sent in the selected period</td></tr>
+    <tr><td>Recipient turnaround</td><td>0.4 h</td><td>Median wall-clock from us sending to the specialist's first contact with the patient</td></tr>
+    <tr><td>Loop closure</td><td>33 %</td><td>Share of sent referrals that reached completion</td></tr>
+    <tr><td>Patient leakage</td><td>67 %</td><td>Sent referrals where the patient was never scheduled by the recipient</td></tr>
+  </table>
+  <ul>
+    <li><b>Volume sent</b> chart with <b>Specialty mix</b> bar (Oral Surgeon 67%, Endodontist 33%).</li>
+    <li><b>Closing the loop</b> funnel — Sent 3 → Contacted 1 → Scheduled 1 → Completed 1 (33%).</li>
+    <li><b>Lifecycle clocks</b> — Recipient first contact, Time to schedule, Time to completion, Completion note return (No data yet), Waiting after sending.</li>
+    <li><b>Where referrals go</b> — top destination offices, click to see referrals.</li>
+    <li><b>Most responsive offices</b> — median first-contact time per specialist office.</li>
+    <li><b>Needs attention</b> — outgoing referrals stuck with no recipient response (older than 24 h) [Reassign / nudge]; completed appointments missing completion notes (older than 14 d) [Request signed PDF]; patients lost in transit [Open list]; specialists with no reciprocal referrals in 90 days, asymmetry ≥ 5:1 [Review relationship].</li>
+    <li><b>Status board</b> adds a <b>Draft</b> column and labels new outgoing items <b>Sent</b>.</li>
+  </ul>
+  <p><b>Problem solved:</b> patients who never make it to the specialist; one-sided referral relationships.</p>
+  <p class="ref">01_Analytics.gif</p>
+  </div>
+</div>
+
+<div class="page">
+  <div class="section">
+  <h3>4.3 Referrals — Incoming</h3>
+  <p><b>Purpose:</b> work list of referrals received.</p>
+  <ul>
+    <li><b>Search:</b> "Search patients, DOB, referring office, or receiving office".</li>
+    <li><b>Status filter:</b> All referrals, Active, New, Received, Consultation Scheduled, Consultation Completed, Scheduled, Left a Voice Message, Voicemail Not Set Up, Other, Callback Requested, In Progress, Completed, Cancelled, Referred Out, Unable to Contact, Declined Appointment, Amended.</li>
+    <li><b>Received filter:</b> All months, November 2026, October 2026.</li>
+    <li><b>Show archived</b> checkbox; <b>Add patient</b> button (not clicked).</li>
+    <li><b>Columns:</b> checkbox, Patient Name, DOB, Referring Office, Receiving Office, Status, Received (sortable, newest first), Last Update (sortable), actions View · Archive.</li>
+    <li><b>Badges:</b> "@ n" purple badge = unread @mentions on that case; green dot = <b>Connected Network Member</b> (legend at top); a <b>Signed Referral</b> link under some rows; some rows bold/tinted.</li>
+    <li><b>Status pills seen:</b> New, Consultation completed. Pagination "Showing 1 to 8 of 8 results".</li>
+  </ul>
+  <h4>What the two labels mean</h4>
+  <ul>
+    <li><b>Connected Network Member</b> — the referral card and list show it under the referring practice's name with a green dot; the practice is a ToothReferral member connected to this office.</li>
+    <li><b>Signed Referral</b> — on the referral, "Signed notes · Visible to both offices" lists a "Referral" item "Signed … by [Owner Dentist]". The list link points to that signed document (seen, not opened).</li>
+  </ul>
+  <p><b>Problem solved:</b> lost referrals and fax piles — one searchable list with status and who sent it.</p>
+  <p class="ref">02_Referrals_Lists.gif</p>
+  </div>
+
+  <div class="section">
+  <h3>4.4 Referrals — Outgoing</h3>
+  <ul>
+    <li>Search "Search patients, DOB, or office"; Status filter; <b>Sent</b> month filter; Show archived.</li>
+    <li>Columns: Patient Name, DOB, Receiving Office, Status, Sent (sortable), Last Update (sortable), View · Archive.</li>
+    <li>Status list: All referrals, Active, Sent, Draft, Sent, Consultation Scheduled, Consultation Completed, Scheduled, Left a Voice Message, Voicemail Not Set Up, Other, Callback Requested, In Progress, Completed, Cancelled, Referred Out, <b>Referred Out - Forward</b>, Unable to Contact, Declined Appointment, Amended.</li>
+    <li>An envelope icon appears beside one patient's name (meaning not labelled — see Open questions).</li>
+  </ul>
+  <p class="ref">02_Referrals_Lists.gif</p>
+  </div>
+
+  <div class="section">
+  <h3>4.5 Referrals — Cases Completed</h3>
+  <p>Header: "Browse before &amp; after outcomes from your patients' specialist visits." Empty state: "No completed cases yet. Once a specialist marks a referral you sent as completed, it will show up here."</p>
+  <p><b>Problem solved:</b> the referring dentist sees the outcome of work they sent out.</p>
+  <p class="ref">02_Referrals_Lists.gif</p>
+  </div>
+</div>
+
+<div class="page">
+  <div class="section">
+  <h3>4.6 Inside a referral (Patient A) — Details tab</h3>
+  <p>Top actions: Back to Referrals · <b>Edit Referral</b> · <b>Download PDF for patient</b> (seen, not downloaded) · <b>Delete Referral</b> (not clicked). Tabs: Details · Messages (badge 4).</p>
+  <ul>
+    <li><b>Patient block:</b> Referred to (office + dentist); Patient Name, DOB, Age, Preferred pronoun, Gender, Dental Insurance Company, Patient's Phone, Patient's Email.</li>
+    <li><b>Referral Status:</b> "Status and requested treatment for this referral." Type pill (Routine), Chief Complaint, "Please consult and treat" with numbered procedures (e.g. Crown Recementation with Diagnosis: tooth #, Sleep Appliance).</li>
+    <li><b>Attachments:</b> "Imaging, documents, and signed notes shared with both offices." X-rays (count, thumbnail, file name, date, Download, Edit X-rays) and Documents (Edit Documents; "No documents attached").</li>
+    <li><b>Signed notes</b> — "Visible to both offices." Referral (Signed by Owner Dentist: View, Download) and Consultation Note (Signed by Associate Dentist: View, Rename, Edit, Download).</li>
+    <li><b>Insurance cards (1)</b> — "Primary / secondary cards for this patient." + Add card, Request from patient ("Last requested 24 days ago"). Card: PRIMARY, Submitted by Staff, Edit, Delete, FRONT image, back "missing", Policy, Group, Subscriber, Subscriber DOB, Employer, Insurance Company.</li>
+    <li><b>Activity log</b> — time-stamped actions by person (created, insurance request sent, insurance submitted, status changes, document added).</li>
+    <li><b>All Attachments</b> — "Every image and file on this referral, in one place. Drag any card to set the order specialists and exports will see." "Order saved automatically".</li>
+    <li><b>Primary Referral Source</b> card — practice logo, name, Connected Network Member, Address, Phone, Email.</li>
+  </ul>
+  <h4>Right column</h4>
+  <ul>
+    <li><b>Office Communication</b> — "Messaging with [referring office]", Expand, "4 unread @mentions" badge, Mark all as read (not clicked), threaded messages with name, office, role and time, quoted replies, highlighted @mentions; composer with @ and emoji buttons, "Enter to send · Shift+Enter for new line" (nothing typed).</li>
+    <li><b>Status &amp; Schedule</b> — "Update referral status, call the office, or schedule an appointment." Link: Email notification settings. Status chips (current one outlined): Received, Consultation Scheduled, Consultation Completed, Spoke with Patient / Scheduled, Left a Voicemail, Voicemail Not Set Up, Callback Requested, In Progress, Completed, Cancelled, Referred Out, Unable to Contact, Declined Appointment, Other. Checkbox <b>Hide Note Creator</b>: "Don't prompt for a note when changing to Completed, Cancelled, or Consultation Completed. You can still use Create a Note." Buttons: Schedule, Create a Note. <i>Chips were not clicked — clicking would change the status.</i></li>
+    <li><b>Administrative Notes</b> — "Company-private notes. Not shared with other parties." "No notes yet".</li>
+    <li>Footer: "All communications are HIPAA compliant and encrypted · Secure · Last updated".</li>
+  </ul>
+  <p><b>Problems solved:</b> missing X-rays, chasing insurance (patient self-submits via secure link), phone tag (status chips + messages), unsigned paperwork.</p>
+  <p class="ref">03_Referral_Detail.gif</p>
+  </div>
+
+  <div class="section">
+  <h3>4.7 Messages tab</h3>
+  <p>Left: <b>Referral snapshot</b> (patient, status pill, From, To, Type, "Open full details →"). Right: full-width Office Communication thread with the same composer and HIPAA footer.</p>
+  <p class="ref">03_Referral_Detail.gif</p>
+  </div>
+
+  <div class="section">
+  <h3>4.8 Edit Referral screen (opened, then Cancel)</h3>
+  <p>Warning banner: "This referral has been signed. Saving changes will clear the signature and require re-signing."</p>
+  <ul>
+    <li>Patient Information: First Name*, Last Name*, Email*, Phone*, Date of Birth* (locked), Gender (Male, Female, Other), Pronouns (he/him, she/her, they/them, Other), Guardian Name.</li>
+    <li>Referral Details: Referral Type (Routine, Urgent, Symptomatic, Elective, Consultation, Treatment, Consultation and Treatment); Contact Preference* (Patient will contact, Contact patient, Contact guardian); Preferred Contact Methods (Email, Phone, Text); Chief Complaint; Additional Notes; Edit Message (optional) "Add a note about these changes".</li>
+    <li>Buttons: Cancel (used) · Save Changes (not clicked).</li>
+  </ul>
+  <p class="ref">03_Referral_Detail.gif</p>
+  </div>
+</div>
+
+<div class="page">
+  <div class="section">
+  <h3>4.9 Notifications</h3>
+  <ul>
+    <li>Tabs: <b>All</b>, <b>Unread (27)</b>, <b>Read</b>. Mark all as read (not clicked). Select all + Mark as read (not used). Search notifications.</li>
+    <li><b>Audience:</b> All audiences, Company, Me.</li>
+    <li><b>Type:</b> All notifications, Status Notifications, Mentions, Insurance Submission, Case Correspondence.</li>
+    <li>Each row: expand arrow ▸, unread dot, icon (✦ activity / @ mention), title, preview text, age. "Showing 1 to 20 of 63 results", Previous/Next.</li>
+  </ul>
+  <h4>Event types seen</h4>
+  <p><span class="tag">sent message</span><span class="tag">mentioned you</span><span class="tag">mentioned you in a note</span><span class="tag">New referral created</span><span class="tag">sent completion note</span><span class="tag">consultation completed Referral</span><span class="tag">completed Referral</span><span class="tag">updated referral details</span><span class="tag">scheduled Referral (with appointment date)</span><span class="tag">consultation scheduled Referral (with date)</span><span class="tag">edited referral</span><span class="tag">sent secure insurance request to patient</span><span class="tag">in progress Referral</span><span class="tag">updated patient insurance</span><span class="tag">added patient insurance</span><span class="tag">updated reason group</span></p>
+  <p><b>Problem solved:</b> nothing slips because every case event from partner offices is in one feed.</p>
+  <p class="ref">04_Notifications.gif</p>
+  </div>
+
+  <div class="section">
+  <h3>4.10 Notes — Case Communication Templates</h3>
+  <p>"Build reusable note templates with smart variables that auto-fill patient data, doctor names, and more." Empty state: "No templates yet — Get started by creating your first completion note template, or upload an existing Word doc or PDF to import it."</p>
+  <p><b>Create from scratch</b> opens "Create Completion Note Template" (closed with Cancel):</p>
+  <ul>
+    <li>Template Title; <b>Used for</b>: General ("Any completion note."), Declined Appointment, Consultation Completed.</li>
+    <li>Template Content with <b>Show values / Show codes</b> toggle, <b>Template Tutorial</b>, <b>Import from Word / PDF</b>.</li>
+    <li>Rich-text toolbar: undo, bold, code, list, link, Paragraph, Size, lists, alignment, insert image, <b>Insert Variable…</b></li>
+    <li>Pre-filled sample letter ("Thank you for referring … to our office for treatment…").</li>
+    <li>Buttons: Reset to Default, Cancel, Create Completion Note Template.</li>
+  </ul>
+  <h4>Smart variables (exact list)</h4>
+  <p><span class="tag">Patient Name</span><span class="tag">Patient DOB</span><span class="tag">Referring Doctor Name</span><span class="tag">Referring Doctor Address</span><span class="tag">Referring Office Name</span><span class="tag">Receiving Doctor Name</span><span class="tag">Receiving Office Name</span><span class="tag">Referring Doctor Company Email</span><span class="tag">Receiving Doctor Company Email</span><span class="tag">Referring Doctor Company Phone Number</span><span class="tag">Receiving Doctor Company Phone Number</span><span class="tag">Specialty</span><span class="tag">Company Logo</span><span class="tag">X-ray Images</span><span class="tag">Completion Date</span><span class="tag">Today's Date</span><span class="tag">Declined Reason</span></p>
+  <p><b>Problem solved:</b> retyping completion letters for every case.</p>
+  <p class="ref">05_Notes_and_Lead_Forms.gif</p>
+  </div>
+
+  <div class="section">
+  <h3>4.11 Website Lead Forms <span class="muted">(not in the brief — found in sidebar)</span></h3>
+  <p>Banner: "Embed trial active. Your website referral embed is available until Dec 2, 2026. Upgrade to Pro to keep embeds after the trial." "Choose a web form — Configure and embed forms on your practice website from Office Management." <b>Disable embed</b> (not clicked).</p>
+  <h4>Build a Lead Generating Referral Form [LIVE]</h4>
+  <p>Title "Referral Web Form for Dental Specialists". Tabs 1. Demographic Information · 2. Procedures, with a <b>Live patient preview</b> ("Open in new tab →"). Options seen:</p>
+  <ul>
+    <li>Logo (ideal 800×400 or 400×400; PNG, SVG, JPEG, WebP; max 2 MB).</li>
+    <li>Welcome message: sample messages "Neighborhood dental home", "Community 'Cheers' atmosphere", or Create your own (rich text).</li>
+    <li>Insurance Accepted display: Show all accepted insurances / in-network only / out-of-network only / Don't show insurances.</li>
+    <li>"What we are known for!" skill tags (e.g. Bone Graft, Full Arch Implant Placement, Implant Restorations; long pick-list incl. IV Sedation, Same Day Crowns, Spanish, Therapy Dog…); Badge style Simple / Fun &amp; colorful.</li>
+    <li>Specialty &amp; Doctor Routing ("This company has only one dentist … Referrals will be routed to them automatically").</li>
+    <li>Toggles: Referral Status (ON), Chief Complaint (ON), Office Map (OFF), Membership Links (OFF), Send a Secure Link to the Patient (ON), Upload Information Manually (ON), Tooth Numbers (OFF), Pediatric Chart (OFF).</li>
+    <li>Buttons: Save, Get embed code (neither clicked).</li>
+  </ul>
+  <h4>Build a Lead-Generating Contact Us Page [NEW][LIVE]</h4>
+  <p>Title "Contact Us Web Form for General Dentists — Stop Losing Patients to Cluttered Websites: Transform Your Contact Page into a High-Converting Patient Funnel." Preview shows welcome message, insurance notice, Google map with Directions, known-for tags, and a "Ready to Schedule!" form starting with "Interested dental treatment".</p>
+  <p><b>Problem solved:</b> referrals and new-patient leads arriving by phone/fax or getting lost on the website. Feeds the "Embed widget" source in Analytics.</p>
+  <p class="ref">05_Notes_and_Lead_Forms.gif</p>
+  </div>
+</div>
+
+<div class="page">
+  <div class="section">
+  <h3>4.12 Settings — Company Settings</h3>
+  <ul>
+    <li>Company Logo upload (Upload Logo).</li>
+    <li><b>Company Inbound Email Notifications</b> — sends alerts to the company email for all account activity; ON. Warning: "Turning this off disables all email notifications, including new referrals, mentions, and all office communications."</li>
+    <li><b>Company Outbound Email Notifications</b> — "Customize which outbound email updates referring providers receive when a referral's status changes in your practice." Per-status toggles: Received, In Progress, Scheduled (ON), Consultation Scheduled, Consultation Completed, Completed (ON), Cancelled, Referred Out, Unable to Contact, Declined Appointment, Left a Voice Message, Callback Requested, Amended.</li>
+    <li>Other notifications: Mentions (ON), Completion Note (ON), Direct Messages (OFF), Patient Insurance Submitted (ON), New Contact Us Lead (ON).</li>
+    <li>Analytics Report: Weekly Analytics Report (ON), Monthly Analytics Report (PDF) (ON).</li>
+    <li>Insurance promo panel: "Stop Losing Referrals to the 'Do They Take My Insurance?' Question" — manage In-Network / Out-of-Network / Fee-for-Service. Add Insurance Provider, Add New Carrier, Save Settings (not clicked).</li>
+  </ul>
+  </div>
+
+  <div class="section">
+  <h3>4.13 Settings — Dental Team</h3>
+  <ul>
+    <li>"Manage your team and office assignments." "3 users, 1 doctors, 1 offices". Invite team member (not clicked).</li>
+    <li>Filters: Search by name or email, Office, Role, Sort (Name A→Z).</li>
+    <li>Columns: Doctor, Role, Specialty, Status, Offices, edit/delete icons.</li>
+    <li>Status badges: Active, <b>BAA Accepted [date]</b> with PDF link, In search.</li>
+    <li>Roles available: Associate Dentist, Office Manager, RDH, Front Desk, Dental Assistant, Sterilization Tech, Other.</li>
+    <li>Find-a-dentist listing legend: "In search — at least one insurance carrier on file…" / "Not listed — dentist does not appear in search until insurance is added."</li>
+  </ul>
+  </div>
+
+  <div class="section">
+  <h3>4.14 Settings — Referral Access Code</h3>
+  <p>"Company Access PIN": a PIN staff enter on another practice's ToothReferral-powered website to auto-fill the office's contact details without logging in; "All completed referral information will track directly back to your dashboard." Fields PIN (4–8 digits), Confirm PIN; Update PIN (not clicked).</p>
+  </div>
+
+  <div class="section">
+  <h3>4.15 Settings — Memberships</h3>
+  <p>"Manage your membership plans settings" with <b>Add New Plan</b> (not clicked). No plans listed. Linked to the "Membership Links" toggle on the embed form ("No Dental Insurance? View Membership Plans").</p>
+  </div>
+
+  <div class="section">
+  <h3>4.16 Settings — My Settings</h3>
+  <p>Upload Picture; First/Last Name, Email ("managed by your administrator"), Phone, Role (locked), Degree; Save Changes. Change Password (Old/New/Confirm). "Reset your password — We'll send a verification code to [masked email]" · Email me a reset code. Nothing changed.</p>
+  </div>
+
+  <div class="section">
+  <h3>4.17 Offices — Details</h3>
+  <p>Office Name, Street Address (Google address lookup), Suite, State, City, ZIP, Email, Phone, Fax, Save Changes; Manage Dental Team button; note "Email notifications for the main office are managed in Company Settings." Only one office exists, so there is no multi-location dropdown on this account.</p>
+  <p class="ref">06_Settings_and_Offices.gif</p>
+  </div>
+</div>
+
+<div class="page">
+  <div class="section">
+  <h3>4.18 Top bar</h3>
+  <ul>
+    <li><b>Provider's Day-Prep Station</b> — dark full-screen view with provider picker, "Today" label and date picker; empty state "No scheduled appointments for this day — Use the Schedule button on referrals to add appointments." Close.</li>
+    <li><b>Invite your Network</b> — "Invite multiple people from your referral network to join ToothReferral. When they sign up, each invitee will have you as a favorite…" Tabs: <b>Copy Template</b> (pre-written invitation email with sign-up link and benefits: Direct Collaboration, Centralized &amp; Secure, Real-Time Access, SEO &amp; Marketing; buttons Copy Invitation Template, Rotate Link), <b>Manual Entry</b> (Name, Email, + Add Another, Send Invitations), <b>Upload CSV</b> (upload/drag CSV, Download template, Send Invitations). Nothing sent.</li>
+    <li><b>User menu</b> — Profile Picture, Push Notifications, Account Settings, Help &amp; Support, Sign out (seen, not opened).</li>
+    <li><b>Ask ToothReferral</b> box — placeholder "Ask how to embed, forward, invite…". On focus: <i>Try asking</i> chips (How do I embed the form?, Forward a referral, Add a patient, Invite a provider, Can't find a patient?, Day-Prep for a scheduled referral, Open support chat) and <i>Places</i> quick links (Incoming Referrals, New Referral, Add a patient, Website Lead Forms, Invite your Network). Nothing submitted.</li>
+    <li><b>Notification bell</b> — no separate bell icon in the top bar; unread count shows as a red badge (27) on the sidebar Notifications item.</li>
+  </ul>
+  </div>
+  <div class="section">
+  <h3>4.19 Floating chat button</h3>
+  <p>Opens <b>Contact support</b>: From (user name), Email, Category (Technical, Billing, General question, Inquiries), Your message ("Please enter at least 3 characters"), Cancel, Send message. Closed with Cancel.</p>
+  <p class="ref">07_Top_Bar_and_Chat.gif</p>
+  </div>
+</div>
+
+<!-- 5. LIFECYCLE -->
+<div class="page">
+  <h2>5. The referral lifecycle</h2>
+  <table>
+    <tr><th>#</th><th>Status (as shown)</th><th>Meaning / trigger as seen</th></tr>
+    <tr><td>0</td><td>Draft</td><td>Outgoing only (Sent filter and Sent status board). Trigger not observed.</td></tr>
+    <tr><td>1</td><td>New (receiver) / Sent (sender)</td><td>Automatic when a referral is created — notification "New referral created"; activity log "new referral created for…".</td></tr>
+    <tr><td>2</td><td>Received</td><td>Manual chip. Company setting: "When a referral is first received by your office".</td></tr>
+    <tr><td>3</td><td>Left a Voicemail / Left a Voice Message</td><td>Manual chip — "When a voicemail is left for the patient".</td></tr>
+    <tr><td>4</td><td>Voicemail Not Set Up</td><td>Manual chip.</td></tr>
+    <tr><td>5</td><td>Callback Requested</td><td>Manual chip — "When a callback is requested".</td></tr>
+    <tr><td>6</td><td>In Progress</td><td>Manual chip.</td></tr>
+    <tr><td>7</td><td>Unable to Contact</td><td>Manual chip; feeds Ghost rate.</td></tr>
+    <tr><td>8</td><td>Other</td><td>Manual chip.</td></tr>
+    <tr><td>9</td><td>Consultation Scheduled</td><td>Manual (chip or Schedule button); notifications carry the date.</td></tr>
+    <tr><td>10</td><td>Consultation Completed</td><td>Manual chip; prompts for a note unless "Hide Note Creator" is checked.</td></tr>
+    <tr><td>11</td><td>Spoke with Patient / Scheduled (list name: Scheduled)</td><td>Manual; "When an appointment is scheduled".</td></tr>
+    <tr><td>12</td><td>Completed</td><td>Manual; prompts for a note; "completion note" event goes to the referring office; case appears in their Cases Completed.</td></tr>
+    <tr><td>—</td><td>Cancelled · Declined Appointment · Referred Out (· Referred Out - Forward on Outgoing)</td><td>Manual exit statuses; Cancelled prompts for a note; Declined Appointment has its own note template type and a "Declined Reason" variable.</td></tr>
+    <tr><td>—</td><td>Amended</td><td>In filters and email settings ("When a referral is amended"). Possibly set when a signed referral is edited — unconfirmed.</td></tr>
+  </table>
+  <p>Analytics groups these into outcome buckets: Awaiting contact, Working, Consultation, Scheduled, Completed, Closed w/o completion.</p>
+</div>
+
+<!-- 6. COMMUNICATION -->
+<div class="page">
+  <h2>6. Communication features</h2>
+  <ul>
+    <li><b>Office Communication (per referral)</b> — threaded chat between the two offices, with names, office, role, time, quoted replies, emoji and an @ button. Available on Details (side panel) and Messages tab (full width).</li>
+    <li><b>@mentions</b> — highlighted in messages; counted as "n unread @mentions" on the referral and as "@ n" badges in the referral list; "Mark all as read". Also "mentioned you in a note".</li>
+    <li><b>Notifications</b> — central feed with Unread/Read, Audience (Company / Me) and Type (Status, Mentions, Insurance Submission, Case Correspondence) filters.</li>
+    <li><b>Email</b> — inbound alerts to the company email; outbound per-status emails to referring providers; weekly and monthly analytics reports; "Email notification settings" link on each referral.</li>
+    <li><b>Note templates</b> — completion-letter templates with 17 smart variables, three "Used for" types, Word/PDF import.</li>
+    <li><b>Signed notes</b> — Referral and Consultation Note, "Visible to both offices".</li>
+    <li><b>Administrative Notes</b> — "Company-private notes. Not shared with other parties."</li>
+    <li><b>Patient touchpoint</b> — "Request from patient" sends a secure insurance link; the patient's submission is logged and notified.</li>
+    <li><b>Contact support</b> — floating button.</li>
+  </ul>
+</div>
+
+<!-- 7. ANALYTICS ROI -->
+<div class="page">
+  <h2>7. Analytics and ROI features</h2>
+  <table>
+    <tr><th>Metric</th><th>Decision it helps the owner make</th></tr>
+    <tr><td>Volume received / sent (vs prior)</td><td>Is referral flow growing or shrinking; which periods to push marketing.</td></tr>
+    <tr><td>Time to first contact / Recipient turnaround</td><td>Is the front desk calling patients fast enough; which specialists respond fastest.</td></tr>
+    <tr><td>Case acceptance / Loop closure</td><td>How many referrals turn into treatment (revenue).</td></tr>
+    <tr><td>Ghost rate / Patient leakage</td><td>How many patients are lost after the referral; whether to change follow-up or specialist.</td></tr>
+    <tr><td>Referral funnel with leaks</td><td>Which step loses most patients (contact, scheduling, completion).</td></tr>
+    <tr><td>Lifecycle clocks / Open referrals age</td><td>Where cases stall in time.</td></tr>
+    <tr><td>Consultation cards</td><td>Consult-to-treatment conversion and speed.</td></tr>
+    <tr><td>Top senders / Where referrals go</td><td>Which partner relationships to thank, nurture or rebalance.</td></tr>
+    <tr><td>Most responsive offices</td><td>Which specialists to send patients to.</td></tr>
+    <tr><td>Top procedures / Specialty mix</td><td>What services drive referrals.</td></tr>
+    <tr><td>Staff responsiveness</td><td>Who is working the referrals (log-ins, time, changes).</td></tr>
+    <tr><td>Referral sources (Embed widget / Network / Manual)</td><td>Whether the website embed and network invites are paying off.</td></tr>
+    <tr><td>Needs attention</td><td>Today's to-do list: overdue completions, ghosts, stale insurance requests, stuck outgoing referrals, missing completion notes, one-sided relationships.</td></tr>
+    <tr><td>Status board</td><td>Real-time pipeline with oldest cases surfaced.</td></tr>
+  </table>
+  <p>Also: Export PDF on Analytics (not clicked), weekly email and monthly PDF reports (Company Settings).</p>
+</div>
+
+<!-- 8. COLLABORATION -->
+<div class="page">
+  <h2>8. Collaboration and multi-office features</h2>
+  <ul>
+    <li><b>Network</b> — Connected Network Member badges; Invite your Network (template email with sign-up link, manual entry, CSV upload; invitees get you as a favorite); "Network" as a referral source.</li>
+    <li><b>Referral Access Code (Company Access PIN)</b> — staff auto-fill office details on other practices' ToothReferral forms; "shared across every office in your company".</li>
+    <li><b>Offices</b> — Offices menu with Details; Dental Team has an Office filter and per-user office assignment ("In all offices" chip). This account has 1 office, so multi-location switching could not be observed.</li>
+    <li><b>Roles</b> — Associate Dentist, Office Manager, RDH, Front Desk, Dental Assistant, Sterilization Tech, Other. Referring messages also show "Owner Dentist".</li>
+    <li><b>Find-a-dentist listing</b> — "In search" vs "Not listed" depending on insurance on file.</li>
+    <li><b>Specialty &amp; Doctor Routing</b> — embed form routes to the doctors covering a specialty.</li>
+    <li><b>Memberships</b> — practice membership plans (none set up).</li>
+  </ul>
+</div>
+
+<!-- 9. SECURITY -->
+<div class="page">
+  <h2>9. Security and compliance wording (exact)</h2>
+  <ul>
+    <li>"All communications are HIPAA compliant and encrypted" · "Secure" — footer of every referral (Details and Messages).</li>
+    <li>"Company-private notes. Not shared with other parties." — Administrative Notes.</li>
+    <li>"Visible to both offices." — Signed notes.</li>
+    <li>"This referral has been signed. Saving changes will clear the signature and require re-signing." — Edit Referral.</li>
+    <li>"sent secure insurance request to patient" — activity log / notifications; embed option "Send a Secure Link to the Patient".</li>
+    <li>"BAA Accepted [date]" with PDF — Dental Team status per user.</li>
+    <li>"Your email is managed by your administrator." — My Settings.</li>
+    <li>Invite template bullet "Centralized &amp; Secure: It keeps all our case-related discussions in one secure location, ensuring patient data remains protected."</li>
+  </ul>
+</div>
+
+<!-- 10. TOP 10 -->
+<div class="page">
+  <h2>10. Strongest features for marketing videos — top 10 moments</h2>
+  <table>
+    <tr><th>#</th><th>Section</th><th>What to show</th><th>Why it matters</th></tr>
+    <tr><td class="num">1</td><td>Analytics</td><td>Referral funnel with red "dropped · % leak" lines</td><td>Makes lost patients visible in one glance.</td></tr>
+    <tr><td class="num">2</td><td>Analytics (Sent)</td><td>Closing the loop + Patient leakage card</td><td>The referring dentist finally sees what happened to their patient.</td></tr>
+    <tr><td class="num">3</td><td>Referral detail</td><td>Office Communication thread with @mentions and quoted reply</td><td>Ends phone tag between offices.</td></tr>
+    <tr><td class="num">4</td><td>Referral detail</td><td>Status &amp; Schedule colored chips</td><td>One click replaces sticky notes and call logs.</td></tr>
+    <tr><td class="num">5</td><td>Referral detail</td><td>Insurance card + "Request from patient" + activity log showing the patient submitted it</td><td>No more chasing insurance.</td></tr>
+    <tr><td class="num">6</td><td>Analytics</td><td>Needs attention list</td><td>A daily to-do list built from the data.</td></tr>
+    <tr><td class="num">7</td><td>Website Lead Forms</td><td>Builder with Live patient preview, skill tags, map</td><td>Turns the practice website into a referral and lead funnel.</td></tr>
+    <tr><td class="num">8</td><td>Analytics</td><td>Status board with oldest cases and ages</td><td>Real-time pipeline, nothing hidden.</td></tr>
+    <tr><td class="num">9</td><td>Notes</td><td>Template editor with Insert Variable and Show values/codes</td><td>Completion letters write themselves.</td></tr>
+    <tr><td class="num">10</td><td>Analytics</td><td>Staff responsiveness table</td><td>Owners see who is working the referrals.</td></tr>
+  </table>
+  <p>Honorable mentions: Provider's Day-Prep Station, Ask ToothReferral suggestion chips, Invite your Network template, All Attachments drag-to-order.</p>
+</div>
+
+<!-- 11. SKIPPED -->
+<div class="page">
+  <h2>11. Skipped items</h2>
+  <table>
+    <tr><th>Item</th><th>Reason</th></tr>
+    <tr><td>New Referral button and form (top bar and "Places" link)</td><td>Excluded on purpose by the brief.</td></tr>
+    <tr><td>Status chips, Schedule, Create a Note</td><td>Would change referral data. Options recorded without clicking.</td></tr>
+    <tr><td>Mark complete / Re-assign / Send reminder / Reassign-nudge / Request signed PDF / Open list / Review relationship</td><td>Action links — seen, not opened.</td></tr>
+    <tr><td>Export PDF (Analytics), Download PDF for patient, X-ray/note Download</td><td>Export/download — seen, not opened.</td></tr>
+    <tr><td>Signed Referral link, signed-note View</td><td>May open or download a patient document — seen, not opened.</td></tr>
+    <tr><td>Archive, Delete Referral, Mark all as read, Mark as read, Add patient, Add card, Request from patient, Invite team member, Add New Plan, Update PIN, Save/Save Changes/Save Settings, Send Invitations, Copy Invitation Template, Rotate Link, Get embed code, Disable embed, Send message</td><td>Change data or send — prohibited by the brief.</td></tr>
+    <tr><td>Expanding individual notifications</td><td>Might mark them as read — seen, not opened.</td></tr>
+    <tr><td>Embed builder "2. Procedures" tab, Template Tutorial</td><td>Not opened (time); seen only.</td></tr>
+    <tr><td>User menu: Profile Picture, Push Notifications, Account Settings, Help &amp; Support</td><td>Seen, not opened. Sign out never clicked.</td></tr>
+    <tr><td>Multi-location office dropdown</td><td>Not present — account has one office.</td></tr>
+    <tr><td>Remaining "?" tooltips (lifecycle clocks, consultation cards, status board)</td><td>Present; only the 8 KPI-card tooltips were read.</td></tr>
+  </table>
+</div>
+
+<!-- 12. OPEN QUESTIONS -->
+<div class="page">
+  <h2>12. Open questions for the ToothReferral team</h2>
+  <ol>
+    <li>Outgoing status filter shows <b>"Sent" twice</b> (for two different underlying values). Intended?</li>
+    <li>What exactly sets <b>Amended</b>, <b>Draft</b> and <b>Referred Out - Forward</b>?</li>
+    <li>The referral page lists the status chip as "Spoke with Patient / Scheduled" while lists/filters use "Scheduled"; and "Left a Voicemail" vs "Left a Voice Message". Same statuses?</li>
+    <li>Which status changes happen automatically (beyond "New" on creation)? E.g. does opening a referral set "Received"?</li>
+    <li>What does the <b>bold/tinted row</b> in referral lists mean (unread/unopened?), and the <b>envelope icon</b> beside a patient name on Outgoing?</li>
+    <li>Analytics shows <b>Case acceptance 0%</b> while Consultations completed is 100% and 4 referrals sit in Consultation Completed — confirm how acceptance is calculated.</li>
+    <li>Referral outcomes donut shows 8 referrals while Volume received shows 9 for the same 30 days — why the difference?</li>
+    <li>Day-Prep Station showed "Today: 11/11/2026" while the date picker showed 11/12/2026 — time-zone handling?</li>
+    <li>The embed builder is titled "for Dental Specialists" on a general-dentist account — is that intended copy?</li>
+    <li>Is there a notification bell, or is the sidebar Notifications badge the only indicator?</li>
+    <li>How does the multi-office experience look (office switcher, per-office analytics)? Not visible on a single-office account.</li>
+    <li>Confirm the HIPAA/encryption claim wording is approved for use in marketing.</li>
+    <li>Display inconsistencies worth cleaning before filming: the same sender appears with and without ", DDS" (and a stray space before the comma) in notifications; one office name in Top senders contains a typo ("Denitst"); a notification reads "added the the post op x-ray"; some doctor names show "Dr. Dr".</li>
+  </ol>
+</div>
+
+</body>
+</html>

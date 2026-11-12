@@ -1,6 +1,6 @@
 ---
 name: toothreferral-messaging
-description: The client review rules (no "GP", no red, no doctor names, staff Barbara/Tanya/Amanda/Greg, Gentle Dental / St. Andrew's Family Dental, never condescending to the front desk), the client's own positioning, must-say points and full product/dashboard reference (DASHBOARD.md: referrals, statuses, analytics, Website Lead Forms, DocuSign notes, stills) for ToothReferral (brief from the client, 2026-11-02, plus Marketing-tips.pdf in this folder). Use for EVERY ToothReferral script, ad, hook, caption, email or video, together with hook-reference, so each piece says what the specialist gets, why they need it (ROI), and how fast it is to set up.
+description: Tooth Referral platform features (PLATFORM-FEATURES.md, from the 2026-11-12 audit) and the client review rules (no "GP", no red, no doctor names, staff Barbara/Tanya/Amanda/Greg, Gentle Dental / St. Andrew's Family Dental, never condescending to the front desk), the client's own positioning, must-say points and full product/dashboard reference (DASHBOARD.md: referrals, statuses, analytics, Website Lead Forms, DocuSign notes, stills) for ToothReferral (brief from the client, 2026-11-02, plus Marketing-tips.pdf in this folder). Use for EVERY ToothReferral script, ad, hook, caption, email or video, together with hook-reference, so each piece says what the specialist gets, why they need it (ROI), and how fast it is to set up.
 ---
 
 # ToothReferral messaging brief (from the client — follow it in every script and ad)
@@ -13,6 +13,14 @@ Source: the client's notes pasted in chat on 2026-11-02 and `Marketing-tips.pdf`
 Whenever an analytics dashboard image, number or screen is needed, use the canonical edited page in
 `reel/public/analytics-ref/` (see DASHBOARD.md, "Analytics page — CANONICAL REFERENCE"). Do not invent other
 analytics numbers or rebuild the page.
+
+## Platform features (permanent reference, 2026-11-12)
+
+Before any script, ad, carousel or caption, read **`PLATFORM-FEATURES.md`** (this folder): the full feature map from
+Vejay's platform audit (lifecycle, Office Communication + @mentions, notes templates with smart variables, insurance
+request link, notifications, analytics Received/Sent, Day-Prep Station, Invite your Network, Access PIN, website
+forms) with a feature-to-story table and the names that must never appear publicly. Source audit and screenshots:
+`platform-audit/`.
 
 ## 000. "A system for the team" (Vejay, 2026-11-11) — the brand-awareness foundation; follow it over older sections
 
