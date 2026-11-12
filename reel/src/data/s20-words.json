@@ -1,0 +1,1501 @@
+{
+ "cut.wav": {
+  "text": "Barbara, did St. Andrews ever send Sarah Collins' completion note? Not yet. I emailed them twice last week. Hi, Sarah. Crown Day today. Finally! The specialist said my implant healed perfectly. That's great news! One second, let me pull up your file. Hey, Barbara, can you check with St. Andrews? Sarah's completion note isn't here. Calling them now. Hi, it's Barbara at Gentle Dental. About Sarah Collins' completion note? Sure, I'll hold. Just one form, Sarah. Have a seat. Barbara, Sarah's been waiting in the chair for 10 minutes. I know, I know. They're still looking for it. Yes, I'm still here. It's for Sarah Collins, the implant patient. You'll check? Okay, thank you. Anything? You found it? Uh-huh. It was in the fax pile. Okay, please send it now. Thank you. They're faxing it now. Every office sends things a different way. And the patient waits. Sending it right now, Barbara. So sorry about that. It was sitting in the fax pile since Friday. This keeps happening. Messages, x-rays, insurance, the signed note. All on the case. Gentle Dental sees it too. Let's invite them today. And invite sent to Gentle Dental. That took five minutes. Barbara's gonna love this. Hi, David. Crown day. Hey, Greg. Did my specialist send everything over? Already here? Signed notes right on the case. That fast? No phone calls? Not anymore. It's all on tooth referral. Gentle Dental hasn't called once this week. Two offices. One conversation. That's tooth referral.",
+  "words": [
+   {
+    "word": " Barbara,",
+    "start": 0.98,
+    "end": 1.46,
+    "p": 0.744
+   },
+   {
+    "word": " did",
+    "start": 1.76,
+    "end": 1.94,
+    "p": 0.992
+   },
+   {
+    "word": " St.",
+    "start": 1.94,
+    "end": 2.14,
+    "p": 0.878
+   },
+   {
+    "word": " Andrews",
+    "start": 2.2,
+    "end": 2.36,
+    "p": 0.849
+   },
+   {
+    "word": " ever",
+    "start": 2.36,
+    "end": 2.64,
+    "p": 0.985
+   },
+   {
+    "word": " send",
+    "start": 2.64,
+    "end": 2.88,
+    "p": 0.98
+   },
+   {
+    "word": " Sarah",
+    "start": 2.88,
+    "end": 3.2,
+    "p": 0.833
+   },
+   {
+    "word": " Collins'",
+    "start": 3.2,
+    "end": 3.44,
+    "p": 0.936
+   },
+   {
+    "word": " completion",
+    "start": 3.74,
+    "end": 3.88,
+    "p": 0.797
+   },
+   {
+    "word": " note?",
+    "start": 3.88,
+    "end": 4.12,
+    "p": 0.995
+   },
+   {
+    "word": " Not",
+    "start": 4.34,
+    "end": 4.52,
+    "p": 0.961
+   },
+   {
+    "word": " yet.",
+    "start": 4.52,
+    "end": 4.84,
+    "p": 0.999
+   },
+   {
+    "word": " I",
+    "start": 4.96,
+    "end": 5.08,
+    "p": 0.999
+   },
+   {
+    "word": " emailed",
+    "start": 5.08,
+    "end": 5.32,
+    "p": 0.978
+   },
+   {
+    "word": " them",
+    "start": 5.32,
+    "end": 5.56,
+    "p": 0.995
+   },
+   {
+    "word": " twice",
+    "start": 5.56,
+    "end": 5.8,
+    "p": 0.999
+   },
+   {
+    "word": " last",
+    "start": 5.8,
+    "end": 6.12,
+    "p": 0.994
+   },
+   {
+    "word": " week.",
+    "start": 6.12,
+    "end": 6.5,
+    "p": 0.999
+   },
+   {
+    "word": " Hi,",
+    "start": 8.26,
+    "end": 8.52,
+    "p": 0.966
+   },
+   {
+    "word": " Sarah.",
+    "start": 8.58,
+    "end": 8.86,
+    "p": 0.976
+   },
+   {
+    "word": " Crown",
+    "start": 9.24,
+    "end": 9.44,
+    "p": 0.994
+   },
+   {
+    "word": " Day",
+    "start": 9.44,
+    "end": 9.62,
+    "p": 0.351
+   },
+   {
+    "word": " today.",
+    "start": 9.62,
+    "end": 9.94,
+    "p": 0.971
+   },
+   {
+    "word": " Finally!",
+    "start": 10.26,
+    "end": 10.72,
+    "p": 0.989
+   },
+   {
+    "word": " The",
+    "start": 11.06,
+    "end": 11.28,
+    "p": 0.993
+   },
+   {
+    "word": " specialist",
+    "start": 11.28,
+    "end": 11.6,
+    "p": 0.933
+   },
+   {
+    "word": " said",
+    "start": 11.6,
+    "end": 11.88,
+    "p": 0.998
+   },
+   {
+    "word": " my",
+    "start": 11.88,
+    "end": 12.08,
+    "p": 0.986
+   },
+   {
+    "word": " implant",
+    "start": 12.08,
+    "end": 12.52,
+    "p": 0.999
+   },
+   {
+    "word": " healed",
+    "start": 12.52,
+    "end": 12.78,
+    "p": 0.998
+   },
+   {
+    "word": " perfectly.",
+    "start": 12.78,
+    "end": 13.4,
+    "p": 0.987
+   },
+   {
+    "word": " That's",
+    "start": 13.68,
+    "end": 13.94,
+    "p": 0.995
+   },
+   {
+    "word": " great",
+    "start": 13.94,
+    "end": 14.1,
+    "p": 0.998
+   },
+   {
+    "word": " news!",
+    "start": 14.1,
+    "end": 14.46,
+    "p": 0.999
+   },
+   {
+    "word": " One",
+    "start": 14.82,
+    "end": 15.04,
+    "p": 0.989
+   },
+   {
+    "word": " second,",
+    "start": 15.04,
+    "end": 15.3,
+    "p": 0.996
+   },
+   {
+    "word": " let",
+    "start": 15.34,
+    "end": 15.44,
+    "p": 0.979
+   },
+   {
+    "word": " me",
+    "start": 15.44,
+    "end": 15.56,
+    "p": 0.999
+   },
+   {
+    "word": " pull",
+    "start": 15.56,
+    "end": 15.7,
+    "p": 0.998
+   },
+   {
+    "word": " up",
+    "start": 15.7,
+    "end": 15.8,
+    "p": 0.989
+   },
+   {
+    "word": " your",
+    "start": 15.8,
+    "end": 15.94,
+    "p": 0.998
+   },
+   {
+    "word": " file.",
+    "start": 15.94,
+    "end": 16.24,
+    "p": 0.999
+   },
+   {
+    "word": " Hey,",
+    "start": 17.26,
+    "end": 17.68,
+    "p": 0.986
+   },
+   {
+    "word": " Barbara,",
+    "start": 17.68,
+    "end": 17.94,
+    "p": 0.997
+   },
+   {
+    "word": " can",
+    "start": 18.16,
+    "end": 18.32,
+    "p": 0.992
+   },
+   {
+    "word": " you",
+    "start": 18.32,
+    "end": 18.44,
+    "p": 0.999
+   },
+   {
+    "word": " check",
+    "start": 18.44,
+    "end": 18.62,
+    "p": 0.999
+   },
+   {
+    "word": " with",
+    "start": 18.62,
+    "end": 18.76,
+    "p": 0.998
+   },
+   {
+    "word": " St.",
+    "start": 18.76,
+    "end": 18.98,
+    "p": 0.981
+   },
+   {
+    "word": " Andrews?",
+    "start": 19.18,
+    "end": 19.3,
+    "p": 0.976
+   },
+   {
+    "word": " Sarah's",
+    "start": 19.6,
+    "end": 20.08,
+    "p": 0.993
+   },
+   {
+    "word": " completion",
+    "start": 20.08,
+    "end": 20.38,
+    "p": 0.973
+   },
+   {
+    "word": " note",
+    "start": 20.38,
+    "end": 20.58,
+    "p": 0.996
+   },
+   {
+    "word": " isn't",
+    "start": 20.58,
+    "end": 20.78,
+    "p": 0.999
+   },
+   {
+    "word": " here.",
+    "start": 20.78,
+    "end": 21.12,
+    "p": 0.998
+   },
+   {
+    "word": " Calling",
+    "start": 21.28,
+    "end": 21.54,
+    "p": 0.936
+   },
+   {
+    "word": " them",
+    "start": 21.54,
+    "end": 21.74,
+    "p": 0.999
+   },
+   {
+    "word": " now.",
+    "start": 21.74,
+    "end": 22.06,
+    "p": 0.995
+   },
+   {
+    "word": " Hi,",
+    "start": 22.68,
+    "end": 22.94,
+    "p": 0.971
+   },
+   {
+    "word": " it's",
+    "start": 23.02,
+    "end": 23.24,
+    "p": 0.99
+   },
+   {
+    "word": " Barbara",
+    "start": 23.24,
+    "end": 23.52,
+    "p": 0.985
+   },
+   {
+    "word": " at",
+    "start": 23.52,
+    "end": 23.74,
+    "p": 0.983
+   },
+   {
+    "word": " Gentle",
+    "start": 23.74,
+    "end": 24.0,
+    "p": 0.968
+   },
+   {
+    "word": " Dental.",
+    "start": 24.0,
+    "end": 24.38,
+    "p": 0.996
+   },
+   {
+    "word": " About",
+    "start": 24.54,
+    "end": 24.76,
+    "p": 0.977
+   },
+   {
+    "word": " Sarah",
+    "start": 24.76,
+    "end": 25.14,
+    "p": 0.993
+   },
+   {
+    "word": " Collins'",
+    "start": 25.14,
+    "end": 25.44,
+    "p": 0.974
+   },
+   {
+    "word": " completion",
+    "start": 25.74,
+    "end": 25.96,
+    "p": 0.97
+   },
+   {
+    "word": " note?",
+    "start": 25.96,
+    "end": 26.3,
+    "p": 0.998
+   },
+   {
+    "word": " Sure,",
+    "start": 26.44,
+    "end": 26.72,
+    "p": 0.995
+   },
+   {
+    "word": " I'll",
+    "start": 26.82,
+    "end": 27.04,
+    "p": 0.995
+   },
+   {
+    "word": " hold.",
+    "start": 27.04,
+    "end": 27.2,
+    "p": 0.998
+   },
+   {
+    "word": " Just",
+    "start": 27.84,
+    "end": 28.1,
+    "p": 0.983
+   },
+   {
+    "word": " one",
+    "start": 28.1,
+    "end": 28.34,
+    "p": 0.996
+   },
+   {
+    "word": " form,",
+    "start": 28.34,
+    "end": 28.58,
+    "p": 0.977
+   },
+   {
+    "word": " Sarah.",
+    "start": 28.82,
+    "end": 28.92,
+    "p": 0.99
+   },
+   {
+    "word": " Have",
+    "start": 28.92,
+    "end": 29.28,
+    "p": 0.405
+   },
+   {
+    "word": " a",
+    "start": 29.28,
+    "end": 29.44,
+    "p": 0.998
+   },
+   {
+    "word": " seat.",
+    "start": 29.44,
+    "end": 29.68,
+    "p": 0.997
+   },
+   {
+    "word": " Barbara,",
+    "start": 31.1,
+    "end": 31.32,
+    "p": 0.924
+   },
+   {
+    "word": " Sarah's",
+    "start": 31.64,
+    "end": 31.9,
+    "p": 0.818
+   },
+   {
+    "word": " been",
+    "start": 31.9,
+    "end": 32.02,
+    "p": 0.996
+   },
+   {
+    "word": " waiting",
+    "start": 32.02,
+    "end": 32.22,
+    "p": 0.997
+   },
+   {
+    "word": " in",
+    "start": 32.22,
+    "end": 32.36,
+    "p": 0.99
+   },
+   {
+    "word": " the",
+    "start": 32.36,
+    "end": 32.46,
+    "p": 0.995
+   },
+   {
+    "word": " chair",
+    "start": 32.46,
+    "end": 32.62,
+    "p": 0.992
+   },
+   {
+    "word": " for",
+    "start": 32.62,
+    "end": 32.84,
+    "p": 0.996
+   },
+   {
+    "word": " 10",
+    "start": 32.84,
+    "end": 33.02,
+    "p": 0.595
+   },
+   {
+    "word": " minutes.",
+    "start": 33.02,
+    "end": 33.2,
+    "p": 0.993
+   },
+   {
+    "word": " I",
+    "start": 33.42,
+    "end": 33.44,
+    "p": 0.82
+   },
+   {
+    "word": " know,",
+    "start": 33.44,
+    "end": 33.62,
+    "p": 0.999
+   },
+   {
+    "word": " I",
+    "start": 33.72,
+    "end": 33.82,
+    "p": 0.987
+   },
+   {
+    "word": " know.",
+    "start": 33.82,
+    "end": 34.04,
+    "p": 1.0
+   },
+   {
+    "word": " They're",
+    "start": 34.12,
+    "end": 34.3,
+    "p": 0.992
+   },
+   {
+    "word": " still",
+    "start": 34.3,
+    "end": 34.48,
+    "p": 0.996
+   },
+   {
+    "word": " looking",
+    "start": 34.48,
+    "end": 34.72,
+    "p": 0.998
+   },
+   {
+    "word": " for",
+    "start": 34.72,
+    "end": 35.0,
+    "p": 0.999
+   },
+   {
+    "word": " it.",
+    "start": 35.0,
+    "end": 35.2,
+    "p": 0.999
+   },
+   {
+    "word": " Yes,",
+    "start": 35.68,
+    "end": 35.88,
+    "p": 0.973
+   },
+   {
+    "word": " I'm",
+    "start": 35.92,
+    "end": 36.12,
+    "p": 0.996
+   },
+   {
+    "word": " still",
+    "start": 36.12,
+    "end": 36.3,
+    "p": 0.999
+   },
+   {
+    "word": " here.",
+    "start": 36.3,
+    "end": 36.6,
+    "p": 0.999
+   },
+   {
+    "word": " It's",
+    "start": 36.7,
+    "end": 36.88,
+    "p": 0.996
+   },
+   {
+    "word": " for",
+    "start": 36.88,
+    "end": 37.02,
+    "p": 0.998
+   },
+   {
+    "word": " Sarah",
+    "start": 37.02,
+    "end": 37.32,
+    "p": 0.963
+   },
+   {
+    "word": " Collins,",
+    "start": 37.32,
+    "end": 37.64,
+    "p": 0.994
+   },
+   {
+    "word": " the",
+    "start": 37.78,
+    "end": 37.9,
+    "p": 0.997
+   },
+   {
+    "word": " implant",
+    "start": 37.9,
+    "end": 38.24,
+    "p": 0.994
+   },
+   {
+    "word": " patient.",
+    "start": 38.24,
+    "end": 38.66,
+    "p": 0.999
+   },
+   {
+    "word": " You'll",
+    "start": 38.86,
+    "end": 39.08,
+    "p": 0.995
+   },
+   {
+    "word": " check?",
+    "start": 39.08,
+    "end": 39.32,
+    "p": 0.999
+   },
+   {
+    "word": " Okay,",
+    "start": 39.74,
+    "end": 40.1,
+    "p": 0.733
+   },
+   {
+    "word": " thank",
+    "start": 40.16,
+    "end": 40.4,
+    "p": 0.995
+   },
+   {
+    "word": " you.",
+    "start": 40.4,
+    "end": 40.66,
+    "p": 0.999
+   },
+   {
+    "word": " Anything?",
+    "start": 40.94,
+    "end": 41.2,
+    "p": 0.971
+   },
+   {
+    "word": " You",
+    "start": 41.78,
+    "end": 42.02,
+    "p": 0.986
+   },
+   {
+    "word": " found",
+    "start": 42.02,
+    "end": 42.28,
+    "p": 0.999
+   },
+   {
+    "word": " it?",
+    "start": 42.28,
+    "end": 42.62,
+    "p": 0.999
+   },
+   {
+    "word": " Uh",
+    "start": 42.96,
+    "end": 43.24,
+    "p": 0.272
+   },
+   {
+    "word": "-huh.",
+    "start": 43.24,
+    "end": 43.36,
+    "p": 0.828
+   },
+   {
+    "word": " It",
+    "start": 43.7,
+    "end": 43.86,
+    "p": 0.995
+   },
+   {
+    "word": " was",
+    "start": 43.86,
+    "end": 43.96,
+    "p": 0.999
+   },
+   {
+    "word": " in",
+    "start": 43.96,
+    "end": 44.1,
+    "p": 0.998
+   },
+   {
+    "word": " the",
+    "start": 44.1,
+    "end": 44.26,
+    "p": 0.999
+   },
+   {
+    "word": " fax",
+    "start": 44.26,
+    "end": 44.48,
+    "p": 0.987
+   },
+   {
+    "word": " pile.",
+    "start": 44.48,
+    "end": 44.8,
+    "p": 0.995
+   },
+   {
+    "word": " Okay,",
+    "start": 45.22,
+    "end": 45.4,
+    "p": 0.899
+   },
+   {
+    "word": " please",
+    "start": 45.76,
+    "end": 46.02,
+    "p": 0.973
+   },
+   {
+    "word": " send",
+    "start": 46.02,
+    "end": 46.3,
+    "p": 0.955
+   },
+   {
+    "word": " it",
+    "start": 46.3,
+    "end": 46.5,
+    "p": 0.999
+   },
+   {
+    "word": " now.",
+    "start": 46.5,
+    "end": 46.76,
+    "p": 0.997
+   },
+   {
+    "word": " Thank",
+    "start": 47.12,
+    "end": 47.38,
+    "p": 0.997
+   },
+   {
+    "word": " you.",
+    "start": 47.38,
+    "end": 47.72,
+    "p": 0.999
+   },
+   {
+    "word": " They're",
+    "start": 48.48,
+    "end": 48.96,
+    "p": 0.993
+   },
+   {
+    "word": " faxing",
+    "start": 48.96,
+    "end": 49.32,
+    "p": 0.999
+   },
+   {
+    "word": " it",
+    "start": 49.32,
+    "end": 49.44,
+    "p": 0.999
+   },
+   {
+    "word": " now.",
+    "start": 49.44,
+    "end": 49.76,
+    "p": 0.999
+   },
+   {
+    "word": " Every",
+    "start": 50.24,
+    "end": 50.54,
+    "p": 0.997
+   },
+   {
+    "word": " office",
+    "start": 50.54,
+    "end": 50.84,
+    "p": 0.998
+   },
+   {
+    "word": " sends",
+    "start": 50.84,
+    "end": 51.16,
+    "p": 0.998
+   },
+   {
+    "word": " things",
+    "start": 51.16,
+    "end": 51.4,
+    "p": 0.997
+   },
+   {
+    "word": " a",
+    "start": 51.4,
+    "end": 51.58,
+    "p": 0.996
+   },
+   {
+    "word": " different",
+    "start": 51.58,
+    "end": 51.78,
+    "p": 1.0
+   },
+   {
+    "word": " way.",
+    "start": 51.78,
+    "end": 52.12,
+    "p": 1.0
+   },
+   {
+    "word": " And",
+    "start": 52.3,
+    "end": 52.58,
+    "p": 0.988
+   },
+   {
+    "word": " the",
+    "start": 52.58,
+    "end": 52.76,
+    "p": 0.995
+   },
+   {
+    "word": " patient",
+    "start": 52.76,
+    "end": 53.0,
+    "p": 0.999
+   },
+   {
+    "word": " waits.",
+    "start": 53.0,
+    "end": 53.46,
+    "p": 0.999
+   },
+   {
+    "word": " Sending",
+    "start": 54.02,
+    "end": 54.26,
+    "p": 0.941
+   },
+   {
+    "word": " it",
+    "start": 54.26,
+    "end": 54.46,
+    "p": 0.998
+   },
+   {
+    "word": " right",
+    "start": 54.46,
+    "end": 54.6,
+    "p": 0.996
+   },
+   {
+    "word": " now,",
+    "start": 54.6,
+    "end": 54.88,
+    "p": 0.999
+   },
+   {
+    "word": " Barbara.",
+    "start": 54.98,
+    "end": 55.22,
+    "p": 0.995
+   },
+   {
+    "word": " So",
+    "start": 55.44,
+    "end": 55.72,
+    "p": 0.996
+   },
+   {
+    "word": " sorry",
+    "start": 55.72,
+    "end": 56.0,
+    "p": 0.99
+   },
+   {
+    "word": " about",
+    "start": 56.0,
+    "end": 56.24,
+    "p": 0.999
+   },
+   {
+    "word": " that.",
+    "start": 56.24,
+    "end": 56.64,
+    "p": 1.0
+   },
+   {
+    "word": " It",
+    "start": 56.64,
+    "end": 57.1,
+    "p": 0.761
+   },
+   {
+    "word": " was",
+    "start": 57.1,
+    "end": 57.24,
+    "p": 0.989
+   },
+   {
+    "word": " sitting",
+    "start": 57.24,
+    "end": 57.44,
+    "p": 0.995
+   },
+   {
+    "word": " in",
+    "start": 57.44,
+    "end": 57.62,
+    "p": 0.994
+   },
+   {
+    "word": " the",
+    "start": 57.62,
+    "end": 57.72,
+    "p": 0.997
+   },
+   {
+    "word": " fax",
+    "start": 57.72,
+    "end": 57.9,
+    "p": 0.912
+   },
+   {
+    "word": " pile",
+    "start": 57.9,
+    "end": 58.12,
+    "p": 0.962
+   },
+   {
+    "word": " since",
+    "start": 58.12,
+    "end": 58.38,
+    "p": 0.996
+   },
+   {
+    "word": " Friday.",
+    "start": 58.38,
+    "end": 58.7,
+    "p": 0.99
+   },
+   {
+    "word": " This",
+    "start": 59.18,
+    "end": 59.28,
+    "p": 0.914
+   },
+   {
+    "word": " keeps",
+    "start": 59.28,
+    "end": 59.48,
+    "p": 0.993
+   },
+   {
+    "word": " happening.",
+    "start": 59.48,
+    "end": 60.04,
+    "p": 0.999
+   },
+   {
+    "word": " Messages,",
+    "start": 61.0,
+    "end": 61.0,
+    "p": 0.906
+   },
+   {
+    "word": " x",
+    "start": 61.66,
+    "end": 61.9,
+    "p": 0.6
+   },
+   {
+    "word": "-rays,",
+    "start": 61.9,
+    "end": 62.08,
+    "p": 0.962
+   },
+   {
+    "word": " insurance,",
+    "start": 62.3,
+    "end": 62.72,
+    "p": 0.996
+   },
+   {
+    "word": " the",
+    "start": 62.94,
+    "end": 63.06,
+    "p": 0.986
+   },
+   {
+    "word": " signed",
+    "start": 63.06,
+    "end": 63.28,
+    "p": 0.885
+   },
+   {
+    "word": " note.",
+    "start": 63.28,
+    "end": 63.56,
+    "p": 0.994
+   },
+   {
+    "word": " All",
+    "start": 64.02,
+    "end": 64.12,
+    "p": 0.987
+   },
+   {
+    "word": " on",
+    "start": 64.12,
+    "end": 64.28,
+    "p": 0.996
+   },
+   {
+    "word": " the",
+    "start": 64.28,
+    "end": 64.42,
+    "p": 0.997
+   },
+   {
+    "word": " case.",
+    "start": 64.42,
+    "end": 64.64,
+    "p": 0.998
+   },
+   {
+    "word": " Gentle",
+    "start": 65.12,
+    "end": 65.3,
+    "p": 0.899
+   },
+   {
+    "word": " Dental",
+    "start": 65.3,
+    "end": 65.54,
+    "p": 0.975
+   },
+   {
+    "word": " sees",
+    "start": 65.54,
+    "end": 65.78,
+    "p": 0.991
+   },
+   {
+    "word": " it",
+    "start": 65.78,
+    "end": 65.96,
+    "p": 0.999
+   },
+   {
+    "word": " too.",
+    "start": 65.96,
+    "end": 66.2,
+    "p": 0.757
+   },
+   {
+    "word": " Let's",
+    "start": 66.4,
+    "end": 66.66,
+    "p": 0.972
+   },
+   {
+    "word": " invite",
+    "start": 66.66,
+    "end": 66.84,
+    "p": 0.995
+   },
+   {
+    "word": " them",
+    "start": 66.84,
+    "end": 67.02,
+    "p": 0.999
+   },
+   {
+    "word": " today.",
+    "start": 67.02,
+    "end": 67.44,
+    "p": 0.997
+   },
+   {
+    "word": " And",
+    "start": 68.24,
+    "end": 68.66,
+    "p": 0.827
+   },
+   {
+    "word": " invite",
+    "start": 68.66,
+    "end": 68.98,
+    "p": 0.922
+   },
+   {
+    "word": " sent",
+    "start": 68.98,
+    "end": 69.28,
+    "p": 0.933
+   },
+   {
+    "word": " to",
+    "start": 69.28,
+    "end": 69.52,
+    "p": 0.998
+   },
+   {
+    "word": " Gentle",
+    "start": 69.52,
+    "end": 69.84,
+    "p": 0.987
+   },
+   {
+    "word": " Dental.",
+    "start": 69.84,
+    "end": 70.2,
+    "p": 0.998
+   },
+   {
+    "word": " That",
+    "start": 70.48,
+    "end": 70.68,
+    "p": 0.992
+   },
+   {
+    "word": " took",
+    "start": 70.68,
+    "end": 70.86,
+    "p": 0.998
+   },
+   {
+    "word": " five",
+    "start": 70.86,
+    "end": 71.2,
+    "p": 0.849
+   },
+   {
+    "word": " minutes.",
+    "start": 71.2,
+    "end": 71.64,
+    "p": 0.999
+   },
+   {
+    "word": " Barbara's",
+    "start": 72.04,
+    "end": 72.38,
+    "p": 0.865
+   },
+   {
+    "word": " gonna",
+    "start": 72.38,
+    "end": 72.52,
+    "p": 0.633
+   },
+   {
+    "word": " love",
+    "start": 72.52,
+    "end": 72.82,
+    "p": 0.993
+   },
+   {
+    "word": " this.",
+    "start": 72.82,
+    "end": 73.3,
+    "p": 0.999
+   },
+   {
+    "word": " Hi,",
+    "start": 75.7,
+    "end": 75.94,
+    "p": 0.796
+   },
+   {
+    "word": " David.",
+    "start": 76.02,
+    "end": 76.26,
+    "p": 0.996
+   },
+   {
+    "word": " Crown",
+    "start": 76.72,
+    "end": 76.92,
+    "p": 0.989
+   },
+   {
+    "word": " day.",
+    "start": 76.92,
+    "end": 77.18,
+    "p": 0.695
+   },
+   {
+    "word": " Hey,",
+    "start": 77.82,
+    "end": 77.98,
+    "p": 0.937
+   },
+   {
+    "word": " Greg.",
+    "start": 78.1,
+    "end": 78.24,
+    "p": 0.951
+   },
+   {
+    "word": " Did",
+    "start": 78.6,
+    "end": 78.74,
+    "p": 0.998
+   },
+   {
+    "word": " my",
+    "start": 78.74,
+    "end": 78.96,
+    "p": 0.999
+   },
+   {
+    "word": " specialist",
+    "start": 78.96,
+    "end": 79.28,
+    "p": 0.929
+   },
+   {
+    "word": " send",
+    "start": 79.28,
+    "end": 79.5,
+    "p": 0.995
+   },
+   {
+    "word": " everything",
+    "start": 79.5,
+    "end": 79.8,
+    "p": 0.998
+   },
+   {
+    "word": " over?",
+    "start": 79.8,
+    "end": 80.1,
+    "p": 0.999
+   },
+   {
+    "word": " Already",
+    "start": 80.7,
+    "end": 80.98,
+    "p": 0.985
+   },
+   {
+    "word": " here?",
+    "start": 80.98,
+    "end": 81.3,
+    "p": 0.998
+   },
+   {
+    "word": " Signed",
+    "start": 81.72,
+    "end": 81.84,
+    "p": 0.838
+   },
+   {
+    "word": " notes",
+    "start": 81.84,
+    "end": 82.04,
+    "p": 0.788
+   },
+   {
+    "word": " right",
+    "start": 82.04,
+    "end": 82.2,
+    "p": 0.97
+   },
+   {
+    "word": " on",
+    "start": 82.2,
+    "end": 82.34,
+    "p": 0.999
+   },
+   {
+    "word": " the",
+    "start": 82.34,
+    "end": 82.48,
+    "p": 0.997
+   },
+   {
+    "word": " case.",
+    "start": 82.48,
+    "end": 82.7,
+    "p": 1.0
+   },
+   {
+    "word": " That",
+    "start": 83.0,
+    "end": 83.22,
+    "p": 0.997
+   },
+   {
+    "word": " fast?",
+    "start": 83.22,
+    "end": 83.62,
+    "p": 1.0
+   },
+   {
+    "word": " No",
+    "start": 83.82,
+    "end": 84.02,
+    "p": 0.999
+   },
+   {
+    "word": " phone",
+    "start": 84.02,
+    "end": 84.22,
+    "p": 0.999
+   },
+   {
+    "word": " calls?",
+    "start": 84.22,
+    "end": 84.52,
+    "p": 0.998
+   },
+   {
+    "word": " Not",
+    "start": 84.72,
+    "end": 85.0,
+    "p": 0.997
+   },
+   {
+    "word": " anymore.",
+    "start": 85.0,
+    "end": 85.34,
+    "p": 0.916
+   },
+   {
+    "word": " It's",
+    "start": 85.34,
+    "end": 85.8,
+    "p": 0.766
+   },
+   {
+    "word": " all",
+    "start": 85.8,
+    "end": 85.92,
+    "p": 0.988
+   },
+   {
+    "word": " on",
+    "start": 85.92,
+    "end": 86.12,
+    "p": 0.992
+   },
+   {
+    "word": " tooth",
+    "start": 86.12,
+    "end": 86.26,
+    "p": 0.371
+   },
+   {
+    "word": " referral.",
+    "start": 86.26,
+    "end": 86.64,
+    "p": 0.946
+   },
+   {
+    "word": " Gentle",
+    "start": 87.68,
+    "end": 87.86,
+    "p": 0.677
+   },
+   {
+    "word": " Dental",
+    "start": 87.86,
+    "end": 88.16,
+    "p": 0.961
+   },
+   {
+    "word": " hasn't",
+    "start": 88.16,
+    "end": 88.52,
+    "p": 0.963
+   },
+   {
+    "word": " called",
+    "start": 88.52,
+    "end": 88.7,
+    "p": 0.998
+   },
+   {
+    "word": " once",
+    "start": 88.7,
+    "end": 89.04,
+    "p": 0.966
+   },
+   {
+    "word": " this",
+    "start": 89.04,
+    "end": 89.28,
+    "p": 0.997
+   },
+   {
+    "word": " week.",
+    "start": 89.28,
+    "end": 89.6,
+    "p": 0.999
+   },
+   {
+    "word": " Two",
+    "start": 90.04,
+    "end": 90.2,
+    "p": 0.972
+   },
+   {
+    "word": " offices.",
+    "start": 90.2,
+    "end": 90.66,
+    "p": 0.997
+   },
+   {
+    "word": " One",
+    "start": 91.32,
+    "end": 91.46,
+    "p": 0.996
+   },
+   {
+    "word": " conversation.",
+    "start": 91.46,
+    "end": 92.1,
+    "p": 0.996
+   },
+   {
+    "word": " That's",
+    "start": 92.68,
+    "end": 92.94,
+    "p": 0.988
+   },
+   {
+    "word": " tooth",
+    "start": 92.94,
+    "end": 93.06,
+    "p": 0.942
+   },
+   {
+    "word": " referral.",
+    "start": 93.06,
+    "end": 93.44,
+    "p": 0.996
+   }
+  ]
+ }
+}
