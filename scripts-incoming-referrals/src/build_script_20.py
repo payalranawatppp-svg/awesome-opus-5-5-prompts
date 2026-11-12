@@ -180,7 +180,23 @@ CLIPS = [
   '{BARBARA} hangs up the phone gently and leans back in her chair, taking her glasses off. {GREG}, still at the door frame, looks toward the waiting area where Sarah is sitting on the grey sofa, softly out of focus, looking at her phone.',
   'medium shot through the office doorway, eye level, slow rack focus from Barbara to Sarah waiting in the background on Greg\'s line.',
   'the phone being set down, quiet room tone',
-  'Soft amber card: "Patient waiting". Then white flash cut to: "One month later".'),
+  'Soft amber card: "Patient waiting".'),
+ # ---------------- Bridge: two characters introduce Tooth Referral
+ ('Let\'s set up Tooth Referral', 'SA',
+  [('AMANDA', "This keeps happening. Let's set up Tooth Referral.", 'calm, decided'),
+   ('TANYA', 'Tooth Referral?', 'curious'),
+   ('AMANDA', 'One case for every referral. Both offices on it.', 'clear, easy')],
+  '{TANYA} hangs up the phone and lets out a long breath, sliding a faxed page into a folder. {AMANDA} gets up from her workstation, walks around behind Tanya (0 to 3 seconds), rolls a spare chair over and sits down next to her, turning Tanya\'s monitor slightly toward them both (soft glow, screen not readable). Tanya turns her chair toward Amanda, interested.',
+  'medium-wide two-shot from the waiting area, eye level, the camera drifts gently with Amanda as she walks over, then holds on the two of them.',
+  'the phone set down, footsteps, a chair rolling',
+  'The Tooth Referral logo appears beside Amanda, then a single case card: "One case per referral · both offices".'),
+ ('How it works', 'SA',
+  [('AMANDA', 'Messages, X-rays, insurance, the signed note. All on the case. Gentle Dental sees it too.', 'explaining to a friend'),
+   ('TANYA', "Let's invite them today.", 'smiling, energised')],
+  '{AMANDA} counts the four items on her fingers, then gestures with an open palm toward the monitor on "all on the case" and points out toward the window on "Gentle Dental". {TANYA} nods along, breaks into a smile, and pulls her keyboard closer.',
+  'medium close-up two-shot, eye level, very slow push-in, soft golden light on both faces.',
+  'quiet office room tone, a keyboard pulled across the desk',
+  'Split screen: the Tooth Referral case with messages, an X-ray, the insurance card and the signed note; then "Invite your network" sends an invite to Gentle Dental. White flash cut to: "One month later".'),
  # ---------------- Act 2: one month later, with Tooth Referral
  ('Already here', 'GD',
   [('GREG', "Your specialist already sent the signed note. You're all set for your crown.", 'relaxed, confident'),
@@ -190,8 +206,8 @@ CLIPS = [
   'footsteps, keys jingling, a mouse click',
   'Split screen: the Tooth Referral case, status "Treatment completed", the signed completion note with its e-signature.'),
  ('Copied it in', 'GD',
-  [('BARBARA', 'I copied it into our electronic health record this morning.', 'easy, warm'),
-   ('GREG', 'And you asked them about his follow-up?', 'casual'),
+  [('BARBARA', 'I copied it from Tooth Referral into our electronic health record this morning.', 'easy, warm'),
+   ('GREG', 'And his follow-up?', 'casual'),
    ('BARBARA', 'Right on the case.', 'smiling, simple')],
   '{BARBARA} walks along behind the counter carrying a coffee mug and a folder (0 to 3 seconds), pauses behind Greg\'s chair and glances at his screen. {GREG} looks up at her over his shoulder. Barbara gives a small nod and keeps walking toward her office.',
   'medium shot from across the counter, eye level, the camera follows Barbara as she walks in from the left, holds on the two of them, then lets her walk out of frame on the right.',
@@ -213,7 +229,7 @@ CLIPS = [
   'Split screen: an X-ray attached on the case, then the HIPAA-secure insurance request link. Chip: "Set up in about 5 minutes".'),
  ('One conversation', 'SA',
   [('TANYA', "Feels like we're one office.", 'warm, smiling'),
-   ('AMANDA', 'Two offices. One conversation.', 'warm, simple')],
+   ('AMANDA', "Two offices. One conversation. That's Tooth Referral.", 'warm, simple')],
   '{TANYA} smiles and types a quick message on her keyboard. {AMANDA} stands up, picks up her folder, gives Tanya a light tap on the shoulder and walks off toward the treatment-room hallway, glancing back with a smile.',
   'medium-wide shot from the waiting area, eye level, static, Amanda walking out of frame toward the hallway at the end.',
   'keyboard typing, footsteps',
@@ -246,7 +262,7 @@ md = ['# Script 20: "Did They Ever Send It?" · Google Flow prompts', '', SUMMAR
       'signed completion note never arrived. Both offices are doing their job; every office just sends things a different way. One month '
       'later, the same people on Tooth Referral.', '', '## The script', '']
 acts = {0: '### Act 1 · Gentle Dental (general dentist), the problem', 4: "### Act 1 · St. Andrew's Family Dental (specialist), the other side",
-        6: '### Act 1 · back at Gentle Dental', 7: '### Act 2 · one month later, with Tooth Referral'}
+        6: '### Act 1 · back at Gentle Dental', 7: "### Introducing Tooth Referral · St. Andrew's (Amanda and Tanya)", 9: '### Act 2 · one month later, with Tooth Referral'}
 for i, c in enumerate(CLIPS):
     if i in acts: md += [acts[i], '']
     md.append(f'**{i+1:02d} · {c[0]}** ({LOCNAME[c[1]]})  ')
@@ -263,7 +279,7 @@ for k in ORDER:
     md += [f'### {num}. {k.capitalize()} avatar', '', '> ' + avatar(k), '']; num += 1
 md += [f'### {num}. Gentle Dental cast image (Greg at the counter, Sarah walking in, Barbara in her office)', '', '> ' + CAST['GD'], '',
        f"### {num+1}. St. Andrew's cast image (Amanda at the desk, Tanya walking in)", '', '> ' + CAST['SA'], '',
-       'For clips 08 and 09, also add the David avatar as a reference.', '', '## Clip prompts', '']
+       'For clips 10 and 11, also add the David avatar as a reference.', '', '## Clip prompts', '']
 for i, c in enumerate(CLIPS, 1):
     md += [f'### CLIP {i:02d} · {c[0]} ({LOCNAME[c[1]]})', '**Dialogue:** ' + ' · '.join(f'{sp}: "{ln}"' for sp, ln, _ in c[2]), '',
            '\n'.join('> ' + l for l in prompt(c).split('\n')), '', f'*Edit:* {c[6]}', '']
@@ -300,6 +316,7 @@ parts = [f'''<div class="k">Tooth Referral · Script 20 · Google Flow</div>
 <div class="box"><b>The idea</b><ul>
 <li><b>A different problem from Buried in Emails:</b> the referral loop that never closes. Sarah comes back to her general dentist for the crown after her implant, and the specialist's signed completion note never arrived.</li>
 <li><b>Both sides of the referral:</b> we see the general dentist's office (Greg, Barbara) waiting, and the specialist's office (Tanya, Amanda) hunting for a note that was signed on Friday. Nobody is blamed: "Every office sends things a different way."</li>
+<li><b>Two characters introduce Tooth Referral by name:</b> after the call, Amanda sits down with Tanya: "Let's set up Tooth Referral." She explains it in plain words (one case per referral, both offices on it; messages, X-rays, insurance and the signed note on the case) and Tanya decides to invite Gentle Dental that day.</li>
 <li><b>Same people, one month later, with Tooth Referral:</b> the signed note is already on the case, copied into the electronic health record, follow-up asked right on the case, the phone stays quiet because both offices see the status, X-rays and the secure insurance link live in the same place, and setup took five minutes.</li>
 <li><b>Natural movement in every clip:</b> walking in through the door, walking down the hallway, the phone ringing, rolling chairs, a coffee walk-by. Two real-looking front offices.</li></ul></div>
 <h2>The script</h2>{script}''',
@@ -317,7 +334,7 @@ parts = [f'''<div class="k">Tooth Referral · Script 20 · Google Flow</div>
  f'''<div class="clip"><h2>8. Amanda avatar</h2><div class="prompt">{E(avatar('AMANDA'))}</div>
 <h2>9. Gentle Dental cast image</h2><p class="small">Use the Gentle Dental background and the Greg, Sarah and Barbara avatars as references. Starting frame for clip 01.</p><div class="prompt">{E(CAST['GD'])}</div></div>''',
  f'''<div class="clip"><h2>10. St. Andrew's cast image</h2><p class="small">Use the St. Andrew's background and the Tanya and Amanda avatars as references. Starting frame for clip 05.</p><div class="prompt">{E(CAST['SA'])}</div>
-<p class="small">For clips 08 and 09, add the David avatar as an extra reference.</p></div>''']
+<p class="small">For clips 10 and 11, add the David avatar as an extra reference.</p></div>''']
 for i, c in enumerate(CLIPS, 1):
     dl = ''.join(f'<div class="ln"><span class="sp">{sp.capitalize()}</span>“{E(ln)}” <span class="small">({E(how)})</span></div>' for sp, ln, how in c[2])
     parts.append(f'''<div class="clip"><div class="k">Clip {i:02d} · {E(LOCNAME[c[1]])} · 8 seconds</div><h2>{E(c[0])}</h2>

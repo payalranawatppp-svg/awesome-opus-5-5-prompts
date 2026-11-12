@@ -1,6 +1,6 @@
 # Script 20: "Did They Ever Send It?" · Google Flow prompts
 
-12 clips × 8 s ≈ 96 s · horizontal 16:9 · two offices: Gentle Dental (general dentist) and St. Andrew's Family Dental (specialist) · professional live-action look.
+14 clips × 8 s ≈ 112 s · horizontal 16:9 · two offices: Gentle Dental (general dentist) and St. Andrew's Family Dental (specialist) · professional live-action look.
 
 Problem: the referral loop that never closes. A patient comes back to her general dentist for the crown, and the specialist's signed completion note never arrived. Both offices are doing their job; every office just sends things a different way. One month later, the same people on Tooth Referral.
 
@@ -40,28 +40,39 @@ Tanya: "I'll find it."
 Barbara: "It's nobody's fault. Every office sends things a different way..."  
 Greg: "...and the patient waits."  
 
+### Introducing Tooth Referral · St. Andrew's (Amanda and Tanya)
+
+**08 · Let's set up Tooth Referral** (St. Andrew's)  
+Amanda: "This keeps happening. Let's set up Tooth Referral."  
+Tanya: "Tooth Referral?"  
+Amanda: "One case for every referral. Both offices on it."  
+
+**09 · How it works** (St. Andrew's)  
+Amanda: "Messages, X-rays, insurance, the signed note. All on the case. Gentle Dental sees it too."  
+Tanya: "Let's invite them today."  
+
 ### Act 2 · one month later, with Tooth Referral
 
-**08 · Already here** (Gentle Dental)  
+**10 · Already here** (Gentle Dental)  
 Greg: "Your specialist already sent the signed note. You're all set for your crown."  
 David: "That was fast."  
 
-**09 · Copied it in** (Gentle Dental)  
-Barbara: "I copied it into our electronic health record this morning."  
-Greg: "And you asked them about his follow-up?"  
+**11 · Copied it in** (Gentle Dental)  
+Barbara: "I copied it from Tooth Referral into our electronic health record this morning."  
+Greg: "And his follow-up?"  
 Barbara: "Right on the case."  
 
-**10 · Quiet phone** (St. Andrew's)  
+**12 · Quiet phone** (St. Andrew's)  
 Tanya: "Gentle Dental hasn't called once this week."  
 Amanda: "They don't need to. They see the status, and they message us right on the case."  
 
-**11 · Same place** (St. Andrew's)  
+**13 · Same place** (St. Andrew's)  
 Tanya: "And when we need an X-ray or insurance from them?"  
 Amanda: "Same place. Insurance is one secure link. Setup took five minutes."  
 
-**12 · One conversation** (St. Andrew's)  
+**14 · One conversation** (St. Andrew's)  
 Tanya: "Feels like we're one office."  
-Amanda: "Two offices. One conversation."  
+Amanda: "Two offices. One conversation. That's Tooth Referral."  
 
 ## Cast
 
@@ -114,7 +125,7 @@ Amanda: "Two offices. One conversation."
 
 > Horizontal 16:9 photograph, the same St. Andrew's front office as the background image, shot from the waiting area looking at the curved reception desk, eye level, 35mm lens, late-afternoon golden light plus brass pendant lights, real-photo texture, subtle grain. AMANDA (the woman from the Amanda avatar: early 40s, black hair in a low bun, black-framed glasses, olive-green scrub top) sits at the right workstation typing. TANYA (the woman from the Tanya avatar: late 20s, dark curly high ponytail, lavender scrubs, gold hoops) walks out of the treatment-room hallway toward the desk holding a manila folder, mid-stride, glancing at the desk phone. Natural, candid. No readable text, no logos, no red objects, no extra people, no warped hands.
 
-For clips 08 and 09, also add the David avatar as a reference.
+For clips 10 and 11, also add the David avatar as a reference.
 
 ## Clip prompts
 
@@ -200,9 +211,33 @@ For clips 08 and 09, also add the David avatar as a reference.
 > BARBARA speaks with a warm, steady early-50s female voice with a natural neutral American accent, calm, fair, honest. Perfectly lip-synced: "It's nobody's fault. Every office sends things a different way..." GREG speaks with a friendly, easy late-20s male voice with a natural neutral American accent, quiet, matter-of-fact. Perfectly lip-synced: "...and the patient waits."
 > Audio: only the spoken lines, the phone being set down, quiet room tone and quiet office room tone. No music, no subtitles, no captions, no on-screen text, no readable screens, no logos, no red clothing or props, no extra people, no warped hands or fingers, no lip-sync drift, no sudden objects appearing in hands.
 
-*Edit:* Soft amber card: "Patient waiting". Then white flash cut to: "One month later".
+*Edit:* Soft amber card: "Patient waiting".
 
-### CLIP 08 · Already here (Gentle Dental)
+### CLIP 08 · Let's set up Tooth Referral (St. Andrew's)
+**Dialogue:** AMANDA: "This keeps happening. Let's set up Tooth Referral." · TANYA: "Tooth Referral?" · AMANDA: "One case for every referral. Both offices on it."
+
+> Use the St. Andrew's cast image as the reference, so the room and both women look exactly the same in every St. Andrew's clip.
+> Horizontal 16:9 video, 8 seconds, one continuous shot. Photorealistic live-action footage that looks professionally filmed, not AI-generated: shot on a cinema camera (Sony FX3 look) with a 35mm lens, natural daylight plus soft practical office lights, true-to-life colours, real skin texture with pores, subtle film grain, natural imperfections, natural unhurried movement, no glossy or plastic look. St. Andrew's Family Dental, the front office of a real, calm, upscale dental specialist practice (the same room as the St. Andrew's background image): a curved reception desk with fluted white panels and a warm wood top, two workstations with slim monitors angled away from the camera (soft glow, no readable screen), a black desk phone, a paper tray with a few printed pages, a pen cup and a small stack of folders. Behind the desk is a deep navy feature wall with a blank brushed-brass sign shape. On the right a hallway leads to treatment rooms with frosted glass doors and a glimpse of a dental chair and an overhead light. Warm greige walls, wood floors, three brass pendant lights over the desk, a large fiddle-leaf fig, a tall window with soft late-afternoon golden light.
+> TANYA, a woman in her late 20s with long dark curly hair in a high ponytail, lavender scrubs, small gold hoop earrings and a small blank white name badge, hangs up the phone and lets out a long breath, sliding a faxed page into a folder. AMANDA, a woman in her early 40s with straight black hair in a neat low bun, black-framed glasses, an olive-green scrub top over a white long-sleeve undershirt and a small blank white name badge, gets up from her workstation, walks around behind Tanya (0 to 3 seconds), rolls a spare chair over and sits down next to her, turning Tanya's monitor slightly toward them both (soft glow, screen not readable). Tanya turns her chair toward Amanda, interested.
+> Camera: medium-wide two-shot from the waiting area, eye level, the camera drifts gently with Amanda as she walks over, then holds on the two of them.
+> AMANDA speaks with a calm, warm early-40s female voice with a natural neutral American accent, calm, decided. Perfectly lip-synced: "This keeps happening. Let's set up Tooth Referral." TANYA speaks with a bright, quick late-20s female voice with a natural neutral American accent, curious. Perfectly lip-synced: "Tooth Referral?" AMANDA speaks with a calm, warm early-40s female voice with a natural neutral American accent, clear, easy. Perfectly lip-synced: "One case for every referral. Both offices on it."
+> Audio: only the spoken lines, the phone set down, footsteps, a chair rolling and quiet office room tone. No music, no subtitles, no captions, no on-screen text, no readable screens, no logos, no red clothing or props, no extra people, no warped hands or fingers, no lip-sync drift, no sudden objects appearing in hands.
+
+*Edit:* The Tooth Referral logo appears beside Amanda, then a single case card: "One case per referral · both offices".
+
+### CLIP 09 · How it works (St. Andrew's)
+**Dialogue:** AMANDA: "Messages, X-rays, insurance, the signed note. All on the case. Gentle Dental sees it too." · TANYA: "Let's invite them today."
+
+> Use the St. Andrew's cast image as the reference, so the room and both women look exactly the same in every St. Andrew's clip.
+> Horizontal 16:9 video, 8 seconds, one continuous shot. Photorealistic live-action footage that looks professionally filmed, not AI-generated: shot on a cinema camera (Sony FX3 look) with a 35mm lens, natural daylight plus soft practical office lights, true-to-life colours, real skin texture with pores, subtle film grain, natural imperfections, natural unhurried movement, no glossy or plastic look. St. Andrew's Family Dental, the front office of a real, calm, upscale dental specialist practice (the same room as the St. Andrew's background image): a curved reception desk with fluted white panels and a warm wood top, two workstations with slim monitors angled away from the camera (soft glow, no readable screen), a black desk phone, a paper tray with a few printed pages, a pen cup and a small stack of folders. Behind the desk is a deep navy feature wall with a blank brushed-brass sign shape. On the right a hallway leads to treatment rooms with frosted glass doors and a glimpse of a dental chair and an overhead light. Warm greige walls, wood floors, three brass pendant lights over the desk, a large fiddle-leaf fig, a tall window with soft late-afternoon golden light.
+> AMANDA, a woman in her early 40s with straight black hair in a neat low bun, black-framed glasses, an olive-green scrub top over a white long-sleeve undershirt and a small blank white name badge, counts the four items on her fingers, then gestures with an open palm toward the monitor on "all on the case" and points out toward the window on "Gentle Dental". TANYA, a woman in her late 20s with long dark curly hair in a high ponytail, lavender scrubs, small gold hoop earrings and a small blank white name badge, nods along, breaks into a smile, and pulls her keyboard closer.
+> Camera: medium close-up two-shot, eye level, very slow push-in, soft golden light on both faces.
+> AMANDA speaks with a calm, warm early-40s female voice with a natural neutral American accent, explaining to a friend. Perfectly lip-synced: "Messages, X-rays, insurance, the signed note. All on the case. Gentle Dental sees it too." TANYA speaks with a bright, quick late-20s female voice with a natural neutral American accent, smiling, energised. Perfectly lip-synced: "Let's invite them today."
+> Audio: only the spoken lines, quiet office room tone, a keyboard pulled across the desk and quiet office room tone. No music, no subtitles, no captions, no on-screen text, no readable screens, no logos, no red clothing or props, no extra people, no warped hands or fingers, no lip-sync drift, no sudden objects appearing in hands.
+
+*Edit:* Split screen: the Tooth Referral case with messages, an X-ray, the insurance card and the signed note; then "Invite your network" sends an invite to Gentle Dental. White flash cut to: "One month later".
+
+### CLIP 10 · Already here (Gentle Dental)
 **Dialogue:** GREG: "Your specialist already sent the signed note. You're all set for your crown." · DAVID: "That was fast."
 
 > Use the Gentle Dental cast image as the reference, so the room and every person look exactly the same in every Gentle Dental clip.
@@ -214,19 +249,19 @@ For clips 08 and 09, also add the David avatar as a reference.
 
 *Edit:* Split screen: the Tooth Referral case, status "Treatment completed", the signed completion note with its e-signature.
 
-### CLIP 09 · Copied it in (Gentle Dental)
-**Dialogue:** BARBARA: "I copied it into our electronic health record this morning." · GREG: "And you asked them about his follow-up?" · BARBARA: "Right on the case."
+### CLIP 11 · Copied it in (Gentle Dental)
+**Dialogue:** BARBARA: "I copied it from Tooth Referral into our electronic health record this morning." · GREG: "And his follow-up?" · BARBARA: "Right on the case."
 
 > Use the Gentle Dental cast image as the reference, so the room and every person look exactly the same in every Gentle Dental clip.
 > Horizontal 16:9 video, 8 seconds, one continuous shot. Photorealistic live-action footage that looks professionally filmed, not AI-generated: shot on a cinema camera (Sony FX3 look) with a 35mm lens, natural daylight plus soft practical office lights, true-to-life colours, real skin texture with pores, subtle film grain, natural imperfections, natural unhurried movement, no glossy or plastic look. Gentle Dental, the front office of a real, bright, family general dentist practice (the same room as the Gentle Dental background image): a white reception counter with a walnut top and a raised ledge, two workstations with slim monitors angled away from the camera (soft glow, no readable screen), a black desk phone, a pen cup, a few manila patient folders and a small tooth model. Behind the counter is a soft powder-blue accent wall with a blank brushed-metal sign shape. A glass entry door with morning daylight on the left, a light-grey sofa, a small kids' corner with a low bookshelf and a few picture books, a potted olive tree. Behind the counter a short hallway leads to a small office with a glass window. Light oak floor, warm ceiling lights, lived-in details: sticky notes, a coffee mug, a calendar on the wall with no readable text.
 > BARBARA, a woman in her early 50s with a silver-blonde chin-length bob, reading glasses pushed up on her head, a soft blue blouse under a navy cardigan and a small blank white name badge on a lanyard, walks along behind the counter carrying a coffee mug and a folder (0 to 3 seconds), pauses behind Greg's chair and glances at his screen. GREG, a man in his late 20s with warm brown skin, short black curly hair, a neatly trimmed beard, ceil-blue scrubs, a black smartwatch and a small blank white name badge, looks up at her over his shoulder. Barbara gives a small nod and keeps walking toward her office.
 > Camera: medium shot from across the counter, eye level, the camera follows Barbara as she walks in from the left, holds on the two of them, then lets her walk out of frame on the right.
-> BARBARA speaks with a warm, steady early-50s female voice with a natural neutral American accent, easy, warm. Perfectly lip-synced: "I copied it into our electronic health record this morning." GREG speaks with a friendly, easy late-20s male voice with a natural neutral American accent, casual. Perfectly lip-synced: "And you asked them about his follow-up?" BARBARA speaks with a warm, steady early-50s female voice with a natural neutral American accent, smiling, simple. Perfectly lip-synced: "Right on the case."
+> BARBARA speaks with a warm, steady early-50s female voice with a natural neutral American accent, easy, warm. Perfectly lip-synced: "I copied it from Tooth Referral into our electronic health record this morning." GREG speaks with a friendly, easy late-20s male voice with a natural neutral American accent, casual. Perfectly lip-synced: "And his follow-up?" BARBARA speaks with a warm, steady early-50s female voice with a natural neutral American accent, smiling, simple. Perfectly lip-synced: "Right on the case."
 > Audio: only the spoken lines, footsteps, quiet office room tone and quiet office room tone. No music, no subtitles, no captions, no on-screen text, no readable screens, no logos, no red clothing or props, no extra people, no warped hands or fingers, no lip-sync drift, no sudden objects appearing in hands.
 
 *Edit:* Split screen: "Copy into your electronic health record" on the note, then a message on the case to St. Andrew's.
 
-### CLIP 10 · Quiet phone (St. Andrew's)
+### CLIP 12 · Quiet phone (St. Andrew's)
 **Dialogue:** TANYA: "Gentle Dental hasn't called once this week." · AMANDA: "They don't need to. They see the status, and they message us right on the case."
 
 > Use the St. Andrew's cast image as the reference, so the room and both women look exactly the same in every St. Andrew's clip.
@@ -238,7 +273,7 @@ For clips 08 and 09, also add the David avatar as a reference.
 
 *Edit:* Split screen: the status timeline both offices see, and a message thread between Barbara and Tanya on the case.
 
-### CLIP 11 · Same place (St. Andrew's)
+### CLIP 13 · Same place (St. Andrew's)
 **Dialogue:** TANYA: "And when we need an X-ray or insurance from them?" · AMANDA: "Same place. Insurance is one secure link. Setup took five minutes."
 
 > Use the St. Andrew's cast image as the reference, so the room and both women look exactly the same in every St. Andrew's clip.
@@ -250,14 +285,14 @@ For clips 08 and 09, also add the David avatar as a reference.
 
 *Edit:* Split screen: an X-ray attached on the case, then the HIPAA-secure insurance request link. Chip: "Set up in about 5 minutes".
 
-### CLIP 12 · One conversation (St. Andrew's)
-**Dialogue:** TANYA: "Feels like we're one office." · AMANDA: "Two offices. One conversation."
+### CLIP 14 · One conversation (St. Andrew's)
+**Dialogue:** TANYA: "Feels like we're one office." · AMANDA: "Two offices. One conversation. That's Tooth Referral."
 
 > Use the St. Andrew's cast image as the reference, so the room and both women look exactly the same in every St. Andrew's clip.
 > Horizontal 16:9 video, 8 seconds, one continuous shot. Photorealistic live-action footage that looks professionally filmed, not AI-generated: shot on a cinema camera (Sony FX3 look) with a 35mm lens, natural daylight plus soft practical office lights, true-to-life colours, real skin texture with pores, subtle film grain, natural imperfections, natural unhurried movement, no glossy or plastic look. St. Andrew's Family Dental, the front office of a real, calm, upscale dental specialist practice (the same room as the St. Andrew's background image): a curved reception desk with fluted white panels and a warm wood top, two workstations with slim monitors angled away from the camera (soft glow, no readable screen), a black desk phone, a paper tray with a few printed pages, a pen cup and a small stack of folders. Behind the desk is a deep navy feature wall with a blank brushed-brass sign shape. On the right a hallway leads to treatment rooms with frosted glass doors and a glimpse of a dental chair and an overhead light. Warm greige walls, wood floors, three brass pendant lights over the desk, a large fiddle-leaf fig, a tall window with soft late-afternoon golden light.
 > TANYA, a woman in her late 20s with long dark curly hair in a high ponytail, lavender scrubs, small gold hoop earrings and a small blank white name badge, smiles and types a quick message on her keyboard. AMANDA, a woman in her early 40s with straight black hair in a neat low bun, black-framed glasses, an olive-green scrub top over a white long-sleeve undershirt and a small blank white name badge, stands up, picks up her folder, gives Tanya a light tap on the shoulder and walks off toward the treatment-room hallway, glancing back with a smile.
 > Camera: medium-wide shot from the waiting area, eye level, static, Amanda walking out of frame toward the hallway at the end.
-> TANYA speaks with a bright, quick late-20s female voice with a natural neutral American accent, warm, smiling. Perfectly lip-synced: "Feels like we're one office." AMANDA speaks with a calm, warm early-40s female voice with a natural neutral American accent, warm, simple. Perfectly lip-synced: "Two offices. One conversation."
+> TANYA speaks with a bright, quick late-20s female voice with a natural neutral American accent, warm, smiling. Perfectly lip-synced: "Feels like we're one office." AMANDA speaks with a calm, warm early-40s female voice with a natural neutral American accent, warm, simple. Perfectly lip-synced: "Two offices. One conversation. That's Tooth Referral."
 > Audio: only the spoken lines, keyboard typing, footsteps and quiet office room tone. No music, no subtitles, no captions, no on-screen text, no readable screens, no logos, no red clothing or props, no extra people, no warped hands or fingers, no lip-sync drift, no sudden objects appearing in hands.
 
 *Edit:* Split screen to both offices side by side (Greg and Barbara at Gentle Dental, Tanya at St. Andrew's), joined by one case. End card: "Tooth Referral. Two offices, one conversation." · toothreferral.com
