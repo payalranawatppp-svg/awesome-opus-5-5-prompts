@@ -2,7 +2,7 @@
 app's own style (from the platform recordings, VIDEO-INDEX.md) with approved demo names only:
 
   A  Direct messages on the case      (Office Communication + @mentions)
-  B  Notes that write themselves      (templates + smart variables, copy into your EHR, e-sign, signed note back)
+  B  Notes that write themselves      (templates + smart variables, copy into your electronic health record, e-sign, signed note back)
   C  The patient sends their insurance (Request from patient -> secure link -> on the case)
 
 Look and words follow toothreferral.com: purple #6D3DF0 / #8A63F7 on near-black #0B0B14 and soft lavender,
@@ -183,14 +183,14 @@ def ehr_modal(w=640):
   <div class="ch"><span class="ico">{ic('doc')}</span><div><b>Consultation Scheduled</b><small>Administrative note</small></div></div>
   <div style="padding:18px 26px;font:500 19px/1.5 InterW;color:#4A4563">
    <div><b style="color:#16132B">Privacy:</b> saved for your staff only.</div>
-   <div style="margin-top:6px"><b style="color:#16132B">EHR Export:</b> copy and paste this note into your own patient health record.</div>
+   <div style="margin-top:6px"><b style="color:#16132B">Electronic health record export:</b> copy and paste this note into your own patient health record.</div>
    <div style="margin-top:14px;border:1px solid #E4E0F2;border-radius:14px;padding:14px 16px;color:#2D2A40;font-size:21px">Spoke with Michael Turner on 11/12/2026. Consultation booked for Thursday.</div>
    <div style="margin-top:14px;background:#F3EEFE;border-radius:14px;padding:14px 16px"><b style="color:#6D3DF0">Next step</b><div style="margin-top:4px">Check back in 2 business days?</div><span class="pill pp" style="margin-top:10px">Remind me on 11/16</span></div>
   </div></div>'''
 
 def ehr_window(w=560):
     return f'''<div class="card" style="width:{w}px;background:#F8F9FB">
-  <div style="height:46px;background:#E9ECF2;display:flex;align-items:center;gap:8px;padding:0 18px">{''.join('<i style="width:12px;height:12px;border-radius:12px;background:#C9CED8;display:block"></i>' for _ in range(3))}<span style="margin-left:12px;font:700 18px InterW;color:#5B6274">Your EHR · Patient chart</span></div>
+  <div style="height:46px;background:#E9ECF2;display:flex;align-items:center;gap:8px;padding:0 18px">{''.join('<i style="width:12px;height:12px;border-radius:12px;background:#C9CED8;display:block"></i>' for _ in range(3))}<span style="margin-left:12px;font:700 18px InterW;color:#5B6274">Your electronic health record · Patient chart</span></div>
   <div style="padding:20px 22px;font:500 19px/1.5 InterW;color:#3A3F55">
    <div style="font:700 17px InterW;color:#8A90A2;letter-spacing:.06em">CLINICAL NOTES</div>
    <div style="margin-top:10px;background:#fff;border:2px solid #6D3DF0;border-radius:12px;padding:12px 14px;color:#2D2A40">Spoke with Michael Turner on 11/12/2026. Consultation booked for Thursday.</div>
@@ -306,11 +306,11 @@ B = [
   <div class="p">Your wording, your letterhead and logo, one template per situation. Start from scratch or import the letter you already use.</div></div>
   {stage(625, place(editor_card(860), 110, 0, rx=10, ry=-14, rz=1.5) + chip(50, 530, 'Your logo & wording', 'pen', '#6D3DF0', -3) + chip(620, 545, 'Import from Word or PDF', 'doc', '#1F9D6B', 3)
              + f'<div style="position:absolute;left:150px;top:-70px;z-index:6;display:flex;gap:12px">' + ''.join(f'<span class="pill {c}" style="box-shadow:0 16px 30px -14px rgba(40,20,110,.5);font-size:20px">{t}</span>' for t,c in [('General','ps'),('Consultation Completed','pp'),('Declined Appointment','ps')]) + '</div>')}'''),
- dict(body=f'''<div class="txt"><div class="k">Works with your records</div><h2>Copy the note straight<br>into your EHR.</h2>
+ dict(body=f'''<div class="txt"><div class="k">Works with your records</div><h2>Copy notes into your<br>electronic health record.</h2>
   <div class="p">Whether you refer or receive, each note is ready to paste into your own patient health record, so your charts stay in sync.</div></div>
   {stage(560, place(ehr_modal(600), 70, 0, rx=12, ry=20, rz=-2, z=-40) + place(ehr_window(500), 530, 260, rx=12, ry=-18, rz=2, z=40)
              + f'<div style="position:absolute;left:445px;top:250px;z-index:6;width:110px;height:110px;border-radius:110px;background:linear-gradient(135deg,#6D3DF0,#8A63F7);display:flex;align-items:center;justify-content:center;box-shadow:0 20px 40px -10px rgba(109,61,240,.7)">{ic("copy", "#fff", 50)}</div>'
-             + chip(110, 600, 'Copy into your EHR', 'copy', '#6D3DF0', -2))}'''),
+             + chip(110, 600, 'Copy into your electronic health record', 'copy', '#6D3DF0', -2))}'''),
  dict(body=f'''<div class="txt"><div class="k">Staff prepare, doctors sign</div><h2>Route the note to the doctor.</h2>
   <div class="p">An assistant drafts it from the template. The doctor signs it themselves, or a teammate signs on their behalf.</div></div>
   {stage(600, place(signer_card(660), 210, 0, rx=12, ry=-16, rz=1.5) + chip(90, 470, 'E-signature built in', 'pen', '#1F9D6B', -3) + chip(600, 520, 'Save as a template', 'doc', '#6D3DF0', 3))}'''),
@@ -318,7 +318,7 @@ B = [
   <div class="p">The signed note lands on the case for both the general dentist and the specialist. No printing, no fax.</div></div>
   {stage(600, place(toast('All done, your document is signed!', 'Consultation note signed and sent', 600), 120, 0, rx=14, ry=-12, rz=-2, z=60)
              + place(signed_card(760), 200, 180, rx=14, ry=-12, rz=-2) + chip(90, 520, 'On the referral', 'check', '#1F9D6B', -3) + chip(640, 560, 'No fax', 'x', '#6D3DF0', 3))}'''),
- dict(dark=True, body=brand_close('Notes that write themselves.', 'Letters that sign themselves.', 'Templates, smart variables, EHR-ready notes and e-signatures, built in for general dentists and specialists alike.')),
+ dict(dark=True, body=brand_close('Notes that write themselves.', 'Letters that sign themselves.', 'Templates, smart variables, notes ready for your electronic health record and e-signatures, built in for general dentists and specialists alike.')),
 ]
 
 # =========================================================================== POST C — the patient sends their own insurance
@@ -351,7 +351,7 @@ C = [
 
 POSTS = [
  dict(id='post-A-direct-messages', title='End the phone tag between offices', feature='Office Communication (secure messages on the case)', tag='MESSAGES', slides=A),
- dict(id='post-B-notes', title='Notes that write themselves', feature='Customisable note templates, EHR copy, e-signature, signed note back', tag='NOTES', slides=B),
+ dict(id='post-B-notes', title='Notes that write themselves', feature='Customisable note templates, electronic health record copy, e-signature, signed note back', tag='NOTES', slides=B),
  dict(id='post-C-insurance', title='Stop chasing insurance cards', feature='Request from patient (secure insurance link)', tag='INSURANCE', slides=C),
 ]
 

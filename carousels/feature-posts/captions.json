@@ -20,23 +20,23 @@
  },
  "post-B-notes": {
   "hook": "How many times this month did someone retype the same consultation letter?",
-  "linkedin": "How many times this month did someone retype the same consultation letter?\n\nGeneral dentist or specialist, the routine is the same: referral letters, consultation notes and completion letters with new names, new dates and new tooth numbers. Then print, sign and fax.\n\nIn Tooth Referral, notes write themselves. Build a template once and smart variables fill in the patient, date of birth, both offices, specialty, X-ray images and dates on every note. Every template is yours to customise: your wording, your letterhead and logo, one for each situation (consultation completed, declined appointment, general), or import the Word or PDF letter you already use. Your team can copy the note straight into your own EHR so your charts stay in sync.\n\nAn assistant can prepare it, and the doctor signs it, or it's routed to the doctor to sign. Once it's e-signed, the consultation note lands on the case, visible to both the general dentist and the specialist. No printing, no fax.\n\nNotes that write themselves. Letters that sign themselves.",
+  "linkedin": "How many times this month did someone retype the same consultation letter?\n\nGeneral dentist or specialist, the routine is the same: referral letters, consultation notes and completion letters with new names, new dates and new tooth numbers. Then print, sign and fax.\n\nIn Tooth Referral, notes write themselves. Build a template once and smart variables fill in the patient, date of birth, both offices, specialty, X-ray images and dates on every note. Every template is yours to customise: your wording, your letterhead and logo, one for each situation (consultation completed, declined appointment, general), or import the Word or PDF letter you already use. Your team can copy the note straight into your own electronic health record so your charts stay in sync.\n\nAn assistant can prepare it, and the doctor signs it, or it's routed to the doctor to sign. Once it's e-signed, the consultation note lands on the case, visible to both the general dentist and the specialist. No printing, no fax.\n\nNotes that write themselves. Letters that sign themselves.",
   "hashtags_linkedin": [
    "#DentalReferrals",
    "#GeneralDentistry",
    "#DentalSpecialist",
    "#DentalPracticeManagement",
-   "#EHR"
+   "#ElectronicHealthRecords"
   ],
   "keywords": [
    "consultation note template",
    "customizable dental letter templates",
    "dental completion letter",
-   "copy notes into EHR",
+   "copy notes into electronic health record",
    "e-signature for dental offices",
    "dental admin time savings"
   ],
-  "alt": "Carousel with 3D graphics of Tooth Referral notes: a consultation note template with auto-filled variables, a note copied into an EHR chart, the choice of who signs, and the signed note visible to both offices."
+  "alt": "Carousel with 3D graphics of Tooth Referral notes: a consultation note template with auto-filled variables, a note copied into an electronic health record chart, the choice of who signs, and the signed note visible to both offices."
  },
  "post-C-insurance": {
   "hook": "\"Can you text us a photo of your insurance card?\" There's a better way to ask.",

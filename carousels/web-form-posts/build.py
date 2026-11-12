@@ -105,7 +105,7 @@ C1 = [
  f'''<div class="k">Direct communication</div><h2>Talk to the referring office on the case.</h2>
 <div class="p">Secure cloud messages between both offices, right on the referral. No phone tag, no voicemail, no email chain.</div>
 <div style="margin-top:30px">{crop('dash3c/r3c-messages.jpg', 690, 220, 1100, 520, 936, 442)}</div>''',
- f'''<div class="k">Notes your team actually uses</div><h2>Build notes, use templates, copy them into your EHR.</h2>
+ f'''<div class="k">Notes your team actually uses</div><h2>Build notes, use templates, copy them into your electronic health record.</h2>
 <div class="p">Staff write notes on the case, start from custom templates, and copy and paste them straight into your own electronic health record. Administrative notes stay private to your team.</div>
 <div style="margin-top:30px;display:flex;justify-content:center">{crop('dash3c/r3c-insurance.jpg', 1385, 290, 480, 520, 520, 563)}</div>''',
  '''<div class="k">The difference</div><h1>It's not just a form. It's a system for your team.</h1>
@@ -131,7 +131,7 @@ C2 = [
 <div class="p">Need a newer image? Ask the referring office in a message on the case and it arrives the same day.</div>
 <div style="margin-top:30px">{crop('dash3c/r3c-status-xrays.jpg', 385, 440, 910, 440, 936, 453)}</div>''',
  f'''<div class="k">The specialist</div><h2>Notes, templates and a signed note back.</h2>
-<div class="p">Build notes from your own templates, copy them into your EHR, and send the signed completion note to the referring dentist from the case.</div>
+<div class="p">Build notes from your own templates, copy them into your electronic health record, and send the signed completion note to the referring dentist from the case.</div>
 <div style="margin-top:30px;display:flex;justify-content:center">{crop('dash3c/r3c-admin-notes.jpg', 1385, 480, 490, 430, 600, 527)}</div>''',
  '''<div class="k">The result</div><h1>When everyone sees the value, everyone works better.</h1>
 <div class="p">One referral system for the whole team, instead of one web form and a lot of follow-up.</div>
@@ -173,7 +173,7 @@ P5 = ['''<div class="k">Web form or system?</div><h1 style="font-size:76px">5 qu
 <div class="li"><b class="n">1</b><span>Does each referral become <b>one case</b>, or one more email?</span></div>
 <div class="li"><b class="n">2</b><span>Can you <b>message the referring office</b> right on the referral?</span></div>
 <div class="li"><b class="n">3</b><span>Can <b>anyone on your team</b> pick it up and see where it stands?</span></div>
-<div class="li"><b class="n">4</b><span>Can staff <b>build notes from templates</b> and copy them into your EHR?</span></div>
+<div class="li"><b class="n">4</b><span>Can staff <b>build notes from templates</b> and copy them into your electronic health record?</span></div>
 <div class="li"><b class="n">5</b><span>Does a <b>signed completion note</b> go back when treatment is done?</span></div>
 <div class="p" style="margin-top:44px;color:#16132B"><b>Mostly no? You have a web form, not a referral system.</b></div>''']
 

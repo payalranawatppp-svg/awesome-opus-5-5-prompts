@@ -37,6 +37,7 @@ forms) with a feature-to-story table and the names that must never appear public
 ## 00. Audience: every dental office, general or specialist (user, 2026-11-12)
 - All posts, carousels and scripts are for dental offices in general: general dentists (who send referrals) AND specialists (who receive them). Write copy that works for both sides, e.g. "whether you refer or receive", "the general dentist's office and the specialist's office", "either office". Never write only from the specialist's side.
 - Show both directions in examples: the general dentist's office asking the specialist (status, appointment time), and the specialist asking back (X-rays, insurance).
+- Never write the abbreviation "EHR" in public copy (slides, captions, hashtags, scripts). Always write "electronic health record" in full (hashtag #ElectronicHealthRecords).
 - In a carousel, every slide that shows a conversation gets its own conversation (different patient or different question). Never reuse the same thread across slides.
 
 ## 000. "A system for the team" (Vejay, 2026-11-11) — the brand-awareness foundation; follow it over older sections
