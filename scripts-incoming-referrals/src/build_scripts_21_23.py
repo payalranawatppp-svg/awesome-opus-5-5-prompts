@@ -15,42 +15,43 @@ FONTS = '/home/user/awesome-opus-5-5-prompts/reel/public/fonts'
 
 A = lambda t: ('ACT', [], t)
 SCRIPTS = [
- dict(n=21, ep=2, title='Last Tuesday', sub='How a referral arrives: the website referral form',
-  cast='Tanya and Amanda at the same front desk as Buried in Emails. Barbara (office manager at Gentle Dental, the general dentist down the street) on the phone. Mrs. Ortiz, the patient, on the phone.',
-  story='A good Monday. Tanya brings in donuts. Barbara from Gentle Dental calls, just to chat, and asks how Mrs. Ortiz is doing. Nobody at St. Andrew\'s has ever heard of Mrs. Ortiz. She was sent a week ago, through the website.',
-  topic='The website referral form: replaced by one that starts a case in Tooth Referral instead of sending an email.',
-  hook='"How did Mrs. Ortiz do? She was so nervous." · "...Mrs. Ortiz?"',
-  goal='Make the viewer feel a lost referral as a person (a nervous patient who thinks nobody wanted her), not as a statistic. The software only appears after that, as the obvious thing to do. The viewer leaves asking: "Where does OUR website form go?"',
-  builds='In video 1 Amanda said: "We replaced the form on our website with Tooth Referral." Video 1 only said it. This episode shows the day that made them do it, and the moment the first referral arrives the new way.',
-  features=['Website referral form with your logo, welcome message and insurance accepted', 'Routes each referral to the right doctor', 'Live preview of what the referring office sees', 'Access code so regular offices never retype their details', 'Embed code for your own website', 'Every form submission arrives in Incoming as one case'],
+ dict(n=21, ep=2, title='Phone Tag', sub='How the two offices talk: messages right on the case',
+  cast='Tanya and Amanda at the same front desk as Buried in Emails. Mrs. Ortiz, a nervous patient, in the waiting room. Barbara (office manager at Gentle Dental, the general dentist who referred her), seen at her own desk.',
+  story='A good Monday. Mrs. Ortiz is in for her implant consult and she is scared. Then the doctor needs her newest X-ray before he can start. Tanya calls Gentle Dental: voicemail. Barbara calls back while Tanya is with another patient: missed. Mrs. Ortiz sits in the chair, getting more nervous by the minute.',
+  topic='Direct messages between the two offices on each case: @mentions, quoted replies, files attached right in the conversation and saved on the case for both offices.',
+  hook='"Is it bad that my hands are shaking?" · Ten minutes later she is still waiting, and Tanya is stuck in phone tag.',
+  goal='Everyone who works a front desk knows phone tag. Let the viewer feel it (a scared patient waiting, two offices missing each other) and then see one message solve it in seconds. The viewer leaves thinking: "Why are we still calling each other?"',
+  builds='In video 1 Amanda said the referring office "can message us right on the case", and Tanya complained that "the dentist\'s office calls us constantly". This episode shows that one line as a real moment: the calls stop, the conversation moves onto the case.',
+  features=['Office Communication on every case (both offices)', '@mentions that notify the right person', 'Quoted replies, so nobody mixes up which question', 'Files sent in the conversation land on the case (X-rays shared with both offices)', 'The full conversation stays on the case for whoever opens it'],
   turn='Ends on Amanda: "Tomorrow\'s the real test. You\'re out, and Greg\'s on his own." (opens Script 22)',
-  end='Tooth Referral. Not just a form. A system. · toothreferral.com',
+  end='Tooth Referral. Stop calling. Start the conversation on the case. · toothreferral.com',
   clips=[
-
    A('Act 1 · A good Monday'),
-   ('Donuts', [('Tanya', 'Donuts! The team said yes.'), ('Tanya', "St. Andrew's, this is Tanya... Barbara! How's the new puppy?")],
-    'STORY. Tanya sets a box of donuts on the desk; the phone rings and she answers laughing. Barbara (Gentle Dental) is only a voice.'),
-   ('Mrs. Ortiz', [('Barbara', 'Ha! Hey, how did Mrs. Ortiz do? She was so nervous.'), ('Tanya', '...Mrs. Ortiz?')],
-    'STORY. The smile fades. Amanda looks over.'),
-   A('Act 2 · Who is Mrs. Ortiz?'),
-   ('Last Tuesday', [('Barbara', 'We sent her last Tuesday. Through your website.'), ('Tanya', 'Barbara, can I call you right back?')],
-    'STORY. Tanya puts the donut down.'),
-   ('Nothing', [('Tanya', 'Nothing. Not in my inbox, not in the fax tray.'), ('Amanda', 'A week. She thinks we never called.')],
-    'STORY. Tanya searches her email, Amanda checks the fax tray. Small pop-up: "0 results".'),
-   ('I thought', [('Mrs. Ortiz', "Oh. I thought maybe you weren't taking new patients."), ('Tanya', "I'm so sorry. Thursday at nine? We'll take good care of you.")],
-    'STORY. Tanya calls the patient. Close on her face: the emotional low point.'),
-   ('The old address', [('Amanda', "The website form goes to the old front-desk email. Nobody's opened it since spring."), ('Tanya', 'How many more?'), ('Amanda', 'Two. From March.')],
-    'STORY. A dusty mailbox graphic: "frontdesk-old · 214 unread", two old referrals highlighted.'),
-   A('Act 3 · Not one more'),
-   ('What it is', [('Tanya', 'Not next month. Today.'), ('Amanda', "Tooth Referral turns every referral into one case. Patient, X-rays, insurance, messages. Both offices see it. Nobody digs through email.")],
-    'INTRO to Tooth Referral, in Amanda\'s words. Amanda opens it; a clean "one case" card builds beside her as she lists each part.'),
-   ('Our form', [('Amanda', 'Our logo, the insurance we take, and it goes to the right doctor.'), ('Tanya', "And Barbara's details?"), ('Amanda', 'Her code fills them in.')],
-    'The website referral form builder: logo, Insurance Accepted, doctor routing, live preview, the access code auto-filling Gentle Dental.'),
-   ('Gone for good', [('Amanda', 'Paste it on our website... and that old email address is gone for good.')],
-    '"Get embed code", the new form live on the practice website. The dusty mailbox fades away.'),
-   A('Act 4 · The call back'),
-   ('Already here', [('Tanya', "Barbara? Mrs. Ortiz is booked. Try our website once more?... It's already here. Everything.")],
-    'STORY. Tanya on the phone, calm again. Incoming list: the new referral slides in as one case, status "New".'),
+   ('Donuts', [('Tanya', 'Donuts! The team said yes.'), ('Amanda', "Save one for Mrs. Ortiz. She's in at ten, and she's terrified.")],
+    'STORY. Tanya sets a box of donuts on the desk. Easy morning light.'),
+   ('Shaking', [('Mrs. Ortiz', 'Is it bad that my hands are shaking?'), ('Tanya', "Totally normal. You're in great hands.")],
+    'STORY. Mrs. Ortiz at the counter, clutching her purse. Tanya, kind and calm, walks her to a chair.'),
+   A('Act 2 · Phone tag'),
+   ('The X-ray', [('Amanda', "The doctor needs her newest X-ray. The one we have is from 2022."), ('Tanya', "I'll call Gentle Dental.")],
+    'STORY. Amanda leans out from the treatment-room door.'),
+   ('Voicemail', [('Tanya', "Hi Barbara, it's Tanya at St. Andrew's again. Please call me back. It's about Mrs. Ortiz.")],
+    'STORY. Tanya on the phone, leaving a message. Small chip: "Voicemail · 1".'),
+   ('Missed', [('Tanya', 'No, no, no... Barbara? ...She just stepped out.')],
+    'STORY. Tanya is with another patient; the desk phone flashes "Missed call · Gentle Dental". She calls back: too late. Chip: "Voicemail · 2".'),
+   ('Another day?', [('Mrs. Ortiz', 'Is everything okay? Should I just come back another day?'), ('Tanya', 'Two more minutes. I promise.')],
+    'STORY. Close on Mrs. Ortiz, anxious. Tanya, guilty, forces a smile. The emotional low point.'),
+   A('Act 3 · One message'),
+   ('What it is', [('Amanda', 'Stop calling. Message her on the case.'), ('Amanda', "Tooth Referral keeps every conversation about Mrs. Ortiz right on her case. Both offices see it. No voicemail.")],
+    'INTRO to Tooth Referral, in Amanda\'s words. A clean "one case" card builds beside her: patient, X-rays, messages.'),
+   ('@Barbara', [('Tanya', "'At Barbara. Do you have Mrs. Ortiz's newest X-ray? She's in the chair.' Send.")],
+    'Office Communication on the case. Tanya types; "@Barbara" highlights as a mention. Send.'),
+   ('Barbara sees it', [('Barbara', 'Oh! Attaching it now.')],
+    'Quick cut to Barbara at Gentle Dental: a notification "Tanya mentioned you". She replies, quoting Tanya\'s question, and attaches the X-ray.'),
+   ('Already here', [('Tanya', 'Already here. From May.'), ('Amanda', "And it's saved on her case. Nobody will ever ask for it again.")],
+    'The reply with the quoted question, and the X-ray appearing under Attachments "shared with both offices". Total time chip: "1 min 40 s".'),
+   A('Act 4 · Ready'),
+   ('Ready', [('Tanya', "Mrs. Ortiz? We're ready for you."), ('Mrs. Ortiz', 'Already? Oh, thank goodness.')],
+    'STORY. Mrs. Ortiz stands up, relieved. Tanya hands her a donut on the way in.'),
    ('Donut', [('Amanda', 'Donut?'), ('Tanya', 'Now I deserve one.'), ('Amanda', "Tomorrow's the real test. You're out, and Greg's on his own.")],
     'STORY. Tanya finally takes a bite. End card.'),
   ]),
@@ -99,7 +100,7 @@ SCRIPTS = [
   topic='Closing the loop: note templates that fill themselves in, your own letter imported from Word, routing to the doctor to sign, e-signature, the signed note on the case for both offices, copy into your electronic health record.',
   hook='"Front row. She made me promise." · At 4:15, three completion letters land on her desk.',
   goal='Give the paperwork a human stake (a promise to a child) and let the software quietly win. The viewer should want those 20 minutes back in their own day.',
-  builds='Video 1 opened with a team "losing steam" and a patient nobody called back. This is the other end of the same journey: the loop closes on time and the people go home. Together with 21 and 22 the series follows one referral: it arrives, it is worked, it is closed.',
+  builds='Video 1 opened with a team "losing steam" and a patient nobody called back. This is the other end of the same journey: the loop closes on time and the people go home. Together with 21 and 22 the series follows one referral: the offices talk about it, it is worked, it is closed.',
   features=['Changing the status to Completed opens the note', 'Templates with smart fields that fill themselves in', 'Your own letter imported from Word', 'Route to the doctor to sign', 'E-signature', 'Signed note on the case, visible to both offices', 'Copy into your electronic health record', 'Save as a new template'],
   turn='Ends on Greg: "The doctor should see this from the owner\'s side." · Amanda: "The numbers? That\'s a whole other story." (opens the Analytics episode)',
   end='Tooth Referral. Completion letters that write themselves. · toothreferral.com',
@@ -174,9 +175,9 @@ parts = [f'''<div class="k">Tooth Referral · Scripts 21 to 23 · the feature se
 <div class="box amber"><b>Vejay's notes this answers (13 Nov)</b><ul>
 <li>"Build from the first video, the buried one." Every episode quotes a line from video 1 and pays it off.</li>
 <li>"Focus on showing the features of the software." Each clip names the exact Tooth Referral screen on view; the dialogue is two colleagues using it, not describing it.</li>
-<li><b>A real story, not problem → solution:</b> each script is told in four acts. Act 1 sets up the people and a normal day. Act 2 lets things go wrong slowly, with a human cost (a nervous patient who thinks nobody wanted her, a new colleague alone for the first time, a mother's promise to her daughter). Act 3 is the turn, where the software appears the way a colleague would actually use it. Act 4 pays off the story, not the feature. Clips marked STORY carry no product graphics.</li>
+<li><b>A real story, not problem → solution:</b> each script is told in four acts. Act 1 sets up the people and a normal day. Act 2 lets things go wrong slowly, with a human cost (a scared patient waiting in the chair while two offices play phone tag, a new colleague alone for the first time, a mother's promise to her daughter). Act 3 is the turn, where the software appears the way a colleague would actually use it. Act 4 pays off the story, not the feature. Clips marked STORY carry no product graphics.</li>
 <li><b>Every episode introduces Tooth Referral, like video 1:</b> one clip marked INTRO where a character says in plain words what Tooth Referral is and how it helps ("Tooth Referral turns every referral into one case... Both offices see it. Nobody digs through email."), so a viewer who never saw video 1 still understands it.</li>
-<li><b>A different feature set in every script (no repeats):</b> 21 is how a referral <b>arrives</b> (the website form), 22 is how it is <b>worked</b> (statuses, reminders, insurance request, notifications), 23 is how it is <b>closed</b> (notes and e-signature).</li>
+<li><b>A different feature set in every script (no repeats):</b> 21 is how the two offices <b>talk</b> (messages on the case), 22 is how it is <b>worked</b> (statuses, reminders, insurance request, notifications), 23 is how it is <b>closed</b> (notes and e-signature).</li>
 <li>"People need to turn the page with curiosity." Each script ends on an open question that the next episode answers.</li>
 <li>"Send me topics before you produce: hook, goal, and how it builds from the first video." The topics are below; nothing gets produced until you approve them.</li></ul></div>
 <h2>Topics for approval</h2>
