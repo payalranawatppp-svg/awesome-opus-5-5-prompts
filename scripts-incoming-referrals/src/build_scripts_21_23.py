@@ -47,6 +47,8 @@ SCRIPTS = [
     'Over Amanda\'s answer: an "@Barbara" mention turning into a notification bubble on Gentle Dental\'s side.'),
    ('Not lost', [('Tanya', 'And it won\'t get buried in her email?'), ('Amanda', "It's not an email. It lives on the case. Every question, every answer, one thread.")],
     'The case\'s Office Communication thread: earlier messages between the two offices about Mrs. Ortiz, stacked in order.'),
+   ('No mix-ups', [('Tanya', 'We have two Ortiz patients. What if she answers the wrong one?'), ('Amanda', "She can't. The thread belongs to this patient. And she replies right under your question, quoted.")],
+    'The thread header "Mrs. Ortiz · Implant consult". A reply bubble with the original question quoted above it.'),
    ('@Barbara', [('Tanya', "'At Barbara. Do you have Mrs. Ortiz's newest X-ray? She's in the chair.' Send.")],
     'Office Communication on the case. Tanya types; "@Barbara" highlights as a mention. Send.'),
    ('Barbara sees it', [('Barbara', 'Oh! Attaching it now.')],
@@ -55,6 +57,8 @@ SCRIPTS = [
     'The reply with the quoted question, and the X-ray appearing under Attachments "shared with both offices". Total time chip: "1 min 40 s".'),
    ('A thousand times', [('Amanda', "No more 'did you get my voicemail?'"), ('Tanya', "I've said that sentence a thousand times this year.")],
     'STORY. Tanya laughs for the first time this morning. The voicemail chips ("Voicemail · 1", "Voicemail · 2") fade away.'),
+   ('Every office', [('Tanya', 'Just Gentle Dental, or every office?'), ('Amanda', "Every office that refers to us. No more twenty phone numbers on a sticky note.")],
+    'STORY + product. A sticky note of office phone numbers on Tanya\'s monitor; she peels it off. Behind it, a list of cases from different offices, each with its own message thread.'),
    A('Act 4 · Ready'),
    ('Ready', [('Tanya', "Mrs. Ortiz? We're ready for you."), ('Mrs. Ortiz', 'Already? Oh, thank goodness.')],
     'STORY. Mrs. Ortiz stands up, relieved. Tanya hands her a donut on the way in.'),
@@ -99,6 +103,10 @@ SCRIPTS = [
    A('Act 4 · Nothing waiting'),
    ('Holding up', [('Amanda', 'How are you holding up?'), ('Greg', "Fine. Everything she touched is right there. What she did, when, and what's next.")],
     'STORY. Amanda back from the treatment room. Greg relaxed.'),
+   ('Already knew', [('Amanda', 'Did you call his dentist about Mr. Turner?'), ('Greg', "Didn't have to. Every status change goes to them. They saw 'scheduled' before I hung up.")],
+    'Split: Gentle Dental\'s view of the same referral, status "Consultation Scheduled", time stamped this morning.'),
+   ('Nothing slips', [('Amanda', 'And the insurance? How did you know she sent it?'), ('Greg', 'Notifications. Every message, every update, from every office, in one list. Nothing slips.')],
+    'The Notifications feed scrolling: patient submitted insurance, consultation scheduled, message from Gentle Dental.'),
    ("Tanya's head", [('Amanda', "All of that used to live in Tanya's head."), ('Greg', 'Now it lives on the case. And her head gets a day off.')],
     'STORY. Amanda laughs. Behind them, every row on the Incoming list shows a current status.'),
    ('Pray for me', [('Greg', "'Mr. Turner booked. He says thank you. Go back to sleep.'"), ('Tanya', "'Thank you. Tomorrow: three letters and a recital. Pray for me.'")],
@@ -129,14 +137,18 @@ SCRIPTS = [
    A('Act 3 · Ten minutes'),
    ('What it is', [('Tanya', "With Tooth Referral the case already knows everything. So the letter writes itself: her name, birthday, the dentist. I add two lines.")],
     'INTRO to Tooth Referral, in Tanya\'s words. She marks Completed; the letter opens with the fields filling in.'),
-   ('Our own letter', [('Amanda', "That's our letter?"), ('Tanya', 'Imported from Word. Same letter, no typing.')],
+   ('Our own letter', [('Amanda', "Doesn't it sound like a robot wrote it?"), ('Tanya', "It's our letter, our wording. We imported it from Word. It just fills in the blanks.")],
     'The template with smart fields switching to real values. "Import from Word" visible.'),
    ('How does it know', [('Amanda', 'How does it know her birthday? Her dentist?'), ('Tanya', "It's on the case from the referral. Tooth Referral fills it in. I just write the visit.")],
     'The smart fields highlighted one by one on the letter, each with a thin line back to where it came from on the case.'),
+   ('Every kind', [('Amanda', 'And when a patient declines treatment?'), ('Tanya', "There's a template for that too. Consultation done, declined, completed. Each one fills itself in.")],
+    'The template list: General, Consultation Completed, Declined Appointment, each opening with its fields filled.'),
    ('Signed', [('Amanda', "The doctor's with a patient."), ('Tanya', "So I route it to him. He signs between patients. I don't chase him down the hall.")],
     'Route to a doctor to sign, then the e-signature: "All done, your document is signed!"'),
    ('Both offices', [('Amanda', 'And Barbara?'), ('Tanya', "Signed. And she can open it right now. No fax, no 'did you get it?' call.")],
     'Signed note "visible to both offices"; split with Gentle Dental. Then the copy step.'),
+   ('Proof', [('Amanda', "And if anyone ever says they never got it?"), ('Tanya', "It's signed, dated and on the case for both offices. Nobody has to wonder.")],
+    'Signed notes panel: "Completion Note · Signed · date · visible to both offices", the signature visible.'),
    ('Our chart', [('Amanda', 'And our own chart?'), ('Tanya', 'Copy, paste, into our electronic health record. Done.')],
     'The "copy into your electronic health record" step highlighted.'),
    ('One click', [('Tanya', 'Saved as a template. The other two, one click each.')],
@@ -196,7 +208,7 @@ parts = [f'''<div class="k">Tooth Referral · Scripts 21 to 23 · the feature se
 <li>"Send me topics before you produce: hook, goal, and how it builds from the first video." The topics are below; nothing gets produced until you approve them.</li></ul></div>
 <h2>Topics for approval</h2>
 {over}
-<p class="small" style="margin-top:3mm">Each script: 14 to 15 clips of about 8 seconds (about 1 minute 50 seconds to 2 minutes), in four acts. Horizontal 16:9 like video 1, with the split-screen dashboard. Script only; filming prompts come after approval. Demo data: Gentle Dental (general dentist) refers to the specialist office where Tanya, Amanda and Greg work. No doctors are named.</p>''']
+<p class="small" style="margin-top:3mm">Each script: 15 to 17 clips of about 8 seconds (about 2 minutes to 2 minutes 20 seconds), in four acts, with a full conversation about the features at the turn. Horizontal 16:9 like video 1, with the split-screen dashboard. Script only; filming prompts come after approval. Demo data: Gentle Dental (general dentist) refers to the specialist office where Tanya, Amanda and Greg work. No doctors are named.</p>''']
 for s in SCRIPTS:
     rows, k = '', 0
     for c in s['clips']:
