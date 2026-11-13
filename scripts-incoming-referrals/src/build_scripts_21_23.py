@@ -21,7 +21,7 @@ SCRIPTS = [
   goal='Show the first thing a new office does in the software, on screen, step by step. The viewer should think: "I could set that up this afternoon."',
   builds='In video 1 Amanda said: "We replaced the form on our website with Tooth Referral. Every referral came in as one case." Video 1 only said it. This episode shows the replacement being built and the first test referral landing as one case.',
   features=['Website Lead Forms · Referral Web Form', 'Logo and welcome message', 'Insurance Accepted display', '"What we are known for" skill tags', 'Specialty and doctor routing', 'Form field toggles (tooth numbers, chief complaint, X-rays)', 'Live preview', 'Referral Access Code for regular referring offices', 'Get embed code', 'The referral lands in Incoming as one case'],
-  turn='Ends on: "That\'s just how it arrives. You\'re off tomorrow, right? Let\'s see how Greg does without you." (opens Script 22)',
+  turn='Ends on: "That\'s just how it arrives. Tomorrow, let\'s see how Greg does without you." (opens Script 22)',
   end='Tooth Referral. Not just a form. A system. · toothreferral.com',
   clips=[
    ('Where do we start?', [('Tanya', 'The team said yes. So where do we even start?'), ('Amanda', 'With the form on our website. The one that just sends an email.')],
@@ -44,7 +44,7 @@ SCRIPTS = [
     'The website form filled in quickly (patient, tooth number, X-ray attached) and submitted.'),
    ('Not an email', [('Amanda', 'Now look at Incoming.'), ('Tanya', "It's already here. One case. Not an email.")],
     'Incoming referrals list: the new row slides in with status "New". The greyed-out email icon from clip 1 dissolves.'),
-   ('A system behind it', [('Tanya', 'Same form on the outside. A whole system behind it.'), ('Amanda', "That's just how it arrives. You're off tomorrow, right? Let's see how Greg does without you.")],
+   ('A system behind it', [('Tanya', 'Same form on the outside. A whole system behind it.'), ('Amanda', "That's just how it arrives. Tomorrow, let's see how Greg does without you.")],
     'Full frame. End card.'),
   ]),
  dict(n=22, ep=3, title="Tanya's Day Off", sub='How a referral is worked: anyone can pick it up',
