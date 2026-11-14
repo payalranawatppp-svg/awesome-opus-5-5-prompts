@@ -191,3 +191,16 @@ sender's name and one ellipsised line. CaseChat-Clean (plate public/preop/plate-
 Amanda @Barbara → Barbara replies with the pano → Amanda replies to Barbara via the reply icon → Barbara: good luck.
 User correction (14 Nov): the Pre-Op Day Viewer (Day-Prep Station) notes panel has NO reply feature. Replies exist only in
 Office Communication and the case page's Administrative Notes. DayPrep-Clean is back to plain notes (480 f).
+
+## Episode 2 "No More Phone Tag" — full edit (14 Nov)
+Composition `Ep2-NoMorePhoneTag` (`reel/src/reelfx/Ep2Story.tsx`), 1080×1920, ~81 s. Source: 12 vertical Flow clips
+(uploads, ordered by their numeric id) → `reel/public/ep2/u01..u12.mp4` (Flow sparkle removed with delogo 572,1132 56×56
+on 720×1280, upscaled, loudnorm). Mattes: RVM (`scripts/matte_stream.py`) → `u01/u06/u11/u12-cut.webm`.
+Map: u01 hook · u02 Vance V.O. (0–2.6 s is a video-player screen grab: covered by the full-screen dashboard) · u03 note
+V.O. · u04 Tanya voicemail call · u05 empty Gentle Dental phone · u06 Amanda V.O. 10 minutes (lips move after 6.3 s) ·
+u07 missed call (no speech) · u08 Barbara + Amanda V.O. (breaks off at "No downloading, no") · u09 Vance refresh (room
+changes after 5 s) · u10 "Good morning" (extra doctor at the left edge before 1.0 s) · u11 "That took 30 seconds" ·
+u12 "Good thing…" (missing "We aren't anymore."). Never delivered by Flow: Tanya "square one", Amanda "Remember what we
+set up…", Amanda "Both offices share the case…". Dashboards: DayPrepClean and CaseChat rendered live inside 3D glass
+windows via <Freeze frame=…> (time-remapped to the V.O.). Voices: `scripts/ep2_voices.py` (ElevenLabs STS + TTS for the
+missing lines) once a key is available.
