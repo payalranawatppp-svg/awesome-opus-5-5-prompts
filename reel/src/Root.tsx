@@ -22,6 +22,8 @@ import { MS_DURATION, MagicShow } from "./reelfx/MagicShow";
 import { BuriedInEmails, S13_DURATION } from "./reelfx/BuriedInEmails";
 import { BuriedInEmails2, B2_DURATION } from "./reelfx/BuriedInEmails2";
 import { S20Story, S20_DURATION } from "./reelfx/S20Story";
+import { DayPrepClean, DAYPREP_DURATION, DAYPREP_W, DAYPREP_H } from "./reelfx/DayPrepClean";
+import { CaseChat, CASECHAT_DURATION, CASECHAT_W, CASECHAT_H } from "./reelfx/CaseChat";
 import { AN_DURATION, AN_H, AN_W, AnalyticsDemo } from "./reelfx/AnalyticsDemo";
 import { TrDashboardTour } from "./tr/scenes";
 import { TR_ALL, TrFormatted } from "./tr/formats";
@@ -48,6 +50,8 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="Camp-TwoWays" component={TwoWays} durationInFrames={TWOWAYS_DURATION} fps={30} width={1080} height={1920} />
     <Composition id="Camp-DayInTheLife" component={() => <CampFx id="day-in-the-life" />} durationInFrames={CAMPFX_DURATION("day-in-the-life")} fps={30} width={1080} height={1920} />
     <Composition id="Camp-DayOne" component={DayOne} durationInFrames={DAYONE_DURATION} fps={30} width={1080} height={1920} />
+    <Composition id="CaseChat-Clean" component={CaseChat} durationInFrames={CASECHAT_DURATION} fps={30} width={CASECHAT_W} height={CASECHAT_H} />
+    <Composition id="DayPrep-Clean" component={DayPrepClean} durationInFrames={DAYPREP_DURATION} fps={30} width={DAYPREP_W} height={DAYPREP_H} />
     <Composition id="S20-DidTheyEverSendIt" component={S20Story} durationInFrames={S20_DURATION} fps={30} width={1080} height={1920} />
     <Composition id="BuriedInEmails2" component={BuriedInEmails2} durationInFrames={B2_DURATION} fps={30} width={1080} height={1920} />
     <Composition id="BuriedInEmails" component={BuriedInEmails} durationInFrames={S13_DURATION} fps={30} width={WIDTH} height={HEIGHT} />

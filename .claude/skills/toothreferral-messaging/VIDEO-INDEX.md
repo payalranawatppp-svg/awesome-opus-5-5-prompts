@@ -158,3 +158,26 @@ Don't show the Contact Us builder (V1 6:51–7:21) in marketing yet.
   to a doctor (2:30) · DocuSign sign (2:54–3:04) → "All done" (3:12) → signed note on the case (3:20).
 - Cut every loading gap (V2 0:22, 2:42–2:52, 3:06–3:10, 3:24).
 - Blur names/IDs (see Privacy) or overlay the approved demo names before export.
+
+## V3 — Provider's Day-Prep Station + Administrative Notes (user upload, 2026-11-14, `screen-capture_6.webm`)
+
+1920×842, 60 fps, 2:06. 0:00–0:02 referral page (light, Office Communication) · 0:02–0:11 Day-Prep Station (dark:
+patient card, panoramic X-ray, thumbnails) · 0:11 Administrative Notes panel opens · 0:20–0:52 "@" mention list (long
+idle) · 0:54–1:28 note typed with typos · 1:30–1:36 "Adding…" · then the note posted. Real names on screen (Lee Davis,
+Jonathan Kilbourn, The Dental Center, Gary Charlson, Barbara Smith, Jane White, hamza@… email): never show raw.
+
+**Use the cleaned versions instead** (Remotion, plate = a frame of this recording, names redrawn in Inter at the app's
+sizes and colours, notes and chat rebuilt): `reel/src/reelfx/DayPrepClean.tsx` (comp `DayPrep-Clean`, 16 s) and
+`reel/src/reelfx/CaseChat.tsx` (comp `CaseChat-Clean`, 14 s); renders in `reel/renders/preop/`.
+Rename map (Script 21 v2): provider "Lee Davis" → "Oral Surgeon" (no doctors' names) · patient → MARIA ORTIZ,
+03/14/1962 (64), She/Her, Female, 555-014-2266, m.ortiz@example.com · referring office → Gentle Dental · "Referring
+doctor" → "Referred by: Barbara · Gentle Dental" · referred for → Implant Consultation: #19 · our office → St. Andrew's
+Family Dental · mention list → Amanda (Office Manager), Tanya (Front Desk), Greg (Front Desk) · signed-in user on the
+case page → Amanda, Office Manager.
+Day-Prep timeline (30 fps): 1 s idle → "@" + mention list → @Amanda → note typed ("Mrs. Ortiz's newest pano isn't on
+file. Ours is from 2022. Could you request it from Gentle Dental before her 10:00 consult?") → Add → posted (10 s) →
+Amanda "On it…" (11.2 s) → new pano thumbnail + main image swap, "taken Nov 2026" (13.2–14 s) → Amanda "@Oral Surgeon
+Her newest pano is on the case…" (14.7 s).
+Case chat timeline: history (Barbara → Tanya → Barbara) → Amanda types "@Barbara Mrs. Ortiz is in the chair. Could you
+attach her newest pano here?" → sent (4.3 s) → "Barbara is typing…" → quoted reply + pano file "Saved to the case"
+(6.5 s) → Amanda "Got it, thank you!…" (8.7 s) → Barbara "Tell her we said good luck!" (11 s).
