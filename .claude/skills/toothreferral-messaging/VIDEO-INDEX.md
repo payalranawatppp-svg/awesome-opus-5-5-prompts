@@ -189,5 +189,5 @@ trash + reply icons at top right → click reply → "Replying to <Name> (<Offic
 edge #9F8ACD, ×) above the composer → send → the new message carries a grey quote block (#F3F4F7) with the quoted
 sender's name and one ellipsised line. CaseChat-Clean (plate public/preop/plate-case2.png, 500 f) now uses this:
 Amanda @Barbara → Barbara replies with the pano → Amanda replies to Barbara via the reply icon → Barbara: good luck.
-DayPrep-Clean (640 f): Amanda's two notes are replies quoting Dr. Vance's note; at 15.7 s Dr. Vance hovers Amanda's
-note, clicks reply, the "Replying to Amanda" bar opens inside the note box, "Thanks, Amanda. Bringing her back now."
+User correction (14 Nov): the Pre-Op Day Viewer (Day-Prep Station) notes panel has NO reply feature. Replies exist only in
+Office Communication and the case page's Administrative Notes. DayPrep-Clean is back to plain notes (480 f).
