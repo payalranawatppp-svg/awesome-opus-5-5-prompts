@@ -183,3 +183,11 @@ attach her newest pano here?" → sent (4.3 s) → "Barbara is typing…" → qu
 (6.5 s) → Amanda "Got it, thank you!…" (8.7 s) → Barbara "Tell her we said good luck!" (11 s).
 
 Cast (Episode 2, user's list): Mrs. Ortiz (nervous implant-consult patient) · Dr. Vance (oral surgeon / specialist) · Amanda (Office Manager / Treatment Coordinator, Dr. Vance's practice) · Tanya (Front Desk Coordinator, Dr. Vance's practice) · Barbara (Front Desk Coordinator, Gentle Dental, the referring office). Chat bubbles show role · time on the line under the name.
+
+Reply flow (from the user's reply recording, screen-capture_2, 14 Nov): hover a message → row tints, white pill with
+trash + reply icons at top right → click reply → "Replying to <Name> (<Office>)" bar (lavender #F6F4FE, purple left
+edge #9F8ACD, ×) above the composer → send → the new message carries a grey quote block (#F3F4F7) with the quoted
+sender's name and one ellipsised line. CaseChat-Clean (plate public/preop/plate-case2.png, 500 f) now uses this:
+Amanda @Barbara → Barbara replies with the pano → Amanda replies to Barbara via the reply icon → Barbara: good luck.
+DayPrep-Clean (640 f): Amanda's two notes are replies quoting Dr. Vance's note; at 15.7 s Dr. Vance hovers Amanda's
+note, clicks reply, the "Replying to Amanda" bar opens inside the note box, "Thanks, Amanda. Bringing her back now."
