@@ -45,7 +45,7 @@ const Renames: React.FC = () => (
     </Patch>
     <Patch x={350} y={410} w={300} h={62}>
       <Txt x={2} y={3} t="St. Andrew's Family Dental" s={22} />
-      <Txt x={2} y={34} t="Oral Surgeon" s={22} />
+      <Txt x={2} y={34} t="Dr. Vance, Oral Surgeon" s={22} />
     </Patch>
     <Patch x={1040} y={386} w={300} h={242}>
       {["MARIA ORTIZ", "03/14/1962", "64", "She/Her", "Female", "555-014-2266", "m.ortiz@example.com"].map((v, i) => <Txt key={i} x={5} y={4 + i * 36} t={v} s={18} />)}
@@ -56,15 +56,15 @@ const Renames: React.FC = () => (
 
 type Msg = { who: string; office: string; role: string; time: string; av: [string, string]; body: React.ReactNode; quote?: string; file?: boolean; at: number };
 const HISTORY: Msg[] = [
-  { who: "Barbara", office: "Gentle Dental", role: "Front Desk", time: "Nov 3, 9:12 AM", av: ["BA", "#2E7D5B"], body: <><M t="Tanya" /> Sending Maria Ortiz for an implant consult, #19. Her pano is attached.</>, at: -1 },
-  { who: "Tanya", office: "St. Andrew's", role: "Front Desk", time: "Nov 3, 9:40 AM", av: ["TA", "#6D4AE8"], body: "Got it, thank you! Consult booked for Nov 14 at 10:00 AM.", at: -1 },
-  { who: "Barbara", office: "Gentle Dental", role: "Front Desk", time: "Nov 3, 9:42 AM", av: ["BA", "#2E7D5B"], body: "Wonderful. She's a little nervous, so thank you for taking good care of her.", at: -1 },
+  { who: "Barbara", office: "Gentle Dental", role: "Front Desk Coordinator", time: "Nov 3, 9:12 AM", av: ["BA", "#2E7D5B"], body: <><M t="Tanya" /> Sending Maria Ortiz for an implant consult, #19. Her pano is attached.</>, at: -1 },
+  { who: "Tanya", office: "St. Andrew's", role: "Front Desk Coordinator", time: "Nov 3, 9:40 AM", av: ["TA", "#6D4AE8"], body: "Got it, thank you! Consult booked for Nov 14 at 10:00 AM.", at: -1 },
+  { who: "Barbara", office: "Gentle Dental", role: "Front Desk Coordinator", time: "Nov 3, 9:42 AM", av: ["BA", "#2E7D5B"], body: "Wonderful. She's a little nervous, so thank you for taking good care of her.", at: -1 },
 ];
 const LIVE: Msg[] = [
   { who: "Amanda", office: "St. Andrew's", role: "Office Manager", time: "Nov 14, 9:03 AM", av: ["AM", "#D97706"], body: <><M t="Barbara" />{AMANDA_MSG}</>, at: K.send },
-  { who: "Barbara", office: "Gentle Dental", role: "Front Desk", time: "Nov 14, 9:03 AM", av: ["BA", "#2E7D5B"], quote: "Amanda: Mrs. Ortiz is in the chair. Could you attach her newest pano here?", body: "Of course! Here's her newest pano, taken Nov 3.", file: true, at: K.barbara },
-  { who: "Amanda", office: "St. Andrew's", role: "Office Manager", time: "Nov 14, 9:04 AM", av: ["AM", "#D97706"], body: "Got it, thank you! The doctor is reviewing it now.", at: K.thanks },
-  { who: "Barbara", office: "Gentle Dental", role: "Front Desk", time: "Nov 14, 9:04 AM", av: ["BA", "#2E7D5B"], body: "Perfect. Tell her we said good luck!", at: K.luck },
+  { who: "Barbara", office: "Gentle Dental", role: "Front Desk Coordinator", time: "Nov 14, 9:03 AM", av: ["BA", "#2E7D5B"], quote: "Amanda: Mrs. Ortiz is in the chair. Could you attach her newest pano here?", body: "Of course! Here's her newest pano, taken Nov 3.", file: true, at: K.barbara },
+  { who: "Amanda", office: "St. Andrew's", role: "Office Manager", time: "Nov 14, 9:04 AM", av: ["AM", "#D97706"], body: "Got it, thank you! Dr. Vance is reviewing it now.", at: K.thanks },
+  { who: "Barbara", office: "Gentle Dental", role: "Front Desk Coordinator", time: "Nov 14, 9:04 AM", av: ["BA", "#2E7D5B"], body: "Perfect. Tell her we said good luck!", at: K.luck },
 ];
 
 const Bubble: React.FC<{ m: Msg }> = ({ m }) => {
@@ -74,11 +74,10 @@ const Bubble: React.FC<{ m: Msg }> = ({ m }) => {
     <div style={{ display: "flex", gap: 14, padding: "10px 0", opacity: k, transform: `translateY(${(1 - k) * 18}px)` }}>
       <Av i={m.av[0]} c={m.av[1]} />
       <div style={{ flex: 1, fontFamily: FONT_UI }}>
-        <div style={{ display: "flex", alignItems: "baseline", gap: 8 }}>
+        <div style={{ display: "flex", alignItems: "baseline", gap: 7, whiteSpace: "nowrap" }}>
           <span style={{ fontWeight: 600, fontSize: 16, color: C.ink }}>{m.who} ({m.office})</span>
-          <span style={{ fontSize: 14, color: C.muted }}>{m.role}</span>
         </div>
-        <div style={{ fontSize: 14, color: C.muted, marginTop: 6 }}>{m.time}</div>
+        <div style={{ fontSize: 13, color: C.muted, marginTop: 5, whiteSpace: "nowrap" }}>{m.role} · {m.time}</div>
         {m.quote && <div style={{ marginTop: 6, padding: "6px 10px", borderLeft: `3px solid ${C.faint}`, background: C.quote, borderRadius: 4, fontSize: 14, color: C.muted, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", maxWidth: 330 }}>{m.quote}</div>}
         <div style={{ fontSize: 17, lineHeight: "24px", color: C.ink, marginTop: 4 }}>{m.body}</div>
         {m.file && (

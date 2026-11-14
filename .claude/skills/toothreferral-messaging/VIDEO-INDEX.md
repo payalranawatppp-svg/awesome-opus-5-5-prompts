@@ -169,15 +169,17 @@ Jonathan Kilbourn, The Dental Center, Gary Charlson, Barbara Smith, Jane White, 
 **Use the cleaned versions instead** (Remotion, plate = a frame of this recording, names redrawn in Inter at the app's
 sizes and colours, notes and chat rebuilt): `reel/src/reelfx/DayPrepClean.tsx` (comp `DayPrep-Clean`, 16 s) and
 `reel/src/reelfx/CaseChat.tsx` (comp `CaseChat-Clean`, 14 s); renders in `reel/renders/preop/`.
-Rename map (Script 21 v2): provider "Lee Davis" → "Oral Surgeon" (no doctors' names) · patient → MARIA ORTIZ,
+Rename map (Script 21 v2): provider "Lee Davis" → "Dr. Vance" (user allows Dr. Vance for this series, 14 Nov) · patient → MARIA ORTIZ,
 03/14/1962 (64), She/Her, Female, 555-014-2266, m.ortiz@example.com · referring office → Gentle Dental · "Referring
 doctor" → "Referred by: Barbara · Gentle Dental" · referred for → Implant Consultation: #19 · our office → St. Andrew's
-Family Dental · mention list → Amanda (Office Manager), Tanya (Front Desk), Greg (Front Desk) · signed-in user on the
+Family Dental · mention list → Amanda (Office Manager / Treatment Coordinator), Tanya (Front Desk Coordinator), Greg (Front Desk Coordinator) · signed-in user on the
 case page → Amanda, Office Manager.
 Day-Prep timeline (30 fps): 1 s idle → "@" + mention list → @Amanda → note typed ("Mrs. Ortiz's newest pano isn't on
 file. Ours is from 2022. Could you request it from Gentle Dental before her 10:00 consult?") → Add → posted (10 s) →
-Amanda "On it…" (11.2 s) → new pano thumbnail + main image swap, "taken Nov 2026" (13.2–14 s) → Amanda "@Oral Surgeon
+Amanda "On it…" (11.2 s) → new pano thumbnail + main image swap, "taken Nov 2026" (13.2–14 s) → Amanda "@Dr. Vance
 Her newest pano is on the case…" (14.7 s).
 Case chat timeline: history (Barbara → Tanya → Barbara) → Amanda types "@Barbara Mrs. Ortiz is in the chair. Could you
 attach her newest pano here?" → sent (4.3 s) → "Barbara is typing…" → quoted reply + pano file "Saved to the case"
 (6.5 s) → Amanda "Got it, thank you!…" (8.7 s) → Barbara "Tell her we said good luck!" (11 s).
+
+Cast (Episode 2, user's list): Mrs. Ortiz (nervous implant-consult patient) · Dr. Vance (oral surgeon / specialist) · Amanda (Office Manager / Treatment Coordinator, Dr. Vance's practice) · Tanya (Front Desk Coordinator, Dr. Vance's practice) · Barbara (Front Desk Coordinator, Gentle Dental, the referring office). Chat bubbles show role · time on the line under the name.

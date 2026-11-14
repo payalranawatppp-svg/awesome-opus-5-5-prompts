@@ -4,11 +4,11 @@
  * thumbnails and chrome stay pixel-for-pixel. Only the text that carried real names is redrawn on top, in Inter at the
  * app's sizes and Tailwind-gray colours, and the Administrative Notes panel is rebuilt so the note can be retyped.
  *
- * Renames (story names, client rules: no doctors' names):
- *   provider dropdown "Lee Davis" → "Oral Surgeon" · patient "JONATHAN KILBOURN (10/11/1994)" → "MARIA ORTIZ (03/14/1962)"
+ * Renames (story names from the user's cast list, 2026-11-14: Dr. Vance is the oral surgeon):
+ *   provider dropdown "Lee Davis" → "Dr. Vance" · patient "JONATHAN KILBOURN (10/11/1994)" → "MARIA ORTIZ (03/14/1962)"
  *   referring office "The Dental Center" → "Gentle Dental" · "REFERRING DOCTOR Gary Charlson, DDS" → "REFERRED BY Barbara · Gentle Dental"
  *   referred for "Implant Restoration: #4" → "Implant Consultation: #19" · mention list "Davis General Dentistry / Lee Davis,
- *   Barbara Smith, Jane White" → "St. Andrew's Family Dental / Amanda, Tanya, Greg" · note author "Lee Davis" → "Oral Surgeon"
+ *   Barbara Smith, Jane White" → "St. Andrew's Family Dental / Amanda, Tanya, Greg" · note author "Lee Davis" → "Dr. Vance"
  *   note "@Barbara Smith these are old pano scand i need the latest one!" → a professional note to @Amanda.
  *
  * DayPrepClean (1920×842, 16 s): idle → @ → mention list → @Amanda → typed note → Add → note posted → Amanda's reply note
@@ -59,7 +59,7 @@ const Renames: React.FC = () => (
   <>
     {/* provider dropdown */}
     <Patch x={313} y={17} w={123} h={34} bg={C.drop} r={4}>
-      <div style={{ ...T, left: 11, top: 8, fontSize: 15, fontWeight: 500, color: C.white }}>Oral Surgeon</div>
+      <div style={{ ...T, left: 11, top: 8, fontSize: 16, fontWeight: 500, color: C.white }}>Dr. Vance</div>
       <Chevron x={107} y={13} />
     </Patch>
     {/* patient dropdown */}
@@ -103,14 +103,14 @@ const NoteCard: React.FC<{ n: Note; y: number; k?: number }> = ({ n, y, k = 1 })
 const M: React.FC<{ t: string }> = ({ t }) => <span style={{ color: C.mention }}>@{t}</span>;
 
 const OLD: Note = { who: "Tanya", when: "Nov 12, 2026, 3:40 PM", h: 101, body: "Spoke to Maria Ortiz on 11/12/2026. Consultation scheduled for 11/14/2026, 10:00 AM." };
-const MINE: Note = { who: "Oral Surgeon", when: "Nov 14, 2026, 9:02 AM", h: 124, body: <><M t="Amanda" />{NOTE}</> };
+const MINE: Note = { who: "Dr. Vance", when: "Nov 14, 2026, 9:02 AM", h: 124, body: <><M t="Amanda" />{NOTE}</> };
 const ONIT: Note = { who: "Amanda", when: "Nov 14, 2026, 9:03 AM", h: 78, body: <>On it. Asking Gentle Dental on her case now.</> };
-const REPLY: Note = { who: "Amanda", when: "Nov 14, 2026, 9:04 AM", h: 101, body: <><M t="Oral Surgeon" /> Her newest pano is on the case (taken Nov 2026). She's ready for you.</> };
+const REPLY: Note = { who: "Amanda", when: "Nov 14, 2026, 9:04 AM", h: 101, body: <><M t="Dr. Vance" /> Her newest pano is on the case (taken Nov 2026). She's ready for you.</> };
 
 const MENU = [
-  { n: "Amanda", r: "Office Manager", i: "AM", c: "#D97706" },
-  { n: "Tanya", r: "Front Desk", i: "TA", c: "#6D4AE8" },
-  { n: "Greg", r: "Front Desk", i: "GR", c: "#0E9F6E" },
+  { n: "Amanda", r: "Office Manager / Treatment Coordinator", i: "AM", c: "#D97706" },
+  { n: "Tanya", r: "Front Desk Coordinator", i: "TA", c: "#6D4AE8" },
+  { n: "Greg", r: "Front Desk Coordinator", i: "GR", c: "#0E9F6E" },
 ];
 
 /** Administrative notes panel, rebuilt below the header. */
