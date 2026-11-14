@@ -50,7 +50,7 @@ BG = {
         'with blank spines, a tall window with soft morning light and a potted plant. Warm, quiet, professional. Real-photo texture, subtle '
         'grain. No people, no readable text, no logos, no red objects, no CGI look.'),
 }
-LOCNAME = {'GD': 'Gentle Dental front office', 'SA': "St. Andrew's front desk", 'OP': "St. Andrew's treatment room (Op 2)", 'DV': "Dr. Vance's office"}
+LOCNAME = {'GD': 'Gentle Dental front office', 'SA': "St. Andrew's front desk", 'OP': "St. Andrew's treatment room (Op 2)", 'DV': "Dr. Vance office"}
 
 # ---------------------------------------------------------------- characters
 ORDER = ['ORTIZ', 'VANCE', 'AMANDA', 'TANYA', 'BARBARA']
@@ -120,7 +120,7 @@ def avatar(k):
     return ('Horizontal 16:9 photorealistic portrait, medium shot from the waist up, eye level, 50mm lens, f/2.8, a real photo taken in a '
             'dental office, natural daylight plus warm ceiling lights, true-to-life colours, real skin texture with pores, subtle grain, no '
             f'beauty filter. {desc} {AV_BACK[loc]} Real, professional, lived-in. No readable text, no logos, no red clothing or objects, no '
-            'extra people, no warped hands or fingers.')
+            'extra people, no warped hands or fingers. No animation, no cartoon, CGI or illustrated look, no motion graphics, no on-screen text, no text overlays, no titles, no captions, no subtitles, no readable text anywhere.')
 
 CAST = {
  'OP': ('Horizontal 16:9 photograph, the same treatment room as the Op 2 background image, shot from the foot of the dental chair, '
@@ -147,8 +147,8 @@ CAST = {
         'pleasant expression. Nobody else in the room. Natural, candid. No readable text, no logos, no red objects, no extra people, no '
         'warped hands.'),
 }
-CASTNAME = {'OP': 'the Op 2 cast image', 'DV': "the Dr. Vance's office cast image", 'SA': "the St. Andrew's cast image", 'GD': 'the Gentle Dental cast image'}
-NEG = ('No music, no subtitles, no captions, no on-screen text, no readable screens, no logos, no red clothing or props, no extra people, '
+CASTNAME = {'OP': 'the Op 2 cast image', 'DV': "the Dr. Vance office cast image", 'SA': "the St. Andrew's cast image", 'GD': 'the Gentle Dental cast image'}
+NEG = ('No animation, no cartoon, CGI or illustrated look, no motion graphics, no on-screen text, no text overlays, no titles, no captions, no subtitles, no readable text anywhere. No music, no readable screens, no logos, no red clothing or props, no extra people, '
        'no warped hands or fingers, no lip-sync drift, no sudden objects appearing in hands, no jump cut or reset at the start.')
 def LAST(n): return f'the last frame of clip {n:02d}'
 GD_EMPTY = 'the Gentle Dental background image (empty office)'
@@ -168,14 +168,14 @@ CLIPS = [
   'DR. VANCE sits at his walnut desk facing the monitor, right hand on the mouse, reading carefully with a neutral, focused expression.',
   [], 'Reviewing his schedule in the Pre-Op Day Viewer. He clicks into Mrs. Ortiz\'s case and realizes he needs her newest panoramic X-ray.',
   'Focused, then a small, concerned frown as he spots the gap.',
-  'DR. VANCE scrolls with the mouse, clicks once, leans in toward the screen and reads. He pauses, his brow tightens slightly, he takes off his glasses for a second, rubs the bridge of his nose and puts them back on, looking at the screen with quiet concern. His mouth stays closed: he does not speak (the voice-over is added in the edit).',
+  'DR. VANCE scrolls with the mouse, clicks once, leans in toward the screen and reads. He pauses, his brow tightens slightly, he takes off his glasses for a second, rubs the bridge of his nose and puts them back on, looking at the screen with quiet concern. His mouth stays closed: he does not speak.',
   'medium shot from the doorway, eye level, very slow push-in toward his face.',
   'mouse clicks', 'Beat 0:06–0:15. Cut to the Day-Prep Station screen (DayPrep-Clean, Dr. Vance, MARIA ORTIZ).', True),
  ('A quick note', 'DV', LAST(2),
   'DR. VANCE sits at his desk facing the monitor, glasses back on, a slight concerned frown, exactly as at the end of clip 02.',
   [], 'Types quickly into the Administrative Notes feature right inside the patient\'s case.',
   'Decisive and calm: a small nod, problem handed off.',
-  'DR. VANCE pulls the keyboard closer and types quickly with both hands for a few seconds, presses one key firmly to send, gives a small satisfied nod and leans back, picking up his coffee cup. His mouth stays closed: he does not speak (the voice-over is added in the edit).',
+  'DR. VANCE pulls the keyboard closer and types quickly with both hands for a few seconds, presses one key firmly to send, gives a small satisfied nod and leans back, picking up his coffee cup. His mouth stays closed: he does not speak.',
   'medium close-up from slightly behind his shoulder and to the side, the monitor glow on his face (screen not readable), static.',
   'fast keyboard typing, one firm key press', 'Beat 0:15–0:22. Cut to the Administrative notes panel: Dr. Vance types "@Amanda …" and adds the note.', True),
  ('Amanda flags Tanya', 'SA', CASTNAME['SA'],
@@ -227,7 +227,7 @@ CLIPS = [
   'TANYA and AMANDA sit side by side at the left workstation, the monitor turned slightly toward them, exactly as at the end of clip 09.',
   [], 'Amanda types @Barbara and sends a quick message.',
   'Focused and efficient; Tanya watching, curious.',
-  'AMANDA types a short message quickly, presses Enter with a small decisive tap and sits back. TANYA leans in toward the screen, curious, eyebrows raised. Both mouths stay closed: nobody speaks (the voice-over is added in the edit).',
+  'AMANDA types a short message quickly, presses Enter with a small decisive tap and sits back. TANYA leans in toward the screen, curious, eyebrows raised. Both mouths stay closed: nobody speaks.',
   'medium close-up two-shot, eye level, static, monitor glow on both faces.',
   'keyboard typing, a send click', 'Beat 0:58–1:08. Cut to CaseChat-Clean (Amanda @Barbara).', True),
  ('Barbara replies', 'GD', CASTNAME['GD'],
@@ -271,6 +271,9 @@ CLIPS = [
 ]
 
 
+BGP = {k: v + ' No animation, no cartoon, CGI or illustrated look, no motion graphics, no on-screen text, no text overlays, no titles, no captions, no subtitles, no readable text anywhere.' for k, v in BG.items()}
+CASTP = {k: v + ' No animation, no cartoon, CGI or illustrated look, no motion graphics, no on-screen text, no text overlays, no titles, no captions, no subtitles, no readable text anywhere.' for k, v in CAST.items()}
+
 def background(loc):
     t = BG[loc].replace('Horizontal 16:9 photograph of ', '').strip()
     t = t[0].upper() + t[1:]
@@ -283,18 +286,24 @@ def cast_in(c):
     return [k for k in ORDER if APPEAR[k].split(' (')[0] in (start + ' ' + action) or k in {sp for sp, _, _ in lines}]
 
 
-def prompt(c):
+def prompt(c, i=None):
     title, loc, src, start, lines, direction, emo, action, camera, sounds, _, vo = c
     who = '\n'.join(APPEAR[k] for k in cast_in(c)) or 'No characters in this shot.'
-    talk = ' '.join(f'{sp} speaks with {VOICE[sp]}, {how}. Perfectly lip-synced: "{ln}"' for sp, ln, how in lines)
-    if not lines: talk = 'Nobody speaks in this clip; mouths stay closed (the voice-over is added in the edit).'
+    CAPS = {'ORTIZ': 'MRS. ORTIZ', 'VANCE': 'DR. VANCE'}
+    talk = ' '.join(f'{CAPS.get(sp, sp)} speaks with {VOICE[sp]}, {how}. Perfectly lip-synced: "{ln}"' for sp, ln, how in lines)
+    if not lines and i in SCRIPT_LINES:
+        nm, ln = SCRIPT_LINES[i]; k = 'VANCE' if nm.startswith('Dr') else 'AMANDA'
+        talk = (f'Voice-over (off-screen, not lip-synced): {CAPS.get(k, k)} speaks with {VOICE[k]}, {VO_HOW[i]}: "{ln}" '
+                f'Every mouth on screen stays closed during the voice-over.')
+    elif not lines: talk = 'Nobody speaks in this clip; mouths stay closed.'
     snd = f', {sounds}' if sounds else ''
-    return (f'Start image: {src}. Continue from the exact position in the start image: the clip begins on that frame, with the same camera '
+    ings = ', '.join([f'the {LOCNAME[loc]} background image'] + [f'the {NAMEOF[k]} avatar image' for k in cast_in(c)])
+    return (f'Ingredients: {ings}. Start image: {src}. Continue from the exact position in the start image: the clip begins on that frame, with the same camera '
             f'angle, framing, lighting, props, and the same position, pose and expression of every character, and the action continues '
             f'naturally from there, with no jump, reset or change of outfit. Starting position: {start}\n'
             f'{LOOK}\nBackground (exactly as the {LOCNAME[loc]} background image): {background(loc)}\n'
             f'Characters (exactly as their avatar images):\n{who}\nEmotion: {emo}\nAction: {action}\nCamera: {camera}\n{talk}\n'
-            f'Audio: only {"the spoken lines" if lines else "natural sound"}{snd} and quiet room tone. {NEG}')
+            f'Audio: only {"the spoken lines" if lines else ("the voice-over" if i in SCRIPT_LINES else "natural sound")}{snd} and quiet room tone. {NEG}')
 
 
 n = len(CLIPS)
@@ -304,8 +313,9 @@ SUMMARY = (f'{n} clips × 8 s (trim to about 1:40 in the edit) · horizontal 16:
 START_NOTE = ('How to keep every clip continuous: clips 01, 02, 04 and 11 start from a cast image, clip 05 from the empty Gentle Dental '
               'background. Every other clip starts from the last frame of the clip named in its prompt (in Google Flow, save that last '
               'frame and use it as the start frame, or use "Extend" on that clip). Add the background and avatar images as ingredients too.')
-VO_NOTE = ('Clips marked V.O. have no lip sync on purpose: the voice-over lines from the script (Dr. Vance, Amanda) are recorded in '
-           'ElevenLabs and laid over them in the edit.')
+VO_NOTE = ('Clips marked V.O. carry the voice-over line inside the prompt as off-screen speech (no lip sync). If Flow\'s voice '
+           'drifts, re-record that line in ElevenLabs with the same voice and lay it over.')
+VO_HOW = {2: 'calm, thoughtful, a hint of concern', 3: 'matter-of-fact, quietly confident', 6: 'calm, sympathetic, a little urgent', 10: 'easy, confident', 11: 'warm, pleased, clear'}
 SCRIPT_LINES = {2: ('Dr. Vance (V.O.)', "Before every consult I go through my day here. Mrs. Ortiz's chart is ready... except her newest X-ray."),
                 3: ('Dr. Vance (V.O.)', "I don't walk to the front desk or call around. One note on her case, and my team sees it."),
                 6: ('Amanda (V.O.)', 'Ten minutes later, Mrs. Ortiz is still in that chair. And Tanya is stuck in phone tag.'),
@@ -319,17 +329,17 @@ for k in ORDER:
 md += ['', '## Step 1 · Reference images (generate these first)', '']
 num = 1
 for loc in ['OP', 'DV', 'SA', 'GD']:
-    md += [f'### {num}. {LOCNAME[loc]} background', '', '> ' + BG[loc], '']; num += 1
+    md += [f'### {num}. {LOCNAME[loc]} background', '', '> ' + BGP[loc], '']; num += 1
 for k in ORDER:
     md += [f'### {num}. {NAMEOF[k]} avatar', '', '> ' + avatar(k), '']; num += 1
 for loc in ['OP', 'DV', 'SA', 'GD']:
-    md += [f'### {num}. {CASTNAME[loc][4:]}', '', '> ' + CAST[loc], '']; num += 1
+    md += [f'### {num}. {CASTNAME[loc][4:]}', '', '> ' + CASTP[loc], '']; num += 1
 md += [START_NOTE, '', VO_NOTE, '', '## Clip prompts', '']
 for i, c in enumerate(CLIPS, 1):
     dl = ' · '.join(f'{NAMEOF[sp]}: "{ln}"' for sp, ln, _ in c[4]) or (f'{SCRIPT_LINES[i][0]}: "{SCRIPT_LINES[i][1]}"' if i in SCRIPT_LINES else 'none')
     md += [f'### CLIP {i:02d} · {c[0]} ({LOCNAME[c[1]]}){" · V.O." if c[11] else ""} · start: {c[2]}',
            f'**Vejay\'s direction:** {c[5]}  ', f'**Emotion:** {c[6]}  ', f'**Dialogue:** {dl}', '',
-           '\n'.join('> ' + l for l in prompt(c).split('\n')), '', f'*Edit:* {c[10]}', '']
+           '\n'.join('> ' + l for l in prompt(c, i).split('\n')), '']
 open(MD, 'w').write('\n'.join(md))
 
 # ---------------- PDF
@@ -359,6 +369,7 @@ parts = [f'''<div class="k">Tooth Referral · Episode 2 · Avatars and Google Fl
 <p>{E(SUMMARY)}</p>
 <div class="box"><b>How to use this</b><ul>
 <li>Generate the reference images first (4 backgrounds, 5 avatars, 4 cast images), then the 15 clips in order.</li>
+<li><b>Every clip page has the dialogue, the full prompt and the avatar prompts for the characters in it, together.</b> Every prompt says: no animation, no text.</li>
 <li><b>Emotion:</b> every clip quotes Vejay's stage direction from the Episode 2 draft and turns it into an "Emotion" line and visible acting in the prompt.</li>
 <li>Tanya, Amanda and both front offices look exactly as in Script 20, so the series stays continuous.</li>
 <li>{E(START_NOTE)}</li>
@@ -368,7 +379,7 @@ parts = [f'''<div class="k">Tooth Referral · Episode 2 · Avatars and Google Fl
 num = 1
 pg = '<div class="clip"><div class="k">Step 1 · backgrounds</div>'
 for loc in ['OP', 'DV', 'SA', 'GD']:
-    pg += f'<h2>{num}. {E(LOCNAME[loc])}</h2><div class="prompt">{E(BG[loc])}</div>'; num += 1
+    pg += f'<h2>{num}. {E(LOCNAME[loc])}</h2><div class="prompt">{E(BGP[loc])}</div>'; num += 1
     if loc == 'DV': parts.append(pg + '</div>'); pg = '<div class="clip">'
 parts.append(pg + '</div>')
 pg = '<div class="clip"><div class="k">Step 2 · avatars</div>'
@@ -380,17 +391,19 @@ use = {'OP': 'clip 01', 'DV': 'clip 02', 'SA': 'clip 04', 'GD': 'clip 11'}
 refs = {'OP': 'Op 2 background + Mrs. Ortiz avatar', 'DV': "Dr. Vance's office background + Dr. Vance avatar", 'SA': "St. Andrew's background + Amanda and Tanya avatars", 'GD': 'Gentle Dental background + Barbara avatar'}
 pg = '<div class="clip"><div class="k">Step 3 · cast images (start frames)</div>'
 for j, loc in enumerate(['OP', 'DV', 'SA', 'GD']):
-    pg += f'<h2>{num}. {E(CASTNAME[loc][4:].capitalize())}</h2><p class="small">References: {E(refs[loc])}. Start image for {use[loc]}.</p><div class="prompt">{E(CAST[loc])}</div>'; num += 1
+    pg += f'<h2>{num}. {E(CASTNAME[loc][4:].capitalize())}</h2><p class="small">References: {E(refs[loc])}. Start image for {use[loc]}.</p><div class="prompt">{E(CASTP[loc])}</div>'; num += 1
     if j == 1: parts.append(pg + '</div>'); pg = '<div class="clip">'
 parts.append(pg + '</div>')
 for i, c in enumerate(CLIPS, 1):
     dl = ''.join(f'<div class="ln"><span class="sp">{E(NAMEOF[sp])}:</span> “{E(ln)}” <span class="small">({E(how)})</span></div>' for sp, ln, how in c[4])
-    if not dl and i in SCRIPT_LINES: dl = f'<div class="ln"><span class="sp">{E(SCRIPT_LINES[i][0])}:</span> “{E(SCRIPT_LINES[i][1])}” <span class="small">(laid over in the edit, not in the Flow prompt)</span></div>'
-    if not dl: dl = '<div class="small">No dialogue.</div>'
+    if not dl and i in SCRIPT_LINES: dl = f'<div class="ln"><span class="sp">{E(SCRIPT_LINES[i][0])}:</span> “{E(SCRIPT_LINES[i][1])}” <span class="small">(voice-over, included in the prompt)</span></div>'
+    if not dl: dl = '<div class="small">No dialogue (natural sound only).</div>'
+    avs = ''.join(f'<p style="margin:2mm 0 1mm"><b>{E(NAMEOF[k])} avatar</b></p><div class="prompt">{E(avatar(k))}</div>' for k in cast_in(c)) or '<p class="small">No characters: use only the Gentle Dental background image.</p>'
     parts.append(f'''<div class="clip"><div class="k">Clip {i:02d} · {E(LOCNAME[c[1]])} · 8 seconds{" · V.O." if c[11] else ""} · start: {E(c[2])}</div><h2>{E(c[0])}</h2>
 <div class="emo"><b>Vejay's direction:</b> “{E(c[5])}”<br><b>Emotion:</b> {E(c[6])}</div>
-<div class="box">{dl}<div class="small" style="margin-top:2mm"><b>Edit:</b> {E(c[10])}</div></div>
-<div class="k" style="margin-top:3mm">Google Flow prompt (copy all)</div><div class="prompt">{E(prompt(c))}</div></div>''')
+<div class="k">Dialogue</div><div class="box">{dl}</div>
+<div class="k" style="margin-top:3mm">Google Flow prompt (copy all)</div><div class="prompt">{E(prompt(c, i))}</div>
+<div class="k" style="margin-top:4mm">Avatars in this clip (attach as ingredients)</div>{avs}</div>''')
 doc = os.path.join(D, 'src', '_ep2.html'); js = os.path.join(D, 'src', '_ep2.cjs')
 open(doc, 'w').write(f'<html><head><meta charset="utf-8"><style>{css}</style></head><body>{"".join(parts)}</body></html>')
 open(js, 'w').write(f'''const {{ chromium }} = require('playwright');
