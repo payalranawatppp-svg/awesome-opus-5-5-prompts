@@ -14,6 +14,7 @@
 import React from "react";
 import { AbsoluteFill, Audio, Freeze, OffthreadVideo, Sequence, interpolate, spring, staticFile, useCurrentFrame } from "remotion";
 import words from "../data/ep2-words.json";
+import vwords from "../data/ep2-voice-words.json";
 import { FontGate } from "../effects";
 import { FONT_DISPLAY, FONT_UI } from "../theme";
 import { LogoReveal, easeIO, easeOut, ramp } from "../tr/motion";
@@ -50,11 +51,13 @@ const PLAN: Seg[] = [
   { id: "voicemail", clip: "u05", a: 0.3, b: 4.8 },
   { id: "tenmin", clip: "u06", a: 0.0, b: 6.3 },
   { id: "missed", clip: "u07", a: 0.3, b: 7.9 },
-  { id: "chat", a: 0, b: 4.6, bg: ["u04", 2.2] },
+  { id: "square", a: 0, b: 6.9 },
+  { id: "chat", a: 0, b: 9.5 },
   { id: "barbara", clip: "u08", a: 0.0, b: 6.6 },
+  { id: "tail", a: 0, b: 3.3 },
   { id: "ready", clip: "u09", a: 0.0, b: 5.0 },
   { id: "morning", clip: "u10", a: 1.5, b: 7.9 },
-  { id: "thirty", clip: "u11", a: 0.6, b: 5.5 },
+  { id: "thirty", clip: "u11", a: 0.6, b: 7.0 },
   { id: "greg", clip: "u12", a: 0.8, b: 6.4 },
 ];
 const SEGS = (() => {
@@ -66,6 +69,17 @@ const S = Object.fromEntries(SEGS.map((s) => [s.id, s])) as Record<string, (type
 const T = (id: string, t: number) => S[id].f0 + RF(t - S[id].a);
 const END_AT = SEGS[SEGS.length - 1].f1;
 export const EP2_DURATION = END_AT + RF(4.6);
+/** ElevenLabs lines Flow never delivered (public/ep2/voice/<name>.wav), placed at clip time `at` of segment `seg`. */
+const LINES = [
+  { name: "tanya_square", seg: "square", at: 0.25 },
+  { name: "amanda_stop", seg: "chat", at: 0.25 },
+  { name: "amanda_mention", seg: "chat", at: 5.1 },
+  { name: "amanda_tail", seg: "tail", at: 0.2 },
+  { name: "amanda_anymore", seg: "thirty", at: 5.55 },
+];
+const L = (name: string, t: number) => { const l = LINES.find((x) => x.name === name)!; return T(l.seg, l.at + t); };
+/** Clips whose speech is replaced by the ElevenLabs speech-to-speech take (same timing, one voice per character). */
+const REVOICED = new Set(["u01", "u02", "u03", "u04", "u06", "u08", "u10", "u11", "u12"]);
 
 // ---------------------------------------------------------------------------------------------------
 // Footage with a slow push-in per shot, a punch on emphasis lines and whip pans between offices
@@ -83,7 +97,9 @@ const Clip: React.FC<{ s: (typeof SEGS)[number]; cutout?: boolean }> = ({ s, cut
   const edge = (f: number) => Math.min(interpolate(f, [0, 3], [0, 1], clamp), interpolate(f, [s.f1 - s.f0 - 3, s.f1 - s.f0], [1, 0], clamp));
   return cutout
     ? <OffthreadVideo src={staticFile(`ep2/${s.clip}-cut.webm`)} transparent muted trimBefore={RF(s.a)} style={style} />
-    : <OffthreadVideo src={staticFile(`ep2/${s.clip}.mp4`)} trimBefore={RF(s.a)} volume={edge} style={style} />;
+    : REVOICED.has(s.clip!)
+      ? <><OffthreadVideo src={staticFile(`ep2/${s.clip}.mp4`)} muted trimBefore={RF(s.a)} style={style} /><Audio src={staticFile(`ep2/voice/${s.clip}.wav`)} trimBefore={RF(s.a)} volume={edge} /></>
+      : <OffthreadVideo src={staticFile(`ep2/${s.clip}.mp4`)} trimBefore={RF(s.a)} volume={edge} style={style} />;
 };
 const CUTOUTS = new Set(["u01", "u06", "u11", "u12"]);
 const Footage: React.FC<{ layer: "plate" | "cutout" }> = ({ layer }) => (
@@ -267,6 +283,48 @@ const Backdrop: React.FC<{ a: number; b: number; clip: string; t: number }> = ({
   );
 };
 
+/** Tanya's phone tag as a 3D call log: outgoing to voicemail, the missed call back, then "square one". */
+const PhoneLog: React.FC = () => {
+  const frame = useCurrentFrame();
+  const a = S.square.f0, b = S.square.f1;
+  if (frame < a || frame > b) return null;
+  const rows = [
+    { at: L("tanya_square", 0.0), dir: "Outgoing", who: "Gentle Dental", res: "Voicemail", time: "9:12 AM" },
+    { at: L("tanya_square", 2.55), dir: "Incoming", who: "Gentle Dental · Barbara", res: "Missed", time: "9:16 AM" },
+  ];
+  const p = sp(frame, a, 15, 120);
+  const o = life(frame, a, b, 6, 10);
+  const sq = sp(frame, L("tanya_square", 5.0), 12, 140);
+  return (
+    <>
+      <div style={{ position: "absolute", left: 90, right: 90, top: 560, perspective: 1400, opacity: o }}>
+        <div style={{ borderRadius: 34, padding: "26px 28px", background: "linear-gradient(145deg, rgba(255,255,255,0.2), rgba(255,255,255,0.06))", border: "1.5px solid rgba(255,255,255,0.45)", backdropFilter: "blur(16px)", boxShadow: `0 40px 90px rgba(6,3,18,0.55), 0 0 50px ${AMBER}33`, transform: `rotateX(${(1 - p) * 55 + 8}deg) rotateY(${-8 + Math.sin((frame - a) / 30) * 3}deg) translateY(${(1 - p) * 160}px) scale(${0.75 + 0.25 * p})`, fontFamily: FONT_UI }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 14, color: W, fontWeight: 800, fontSize: 34, marginBottom: 18, textShadow: SOFT }}><Icon d={I_PHONE} size={34} color={W} />Front desk phone · today</div>
+          {rows.map((r, i) => {
+            const k = sp(frame, r.at, 12, 170);
+            if (frame < r.at - 1) return null;
+            return (
+              <div key={i} style={{ display: "flex", alignItems: "center", gap: 20, padding: "20px 22px", marginTop: i ? 14 : 0, borderRadius: 22, background: "rgba(255,255,255,0.95)", opacity: k, transform: `translateX(${(1 - k) * 120}px)` }}>
+                <div style={{ width: 62, height: 62, borderRadius: 18, background: "#FFF1D6", display: "flex", alignItems: "center", justifyContent: "center" }}><Icon d={I_PHONE} size={32} color="#C27A0A" /></div>
+                <div style={{ flex: 1 }}>
+                  <div style={{ fontWeight: 800, fontSize: 32, color: INK }}>{r.who}</div>
+                  <div style={{ fontWeight: 600, fontSize: 24, color: "#6B7085" }}>{r.dir} · {r.time}</div>
+                </div>
+                <div style={{ padding: "10px 20px", borderRadius: 999, background: `linear-gradient(135deg, ${AMBER}, #FFD36E)`, color: INK, fontWeight: 800, fontSize: 26 }}>{r.res}</div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+      {frame >= L("tanya_square", 5.0) - 1 && (
+        <div style={{ position: "absolute", left: 0, right: 0, top: 230, textAlign: "center", fontFamily: FONT_DISPLAY, fontWeight: 800, fontSize: 150, letterSpacing: "-0.05em", lineHeight: 0.9, opacity: Math.min(sq, o),
+          backgroundImage: `linear-gradient(180deg, #FFE08A 0%, ${AMBER} 72%)`, WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent",
+          filter: `blur(${(1 - Math.min(1, sq * 1.3)) * 16}px) drop-shadow(0 18px 40px ${AMBER}55)`, transform: `rotateX(${(1 - sq) * 60}deg) scale(${0.85 + 0.15 * sq})` }}>SQUARE<br />ONE</div>
+      )}
+    </>
+  );
+};
+
 // DayPrepClean key frames (its own 30 fps timeline)
 const DP = { click: 32, posted: 300, onit: 336, thumb: 396, swap: 412, reply: 440 };
 // CaseChat key frames
@@ -298,10 +356,20 @@ const Product: React.FC = () => {
       <Chip a={T("missed", 6.0)} b={S.missed.f1} icon={I_PHONE} text="Missed call · Gentle Dental" tone="amber" y={1360} />
       {/* the new way: Amanda moves it onto the case */}
       <Backdrop a={ch.f0} b={ch.f1} clip="u04" t={2.2} />
-      <Chip a={ch.f0 + 4} b={ch.f1} icon={ICON.chat} text="Move it onto the case" tone="purple" y={150} size={38} />
-      <Glass a={ch.f0 + 2} b={ch.f1 + 3} y={330} w={1000} h={1080} screen="chat" title="Office Communication · Maria Ortiz" veil={false}
-        screenFrame={lin(ch.f0 + 4, ch.f1 - 6, CC.type0 - 6, CC.send + 14)}
-        keys={[{ f: ch.f0, cx: 1648, cy: 300, z: 1.6 }, { f: ch.f0 + 30, cx: 1648, cy: 330, z: 2.08 }, { f: ch.f1, cx: 1648, cy: 340, z: 2.12 }]} />
+      <Chip a={L("amanda_stop", 0.1)} b={L("amanda_stop", 2.6)} icon={I_PHONE} text="Stop calling" tone="amber" y={860} size={52} strike={L("amanda_stop", 1.9)} />
+      <Chip a={L("amanda_stop", 2.5)} b={ch.f1} icon={ICON.chat} text="Move it onto the case" tone="purple" y={150} size={38} />
+      <Glass a={L("amanda_stop", 2.7)} b={ch.f1 + 3} y={330} w={1000} h={1080} screen="chat" title="Office Communication · Maria Ortiz" veil={false}
+        screenFrame={lin(L("amanda_mention", 0.1), L("amanda_mention", 3.55), CC.type0, CC.send + 2)}
+        keys={[{ f: L("amanda_stop", 2.7), cx: 1648, cy: 280, z: 1.6 }, { f: L("amanda_mention", 0), cx: 1648, cy: 300, z: 1.9 }, { f: L("amanda_mention", 1.6), cx: 1648, cy: 340, z: 2.12 }, { f: ch.f1, cx: 1648, cy: 350, z: 2.15 }]} />
+      {/* Tanya: "We called, got voicemail. They called back while I was checking someone out. We're right back at square one." */}
+      <Backdrop a={S.square.f0} b={S.square.f1} clip="u07" t={7.6} />
+      <PhoneLog />
+      {/* Amanda: "No downloading, no scanning, no chasing emails." */}
+      <Backdrop a={S.tail.f0} b={S.tail.f1} clip="u08" t={7.6} />
+      <Chip a={L("amanda_tail", 0.0)} b={S.tail.f1} icon={ICON.inbox} text="Downloading" tone="dark" y={500} size={54} strike={L("amanda_tail", 0.55)} />
+      <Chip a={L("amanda_tail", 0.92)} b={S.tail.f1} icon={ICON.clip} text="Scanning" tone="dark" y={700} size={54} strike={L("amanda_tail", 1.4)} />
+      <Chip a={L("amanda_tail", 1.56)} b={S.tail.f1} icon={ICON.send} text="Chasing emails" tone="dark" y={900} size={54} strike={L("amanda_tail", 2.2)} />
+      <Chip a={L("amanda_tail", 2.55)} b={S.tail.f1} icon={ICON.check} text="All on the case" tone="green" y={1120} size={50} />
       {/* u08: "Barbara sees it right away, replies in the same thread, and drops the X-ray in. It saves to the case for both offices." */}
       <Glass a={T("barbara", 1.2)} b={bb.f1 + 2} y={890} w={960} h={690} screen="chat" title="Gentle Dental ↔ St. Andrew's"
         screenFrame={lin(T("barbara", 1.2), bb.f1, CC.barbara - 6, CC.barbara - 6 + (bb.f1 - T("barbara", 1.2)))}
@@ -314,7 +382,7 @@ const Product: React.FC = () => {
         keys={[{ f: rd.f0, cx: 734, cy: 430, z: 1.7 }, { f: rd.f0 + 40, cx: 734, cy: 440, z: 2.05 }, { f: rd.f1, cx: 760, cy: 470, z: 2.1 }]} />
       <Chip a={T("ready", 1.4)} b={rd.f1} icon={ICON.check} text="Newest X-ray · ready" tone="green" y={810} />
       <Sparkle at={T("ready", 1.0)} x={540} y={1240} color="#5EE6A8" />
-      <LightLeak at={S.chat.f0 - 4} /><LightLeak at={S.ready.f0 - 4} /><LightLeak at={END_AT - 4} dur={22} />
+      <LightLeak at={S.chat.f0 - 4} /><LightLeak at={S.square.f0 - 4} /><LightLeak at={S.ready.f0 - 4} /><LightLeak at={END_AT - 4} dur={22} />
     </>
   );
 };
@@ -345,6 +413,14 @@ const TOKS: Tok[] = (() => {
       out.push({ t, at: T(s.id, w.start), end: T(s.id, w.end) });
     }
   }
+  const VW = vwords as unknown as Record<string, { words: Wd[] }>;
+  for (const l of LINES) {
+    for (const w of VW[`${l.name}.wav`].words) {
+      const t = w.word.trim().replace(/^mentioned/, "mention");
+      out.push({ t, at: T(l.seg, l.at + w.start), end: T(l.seg, l.at + w.end) });
+    }
+  }
+  out.sort((x, y) => x.at - y.at);
   return out;
 })();
 const CHUNKS = (() => {
@@ -423,7 +499,9 @@ const Sfx: React.FC = () => {
       {s("ring", T("voicemail", 0.35), 0.32)}{s("ring", T("voicemail", 2.75), 0.32)}{s("vm-beep", T("voicemail", 4.3), 0.25)}{s("pop-1", T("voicemail", 3.5), 0.18)}
       {[0, 1, 2, 3, 4, 5].map((k) => <React.Fragment key={k}>{s(`tick-${k + 1}`, T("tenmin", 0.1 + k * 0.5), 0.14, 1)}</React.Fragment>)}
       {s("ring", T("missed", 3.9), 0.34)}{s("ring-cut", T("missed", 5.95), 0.34)}{s("thud", T("missed", 6.05), 0.25)}
-      {s("riser", S.chat.f0 - 26, 0.22)}{s("whoosh-short", S.chat.f0, 0.3)}{s("typing", S.chat.f0 + 8, 0.3)}{s("click", S.chat.f1 - 10, 0.4)}{s("blip-1", S.chat.f1 - 8, 0.25)}
+      {s("whoosh-short", S.square.f0, 0.28)}{s("pop-1", L("tanya_square", 0.0), 0.22)}{s("vm-beep", L("tanya_square", 1.1), 0.12)}{s("ring-cut", L("tanya_square", 2.55), 0.22)}{s("impact", L("tanya_square", 5.0), 0.2)}
+      {s("riser", S.chat.f0 - 26, 0.2)}{s("whoosh-short", S.chat.f0, 0.3)}{s("click", L("amanda_stop", 1.9), 0.3)}{s("whoosh-short", L("amanda_stop", 2.7), 0.26)}{s("typing", L("amanda_mention", 0.15), 0.3)}{s("click", L("amanda_mention", 3.5), 0.4)}{s("blip-1", L("amanda_mention", 3.55), 0.25)}
+      {s("whoosh-short", S.tail.f0, 0.24)}{s("pop-1", L("amanda_tail", 0.55), 0.2)}{s("pop-2", L("amanda_tail", 1.4), 0.2)}{s("pop-3", L("amanda_tail", 2.2), 0.2)}{s("chime", L("amanda_tail", 2.55), 0.28)}
       {s("chime", T("barbara", 0.3), 0.26)}{s("whoosh-short", T("barbara", 1.2), 0.22)}{s("pop-2", T("barbara", 3.4), 0.24)}{s("chime", T("barbara", 4.7), 0.28)}
       {s("click", T("ready", 0.3), 0.3)}{s("shimmer", T("ready", 1.0), 0.28)}
       {s("impact", T("thirty", 1.0), 0.18)}{s("shimmer", END_AT, 0.32)}
@@ -455,6 +533,7 @@ export const Ep2Story: React.FC = () => (
       <Grain />
       <Audio src={staticFile("audio/music/s13-bed.wav")} volume={(f) => (f < S.chat.f0 ? 0.05 : f < END_AT ? 0.075 : 0.14)} loop />
       <Sfx />
+      {LINES.map((l) => <Sequence key={l.name} from={T(l.seg, l.at)}><Audio src={staticFile(`ep2/voice/${l.name}.wav`)} /></Sequence>)}
     </AbsoluteFill>
   </FontGate>
 );
