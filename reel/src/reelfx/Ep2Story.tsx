@@ -57,7 +57,7 @@ const PLAN: Seg[] = [
   { id: "tail", a: 0, b: 3.3 },
   { id: "ready", clip: "u09", a: 0.0, b: 5.0 },
   { id: "morning", clip: "u10", a: 1.5, b: 7.9 },
-  { id: "thirty", clip: "u11", a: 0.6, b: 7.0 },
+  { id: "thirty", clip: "u11", a: 0.6, b: 5.6 },
   { id: "greg", clip: "u12", a: 0.8, b: 6.4 },
 ];
 const SEGS = (() => {
@@ -75,7 +75,6 @@ const LINES = [
   { name: "amanda_stop", seg: "chat", at: 0.25 },
   { name: "amanda_mention", seg: "chat", at: 5.1 },
   { name: "amanda_tail", seg: "tail", at: 0.2 },
-  { name: "amanda_anymore", seg: "thirty", at: 5.55 },
 ];
 const L = (name: string, t: number) => { const l = LINES.find((x) => x.name === name)!; return T(l.seg, l.at + t); };
 /** Clips whose speech is replaced by the ElevenLabs speech-to-speech take (same timing, one voice per character). */
