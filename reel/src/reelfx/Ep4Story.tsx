@@ -49,13 +49,13 @@ const PLAN: Seg[] = [
   { id: "spring", clip: "e02", a: 1.0, b: 6.8 },
   { id: "cases", clip: "e03", a: 1.3, b: 6.0 },
   { id: "clock", clip: "e04", a: 0.9, b: 6.8 },
-  { id: "word", clip: "e05", a: 0.9, b: 6.3 },
-  { id: "filled", clip: "e06", a: 0.45, b: 6.95 },
-  { id: "route", clip: "e07", a: 0.2, b: 4.7 },
+  { id: "word", clip: "e05", a: 0.9, b: 7.7 },
+  { id: "filled", clip: "e06", a: 0.45, b: 7.9 },
+  { id: "route", clip: "e07", a: 0.2, b: 6.6 },
   { id: "signed", clip: "e08", a: 0.9, b: 5.0 },
-  { id: "already", clip: "e09", a: 0.9, b: 5.3 },
-  { id: "barbara", clip: "e09b", a: 0.5, b: 4.1 },
-  { id: "pms", clip: "e10", a: 0.3, b: 7.2 },
+  { id: "already", clip: "e09", a: 0.9, b: 6.9 },
+  { id: "barbara", clip: "e09b", a: 0.3, b: 6.0 },
+  { id: "pms", clip: "e10", a: 0.2, b: 7.9 },
   { id: "montage", clip: "e11", a: 0.9, b: 7.1 },
   { id: "park", clip: "e12", a: 1.1, b: 5.6 },
   { id: "home", clip: "e01", a: 0.15, b: 5.4, hold: true },
@@ -296,42 +296,42 @@ const Product: React.FC = () => {
     <>
       {/* 05 Amanda: "Don't open Word. Use the templates..." → case → Consultation Completed → Create official note */}
       <Cover a={wd.f0} b={T("filled", 3.2)} />
-      <Chip a={T("word", 1.3)} b={T("word", 2.9)} icon={ICON.clip} text="Blank Word document" tone="dark" y={250} size={44} strike={T("word", 2.1)} />
-      <Glass a={T("word", 2.9)} b={wd.f1 + 2} y={70} h={640} title="Mr. Turner · Implant consult · Oakridge Oral Surgery"
-        screenFrame={lin(T("word", 2.95), T("word", 6.2), 0, CN.official + 8)}
-        keys={[{ f: 0, cx: 1560, cy: 470, z: 1.3 }, { f: CN.chip + 6, cx: 1560, cy: 480, z: 1.45 }, { f: CN.m1 + 10, cx: 960, cy: 380, z: 0.95 }, { f: 150, cx: 960, cy: 420, z: 0.95 }, { f: CN.official, cx: 940, cy: 690, z: 1.5 }]} />
+      <Chip a={T("word", 1.2)} b={T("word", 2.3)} icon={ICON.clip} text="Blank Word document" tone="dark" y={250} size={44} strike={T("word", 1.8)} />
+      <Glass a={T("word", 2.3)} b={wd.f1 + 2} y={50} w={1040} h={780} title="Mr. Turner · Implant consult · Oakridge Oral Surgery"
+        screenFrame={(f) => interpolate(f, [T("word", 2.35), T("word", 3.6), T("word", 7.4)], [0, 4, CN.official + 12], clamp)}
+        keys={[{ f: 0, cx: 1200, cy: 421, z: 0.62 }, { f: 4, cx: 1200, cy: 421, z: 0.62 }, { f: CN.chip + 6, cx: 1500, cy: 470, z: 1.05 }, { f: CN.m1 + 12, cx: 960, cy: 421, z: 0.72 }, { f: 150, cx: 960, cy: 430, z: 0.75 }, { f: CN.official, cx: 950, cy: 640, z: 1.15 }]} />
       {/* 06 Tanya: "it already filled in the patient info, the tooth number, and the referring doctor" */}
-      <Glass a={fl.f0} b={fl.f1 + 2} y={70} h={640} title="Prepare Consultation Note · Oakridge letterhead"
-        screenFrame={(f) => interpolate(f, [fl.f0, T("filled", 1.7), T("filled", 2.4), T("filled", 3.9), T("filled", 6.6)], [CN.m2 + 4, CN.tplPick + 2, CN.fill + 32, CN.fill + 62, CN.type - 30], clamp)}
-        keys={[{ f: CN.m2 + 4, cx: 700, cy: 240, z: 1.3 }, { f: CN.tplPick + 4, cx: 640, cy: 270, z: 1.45 }, { f: CN.fill + 10, cx: 800, cy: 420, z: 1.25 }, { f: CN.fill + 60, cx: 760, cy: 520, z: 1.5 }, { f: CN.type - 30, cx: 760, cy: 470, z: 1.35 }]} />
-      <Chip a={T("filled", 2.6)} b={T("filled", 3.6)} icon={ICON.check} text="Patient info" tone="green" y={760} size={36} />
-      <Chip a={T("filled", 3.75)} b={T("filled", 4.7)} icon={ICON.check} text="Tooth #30" tone="green" y={760} size={36} />
-      <Chip a={T("filled", 4.85)} b={fl.f1} icon={ICON.check} text="Dr. Moore · Gentle Dental" tone="green" y={760} size={36} />
+      <Glass a={fl.f0} b={fl.f1 + 2} y={50} w={1040} h={780} title="Prepare Consultation Note · Oakridge letterhead"
+        screenFrame={(f) => interpolate(f, [fl.f0, T("filled", 1.7), T("filled", 2.4), T("filled", 3.9), T("filled", 7.6)], [CN.m2 + 4, CN.tplPick + 2, CN.fill + 32, CN.fill + 62, CN.type - 24], clamp)}
+        keys={[{ f: CN.m2 + 4, cx: 950, cy: 400, z: 0.78 }, { f: CN.tplPick + 4, cx: 800, cy: 330, z: 1.0 }, { f: CN.fill + 10, cx: 950, cy: 430, z: 0.85 }, { f: CN.fill + 60, cx: 900, cy: 480, z: 1.0 }, { f: CN.type - 24, cx: 950, cy: 430, z: 0.8 }]} />
+      <Chip a={T("filled", 2.6)} b={T("filled", 3.6)} icon={ICON.check} text="Patient info" tone="green" y={865} size={36} />
+      <Chip a={T("filled", 3.75)} b={T("filled", 4.7)} icon={ICON.check} text="Tooth #30" tone="green" y={865} size={36} />
+      <Chip a={T("filled", 4.85)} b={fl.f1} icon={ICON.check} text="Dr. Moore · Gentle Dental" tone="green" y={865} size={36} />
       {/* 07 Amanda V.O.: "You just add the final note and route it straight to the doctor to sign." */}
-      <Glass a={rt.f0} b={rt.f1 + 2} y={70} h={660} title="Final note → Route to Dr. Vance"
-        screenFrame={lin(rt.f0, T("route", 4.4), CN.type, CN.sendBtn + 14)}
-        keys={[{ f: CN.type, cx: 820, cy: 400, z: 1.3 }, { f: CN.typeEnd, cx: 900, cy: 420, z: 1.3 }, { f: CN.route, cx: 600, cy: 580, z: 1.5 }, { f: CN.doc + 6, cx: 640, cy: 620, z: 1.5 }, { f: CN.sendBtn, cx: 1100, cy: 740, z: 1.4 }]} />
-      <Chip a={T("route", 2.5)} b={rt.f1} icon={I_PEN} text="Routed to Dr. Vance" tone="purple" y={760} size={38} />
+      <Glass a={rt.f0} b={rt.f1 + 2} y={50} w={1040} h={780} title="Final note → Route to Dr. Vance"
+        screenFrame={(f) => interpolate(f, [rt.f0, T("route", 4.4), T("route", 6.3)], [CN.type, CN.sendBtn + 6, CN.sendBtn + 40], clamp)}
+        keys={[{ f: CN.type, cx: 950, cy: 420, z: 0.95 }, { f: CN.typeEnd, cx: 950, cy: 430, z: 0.95 }, { f: CN.route, cx: 800, cy: 560, z: 1.1 }, { f: CN.doc + 6, cx: 820, cy: 580, z: 1.1 }, { f: CN.sendBtn, cx: 950, cy: 600, z: 0.95 }, { f: CN.sendBtn + 40, cx: 960, cy: 421, z: 0.72 }]} />
+      <Chip a={T("route", 2.5)} b={rt.f1} icon={I_PEN} text="Routed to Dr. Vance" tone="purple" y={865} size={38} />
       {/* 08 Dr. Vance signs on his tablet */}
-      <Glass a={sg.f0 + 2} b={T("signed", 2.3)} y={980} h={600} title="Dr. Vance's tablet · Sign Consultation Note"
-        screenFrame={lin(sg.f0 + 2, T("signed", 2.2), CN.field - 4, CN.signed + 14)}
-        keys={[{ f: CN.field - 4, cx: 640, cy: 470, z: 1.35 }, { f: CN.strokeEnd, cx: 640, cy: 520, z: 1.6 }, { f: CN.finish - 4, cx: 1500, cy: 200, z: 1.2 }, { f: CN.signed + 10, cx: 906, cy: 430, z: 1.15 }]} />
-      <Chip a={T("signed", 2.3)} b={sg.f1} icon={ICON.check} text="Signed · approved" tone="green" y={1380} size={42} />
+      <Glass a={sg.f0 + 2} b={sg.f1 + 2} y={940} w={1040} h={660} title="Dr. Vance's tablet · Sign Consultation Note"
+        screenFrame={lin(sg.f0 + 2, T("signed", 3.2), CN.sign + 20, CN.signed + 30)}
+        keys={[{ f: CN.sign + 20, cx: 960, cy: 421, z: 0.66 }, { f: CN.field + 4, cx: 760, cy: 480, z: 0.95 }, { f: CN.strokeEnd, cx: 700, cy: 500, z: 1.05 }, { f: CN.finish - 4, cx: 1200, cy: 300, z: 0.8 }, { f: CN.signed + 14, cx: 960, cy: 421, z: 0.66 }]} />
+      <Chip a={T("signed", 2.3)} b={sg.f1} icon={ICON.check} text="Signed · approved" tone="green" y={830} size={42} />
       <Sparkle at={T("signed", 2.3)} x={540} y={1420} color="#5EE6A8" />
       {/* 09 Tanya: "So Gentle Dental already has the signed letter on the case?" */}
-      <Glass a={al.f0} b={al.f1 + 2} y={70} h={600} title="Mr. Turner's case · both offices"
-        screenFrame={lin(al.f0, al.f1, CN.back + 4, CN.chatMsg + 40)}
-        keys={[{ f: CN.back + 4, cx: 1100, cy: 560, z: 1.55 }, { f: CN.chatMsg - 4, cx: 1100, cy: 560, z: 1.6 }, { f: CN.chatMsg + 20, cx: 1640, cy: 90, z: 1.7 }]} />
+      <Glass a={al.f0} b={al.f1 + 2} y={50} w={1040} h={720} title="Mr. Turner's case · both offices"
+        screenFrame={lin(al.f0, T("already", 6.0), CN.back + 4, CN.chatMsg + 50)}
+        keys={[{ f: CN.back + 4, cx: 1150, cy: 421, z: 0.72 }, { f: CN.docCard + 14, cx: 1100, cy: 520, z: 1.1 }, { f: CN.chatMsg - 2, cx: 1100, cy: 520, z: 1.1 }, { f: CN.chatMsg + 26, cx: 1500, cy: 200, z: 1.05 }, { f: CN.chatMsg + 50, cx: 1300, cy: 360, z: 0.85 }]} />
       {/* 09B Barbara at Gentle Dental sees it land */}
       <Label a={bb.f0 + 3} b={bb.f1 - 2} office="Gentle Dental" kind="Barbara · front desk" />
-      <Glass a={T("barbara", 0.9)} b={bb.f1 + 2} y={1000} h={560} title="Gentle Dental · Mr. Turner's case" tilt={-1}
-        screenFrame={() => CN.docCard + 30}
-        keys={[{ f: 0, cx: 1100, cy: 555, z: 1.8 }]} />
+      <Glass a={T("barbara", 0.6)} b={bb.f1 + 2} y={960} w={1040} h={640} title="Gentle Dental · Mr. Turner's case" tilt={-1}
+        screenFrame={lin(T("barbara", 0.7), T("barbara", 4.5), CN.back + 4, CN.chatMsg + 40)}
+        keys={[{ f: CN.back + 4, cx: 1150, cy: 450, z: 0.8 }, { f: CN.docCard + 20, cx: 1100, cy: 540, z: 1.25 }, { f: CN.chatMsg + 40, cx: 1200, cy: 420, z: 0.9 }]} />
       <Chip a={T("barbara", 1.6)} b={bb.f1} icon={ICON.check} text="Signed note · on the case" tone="green" y={860} size={36} />
       {/* 10 Amanda: "with one click you copy it straight into our PMS. No scanning, no printing, and no faxing." */}
-      <Glass a={pm.f0 + 2} b={T("pms", 4.2)} y={70} h={580} title="Copy to PMS"
-        screenFrame={lin(T("pms", 0.4), T("pms", 4.1), CN.copy - 56, CN.copy + 50)}
-        keys={[{ f: CN.copy - 56, cx: 1090, cy: 560, z: 1.6 }, { f: CN.copy, cx: 1080, cy: 600, z: 2.05 }, { f: CN.copy + 50, cx: 1050, cy: 640, z: 1.55 }]} />
+      <Glass a={pm.f0 + 2} b={T("pms", 4.45)} y={50} w={1040} h={720} title="Copy to PMS"
+        screenFrame={lin(T("pms", 0.3), T("pms", 4.3), CN.copy - 60, CN.copy + 60)}
+        keys={[{ f: CN.copy - 60, cx: 1150, cy: 421, z: 0.75 }, { f: CN.copy - 12, cx: 1090, cy: 580, z: 1.3 }, { f: CN.copy + 10, cx: 1080, cy: 600, z: 1.45 }, { f: CN.copy + 60, cx: 1080, cy: 560, z: 1.0 }]} />
       <Chip a={T("pms", 4.5)} b={pm.f1} icon={ICON.clip} text="Scanning" tone="dark" y={300} size={50} strike={T("pms", 4.9)} />
       <Chip a={T("pms", 5.4)} b={pm.f1} icon={I_COPY} text="Printing" tone="dark" y={460} size={50} strike={T("pms", 5.8)} />
       <Chip a={T("pms", 6.2)} b={pm.f1} icon={ICON.send} text="Faxing" tone="dark" y={620} size={50} strike={T("pms", 6.6)} />
