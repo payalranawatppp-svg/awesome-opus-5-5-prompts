@@ -100,7 +100,7 @@ Clips 02, 07, 11 and 13 carry the voice-over line inside the prompt as off-scree
 ### CLIP 01 · Front row (Oakridge front desk) · start: the Oakridge morning cast image
 **Script direction:** Morning at the front desk. Tanya is back and healthy, looking at a framed photo on her desk of her young daughter, Lily, sitting at a piano.  
 **Emotion:** Warm, hopeful, proud mother; a quiet determination on "front row".  
-**Dialogue:** Tanya: "Front row. She made me promise. Her first solo is at 5:30 tonight."  
+**Dialogue / voice-over:** Tanya (on camera, lip-synced): "Front row. She made me promise. Her first solo is at 5:30 tonight."  
 **Edit:** Lower third: "Oakridge Oral Surgery · Tanya, Front Desk Coordinator".
 
 > Ingredients: the Oakridge front desk background image, the Tanya avatar image, the Amanda avatar image. Start image: the Oakridge morning cast image. Continue from the exact position in the start image: the clip begins on that frame, with the same camera angle, framing, lighting, props, and the same position, pose and expression of every character, and the action continues naturally from there, with no jump, reset or change of outfit. Starting position: TANYA sits at the left workstation holding the small silver photo frame in both hands, smiling softly at it; AMANDA sits at the right workstation looking at her monitor.
@@ -112,13 +112,18 @@ Clips 02, 07, 11 and 13 carry the voice-over line inside the prompt as off-scree
 > Emotion: Warm, hopeful, proud mother; a quiet determination on "front row".
 > Action: TANYA looks at the photo, smiles, tilts it slightly toward AMANDA as she says the line, then sets the frame back on the desk beside her keyboard, facing her. Amanda glances over and smiles.
 > Camera: medium close-up on Tanya from across the desk, eye level, very slow push-in; the frame in the lower foreground.
-> TANYA speaks with a bright, quick late-20s female voice with a natural neutral American accent, soft, warm, a little emotional, half to herself. Perfectly lip-synced: "Front row. She made me promise. Her first solo is at 5:30 tonight."
-> Audio: only the spoken lines, quiet morning office room tone and quiet room tone. No animation, no cartoon, CGI or illustrated look, no motion graphics, no on-screen text, no text overlays, no titles, no captions, no subtitles, no readable text anywhere. No music, no readable screens (monitors and tablets angled away or blurred), no logos, no red clothing or props, no extra people, no warped hands or fingers, no lip-sync drift, no sudden objects appearing in hands, no jump cut or reset at the start.
+> DIALOGUE (on camera, lip-synced). Exactly one spoken line in this clip. VOICE-OVER: none.
+> Speaker: TANYA, visible on screen, face toward camera enough to read the lips.
+> Voice: a bright, quick late-20s female voice with a natural neutral American accent. Delivery: soft, warm, a little emotional, half to herself.
+> Line (say it once, word for word, nothing added, nothing left out): "Front row. She made me promise. Her first solo is at 5:30 tonight."
+> Timing: TANYA starts speaking at about 1 s and finishes by about 6 s, then holds the expression to the end of the clip.
+> Lip sync: mouth movement matches every word exactly. AMANDA stays silent, mouth closed (smiles and nods only). No narration, no extra words, no background chatter, no music.
+> Audio: only the one spoken line and quiet morning office room tone. No animation, no cartoon, CGI or illustrated look, no motion graphics, no on-screen text, no text overlays, no titles, no captions, no subtitles, no readable text anywhere. No music, no readable screens (monitors and tablets angled away or blurred), no logos, no red clothing or props, no extra people, no warped hands or fingers, no lip-sync drift, no sudden objects appearing in hands, no jump cut or reset at the start.
 
 ### CLIP 02 · Last spring (Oakridge front desk at night (last spring)) · V.O. · start: the Oakridge night cast image
 **Script direction:** Flashback: Tanya stressed at her desk after dark last spring, furiously typing a Word document while her phone buzzes with missed texts from the recital.  
 **Emotion:** Stressed, rushed, guilty.  
-**Dialogue:** Tanya (V.O.): "Last spring I missed the entire first half of her recital typing completion letters."  
+**Dialogue / voice-over:** Tanya (voice-over, off screen, not lip-synced): "Last spring I missed the entire first half of her recital typing completion letters."  
 **Edit:** Flashback look in the edit: cooler grade, soft vignette, label "Last spring".
 
 > Ingredients: the Oakridge front desk at night (last spring) background image, the Tanya avatar image. Start image: the Oakridge night cast image. Continue from the exact position in the start image: the clip begins on that frame, with the same camera angle, framing, lighting, props, and the same position, pose and expression of every character, and the action continues naturally from there, with no jump, reset or change of outfit. Starting position: TANYA sits alone at the left workstation at night, leaning toward the monitor, typing fast, tired and tense; her phone lies face-up on the desk.
@@ -129,13 +134,18 @@ Clips 02, 07, 11 and 13 carry the voice-over line inside the prompt as off-scree
 > Emotion: Stressed, rushed, guilty.
 > Action: TANYA types fast, stops, rubs her forehead, keeps typing. Her phone on the desk lights up and vibrates twice (screen not readable); she glances at it, winces, turns it face-down and goes back to typing. Her mouth stays closed.
 > Camera: medium shot from the side of the desk, eye level, handheld and slightly unsteady, the monitor glow on her face.
-> Voice-over (off-screen, not lip-synced): TANYA speaks with a bright, quick late-20s female voice with a natural neutral American accent, quiet, regretful: "Last spring I missed the entire first half of her recital typing completion letters." Every mouth on screen stays closed during the voice-over.
-> Audio: only the voice-over, fast keyboard typing, a phone vibrating on the desk twice and quiet room tone. No animation, no cartoon, CGI or illustrated look, no motion graphics, no on-screen text, no text overlays, no titles, no captions, no subtitles, no readable text anywhere. No music, no readable screens (monitors and tablets angled away or blurred), no logos, no red clothing or props, no extra people, no warped hands or fingers, no lip-sync drift, no sudden objects appearing in hands, no jump cut or reset at the start.
+> VOICE-OVER (off screen, NOT lip-synced). DIALOGUE on camera: none.
+> Narrator: TANYA, heard over the picture as a voice-over, not speaking on screen.
+> Voice: a bright, quick late-20s female voice with a natural neutral American accent. Delivery: quiet, regretful.
+> Line (heard once, word for word, nothing added, nothing left out): "Last spring I missed the entire first half of her recital typing completion letters."
+> Timing: the voice-over starts at about 1 s and finishes by about 6 s.
+> Every mouth on screen (TANYA) stays closed for the whole clip; nobody on screen talks or moves their lips. No other voices, no background chatter, no music.
+> Audio: only the one voice-over line, fast keyboard typing, a phone vibrating on the desk twice and quiet room tone. No animation, no cartoon, CGI or illustrated look, no motion graphics, no on-screen text, no text overlays, no titles, no captions, no subtitles, no readable text anywhere. No music, no readable screens (monitors and tablets angled away or blurred), no logos, no red clothing or props, no extra people, no warped hands or fingers, no lip-sync drift, no sudden objects appearing in hands, no jump cut or reset at the start.
 
 ### CLIP 03 · Three finished cases (Oakridge front desk) · start: the last frame of clip 01
 **Script direction:** Cut to 4:15 PM today. Three completed patient charts land on Tanya's desk, including Mr. Turner's finished implant consult.  
 **Emotion:** Greg: friendly, practical. Tanya: a flicker of worry.  
-**Dialogue:** Greg: "Three finished cases just wrapped up, including Mr. Turner."  
+**Dialogue / voice-over:** Greg (on camera, lip-synced): "Three finished cases just wrapped up, including Mr. Turner."  
 **Edit:** Chip: "4:15 PM". Insert: the top folder (blank cover).
 
 > Ingredients: the Oakridge front desk background image, the Tanya avatar image, the Greg avatar image, the Amanda avatar image. Start image: the last frame of clip 01. Continue from the exact position in the start image: the clip begins on that frame, with the same camera angle, framing, lighting, props, and the same position, pose and expression of every character, and the action continues naturally from there, with no jump, reset or change of outfit. Starting position: TANYA sits at the left workstation; the photo frame stands beside her keyboard; AMANDA sits at the right workstation, exactly as at the end of clip 01, now in later afternoon light.
@@ -148,13 +158,18 @@ Clips 02, 07, 11 and 13 carry the voice-over line inside the prompt as off-scree
 > Emotion: Greg: friendly, practical. Tanya: a flicker of worry.
 > Action: GREG walks in from the hallway on the right carrying three closed manila patient folders, sets them down on the desk in front of TANYA and says the line. Tanya looks up at the folders, then at the photo frame.
 > Camera: medium two-shot across the desk, eye level, static; late-afternoon golden light through the window.
-> GREG speaks with a friendly, easy late-20s male voice with a natural neutral American accent, friendly, matter-of-fact. Perfectly lip-synced: "Three finished cases just wrapped up, including Mr. Turner."
-> Audio: only the spoken lines, footsteps, folders set down on the desk and quiet room tone. No animation, no cartoon, CGI or illustrated look, no motion graphics, no on-screen text, no text overlays, no titles, no captions, no subtitles, no readable text anywhere. No music, no readable screens (monitors and tablets angled away or blurred), no logos, no red clothing or props, no extra people, no warped hands or fingers, no lip-sync drift, no sudden objects appearing in hands, no jump cut or reset at the start.
+> DIALOGUE (on camera, lip-synced). Exactly one spoken line in this clip. VOICE-OVER: none.
+> Speaker: GREG, visible on screen, face toward camera enough to read the lips.
+> Voice: a friendly, easy late-20s male voice with a natural neutral American accent. Delivery: friendly, matter-of-fact.
+> Line (say it once, word for word, nothing added, nothing left out): "Three finished cases just wrapped up, including Mr. Turner."
+> Timing: GREG starts speaking at about 1 s and finishes by about 4.5 s, then holds the expression to the end of the clip.
+> Lip sync: mouth movement matches every word exactly. TANYA and AMANDA stay silent, mouths closed (smiles and nods only). No narration, no extra words, no background chatter, no music.
+> Audio: only the one spoken line, footsteps, folders set down on the desk and quiet room tone. No animation, no cartoon, CGI or illustrated look, no motion graphics, no on-screen text, no text overlays, no titles, no captions, no subtitles, no readable text anywhere. No music, no readable screens (monitors and tablets angled away or blurred), no logos, no red clothing or props, no extra people, no warped hands or fingers, no lip-sync drift, no sudden objects appearing in hands, no jump cut or reset at the start.
 
 ### CLIP 04 · 4:17 (Oakridge front desk) · start: the last frame of clip 03
 **Script direction:** Tanya glances at the clock reading 4:17 PM. Traffic takes thirty minutes, and she has forty-three minutes to close three referrals.  
 **Emotion:** Anxious, racing against the clock.  
-**Dialogue:** Tanya: "Normally this would take me past five, and I'd be stuck in traffic missing the opening song."  
+**Dialogue / voice-over:** Tanya (on camera, lip-synced): "Normally this would take me past five, and I'd be stuck in traffic missing the opening song."  
 **Edit:** Clock insert 4:17; chip "43 minutes · 3 referrals".
 
 > Ingredients: the Oakridge front desk background image, the Tanya avatar image, the Greg avatar image, the Amanda avatar image. Start image: the last frame of clip 03. Continue from the exact position in the start image: the clip begins on that frame, with the same camera angle, framing, lighting, props, and the same position, pose and expression of every character, and the action continues naturally from there, with no jump, reset or change of outfit. Starting position: TANYA sits at the left workstation looking at the three folders GREG has just set down; Greg stands beside the desk; AMANDA at the right workstation, exactly as at the end of clip 03.
@@ -167,13 +182,18 @@ Clips 02, 07, 11 and 13 carry the voice-over line inside the prompt as off-scree
 > Emotion: Anxious, racing against the clock.
 > Action: TANYA turns her head and looks up at the round analog wall clock (hands showing 4:17), lets out a small sigh, then looks back at the folders and says the line, tapping the top folder with two fingers. Greg grimaces sympathetically.
 > Camera: medium close-up on Tanya, eye level, a quick rack-focus to the wall clock and back.
-> TANYA speaks with a bright, quick late-20s female voice with a natural neutral American accent, worried, a small sigh, honest. Perfectly lip-synced: "Normally this would take me past five, and I'd be stuck in traffic missing the opening song."
-> Audio: only the spoken lines, a wall clock ticking, a small sigh and quiet room tone. No animation, no cartoon, CGI or illustrated look, no motion graphics, no on-screen text, no text overlays, no titles, no captions, no subtitles, no readable text anywhere. No music, no readable screens (monitors and tablets angled away or blurred), no logos, no red clothing or props, no extra people, no warped hands or fingers, no lip-sync drift, no sudden objects appearing in hands, no jump cut or reset at the start.
+> DIALOGUE (on camera, lip-synced). Exactly one spoken line in this clip. VOICE-OVER: none.
+> Speaker: TANYA, visible on screen, face toward camera enough to read the lips.
+> Voice: a bright, quick late-20s female voice with a natural neutral American accent. Delivery: worried, a small sigh, honest.
+> Line (say it once, word for word, nothing added, nothing left out): "Normally this would take me past five, and I'd be stuck in traffic missing the opening song."
+> Timing: TANYA starts speaking at about 0.5 s and finishes by about 7 s, then holds the expression to the end of the clip.
+> Lip sync: mouth movement matches every word exactly. GREG and AMANDA stay silent, mouths closed (smiles and nods only). No narration, no extra words, no background chatter, no music.
+> Audio: only the one spoken line, a wall clock ticking, a small sigh and quiet room tone. No animation, no cartoon, CGI or illustrated look, no motion graphics, no on-screen text, no text overlays, no titles, no captions, no subtitles, no readable text anywhere. No music, no readable screens (monitors and tablets angled away or blurred), no logos, no red clothing or props, no extra people, no warped hands or fingers, no lip-sync drift, no sudden objects appearing in hands, no jump cut or reset at the start.
 
 ### CLIP 05 · Templates (Oakridge front desk) · start: the last frame of clip 04
 **Script direction:** Split-screen dashboard: Tanya opens Mr. Turner's case in ToothReferral and clicks Create Completion Note.  
 **Emotion:** Amanda: calm coach. Tanya: hopeful.  
-**Dialogue:** Amanda: "Don't open Word. Use the templates we imported from Oakridge's existing letters."  
+**Dialogue / voice-over:** Amanda (on camera, lip-synced): "Don't open Word. Use the templates we imported from Oakridge's existing letters."  
 **Edit:** SPLIT SCREEN: right half = ToothReferral case → Create Completion Note.
 
 > Ingredients: the Oakridge front desk background image, the Tanya avatar image, the Greg avatar image, the Amanda avatar image. Start image: the last frame of clip 04. Continue from the exact position in the start image: the clip begins on that frame, with the same camera angle, framing, lighting, props, and the same position, pose and expression of every character, and the action continues naturally from there, with no jump, reset or change of outfit. Starting position: TANYA sits at the left workstation with her hand on the top folder; GREG stands beside the desk; AMANDA sits at the right workstation, exactly as at the end of clip 04.
@@ -186,13 +206,18 @@ Clips 02, 07, 11 and 13 carry the voice-over line inside the prompt as off-scree
 > Emotion: Amanda: calm coach. Tanya: hopeful.
 > Action: AMANDA rolls her chair over next to TANYA and says the line, pointing at Tanya's monitor (screen angled away, not readable). Tanya nods, puts her hand on the mouse and clicks twice. Greg steps back and heads off toward the hallway.
 > Camera: medium two-shot from across the desk, eye level, static; frame Tanya and Amanda on the left half of the picture (the right half will hold the dashboard).
-> AMANDA speaks with a calm, warm early-40s female voice with a natural neutral American accent, calm, confident, a reassuring half-smile. Perfectly lip-synced: "Don't open Word. Use the templates we imported from Oakridge's existing letters."
-> Audio: only the spoken lines, a chair rolling, two mouse clicks and quiet room tone. No animation, no cartoon, CGI or illustrated look, no motion graphics, no on-screen text, no text overlays, no titles, no captions, no subtitles, no readable text anywhere. No music, no readable screens (monitors and tablets angled away or blurred), no logos, no red clothing or props, no extra people, no warped hands or fingers, no lip-sync drift, no sudden objects appearing in hands, no jump cut or reset at the start.
+> DIALOGUE (on camera, lip-synced). Exactly one spoken line in this clip. VOICE-OVER: none.
+> Speaker: AMANDA, visible on screen, face toward camera enough to read the lips.
+> Voice: a calm, warm early-40s female voice with a natural neutral American accent. Delivery: calm, confident, a reassuring half-smile.
+> Line (say it once, word for word, nothing added, nothing left out): "Don't open Word. Use the templates we imported from Oakridge's existing letters."
+> Timing: AMANDA starts speaking at about 1 s and finishes by about 5.5 s, then holds the expression to the end of the clip.
+> Lip sync: mouth movement matches every word exactly. TANYA and GREG stay silent, mouths closed (smiles and nods only). No narration, no extra words, no background chatter, no music.
+> Audio: only the one spoken line, a chair rolling, two mouse clicks and quiet room tone. No animation, no cartoon, CGI or illustrated look, no motion graphics, no on-screen text, no text overlays, no titles, no captions, no subtitles, no readable text anywhere. No music, no readable screens (monitors and tablets angled away or blurred), no logos, no red clothing or props, no extra people, no warped hands or fingers, no lip-sync drift, no sudden objects appearing in hands, no jump cut or reset at the start.
 
 ### CLIP 06 · Already filled in (Oakridge front desk) · start: the last frame of clip 05
 **Script direction:** Tanya selects her custom Word template on Oakridge Oral Surgery letterhead, and ToothReferral automatically pulls in Mr. Turner's demographics, procedure details, and X-rays.  
 **Emotion:** Amazed, delighted.  
-**Dialogue:** Tanya: "Wait, it already filled in the patient info, the tooth number, and the referring doctor at Gentle Dental?"  
+**Dialogue / voice-over:** Tanya (on camera, lip-synced): "Wait, it already filled in the patient info, the tooth number, and the referring doctor at Gentle Dental?"  
 **Edit:** SPLIT SCREEN / CLOSE-UP: template on letterhead filling in variables (patient, tooth #, referring doctor, X-rays).
 
 > Ingredients: the Oakridge front desk background image, the Tanya avatar image, the Amanda avatar image. Start image: the last frame of clip 05. Continue from the exact position in the start image: the clip begins on that frame, with the same camera angle, framing, lighting, props, and the same position, pose and expression of every character, and the action continues naturally from there, with no jump, reset or change of outfit. Starting position: TANYA and AMANDA sit side by side at the left workstation, Tanya's hand on the mouse, exactly as at the end of clip 05.
@@ -204,13 +229,18 @@ Clips 02, 07, 11 and 13 carry the voice-over line inside the prompt as off-scree
 > Emotion: Amazed, delighted.
 > Action: TANYA clicks once, leans in toward the screen, her eyebrows rise, and she turns to AMANDA with the question. Amanda smiles and nods.
 > Camera: close-up on Tanya's face lit by the monitor glow, slight angle from the side of the screen, slow push-in.
-> TANYA speaks with a bright, quick late-20s female voice with a natural neutral American accent, surprised, amazed, a little laugh in her voice. Perfectly lip-synced: "Wait, it already filled in the patient info, the tooth number, and the referring doctor at Gentle Dental?"
-> Audio: only the spoken lines, a mouse click and quiet room tone. No animation, no cartoon, CGI or illustrated look, no motion graphics, no on-screen text, no text overlays, no titles, no captions, no subtitles, no readable text anywhere. No music, no readable screens (monitors and tablets angled away or blurred), no logos, no red clothing or props, no extra people, no warped hands or fingers, no lip-sync drift, no sudden objects appearing in hands, no jump cut or reset at the start.
+> DIALOGUE (on camera, lip-synced). Exactly one spoken line in this clip. VOICE-OVER: none.
+> Speaker: TANYA, visible on screen, face toward camera enough to read the lips.
+> Voice: a bright, quick late-20s female voice with a natural neutral American accent. Delivery: surprised, amazed, a little laugh in her voice.
+> Line (say it once, word for word, nothing added, nothing left out): "Wait, it already filled in the patient info, the tooth number, and the referring doctor at Gentle Dental?"
+> Timing: TANYA starts speaking at about 0.5 s and finishes by about 7 s, then holds the expression to the end of the clip.
+> Lip sync: mouth movement matches every word exactly. AMANDA stays silent, mouth closed (smiles and nods only). No narration, no extra words, no background chatter, no music.
+> Audio: only the one spoken line, a mouse click and quiet room tone. No animation, no cartoon, CGI or illustrated look, no motion graphics, no on-screen text, no text overlays, no titles, no captions, no subtitles, no readable text anywhere. No music, no readable screens (monitors and tablets angled away or blurred), no logos, no red clothing or props, no extra people, no warped hands or fingers, no lip-sync drift, no sudden objects appearing in hands, no jump cut or reset at the start.
 
 ### CLIP 07 · Route to Dr. Vance (Oakridge front desk) · V.O. · start: the last frame of clip 06
 **Script direction:** Tanya types two quick clinical sentences and clicks Route to Doctor.  
 **Emotion:** Focused, efficient, light.  
-**Dialogue:** Amanda (V.O.): "You just add the final note and route it straight to the doctor to sign."  
+**Dialogue / voice-over:** Amanda (voice-over, off screen, not lip-synced): "You just add the final note and route it straight to the doctor to sign."  
 **Edit:** SPLIT SCREEN: two sentences typed → "Route to a doctor to sign".
 
 > Ingredients: the Oakridge front desk background image, the Tanya avatar image, the Amanda avatar image. Start image: the last frame of clip 06. Continue from the exact position in the start image: the clip begins on that frame, with the same camera angle, framing, lighting, props, and the same position, pose and expression of every character, and the action continues naturally from there, with no jump, reset or change of outfit. Starting position: TANYA sits at the left workstation turned toward AMANDA; Amanda smiles and nods beside her, exactly as at the end of clip 06.
@@ -222,13 +252,18 @@ Clips 02, 07, 11 and 13 carry the voice-over line inside the prompt as off-scree
 > Emotion: Focused, efficient, light.
 > Action: TANYA turns back to the keyboard, types two short lines quickly, then clicks the mouse once with a small decisive tap and sits back. AMANDA gives a small approving nod. Both mouths stay closed.
 > Camera: medium close-up two-shot, eye level, static.
-> Voice-over (off-screen, not lip-synced): AMANDA speaks with a calm, warm early-40s female voice with a natural neutral American accent, easy, confident: "You just add the final note and route it straight to the doctor to sign." Every mouth on screen stays closed during the voice-over.
-> Audio: only the voice-over, quick typing, a mouse click, a soft notification chime and quiet room tone. No animation, no cartoon, CGI or illustrated look, no motion graphics, no on-screen text, no text overlays, no titles, no captions, no subtitles, no readable text anywhere. No music, no readable screens (monitors and tablets angled away or blurred), no logos, no red clothing or props, no extra people, no warped hands or fingers, no lip-sync drift, no sudden objects appearing in hands, no jump cut or reset at the start.
+> VOICE-OVER (off screen, NOT lip-synced). DIALOGUE on camera: none.
+> Narrator: AMANDA, heard over the picture as a voice-over, not speaking on screen.
+> Voice: a calm, warm early-40s female voice with a natural neutral American accent. Delivery: easy, confident.
+> Line (heard once, word for word, nothing added, nothing left out): "You just add the final note and route it straight to the doctor to sign."
+> Timing: the voice-over starts at about 1 s and finishes by about 6.5 s.
+> Every mouth on screen (TANYA and AMANDA) stays closed for the whole clip; nobody on screen talks or moves their lips. No other voices, no background chatter, no music.
+> Audio: only the one voice-over line, quick typing, a mouse click, a soft notification chime and quiet room tone. No animation, no cartoon, CGI or illustrated look, no motion graphics, no on-screen text, no text overlays, no titles, no captions, no subtitles, no readable text anywhere. No music, no readable screens (monitors and tablets angled away or blurred), no logos, no red clothing or props, no extra people, no warped hands or fingers, no lip-sync drift, no sudden objects appearing in hands, no jump cut or reset at the start.
 
 ### CLIP 08 · Signed and sent (Oakridge hallway) · start: the hallway cast image
 **Script direction:** Dr. Vance's tablet chimes. He reviews the letter on his tablet, taps his eSignature with his finger, and hits approve, all without walking back to his office.  
 **Emotion:** Unhurried, pleased.  
-**Dialogue:** Dr. Vance: "Signed and sent. That couldn't be easier."  
+**Dialogue / voice-over:** Dr. Vance (on camera, lip-synced): "Signed and sent. That couldn't be easier."  
 **Edit:** Insert: e-signature stroke + "Approved" chip.
 
 > Ingredients: the Oakridge hallway background image, the Dr. Vance avatar image. Start image: the hallway cast image. Continue from the exact position in the start image: the clip begins on that frame, with the same camera angle, framing, lighting, props, and the same position, pose and expression of every character, and the action continues naturally from there, with no jump, reset or change of outfit. Starting position: DR. VANCE walks slowly down the hallway toward the camera, a tablet held loosely in one hand, screen facing him.
@@ -239,13 +274,18 @@ Clips 02, 07, 11 and 13 carry the voice-over line inside the prompt as off-scree
 > Emotion: Unhurried, pleased.
 > Action: The tablet chimes. DR. VANCE stops walking, lifts the tablet, reads for a moment (screen facing him, not readable), signs on it with his index finger in one smooth stroke, taps once more, lowers the tablet and says the line with a small smile, then walks on past the camera.
 > Camera: medium shot in the hallway, eye level, the camera drifts back slightly as he walks, then holds.
-> DR. VANCE speaks with a calm, warm, low mid-50s male voice with a natural neutral American accent, pleased, unhurried, a small smile. Perfectly lip-synced: "Signed and sent. That couldn't be easier."
-> Audio: only the spoken lines, a soft tablet chime, a finger tap and quiet room tone. No animation, no cartoon, CGI or illustrated look, no motion graphics, no on-screen text, no text overlays, no titles, no captions, no subtitles, no readable text anywhere. No music, no readable screens (monitors and tablets angled away or blurred), no logos, no red clothing or props, no extra people, no warped hands or fingers, no lip-sync drift, no sudden objects appearing in hands, no jump cut or reset at the start.
+> DIALOGUE (on camera, lip-synced). Exactly one spoken line in this clip. VOICE-OVER: none.
+> Speaker: DR. VANCE, visible on screen, face toward camera enough to read the lips.
+> Voice: a calm, warm, low mid-50s male voice with a natural neutral American accent. Delivery: pleased, unhurried, a small smile.
+> Line (say it once, word for word, nothing added, nothing left out): "Signed and sent. That couldn't be easier."
+> Timing: DR. VANCE starts speaking at about 1 s and finishes by about 3.5 s, then holds the expression to the end of the clip.
+> Lip sync: mouth movement matches every word exactly. No narration, no extra words, no background chatter, no music.
+> Audio: only the one spoken line, a soft tablet chime, a finger tap and quiet room tone. No animation, no cartoon, CGI or illustrated look, no motion graphics, no on-screen text, no text overlays, no titles, no captions, no subtitles, no readable text anywhere. No music, no readable screens (monitors and tablets angled away or blurred), no logos, no red clothing or props, no extra people, no warped hands or fingers, no lip-sync drift, no sudden objects appearing in hands, no jump cut or reset at the start.
 
 ### CLIP 09 · Already on the case (Oakridge front desk) · start: the last frame of clip 07
 **Script direction:** Split-screen: the signed Oakridge letter automatically attaches to Mr. Turner's case for both offices; Barbara at Gentle Dental sees the completed note pop up instantly.  
 **Emotion:** Curious, impressed.  
-**Dialogue:** Tanya: "So Gentle Dental already has the signed letter on the case?"  
+**Dialogue / voice-over:** Tanya (on camera, lip-synced): "So Gentle Dental already has the signed letter on the case?"  
 **Edit:** SPLIT SCREEN: left = this clip; right = clip 09B (Barbara) with the signed note on the case.
 
 > Ingredients: the Oakridge front desk background image, the Tanya avatar image, the Amanda avatar image. Start image: the last frame of clip 07. Continue from the exact position in the start image: the clip begins on that frame, with the same camera angle, framing, lighting, props, and the same position, pose and expression of every character, and the action continues naturally from there, with no jump, reset or change of outfit. Starting position: TANYA sits back at the left workstation and AMANDA sits beside her, exactly as at the end of clip 07.
@@ -257,13 +297,18 @@ Clips 02, 07, 11 and 13 carry the voice-over line inside the prompt as off-scree
 > Emotion: Curious, impressed.
 > Action: A soft chime from the computer. TANYA leans in, looks at the screen, then turns to AMANDA and asks the question. Amanda nods.
 > Camera: medium two-shot, eye level, static; Tanya and Amanda on the left half of the frame.
-> TANYA speaks with a bright, quick late-20s female voice with a natural neutral American accent, curious, impressed. Perfectly lip-synced: "So Gentle Dental already has the signed letter on the case?"
-> Audio: only the spoken lines, a soft chime and quiet room tone. No animation, no cartoon, CGI or illustrated look, no motion graphics, no on-screen text, no text overlays, no titles, no captions, no subtitles, no readable text anywhere. No music, no readable screens (monitors and tablets angled away or blurred), no logos, no red clothing or props, no extra people, no warped hands or fingers, no lip-sync drift, no sudden objects appearing in hands, no jump cut or reset at the start.
+> DIALOGUE (on camera, lip-synced). Exactly one spoken line in this clip. VOICE-OVER: none.
+> Speaker: TANYA, visible on screen, face toward camera enough to read the lips.
+> Voice: a bright, quick late-20s female voice with a natural neutral American accent. Delivery: curious, impressed.
+> Line (say it once, word for word, nothing added, nothing left out): "So Gentle Dental already has the signed letter on the case?"
+> Timing: TANYA starts speaking at about 1 s and finishes by about 5 s, then holds the expression to the end of the clip.
+> Lip sync: mouth movement matches every word exactly. AMANDA stays silent, mouth closed (smiles and nods only). No narration, no extra words, no background chatter, no music.
+> Audio: only the one spoken line, a soft chime and quiet room tone. No animation, no cartoon, CGI or illustrated look, no motion graphics, no on-screen text, no text overlays, no titles, no captions, no subtitles, no readable text anywhere. No music, no readable screens (monitors and tablets angled away or blurred), no logos, no red clothing or props, no extra people, no warped hands or fingers, no lip-sync drift, no sudden objects appearing in hands, no jump cut or reset at the start.
 
 ### CLIP 09B · Barbara sees it (split-screen insert) (Gentle Dental front office) · start: the Gentle Dental cast image
 **Script direction:** On the right, Barbara at Gentle Dental sees the completed note pop up instantly.  
 **Emotion:** Pleasantly surprised, then pleased.  
-**Dialogue:** none  
+**Dialogue / voice-over:** none (no dialogue, no voice-over)  
 **Edit:** Right half of the clip 09 split screen (only 4 s needed).
 
 > Ingredients: the Gentle Dental front office background image, the Barbara avatar image. Start image: the Gentle Dental cast image. Continue from the exact position in the start image: the clip begins on that frame, with the same camera angle, framing, lighting, props, and the same position, pose and expression of every character, and the action continues naturally from there, with no jump, reset or change of outfit. Starting position: BARBARA sits alone behind the counter at the left workstation, facing the monitor, right hand on the mouse, a calm expression.
@@ -274,13 +319,13 @@ Clips 02, 07, 11 and 13 carry the voice-over line inside the prompt as off-scree
 > Emotion: Pleasantly surprised, then pleased.
 > Action: A soft chime. BARBARA looks at the screen, her eyebrows lift, she smiles, clicks once and nods to herself, pleased. Her mouth stays closed.
 > Camera: medium shot from across the counter, eye level, static; Barbara on the right half of the frame.
-> Nobody speaks in this clip; mouths stay closed.
+> DIALOGUE: none. VOICE-OVER: none. Nobody speaks in this clip; every mouth stays closed. Natural sound only. No background chatter, no music.
 > Audio: only natural sound, a soft notification chime, a mouse click and quiet room tone. No animation, no cartoon, CGI or illustrated look, no motion graphics, no on-screen text, no text overlays, no titles, no captions, no subtitles, no readable text anywhere. No music, no readable screens (monitors and tablets angled away or blurred), no logos, no red clothing or props, no extra people, no warped hands or fingers, no lip-sync drift, no sudden objects appearing in hands, no jump cut or reset at the start.
 
 ### CLIP 10 · Copy to PMS (Oakridge front desk) · start: the last frame of clip 09
 **Script direction:** Amanda points to the Copy to PMS button at the top of the completed note. Tanya clicks it, and the formatted note transfers into Oakridge's practice management system.  
 **Emotion:** Calm, a little proud.  
-**Dialogue:** Amanda: "Yes. And with one click, you copy it straight into our PMS. No scanning, no printing, and no faxing."  
+**Dialogue / voice-over:** Amanda (on camera, lip-synced): "Yes. And with one click, you copy it straight into our PMS. No scanning, no printing, and no faxing."  
 **Edit:** SPLIT SCREEN: "Copy to PMS" button → note lands in the practice management system.
 
 > Ingredients: the Oakridge front desk background image, the Tanya avatar image, the Amanda avatar image. Start image: the last frame of clip 09. Continue from the exact position in the start image: the clip begins on that frame, with the same camera angle, framing, lighting, props, and the same position, pose and expression of every character, and the action continues naturally from there, with no jump, reset or change of outfit. Starting position: TANYA and AMANDA sit side by side at the left workstation, Amanda nodding, exactly as at the end of clip 09.
@@ -292,13 +337,18 @@ Clips 02, 07, 11 and 13 carry the voice-over line inside the prompt as off-scree
 > Emotion: Calm, a little proud.
 > Action: AMANDA points at the top of TANYA's screen with her pen while she speaks. Tanya clicks once, watches the screen, and smiles.
 > Camera: medium close-up two-shot, eye level, static.
-> AMANDA speaks with a calm, warm early-40s female voice with a natural neutral American accent, calm, clear, a little proud. Perfectly lip-synced: "Yes. And with one click, you copy it straight into our PMS. No scanning, no printing, and no faxing."
-> Audio: only the spoken lines, a mouse click and quiet room tone. No animation, no cartoon, CGI or illustrated look, no motion graphics, no on-screen text, no text overlays, no titles, no captions, no subtitles, no readable text anywhere. No music, no readable screens (monitors and tablets angled away or blurred), no logos, no red clothing or props, no extra people, no warped hands or fingers, no lip-sync drift, no sudden objects appearing in hands, no jump cut or reset at the start.
+> DIALOGUE (on camera, lip-synced). Exactly one spoken line in this clip. VOICE-OVER: none.
+> Speaker: AMANDA, visible on screen, face toward camera enough to read the lips.
+> Voice: a calm, warm early-40s female voice with a natural neutral American accent. Delivery: calm, clear, a little proud.
+> Line (say it once, word for word, nothing added, nothing left out): "Yes. And with one click, you copy it straight into our PMS. No scanning, no printing, and no faxing."
+> Timing: AMANDA starts speaking at about 0.5 s and finishes by about 7.5 s, then holds the expression to the end of the clip.
+> Lip sync: mouth movement matches every word exactly. TANYA stays silent, mouth closed (smiles and nods only). No narration, no extra words, no background chatter, no music.
+> Audio: only the one spoken line, a mouse click and quiet room tone. No animation, no cartoon, CGI or illustrated look, no motion graphics, no on-screen text, no text overlays, no titles, no captions, no subtitles, no readable text anywhere. No music, no readable screens (monitors and tablets angled away or blurred), no logos, no red clothing or props, no extra people, no warped hands or fingers, no lip-sync drift, no sudden objects appearing in hands, no jump cut or reset at the start.
 
 ### CLIP 11 · Two more (Oakridge front desk) · V.O. · start: the last frame of clip 10
 **Script direction:** Fast montage: Tanya knocks out the second and third completion letters in rapid succession: auto-fill, route, eSign, copy to PMS.  
 **Emotion:** Energised, in the flow, quietly delighted.  
-**Dialogue:** Tanya (V.O.): "Three referrals closed, three referring offices updated, and I still have twenty minutes to spare."  
+**Dialogue / voice-over:** Tanya (voice-over, off screen, not lip-synced): "Three referrals closed, three referring offices updated, and I still have twenty minutes to spare."  
 **Edit:** Montage at 2x with three quick dashboard inserts; counter "3/3 closed".
 
 > Ingredients: the Oakridge front desk background image, the Tanya avatar image, the Amanda avatar image. Start image: the last frame of clip 10. Continue from the exact position in the start image: the clip begins on that frame, with the same camera angle, framing, lighting, props, and the same position, pose and expression of every character, and the action continues naturally from there, with no jump, reset or change of outfit. Starting position: TANYA sits at the left workstation smiling at her screen; AMANDA beside her with her pen, exactly as at the end of clip 10.
@@ -310,13 +360,18 @@ Clips 02, 07, 11 and 13 carry the voice-over line inside the prompt as off-scree
 > Emotion: Energised, in the flow, quietly delighted.
 > Action: TANYA works quickly: she picks up the second folder, glances at it, clicks, types a line, clicks; puts it aside; picks up the third folder, clicks, types, clicks; stacks both folders neatly. AMANDA watches, impressed. Mouths stay closed.
 > Camera: medium shot from across the desk, eye level, static (sped up in the edit).
-> Voice-over (off-screen, not lip-synced): TANYA speaks with a bright, quick late-20s female voice with a natural neutral American accent, bright, relieved, a little amazed: "Three referrals closed, three referring offices updated, and I still have twenty minutes to spare." Every mouth on screen stays closed during the voice-over.
-> Audio: only the voice-over, quick typing, clicks, folders stacked and quiet room tone. No animation, no cartoon, CGI or illustrated look, no motion graphics, no on-screen text, no text overlays, no titles, no captions, no subtitles, no readable text anywhere. No music, no readable screens (monitors and tablets angled away or blurred), no logos, no red clothing or props, no extra people, no warped hands or fingers, no lip-sync drift, no sudden objects appearing in hands, no jump cut or reset at the start.
+> VOICE-OVER (off screen, NOT lip-synced). DIALOGUE on camera: none.
+> Narrator: TANYA, heard over the picture as a voice-over, not speaking on screen.
+> Voice: a bright, quick late-20s female voice with a natural neutral American accent. Delivery: bright, relieved, a little amazed.
+> Line (heard once, word for word, nothing added, nothing left out): "Three referrals closed, three referring offices updated, and I still have twenty minutes to spare."
+> Timing: the voice-over starts at about 1 s and finishes by about 6.5 s.
+> Every mouth on screen (TANYA and AMANDA) stays closed for the whole clip; nobody on screen talks or moves their lips. No other voices, no background chatter, no music.
+> Audio: only the one voice-over line, quick typing, clicks, folders stacked and quiet room tone. No animation, no cartoon, CGI or illustrated look, no motion graphics, no on-screen text, no text overlays, no titles, no captions, no subtitles, no readable text anywhere. No music, no readable screens (monitors and tablets angled away or blurred), no logos, no red clothing or props, no extra people, no warped hands or fingers, no lip-sync drift, no sudden objects appearing in hands, no jump cut or reset at the start.
 
 ### CLIP 12 · Time to park (Oakridge front desk) · start: the last frame of clip 11
 **Script direction:** Tanya looks at the clock: 4:38 PM. She grabs her purse and coat, genuinely relieved as she looks at Amanda and Greg.  
 **Emotion:** Genuinely relieved, happy.  
-**Dialogue:** Tanya: "I'm actually going to make it, with time to park."  
+**Dialogue / voice-over:** Tanya (on camera, lip-synced): "I'm actually going to make it, with time to park."  
 **Edit:** Clock insert 4:38; chip "Left on time".
 
 > Ingredients: the Oakridge front desk background image, the Tanya avatar image, the Greg avatar image, the Amanda avatar image. Start image: the last frame of clip 11. Continue from the exact position in the start image: the clip begins on that frame, with the same camera angle, framing, lighting, props, and the same position, pose and expression of every character, and the action continues naturally from there, with no jump, reset or change of outfit. Starting position: TANYA sits at the left workstation beside the neat stack of folders; AMANDA beside her; GREG walks back in from the hallway.
@@ -329,13 +384,18 @@ Clips 02, 07, 11 and 13 carry the voice-over line inside the prompt as off-scree
 > Emotion: Genuinely relieved, happy.
 > Action: TANYA looks up at the wall clock (hands showing 4:38), breaks into a smile, stands up, grabs her purse and camel coat from the back of the chair, picks up the photo frame for a second and sets it down, then says the line to AMANDA and GREG. They both smile and wave her off.
 > Camera: medium-wide shot from the waiting area, eye level, static.
-> TANYA speaks with a bright, quick late-20s female voice with a natural neutral American accent, genuinely relieved, laughing softly. Perfectly lip-synced: "I'm actually going to make it, with time to park."
-> Audio: only the spoken lines, a chair pushed back, a coat put on, a soft laugh and quiet room tone. No animation, no cartoon, CGI or illustrated look, no motion graphics, no on-screen text, no text overlays, no titles, no captions, no subtitles, no readable text anywhere. No music, no readable screens (monitors and tablets angled away or blurred), no logos, no red clothing or props, no extra people, no warped hands or fingers, no lip-sync drift, no sudden objects appearing in hands, no jump cut or reset at the start.
+> DIALOGUE (on camera, lip-synced). Exactly one spoken line in this clip. VOICE-OVER: none.
+> Speaker: TANYA, visible on screen, face toward camera enough to read the lips.
+> Voice: a bright, quick late-20s female voice with a natural neutral American accent. Delivery: genuinely relieved, laughing softly.
+> Line (say it once, word for word, nothing added, nothing left out): "I'm actually going to make it, with time to park."
+> Timing: TANYA starts speaking at about 1 s and finishes by about 4.5 s, then holds the expression to the end of the clip.
+> Lip sync: mouth movement matches every word exactly. GREG and AMANDA stay silent, mouths closed (smiles and nods only). No narration, no extra words, no background chatter, no music.
+> Audio: only the one spoken line, a chair pushed back, a coat put on, a soft laugh and quiet room tone. No animation, no cartoon, CGI or illustrated look, no motion graphics, no on-screen text, no text overlays, no titles, no captions, no subtitles, no readable text anywhere. No music, no readable screens (monitors and tablets angled away or blurred), no logos, no red clothing or props, no extra people, no warped hands or fingers, no lip-sync drift, no sudden objects appearing in hands, no jump cut or reset at the start.
 
 ### CLIP 13 · Front row (recital auditorium) · V.O. · start: the auditorium cast image
 **Script direction:** Cut to 5:25 PM in a warmly lit auditorium. Tanya sits right in the front row, smiling proudly as Lily takes her bow at the grand piano.  
 **Emotion:** Proud, emotional, joyful; Lily beaming.  
-**Dialogue:** Tanya (V.O.): "When the loop closes on time, everybody wins. Especially at home."  
+**Dialogue / voice-over:** Tanya (voice-over, off screen, not lip-synced): "When the loop closes on time, everybody wins. Especially at home."  
 **Edit:** Chip "5:25 PM". Warm grade.
 
 > Ingredients: the recital auditorium background image, the Tanya avatar image, the Lily avatar image. Start image: the auditorium cast image. Continue from the exact position in the start image: the clip begins on that frame, with the same camera angle, framing, lighting, props, and the same position, pose and expression of every character, and the action continues naturally from there, with no jump, reset or change of outfit. Starting position: TANYA sits in the middle of the front row, hands pressed together under her chin; LILY has just stood up from the piano bench on stage.
@@ -347,13 +407,18 @@ Clips 02, 07, 11 and 13 carry the voice-over line inside the prompt as off-scree
 > Emotion: Proud, emotional, joyful; Lily beaming.
 > Action: LILY steps beside the piano and takes a small, careful bow, then looks straight at the front row and beams. TANYA claps, eyes shining, and gives her a little wave. Mouths stay closed.
 > Camera: medium-wide shot from beside the front row toward the stage, eye level, slow push-in toward Tanya's face at the end.
-> Voice-over (off-screen, not lip-synced): TANYA speaks with a bright, quick late-20s female voice with a natural neutral American accent, warm, soft, content: "When the loop closes on time, everybody wins. Especially at home." Every mouth on screen stays closed during the voice-over.
-> Audio: only the voice-over, gentle applause from a small audience and quiet room tone. No animation, no cartoon, CGI or illustrated look, no motion graphics, no on-screen text, no text overlays, no titles, no captions, no subtitles, no readable text anywhere. No music, no readable screens (monitors and tablets angled away or blurred), no logos, no red clothing or props, no extra people, no warped hands or fingers, no lip-sync drift, no sudden objects appearing in hands, no jump cut or reset at the start.
+> VOICE-OVER (off screen, NOT lip-synced). DIALOGUE on camera: none.
+> Narrator: TANYA, heard over the picture as a voice-over, not speaking on screen.
+> Voice: a bright, quick late-20s female voice with a natural neutral American accent. Delivery: warm, soft, content.
+> Line (heard once, word for word, nothing added, nothing left out): "When the loop closes on time, everybody wins. Especially at home."
+> Timing: the voice-over starts at about 1 s and finishes by about 5 s.
+> Every mouth on screen (TANYA and LILY) stays closed for the whole clip; nobody on screen talks or moves their lips. No other voices, no background chatter, no music.
+> Audio: only the one voice-over line, gentle applause from a small audience and quiet room tone. No animation, no cartoon, CGI or illustrated look, no motion graphics, no on-screen text, no text overlays, no titles, no captions, no subtitles, no readable text anywhere. No music, no readable screens (monitors and tablets angled away or blurred), no logos, no red clothing or props, no extra people, no warped hands or fingers, no lip-sync drift, no sudden objects appearing in hands, no jump cut or reset at the start.
 
 ### CLIP 14 · Next morning (Oakridge front desk) · start: the next-morning cast image
 **Script direction:** The next morning. Greg and Amanda are looking at the ToothReferral dashboard, reviewing how smoothly the week ran.  
 **Emotion:** Pleased, proud.  
-**Dialogue:** Greg: "We didn't lose a single referral this week, and Tanya left on time every day."  
+**Dialogue / voice-over:** Greg (on camera, lip-synced): "We didn't lose a single referral this week, and Tanya left on time every day."  
 **Edit:** SPLIT SCREEN: referral list with every case closed.
 
 > Ingredients: the Oakridge front desk background image, the Greg avatar image, the Amanda avatar image. Start image: the next-morning cast image. Continue from the exact position in the start image: the clip begins on that frame, with the same camera angle, framing, lighting, props, and the same position, pose and expression of every character, and the action continues naturally from there, with no jump, reset or change of outfit. Starting position: GREG sits at the left workstation with one hand on the mouse; AMANDA stands beside him leaning in, one hand on the back of his chair; both look at his monitor.
@@ -365,13 +430,18 @@ Clips 02, 07, 11 and 13 carry the voice-over line inside the prompt as off-scree
 > Emotion: Pleased, proud.
 > Action: GREG scrolls slowly, nods, and turns his head to AMANDA as he says the line. Amanda smiles.
 > Camera: medium two-shot from across the desk, eye level, static; on the left half of the frame.
-> GREG speaks with a friendly, easy late-20s male voice with a natural neutral American accent, pleased, a little proud. Perfectly lip-synced: "We didn't lose a single referral this week, and Tanya left on time every day."
-> Audio: only the spoken lines, mouse scroll, coffee cup set down and quiet room tone. No animation, no cartoon, CGI or illustrated look, no motion graphics, no on-screen text, no text overlays, no titles, no captions, no subtitles, no readable text anywhere. No music, no readable screens (monitors and tablets angled away or blurred), no logos, no red clothing or props, no extra people, no warped hands or fingers, no lip-sync drift, no sudden objects appearing in hands, no jump cut or reset at the start.
+> DIALOGUE (on camera, lip-synced). Exactly one spoken line in this clip. VOICE-OVER: none.
+> Speaker: GREG, visible on screen, face toward camera enough to read the lips.
+> Voice: a friendly, easy late-20s male voice with a natural neutral American accent. Delivery: pleased, a little proud.
+> Line (say it once, word for word, nothing added, nothing left out): "We didn't lose a single referral this week, and Tanya left on time every day."
+> Timing: GREG starts speaking at about 0.5 s and finishes by about 6 s, then holds the expression to the end of the clip.
+> Lip sync: mouth movement matches every word exactly. AMANDA stays silent, mouth closed (smiles and nods only). No narration, no extra words, no background chatter, no music.
+> Audio: only the one spoken line, mouse scroll, coffee cup set down and quiet room tone. No animation, no cartoon, CGI or illustrated look, no motion graphics, no on-screen text, no text overlays, no titles, no captions, no subtitles, no readable text anywhere. No music, no readable screens (monitors and tablets angled away or blurred), no logos, no red clothing or props, no extra people, no warped hands or fingers, no lip-sync drift, no sudden objects appearing in hands, no jump cut or reset at the start.
 
 ### CLIP 15 · From the owner's side (Oakridge front desk) · start: the last frame of clip 14
 **Script direction:** Greg clicks over toward the Analytics tab, eyeing Oakridge's charts and referral volume metrics.  
 **Emotion:** Thoughtful, curious.  
-**Dialogue:** Greg: "Dr. Vance should see this from the owner's side."  
+**Dialogue / voice-over:** Greg (on camera, lip-synced): "Dr. Vance should see this from the owner's side."  
 **Edit:** SPLIT SCREEN: Analytics tab (canonical analytics page only).
 
 > Ingredients: the Oakridge front desk background image, the Greg avatar image, the Amanda avatar image. Start image: the last frame of clip 14. Continue from the exact position in the start image: the clip begins on that frame, with the same camera angle, framing, lighting, props, and the same position, pose and expression of every character, and the action continues naturally from there, with no jump, reset or change of outfit. Starting position: GREG sits at the left workstation turned toward AMANDA; Amanda leans beside him smiling, exactly as at the end of clip 14.
@@ -383,13 +453,18 @@ Clips 02, 07, 11 and 13 carry the voice-over line inside the prompt as off-scree
 > Emotion: Thoughtful, curious.
 > Action: GREG turns back to the screen, moves the mouse and clicks once, leans in to look, then says the line glancing up at AMANDA.
 > Camera: medium close-up on Greg, Amanda at the edge of frame, eye level, slow push-in.
-> GREG speaks with a friendly, easy late-20s male voice with a natural neutral American accent, thoughtful, a little sly. Perfectly lip-synced: "Dr. Vance should see this from the owner's side."
-> Audio: only the spoken lines, a mouse click and quiet room tone. No animation, no cartoon, CGI or illustrated look, no motion graphics, no on-screen text, no text overlays, no titles, no captions, no subtitles, no readable text anywhere. No music, no readable screens (monitors and tablets angled away or blurred), no logos, no red clothing or props, no extra people, no warped hands or fingers, no lip-sync drift, no sudden objects appearing in hands, no jump cut or reset at the start.
+> DIALOGUE (on camera, lip-synced). Exactly one spoken line in this clip. VOICE-OVER: none.
+> Speaker: GREG, visible on screen, face toward camera enough to read the lips.
+> Voice: a friendly, easy late-20s male voice with a natural neutral American accent. Delivery: thoughtful, a little sly.
+> Line (say it once, word for word, nothing added, nothing left out): "Dr. Vance should see this from the owner's side."
+> Timing: GREG starts speaking at about 1 s and finishes by about 4.5 s, then holds the expression to the end of the clip.
+> Lip sync: mouth movement matches every word exactly. AMANDA stays silent, mouth closed (smiles and nods only). No narration, no extra words, no background chatter, no music.
+> Audio: only the one spoken line, a mouse click and quiet room tone. No animation, no cartoon, CGI or illustrated look, no motion graphics, no on-screen text, no text overlays, no titles, no captions, no subtitles, no readable text anywhere. No music, no readable screens (monitors and tablets angled away or blurred), no logos, no red clothing or props, no extra people, no warped hands or fingers, no lip-sync drift, no sudden objects appearing in hands, no jump cut or reset at the start.
 
 ### CLIP 16 · A whole other story (Oakridge front desk) · start: the last frame of clip 15
 **Script direction:** Amanda smiles knowingly, tapping the Analytics icon on the screen as the camera pushes in.  
 **Emotion:** Knowing, playful.  
-**Dialogue:** Amanda: "The numbers? That's a whole other story."  
+**Dialogue / voice-over:** Amanda (on camera, lip-synced): "The numbers? That's a whole other story."  
 **Edit:** End card: Tooth Referral logo + "Next: the numbers".
 
 > Ingredients: the Oakridge front desk background image, the Greg avatar image, the Amanda avatar image. Start image: the last frame of clip 15. Continue from the exact position in the start image: the clip begins on that frame, with the same camera angle, framing, lighting, props, and the same position, pose and expression of every character, and the action continues naturally from there, with no jump, reset or change of outfit. Starting position: GREG sits at the left workstation looking up at AMANDA; Amanda leans beside him, exactly as at the end of clip 15.
@@ -401,5 +476,10 @@ Clips 02, 07, 11 and 13 carry the voice-over line inside the prompt as off-scree
 > Emotion: Knowing, playful.
 > Action: AMANDA smiles knowingly, reaches past GREG and taps the monitor with one finger (screen angled away), then says the line, looking at the camera for a split second at the end.
 > Camera: medium close-up on Amanda, eye level, steady push-in.
-> AMANDA speaks with a calm, warm early-40s female voice with a natural neutral American accent, smiling knowingly, playful. Perfectly lip-synced: "The numbers? That's a whole other story."
-> Audio: only the spoken lines, a finger tap on the screen and quiet room tone. No animation, no cartoon, CGI or illustrated look, no motion graphics, no on-screen text, no text overlays, no titles, no captions, no subtitles, no readable text anywhere. No music, no readable screens (monitors and tablets angled away or blurred), no logos, no red clothing or props, no extra people, no warped hands or fingers, no lip-sync drift, no sudden objects appearing in hands, no jump cut or reset at the start.
+> DIALOGUE (on camera, lip-synced). Exactly one spoken line in this clip. VOICE-OVER: none.
+> Speaker: AMANDA, visible on screen, face toward camera enough to read the lips.
+> Voice: a calm, warm early-40s female voice with a natural neutral American accent. Delivery: smiling knowingly, playful.
+> Line (say it once, word for word, nothing added, nothing left out): "The numbers? That's a whole other story."
+> Timing: AMANDA starts speaking at about 1 s and finishes by about 3.5 s, then holds the expression to the end of the clip.
+> Lip sync: mouth movement matches every word exactly. GREG stays silent, mouth closed (smiles and nods only). No narration, no extra words, no background chatter, no music.
+> Audio: only the one spoken line, a finger tap on the screen and quiet room tone. No animation, no cartoon, CGI or illustrated look, no motion graphics, no on-screen text, no text overlays, no titles, no captions, no subtitles, no readable text anywhere. No music, no readable screens (monitors and tablets angled away or blurred), no logos, no red clothing or props, no extra people, no warped hands or fingers, no lip-sync drift, no sudden objects appearing in hands, no jump cut or reset at the start.

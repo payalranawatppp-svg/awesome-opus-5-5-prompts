@@ -335,25 +335,58 @@ def cast_in(c):
     return [k for k in ORDER if APPEAR[k].split(' (')[0] in txt or k in {sp for sp, _, _ in lines}]
 
 
+def names(xs):
+    return xs[0] if len(xs) == 1 else ', '.join(xs[:-1]) + ' and ' + xs[-1] if xs else ''
+
+
+def secs(line):
+    """Rough spoken length at a natural pace (about 2.7 words a second)."""
+    return max(2.0, round(len(line.split()) / 2.7 * 2) / 2)
+
+
+def speech(c):
+    """The DIALOGUE / VOICE-OVER block of a clip prompt: who speaks, on camera or off, the exact words, delivery and timing."""
+    lines, vo = c[5], c[12]
+    others = [CAPS.get(k, k) for k in cast_in(c)]
+    if lines:
+        sp, ln, how = lines[0]
+        quiet = [o for o in others if o != CAPS.get(sp, sp)]
+        t = secs(ln); start = 1.0 if t <= 5 else 0.5
+        return (f'DIALOGUE (on camera, lip-synced). Exactly one spoken line in this clip. VOICE-OVER: none.\n'
+                f'Speaker: {CAPS.get(sp, sp)}, visible on screen, face toward camera enough to read the lips.\n'
+                f'Voice: {VOICE[sp]}. Delivery: {how}.\n'
+                f'Line (say it once, word for word, nothing added, nothing left out): "{ln}"\n'
+                f'Timing: {CAPS.get(sp, sp)} starts speaking at about {start:g} s and finishes by about {start + t:g} s, '
+                'then holds the expression to the end of the clip.\n'
+                f'Lip sync: mouth movement matches every word exactly. '
+                + (f'{names(quiet)} {"stays silent, mouth closed" if len(quiet) == 1 else "stay silent, mouths closed"} (smiles and nods only). ' if quiet else '')
+                + 'No narration, no extra words, no background chatter, no music.')
+    if vo:
+        sp, ln, how = vo
+        t = secs(ln)
+        return (f'VOICE-OVER (off screen, NOT lip-synced). DIALOGUE on camera: none.\n'
+                f'Narrator: {CAPS.get(sp, sp)}, heard over the picture as a voice-over, not speaking on screen.\n'
+                f'Voice: {VOICE[sp]}. Delivery: {how}.\n'
+                f'Line (heard once, word for word, nothing added, nothing left out): "{ln}"\n'
+                f'Timing: the voice-over starts at about 1 s and finishes by about {1 + t:g} s.\n'
+                f'Every mouth on screen ({names(others) or "everyone"}) stays closed for the whole clip; nobody on screen talks '
+                'or moves their lips. No other voices, no background chatter, no music.')
+    return ('DIALOGUE: none. VOICE-OVER: none. Nobody speaks in this clip; every mouth stays closed. '
+            'Natural sound only. No background chatter, no music.')
+
+
 def prompt(c):
     num, title, loc, src, start, lines, direction, emo, action, camera, sounds, _, vo = c
     who = '\n'.join(APPEAR[k] for k in cast_in(c)) or 'No characters in this shot.'
-    if lines:
-        talk = ' '.join(f'{CAPS.get(sp, sp)} speaks with {VOICE[sp]}, {how}. Perfectly lip-synced: "{ln}"' for sp, ln, how in lines)
-    elif vo:
-        sp, ln, how = vo
-        talk = (f'Voice-over (off-screen, not lip-synced): {CAPS.get(sp, sp)} speaks with {VOICE[sp]}, {how}: "{ln}" '
-                'Every mouth on screen stays closed during the voice-over.')
-    else:
-        talk = 'Nobody speaks in this clip; mouths stay closed.'
-    snd = f', {sounds}' if sounds else ''
+    talk = speech(c)
+    snd = (f' and {sounds}' if 'room tone' in sounds else f', {sounds}') if sounds else ''
     ings = ', '.join([f'the {LOCNAME[loc]} background image'] + [f'the {NAMEOF[k]} avatar image' for k in cast_in(c)])
     return (f'Ingredients: {ings}. Start image: {src}. Continue from the exact position in the start image: the clip begins on that frame, '
             'with the same camera angle, framing, lighting, props, and the same position, pose and expression of every character, and the '
             f'action continues naturally from there, with no jump, reset or change of outfit. Starting position: {start}\n'
             f'{LOOK}\nBackground (exactly as the {LOCNAME[loc]} background image): {background(loc)}\n'
             f'Characters (exactly as their avatar images):\n{who}\nEmotion: {emo}\nAction: {action}\nCamera: {camera}\n{talk}\n'
-            f'Audio: only {"the spoken lines" if lines else ("the voice-over" if vo else "natural sound")}{snd} and quiet room tone. {NEG}')
+            f'Audio: only {"the one spoken line" if lines else ("the one voice-over line" if vo else "natural sound")}{snd}{"" if "room tone" in sounds else " and quiet room tone"}. {NEG}')
 
 
 BGP = {k: v + ' ' + NOANIM for k, v in BG.items()}
@@ -384,9 +417,10 @@ for key in CAST:
     md += [f'### {num}. {CASTNAME[key][4:]}', f'References: {CASTREF[key]}.', '', '> ' + CAST[key], '']; num += 1
 md += [START_NOTE, '', VO_NOTE, '', '## Clip prompts', '']
 for c in CLIPS:
-    dl = ' · '.join(f'{NAMEOF[sp]}: "{ln}"' for sp, ln, _ in c[5]) or (f'{NAMEOF[c[12][0]]} (V.O.): "{c[12][1]}"' if c[12] else 'none')
+    dl = (' · '.join(f'{NAMEOF[sp]} (on camera, lip-synced): "{ln}"' for sp, ln, _ in c[5])
+          or (f'{NAMEOF[c[12][0]]} (voice-over, off screen, not lip-synced): "{c[12][1]}"' if c[12] else 'none (no dialogue, no voice-over)'))
     md += [f'### CLIP {c[0]} · {c[1]} ({LOCNAME[c[2]]}){" · V.O." if c[12] else ""} · start: {c[3]}',
-           f'**Script direction:** {c[6]}  ', f'**Emotion:** {c[7]}  ', f'**Dialogue:** {dl}  ', f'**Edit:** {c[11]}', '',
+           f'**Script direction:** {c[6]}  ', f'**Emotion:** {c[7]}  ', f'**Dialogue / voice-over:** {dl}  ', f'**Edit:** {c[11]}', '',
            '\n'.join('> ' + l for l in prompt(c).split('\n')), '']
 open(MD, 'w').write('\n'.join(md))
 
@@ -411,7 +445,13 @@ td, th {{ vertical-align: top; padding: 2mm 2.4mm; border-bottom: 1px solid #ECE
 th {{ font-size: 8pt; letter-spacing: .1em; text-transform: uppercase; color: #6D4AE8; border-bottom: 1.5px solid #6D4AE8; }}
 ul {{ margin: 1mm 0; padding-left: 5mm; }}'''
 cast_rows = ''.join(f'<tr><td><b>{E(NAMEOF[k])}</b></td><td>{E(ROLE[k])}</td><td>{E(EMO[k])}</td><td>{E(ELEVEN[k])}</td></tr>' for k in ORDER)
-plan_rows = ''.join(f'<tr><td>{c[0]}</td><td><b>{E(c[1])}</b>{" · V.O." if c[12] else ""}<div class="small">{E(LOCNAME[c[2]])}</div></td><td>{E(c[7])}</td></tr>' for c in CLIPS)
+def spoken(c):
+    if c[5]: return f'{NAMEOF[c[5][0][0]]} on camera (lip-synced)'
+    if c[12]: return f'{NAMEOF[c[12][0]]} voice-over (off screen)'
+    return 'none'
+
+
+plan_rows = ''.join(f'<tr><td>{c[0]}</td><td><b>{E(c[1])}</b><div class="small">{E(LOCNAME[c[2]])}</div></td><td>{E(spoken(c))}</td><td>{E(c[7])}</td></tr>' for c in CLIPS)
 parts = [f'''<div class="k">Tooth Referral · Episode 4 · Avatars and Google Flow</div>
 <h1>Front Row</h1>
 <p>{E(SUMMARY)}</p>
@@ -423,7 +463,7 @@ parts = [f'''<div class="k">Tooth Referral · Episode 4 · Avatars and Google Fl
 <li>{E(START_NOTE)}</li>
 <li>{E(VO_NOTE)}</li></ul></div>
 <h2>Cast and emotion arcs</h2><table><tr><th>Character</th><th>Role</th><th>Emotion arc</th><th>ElevenLabs</th></tr>{cast_rows}</table>
-<h2>Clip plan</h2><table><tr><th>#</th><th>Clip</th><th>Emotion</th></tr>{plan_rows}</table>''']
+<h2>Clip plan</h2><table><tr><th>#</th><th>Clip</th><th>Who speaks</th><th>Emotion</th></tr>{plan_rows}</table>''']
 num = 1
 locs = list(BG)
 for j in range(0, len(locs), 2):
@@ -444,13 +484,25 @@ for j in range(0, len(keys), 2):
         pg += f'<h2>{num}. {E(CASTNAME[key][4:].capitalize())}</h2><p class="small">References: {E(CASTREF[key])}. Start image for clip {E(use)}.</p><div class="prompt">{E(CAST[key])}</div>'; num += 1
     parts.append(pg + '</div>')
 for c in CLIPS:
-    dl = ''.join(f'<div class="ln"><span class="sp">{E(NAMEOF[sp])}:</span> “{E(ln)}” <span class="small">({E(how)})</span></div>' for sp, ln, how in c[5])
-    if not dl and c[12]: dl = f'<div class="ln"><span class="sp">{E(NAMEOF[c[12][0]])} (V.O.):</span> “{E(c[12][1])}” <span class="small">({E(c[12][2])}; voice-over, included in the prompt)</span></div>'
-    if not dl: dl = '<div class="small">No dialogue (natural sound only).</div>'
+    if c[5]:
+        sp, ln, how = c[5][0]
+        head = 'On-camera dialogue · lip-synced · no voice-over'
+        dl = (f'<div class="ln"><span class="sp">{E(NAMEOF[sp])} (on camera):</span> “{E(ln)}”</div>'
+              f'<div class="small">Delivery: {E(how)} · about {secs(ln):g} s · {E(NAMEOF[sp])} speaks on screen, everyone else keeps their mouth closed.</div>')
+    elif c[12]:
+        sp, ln, how = c[12]
+        head = 'Voice-over · off screen · not lip-synced · no on-camera dialogue'
+        dl = (f'<div class="ln"><span class="sp">{E(NAMEOF[sp])} (V.O.):</span> “{E(ln)}”</div>'
+              f'<div class="small">Delivery: {E(how)} · about {secs(ln):g} s · heard over the picture; nobody on screen moves their lips. '
+              'If Flow’s voice drifts, re-record in ElevenLabs with the same voice.</div>')
+    else:
+        head = 'No dialogue · no voice-over'
+        dl = '<div class="small">Nobody speaks. Natural sound only.</div>'
+    dl = f'<div class="k" style="font-size:8pt;margin-bottom:1.5mm">{head}</div>' + dl
     avs = ''.join(f'<p style="margin:2mm 0 1mm"><b>{E(NAMEOF[k])} avatar</b></p><div class="prompt">{E(avatar(k))}</div>' for k in cast_in(c))
     parts.append(f'''<div class="clip"><div class="k">Clip {c[0]} · {E(LOCNAME[c[2]])} · 8 seconds{" · V.O." if c[12] else ""} · start: {E(c[3])}</div><h2>{E(c[1])}</h2>
 <div class="emo"><b>Script direction:</b> “{E(c[6])}”<br><b>Emotion:</b> {E(c[7])}</div>
-<div class="k">Dialogue</div><div class="box">{dl}<div class="small" style="margin-top:2mm"><b>Edit:</b> {E(c[11])}</div></div>
+<div class="k">Dialogue and voice-over</div><div class="box">{dl}<div class="small" style="margin-top:2mm"><b>Edit:</b> {E(c[11])}</div></div>
 <div class="k" style="margin-top:3mm">Google Flow prompt (copy all)</div><div class="prompt">{E(prompt(c))}</div>
 <div class="k" style="margin-top:4mm">Avatars in this clip (attach as ingredients)</div>{avs}</div>''')
 doc = os.path.join(D, 'src', '_ep4.html'); js = os.path.join(D, 'src', '_ep4.cjs')
