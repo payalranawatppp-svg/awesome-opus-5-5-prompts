@@ -204,3 +204,18 @@ u12 "Good thing…" (missing "We aren't anymore."). Never delivered by Flow: Tan
 set up…", Amanda "Both offices share the case…". Dashboards: DayPrepClean and CaseChat rendered live inside 3D glass
 windows via <Freeze frame=…> (time-remapped to the V.O.). Voices: `scripts/ep2_voices.py` (ElevenLabs STS + TTS for the
 missing lines) once a key is available.
+
+## Episode 4 "Front Row": completion-note flow (`CompletionNote-Ep4`)
+- Source: the user's completion-note recording (screen-capture_7, 95 s). Same screens and order as the app:
+  case page → "Consultation Completed" status → Consultation Completed form (date, surgery date, status update, PMS note,
+  preview, Copy to PMS / Create official note) → Prepare Consultation Note (template, Show values, editor, variables,
+  Who signs: I'll sign / on behalf / Route to a doctor) → DocuSign signing screen (Fields panel, Signature field, Finish).
+- Episode 4 contents: Oakridge Oral Surgery, Dr. Daniel Vance, DMD (signs); patient Robert Turner (Mr. Turner),
+  DOB 04/22/1968, implant consultation, tooth #30, surgery 12/03/2026; referring Dr. Rachel Moore at Gentle Dental
+  (Barbara in chat). Template "Oakridge Letterhead · Implant Consult" auto-fills; Tanya types two sentences; routed to Dr. Vance;
+  he signs with a fingertip; the signed note lands in Documents ("Signed", "Shared with Gentle Dental") and as an
+  automatic Office Communication message; "Copy to PMS" → Copied.
+- Code: `reel/src/reelfx/CompletionNote.tsx` (plate `reel/public/ep4/plate-case-cn.png`, every real name covered).
+  1920×842, 30 fps, 1020 frames (34 s). Beat starts for the split screens in `CN_BEATS`
+  (createNote 0, autoFill 226, typeAndRoute 372, eSign 640, onTheCase 828, copyToPms 890).
+- Render: `reel/renders/ep4/completion-note-ep4.mp4`.

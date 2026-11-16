@@ -25,6 +25,7 @@ import { S20Story, S20_DURATION } from "./reelfx/S20Story";
 import { Ep2Story, EP2_DURATION } from "./reelfx/Ep2Story";
 import { DayPrepClean, DAYPREP_DURATION, DAYPREP_W, DAYPREP_H } from "./reelfx/DayPrepClean";
 import { CaseChat, CASECHAT_DURATION, CASECHAT_W, CASECHAT_H } from "./reelfx/CaseChat";
+import { CompletionNote, CN_DURATION, CN_W, CN_H } from "./reelfx/CompletionNote";
 import { AN_DURATION, AN_H, AN_W, AnalyticsDemo } from "./reelfx/AnalyticsDemo";
 import { TrDashboardTour } from "./tr/scenes";
 import { TR_ALL, TrFormatted } from "./tr/formats";
@@ -51,7 +52,8 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="Camp-TwoWays" component={TwoWays} durationInFrames={TWOWAYS_DURATION} fps={30} width={1080} height={1920} />
     <Composition id="Camp-DayInTheLife" component={() => <CampFx id="day-in-the-life" />} durationInFrames={CAMPFX_DURATION("day-in-the-life")} fps={30} width={1080} height={1920} />
     <Composition id="Camp-DayOne" component={DayOne} durationInFrames={DAYONE_DURATION} fps={30} width={1080} height={1920} />
-    <Composition id="CaseChat-Clean" component={CaseChat} durationInFrames={CASECHAT_DURATION} fps={30} width={CASECHAT_W} height={CASECHAT_H} />
+    <Composition id="CompletionNote-Ep4" component={CompletionNote} durationInFrames={CN_DURATION} fps={30} width={CN_W} height={CN_H} />
+    <Composition id="CaseChat-Clean"component={CaseChat} durationInFrames={CASECHAT_DURATION} fps={30} width={CASECHAT_W} height={CASECHAT_H} />
     <Composition id="DayPrep-Clean" component={DayPrepClean} durationInFrames={DAYPREP_DURATION} fps={30} width={DAYPREP_W} height={DAYPREP_H} />
     <Composition id="Ep2-NoMorePhoneTag" component={Ep2Story} durationInFrames={EP2_DURATION} fps={30} width={1080} height={1920} />
     <Composition id="S20-DidTheyEverSendIt" component={S20Story} durationInFrames={S20_DURATION} fps={30} width={1080} height={1920} />
