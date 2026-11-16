@@ -19,6 +19,19 @@ LOOK = ('Horizontal 16:9 video, 8 seconds, one continuous shot. Photorealistic l
         'true-to-life colours, real skin texture with pores, subtle film grain, natural imperfections, natural unhurried movement, no glossy '
         'or plastic look.')
 
+LOOK_AUD = ('Horizontal 16:9 video, 8 seconds, one continuous shot. Photorealistic live-action footage of a real evening recital, filmed by '
+            'a professional crew: cinema camera (Sony FX3 look) on a smooth dolly, 50mm lens, f/2.0, professional theatre lighting (warm '
+            'key spotlight on stage, soft amber wash, gentle spill light on the front row so faces read clearly), dark auditorium, '
+            'true-to-life colours, real skin texture with pores, subtle film grain, shallow depth of field, natural unhurried movement, '
+            'no glossy or plastic look.')
+OFF_DUTY = {'TANYA': ('TANYA (Lily\'s mother, off duty this evening; same face as the Tanya avatar): a woman in her late 20s with long dark '
+                      'curly hair now worn loose over her shoulders, warm brown eyes, light natural evening makeup and small gold hoop '
+                      'earrings. She wears a camel wool coat open over a cream knit sweater and dark trousers, no scrubs, no name badge. '
+                      'Warm and proud.')}
+NEG_AUD = (NOANIM + ' No music (the piano is silent), no phones held up, no readable programmes or signs, no logos, no red clothing, '
+           'props or curtains, no extra people on stage, no audience faces in focus, no warped hands or fingers, no sudden objects '
+           'appearing in hands, no jump cut or reset at the start.')
+
 # ---------------------------------------------------------------- locations
 OAK_DESK = ('the front office of Oakridge Oral Surgery, a real, calm, upscale oral surgery practice, shot from the waiting area looking at '
             'the reception desk, eye level, 35mm lens, f/2.8, a professional interiors photo. A curved reception desk with fluted white '
@@ -48,14 +61,18 @@ BG = {
         'entry door and a tall window with afternoon daylight. A light-grey sofa, a small kids\' corner with a low bookshelf, a potted '
         'olive tree. Light oak floor, warm recessed lights plus daylight. Real-photo texture, subtle grain. No people, no readable text, '
         'no logos, no red objects, no CGI look.'),
- 'AUD': ('Horizontal 16:9 photograph of a small, warmly lit school auditorium for a children\'s piano recital, seen from beside the front '
-         'row toward the stage, eye level, 35mm lens, f/2.0, a real event photo. A shiny black grand piano centre stage with its lid '
-         'raised and a padded bench, a soft warm spotlight on it, deep navy-blue stage curtains, a few bouquets of white and yellow '
-         'flowers at the edge of the stage, rows of upholstered seats in warm amber light, the front row empty and in the foreground. '
-         'Real-photo texture, subtle grain. No people, no readable text, no logos, no red objects or red curtains, no CGI look.'),
+ 'AUD': ('Horizontal 16:9 photograph of an elegant, professional concert recital hall during an evening children\'s piano recital, '
+         'seen from beside the front row toward the stage, eye level, 35mm lens, f/2.0, shot by a professional event photographer. A '
+         'raised wooden stage with a polished light-oak floor and acoustic wood panelling behind it; a gleaming black concert grand piano '
+         'centre stage with its lid on the full stick and a black adjustable piano bench; professional theatre lighting: a soft warm key '
+         'spotlight on the piano from front-of-house, gentle amber wash across the stage, subtle backlight rim, dark auditorium. Deep '
+         'navy-blue velvet side drapes, two tasteful arrangements of white and pale-yellow flowers in tall vases at the stage edge, a '
+         'black microphone stand set to one side. Tiered rows of navy upholstered theatre seats with wooden armrests, softly lit by warm '
+         'aisle lights; the front row empty and in the foreground. Real-photo texture, subtle grain. No people, no readable text, no '
+         'logos, no red objects or red curtains, no CGI look.'),
 }
 LOCNAME = {'OAK': 'Oakridge front desk', 'NIGHT': 'Oakridge front desk at night (last spring)', 'HALL': 'Oakridge hallway',
-           'GD': 'Gentle Dental front office', 'AUD': 'recital auditorium'}
+           'GD': 'Gentle Dental front office', 'AUD': 'recital hall'}
 
 # ---------------------------------------------------------------- characters
 ORDER = ['TANYA', 'GREG', 'AMANDA', 'VANCE', 'BARBARA', 'LILY']
@@ -126,11 +143,11 @@ AV_BACK = {
  'OAK': 'Behind, softly out of focus: the same Oakridge front office as the background image (navy feature wall, fluted white desk, brass pendant lights, soft daylight).',
  'HALL': 'Behind, softly out of focus: the same Oakridge hallway as the background image (frosted glass doors, warm greige walls, recessed lights).',
  'GD': 'Behind, softly out of focus: the same Gentle Dental front office as the background image (powder-blue accent wall, white and walnut counter, glass entry door).',
- 'AUD': 'Behind, softly out of focus: the same auditorium as the background image (navy curtains, warm spotlight, rows of seats).',
+ 'AUD': 'Behind, softly out of focus: the same auditorium as the background image (concert grand piano under a warm spotlight, wood-panelled stage, navy drapes, tiered theatre seats).',
 }
 def avatar(k):
     desc, loc = AV[k]
-    where = 'a children\'s recital stage' if loc == 'AUD' else 'a dental office'
+    where = 'a professional concert recital hall' if loc == 'AUD' else 'a dental office'
     return ('Horizontal 16:9 photorealistic portrait, medium shot from the waist up (full figure for a child), eye level, 50mm lens, f/2.8, '
             f'a real photo taken in {where}, natural light plus warm practical lights, true-to-life colours, real skin texture with pores, '
             f'subtle grain, no beauty filter. {desc} {AV_BACK[loc]} Real, lived-in. No readable text, no logos, no red clothing or objects, '
@@ -158,8 +175,8 @@ CAST = {
         '(the woman from the Barbara avatar: mid-50s, short silver bob, reading glasses on a beaded chain, teal scrubs) sits alone behind '
         'the counter at the left workstation, facing the monitor (screen not readable), right hand on the mouse, a calm expression. Nobody '
         'else in the room. ' + NOANIM + ' No logos, no red objects, no extra people, no warped hands.'),
- 'AUD': ('Horizontal 16:9 photograph, the same recital auditorium as the background image, seen from beside the front row toward the '
-         'stage, eye level, 35mm lens, warm stage light, real-photo texture, subtle grain. TANYA (the woman from the Tanya avatar: late 20s, '
+ 'AUD': ('Horizontal 16:9 photograph, the same professional recital hall as the background image, seen from beside the front row toward the '
+         'stage, eye level, 35mm lens, professional theatre lighting, real-photo texture, subtle grain. TANYA (the woman from the Tanya avatar: late 20s, '
          'dark curly hair now loose over her shoulders, gold hoops, a camel wool coat over a cream sweater) sits in the middle of the front '
          'row, hands pressed together under her chin, eyes on the stage. On stage, LILY (the girl from the Lily avatar: about 8, navy '
          'velvet dress with a white collar, lavender ribbon) has just stood up from the piano bench beside the black grand piano. A few '
@@ -173,11 +190,11 @@ CAST = {
           'Nobody else in the room. ' + NOANIM + ' No logos, no red objects, no extra people, no warped hands.'),
 }
 CASTNAME = {'OAK': 'the Oakridge morning cast image', 'NIGHT': 'the Oakridge night cast image', 'HALL': 'the hallway cast image',
-            'GD': 'the Gentle Dental cast image', 'AUD': 'the auditorium cast image', 'MORN': 'the next-morning cast image'}
+            'GD': 'the Gentle Dental cast image', 'AUD': 'the recital hall cast image', 'MORN': 'the next-morning cast image'}
 CASTLOC = {'OAK': 'OAK', 'NIGHT': 'NIGHT', 'HALL': 'HALL', 'GD': 'GD', 'AUD': 'AUD', 'MORN': 'OAK'}
 CASTREF = {'OAK': 'Oakridge background + Tanya and Amanda avatars', 'NIGHT': 'Oakridge night background + Tanya avatar',
            'HALL': 'hallway background + Dr. Vance avatar', 'GD': 'Gentle Dental background + Barbara avatar',
-           'AUD': 'auditorium background + Tanya and Lily avatars', 'MORN': 'Oakridge background + Greg and Amanda avatars'}
+           'AUD': 'recital hall background + Tanya and Lily avatars', 'MORN': 'Oakridge background + Greg and Amanda avatars'}
 NEG = (NOANIM + ' No music, no readable screens (monitors and tablets angled away or blurred), no logos, no red clothing or props, no '
        'extra people, no warped hands or fingers, no lip-sync drift, no sudden objects appearing in hands, no jump cut or reset at the start.')
 def LAST(n): return f'the last frame of clip {n}'
@@ -289,12 +306,12 @@ CLIPS = [
   'medium-wide three-shot from the waiting area across the reception desk, eye level, static; all three faces clearly visible.',
   'a soft laugh, a chair creaking, a coat lifted off the chair', 'Clock insert 4:38; chip "Left on time".', None),
  ('13', 'Front row', 'AUD', CASTNAME['AUD'],
-  'TANYA sits in the middle of the front row, hands pressed together under her chin; LILY has just stood up from the piano bench on stage.',
+  'TANYA sits in the middle of the front row, coat open, hands pressed together under her chin, eyes on the stage, her face softly lit by the spill from the stage lights; a seated audience fills the darkened rows behind her (backs of heads, out of focus). On stage, LILY has just stood up from the piano bench beside the concert grand piano under the warm spotlight.',
   [], 'Cut to 5:25 PM in a warmly lit auditorium. Tanya sits right in the front row, smiling proudly as Lily takes her bow at the grand piano.',
   'Proud, emotional, joyful; Lily beaming.',
-  'LILY steps beside the piano and takes a small, careful bow, then looks straight at the front row and beams. TANYA claps, eyes shining, and gives her a little wave. Mouths stay closed.',
-  'medium-wide shot from beside the front row toward the stage, eye level, slow push-in toward Tanya\'s face at the end.',
-  'gentle applause from a small audience', 'Chip "5:25 PM". Warm grade.',
+  'LILY steps to the front edge of the piano, places one hand on it, and takes a small, careful, rehearsed bow; she straightens up, finds her mother in the front row and beams. The audience behind applauds politely. TANYA lowers her hands from her chin and claps, eyes shining with happy tears, then gives Lily a small wave and presses one hand to her heart. Mouths stay closed.',
+  'opens on a medium-wide shot from beside the front row with Tanya in the foreground (left third, in profile) and Lily on stage in the background; a slow, smooth dolly push-in with a gentle rack focus from Lily on stage to Tanya\'s face for the last two seconds; eye level.',
+  'polite, warm applause from a seated audience', 'Chip "5:25 PM". Warm grade.',
   ('TANYA', 'When the loop closes on time, everybody wins. Especially at home.', 'warm, soft, content')),
  ('14', 'Next morning', 'OAK', CASTNAME['MORN'],
   'GREG sits at the left workstation with one hand on the mouse; AMANDA stands beside him leaning in, one hand on the back of his chair; both look at his monitor.',
@@ -377,7 +394,8 @@ def speech(c):
 
 def prompt(c):
     num, title, loc, src, start, lines, direction, emo, action, camera, sounds, _, vo = c
-    who = '\n'.join(APPEAR[k] for k in cast_in(c)) or 'No characters in this shot.'
+    aud = loc == 'AUD'
+    who = '\n'.join((OFF_DUTY.get(k) if aud else None) or APPEAR[k] for k in cast_in(c)) or 'No characters in this shot.'
     talk = speech(c)
     snd = (f' and {sounds}' if 'room tone' in sounds else f', {sounds}') if sounds else ''
     ings = ', '.join([f'the {LOCNAME[loc]} background image'] + [f'the {NAMEOF[k]} avatar image' for k in cast_in(c)])
@@ -388,9 +406,9 @@ def prompt(c):
               'with the same camera angle, framing, lighting, props, and the same position, pose and expression of every character, and the '
               f'action continues naturally from there, with no jump, reset or change of outfit. Starting position: {start}\n')
     return (opening +
-            f'{LOOK}\nBackground (exactly as the {LOCNAME[loc]} background image): {background(loc)}\n'
+            f'{LOOK_AUD if aud else LOOK}\nBackground (exactly as the {LOCNAME[loc]} background image): {background(loc)}\n'
             f'Characters (exactly as their avatar images):\n{who}\nEmotion: {emo}\nAction: {action}\nCamera: {camera}\n{talk}\n'
-            f'Audio: only {"the one spoken line" if lines else ("the one voice-over line" if vo else "natural sound")}{snd}{"" if "room tone" in sounds else " and quiet room tone"}. {NEG}')
+            f'Audio: only {"the one spoken line" if lines else ("the one voice-over line" if vo else "natural sound")}{snd}{"" if "room tone" in sounds or aud else " and quiet room tone"}{" and the soft hush of the hall" if aud else ""}. {NEG_AUD if aud else NEG}')
 
 
 BGP = {k: v + ' ' + NOANIM for k, v in BG.items()}
