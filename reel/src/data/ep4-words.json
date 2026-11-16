@@ -1226,68 +1226,68 @@
    {
     "word": " When",
     "start": 0.0,
-    "end": 0.18,
-    "p": 0.941
+    "end": 0.2,
+    "p": 0.97
    },
    {
     "word": " the",
-    "start": 0.18,
-    "end": 0.3,
-    "p": 0.943
+    "start": 0.2,
+    "end": 0.34,
+    "p": 0.874
    },
    {
     "word": " loop",
-    "start": 0.3,
-    "end": 0.46,
-    "p": 0.937
+    "start": 0.34,
+    "end": 0.5,
+    "p": 0.886
    },
    {
     "word": " closes",
-    "start": 0.46,
-    "end": 0.78,
-    "p": 0.997
+    "start": 0.5,
+    "end": 0.84,
+    "p": 0.998
    },
    {
     "word": " on",
-    "start": 0.78,
-    "end": 1.02,
+    "start": 0.84,
+    "end": 1.08,
     "p": 0.998
    },
    {
     "word": " time,",
-    "start": 1.02,
-    "end": 1.36,
+    "start": 1.08,
+    "end": 1.44,
     "p": 0.998
    },
    {
     "word": " everybody",
-    "start": 2.16,
-    "end": 2.38,
-    "p": 0.967
+    "start": 1.94,
+    "end": 2.2,
+    "p": 0.989
    },
    {
     "word": " wins,",
-    "start": 2.38,
-    "end": 2.94,
+    "start": 2.2,
+    "end": 2.72,
     "p": 1.0
    },
    {
     "word": " especially",
-    "start": 3.6,
-    "end": 3.94,
-    "p": 0.998
+    "start": 3.06,
+    "end": 3.34,
+    "p": 0.999
    },
    {
     "word": " at",
-    "start": 3.94,
-    "end": 4.28,
+    "start": 3.34,
+    "end": 3.64,
     "p": 0.999
    },
    {
     "word": " home.",
-    "start": 4.28,
-    "end": 4.48,
-    "p": 0.998
+    "start": 3.64,
+    "end": 3.86,
+    "p": 0.999
    }
   ]
  }

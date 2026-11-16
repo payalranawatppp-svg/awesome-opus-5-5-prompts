@@ -352,10 +352,18 @@ const Product: React.FC = () => {
 
 type Wd = { word: string; start: number; end: number };
 const WMAP = words as unknown as Record<string, { words: Wd[] }>;
+/** Caption palette, matched to the footage: warm cream words, and keyword pills in honey (time, worry), lavender
+ *  (Tanya's scrubs: the product) and sage (wins). */
+const CAP = { text: "#FFF6E9", stroke: "rgba(40,22,10,0.5)", band: "rgba(34,20,12,0.34)" };
+const PILL: Record<string, { bg: string; fg: string; glow: string }> = {
+  honey: { bg: "linear-gradient(135deg, #F2A93B 0%, #FFD98A 100%)", fg: "#2B1605", glow: "#F2A93B" },
+  lavender: { bg: "linear-gradient(135deg, #9C7BEA 0%, #D9CCFF 100%)", fg: "#1D1040", glow: "#9C7BEA" },
+  sage: { bg: "linear-gradient(135deg, #4FBF8A 0%, #C6F0D9 100%)", fg: "#0C2A1B", glow: "#4FBF8A" },
+};
 const HOT: Record<string, string> = {
-  front: AMBER, recital: AMBER, five: AMBER, traffic: AMBER, word: AMBER, templates: PURPLE, filled: GREEN, route: PURPLE, sign: PURPLE,
-  signed: GREEN, easier: GREEN, case: PURPLE, click: PURPLE, pms: PURPLE, faxing: AMBER, closed: GREEN, spare: GREEN, park: GREEN,
-  home: AMBER, single: GREEN, owners: PURPLE, numbers: PURPLE,
+  front: "honey", recital: "honey", five: "honey", traffic: "honey", word: "honey", faxing: "honey", home: "honey", "530": "honey",
+  templates: "lavender", route: "lavender", sign: "lavender", case: "lavender", click: "lavender", pms: "lavender", owners: "lavender", numbers: "lavender",
+  filled: "sage", signed: "sage", easier: "sage", closed: "sage", spare: "sage", park: "sage", single: "sage",
 };
 const norm = (w: string) => w.toLowerCase().replace(/[^a-z0-9]/g, "");
 type Tok = { t: string; at: number; end: number; hot?: string };
@@ -400,24 +408,28 @@ const Captions: React.FC = () => {
   const c = CHUNKS.find((x) => frame >= x.from && frame < x.to);
   if (!c || frame >= END_AT) return null;
   const out = interpolate(frame, [c.to - 4, c.to], [0, 1], clamp);
+  const band = interpolate(frame, [c.from, c.from + 5], [0, 1], clamp) * (1 - out);
   return (
-    <div style={{ position: "absolute", left: 40, right: 40, top: 1620, textAlign: "center", fontFamily: FONT_UI, fontWeight: 800, letterSpacing: "-0.025em", lineHeight: 1.15, fontSize: 62, color: W, opacity: 1 - out, filter: out > 0 ? `blur(${out * 6}px)` : undefined }}>
-      {c.words.map((w, i) => {
-        const k = interpolate(frame, [w.at - 2, w.at + 3], [0, 1], clamp);
-        const hot = w.hot && frame >= w.at;
-        const pop = hot ? sp(frame, w.at, 9, 260) : 1;
-        return (
-          <span key={i} style={{
-            display: "inline-block", marginRight: i < c.words.length - 1 ? "0.24em" : 0, opacity: k, translate: `0px ${(1 - k) * 14}px`,
-            scale: String(hot ? 0.8 + 0.2 * pop : 1), filter: k < 1 ? `blur(${(1 - k) * 5}px)` : undefined,
-            padding: hot ? "0.02em 0.2em 0.06em" : undefined, borderRadius: 16,
-            background: hot ? `linear-gradient(135deg, ${w.hot}, ${w.hot === AMBER ? "#FFD36E" : w.hot === GREEN ? "#5EE6A8" : "#B48CFF"})` : undefined,
-            color: hot ? (w.hot === PURPLE ? W : INK) : W, textShadow: hot ? "none" : SOFT,
-            WebkitTextStroke: hot ? undefined : "9px rgba(12,8,26,0.62)", paintOrder: "stroke fill",
-            boxShadow: hot ? `0 10px 30px ${w.hot}66` : undefined, rotate: hot ? "-2deg" : undefined,
-          }}>{w.t}</span>
-        );
-      })}
+    <div style={{ position: "absolute", left: 40, right: 40, top: 1610, display: "flex", justifyContent: "center", opacity: 1 - out, filter: out > 0 ? `blur(${out * 6}px)` : undefined }}>
+      <div style={{ padding: "14px 30px 18px", borderRadius: 36, background: CAP.band, backdropFilter: `blur(${10 * band}px)`, boxShadow: `0 14px 40px rgba(20,10,4,${0.25 * band})`, border: `1px solid rgba(255,236,210,${0.18 * band})`, textAlign: "center", fontFamily: FONT_UI, fontWeight: 800, letterSpacing: "-0.02em", lineHeight: 1.2, fontSize: 60, color: CAP.text }}>
+        {c.words.filter((w) => frame >= w.at - 2).map((w, i, shown) => {
+          const k = interpolate(frame, [w.at - 2, w.at + 3], [0, 1], clamp);
+          const pill = w.hot && frame >= w.at ? PILL[w.hot] : undefined;
+          const pop = pill ? sp(frame, w.at, 9, 260) : 1;
+          return (
+            <span key={i} style={{
+              display: "inline-block", marginRight: i < shown.length - 1 ? "0.24em" : 0, opacity: k, translate: `0px ${(1 - k) * 14}px`,
+              scale: String(pill ? 0.82 + 0.18 * pop : 1), filter: k < 1 ? `blur(${(1 - k) * 5}px)` : undefined,
+              padding: pill ? "0.04em 0.24em 0.08em" : undefined, borderRadius: 18,
+              background: pill?.bg, color: pill ? pill.fg : CAP.text,
+              textShadow: pill ? "0 1px 0 rgba(255,255,255,0.35)" : "0 2px 12px rgba(30,14,4,0.55)",
+              WebkitTextStroke: pill ? undefined : `6px ${CAP.stroke}`, paintOrder: "stroke fill",
+              boxShadow: pill ? `0 10px 28px ${pill.glow}77, inset 0 1.5px 0 rgba(255,255,255,0.6), inset 0 -2px 0 rgba(0,0,0,0.08)` : undefined,
+              rotate: pill ? "-2deg" : undefined,
+            }}>{w.t}</span>
+          );
+        })}
+      </div>
     </div>
   );
 };

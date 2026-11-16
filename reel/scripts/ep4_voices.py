@@ -1,8 +1,8 @@
 """Episode 4 "Front Row": one ElevenLabs voice per character, plus the closing line (the recital clip was not delivered).
 
 1. Speech-to-speech on every spoken clip (keeps each take's timing, emotion and lip sync, swaps the timbre so a
-   character sounds the same in every clip): Tanya = Jessica, Amanda = Bella, Dr. Vance = Eric (as in Episode 2),
-   Greg = Chris.
+   character sounds the same in every clip): Tanya = Laura, Amanda = Matilda, Dr. Vance = Brian,
+   Greg = Will (new voices for this episode, at the user's request).
 2. Text-to-speech: tanya_home "When the loop closes on time, everybody wins. Especially at home."
 usage: ELEVENLABS_API_KEY=... python ep4_voices.py [names...]
 writes public/ep4/voice/<clip>.wav. Never commit the key."""
@@ -11,7 +11,7 @@ import json, os, subprocess, sys, tempfile, urllib.request, uuid
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "public/ep4/voice")
 KEY = os.environ.get("ELEVENLABS_API_KEY", "proxy-injected")
-VOICE = {"TANYA": "cgSgspJ2msm6clMCkdW9", "AMANDA": "hpp4J3VqNfWAUOO0d1Us", "VANCE": "cjVigY5qzO86Huf0OWal", "GREG": "iP95p4xoKVk53GoZ742B"}
+VOICE = {"TANYA": "FGY2WhTYpPnrIDTdsKH5", "AMANDA": "XrExE9yKIg1WjnnlVkGX", "VANCE": "nPczCjzI2devNBz1zQrb", "GREG": "bIHbv24MWmeRgasZH58o"}
 CLIPS = {"e01": "TANYA", "e02": "TANYA", "e03": "GREG", "e04": "TANYA", "e05": "AMANDA", "e06": "TANYA", "e07": "AMANDA", "e08": "VANCE",
          "e09": "TANYA", "e10": "AMANDA", "e11": "TANYA", "e12": "TANYA", "e14": "GREG", "e15": "GREG", "e16": "AMANDA"}
 LINES = {"tanya_home": ("TANYA", "When the loop closes on time... everybody wins. Especially at home.", 0.35)}

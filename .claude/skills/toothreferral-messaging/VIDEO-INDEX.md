@@ -234,3 +234,7 @@ missing lines) once a key is available.
 - Text behind people: 43 MINUTES, 3/3 CLOSED, 20 MIN TO SPARE, ON TIME, FRONT ROW. End card: "Close the loop on time.
   Everybody wins." / "Next episode: the numbers". −17.3 LUFS.
 - Code `reel/src/reelfx/Ep4Story.tsx`; render `reel/renders/ep4/episode4-front-row.mp4`.
+- Update: new ElevenLabs voices for Episode 4 at the user's request: Tanya = Laura (FGY2WhTYpPnrIDTdsKH5), Amanda = Matilda
+  (XrExE9yKIg1WjnnlVkGX), Dr. Vance = Brian (nPczCjzI2devNBz1zQrb), Greg = Will (bIHbv24MWmeRgasZH58o). Captions restyled to the
+  footage: warm cream words on a soft frosted warm band that grows word by word; keyword pills in honey (time/worry),
+  lavender (product) and sage (wins).
