@@ -115,7 +115,6 @@ const Footage: React.FC<{ layer: "plate" | "cutout" }> = ({ layer }) => (
 
 type Behind = { text: string; a: number; b: number; c1: string; c2: string; y?: number };
 const BEHIND: Behind[] = [
-  { text: "NERVOUS", a: T("hook", 3.35), b: T("hook", 6.2), c1: AMBER, c2: "#FFE08A", y: 170 },
   { text: "10\nMINUTES", a: T("tenmin", 0.05), b: T("tenmin", 3.3), c1: AMBER, c2: "#FFE08A", y: 120 },
   { text: "PHONE\nTAG", a: T("tenmin", 4.25), b: T("tenmin", 6.25), c1: AMBER, c2: "#FFE08A", y: 120 },
   { text: "30\nSECONDS", a: T("thirty", 1.0), b: T("thirty", 3.6), c1: "#B48CFF", c2: W, y: 120 },
