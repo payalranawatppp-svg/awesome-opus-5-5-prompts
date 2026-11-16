@@ -280,14 +280,14 @@ CLIPS = [
   'medium shot from across the desk, eye level, static (sped up in the edit).',
   'quick typing, clicks, folders stacked', 'Montage at 2x with three quick dashboard inserts; counter "3/3 closed".',
   ('TANYA', 'Three referrals closed, three referring offices updated, and I still have twenty minutes to spare.', 'bright, relieved, a little amazed')),
- ('12', 'Time to park', 'OAK', LAST('11'),
-  'TANYA sits at the left workstation beside the neat stack of folders; AMANDA beside her; GREG walks back in from the hallway.',
+ ('12', 'Time to park', 'OAK', 'no start image (ingredients only)',
+  'The three are already seated together behind the reception desk in the middle of a relaxed conversation: TANYA sits in her chair at the left workstation, turned toward the others, beside a neat stack of three closed manila folders; AMANDA sits next to her at the right workstation, turned toward Tanya; GREG sits on the spare rolling chair at the end of the desk, angled in toward both of them, one forearm resting on the desk. Tanya\'s camel coat hangs over the back of her chair and her purse sits on the desk. All three are relaxed and smiling, as if they have been chatting for a while.',
   [('TANYA', "I'm actually going to make it, with time to park.", 'genuinely relieved, laughing softly')],
   'Tanya looks at the clock: 4:38 PM. She grabs her purse and coat, genuinely relieved as she looks at Amanda and Greg.',
   'Genuinely relieved, happy.',
-  'TANYA looks up at the wall clock (hands showing 4:38), breaks into a smile, stands up, grabs her purse and camel coat from the back of the chair, picks up the photo frame for a second and sets it down, then says the line to AMANDA and GREG. They both smile and wave her off.',
-  'medium-wide shot from the waiting area, eye level, static.',
-  'a chair pushed back, a coat put on, a soft laugh', 'Clock insert 4:38; chip "Left on time".', None),
+  'The conversation is already under way when the clip begins: GREG finishes a small laugh, AMANDA nods along. TANYA glances up at the wall clock (hands showing 4:38), her face lights up, she turns back to AMANDA and GREG and says the line while laughing softly, still seated. Amanda and Greg smile warmly and Greg gives a small "go on" wave toward the door. In the last two seconds Tanya reaches for her purse and the coat on the back of her chair and starts to rise. Everyone stays in the same place; nobody walks in or out.',
+  'medium-wide three-shot from the waiting area across the reception desk, eye level, static; all three faces clearly visible.',
+  'a soft laugh, a chair creaking, a coat lifted off the chair', 'Clock insert 4:38; chip "Left on time".', None),
  ('13', 'Front row', 'AUD', CASTNAME['AUD'],
   'TANYA sits in the middle of the front row, hands pressed together under her chin; LILY has just stood up from the piano bench on stage.',
   [], 'Cut to 5:25 PM in a warmly lit auditorium. Tanya sits right in the front row, smiling proudly as Lily takes her bow at the grand piano.',
@@ -381,9 +381,13 @@ def prompt(c):
     talk = speech(c)
     snd = (f' and {sounds}' if 'room tone' in sounds else f', {sounds}') if sounds else ''
     ings = ', '.join([f'the {LOCNAME[loc]} background image'] + [f'the {NAMEOF[k]} avatar image' for k in cast_in(c)])
-    return (f'Ingredients: {ings}. Start image: {src}. Continue from the exact position in the start image: the clip begins on that frame, '
-            'with the same camera angle, framing, lighting, props, and the same position, pose and expression of every character, and the '
-            f'action continues naturally from there, with no jump, reset or change of outfit. Starting position: {start}\n'
+    opening = (f'Ingredients: {ings}. No start image. The clip opens mid-scene, as if the camera has been rolling for a while: the '
+               'characters are already in place and already talking; nobody enters, sits down or settles in. '
+               f'Starting position: {start}\n') if src.startswith('no start image') else (
+              f'Ingredients: {ings}. Start image: {src}. Continue from the exact position in the start image: the clip begins on that frame, '
+              'with the same camera angle, framing, lighting, props, and the same position, pose and expression of every character, and the '
+              f'action continues naturally from there, with no jump, reset or change of outfit. Starting position: {start}\n')
+    return (opening +
             f'{LOOK}\nBackground (exactly as the {LOCNAME[loc]} background image): {background(loc)}\n'
             f'Characters (exactly as their avatar images):\n{who}\nEmotion: {emo}\nAction: {action}\nCamera: {camera}\n{talk}\n'
             f'Audio: only {"the one spoken line" if lines else ("the one voice-over line" if vo else "natural sound")}{snd}{"" if "room tone" in sounds else " and quiet room tone"}. {NEG}')
