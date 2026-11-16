@@ -1,0 +1,1294 @@
+{
+ "e01.wav": {
+  "text": "Front row. She made me promise. Her first solo is at 5.30 tonight.",
+  "words": [
+   {
+    "word": " Front",
+    "start": 1.3,
+    "end": 1.82,
+    "p": 0.767
+   },
+   {
+    "word": " row.",
+    "start": 1.82,
+    "end": 2.08,
+    "p": 0.895
+   },
+   {
+    "word": " She",
+    "start": 2.9,
+    "end": 2.92,
+    "p": 0.972
+   },
+   {
+    "word": " made",
+    "start": 2.92,
+    "end": 3.06,
+    "p": 0.945
+   },
+   {
+    "word": " me",
+    "start": 3.06,
+    "end": 3.22,
+    "p": 0.996
+   },
+   {
+    "word": " promise.",
+    "start": 3.22,
+    "end": 3.56,
+    "p": 0.996
+   },
+   {
+    "word": " Her",
+    "start": 4.58,
+    "end": 4.66,
+    "p": 0.991
+   },
+   {
+    "word": " first",
+    "start": 4.66,
+    "end": 4.92,
+    "p": 0.997
+   },
+   {
+    "word": " solo",
+    "start": 4.92,
+    "end": 5.22,
+    "p": 0.986
+   },
+   {
+    "word": " is",
+    "start": 5.22,
+    "end": 5.4,
+    "p": 0.969
+   },
+   {
+    "word": " at",
+    "start": 5.4,
+    "end": 5.54,
+    "p": 0.995
+   },
+   {
+    "word": " 5",
+    "start": 5.54,
+    "end": 5.76,
+    "p": 0.837
+   },
+   {
+    "word": ".30",
+    "start": 5.76,
+    "end": 6.04,
+    "p": 0.958
+   },
+   {
+    "word": " tonight.",
+    "start": 6.04,
+    "end": 6.38,
+    "p": 0.965
+   }
+  ]
+ },
+ "e02.wav": {
+  "text": "Last spring, I missed the entire first half of her recital typing completion letters.",
+  "words": [
+   {
+    "word": " Last",
+    "start": 1.64,
+    "end": 2.24,
+    "p": 0.653
+   },
+   {
+    "word": " spring,",
+    "start": 2.24,
+    "end": 2.56,
+    "p": 0.875
+   },
+   {
+    "word": " I",
+    "start": 2.7,
+    "end": 2.76,
+    "p": 0.995
+   },
+   {
+    "word": " missed",
+    "start": 2.76,
+    "end": 2.92,
+    "p": 0.955
+   },
+   {
+    "word": " the",
+    "start": 2.92,
+    "end": 3.12,
+    "p": 0.994
+   },
+   {
+    "word": " entire",
+    "start": 3.12,
+    "end": 3.48,
+    "p": 0.995
+   },
+   {
+    "word": " first",
+    "start": 3.48,
+    "end": 3.88,
+    "p": 0.986
+   },
+   {
+    "word": " half",
+    "start": 3.88,
+    "end": 4.14,
+    "p": 0.995
+   },
+   {
+    "word": " of",
+    "start": 4.14,
+    "end": 4.34,
+    "p": 0.997
+   },
+   {
+    "word": " her",
+    "start": 4.34,
+    "end": 4.46,
+    "p": 0.98
+   },
+   {
+    "word": " recital",
+    "start": 4.46,
+    "end": 4.92,
+    "p": 0.984
+   },
+   {
+    "word": " typing",
+    "start": 4.92,
+    "end": 5.2,
+    "p": 0.567
+   },
+   {
+    "word": " completion",
+    "start": 5.2,
+    "end": 5.7,
+    "p": 0.994
+   },
+   {
+    "word": " letters.",
+    "start": 5.7,
+    "end": 6.22,
+    "p": 0.998
+   }
+  ]
+ },
+ "e03.wav": {
+  "text": "Three finished cases just wrapped up, including Mr. Turner.",
+  "words": [
+   {
+    "word": " Three",
+    "start": 2.06,
+    "end": 2.66,
+    "p": 0.908
+   },
+   {
+    "word": " finished",
+    "start": 2.66,
+    "end": 2.94,
+    "p": 0.988
+   },
+   {
+    "word": " cases",
+    "start": 2.94,
+    "end": 3.26,
+    "p": 0.97
+   },
+   {
+    "word": " just",
+    "start": 3.26,
+    "end": 3.56,
+    "p": 0.949
+   },
+   {
+    "word": " wrapped",
+    "start": 3.56,
+    "end": 3.86,
+    "p": 0.998
+   },
+   {
+    "word": " up,",
+    "start": 3.86,
+    "end": 4.22,
+    "p": 0.996
+   },
+   {
+    "word": " including",
+    "start": 4.48,
+    "end": 4.78,
+    "p": 0.997
+   },
+   {
+    "word": " Mr.",
+    "start": 4.78,
+    "end": 5.08,
+    "p": 0.935
+   },
+   {
+    "word": " Turner.",
+    "start": 5.32,
+    "end": 5.36,
+    "p": 0.994
+   }
+  ]
+ },
+ "e04.wav": {
+  "text": "Normally this would take me past five and I'd be stuck in traffic missing the opening song.",
+  "words": [
+   {
+    "word": " Normally",
+    "start": 1.56,
+    "end": 2.1,
+    "p": 0.847
+   },
+   {
+    "word": " this",
+    "start": 2.1,
+    "end": 2.38,
+    "p": 0.562
+   },
+   {
+    "word": " would",
+    "start": 2.38,
+    "end": 2.54,
+    "p": 0.995
+   },
+   {
+    "word": " take",
+    "start": 2.54,
+    "end": 2.7,
+    "p": 0.998
+   },
+   {
+    "word": " me",
+    "start": 2.7,
+    "end": 2.86,
+    "p": 0.997
+   },
+   {
+    "word": " past",
+    "start": 2.86,
+    "end": 3.1,
+    "p": 0.997
+   },
+   {
+    "word": " five",
+    "start": 3.1,
+    "end": 3.48,
+    "p": 0.702
+   },
+   {
+    "word": " and",
+    "start": 3.48,
+    "end": 3.92,
+    "p": 0.556
+   },
+   {
+    "word": " I'd",
+    "start": 3.92,
+    "end": 4.08,
+    "p": 0.98
+   },
+   {
+    "word": " be",
+    "start": 4.08,
+    "end": 4.18,
+    "p": 0.999
+   },
+   {
+    "word": " stuck",
+    "start": 4.18,
+    "end": 4.4,
+    "p": 0.998
+   },
+   {
+    "word": " in",
+    "start": 4.4,
+    "end": 4.56,
+    "p": 0.998
+   },
+   {
+    "word": " traffic",
+    "start": 4.56,
+    "end": 4.96,
+    "p": 0.998
+   },
+   {
+    "word": " missing",
+    "start": 4.96,
+    "end": 5.24,
+    "p": 0.804
+   },
+   {
+    "word": " the",
+    "start": 5.24,
+    "end": 5.5,
+    "p": 0.998
+   },
+   {
+    "word": " opening",
+    "start": 5.5,
+    "end": 5.8,
+    "p": 0.997
+   },
+   {
+    "word": " song.",
+    "start": 5.8,
+    "end": 6.16,
+    "p": 0.998
+   }
+  ]
+ },
+ "e05.wav": {
+  "text": "Don't open Word. Use the templates we imported from Oakridge's existing letters.",
+  "words": [
+   {
+    "word": " Don't",
+    "start": 1.36,
+    "end": 2.0,
+    "p": 0.96
+   },
+   {
+    "word": " open",
+    "start": 2.0,
+    "end": 2.18,
+    "p": 0.943
+   },
+   {
+    "word": " Word.",
+    "start": 2.18,
+    "end": 2.46,
+    "p": 0.876
+   },
+   {
+    "word": " Use",
+    "start": 3.06,
+    "end": 3.2,
+    "p": 0.996
+   },
+   {
+    "word": " the",
+    "start": 3.2,
+    "end": 3.4,
+    "p": 0.999
+   },
+   {
+    "word": " templates",
+    "start": 3.4,
+    "end": 3.68,
+    "p": 0.974
+   },
+   {
+    "word": " we",
+    "start": 3.68,
+    "end": 3.94,
+    "p": 0.996
+   },
+   {
+    "word": " imported",
+    "start": 3.94,
+    "end": 4.26,
+    "p": 0.999
+   },
+   {
+    "word": " from",
+    "start": 4.26,
+    "end": 4.58,
+    "p": 0.999
+   },
+   {
+    "word": " Oakridge's",
+    "start": 4.58,
+    "end": 5.1,
+    "p": 0.851
+   },
+   {
+    "word": " existing",
+    "start": 5.1,
+    "end": 5.52,
+    "p": 0.999
+   },
+   {
+    "word": " letters.",
+    "start": 5.52,
+    "end": 5.84,
+    "p": 0.996
+   }
+  ]
+ },
+ "e06.wav": {
+  "text": "Wait, it already filled in the patient info, the tooth number, and the referring doctor at Gentle Dental?",
+  "words": [
+   {
+    "word": " Wait,",
+    "start": 0.8,
+    "end": 1.36,
+    "p": 0.723
+   },
+   {
+    "word": " it",
+    "start": 1.72,
+    "end": 1.84,
+    "p": 0.985
+   },
+   {
+    "word": " already",
+    "start": 1.84,
+    "end": 2.08,
+    "p": 0.982
+   },
+   {
+    "word": " filled",
+    "start": 2.08,
+    "end": 2.34,
+    "p": 0.997
+   },
+   {
+    "word": " in",
+    "start": 2.34,
+    "end": 2.5,
+    "p": 0.995
+   },
+   {
+    "word": " the",
+    "start": 2.5,
+    "end": 2.6,
+    "p": 0.986
+   },
+   {
+    "word": " patient",
+    "start": 2.6,
+    "end": 2.92,
+    "p": 0.952
+   },
+   {
+    "word": " info,",
+    "start": 2.92,
+    "end": 3.32,
+    "p": 0.99
+   },
+   {
+    "word": " the",
+    "start": 3.72,
+    "end": 3.76,
+    "p": 0.992
+   },
+   {
+    "word": " tooth",
+    "start": 3.76,
+    "end": 3.98,
+    "p": 0.995
+   },
+   {
+    "word": " number,",
+    "start": 3.98,
+    "end": 4.28,
+    "p": 0.997
+   },
+   {
+    "word": " and",
+    "start": 4.52,
+    "end": 4.74,
+    "p": 0.995
+   },
+   {
+    "word": " the",
+    "start": 4.74,
+    "end": 4.86,
+    "p": 0.997
+   },
+   {
+    "word": " referring",
+    "start": 4.86,
+    "end": 5.2,
+    "p": 0.99
+   },
+   {
+    "word": " doctor",
+    "start": 5.2,
+    "end": 5.62,
+    "p": 0.995
+   },
+   {
+    "word": " at",
+    "start": 5.62,
+    "end": 5.84,
+    "p": 0.993
+   },
+   {
+    "word": " Gentle",
+    "start": 5.84,
+    "end": 6.16,
+    "p": 0.787
+   },
+   {
+    "word": " Dental?",
+    "start": 6.16,
+    "end": 6.58,
+    "p": 0.973
+   }
+  ]
+ },
+ "e07.wav": {
+  "text": "You just add the final note and route it straight to the doctor to sign.",
+  "words": [
+   {
+    "word": " You",
+    "start": 0.64,
+    "end": 1.1,
+    "p": 0.878
+   },
+   {
+    "word": " just",
+    "start": 1.1,
+    "end": 1.24,
+    "p": 0.996
+   },
+   {
+    "word": " add",
+    "start": 1.24,
+    "end": 1.48,
+    "p": 0.998
+   },
+   {
+    "word": " the",
+    "start": 1.48,
+    "end": 1.64,
+    "p": 0.998
+   },
+   {
+    "word": " final",
+    "start": 1.64,
+    "end": 1.9,
+    "p": 0.996
+   },
+   {
+    "word": " note",
+    "start": 1.9,
+    "end": 2.2,
+    "p": 0.994
+   },
+   {
+    "word": " and",
+    "start": 2.2,
+    "end": 2.42,
+    "p": 0.938
+   },
+   {
+    "word": " route",
+    "start": 2.42,
+    "end": 2.6,
+    "p": 0.985
+   },
+   {
+    "word": " it",
+    "start": 2.6,
+    "end": 2.76,
+    "p": 0.996
+   },
+   {
+    "word": " straight",
+    "start": 2.76,
+    "end": 3.0,
+    "p": 0.994
+   },
+   {
+    "word": " to",
+    "start": 3.0,
+    "end": 3.2,
+    "p": 0.998
+   },
+   {
+    "word": " the",
+    "start": 3.2,
+    "end": 3.3,
+    "p": 0.998
+   },
+   {
+    "word": " doctor",
+    "start": 3.3,
+    "end": 3.56,
+    "p": 0.863
+   },
+   {
+    "word": " to",
+    "start": 3.56,
+    "end": 3.76,
+    "p": 0.83
+   },
+   {
+    "word": " sign.",
+    "start": 3.76,
+    "end": 4.04,
+    "p": 0.993
+   }
+  ]
+ },
+ "e08.wav": {
+  "text": "Signed and sent. That couldn't be easier.",
+  "words": [
+   {
+    "word": " Signed",
+    "start": 1.76,
+    "end": 2.24,
+    "p": 0.612
+   },
+   {
+    "word": " and",
+    "start": 2.24,
+    "end": 2.4,
+    "p": 0.928
+   },
+   {
+    "word": " sent.",
+    "start": 2.4,
+    "end": 2.64,
+    "p": 0.899
+   },
+   {
+    "word": " That",
+    "start": 3.06,
+    "end": 3.08,
+    "p": 0.993
+   },
+   {
+    "word": " couldn't",
+    "start": 3.08,
+    "end": 3.28,
+    "p": 0.996
+   },
+   {
+    "word": " be",
+    "start": 3.28,
+    "end": 3.42,
+    "p": 0.999
+   },
+   {
+    "word": " easier.",
+    "start": 3.42,
+    "end": 3.74,
+    "p": 0.999
+   }
+  ]
+ },
+ "e09.wav": {
+  "text": "So, gentle dental already has the signed letter on the case?",
+  "words": [
+   {
+    "word": " So,",
+    "start": 1.36,
+    "end": 1.88,
+    "p": 0.818
+   },
+   {
+    "word": " gentle",
+    "start": 2.12,
+    "end": 2.28,
+    "p": 0.436
+   },
+   {
+    "word": " dental",
+    "start": 2.28,
+    "end": 2.58,
+    "p": 0.508
+   },
+   {
+    "word": " already",
+    "start": 2.58,
+    "end": 2.96,
+    "p": 0.985
+   },
+   {
+    "word": " has",
+    "start": 2.96,
+    "end": 3.3,
+    "p": 0.998
+   },
+   {
+    "word": " the",
+    "start": 3.3,
+    "end": 3.52,
+    "p": 0.989
+   },
+   {
+    "word": " signed",
+    "start": 3.52,
+    "end": 3.78,
+    "p": 0.997
+   },
+   {
+    "word": " letter",
+    "start": 3.78,
+    "end": 4.1,
+    "p": 0.997
+   },
+   {
+    "word": " on",
+    "start": 4.1,
+    "end": 4.3,
+    "p": 0.995
+   },
+   {
+    "word": " the",
+    "start": 4.3,
+    "end": 4.42,
+    "p": 0.997
+   },
+   {
+    "word": " case?",
+    "start": 4.42,
+    "end": 4.66,
+    "p": 0.999
+   }
+  ]
+ },
+ "e10.wav": {
+  "text": "And with one click you copy it straight into our PMS. No scanning, no printing, and no faxing.",
+  "words": [
+   {
+    "word": " And",
+    "start": 0.6,
+    "end": 1.2,
+    "p": 0.496
+   },
+   {
+    "word": " with",
+    "start": 1.2,
+    "end": 1.36,
+    "p": 0.974
+   },
+   {
+    "word": " one",
+    "start": 1.36,
+    "end": 1.64,
+    "p": 0.903
+   },
+   {
+    "word": " click",
+    "start": 1.64,
+    "end": 1.94,
+    "p": 0.946
+   },
+   {
+    "word": " you",
+    "start": 1.94,
+    "end": 2.32,
+    "p": 0.546
+   },
+   {
+    "word": " copy",
+    "start": 2.32,
+    "end": 2.58,
+    "p": 0.993
+   },
+   {
+    "word": " it",
+    "start": 2.58,
+    "end": 2.76,
+    "p": 0.996
+   },
+   {
+    "word": " straight",
+    "start": 2.76,
+    "end": 3.08,
+    "p": 0.998
+   },
+   {
+    "word": " into",
+    "start": 3.08,
+    "end": 3.38,
+    "p": 0.996
+   },
+   {
+    "word": " our",
+    "start": 3.38,
+    "end": 3.52,
+    "p": 0.996
+   },
+   {
+    "word": " PMS.",
+    "start": 3.52,
+    "end": 4.14,
+    "p": 0.984
+   },
+   {
+    "word": " No",
+    "start": 4.54,
+    "end": 4.68,
+    "p": 0.98
+   },
+   {
+    "word": " scanning,",
+    "start": 4.68,
+    "end": 5.04,
+    "p": 0.989
+   },
+   {
+    "word": " no",
+    "start": 5.48,
+    "end": 5.56,
+    "p": 0.992
+   },
+   {
+    "word": " printing,",
+    "start": 5.56,
+    "end": 5.9,
+    "p": 0.999
+   },
+   {
+    "word": " and",
+    "start": 6.18,
+    "end": 6.24,
+    "p": 0.988
+   },
+   {
+    "word": " no",
+    "start": 6.24,
+    "end": 6.42,
+    "p": 0.999
+   },
+   {
+    "word": " faxing.",
+    "start": 6.42,
+    "end": 6.94,
+    "p": 0.997
+   }
+  ]
+ },
+ "e12.wav": {
+  "text": "I'm actually going to make it with time to park.",
+  "words": [
+   {
+    "word": " I'm",
+    "start": 1.64,
+    "end": 2.2,
+    "p": 0.824
+   },
+   {
+    "word": " actually",
+    "start": 2.2,
+    "end": 2.52,
+    "p": 0.999
+   },
+   {
+    "word": " going",
+    "start": 2.52,
+    "end": 2.68,
+    "p": 0.444
+   },
+   {
+    "word": " to",
+    "start": 2.68,
+    "end": 2.78,
+    "p": 0.998
+   },
+   {
+    "word": " make",
+    "start": 2.78,
+    "end": 2.96,
+    "p": 0.999
+   },
+   {
+    "word": " it",
+    "start": 2.96,
+    "end": 3.32,
+    "p": 0.999
+   },
+   {
+    "word": " with",
+    "start": 3.32,
+    "end": 3.86,
+    "p": 0.808
+   },
+   {
+    "word": " time",
+    "start": 3.86,
+    "end": 4.08,
+    "p": 0.774
+   },
+   {
+    "word": " to",
+    "start": 4.08,
+    "end": 4.26,
+    "p": 0.997
+   },
+   {
+    "word": " park.",
+    "start": 4.26,
+    "end": 4.54,
+    "p": 0.989
+   }
+  ]
+ },
+ "e11.wav": {
+  "text": "Three referrals closed, three referring offices updated, and I still have 20 minutes to spare.",
+  "words": [
+   {
+    "word": " Three",
+    "start": 1.44,
+    "end": 2.06,
+    "p": 0.877
+   },
+   {
+    "word": " referrals",
+    "start": 2.06,
+    "end": 2.38,
+    "p": 0.992
+   },
+   {
+    "word": " closed,",
+    "start": 2.38,
+    "end": 2.88,
+    "p": 0.985
+   },
+   {
+    "word": " three",
+    "start": 3.28,
+    "end": 3.4,
+    "p": 0.975
+   },
+   {
+    "word": " referring",
+    "start": 3.4,
+    "end": 3.74,
+    "p": 0.981
+   },
+   {
+    "word": " offices",
+    "start": 3.74,
+    "end": 4.16,
+    "p": 0.995
+   },
+   {
+    "word": " updated,",
+    "start": 4.16,
+    "end": 4.66,
+    "p": 0.99
+   },
+   {
+    "word": " and",
+    "start": 5.04,
+    "end": 5.1,
+    "p": 0.993
+   },
+   {
+    "word": " I",
+    "start": 5.1,
+    "end": 5.2,
+    "p": 0.996
+   },
+   {
+    "word": " still",
+    "start": 5.2,
+    "end": 5.42,
+    "p": 0.996
+   },
+   {
+    "word": " have",
+    "start": 5.42,
+    "end": 5.62,
+    "p": 0.999
+   },
+   {
+    "word": " 20",
+    "start": 5.62,
+    "end": 5.92,
+    "p": 0.904
+   },
+   {
+    "word": " minutes",
+    "start": 5.92,
+    "end": 6.16,
+    "p": 0.994
+   },
+   {
+    "word": " to",
+    "start": 6.16,
+    "end": 6.38,
+    "p": 0.999
+   },
+   {
+    "word": " spare.",
+    "start": 6.38,
+    "end": 6.68,
+    "p": 1.0
+   }
+  ]
+ },
+ "e14.wav": {
+  "text": "We didn't lose a single referral this week, and Tanya left on time every day.",
+  "words": [
+   {
+    "word": " We",
+    "start": 0.66,
+    "end": 1.22,
+    "p": 0.9
+   },
+   {
+    "word": " didn't",
+    "start": 1.22,
+    "end": 1.44,
+    "p": 0.992
+   },
+   {
+    "word": " lose",
+    "start": 1.44,
+    "end": 1.54,
+    "p": 0.978
+   },
+   {
+    "word": " a",
+    "start": 1.54,
+    "end": 1.76,
+    "p": 0.995
+   },
+   {
+    "word": " single",
+    "start": 1.76,
+    "end": 2.02,
+    "p": 0.997
+   },
+   {
+    "word": " referral",
+    "start": 2.02,
+    "end": 2.42,
+    "p": 0.992
+   },
+   {
+    "word": " this",
+    "start": 2.42,
+    "end": 2.66,
+    "p": 0.992
+   },
+   {
+    "word": " week,",
+    "start": 2.66,
+    "end": 3.0,
+    "p": 0.997
+   },
+   {
+    "word": " and",
+    "start": 3.44,
+    "end": 3.62,
+    "p": 0.987
+   },
+   {
+    "word": " Tanya",
+    "start": 3.62,
+    "end": 3.9,
+    "p": 0.734
+   },
+   {
+    "word": " left",
+    "start": 3.9,
+    "end": 4.16,
+    "p": 0.996
+   },
+   {
+    "word": " on",
+    "start": 4.16,
+    "end": 4.42,
+    "p": 0.98
+   },
+   {
+    "word": " time",
+    "start": 4.42,
+    "end": 4.74,
+    "p": 0.95
+   },
+   {
+    "word": " every",
+    "start": 4.74,
+    "end": 5.26,
+    "p": 0.877
+   },
+   {
+    "word": " day.",
+    "start": 5.26,
+    "end": 5.56,
+    "p": 0.999
+   }
+  ]
+ },
+ "e15.wav": {
+  "text": "Dr. Vance should see this from the owner's side.",
+  "words": [
+   {
+    "word": " Dr.",
+    "start": 1.94,
+    "end": 2.38,
+    "p": 0.835
+   },
+   {
+    "word": " Vance",
+    "start": 2.56,
+    "end": 2.6,
+    "p": 0.992
+   },
+   {
+    "word": " should",
+    "start": 2.6,
+    "end": 2.82,
+    "p": 0.979
+   },
+   {
+    "word": " see",
+    "start": 2.82,
+    "end": 3.04,
+    "p": 0.993
+   },
+   {
+    "word": " this",
+    "start": 3.04,
+    "end": 3.2,
+    "p": 0.996
+   },
+   {
+    "word": " from",
+    "start": 3.2,
+    "end": 3.42,
+    "p": 0.992
+   },
+   {
+    "word": " the",
+    "start": 3.42,
+    "end": 3.54,
+    "p": 0.998
+   },
+   {
+    "word": " owner's",
+    "start": 3.54,
+    "end": 3.92,
+    "p": 0.815
+   },
+   {
+    "word": " side.",
+    "start": 3.92,
+    "end": 4.2,
+    "p": 0.999
+   }
+  ]
+ },
+ "e16.wav": {
+  "text": "The numbers? That's a whole other story.",
+  "words": [
+   {
+    "word": " The",
+    "start": 1.6,
+    "end": 2.16,
+    "p": 0.783
+   },
+   {
+    "word": " numbers?",
+    "start": 2.16,
+    "end": 2.4,
+    "p": 0.939
+   },
+   {
+    "word": " That's",
+    "start": 2.9,
+    "end": 3.18,
+    "p": 0.988
+   },
+   {
+    "word": " a",
+    "start": 3.18,
+    "end": 3.24,
+    "p": 0.997
+   },
+   {
+    "word": " whole",
+    "start": 3.24,
+    "end": 3.4,
+    "p": 0.999
+   },
+   {
+    "word": " other",
+    "start": 3.4,
+    "end": 3.6,
+    "p": 0.987
+   },
+   {
+    "word": " story.",
+    "start": 3.6,
+    "end": 4.04,
+    "p": 0.999
+   }
+  ]
+ },
+ "tanya_home.wav": {
+  "text": "When the loop closes on time, everybody wins, especially at home.",
+  "words": [
+   {
+    "word": " When",
+    "start": 0.0,
+    "end": 0.18,
+    "p": 0.941
+   },
+   {
+    "word": " the",
+    "start": 0.18,
+    "end": 0.3,
+    "p": 0.943
+   },
+   {
+    "word": " loop",
+    "start": 0.3,
+    "end": 0.46,
+    "p": 0.937
+   },
+   {
+    "word": " closes",
+    "start": 0.46,
+    "end": 0.78,
+    "p": 0.997
+   },
+   {
+    "word": " on",
+    "start": 0.78,
+    "end": 1.02,
+    "p": 0.998
+   },
+   {
+    "word": " time,",
+    "start": 1.02,
+    "end": 1.36,
+    "p": 0.998
+   },
+   {
+    "word": " everybody",
+    "start": 2.16,
+    "end": 2.38,
+    "p": 0.967
+   },
+   {
+    "word": " wins,",
+    "start": 2.38,
+    "end": 2.94,
+    "p": 1.0
+   },
+   {
+    "word": " especially",
+    "start": 3.6,
+    "end": 3.94,
+    "p": 0.998
+   },
+   {
+    "word": " at",
+    "start": 3.94,
+    "end": 4.28,
+    "p": 0.999
+   },
+   {
+    "word": " home.",
+    "start": 4.28,
+    "end": 4.48,
+    "p": 0.998
+   }
+  ]
+ }
+}

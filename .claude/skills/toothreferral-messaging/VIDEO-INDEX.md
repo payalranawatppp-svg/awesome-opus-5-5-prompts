@@ -219,3 +219,18 @@ missing lines) once a key is available.
   1920×842, 30 fps, 1020 frames (34 s). Beat starts for the split screens in `CN_BEATS`
   (createNote 0, autoFill 226, typeAndRoute 372, eSign 640, onTheCase 828, copyToPms 890).
 - Render: `reel/renders/ep4/completion-note-ep4.mp4`.
+
+## Episode 4 "Front Row" edit (`Ep4-FrontRow`, 90.7 s)
+- Source: 16 Flow clips (clip 13, the recital, was not delivered). Cleaned to `reel/public/ep4/eNN.mp4` (delogo 572,1132,56
+  on 720×1280; e05 has a second sparkle → 500,1130,130×60; e15 arrived 720×800 and is reframed on Greg; lanczos to
+  1080×1920; loudnorm). Mattes (RVM) for e01/e04/e11/e12 → `eNN-cut.webm`.
+- Voices: ElevenLabs STS on every spoken clip (`reel/scripts/ep4_voices.py`): Tanya = Jessica, Amanda = Bella, Dr. Vance =
+  Eric, Greg = Chris. TTS `tanya_home` "When the loop closes on time, everybody wins. Especially at home." over a held,
+  warm-graded frame of e01 (photo of Lily) with "FRONT ROW" behind her and chip "5:25 PM · Lily's recital".
+- Dashboards: `CompletionNote` in 3D glass windows, camera keys in screen frames: e05 case → Consultation Completed →
+  Create official note; e06 template + auto-fill timed to "patient info / tooth number / referring doctor"; e07 typing →
+  Route to Dr. Vance; e08 e-signature; e09 signed note + chat; e09B Barbara's view; e10 Copy to PMS. e05/e06 have a
+  screen panel Flow baked into the top right → frosted cover + glass on top. e14 week card, e15 analytics chip.
+- Text behind people: 43 MINUTES, 3/3 CLOSED, 20 MIN TO SPARE, ON TIME, FRONT ROW. End card: "Close the loop on time.
+  Everybody wins." / "Next episode: the numbers". −17.3 LUFS.
+- Code `reel/src/reelfx/Ep4Story.tsx`; render `reel/renders/ep4/episode4-front-row.mp4`.
