@@ -1,11 +1,13 @@
 /**
- * Kawasaki logo flip, 2 s, 4K vertical (2160x3840, 60 fps), after the user's 1.2 s reference clip: the emblem and the
+ * Kawasaki logo flip, 5 s, 4K vertical (2160x3840, 60 fps), after the user's 1.2 s reference clip: the emblem and the
  * wordmark turn together in 3D around the vertical axis, zooming in and brightening as they face the camera. Improvised:
  * the logo is a solid 3D badge (extruded layers) that spins in about one and a half turns with motion blur, lands front
  * on the bass hit (spark burst, shockwave, flash, camera shake), then sways gently under a light sweep with rising embers.
  * Emblem vectorised (potrace) from the clean logo the user supplied: public/kaw/emblem.svg, rendered to
  * emblem-alpha.png; the wordmark is set in a heavy typeface.
- * Sound: the reference's own audio with an ElevenLabs sound-effects tail (bass boom and engine rev), public/kaw/kawasaki-2s.wav.
+ * Sound: the reference's own audio with an ElevenLabs sound-effects tail (bass boom and engine rev) and an
+ * ElevenLabs engine-rumble bed under the hold, public/kaw/kawasaki-5s.wav. The landing sits on the sub-bass drop at 0.88 s
+ * and the showcase turn on the thud at 2.33 s (both measured with earshot timeline).
  */
 import React from "react";
 import { AbsoluteFill, Audio, interpolate, random, staticFile, useCurrentFrame } from "remotion";
@@ -15,13 +17,15 @@ import { FONT_UI } from "../theme";
 export const KAW_W = 2160;
 export const KAW_H = 3840;
 export const KAW_FPS = 60;
-export const KAW_DURATION = 120;
+export const KAW_DURATION = 300; // 5 s
 
 const G1 = "#3DFF7A";
 const G2 = "#00C247";
 const G3 = "#056B26";
 const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
-const HIT = 38; // the flip lands on the bass hit
+const HIT = 53; // the flip lands on the sub-bass drop (0.88 s, measured with earshot timeline)
+const TURN = 140; // showcase turn starts on the heavy thud at 2.33 s
+const FADE = 272; // fade to black
 const EMB = 1120; // emblem size (square)
 const BOX_W = 1900; // badge width (the wordmark is wider than the emblem)
 const DEPTH = 16; // extrusion layers
@@ -35,7 +39,10 @@ const easeOutBack = (t: number) => { const c = 1.25; return 1 + (c + 1) * Math.p
 const flipAngle = (f: number) => {
   if (f <= 4) return -540;
   if (f < HIT) return -540 + 540 * easeOutBack((f - 4) / (HIT - 4));
-  return 6 * Math.sin((f - HIT) / 22) * Math.exp(-(f - HIT) / 80);
+  const sway = 6 * Math.sin((f - HIT) / 22) * Math.exp(-(f - HIT) / 80);
+  // one slow showcase turn out and back, easing in and out
+  const t = Math.min(1, Math.max(0, (f - TURN) / 120));
+  return sway + 28 * Math.sin(Math.PI * 2 * t) * Math.sin(Math.PI * t);
 };
 
 const Embers: React.FC<{ f: number }> = ({ f }) => (
@@ -43,7 +50,7 @@ const Embers: React.FC<{ f: number }> = ({ f }) => (
     {Array.from({ length: 70 }).map((_, i) => {
       const x = random(`x${i}`) * KAW_W;
       const speed = 6 + random(`s${i}`) * 14;
-      const y = KAW_H * (0.35 + random(`y${i}`) * 0.7) - f * speed;
+      const y = KAW_H * 1.05 - ((KAW_H * (0.7 * random(`y${i}`) + 0.35) * 1 + f * speed) % (KAW_H * 1.15));
       const size = 3 + random(`r${i}`) * 9;
       const tw = 0.4 + 0.6 * Math.abs(Math.sin(f / (5 + random(`t${i}`) * 9) + i));
       const o = interpolate(f, [8, 30], [0, 1], clamp) * tw * (0.25 + random(`o${i}`) * 0.6);
@@ -86,15 +93,15 @@ export const KawasakiReveal: React.FC = () => {
   const angle = flipAngle(f);
   const spinV = Math.abs(angle - flipAngle(f - 1)); // deg per frame, for motion blur
   const facing = Math.abs(Math.cos((angle * Math.PI) / 180));
-  const appear = interpolate(f, [2, 10], [0, 1], clamp);
+  const appear = interpolate(f, [2, 10], [0, 1], clamp) * interpolate(f, [FADE, KAW_DURATION - 2], [1, 0], clamp);
   const hit = f >= HIT ? Math.exp(-(f - HIT) / 7) : 0;
-  const zoom = interpolate(f, [4, HIT], [0.62, 1], { ...clamp, easing: easeOutCubic }) + 0.05 * (f / KAW_DURATION) + 0.03 * hit;
+  const zoom = interpolate(f, [4, HIT], [0.62, 1], { ...clamp, easing: easeOutCubic }) + 0.08 * (f / KAW_DURATION) + 0.03 * hit;
   const tiltZ = interpolate(f, [4, HIT], [-9, 0], { ...clamp, easing: easeOutCubic });
   const tiltX = interpolate(f, [4, HIT], [10, 0], { ...clamp, easing: easeOutCubic });
   const shake = hit * 14;
   const sx = Math.sin(f * 2.3) * shake, sy = Math.cos(f * 1.7) * shake;
   const cx = KAW_W / 2, cy = 1540;
-  const sweep = interpolate(f, [58, 98], [-0.6, 1.6], clamp);
+  const sweep = f < 150 ? interpolate(f, [HIT + 20, HIT + 60], [-0.6, 1.6], clamp) : interpolate(f, [195, 240], [-0.6, 1.6], clamp);
   const ring = f >= HIT ? (f - HIT) / 40 : -1;
   const breathe = 0.92 + 0.08 * Math.sin(f / 9);
   const light = appear * (0.35 + 0.65 * facing); // brighter as it faces the camera, as in the reference
@@ -126,7 +133,8 @@ export const KawasakiReveal: React.FC = () => {
         <AbsoluteFill style={{ background: `radial-gradient(circle at 50% 40%, rgba(160,255,190,${0.14 * hit}) 0%, transparent 40%)`, mixBlendMode: "screen" }} />
         <AbsoluteFill style={{ background: "radial-gradient(ellipse at 50% 45%, transparent 45%, rgba(0,0,0,0.75) 100%)" }} />
         <AbsoluteFill style={{ opacity: 0.07, mixBlendMode: "overlay", backgroundImage: "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='g'><feTurbulence baseFrequency='0.9' numOctaves='2' seed='" + (f % 7) + "'/></filter><rect width='100%' height='100%' filter='url(%23g)'/></svg>\")" }} />
-        <Audio src={staticFile("kaw/kawasaki-2s.wav")} />
+        <AbsoluteFill style={{ background: "#000", opacity: interpolate(f, [FADE, KAW_DURATION - 1], [0, 1], clamp) }} />
+        <Audio src={staticFile("kaw/kawasaki-5s.wav")} />
       </AbsoluteFill>
     </FontGate>
   );
