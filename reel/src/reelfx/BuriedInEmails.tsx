@@ -1,11 +1,11 @@
 /**
- * "Buried in Emails": ToothReferral short (Script 13). Two front-desk colleagues: Tanya lost 20 referrals in her inbox,
+ * "Buried in Emails": ToothReferral short (Script 13). Two front-desk colleagues: Tanya lost 8 referrals in her inbox,
  * Amanda shows her ToothReferral. Ten Google Flow clips, colour-matched, cut at the pauses into one scene
  * (scratchpad s13/cut.py), both voices matched to one reference each (Seed-VC), answered on the real dashboard
  * (recording 3, cleaned per the client rules by scripts/client_stills_r3.py -> public/dash3c).
  *
  *   1  hook (full)            Tanya alone at the desk, Amanda walks in
- *   2  the problem (full)     "20 referrals" counter, emails piling up
+ *   2  the problem (full)     "8 referrals" counter, emails piling up
  *   3  the chaos (full)       faxes, voicemails, inbox threads; then a close-up on Tanya (it also hides a continuity
  *                             slip in the generated take: Amanda's mug goes down on the desk and reappears in her hand)
  *   4  the old way (full)     the chips get stamped THE OLD WAY; the logo on "Tooth Referral?"
@@ -58,7 +58,7 @@ const win = (frame: number, from: number, to: number, outLen = 8) => ({ p: sp(fr
 
 const T = {
   hey: at("hey", 1),
-  twenty: at("20"),
+  twenty: at("8"),
   buried: at("buried"),
   emails: at("emails", 1),
   nobody: at("nobody"),
@@ -139,7 +139,7 @@ const camera = (f: number, lay: Lay) => {
 // ---------------------------------------------------------------------------------------------------
 // Captions (word by word, sentence case, one key word marked)
 
-const KEY = new Set(["20", "referrals", "emails", "frustrated", "old", "way", "toothreferral", "centralized", "network", "audit", "trail", "everything", "platform", "calls", "emails", "time", "administrative", "notes", "single", "place", "free", "trial"]);
+const KEY = new Set(["8", "referrals", "emails", "frustrated", "old", "way", "toothreferral", "centralized", "network", "audit", "trail", "everything", "platform", "calls", "emails", "time", "administrative", "notes", "single", "place", "free", "trial"]);
 type Tok = { t: string; at: number; end: number; key: boolean };
 const TOKS: Tok[] = (() => {
   const out: Tok[] = [];
@@ -465,13 +465,13 @@ const Opening: React.FC = () => {
   );
 };
 
-/** "We lost 20 referrals this month... buried in a pile of emails" */
+/** "We lost 8 referrals this month... buried in a pile of emails" */
 const Lost: React.FC = () => {
   const frame = useCurrentFrame();
   const from = T.twenty - 4;
   const { p, out, on } = win(frame, from, T.faxes - 4, 9);
   if (!on) return null;
-  const n = Math.round(ramp(frame, from, from + 14, easeOut) * 20);
+  const n = Math.round(ramp(frame, from, from + 14, easeOut) * 8);
   const pile = ramp(frame, T.buried - 4, T.emails + 6, (t) => t);
   return (
     <div style={{ position: "absolute", left: 0, right: 0, top: 150, display: "flex", flexDirection: "column", alignItems: "center", gap: 8, opacity: 1 - out, filter: out > 0 ? `blur(${out * 8}px)` : undefined }}>
