@@ -10,7 +10,7 @@
 - **Amanda**: Office manager / treatment coordinator. Calm, prepared, lets the numbers do the talking. Arc: Prepared, steady, quietly confident.
 - **Tanya**: Front desk coordinator. Fast, organised, owns the follow-ups. Arc: Matter-of-fact, relieved.
 - **Greg**: Front desk coordinator. Handles scheduling and insurance. Arc: Easy-going, practical.
-- **Dr. Patel (voice only)**: Dentist at Lakeside Family Dentistry, a referring office that has gone quiet. Arc: Warm, a little surprised.
+- **Lakeside front desk (voice only)**: The referring general dentist's office that has gone quiet. Heard on the phone, never named or shown. Arc: Warm, a little surprised.
 
 ## The real problems, and how ToothReferral answers each one
 
@@ -95,7 +95,7 @@
 *On screen:* Dr. Vance, half to himself.  
 *Direction:* He shakes his head slowly, looking at the screen.  
 *Emotion:* Uneasy, a little guilty.  
-**Dr. Vance:** "Dr. Patel used to send us one a week. I thought it was the economy." *(quiet, rueful)*  
+**Dr. Vance:** "Lakeside used to send us one a week. I thought it was the economy." *(quiet, rueful)*  
 *Dashboard:* Lakeside's two cases, both "Scheduled · past date".
 
 ### Clip 11 · Dr. Vance's office · Closing the loop
@@ -137,9 +137,9 @@
 *On screen:* Dr. Vance on the phone; Amanda smiling in the background.  
 *Direction:* He dials, waits a beat, then smiles as she answers.  
 *Emotion:* Warm, sincere.  
-**Dr. Vance:** "Dr. Patel, it's Vance. Your patients' notes are on the case. What else can we do?" *(warm, sincere)*  
-**Dr. Patel (phone, off screen):** "Honestly? Just this." *(warm, surprised)*  
-*Dashboard:* None (people only). Edit: Dr. Patel is a voice on the phone, not shown.
+**Dr. Vance:** "It's Dr. Vance at Oakridge. Both notes are on the case. What else can we do?" *(warm, sincere)*  
+**Lakeside front desk (phone, off screen):** "Honestly? Just this." *(warm, surprised)*  
+*Dashboard:* None (people only). Edit: Lakeside's front desk is a voice on the phone, not shown or named.
 
 ### Clip 17 · Dr. Vance's office · The takeaway
 *On screen:* Amanda closes the laptop, turns slightly toward camera.  
@@ -153,6 +153,7 @@
 - One line per clip, all under about 6.5 seconds of speech, so each fits one 8-second Flow clip.
 - Every number spoken is on the canonical Analytics page and they add up: 28 received; 3 + 5 + 11 = 19 lost between steps; 9 completed; 2 past-date appointments, 2 ghost referrals, 3 insurance requests; 3.7 h to first contact; 7 from the website form.
 - Top senders keep the canonical counts (7, 6, 5, 4, 3, 3); names are customised for the series so Gentle Dental (Barbara's office) is the top sender and Lakeside Family Dentistry is the one that has gone quiet.
+- Names follow Vejay's rules: staff are only Barbara, Tanya, Amanda and Greg, and Dr. Vance is the only doctor named (series exception). Say "general dentist", never the abbreviation.
 - The front desk is never the problem: the leaks come from things nobody could see. Tanya and Greg fix their items in one click.
 - Dashboard inserts are rebuilt from the real Analytics page (3D glass, like Episodes 2 and 4). Funnel leak rows are shown in amber in our graphics (no red).
 - Monitors and laptops stay angled away in Flow; all screens go in during the edit.

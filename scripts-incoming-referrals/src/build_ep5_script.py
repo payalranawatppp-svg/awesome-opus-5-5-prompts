@@ -28,7 +28,7 @@ CAST = [
      'Prepared, steady, quietly confident.'),
     ('Tanya', 'Front desk coordinator. Fast, organised, owns the follow-ups.', 'Matter-of-fact, relieved.'),
     ('Greg', 'Front desk coordinator. Handles scheduling and insurance.', 'Easy-going, practical.'),
-    ('Dr. Patel (voice only)', 'Dentist at Lakeside Family Dentistry, a referring office that has gone quiet.', 'Warm, a little surprised.'),
+    ('Lakeside front desk (voice only)', 'The referring general dentist\'s office that has gone quiet. Heard on the phone, never named or shown.', 'Warm, a little surprised.'),
 ]
 
 # The real problems this episode puts on screen, and the Analytics section that answers each one.
@@ -84,7 +84,7 @@ CLIPS = [
      'Top senders: Gentle Dental 7, Bright Smile 6, Maple Grove 5, Riverside 4, Lakeside 3, Summit 3 → click Lakeside → its cases on the Status board.', 'Silent decline'),
     ('10', 'Dr. Vance\'s office', 'Dr. Vance, half to himself.',
      'He shakes his head slowly, looking at the screen.', 'Uneasy, a little guilty.',
-     [('Dr. Vance', 'Dr. Patel used to send us one a week. I thought it was the economy.', 'quiet, rueful')],
+     [('Dr. Vance', 'Lakeside used to send us one a week. I thought it was the economy.', 'quiet, rueful')],
      'Lakeside\'s two cases, both "Scheduled · past date".', 'Silent decline'),
     ('11', 'Dr. Vance\'s office', 'Amanda, encouraging.',
      'Amanda clicks once; two rows flip to Completed.', 'Steady, a small smile.',
@@ -108,9 +108,9 @@ CLIPS = [
      'None (people only).', 'Owner decision'),
     ('16', 'Dr. Vance\'s office', 'Dr. Vance on the phone; Amanda smiling in the background.',
      'He dials, waits a beat, then smiles as she answers.', 'Warm, sincere.',
-     [('Dr. Vance', 'Dr. Patel, it\'s Vance. Your patients\' notes are on the case. What else can we do?', 'warm, sincere'),
-      ('Dr. Patel (phone, off screen)', 'Honestly? Just this.', 'warm, surprised')],
-     'None (people only). Edit: Dr. Patel is a voice on the phone, not shown.', 'Rebuilding the relationship'),
+     [('Dr. Vance', 'It\'s Dr. Vance at Oakridge. Both notes are on the case. What else can we do?', 'warm, sincere'),
+      ('Lakeside front desk (phone, off screen)', 'Honestly? Just this.', 'warm, surprised')],
+     'None (people only). Edit: Lakeside\'s front desk is a voice on the phone, not shown or named.', 'Rebuilding the relationship'),
     ('17', 'Dr. Vance\'s office', 'Amanda closes the laptop, turns slightly toward camera.',
      'Amanda clicks Export PDF, closes the laptop and smiles.', 'Satisfied.',
      [('Amanda', 'Referrals don\'t disappear. They leak. Now we can see exactly where.', 'calm, satisfied')],
@@ -123,6 +123,8 @@ NOTES = [
     '9 completed; 2 past-date appointments, 2 ghost referrals, 3 insurance requests; 3.7 h to first contact; 7 from the website form.',
     'Top senders keep the canonical counts (7, 6, 5, 4, 3, 3); names are customised for the series so Gentle Dental (Barbara\'s '
     'office) is the top sender and Lakeside Family Dentistry is the one that has gone quiet.',
+    'Names follow Vejay\'s rules: staff are only Barbara, Tanya, Amanda and Greg, and Dr. Vance is the only doctor named (series exception). '
+    'Say "general dentist", never the abbreviation.',
     'The front desk is never the problem: the leaks come from things nobody could see. Tanya and Greg fix their items in one click.',
     'Dashboard inserts are rebuilt from the real Analytics page (3D glass, like Episodes 2 and 4). Funnel leak rows are shown '
     'in amber in our graphics (no red).',

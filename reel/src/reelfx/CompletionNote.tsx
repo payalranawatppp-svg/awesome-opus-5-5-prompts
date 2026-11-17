@@ -74,6 +74,9 @@ const D = {
   refDoc: "Dr. Rachel Moore", refOffice: "Gentle Dental", refAddr: "88 Willow Ave, Austin, TX 78704",
   patient: "ROBERT TURNER", patientNice: "Robert Turner", dob: "04/22/1968", tooth: "#30", today: "11/16/2026", surgery: "12/03/2026",
 };
+const NAMED = { ...D };
+/** No doctors' names, for public posts (Vejay's rule): `anon` swaps them for roles while rendering. */
+const ANON = { doctor: "the doctor", doctorFull: "Oakridge Oral Surgery", refDoc: "Doctor" };
 const TYPED = "Mr. Turner is a good candidate for an implant at #30, with healthy bone and gums. We have scheduled placement for December 3 and will send you a restoration timeline after healing.";
 
 // ------------------------------------------------------------------ case page (plate + renames)
@@ -491,7 +494,8 @@ const Pointer: React.FC<{ f: number }> = ({ f }) => {
 };
 
 // ------------------------------------------------------------------ composition
-export const CompletionNote: React.FC<{ cursor?: boolean }> = ({ cursor = true }) => {
+export const CompletionNote: React.FC<{ cursor?: boolean; anon?: boolean }> = ({ cursor = true, anon = false }) => {
+  Object.assign(D, NAMED, anon ? ANON : {});
   const f = useCurrentFrame();
   const dim = interpolate(f, [K.m1, K.m1 + 10, K.sign - 4, K.sign + 4, K.back - 4, K.back + 6], [0, 1, 1, 1, 1, 0], clamp);
   const showCase = f < K.sign + 6 || f >= K.back - 6;
