@@ -238,3 +238,9 @@ missing lines) once a key is available.
   (XrExE9yKIg1WjnnlVkGX), Dr. Vance = Brian (nPczCjzI2devNBz1zQrb), Greg = Will (bIHbv24MWmeRgasZH58o). Captions restyled to the
   footage: warm cream words on a soft frosted warm band that grows word by word; keyword pills in honey (time/worry),
   lavender (product) and sage (wins).
+
+## Audio QA for future edits: earshot (installed 2026-11-17)
+- `tools/earshot` (vendored, MIT) with skills `.claude/skills/earshot` (listen: describe / match / find / realness /
+  timeline / critique / sheet, 252-sound SFX bank via `earshot sfx`, `earshot kit`) and `.claude/skills/real-sound`
+  (soundtracks from real licensed recordings: cue list, sourcing, mix, QA, master, credits, mux). MCP server `earshot`
+  in `.mcp.json`. Use it before claiming how any edit sounds (e.g. `earshot critique film.mp4`, `earshot timeline`).

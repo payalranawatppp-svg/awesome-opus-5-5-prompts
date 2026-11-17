@@ -43,3 +43,8 @@ reel/public/footage/lk/lk-src.mp4
 reel/public/footage/lk-cut.mp4
 reel/public/footage/ms/ms-src.mp4
 reel/public/footage/ms-cut.mp4
+
+# earshot model cache (~1.1 GB, re-downloaded on first use)
+tools/earshot/.cache/
+tools/earshot/**/__pycache__/
+tools/earshot/*.egg-info/
