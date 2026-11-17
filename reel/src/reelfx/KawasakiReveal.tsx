@@ -47,7 +47,7 @@ const Embers: React.FC<{ f: number }> = ({ f }) => (
       const size = 3 + random(`r${i}`) * 9;
       const tw = 0.4 + 0.6 * Math.abs(Math.sin(f / (5 + random(`t${i}`) * 9) + i));
       const o = interpolate(f, [8, 30], [0, 1], clamp) * tw * (0.25 + random(`o${i}`) * 0.6);
-      return <div key={i} style={{ position: "absolute", left: x + Math.sin(f / 14 + i) * 20, top: y, width: size, height: size, borderRadius: size, background: i % 5 ? G1 : "#E9FFF0", opacity: o, boxShadow: `0 0 ${size * 4}px ${G1}` }} />;
+      return <div key={i} style={{ position: "absolute", left: x + Math.sin(f / 14 + i) * 20, top: y, width: size, height: size, borderRadius: size, background: i % 5 ? G1 : "#E9FFF0", opacity: o * 0.7, boxShadow: `0 0 ${size * 1.5}px ${G1}` }} />;
     })}
   </>
 );
@@ -63,7 +63,7 @@ const Sparks: React.FC<{ f: number; cx: number; cy: number }> = ({ f, cx, cy }) 
         const d = 560 + v * t * (1 - t / 90);
         const len = 30 + random(`l${i}`) * 100;
         const o = interpolate(t, [0, 3, 24 + random(`d${i}`) * 22], [0, 1, 0], clamp);
-        return <div key={i} style={{ position: "absolute", left: cx + Math.cos(ang) * d, top: cy + Math.sin(ang) * d + t * t * 0.25, width: len, height: 5, borderRadius: 5, background: `linear-gradient(90deg, transparent, ${i % 3 ? G1 : "#FFFFFF"})`, transform: `rotate(${ang}rad)`, transformOrigin: "0 50%", opacity: o, boxShadow: `0 0 18px ${G1}` }} />;
+        return <div key={i} style={{ position: "absolute", left: cx + Math.cos(ang) * d, top: cy + Math.sin(ang) * d + t * t * 0.25, width: len, height: 5, borderRadius: 5, background: `linear-gradient(90deg, transparent, ${i % 3 ? G1 : "#FFFFFF"})`, transform: `rotate(${ang}rad)`, transformOrigin: "0 50%", opacity: o * 0.8, boxShadow: `0 0 6px ${G1}` }} />;
       })}
     </>
   );
@@ -72,12 +72,12 @@ const Sparks: React.FC<{ f: number; cx: number; cy: number }> = ({ f, cx, cy }) 
 /** One layer of the badge: emblem + wordmark, filled with `fill` (a CSS background). Only the front layer glows. */
 const Layer: React.FC<{ fill: string; z: number; front?: boolean; glow?: number; sweep?: number }> = ({ fill, z, front, glow = 0, sweep = -1 }) => (
   <div style={{ position: "absolute", left: 0, top: 0, width: BOX_W, height: LOGO_H, transform: `translateZ(${z}px)` }}>
-    <div style={{ position: "absolute", left: (BOX_W - EMB) / 2, top: 0, width: EMB, height: EMB, filter: front ? `drop-shadow(0 0 ${40 * glow}px ${G1}) drop-shadow(0 0 ${120 * glow}px ${G2})` : undefined }}>
+    <div style={{ position: "absolute", left: (BOX_W - EMB) / 2, top: 0, width: EMB, height: EMB, filter: front ? `drop-shadow(0 0 ${14 * glow}px ${G1}) drop-shadow(0 0 ${40 * glow}px ${G2})` : undefined }}>
       <div style={{ position: "absolute", inset: 0, WebkitMaskImage: `url(${staticFile("kaw/emblem-alpha.png")})`, WebkitMaskSize: "100% 100%", maskImage: `url(${staticFile("kaw/emblem-alpha.png")})`, maskSize: "100% 100%", background: fill }}>
         {front && <div style={{ position: "absolute", inset: 0, background: `linear-gradient(115deg, transparent ${(sweep - 0.12) * 100}%, rgba(230,255,240,0.95) ${sweep * 100}%, transparent ${(sweep + 0.12) * 100}%)`, mixBlendMode: "screen" }} />}
       </div>
     </div>
-    <div style={{ position: "absolute", left: 0, width: BOX_W, top: EMB + 110, textAlign: "center", fontFamily: FONT_UI, fontWeight: 800, fontSize: 330, letterSpacing: "-0.01em", lineHeight: 1.15, backgroundImage: fill, WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent", filter: front ? `drop-shadow(0 0 ${22 * glow}px ${G1}) drop-shadow(0 0 ${60 * glow}px ${G2})` : undefined }}>Kawasaki</div>
+    <div style={{ position: "absolute", left: 0, width: BOX_W, top: EMB + 110, textAlign: "center", fontFamily: FONT_UI, fontWeight: 800, fontSize: 330, letterSpacing: "-0.01em", lineHeight: 1.15, backgroundImage: fill, WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent", filter: front ? `drop-shadow(0 0 ${8 * glow}px ${G1}) drop-shadow(0 0 ${22 * glow}px ${G2})` : undefined }}>Kawasaki</div>
   </div>
 );
 
@@ -96,20 +96,20 @@ export const KawasakiReveal: React.FC = () => {
   const cx = KAW_W / 2, cy = 1540;
   const sweep = interpolate(f, [58, 98], [-0.6, 1.6], clamp);
   const ring = f >= HIT ? (f - HIT) / 40 : -1;
-  const breathe = 0.85 + 0.15 * Math.sin(f / 9);
+  const breathe = 0.92 + 0.08 * Math.sin(f / 9);
   const light = appear * (0.35 + 0.65 * facing); // brighter as it faces the camera, as in the reference
-  const glow = light * (0.8 + 0.7 * hit) * breathe;
+  const glow = light * (0.6 + 0.35 * hit) * breathe;
   const front = `linear-gradient(160deg, ${G1} 0%, ${G2} 45%, ${G3} 100%)`;
   const blur = Math.min(10, spinV * 0.25);
 
   return (
     <FontGate>
       <AbsoluteFill style={{ background: "#000", overflow: "hidden" }}>
-        <AbsoluteFill style={{ background: `radial-gradient(circle at 50% 40%, rgba(0,194,71,${0.2 * light + 0.25 * hit}) 0%, rgba(0,60,20,${0.12 * light}) 28%, transparent 55%)` }} />
+        <AbsoluteFill style={{ background: `radial-gradient(circle at 50% 40%, rgba(0,194,71,${0.08 * light + 0.1 * hit}) 0%, rgba(0,60,20,${0.05 * light}) 28%, transparent 55%)` }} />
         <AbsoluteFill style={{ transform: `translate(${sx}px, ${sy}px)` }}>
           <Embers f={f} />
           {ring >= 0 && ring < 1 && (
-            <div style={{ position: "absolute", left: cx - 900 * ring - 260, top: cy - 900 * ring - 260, width: (900 * ring + 260) * 2, height: (900 * ring + 260) * 2, borderRadius: "50%", border: `${18 * (1 - ring)}px solid ${G1}`, opacity: (1 - ring) * 0.55, boxShadow: `0 0 80px ${G1}, inset 0 0 80px ${G1}` }} />
+            <div style={{ position: "absolute", left: cx - 900 * ring - 260, top: cy - 900 * ring - 260, width: (900 * ring + 260) * 2, height: (900 * ring + 260) * 2, borderRadius: "50%", border: `${18 * (1 - ring)}px solid ${G1}`, opacity: (1 - ring) * 0.35, boxShadow: `0 0 24px ${G1}, inset 0 0 24px ${G1}` }} />
           )}
           {/* the badge: emblem + wordmark, extruded, flipping in 3D */}
           <div style={{ position: "absolute", left: cx - BOX_W / 2, top: cy - EMB / 2, width: BOX_W, height: LOGO_H, perspective: 3200, perspectiveOrigin: `50% ${EMB / 2}px`, opacity: appear, filter: `brightness(${0.55 + 0.45 * facing})${blur > 0.4 ? ` blur(${blur.toFixed(1)}px)` : ""}` }}>
@@ -123,7 +123,7 @@ export const KawasakiReveal: React.FC = () => {
           </div>
           <Sparks f={f} cx={cx} cy={cy} />
         </AbsoluteFill>
-        <AbsoluteFill style={{ background: `radial-gradient(circle at 50% 40%, rgba(160,255,190,${0.35 * hit}) 0%, transparent 45%)`, mixBlendMode: "screen" }} />
+        <AbsoluteFill style={{ background: `radial-gradient(circle at 50% 40%, rgba(160,255,190,${0.14 * hit}) 0%, transparent 40%)`, mixBlendMode: "screen" }} />
         <AbsoluteFill style={{ background: "radial-gradient(ellipse at 50% 45%, transparent 45%, rgba(0,0,0,0.75) 100%)" }} />
         <AbsoluteFill style={{ opacity: 0.07, mixBlendMode: "overlay", backgroundImage: "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='g'><feTurbulence baseFrequency='0.9' numOctaves='2' seed='" + (f % 7) + "'/></filter><rect width='100%' height='100%' filter='url(%23g)'/></svg>\")" }} />
         <Audio src={staticFile("kaw/kawasaki-2s.wav")} />
