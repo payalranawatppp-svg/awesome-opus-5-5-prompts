@@ -28,20 +28,15 @@ https://drive.google.com/file/d/1hB9hVRxQ5aVdVPxo42TG061KXbiGxV4q/view?usp=drive
 Message: letters fill in from your own templates, are routed to the doctor to e-sign, and land on the case for both offices.
 Goal: show the value for the doctor and the owner, not only the front desk.
 
-Day 5: Image post, week summary
-Proposed line: "A web form sends an email. Tooth Referral starts a case."
-Goal: close the week with one clear positioning line. I'll send the design for your approval before Day 5.
+Day 5: Image post, "It's not just a form. It's a system for your team." (attached)
+Message: a web form sends an email and stops; Tooth Referral turns each referral into a case the whole team and the referring office can work on.
+Goal: close the week with one clear positioning line.
 
-I've attached an Excel file with everything you need to evaluate each item:
-- the intended message, goal, audience, hook, structure, features shown, value for each team member, and call to action;
-- a timestamped breakdown of both videos, line by line;
-- every carousel slide;
-- a ready-to-post caption and hashtags for each day;
-- a check against your guidelines.
+I've attached two PDFs: the Week 1 schedule (a one-page overview with the posting flow, then one page per day with the link, message, goal, caption and hashtags) and the Day 5 image post with its caption.
 
 Two things for you to confirm:
 1. Video 1: Amanda says "they're offering a free trial". Is the free trial current? If not, I'll end on "Set up in about 5 minutes".
-2. The Day 5 image line above.
+2. The Day 5 image post.
 
 Best regards,
 Nitesh
