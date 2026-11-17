@@ -281,7 +281,7 @@ const Modal2: React.FC<{ f: number }> = ({ f }) => {
   const caret = typing && Math.floor(f / 8) % 2 === 0;
   const route = f >= K.route;
   const docSel = f >= K.doc;
-  const btnLabel = route ? "Route to Dr. Vance to Sign" : "Sign and Send Consultation Note";
+  const btnLabel = route ? `Route to ${D.doctor === "Dr. Vance" ? "Dr. Vance" : "the Doctor"} to Sign` : "Sign and Send Consultation Note";
   return (
     <div style={{ position: "absolute", left: 375, top: 42, width: 1152, height: 758, borderRadius: 10, background: "#fff", overflow: "hidden", opacity: k * out, transform: `translateY(${(1 - k) * 24}px) scale(${0.97 + 0.03 * k})`, boxShadow: "0 24px 60px rgba(0,0,0,0.25)" }}>
       {/* header */}
@@ -392,7 +392,7 @@ const Modal2: React.FC<{ f: number }> = ({ f }) => {
           <Btn label={btnLabel} solid s={17} press={f >= K.sendBtn - 3 && f < K.sendBtn + 3} />
         </div>
       </Box>
-      {f >= K.sendBtn + 2 && <Toast f={f} at={K.sendBtn + 2} t="Routed to Dr. Vance to sign" sub="He'll get it on his tablet." x={760} y={20} />}
+      {f >= K.sendBtn + 2 && <Toast f={f} at={K.sendBtn + 2} t={`Routed to ${D.doctor} to sign`} sub="On the doctor's tablet now." x={760} y={20} />}
     </div>
   );
 };
@@ -413,7 +413,7 @@ const SignScreen: React.FC<{ f: number }> = ({ f }) => {
       <div style={{ position: "absolute", left: 262, top: 18, display: "flex", alignItems: "center", gap: 5, fontFamily: FONT_UI, fontSize: 20, fontWeight: 600, color: C.ink }}><div style={{ width: 15, height: 15, borderRadius: 3, background: "linear-gradient(135deg,#4C00FF,#FF5252 160%)" }} />docusign</div>
       <div style={{ position: "absolute", right: 46, top: 22 }}><Svg d={I_X} s={20} c={C.ink} w={2.6} /></div>
       <Box x={27} y={91} w={1847} h={63} bg={done ? "#CFEBD9" : C.teal}>
-        <Txt x={18} y={20} t={done ? "Signed by Dr. Vance · sending to Gentle Dental and saving to Mr. Turner's case" : "Drag and drop fields from the left panel onto the document"} s={20} c={C.ink} />
+        <Txt x={18} y={20} t={done ? `Signed by ${D.doctor} · sending to Gentle Dental and saving to Mr. Turner's case` : "Drag and drop fields from the left panel onto the document"} s={20} c={C.ink} />
         <div style={{ position: "absolute", right: 72, top: 9, height: 45, borderRadius: 4, background: done ? C.green : C.purple, display: "flex", alignItems: "center", padding: "0 22px", fontFamily: FONT_UI, fontSize: 18, fontWeight: 600, color: "#fff", transform: `scale(${f >= K.finish - 3 && f < K.finish + 3 ? 0.94 : 1})` }}>{done ? "✓ Finished" : "Finish"}</div>
         <div style={{ position: "absolute", right: 16, top: 9, width: 45, height: 45, borderRadius: 4, background: "#E6EEF0", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 22, color: C.ink }}>⋮</div>
       </Box>
@@ -440,7 +440,7 @@ const SignScreen: React.FC<{ f: number }> = ({ f }) => {
             <svg style={{ position: "absolute", left: 18, top: 14 }} width="180" height="64" viewBox="0 0 170 66">
               <path d={SIG} fill="none" stroke="#1B2A6B" strokeWidth={2.6} strokeLinecap="round" strokeLinejoin="round" pathLength={1} strokeDasharray={1} strokeDashoffset={1 - draw} />
             </svg>
-            <Txt x={10} y={68} t="Daniel Vance · 7A3F9C21E4" s={10} c="#555" style={{ fontFamily: FONT_MONO, opacity: draw }} />
+            <Txt x={10} y={68} t={`${D.doctor === "Dr. Vance" ? "Daniel Vance" : "Signer"} · 7A3F9C21E4`} s={10} c="#555" style={{ fontFamily: FONT_MONO, opacity: draw }} />
           </div>
         )}
       </Box>

@@ -133,4 +133,5 @@ await b.close(); }})();'''
     print(name, len(ims))
 
 
-build('carousel-three-days-one-front-desk', SLIDES, 'THREE DAYS')
+if __name__ == '__main__':
+    build('carousel-three-days-one-front-desk', SLIDES, 'THREE DAYS')
