@@ -27,6 +27,7 @@ import { DayPrepClean, DAYPREP_DURATION, DAYPREP_W, DAYPREP_H } from "./reelfx/D
 import { CaseChat, CASECHAT_DURATION, CASECHAT_W, CASECHAT_H } from "./reelfx/CaseChat";
 import { CompletionNote, CN_DURATION, CN_W, CN_H } from "./reelfx/CompletionNote";
 import { Ep4Story, EP4_DURATION } from "./reelfx/Ep4Story";
+import { KawasakiReveal, KAW_W, KAW_H, KAW_FPS, KAW_DURATION } from "./reelfx/KawasakiReveal";
 import { AN_DURATION, AN_H, AN_W, AnalyticsDemo } from "./reelfx/AnalyticsDemo";
 import { TrDashboardTour } from "./tr/scenes";
 import { TR_ALL, TrFormatted } from "./tr/formats";
@@ -53,6 +54,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="Camp-TwoWays" component={TwoWays} durationInFrames={TWOWAYS_DURATION} fps={30} width={1080} height={1920} />
     <Composition id="Camp-DayInTheLife" component={() => <CampFx id="day-in-the-life" />} durationInFrames={CAMPFX_DURATION("day-in-the-life")} fps={30} width={1080} height={1920} />
     <Composition id="Camp-DayOne" component={DayOne} durationInFrames={DAYONE_DURATION} fps={30} width={1080} height={1920} />
+    <Composition id="Kawasaki-Reveal" component={KawasakiReveal} durationInFrames={KAW_DURATION} fps={KAW_FPS} width={KAW_W} height={KAW_H} />
     <Composition id="Ep4-FrontRow" component={Ep4Story} durationInFrames={EP4_DURATION} fps={30} width={1080} height={1920} />
     <Composition id="CompletionNote-Ep4" component={CompletionNote} durationInFrames={CN_DURATION} fps={30} width={CN_W} height={CN_H} />
     <Composition id="CaseChat-Clean"component={CaseChat} durationInFrames={CASECHAT_DURATION} fps={30} width={CASECHAT_W} height={CASECHAT_H} />
