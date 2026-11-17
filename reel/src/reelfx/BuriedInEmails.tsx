@@ -599,46 +599,6 @@ const Grain: React.FC = () => {
 };
 
 // ---------------------------------------------------------------------------------------------------
-// Sound effects: soft UI sounds only (no whooshes), low under the voices
-
-const SFX = (): { f: number; s: string; v: number }[] => [
-  { f: T.twenty - 4, s: "impact", v: 0.09 },
-  ...[0, 3, 6, 9, 12].map((d) => ({ f: T.twenty - 4 + d, s: "tick-2", v: 0.045 })),
-  ...[0, 5, 10, 15].map((d) => ({ f: T.buried - 2 + d, s: "pop-1", v: 0.045 })),
-  { f: T.faxes - 3, s: "pop-2", v: 0.08 },
-  { f: T.voicemails - 3, s: "pop-3", v: 0.08 },
-  { f: T.inbox - 3, s: "pop-1", v: 0.08 },
-  { f: CLOSE[0], s: "tick-1", v: 0.06 },
-  { f: T.old - 6, s: "tick-3", v: 0.06 },
-  { f: T.old + 6, s: "thud", v: 0.1 },
-  { f: T.tooth2 - 6, s: "shimmer", v: 0.09 },
-  { f: TA[0] + 2, s: "click", v: 0.09 },
-  { f: T.centralized + 12, s: "pop-2", v: 0.08 },
-  { f: T.just - 4, s: "tick-1", v: 0.07 },
-  { f: T.network + 6, s: "chime", v: 0.08 },
-  { f: T.coming - 4, s: "pop-3", v: 0.07 },
-  { f: T.open - 6, s: "tick-1", v: 0.07 },
-  { f: T.added - 2, s: "tick-2", v: 0.08 },
-  { f: T.changed - 2, s: "tick-3", v: 0.08 },
-  { f: T.when - 2, s: "pop-3", v: 0.07 },
-  { f: T.something - 10, s: "tick-1", v: 0.07 },
-  { f: T.message, s: "blip-1", v: 0.08 },
-  { f: T.no - 2, s: "pop-1", v: 0.07 },
-  { f: T.no2 - 2, s: "pop-2", v: 0.07 },
-  { f: T.saves - 2, s: "chime", v: 0.08 },
-  { f: T.team - 14, s: "tick-1", v: 0.07 },
-  { f: T.administrative - 2, s: "pop-3", v: 0.07 },
-  { f: T.inside2 - 2, s: "pop-1", v: 0.07 },
-  { f: T.calling - 10, s: "tick-1", v: 0.07 },
-  { f: T.patient2 - 2, s: "pop-2", v: 0.07 },
-  { f: T.everythings - 8, s: "tick-1", v: 0.07 },
-  { f: T.place - 2, s: "chime", v: 0.08 },
-  { f: TF[0] + 2, s: "click", v: 0.08 },
-  { f: T.try - 4, s: "pop-2", v: 0.09 },
-  { f: CUT_FRAMES - 4, s: "shimmer", v: 0.1 },
-];
-
-// ---------------------------------------------------------------------------------------------------
 // The edit
 
 export const BuriedInEmails: React.FC = () => {
@@ -679,14 +639,9 @@ export const BuriedInEmails: React.FC = () => {
         <AbsoluteFill style={{ background: "radial-gradient(ellipse at 50% 42%, transparent 55%, rgba(8,5,18,0.34) 100%)", pointerEvents: "none" }} />
       </FontGate>
 
-      <Audio src={staticFile("audio/voice/s13-cut.wav")} volume={(f) => interpolate(f, [CUT_FRAMES - 4, CUT_FRAMES + 4], [1, 0], clamp)} />
-      {/* audio: the two ElevenLabs voices (speech-to-speech from the original takes, so timing and emotion are the
-          originals') and soft UI sound effects; no music, no whooshes */}
-      {SFX().map((x, i) => (
-        <Sequence key={i} from={Math.max(0, x.f)} layout="none">
-          <Audio src={staticFile(`audio/sfx/${x.s}.wav`)} volume={x.v} />
-        </Sequence>
-      ))}
+      <Audio src={staticFile("audio/voice/s13-dub.wav")} volume={(f) => interpolate(f, [CUT_FRAMES - 4, CUT_FRAMES + 4], [1, 0], clamp)} />
+      {/* audio: one new dialogue track only, every line generated with ElevenLabs eleven_v4 (Tanya: Matilda, Amanda:
+          Jessica) by scripts/bie_redub.py; no original audio and no sound effects */}
     </AbsoluteFill>
   );
 };
