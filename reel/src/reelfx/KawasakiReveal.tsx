@@ -2,7 +2,8 @@
  * Kawasaki logo reveal, 2 s, 4K vertical (2160x3840, 60 fps), after the user's 1.2 s reference clip (green emblem
  * glowing in on black with sparkles). Improvised: neon flicker-on with a 3D swing, spark burst and shockwave on the bass
  * hit, the wordmark wiping in with a glowing edge, a light sweep across the emblem, rising embers, slow push-in.
- * Emblem traced from the reference at 8x (public/kaw/emblem-alpha.png); the wordmark is set in a heavy typeface.
+ * Emblem vectorised (potrace) from the clean logo the user supplied: public/kaw/emblem.svg, rendered to emblem-alpha.png;
+ * the wordmark is set in a heavy typeface.
  * Sound: the reference's own audio with an ElevenLabs sound-effects tail (bass boom and engine rev), public/kaw/kawasaki-2s.wav.
  */
 import React from "react";
@@ -21,7 +22,7 @@ const G3 = "#056B26";
 const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
 const HIT = 36; // bass hit (0.6 s)
 const EMB_W = 1180;
-const EMB_H = Math.round(EMB_W * (1890 / 1936));
+const EMB_H = EMB_W; // square emblem, vectorised from the user's clean logo (public/kaw/emblem.svg)
 
 /** Neon flicker: on/off pattern while the tube warms up, then steady. */
 const flicker = (f: number) => {
