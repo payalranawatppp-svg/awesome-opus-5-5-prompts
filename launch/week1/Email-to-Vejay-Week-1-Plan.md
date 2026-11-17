@@ -36,14 +36,12 @@ I've attached an Excel file with everything you need to evaluate each item:
 - the intended message, goal, audience, hook, structure, features shown, value for each team member, and call to action;
 - a timestamped breakdown of both videos, line by line;
 - every carousel slide;
-- ready-to-post captions and hashtags;
-- a check against your guidelines;
-- a short list of decisions for you.
+- a ready-to-post caption and hashtags for each day;
+- a check against your guidelines.
 
-Three things for you to confirm:
+Two things for you to confirm:
 1. Video 1: Amanda says "they're offering a free trial". Is the free trial current? If not, I'll end on "Set up in about 5 minutes".
 2. The Day 5 image line above.
-3. The draft captions for Days 1, 3 and 5.
 
 Best regards,
 Nitesh

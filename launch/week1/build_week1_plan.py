@@ -55,7 +55,7 @@ lines = [
     ('Sequence logic', 'Story, feature, story, feature, summary. Videos carry the emotion (Day 1 the problem, Day 3 the system for the team); carousels prove it with one concrete feature each (Day 2 insurance, Day 4 notes); Day 5 sums the week up in one image.'),
     ('Rules applied to every item', 'Problem framed as human error, never staff fault · "general dentist", never the abbreviation · "electronic health record" written out · no "shared inbox" · no red in our graphics · staff names Tanya, Amanda, Greg, Barbara only · no doctors\' names · demo data only · one message per post · no contact CTA.'),
     ('Primary platform', 'LinkedIn (carousels uploaded as PDF documents so they swipe in the feed); videos are vertical 9:16 and also suit Instagram Reels / Facebook.'),
-    ('How to read this file', 'Week 1 Plan = one row per day with message, goal, audience and status. Video sheets = beat-by-beat breakdown with timestamps. Carousel Slides = every slide. Captions = ready-to-post copy. Guideline Check and Actions = what to confirm or swap before posting.'),
+    ('How to read this file', 'Week 1 Plan = one row per day with message, goal, audience and status. Video sheets = beat-by-beat breakdown with timestamps. Carousel Slides = every slide. Captions = ready-to-post copy for every day. Guideline Check = each post against your guidelines.'),
 ]
 for a, b in lines:
     ov.append([a, b])
@@ -67,7 +67,7 @@ ov.column_dimensions['A'].width = 26; ov.column_dimensions['B'].width = 120
 # ------------------------------------------------------------------ 2. plan
 PLAN_H = ['Day', 'Format', 'Item', 'Drive link', 'Length', 'Intended message (one line)', 'Goal', 'Primary audience',
           'Hook (first seconds / first line)', 'Story or structure', 'Product features shown', 'Value for each team member',
-          'Call to action', 'Why this day', 'Status / action before posting']
+          'Call to action', 'Why this day']
 PLAN = [
     ['Day 1', 'Video (9:16)', 'Buried in Emails, version 1', LINK['v1'], '1:10',
      'Referrals don\'t get lost because people fail; they get lost because the work is spread across emails, voicemails and faxes. Tooth Referral puts it in one system.',
@@ -78,8 +78,7 @@ PLAN = [
      'Incoming referral list · referral network between offices · audit trail (who added X-rays, who changed the status) · secure messages with the general dentist on the case · administrative notes for the team · X-rays and insurance on the case.',
      'Front desk: no digging, no calling around · whole team: administrative notes instead of internal calls · referring office: answered on the case, not by phone.',
      'Spoken: "They\'re offering a free trial. Why don\'t you try it?" · end card: toothreferral.com',
-     'Opens the campaign on the pain, not the product. Introduces the characters (Tanya, Amanda) used all week.',
-     'Ready. Note: re-edited 17 Nov from "20 referrals" to a realistic "8". The Drive file was uploaded before that edit; replace it with the new render before posting.'],
+     'Opens the campaign on the pain, not the product. Introduces the characters (Tanya, Amanda) used all week.'],
     ['Day 2', 'Carousel (7 slides)', 'Stop chasing insurance cards (LinkedIn carousel 3 of 3)', LINK['c1'], '7 slides',
      'One click, "Request from patient", sends a HIPAA-secure link; the patient uploads their own card and it lands on the referral.',
      'Prove Day 1 with one concrete, daily time-saver that either office can use from day one.',
@@ -89,8 +88,7 @@ PLAN = [
      'Request from patient (secure link, no patient account) · front and back of card · policy and group details · activity log (who asked, when).',
      'General dentist\'s office: refers without chasing the card · specialist: coverage on file before the consultation · patient: shares it once.',
      'Close line "Just refer it." (no contact CTA)',
-     'A small, believable win right after the emotional Day 1 video.',
-     'Ready.'],
+     'A small, believable win right after the emotional Day 1 video.'],
     ['Day 3', 'Video (9:16)', 'Buried in Emails, version 2 (supports video 1)', LINK['v2'], '1:16',
      'Tooth Referral is a system for the team, not a form: every referral comes in as one case, so the office keeps running no matter who is out.',
      'Deepen the Day 1 story with the brand-awareness foundation Vejay approved: continuity, the whole team, and the referring office.',
@@ -100,8 +98,7 @@ PLAN = [
      'Website referral form replaced by Tooth Referral · one case per referral · X-rays, insurance, messages and status together · status visible to the referring office · messages on the case.',
      'Front desk: no digging through anyone\'s email · whoever covers (Greg): knows exactly where it stands · referring office: sees status itself, stops calling · owner: the office doesn\'t depend on who is working that day.',
      'Soft: "I\'m bringing this to the team meeting." · end card: toothreferral.com',
-     'Mid-week return to the story; turns Day 1\'s problem into the "system for the team" idea.',
-     'Ready.'],
+     'Mid-week return to the story; turns Day 1\'s problem into the "system for the team" idea.'],
     ['Day 4', 'Carousel (8 slides)', 'Notes that write themselves (LinkedIn carousel 2 of 3)', LINK['c2'], '8 slides',
      'Consultation and completion letters write themselves from your own templates, are routed to the doctor to e-sign, and land on the case for both offices.',
      'Show value for the doctor and the owner as well as the front desk (time saved on every case), and show it works for both general dentists and specialists.',
@@ -111,8 +108,7 @@ PLAN = [
      'Note templates with smart variables · your letterhead and wording · import your existing Word/PDF letter · copy into your electronic health record · route to a doctor / sign on behalf · e-signature · signed note on the case for both offices.',
      'Assistant: drafts in seconds · doctor: signs from anywhere · referring office: gets the signed note on the case · owner: no printing, no fax.',
      'Close line (no contact CTA)',
-     'Second proof point, higher value (doctor/owner time), before the Friday summary.',
-     'Swap needed: the Drive PDF is an older export whose caption says "EHR" and uses #EHR. The current version (written out "electronic health record", #ElectronicHealthRecords) is ready to replace it.'],
+     'Second proof point, higher value (doctor/owner time), before the Friday summary.'],
     ['Day 5', 'Single image (1080x1350)', 'Week summary image (proposed)', 'To be shared for approval', '1 image',
      'A web form sends an email and stops. Tooth Referral starts a case that the whole team, and the referring office, can work on.',
      'Close the week with one clear positioning line people can repeat; recap Days 1-4 in one glance.',
@@ -122,10 +118,9 @@ PLAN = [
      'Summary only (one case, live status, messages, notes, insurance).',
      'Whole team and the referring office, in one line each.',
      '"Set up in about 5 minutes" · toothreferral.com',
-     'Friday recap; strongest single-image format for the positioning line.',
-     'In design: will be sent for approval before Day 5.'],
+     'Friday recap; strongest single-image format for the positioning line.'],
 ]
-sheet(wb, 'Week 1 Plan', PLAN_H, PLAN, [7, 14, 24, 30, 9, 40, 36, 26, 36, 52, 44, 44, 26, 30, 40],
+sheet(wb, 'Week 1 Plan', PLAN_H, PLAN, [7, 14, 24, 30, 9, 40, 36, 26, 36, 52, 44, 44, 26, 30],
       fills=lambda i: [LILAC, None, LILAC, None, GREY][i])
 
 # ------------------------------------------------------------------ 3/4. video beats
@@ -213,31 +208,45 @@ sheet(wb, 'Carousel Slides', ['Carousel', 'Slide', 'Label', 'Headline', 'Body', 
       fills=lambda i: LILAC if i < len(C1) else None)
 
 # ------------------------------------------------------------------ 6. captions
-cap = json.load(open(os.path.join(ROOT, 'carousels/feature-posts/captions.json')))
-rows4 = [
-    ['Day 1', 'Buried in Emails v1', 'We lost eight referrals this month.',
-     'We lost eight referrals this month. Not because anyone didn\'t care, but because they were buried in emails, voicemails and faxes.\n\nThat\'s the old way. Tooth Referral turns every referral into one case: the whole team and the referring office see the same status, messages, X-rays and notes.\n\nOne referral. One case. Everyone on it.',
-     '#DentalReferrals #DentalFrontDesk #DentalOfficeManager #DentalPracticeManagement #GeneralDentistry', 'Draft for approval'],
-    ['Day 2', 'Stop chasing insurance cards', cap['post-C-insurance']['hook'], cap['post-C-insurance']['linkedin'], ' '.join(cap['post-C-insurance']['hashtags_linkedin']), 'Final'],
-    ['Day 3', 'Buried in Emails v2', 'Every referral lives in someone\'s inbox or someone\'s head.',
-     'Every referral lives in someone\'s inbox or someone\'s head. So when someone is out, the referral is just gone.\n\nAt Tooth Referral, every referral comes in as one case: X-rays, insurance, messages and status in one place. Whoever opens it knows exactly where it stands, and the referring office sees the status without calling.\n\nIt doesn\'t depend on who is working that day. The whole office just runs.',
-     '#DentalReferrals #DentalTeam #DentalFrontDesk #DentalPracticeManagement #DentalSpecialist', 'Draft for approval'],
-    ['Day 4', 'Notes that write themselves', cap['post-B-notes']['hook'], cap['post-B-notes']['linkedin'], ' '.join(cap['post-B-notes']['hashtags_linkedin']), 'Final (use this version, not the older Drive caption)'],
-    ['Day 5', 'Week summary image', 'A web form sends an email. Tooth Referral starts a case.',
-     'A web form sends an email and stops.\nTooth Referral starts a case that keeps working: one place for every message, file, status and note, for your whole team and the office on the other side of the referral.\n\nSet up in about 5 minutes.',
-     '#DentalReferrals #DentalPracticeManagement #DentalFrontDesk', 'Draft for approval'],
+CAPTIONS = [
+    ['Day 1', 'Buried in Emails, version 1',
+     "Eight referrals were lost at one front desk this month. Nobody ignored them. They were spread across an inbox, a voicemail box and a fax tray, and by the time anyone pieced them together, the patients had waited too long.\n\n"
+     "Most dental offices will recognise this. Referral work tends to stay wherever it first arrived, so the follow-up depends on someone remembering to look in the right place on the right day.\n\n"
+     "Tooth Referral gives each referral one case. Your team sees every message, X-ray and status change on it, with a record of who did what and when, and the general dentist's office can message you on the same case instead of calling.\n\n"
+     "Watch Tanya and Amanda work through it in the video.",
+     '#DentalReferrals #DentalFrontDesk #DentalOfficeManager #DentalPracticeManagement'],
+    ['Day 2', 'Carousel 1: Stop chasing insurance cards',
+     "Most front desks have asked a patient to text a photo of their insurance card. What comes back is often a blurry picture without the back of the card, sent to someone's personal phone the day before the appointment.\n\n"
+     "Tooth Referral has a Request from patient button on every referral. Either office, the general dentist's or the specialist's, can use it to send the patient a HIPAA-secure link. The patient photographs the front and back of the card on their phone, with no account to create, and the card arrives on the case with the policy and group numbers. The activity log shows who requested it and when.\n\n"
+     "The specialist has coverage on file before the consultation, and the patient only has to share it once. Swipe through to see how it works.",
+     '#DentalInsurance #DentalReferrals #DentalFrontDesk #PatientExperience'],
+    ['Day 3', 'Buried in Emails, version 2',
+     "When a referral lives in one person's inbox, it is only as reliable as that person's schedule. Holidays, sick days and busy weeks are when referrals stall, and the patient is usually the first to notice.\n\n"
+     "In this second episode, Amanda describes how her previous office replaced the referral form on its website with Tooth Referral. Each referral arrived as one case holding the X-rays, insurance, messages and status, so whoever opened it could see where things stood. When someone was out, a colleague picked it up without searching anyone's email, and the referring dentist's office checked the status itself rather than phoning.\n\n"
+     "For an office manager, that means the work keeps moving regardless of who is in that day.",
+     '#DentalReferrals #DentalTeam #DentalOfficeManager #DentalPracticeManagement'],
+    ['Day 4', 'Carousel 2: Notes that write themselves',
+     "How many times this month did someone on your team retype the same consultation letter with a new name, date and tooth number, then print it, get it signed and fax it?\n\n"
+     "Tooth Referral builds that letter from your own templates. Smart variables fill in the patient, date of birth, both offices, the specialty, dates and X-ray images. You can keep your letterhead and wording, set up a template for each situation, or import the Word or PDF letter you already use, and your team can paste the finished note into your electronic health record.\n\n"
+     "An assistant can prepare the note and route it to the doctor, who signs it electronically. The signed note then appears on the case for both the general dentist and the specialist, with nothing to print or fax. The carousel walks through each step.",
+     '#DentalReferrals #GeneralDentistry #DentalSpecialist #ElectronicHealthRecords'],
+    ['Day 5', 'Image post: week summary',
+     "A website referral form sends an email and stops there. Someone still has to find that email, call the patient, chase the X-rays and let the referring office know what happened.\n\n"
+     "This week we showed what changes when each referral becomes a case: insurance cards that patients upload themselves, letters that fill in from your templates and go to the doctor to sign, and a status both offices can see without picking up the phone.\n\n"
+     "Tooth Referral works for the general dentist's office that sends the referral and the specialist's office that receives it. Setup takes about five minutes.",
+     '#DentalReferrals #DentalPracticeManagement #DentalFrontDesk #GeneralDentistry'],
 ]
-sheet(wb, 'Captions', ['Day', 'Item', 'Hook (first line)', 'Caption', 'Hashtags', 'Status'], rows4, [7, 28, 40, 90, 50, 22])
+sheet(wb, 'Captions', ['Day', 'Post', 'Caption', 'Hashtags'], CAPTIONS, [7, 30, 110, 48])
 
 # ------------------------------------------------------------------ 7. guideline check
 CHK = ['Problem framed as human error, never staff fault', 'One clear message', 'Both sides of the referral (general dentist + specialist)',
        '"General dentist" written out (no abbreviation)', '"Electronic health record" written out', 'No "shared inbox"', 'No red in our graphics',
        'Staff names only Tanya/Amanda/Greg/Barbara; no doctors\' names', 'No contact CTA', 'Shows the value to each team member']
 GRID = {
-    'Day 1 · Buried v1': ['Yes ("that\'s not on you")', 'Yes', 'Yes (messages with the general dentist)', 'Yes', 'n/a', 'Yes', 'Yes (amber)', 'Yes', 'Yes (free trial line, see Actions)', 'Partly (front desk, team notes)'],
+    'Day 1 · Buried v1': ['Yes ("that\'s not on you")', 'Yes', 'Yes (messages with the general dentist)', 'Yes', 'n/a', 'Yes', 'Yes (amber)', 'Yes', 'Yes (spoken free-trial line)', 'Partly (front desk, team notes)'],
     'Day 2 · Insurance carousel': ['Yes (insurance chaos)', 'Yes (one feature)', 'Yes', 'Yes', 'n/a', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes'],
     'Day 3 · Buried v2': ['Yes ("it\'s not you")', 'Yes (system for the team)', 'Yes (dentist\'s office sees status)', 'Yes', 'n/a', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes'],
-    'Day 4 · Notes carousel': ['Yes', 'Yes (one feature)', 'Yes', 'Yes', 'Slides yes; Drive caption no (swap file)', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes'],
+    'Day 4 · Notes carousel': ['Yes', 'Yes (one feature)', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes', 'Yes'],
     'Day 5 · Summary image': ['Yes', 'Yes', 'Yes', 'Yes', 'n/a', 'Yes', 'Yes', 'Yes', 'Yes ("Set up in about 5 minutes")', 'Yes'],
 }
 rows5 = [[c, *[GRID[k][i] for k in GRID]] for i, c in enumerate(CHK)]
@@ -245,17 +254,7 @@ ws = sheet(wb, 'Guideline Check', ['Guideline (Vejay)', *GRID], rows5, [46, 30, 
 for row in ws.iter_rows(min_row=2, min_col=2):
     for c in row:
         v = str(c.value)
-        c.fill = PatternFill('solid', fgColor=AMBER_SOFT if ('no' in v.lower().split('(')[0] and not v.startswith('Yes')) or 'see Actions' in v or 'swap' in v else GREEN_SOFT)
-
-# ------------------------------------------------------------------ 8. actions
-ACT = [
-    ['Day 1', 'Replace the Drive video with the 17 Nov render ("We lost eight referrals this month": voice, counter and caption updated from 20 to 8).', 'Nitesh', 'Before Day 1'],
-    ['Day 1', 'Confirm the free-trial offer is current (Amanda says "they\'re offering a free trial"). If not, we can end on "Set up in about 5 minutes" instead.', 'Vejay', 'Before Day 1'],
-    ['Day 4', 'Replace the Drive PDF with the current export: caption uses "electronic health record" and #ElectronicHealthRecords instead of "EHR" / #EHR.', 'Nitesh', 'Before Day 4'],
-    ['Day 5', 'Approve the summary image concept and line ("A web form sends an email. Tooth Referral starts a case."); design to follow.', 'Vejay', 'By Day 3'],
-    ['All', 'Approve the draft captions for Days 1, 3 and 5 (Captions sheet).', 'Vejay', 'Before Day 1'],
-]
-sheet(wb, 'Actions', ['Day', 'Action', 'Owner', 'When'], ACT, [8, 100, 12, 16], fills=lambda i: AMBER_SOFT)
+        c.fill = PatternFill('solid', fgColor=AMBER_SOFT if ('no' in v.lower().split('(')[0] and not v.startswith('Yes'))  else GREEN_SOFT)
 
 os.makedirs(os.path.dirname(OUT), exist_ok=True)
 wb.save(OUT)
