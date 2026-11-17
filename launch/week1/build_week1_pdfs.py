@@ -32,7 +32,7 @@ DAYS = [
          link=plan.LINK['c2'], msg='Letters fill in from your own templates, go to the doctor to e-sign, and land on the case for both offices.',
          goal='Show the value for the doctor and the owner as well as the front desk.'),
     dict(day='Day 5', fmt='Image', length='Single image · 1080 x 1350', title='It\'s not just a form. It\'s a system for your team.', img='day5.png', role='The summary',
-         link=None, msg='A web form sends an email and stops. Tooth Referral turns each referral into a case the whole team and the referring office can work on.',
+         link='https://drive.google.com/file/d/1sL5pFAgt9rxPQ1GPcJsMAqma68pcShkz/view?usp=drivesdk', msg='A web form sends an email and stops. Tooth Referral turns each referral into a case the whole team and the referring office can work on.',
          goal='Close the week with one clear positioning line people can repeat.'),
 ]
 ICON = {
