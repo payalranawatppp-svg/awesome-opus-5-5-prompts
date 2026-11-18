@@ -195,7 +195,7 @@ const sourceColor: Record<string, string> = { "Embed widget": "#7C4DF0", Network
 
 export const PAGE_H = 4760;
 
-const Page: React.FC<{ hover: string | null }> = ({ hover }) => {
+export const Page: React.FC<{ hover: string | null; bare?: boolean }> = ({ hover, bare }) => {
   const k = D.kpi;
   const f = D.funnel;
   const sMax = D.senders[0].count;
@@ -206,7 +206,8 @@ const Page: React.FC<{ hover: string | null }> = ({ hover }) => {
   const rowH = (row: typeof D.board) => (row.some((b) => b.count > 0) ? 304 : 192);
   let by = 3700;
   return (
-    <div style={{ position: "relative", width: AN_W, height: PAGE_H, background: C.bg, fontFamily: F, color: C.ink }}>
+    <div style={{ position: "relative", width: AN_W, height: PAGE_H, background: bare ? undefined : C.bg, fontFamily: F, color: C.ink }}>
+      {!bare && <>
       {/* sidebar */}
       <div style={{ position: "absolute", left: 0, top: 0, width: 320, height: PAGE_H, background: C.side }}>
         <div style={{ position: "absolute", left: 0, right: 0, top: 22, textAlign: "center", fontSize: 21, fontWeight: 600, color: "#1E4A8A" }}>{D.office}</div>
@@ -232,6 +233,7 @@ const Page: React.FC<{ hover: string | null }> = ({ hover }) => {
         <div style={{ position: "absolute", left: 1370, top: 8, fontSize: 19, color: C.ink }}>{D.user.name}</div>
         <div style={{ position: "absolute", left: 1370, top: 38, fontSize: 16, color: C.muted }}>{D.user.role}</div>
       </div>
+      </>}
       {/* toolbar */}
       <div style={{ position: "absolute", left: L, top: 213, height: 46, display: "flex", borderRadius: 10, overflow: "hidden", border: `1px solid ${C.line}`, background: "#fff" }}>
         <div style={{ padding: "0 16px", display: "flex", alignItems: "center", gap: 10, background: C.purpleSoft, color: C.purple, fontSize: 17 }}>Received <span style={{ background: C.purple, color: "#fff", borderRadius: 10, padding: "1px 7px", fontSize: 12, fontWeight: 700 }}>{D.received_tab}</span></div>

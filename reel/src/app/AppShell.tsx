@@ -59,9 +59,10 @@ const NAV: { n: string; t: string; sub?: boolean; chev?: "up" | "down"; badge?: 
 /** The app sizes its vertical spacing from the viewport height. Two measured presets: 912 (dashboard-3 recording,
  * the default for videos) and 869 (dashboard-2 recording, a browser with a taller toolbar). Nav y values are in the
  * sidebar's coordinates (page y - head). */
-export type Vp = 912 | 869;
-export const VP: Record<Vp, { head: number; nav: number[]; divider: number; logoTop: number; logoH: number; hl: number; subHl: number; btnTop: number; btnH: number; askTop: number; askH: number; titleTop: number; clinicTop: number; navDy: number; hdrDy: number }> = {
+export type Vp = 912 | 869 | 842;
+export const VP: Record<Vp, { head: number; nav: number[]; divider: number; logoTop: number; logoH: number; hl: number; subHl: number; btnTop: number; btnH: number; askTop: number; askH: number; titleTop: number; clinicTop: number; navDy: number; hdrDy: number; userMinW?: number }> = {
   912: { head: 97, nav: [211, 276, 341, 401, 461, 520, 585, 650, 748, 813], divider: 699, logoTop: -6, logoH: 1, hl: 64, subHl: 54, btnTop: 24, btnH: 56, askTop: 92, askH: 60, titleTop: 35, clinicTop: 38, navDy: 2, hdrDy: 0 },
+  842: { head: 82, nav: [203, 263, 323, 378, 433, 488, 548, 607, 699, 759], divider: 653, logoTop: 1, logoH: 0.923, hl: 60, subHl: 50, btnTop: 22, btnH: 52, askTop: 88, askH: 48, titleTop: 32, clinicTop: 31, navDy: -1, hdrDy: -3, userMinW: 218 },
   869: { head: 86, nav: [202, 262, 322, 377, 432, 487, 547, 607, 698, 758], divider: 652, logoTop: 0, logoH: 0.923, hl: 60, subHl: 50, btnTop: 25, btnH: 52, askTop: 89, askH: 54, titleTop: 32, clinicTop: 34, navDy: -1, hdrDy: -3 },
 };
 
@@ -102,6 +103,7 @@ export const Sidebar: React.FC<{ active?: NavKey; group?: NavKey; clinic?: strin
 };
 
 export type User = { ini: string; name: string; role: string; img?: string };
+export const AMANDA: User = { ini: "AM", name: "Amanda", role: "Office Manager" };
 export const DCARE_USER: User = { ini: "LD", name: "Lee Davis", role: "Associate Dentist", img: "app/dcare-avatar.png" };
 export const DEFAULT_USER: User = { ini: "JW", name: "Jane White", role: "Dental Assistant" };
 
@@ -125,7 +127,7 @@ export const TopBar: React.FC<{ title?: string; clinic?: string; user?: User; vh
       <HBtn w={162} t="New Referral" solid h={M.btnH} dy={M.hdrDy} />
       {user.img ? <Img src={staticFile(user.img)} style={{ width: 40, height: 40, borderRadius: 40, objectFit: "cover" }} />
         : <div style={{ width: 40, height: 40, borderRadius: 40, background: "#E5DEFC", color: "#5B34D6", font: `600 15px ${FONT}`, display: "flex", alignItems: "center", justifyContent: "center" }}>{user.ini}</div>}
-      <div style={{ position: "relative", top: M.hdrDy }}>
+      <div style={{ position: "relative", top: M.hdrDy, minWidth: M.userMinW }}>
         <div style={{ font: `400 20px ${FONT}`, color: C.text, lineHeight: "28px" }}>{user.name}</div>
         <div style={{ font: `400 17.5px ${FONT}`, color: C.muted, lineHeight: "26px", marginTop: 3 }}>{user.role}</div>
       </div>

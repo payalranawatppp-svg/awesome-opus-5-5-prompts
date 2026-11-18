@@ -30,6 +30,9 @@ import { Ep4Story, EP4_DURATION } from "./reelfx/Ep4Story";
 import { IncomingPage } from "./app/Incoming";
 import { CaseDetailPage } from "./app/CaseDetail";
 import { LeadFormsPage } from "./app/LeadForms";
+import { AnalyticsPage } from "./app/Analytics";
+import { ConsultNoteModal, SuccessToast } from "./app/ConsultNote";
+import { AbsoluteFill } from "remotion";
 import { APP_W, APP_H } from "./app/AppShell";
 import { KawasakiReveal, KAW_W, KAW_H, KAW_FPS, KAW_DURATION } from "./reelfx/KawasakiReveal";
 import { AN_DURATION, AN_H, AN_W, AnalyticsDemo } from "./reelfx/AnalyticsDemo";
@@ -64,6 +67,9 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="App-CaseMessages" component={CaseDetailPage} defaultProps={{ tab: "Messages" }} durationInFrames={60} fps={30} width={APP_W} height={APP_H} />
     <Composition id="App-LeadForms" component={LeadFormsPage} defaultProps={{ vh: 912 }} durationInFrames={60} fps={30} width={APP_W} height={APP_H} />
     <Composition id="App-LeadForms-869" component={LeadFormsPage} defaultProps={{ vh: 869 }} durationInFrames={60} fps={30} width={APP_W} height={869} />
+    <Composition id="App-Analytics" component={AnalyticsPage} durationInFrames={60} fps={30} width={APP_W} height={842} />
+    <Composition id="App-Analytics-FullPage" component={AnalyticsPage} defaultProps={{ chrome: false }} durationInFrames={1} fps={30} width={APP_W} height={4785} />
+    <Composition id="App-ConsultNote-Modal" component={() => <AbsoluteFill style={{ background: "#fff" }}><ConsultNoteModal backdrop={false} /><SuccessToast /></AbsoluteFill>} durationInFrames={60} fps={30} width={APP_W} height={869} />
     <Composition id="App-CaseDetail-FullPage" component={CaseDetailPage} defaultProps={{ chrome: false }} durationInFrames={1} fps={30} width={APP_W} height={3053} />
     <Composition id="Kawasaki-Reveal" component={KawasakiReveal} durationInFrames={KAW_DURATION} fps={KAW_FPS} width={KAW_W} height={KAW_H} />
     <Composition id="Ep4-FrontRow" component={Ep4Story} durationInFrames={EP4_DURATION} fps={30} width={1080} height={1920} />
