@@ -59,8 +59,8 @@ export const IncomingTable: React.FC<{ rows?: Row[] }> = ({ rows = ROWS }) => {
   );
 };
 
-export const IncomingPage: React.FC = () => (
-  <AppFrame active="Incoming" group="Referrals">
+export const IncomingPage: React.FC<{ scroll?: number }> = ({ scroll }) => (
+  <AppFrame active="Incoming" group="Referrals" title="Incoming Referrals" scroll={scroll} fixed={<ChatFab x={1841} y={783} />}>
     <div style={{ position: "absolute", left: 350, top: 108, width: 1530, height: 860, background: C.card, borderRadius: 8 }} />
     {/* toolbar */}
     <div style={{ position: "absolute", left: 390, top: 179, width: 385, height: 48, border: `1px solid ${C.inputBorder}`, borderRadius: 6, display: "flex", alignItems: "center", gap: 12, paddingLeft: 16, boxSizing: "border-box", overflow: "hidden" }}>
@@ -76,6 +76,5 @@ export const IncomingPage: React.FC = () => (
     <div style={{ position: "absolute", left: 390, top: 251, width: 12, height: 12, borderRadius: 12, background: C.green }} />
     <div style={{ position: "absolute", left: 410, top: 248, font: `400 15.5px ${FONT}`, color: C.muted }}>Connected Network Member</div>
     <IncomingTable />
-    <ChatFab x={1841} y={783} />
   </AppFrame>
 );

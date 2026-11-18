@@ -28,6 +28,7 @@ import { CaseChat, CASECHAT_DURATION, CASECHAT_W, CASECHAT_H } from "./reelfx/Ca
 import { CompletionNote, CN_DURATION, CN_W, CN_H } from "./reelfx/CompletionNote";
 import { Ep4Story, EP4_DURATION } from "./reelfx/Ep4Story";
 import { IncomingPage } from "./app/Incoming";
+import { CaseDetailPage } from "./app/CaseDetail";
 import { APP_W, APP_H } from "./app/AppShell";
 import { KawasakiReveal, KAW_W, KAW_H, KAW_FPS, KAW_DURATION } from "./reelfx/KawasakiReveal";
 import { AN_DURATION, AN_H, AN_W, AnalyticsDemo } from "./reelfx/AnalyticsDemo";
@@ -57,6 +58,9 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="Camp-DayInTheLife" component={() => <CampFx id="day-in-the-life" />} durationInFrames={CAMPFX_DURATION("day-in-the-life")} fps={30} width={1080} height={1920} />
     <Composition id="Camp-DayOne" component={DayOne} durationInFrames={DAYONE_DURATION} fps={30} width={1080} height={1920} />
     <Composition id="App-Incoming" component={IncomingPage} durationInFrames={60} fps={30} width={APP_W} height={APP_H} />
+    <Composition id="App-Incoming-Top" component={IncomingPage} defaultProps={{ scroll: 0 }} durationInFrames={60} fps={30} width={APP_W} height={APP_H} />
+    <Composition id="App-CaseDetail" component={CaseDetailPage} durationInFrames={60} fps={30} width={APP_W} height={APP_H} />
+    <Composition id="App-CaseDetail-FullPage" component={CaseDetailPage} defaultProps={{ chrome: false }} durationInFrames={1} fps={30} width={APP_W} height={3053} />
     <Composition id="Kawasaki-Reveal" component={KawasakiReveal} durationInFrames={KAW_DURATION} fps={KAW_FPS} width={KAW_W} height={KAW_H} />
     <Composition id="Ep4-FrontRow" component={Ep4Story} durationInFrames={EP4_DURATION} fps={30} width={1080} height={1920} />
     <Composition id="CompletionNote-Ep4" component={CompletionNote} durationInFrames={CN_DURATION} fps={30} width={CN_W} height={CN_H} />

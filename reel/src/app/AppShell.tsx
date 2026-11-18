@@ -65,8 +65,15 @@ const NAV: { n: string; t: string; y: number; sub?: boolean; chev?: "up" | "down
 
 export type NavKey = "Analytics" | "Referrals" | "Incoming" | "Outgoing" | "Cases Completed" | "Notifications" | "Notes" | "Website Lead Forms" | "Settings" | "Offices";
 
-export const Sidebar: React.FC<{ active?: NavKey; group?: NavKey }> = ({ active = "Incoming", group = "Referrals" }) => (
-  <div style={{ position: "absolute", left: 0, top: 0, width: 320, height: APP_H, background: C.sidebar, fontFamily: FONT }}>
+/** Height of the app header above the content (page title, Ask box, header buttons). Pages lay out their content in
+ * coordinates where y = 0 is HEAD px below the top of the unscrolled page, so `scroll = HEAD` shows the content flush
+ * under the browser top, as in the scrolled recordings. */
+export const HEAD = 97;
+
+export const Sidebar: React.FC<{ active?: NavKey; group?: NavKey; clinic?: string }> = ({ active = "Incoming", group = "Referrals", clinic = "Gentle dental clinic" }) => (
+  <div style={{ position: "absolute", left: 0, top: 0, width: 320, height: APP_H + HEAD + 4000, background: C.sidebar, fontFamily: FONT }}>
+    <div style={{ position: "absolute", left: 0, width: 320, top: 38, textAlign: "center", font: `600 22.3px ${FONT}`, color: "#002A5D", whiteSpace: "nowrap" }}>{clinic}</div>
+    <div style={{ position: "absolute", left: 0, top: HEAD, width: 320 }}>
     <Img src={staticFile("tr/logo.png")} style={{ position: "absolute", left: 30, top: -6, width: 262 }} />
     {NAV.map((it) => {
       const isActive = it.t === active, isGroup = it.t === group;
@@ -85,15 +92,35 @@ export const Sidebar: React.FC<{ active?: NavKey; group?: NavKey }> = ({ active 
       );
     })}
     <div style={{ position: "absolute", left: 20, top: 699, width: 280, height: 1, background: "#BFD2EA" }} />
+    </div>
   </div>
 );
 
-export const TopBar: React.FC = () => (
+export type User = { ini: string; name: string; role: string };
+export const DEFAULT_USER: User = { ini: "JW", name: "Jane White", role: "Dental Assistant" };
+
+const HBtn: React.FC<{ x: number; w: number; t: string; solid?: boolean }> = ({ x, w, t, solid }) => (
+  <div style={{ position: "absolute", left: x, top: 24, width: w, height: 56, borderRadius: 4, boxSizing: "border-box", border: solid ? "none" : `1.5px solid ${C.purple}`, background: solid ? C.purple : "#fff", color: solid ? "#fff" : C.purpleText, font: `500 19.9px ${FONT}`, display: "flex", alignItems: "center", justifyContent: "center", whiteSpace: "nowrap" }}>{t}</div>
+);
+
+/** The app header: page title, office switcher, header buttons, signed-in user, and the "Ask" box under the title. */
+export const TopBar: React.FC<{ title?: string; clinic?: string; user?: User }> = ({ title = "Incoming Referrals", clinic = "Gentle dental clinic", user = DEFAULT_USER }) => (
   <>
-    <div style={{ position: "absolute", left: 320, top: 0, right: 0, height: 76, background: "#fff", borderBottom: `1px solid ${C.border}` }} />
-    <div style={{ position: "absolute", left: 350, top: -2, width: 400, height: 55, borderRadius: "0 0 12px 12px", border: `1px solid ${C.border}`, borderTop: "none", background: "#fff", display: "flex", alignItems: "center", gap: 10, paddingLeft: 16, boxSizing: "border-box" }}>
+    <div style={{ position: "absolute", left: 320, top: 0, right: 0, height: HEAD + 76, background: "#fff", borderBottom: `1px solid ${C.border}` }} />
+    <div style={{ position: "absolute", left: 350, top: 35, font: `600 29.4px ${FONT}`, color: C.text, letterSpacing: "-0.01em", whiteSpace: "nowrap" }}>{title}</div>
+    <div style={{ position: "absolute", right: 1920 - 917, top: 40, display: "flex", alignItems: "center", gap: 9, font: `500 18px ${FONT}`, color: "#374151", whiteSpace: "nowrap" }}>
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4B5563" strokeWidth="1.6" strokeLinejoin="round"><path d="M6 21V4a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v17M16 9h3a1 1 0 0 1 1 1v11M4 21h17M9 7h4M9 11h4M9 15h4" /></svg>{clinic}
+    </div>
+    <HBtn x={928} w={304} t="Provider's Day-Prep Station" />
+    <HBtn x={1242} w={228} t="Invite your Network" />
+    <HBtn x={1480} w={162} t="New Referral" solid />
+    <div style={{ position: "absolute", left: 1652, top: 31, width: 40, height: 40, borderRadius: 40, background: "#E5DEFC", color: "#5B34D6", font: `600 15px ${FONT}`, display: "flex", alignItems: "center", justifyContent: "center" }}>{user.ini}</div>
+    <div style={{ position: "absolute", left: 1703, top: 24, font: `400 20px ${FONT}`, color: C.text, whiteSpace: "nowrap", lineHeight: "28px" }}>{user.name}</div>
+    <div style={{ position: "absolute", left: 1703, top: 55, font: `400 17.5px ${FONT}`, color: C.muted, whiteSpace: "nowrap", lineHeight: "26px" }}>{user.role}</div>
+    <Icon n="chev" s={20} c={C.muted} style={{ position: "absolute", left: 1849, top: 42 }} />
+    <div style={{ position: "absolute", left: 350, top: 92, width: 400, height: 60, borderRadius: 12, border: `1.5px solid ${C.border}`, background: "#fff", display: "flex", alignItems: "center", gap: 10, paddingLeft: 16, boxSizing: "border-box" }}>
       <Icon n="sparkle" s={22} c="#8B5CF6" w={1.6} />
-      <span style={{ font: `400 18.5px ${FONT}`, color: C.faint }}>Ask how to embed, forward, invite...</span>
+      <span style={{ font: `400 17.5px ${FONT}`, color: C.faint }}>Ask how to embed, forward, invite...</span>
     </div>
   </>
 );
@@ -105,12 +132,18 @@ export const ChatFab: React.FC<{ x?: number; y?: number }> = ({ x = 1841, y = 82
   </div>
 );
 
-export const AppFrame: React.FC<{ active?: NavKey; group?: NavKey; children: React.ReactNode }> = ({ active, group, children }) => (
+/** A whole app page. `scroll` is how far the page is scrolled (0 = top, HEAD = header just out of view, as in the
+ * scrolled recordings). Children are laid out in content coordinates (y = 0 at HEAD px down the unscrolled page);
+ * `fixed` children (chat button, modals) stay put in the viewport. */
+export const AppFrame: React.FC<{ active?: NavKey; group?: NavKey; title?: string; clinic?: string; user?: User; scroll?: number; fixed?: React.ReactNode; children: React.ReactNode }> = ({ active, group, title, clinic, user, scroll = HEAD, fixed, children }) => (
   <FontGate>
     <AbsoluteFill style={{ background: C.page, fontFamily: FONT, overflow: "hidden" }}>
-      <TopBar />
-      {children}
-      <Sidebar active={active} group={group} />
+      <div style={{ position: "absolute", left: 0, top: -scroll, width: APP_W, height: APP_H + scroll }}>
+        <TopBar title={title} clinic={clinic} user={user} />
+        <div style={{ position: "absolute", left: 0, top: HEAD, width: APP_W }}>{children}</div>
+        <Sidebar active={active} group={group} clinic={clinic} />
+      </div>
+      {fixed}
     </AbsoluteFill>
   </FontGate>
 );
