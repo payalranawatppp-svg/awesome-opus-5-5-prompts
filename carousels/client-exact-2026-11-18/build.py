@@ -203,7 +203,7 @@ def run(pages, measure=False, pdf_out=None):
     for i, h in enumerate(pages):
         p = os.path.join(HERE, f'_{i:02d}.html'); open(p, 'w').write(h); paths.append(p)
     js = os.path.join(HERE, '_r.cjs'); rj = os.path.join(HERE, '_r.json')
-    open(js, 'w').write("const {chromium}=require('playwright');(async()=>{const b=await chromium.launch();const pg=await b.newPage({viewport:{width:1080,height:1350}});const R=[];for(const f of "
+    open(js, 'w').write("const {chromium}=require('playwright');(async()=>{const b=await chromium.launch();const pg=await b.newPage({viewport:{width:1080,height:1350},deviceScaleFactor:3});const R=[];for(const f of "
                         + json.dumps(paths) + "){await pg.goto('file://'+f);await pg.evaluate(()=>document.fonts.ready);await pg.waitForTimeout(250);"
                         + "R.push(await pg.evaluate(()=>document.querySelector('.stage')?(" + CHECK + ")():{stage:0,issues:[]}));"
                         + ("" if measure else "await pg.screenshot({path:f.replace('.html','.png')});await pg.pdf({path:f.replace('.html','.pdf'),width:'1080px',height:'1350px',printBackground:true,pageRanges:'1'});")
