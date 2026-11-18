@@ -220,3 +220,54 @@ export const RightSections: React.FC = () => (
     <Tc x={1422} cy={2956} s={14.8} c={C.muted}>Secure &nbsp;&nbsp; Last updated: 11/07/2026</Tc>
   </>
 );
+
+/** Messages tab: referral snapshot on the left, the wide Office Communication thread on the right. */
+export const MessagesTab: React.FC<{ patient: string; partner: string; clinic: string }> = ({ patient, partner, clinic }) => {
+  const MENTION = "#1D4E7E";
+  const msgs: { av: "A" | "logo"; name: string; role: string; time: string; cy: number; body: React.ReactNode; quote?: [string, string] }[] = [
+    { av: "logo", name: "Dr Lee Davis DDS, DDS (Gentle dental clinic)", role: "Associate Dentist", time: "Nov 7, 9:52 AM", cy: 589, body: <><span style={{ color: MENTION }}>@Flora Gibson</span> Seems like the x-ray are from may 2022 do you have the updated x-rays</> },
+    { av: "A", name: "Tom Colpack, DDS (Apex Dental)", role: "Owner Dentist", time: "Nov 7, 9:54 AM", cy: 661, body: <><span style={{ color: MENTION }}>@Barbara Smith</span> I updated the latest xray let me know if you need anything</> },
+    { av: "logo", name: "Dr Lee Davis DDS, DDS (Gentle dental clinic)", role: "Associate Dentist", time: "Nov 7, 9:55 AM", cy: 734, quote: ["Tom Colpack, DDS (Apex Dental)", "@Barbara Smith I updated the latest xray let me know if you need anything"], body: <><span style={{ color: MENTION }}>@Tom Colpack, DDS</span> Got the updated x-ray thank you</> },
+  ];
+  return (
+    <>
+      <Box x={350} y={418} w={325} h={600} />
+      <Tc x={371} cy={455} s={17.4} w={600}>Referral snapshot</Tc>
+      <Tc x={371} cy={494} s={14.9} c={C.muted}>Patient</Tc>
+      <Tc x={371} cy={525} s={17.8} c="#1F2937">{patient}</Tc>
+      <Pill x={371} y={558} h={29} bg="#ECFDF3" c="#15803D" t="Consultation Completed" s={15.1} px={10} />
+      {[["From", partner, 617], ["To", clinic, 655], ["Type", "Symptomatic", 693]].map(([l, v, cy]) => (
+        <React.Fragment key={l as string}>
+          <Tc x={371} cy={cy as number} s={17.5} c={C.muted}>{l}</Tc>
+          <Tc x={654} cy={cy as number} s={17.5} c="#374151" right>{v}</Tc>
+        </React.Fragment>
+      ))}
+      <Tc x={371} cy={741} s={18} w={500} c={C.purpleText}>Open full details →</Tc>
+
+      <Box x={716} y={418} w={1155} h={700} />
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke={C.purple} strokeWidth="2" strokeLinejoin="round" style={{ position: "absolute", left: 736, top: P(451) - 11 }}><path d="M4 4h16v12H8l-4 4z" /></svg>
+      <Tc x={766} cy={451} s={19.9} w={700}>Office Communication</Tc>
+      <Tc x={736} cy={481} s={15} c={C.muted}>Messaging with {partner}</Tc>
+      <HLine x={716} y={509} w={1155} />
+      <Tc x={736} cy={539} s={15} w={500} c={C.purpleText}>Show fewer messages</Tc>
+      {msgs.map((m, i) => (
+        <React.Fragment key={i}>
+          {m.av === "A"
+            ? <div style={{ position: "absolute", left: 736, top: P(m.cy) - 11, width: 45, height: 48, borderRadius: 8, background: "#2F7A1F", color: "#fff", font: `400 24px ${FONT}`, display: "flex", alignItems: "center", justifyContent: "center" }}>A</div>
+            : <Img src={staticFile("app/dcare-avatar.png")} style={{ position: "absolute", left: 734, top: P(m.cy) - 14, width: 48 }} />}
+          <Tc x={806} cy={m.cy} s={17.55} w={700}>{m.name} <span style={{ font: `400 15.3px ${FONT}`, color: C.muted, marginLeft: 3 }}>{m.role}&nbsp;&nbsp;{m.time}</span></Tc>
+          {m.quote && (
+            <div style={{ position: "absolute", left: 806, top: P(m.cy + 18), width: 1044, height: 53, background: "#F9FAFB", borderLeft: "2px solid #D1D5DB", borderRadius: 3, boxSizing: "border-box", padding: "3px 11px" }}>
+              <div style={{ font: `500 15.3px ${FONT}`, color: "#374151", lineHeight: "23px" }}>{m.quote[0]}</div>
+              <div style={{ font: `400 15px ${FONT}`, color: C.muted, lineHeight: "22px" }}>{m.quote[1]}</div>
+            </div>
+          )}
+          <Tc x={806} cy={m.cy + (m.quote ? 87 : 28)} s={18.7} c="#1F2937">{m.body}</Tc>
+        </React.Fragment>
+      ))}
+      <HLine x={716} y={852} w={1155} />
+      <Box x={731} y={871} w={1124} h={120} />
+      <Tc x={747} cy={896} s={17.6} c={C.faint}>Message {partner}</Tc>
+    </>
+  );
+};

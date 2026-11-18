@@ -3,7 +3,7 @@
 import React from "react";
 import { Img, staticFile } from "remotion";
 import { AppFrame, C, ChatFab, FONT, HEAD } from "./AppShell";
-import { LeftSections, RightSections } from "./CaseSections";
+import { LeftSections, MessagesTab, RightSections } from "./CaseSections";
 
 export type CaseData = {
   clinic: string; doctor: string; patient: string; dob: string; age: string; pronoun: string; gender: string; phone: string; email: string;
@@ -85,7 +85,7 @@ export const CaseDetailPage: React.FC<{ data?: CaseData; scroll?: number; tab?: 
         <div style={{ position: "absolute", left: 1900, top: 0, width: 20, height: 912, background: "#fff" }} />
         <svg width="12" height="10" viewBox="0 0 12 10" style={{ position: "absolute", left: 1904, top: 4 }}><path d="M1 9h10L6 1z" fill="#6B6B6B" /></svg>
         <svg width="12" height="10" viewBox="0 0 12 10" style={{ position: "absolute", left: 1904, top: 897 }}><path d="M1 1h10L6 9z" fill="#6B6B6B" /></svg>
-        <div style={{ position: "absolute", left: 1904, top: 25 + scroll * 0.06, width: 11, height: 186, borderRadius: 6, background: "#A3A3A3" }} />
+        <div style={{ position: "absolute", left: 1904, top: 25 + scroll * 0.06, width: 11, height: tab === "Messages" ? 661 : 186, borderRadius: 6, background: "#A3A3A3" }} />
       </>}>
       {/* back + actions */}
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#374151" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ position: "absolute", left: 350, top: y0(267) }}><path d="M19 12H5M12 19l-7-7 7-7" /></svg>
@@ -98,8 +98,9 @@ export const CaseDetailPage: React.FC<{ data?: CaseData; scroll?: number; tab?: 
       <Txt x={370} y={342} f={`500 20px ${FONT}`} c={tab === "Details" ? C.purpleText : "#374151"}>Details</Txt>
       <Txt x={475} y={343} f={`500 20px ${FONT}`} c={tab === "Messages" ? C.purpleText : "#374151"}>Messages</Txt>
       <div style={{ position: "absolute", left: 350, top: y0(384), width: 1521, height: 1, background: C.border }} />
-      <div style={{ position: "absolute", left: tab === "Details" ? 350 : 455, top: y0(382), width: tab === "Details" ? 105 : 130, height: 3, background: C.purple }} />
+      <div style={{ position: "absolute", left: tab === "Details" ? 350 : 455, top: y0(382), width: tab === "Details" ? 105 : 137, height: 3, background: C.purple }} />
       {/* details card */}
+      {tab === "Messages" ? <MessagesTab patient={data.patient} partner={data.partner} clinic={data.clinic} /> : <>
       <div style={{ position: "absolute", left: 350, top: y0(418), width: 981, height: 3400, background: "#fff", border: `1px solid ${C.border}`, borderRadius: 8, boxSizing: "border-box" }} />
       <Txt x={391} y={466} f={`400 17.6px ${FONT}`} c={C.muted}>Referred to</Txt>
       <Txt x={391} y={488} f={`400 24.4px ${FONT}`} c="#374151" lh={38}><div>{data.clinic}</div><div>{data.doctor}</div></Txt>
@@ -115,6 +116,7 @@ export const CaseDetailPage: React.FC<{ data?: CaseData; scroll?: number; tab?: 
       <OfficeComm partner={data.partner} />
       <LeftSections />
       <RightSections />
+      </>}
     </AppFrame>
   );
 };
