@@ -33,6 +33,23 @@ def parts(s):
     body = '\n'.join(l for l in body.strip().split('\n') if not l.startswith('#')).strip()
     extra = meta + '\n\nHashtags: ' + ' '.join(tags) + ('\n\nFirst comment' + clean(tail[0]).replace('**', '') if tail else '')
     return head.split('·', 1)[1].strip(), body, extra.replace('**', '')
+import sys, importlib.util
+spec = importlib.util.spec_from_file_location('cb', os.path.join(HERE, 'build.py')); cb = importlib.util.module_from_spec(spec); spec.loader.exec_module(cb)
+def vector_slides(slides, tag, out):
+    """Each slide printed straight to PDF by Chromium: text and shapes stay vector, images keep their full resolution."""
+    paths = []
+    for i, b in enumerate(slides, 1):
+        p = os.path.join(HERE, f'_s{i:02d}.html'); open(p, 'w').write(cb.base.slide(b, i, len(slides), tag)); paths.append(p)
+    j = os.path.join(HERE, '_v.cjs')
+    open(j, 'w').write("const {chromium}=require('playwright');(async()=>{const b=await chromium.launch();const p=await b.newPage();for(const f of " + repr(paths).replace("'", '"') + "){await p.goto('file://'+f);await p.evaluate(()=>document.fonts.ready);await p.waitForTimeout(200);await p.pdf({path:f.replace('.html','.pdf'),width:'1080px',height:'1350px',printBackground:true,pageRanges:'1'});}await b.close();})();")
+    subprocess.run(['node', j], check=True, cwd='/home/user/awesome-opus-5-5-prompts/reel')
+    w = PdfWriter()
+    for p in paths:
+        for pg in PdfReader(p.replace('.html', '.pdf')).pages: w.add_page(pg)
+        os.remove(p); os.remove(p.replace('.html', '.pdf'))
+    os.remove(j); w.write(os.path.join(HERE, out))
+vector_slides(cb.OS, '3 TASKS', 'carousel-A-oral-surgery-3-tasks.pdf')
+vector_slides(cb.INS, 'INSURANCE', 'carousel-B-endo-insurance.pdf')
 for key, slides, out, more in [
     ('A', 'carousel-A-oral-surgery-3-tasks.pdf', 'ToothReferral-Oral-Surgery-3-Tasks-Carousel.pdf', []),
     ('B', 'carousel-B-endo-insurance.pdf', 'ToothReferral-Endo-Insurance-Carousel.pdf',
