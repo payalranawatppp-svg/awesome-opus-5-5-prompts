@@ -136,17 +136,17 @@ OS = [
   + '<div class="body">Free your administrative and surgical team from mundane habits so you can focus on patient care and showcase your best clinical work. Upgrading to Tooth Referral gives your oral surgery team a purpose-built platform that streamlines obtaining referrals and eliminates administrative friction.</div>',
   card('ui-static-form.png', 40, 20, 400, rx=12, ry=24, rz=-4, z=-60) + card('ui-incoming.png', 400, 0, 540, rx=10, ry=-20, rz=2, z=40)
   + card('ui-statuses.png', 640, 150, 300, rx=10, ry=-20, rz=2, z=110), True),
- (head('Slide 2 · Task 1', 'TASK 1: STOP BURYING CASE CORRESPONDENCE IN EMAIL', 50, 'Oral Surgery Administrative Staff & Referring Dental Practices')
+ (head('Slide 2', 'STOP BURYING CASE CORRESPONDENCE IN EMAIL', 50, 'Oral Surgery Administrative Staff & Referring Dental Practices')
   + '<div class="main">Case emails sent to referring offices often get buried in patient files or cluttered inboxes.</div>'
   + '<div class="body">Instead of emailing PDF attachments or texting back and forth, Tooth Referral gives your referring general dentists access to the exact same software your oral surgery office uses. Data merges seamlessly inside the shared referral—eliminating lost emails, phone calls, text messages, and security breaches.</div>'
   + '<div class="kb"><b>Key Benefit</b><span>Secure, direct two-way data merging between your oral surgery office and referring dentists without relying on email chains.</span></div>',
   card('ui-messages.png', 90, 10, 820, rx=10, ry=14, rz=-1.5, z=0) + tag('Shared, live case file · both practices', 420, 230, 'g', 3), False),
- (head('Slide 3 · Task 2', 'TASK 2: MAINTAIN REAL-TIME VISIBILITY ACROSS YOUR SURGICAL TEAM', 46, 'Oral Surgery Practice Managers & Front Desk Teams')
+ (head('Slide 3', 'MAINTAIN REAL-TIME VISIBILITY ACROSS YOUR SURGICAL TEAM', 46, 'Oral Surgery Practice Managers & Front Desk Teams')
   + '<div class="main">Never guess a referral\'s status when staff members forget to log notes or are out sick.</div>'
   + '<div class="body">When busy team members forget to enter referral statuses into your Practice Management Software (PMS), tracking case progress grinds to a halt—especially if someone calls in sick. Tooth Referral automatically generates administrative notes ready to copy and paste straight into your PMS, giving your entire oral surgery team instant, real-time visibility into every patient’s status.</div>'
   + '<div class="kb"><b>Key Benefit</b><span>Total team continuity and PMS chart alignment, regardless of staffing changes or unexpected absences.</span></div>',
   card('ui-status-schedule.png', 80, 0, 400, rx=10, ry=18, rz=-2, z=-20) + card('ui-admin-journey.png', 520, 30, 400, rx=10, ry=-18, rz=2, z=60), False),
- (head('Slide 4 · Task 3', 'TASK 3: LET STAFF PREPARE NOTES; SURGEONS SIGN IN SECONDS', 48, 'Oral Surgeons & Surgical Assistants')
+ (head('Slide 4', 'LET STAFF PREPARE NOTES; SURGEONS SIGN IN SECONDS', 48, 'Oral Surgeons & Surgical Assistants')
   + '<div class="main">Free your surgical team from mundane manual typing while protecting the oral surgeon\'s valuable clinical time.</div>'
   + '<div class="body">Surgical assistants use Tooth Referral’s smart templates to draft complete consultation notes with auto-filled patient info, tooth numbers, dates, and X-rays. Once prepared, notes route directly to the oral surgeon for quick authorization via built-in e-signatures or seamless DocuSign integration.</div>'
   + '<div class="kb"><b>Key Benefit</b><span>Maximum clinical efficiency for oral surgeons, empowering surgical assistants to handle documentation.</span></div>',
@@ -231,4 +231,4 @@ def run(pages, measure=False, pdf_out=None):
 
 if __name__ == '__main__':
     build(INS, 'INSURANCE', POST_INS, 'ToothReferral-Endo-Insurance-Carousel-Exact.pdf')
-    build(OS, '3 TASKS', POST_OS, 'ToothReferral-Oral-Surgery-3-Tasks-Carousel-Exact.pdf')
+    build(OS, 'ORAL SURGERY', POST_OS, 'ToothReferral-Oral-Surgery-3-Tasks-Carousel-Exact.pdf')
