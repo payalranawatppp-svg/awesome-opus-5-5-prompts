@@ -7,7 +7,9 @@ app UI (cropped screenshots of the app and the app-faithful rebuilt note screens
 Text is the client's, word for word. Only two production notes are not printed on a slide: "Formatted as a slides-only
 PDF to be uploaded as a swipeable LinkedIn document" (an upload instruction) and "[link removed]" (shown as
 toothreferral.com). The "Visual Concept" lines direct the graphics. Vector PDF (Chromium print): sharp at any zoom."""
-import html, json, os, subprocess
+import html, json, os, subprocess, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import ui as UI
 from pypdf import PdfReader, PdfWriter
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -48,11 +50,11 @@ h1 {{ font-family: J; font-weight: 800; letter-spacing: -.03em; line-height: 1.0
 .row {{ display: flex; gap: 14px; font-size: 21px; line-height: 1.38; padding: 12px 16px; border-radius: 14px; background: rgba(255,255,255,.85); border: 1.5px solid #E4DBFF; }}
 body.dark .row {{ background: rgba(255,255,255,.07); border-color: rgba(196,181,253,.3); }}
 .row b {{ color: #4B2BB8; flex: none; width: 230px; }} body.dark .row b {{ color: #C4B5FD; }}
-.stage {{ flex: 1; position: relative; perspective: 2200px; margin-top: 18px; min-height: 0; }}
-.card3 {{ position: absolute; border-radius: 18px; overflow: hidden; background: #fff; transform-style: preserve-3d;
+.stage {{ flex: 1; position: relative; margin-top: 18px; min-height: 0; }}
+.card3 {{ position: absolute; border-radius: 14px; overflow: visible; background: transparent;
   box-shadow: 0 40px 80px rgba(40,20,110,.30), 0 6px 18px rgba(40,20,110,.18); border: 1.5px solid rgba(109,74,232,.25); }}
-.card3 img {{ display: block; width: 100%; }}
-.card3::after {{ content: ''; position: absolute; inset: 0; background: linear-gradient(115deg, rgba(255,255,255,.35) 0%, rgba(255,255,255,0) 30%); pointer-events: none; }}
+
+
 .tag3 {{ position: absolute; display: inline-flex; gap: 10px; align-items: center; padding: 12px 20px; border-radius: 999px; color: #fff; font-weight: 700; font-size: 21px; box-shadow: 0 14px 30px rgba(40,20,110,.3); }}
 .g {{ background: #1F9D6B; }} .p {{ background: #6D4AE8; }} .a {{ background: #E89D15; }}
 .foot {{ margin-top: 16px; display: flex; justify-content: space-between; align-items: center; font-size: 20px; font-weight: 700; color: #6D4AE8; }}
@@ -63,16 +65,20 @@ body.dark .cta {{ background: #fff; color: #4B2BB8; }}
 
 
 def card(img, left, top, width, rx=10, ry=-16, rz=0, z=0):
-    return (f'<div class="card3" style="left:{left}px;top:{top}px;width:{width}px;'
-            f'transform:rotateX({rx}deg) rotateY({ry}deg) rotateZ({rz}deg) translateZ({z}px)"><img src="{IMG(img)}"></div>')
+    """An app screen (vector HTML, ui.py) given a 3D look with 2D transforms only (skew + rotate + depth shadow),
+    so Chromium keeps it vector in the PDF: sharp at any zoom."""
+    sk = -ry * 0.2
+    sh = f'{-ry * 1.2:.0f}px {30 + z * 0.1:.0f}px 60px rgba(40,20,110,.30), 0 4px 14px rgba(40,20,110,.16)'
+    return (f'<div class="card3" style="left:{left}px;top:{top + z * -0.15:.0f}px;width:{width}px;box-shadow:{sh};'
+            f'transform:skewY({sk:.2f}deg) rotate({rz}deg)">{UI.ui(img, width)}</div>')
 
 
 def tag(text, left, top, tone='g', rot=0):
-    return f'<div class="tag3 {tone}" style="left:{left}px;top:{top}px;transform:translateZ(120px) rotate({rot}deg)">{E(text)}</div>'
+    return f'<div class="tag3 {tone}" style="left:{left}px;top:{top}px;transform:rotate({rot}deg)">{E(text)}</div>'
 
 
 def slide(n, total, tag_, text, visual, dark=False):
-    return (f'<html><head><meta charset="utf-8"><style>{CSS}</style></head><body class="{"dark" if dark else ""}"><div class="dots"></div>'
+    return (f'<html><head><meta charset="utf-8"><style>{CSS}{UI.CSS}</style></head><body class="{"dark" if dark else ""}"><div class="dots"></div>'
             f'<div class="page"><div class="top"><img src="{LOGO}"><span class="pg">{tag_} · {n}/{total}</span></div>{text}'
             f'<div class="stage">{visual}</div>'
             f'<div class="foot"><span>toothreferral.com</span><span>{"Swipe →" if n < total else "Just refer it."}</span></div></div></body></html>')
@@ -87,7 +93,7 @@ def head(label, h, size, aud=None):
 INS = [
  (head('Slide 1 · Hook & Audience', 'Endodontists, put down the microscope for a second—don’t worry, you’ll still find the MB2.', 56)
   + '<div class="body">Pretend you are the patient. How does your office obtain your referred patients\' dental insurance information? Switch from your static, one-way referral form to ToothReferral\'s embedded referral software. Tailored specifically for dental specialists like endodontists and oral surgeons, and general dentists.</div>',
-  card('ui-static-form.png', 40, 60, 470, rx=12, ry=24, rz=-4, z=-60) + card('ui-insurance-cards.png', 420, 20, 540, rx=10, ry=-20, rz=2, z=60)
+  card('ui-static-form.png', 70, 60, 450, rx=12, ry=24, rz=-4, z=-60) + card('ui-insurance-cards.png', 420, 20, 540, rx=10, ry=-20, rz=2, z=60)
   + tag('Static, one-way form', 60, 360, 'a', -4) + tag('ToothReferral', 640, 380, 'g', 3), True),
  (head('Slide 2 · The Core Problem', 'The Daily Endodontic Front Desk Struggle', 62)
   + '<div class="body" style="font-size:25px">Photos in personal texts, blurry faxes, a missing back side, and patients rescheduled because dental insurance cards weren\'t checked in time. That\'s insurance chaos. Say no to data breaches! Switch from old referral forms to ToothReferral referral software.</div>',
@@ -167,30 +173,33 @@ POST_OS = ('LinkedIn caption', "Three tasks still take hours in most oral surger
 
 
 def text_page(title, body):
-    return (f'<html><head><meta charset="utf-8"><style>{CSS}</style></head><body><div class="dots"></div><div class="page"><div class="top"><img src="{LOGO}"><span class="pg">CAPTION</span></div>'
+    return (f'<html><head><meta charset="utf-8"><style>{CSS}{UI.CSS}</style></head><body><div class="dots"></div><div class="page"><div class="top"><img src="{LOGO}"><span class="pg">CAPTION</span></div>'
             f'<div class="k"><span class="lab">{E(title)}</span></div><div style="margin-top:20px;background:#fff;border:1.5px solid #E4DBFF;border-radius:20px;padding:26px 30px;font-size:19.5px;line-height:1.5;white-space:pre-wrap">{E(body)}</div></div></body></html>')
 
 
 CHECK = '''() => { const s = document.querySelector('.stage').getBoundingClientRect(); const out = [];
  if (s.height < 160 && document.querySelectorAll('.card3').length) out.push('stage too small: ' + Math.round(s.height));
  document.querySelectorAll('.card3,.tag3').forEach(e => { const r = e.getBoundingClientRect(); if (r.bottom > s.bottom + 6) out.push('graphic below stage ' + Math.round(r.bottom - s.bottom)); if (r.right > 1080 - 20 || r.left < 20) out.push('graphic off side'); });
- return {stage: Math.round(s.height), issues: out}; }'''
+ let mb = 0; document.querySelectorAll('.card3,.tag3').forEach(e => { mb = Math.max(mb, e.getBoundingClientRect().bottom - s.top); });
+ return {stage: Math.round(s.height), content: Math.round(mb), issues: out}; }'''
 
 
 def fit(visual, stage_h):
     """Scale the 3D group to the room left under the text (the stage height differs per slide)."""
     if not visual: return ''
-    k = max(0.45, min(1.04, (stage_h - 20) / 470))
-    top = max(0, (stage_h - 470 * k) / 2)
-    return f'<div style="position:absolute;left:20px;top:{top:.0f}px;width:1080px;height:600px;transform:scale({k:.3f});transform-origin:50% 0;transform-style:preserve-3d">{visual}</div>'
+    stage_h, content_h = stage_h if isinstance(stage_h, tuple) else (stage_h, 470)
+    k = max(0.4, min(1.04, (stage_h - 16) / max(content_h, 1)))
+    top = max(0, (stage_h - content_h * k) / 2)
+    return f'<div style="position:absolute;left:20px;top:{top:.0f}px;width:1080px;height:600px;transform:scale({k:.3f});transform-origin:50% 0">{visual}</div>'
 
 
 def build(slides, tag_, post, out):
     total = len(slides)
     # pass 1: measure the stage height per slide
-    pages = [slide(i, total, tag_, t, '', d) for i, (t, v, d) in enumerate(slides, 1)]
-    hs = run(pages, measure=True)
-    pages = [slide(i, total, tag_, t, fit(v, hs[i - 1]['stage']), d) for i, (t, v, d) in enumerate(slides, 1)]
+    # pass 1: render each slide with its graphics at scale 1 to measure the room and the graphics' height
+    probe = lambda v: f'<div style="position:absolute;left:20px;top:0;width:1080px;height:600px">{v}</div>' if v else ''
+    hs = run([slide(i, total, tag_, t, probe(v), d) for i, (t, v, d) in enumerate(slides, 1)], measure=True)
+    pages = [slide(i, total, tag_, t, fit(v, (hs[i - 1]['stage'], hs[i - 1]['content'])), d) for i, (t, v, d) in enumerate(slides, 1)]
     pages.append(text_page(*post))
     res = run(pages, pdf_out=out)
     for i, r in enumerate(res[:total], 1):
@@ -203,7 +212,7 @@ def run(pages, measure=False, pdf_out=None):
     for i, h in enumerate(pages):
         p = os.path.join(HERE, f'_{i:02d}.html'); open(p, 'w').write(h); paths.append(p)
     js = os.path.join(HERE, '_r.cjs'); rj = os.path.join(HERE, '_r.json')
-    open(js, 'w').write("const {chromium}=require('playwright');(async()=>{const b=await chromium.launch();const pg=await b.newPage({viewport:{width:1080,height:1350},deviceScaleFactor:3});const R=[];for(const f of "
+    open(js, 'w').write("const {chromium}=require('playwright');(async()=>{const b=await chromium.launch();const pg=await b.newPage({viewport:{width:1080,height:1350}});const R=[];for(const f of "
                         + json.dumps(paths) + "){await pg.goto('file://'+f);await pg.evaluate(()=>document.fonts.ready);await pg.waitForTimeout(250);"
                         + "R.push(await pg.evaluate(()=>document.querySelector('.stage')?(" + CHECK + ")():{stage:0,issues:[]}));"
                         + ("" if measure else "await pg.screenshot({path:f.replace('.html','.png')});await pg.pdf({path:f.replace('.html','.pdf'),width:'1080px',height:'1350px',printBackground:true,pageRanges:'1'});")
