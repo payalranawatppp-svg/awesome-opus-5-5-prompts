@@ -158,3 +158,7 @@ meaning; case-acceptance calculation; HIPAA wording approval for marketing; mult
 - **Create New Referral** wizard (3 steps: Demographic Information, Procedures, Referring information): Office
   favorites, find a specialist nearby, filters by specialty / insurance plan / skill sets; patient insurance option 1
   secure link to the patient, option 2 upload manually; won't send without a receiving doctor.
+
+## Confirmed by the user (2026-11-18)
+- **Cloudflare spam protection** is live on the referral web form / secure patient insurance link. OK to say in ads:
+  "protected by Cloudflare spam protection". (Still avoid absolute claims like "zero breaches" or "guaranteed".)
