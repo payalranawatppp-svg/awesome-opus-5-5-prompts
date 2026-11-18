@@ -52,7 +52,7 @@ def _card_back():
 
 
 def ins_cards():
-    fb = lambda c, t: f'<div style="border:1px solid #E5E7EB;border-radius:10px;padding:10px;position:relative">{c}<span style="position:absolute;left:10px;bottom:10px;background:#3A3F55;color:#fff;font:700 11px I;padding:3px 8px;border-radius:4px">{t}</span></div>'
+    fb = lambda c, t: f'<div style="border:1px solid #E5E7EB;border-radius:10px;padding:10px;position:relative">{c}<span style="position:absolute;right:16px;top:16px;background:#3A3F55;color:#fff;font:700 11px I;padding:3px 8px;border-radius:4px">{t}</span></div>'
     kv = lambda k, v: f'<div><div class="lbl">{k}</div><div style="font:500 16px I;margin-top:3px">{v}</div></div>'
     return 760, f'''<div class="app"><div class="hd row" style="justify-content:space-between;align-items:flex-start"><div><h3>Insurance cards (1)</h3><div class="sub">Primary / secondary cards for this patient.</div></div>
 <div class="row"><span class="btn">{ico("plus", "#5B34D6", 14)} Add card</span><span class="btn">Request from patient</span></div></div>

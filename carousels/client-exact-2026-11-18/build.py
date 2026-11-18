@@ -51,11 +51,11 @@ h1 {{ font-family: J; font-weight: 800; letter-spacing: -.03em; line-height: 1.0
 body.dark .row {{ background: rgba(255,255,255,.07); border-color: rgba(196,181,253,.3); }}
 .row b {{ color: #4B2BB8; flex: none; width: 230px; }} body.dark .row b {{ color: #C4B5FD; }}
 .stage {{ flex: 1; position: relative; margin-top: 18px; min-height: 0; }}
-.card3 {{ position: absolute; border-radius: 14px; overflow: visible; background: transparent;
+.card3 {{ position: absolute; border-radius: 14px; overflow: visible; background: transparent; box-shadow: 0 34px 60px -10px rgba(40,20,110,.30), 0 8px 18px rgba(40,20,110,.12);
   box-shadow: 0 40px 80px rgba(40,20,110,.30), 0 6px 18px rgba(40,20,110,.18); border: 1.5px solid rgba(109,74,232,.25); }}
 
 
-.tag3 {{ position: absolute; display: inline-flex; gap: 10px; align-items: center; padding: 12px 20px; border-radius: 999px; color: #fff; font-weight: 700; font-size: 21px; box-shadow: 0 14px 30px rgba(40,20,110,.3); }}
+.tag3 {{ position: absolute; display: inline-flex; gap: 10px; align-items: center; padding: 12px 20px; border-radius: 999px; color: #fff; font-weight: 700; font-size: 21px; box-shadow: 0 14px 30px rgba(40,20,110,.28); }}
 .g {{ background: #1F9D6B; }} .p {{ background: #6D4AE8; }} .a {{ background: #E89D15; }}
 .foot {{ margin-top: 16px; display: flex; justify-content: space-between; align-items: center; font-size: 20px; font-weight: 700; color: #6D4AE8; }}
 body.dark .foot {{ color: #C4B5FD; }}
@@ -65,16 +65,14 @@ body.dark .cta {{ background: #fff; color: #4B2BB8; }}
 
 
 def card(img, left, top, width, rx=10, ry=-16, rz=0, z=0):
-    """An app screen (vector HTML, ui.py) given a 3D look with 2D transforms only (skew + rotate + depth shadow),
-    so Chromium keeps it vector in the PDF: sharp at any zoom."""
-    sk = -ry * 0.2
-    sh = f'{-ry * 1.2:.0f}px {30 + z * 0.1:.0f}px 60px rgba(40,20,110,.30), 0 4px 14px rgba(40,20,110,.16)'
-    return (f'<div class="card3" style="left:{left}px;top:{top + z * -0.15:.0f}px;width:{width}px;box-shadow:{sh};'
-            f'transform:skewY({sk:.2f}deg) rotate({rz}deg)">{UI.ui(img, width)}</div>')
+    """An app screen (HTML rebuilt from the real app, ui.py) tilted in real 3D with soft layered shadows.
+    Pages are rendered at 4x by Chromium, so the screens stay sharp while shadows and depth stay smooth."""
+    return (f'<div class="card3" style="left:{left}px;top:{top}px;width:{width}px;'
+            f'transform:perspective(1800px) rotateY({ry * 0.75:.1f}deg) rotateX({rx * 0.5:.1f}deg) rotateZ({rz}deg)">{UI.ui(img, width)}</div>')
 
 
 def tag(text, left, top, tone='g', rot=0):
-    return f'<div class="tag3 {tone}" style="left:{left}px;top:{top}px;transform:rotate({rot}deg)">{E(text)}</div>'
+    return f'<div class="tag3 {tone}" style="left:{left}px;top:{top}px;transform:rotate({rot}deg);z-index:9">{E(text)}</div>'
 
 
 def slide(n, total, tag_, text, visual, dark=False):
@@ -212,19 +210,21 @@ def run(pages, measure=False, pdf_out=None):
     for i, h in enumerate(pages):
         p = os.path.join(HERE, f'_{i:02d}.html'); open(p, 'w').write(h); paths.append(p)
     js = os.path.join(HERE, '_r.cjs'); rj = os.path.join(HERE, '_r.json')
-    open(js, 'w').write("const {chromium}=require('playwright');(async()=>{const b=await chromium.launch();const pg=await b.newPage({viewport:{width:1080,height:1350}});const R=[];for(const f of "
+    open(js, 'w').write("const {chromium}=require('playwright');(async()=>{const b=await chromium.launch();const pg=await b.newPage({viewport:{width:1080,height:1350},deviceScaleFactor:" + ("1" if measure else "4") + "});const R=[];for(const f of "
                         + json.dumps(paths) + "){await pg.goto('file://'+f);await pg.evaluate(()=>document.fonts.ready);await pg.waitForTimeout(250);"
                         + "R.push(await pg.evaluate(()=>document.querySelector('.stage')?(" + CHECK + ")():{stage:0,issues:[]}));"
-                        + ("" if measure else "await pg.screenshot({path:f.replace('.html','.png')});await pg.pdf({path:f.replace('.html','.pdf'),width:'1080px',height:'1350px',printBackground:true,pageRanges:'1'});")
+                        + ("" if measure else "await pg.screenshot({path:f.replace('.html','.png')});")
                         + "}require('fs').writeFileSync('" + rj + "',JSON.stringify(R));await b.close();})();")
     subprocess.run(['node', js], check=True, cwd='/home/user/awesome-opus-5-5-prompts/reel')
     R = json.load(open(rj)); os.remove(rj); os.remove(js)
     if pdf_out:
-        w = PdfWriter(); os.makedirs(os.path.join(HERE, 'preview'), exist_ok=True)
+        import img2pdf
+        os.makedirs(os.path.join(HERE, 'preview'), exist_ok=True); pngs = []
         for i, p in enumerate(paths):
-            for pg in PdfReader(p.replace('.html', '.pdf')).pages: w.add_page(pg)
-            os.remove(p.replace('.html', '.pdf')); os.replace(p.replace('.html', '.png'), os.path.join(HERE, 'preview', f'{"os" if "Oral" in pdf_out else "ins"}-{i + 1:02d}.png'))
-        w.write(os.path.join(HERE, pdf_out))
+            dst = os.path.join(HERE, 'preview', f'{"os" if "Oral" in pdf_out else "ins"}-{i + 1:02d}.png')
+            os.replace(p.replace('.html', '.png'), dst); pngs.append(dst)
+        lay = img2pdf.get_layout_fun((1080, 1350))  # points; 4x pixels inside = ~288 dpi equivalent at full size
+        open(os.path.join(HERE, pdf_out), 'wb').write(img2pdf.convert(pngs, layout_fun=lay))
     for p in paths: os.remove(p)
     return R
 
