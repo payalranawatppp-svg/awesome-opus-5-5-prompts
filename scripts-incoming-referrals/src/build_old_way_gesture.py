@@ -78,18 +78,36 @@ CLIPS = [
    ('4.1–7.2 s', 'The left hand returns to the chest and ' + NEW_HAND + '; on "same case" both hands briefly come together at the centre, palms meeting (a "joined" gesture), then the hands part; a reassuring nod.'),
    ('7.2–8.0 s', 'Back to the rest pose.')],
   'Wry, then reassuring.', ('Email chains · Phone tag', 'Both offices, one case')),
+ ('xx', 'Talking to each other', 'Who called back? Voicemail on voicemail. Scrap paper.', 'Tooth Referral keeps every message with the patient.',
+  [('0.0–0.4 s', 'Starts in the rest pose (the last frame of clip xx).'),
+   ('0.4–3.9 s', 'On "Who called back?": he mimes holding a phone to his ear with his right hand for one beat, eyebrows up. Then ' + OLD_HAND + ' for "Voicemail on voicemail. Scrap paper."; a small, tired head shake.'),
+   ('4.0–7.2 s', 'The left hand returns to the chest and ' + NEW_HAND + '; on "every message" the finger gives one small tap in the air; head tilts toward the raised hand and back to the lens, a warm nod.'),
+   ('7.2–8.0 s', 'Back to the rest pose.')],
+  'Wry, then warm and organised.', ('Voicemail on voicemail', 'Every message with the patient')),
  ('04', 'Knowing the status', 'Status? Sticky notes. Guesswork. Someone’s out sick.', 'Tooth Referral logs every step, notes ready to copy.',
   [('0.0–0.4 s', 'Starts in the rest pose (the last frame of clip 03).'),
    ('0.4–4.0 s', 'On "Status?": head tilts, brows up, a questioning look. Then ' + OLD_HAND + ' for "Sticky notes. Guesswork."; on "Someone’s out sick" the raised hand turns palm-up in a small shrug.'),
    ('4.1–7.2 s', 'The left hand returns to the chest and ' + NEW_HAND + '; on "every step" the finger makes two small taps in the air (checking boxes); a confident nod.'),
    ('7.2–8.0 s', 'Back to the rest pose.')],
   'Questioning, then confident.', ('Sticky notes · Guesswork', 'Every step logged, notes ready')),
+ ('xx', 'Insurance', 'Insurance? Texted card photos. Blurry. Days late.', 'Tooth Referral requests the card and flags stalled checks.',
+  [('0.0–0.4 s', 'Starts in the rest pose (the last frame of clip xx).'),
+   ('0.4–3.9 s', 'On "Insurance?": a small questioning head tilt. Then ' + OLD_HAND + '; on "Blurry" he squints slightly as if trying to read something; on "Days late" a slow head shake.'),
+   ('4.0–7.2 s', 'The left hand returns to the chest and ' + NEW_HAND + '; on "flags stalled checks" the finger gives one firm tap in the air; a confident nod.'),
+   ('7.2–8.0 s', 'Back to the rest pose.')],
+  'Frustrated, then in control.', ('Texted photos · Blurry · Days late', 'Card requested · Stalled checks flagged')),
  ('05', 'Consultation notes', 'Consult notes? Typed. Printed. Faxed back.', 'Tooth Referral drafts them from templates; the doctor signs in seconds.',
   [('0.0–0.4 s', 'Starts in the rest pose (the last frame of clip 04).'),
    ('0.4–3.8 s', OLD_HAND[0].upper() + OLD_HAND[1:] + '; on "Typed" his right hand mimes two seconds of quick typing at chest height; a slight head shake, tired half-smile.'),
    ('3.9–7.2 s', 'The left hand returns to the chest and ' + NEW_HAND + '; on "signs in seconds" the right hand makes one small quick signature flick in the air; a satisfied smile.'),
    ('7.2–8.0 s', 'Back to the rest pose.')],
   'Tired of the busywork, then satisfied.', ('Typed · Printed · Faxed', 'Templates + e-signature (DocuSign)')),
+ ('xx', 'Efficiency', 'Retyping names. Re-scanning X-rays. Same data, three systems.', 'Tooth Referral enters it once and fills it in everywhere.',
+  [('0.0–0.4 s', 'Starts in the rest pose (the last frame of clip xx).'),
+   ('0.4–3.9 s', OLD_HAND[0].upper() + OLD_HAND[1:] + '; on "Same data, three systems" his right hand holds up three fingers at chest height; brows pinched, a weary half-smile.'),
+   ('4.0–7.2 s', 'The right hand returns to the chest and the left hand lowers; then ' + NEW_HAND + ' on "enters it once" (one finger, a single firm point); on "fills it in everywhere" the hand opens and sweeps outward in a small arc; a satisfied smile.'),
+   ('7.2–8.0 s', 'Back to the rest pose.')],
+  'Weary of busywork, then satisfied.', ('Retyping · Re-scanning · 3 systems', 'Enter once, filled in everywhere')),
  ('06', 'New patients from your website', 'Website form? Static. Lands in an inbox. Missed.', 'Tooth Referral sends every lead to your referral list.',
   [('0.0–0.4 s', 'Starts in the rest pose (the last frame of clip 05).'),
    ('0.4–3.8 s', OLD_HAND[0].upper() + OLD_HAND[1:] + '; on "Missed" the raised hand opens and drops a few centimetres (a "dropped it" gesture); head shakes once.'),
@@ -115,6 +133,14 @@ CLIPS = [
    ('5.5–8.0 s', 'On "Tooth Referral" he opens his right palm toward the lens with a confident, warm smile and holds it still to the end (a clean last frame for the end card).')],
   'Confident, warm, final.', ('Stop chasing', 'Start working them, together')),
 ]
+
+
+import re
+_rn = []
+for i, c in enumerate(CLIPS, 1):
+    beats = [(t, re.sub(r'last frame of clip \w\w', f'last frame of clip {i - 1:02d}', g)) for t, g in c[4]]
+    _rn.append((f'{i:02d}', c[1], c[2], c[3], beats) + tuple(c[5:]))
+CLIPS = _rn
 
 
 def line(c): return f'{c[2]} {c[3]}'
@@ -163,11 +189,11 @@ td, th {{ vertical-align: top; padding: 2mm 2.4mm; border-bottom: 1px solid #ECE
 th {{ font-size: 8pt; letter-spacing: .1em; text-transform: uppercase; color: #6D4AE8; border-bottom: 1.5px solid #6D4AE8; }}
 ul {{ margin: 1mm 0; padding-left: 5mm; }}'''
 
-SUMMARY = ('Nine 8-second clips (about 72 s), vertical 9:16, one male host in a dim, warm studio, in the style of the reference reel: '
+SUMMARY = (f'{len(CLIPS)} clips of 8 seconds (about {len(CLIPS) * 8 // 60}:{len(CLIPS) * 8 % 60:02d}), vertical 9:16, one male host in a dim, warm studio, in the style of the reference reel: '
            'for each problem he points to the top-right of the frame for the old way (3–4 very short lines), then to the top-left for '
            'the Tooth Referral benefit (one sentence). Every clip starts on the last frame of the one before, so the clips cut together '
            'as one continuous take. No graphics are generated: the labels and icons go in during the edit.')
-HOW = ['Generate the 3 reference images first (studio background, host avatar, host start frame), then the clips in order 01–09.',
+HOW = ['Generate the 3 reference images first (studio background, host avatar, host start frame), then the clips in order 01–' + f'{len(CLIPS):02d}.',
        'For each clip after 01, use the last frame of the previous clip as the start image (in Flow: extend / use last frame), plus the background and avatar images as ingredients.',
        'His LEFT hand appears on the RIGHT of the frame: put the "old way" labels top-right and the "Tooth Referral" labels top-left, above each finger.',
        'Every prompt ends in the same rest pose, so cuts between clips are invisible.',
