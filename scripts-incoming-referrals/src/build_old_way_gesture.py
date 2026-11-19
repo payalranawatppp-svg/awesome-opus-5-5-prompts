@@ -212,3 +212,20 @@ for c in CLIPS:
            f'- **Emotion:** {c[5]}', '- **Gestures:**'] + [f'  - {t}: {g}' for t, g in c[4]] + ['', '> ' + prompt(c).replace('\n', '\n> '), '']
 open(MD, 'w').write('\n'.join(md))
 for c in CLIPS: print(c[0], words(c), 'words', round(words(c) / 2.4, 1), 's at 2.4 w/s')
+
+# ---- short version: clip plan + dialogue only (no prompts)
+PDF2 = os.path.join(D, 'Old-Way-vs-Tooth-Referral-Clip-Plan-and-Dialogue.pdf')
+rows = ''.join(f'<tr><td>{c[0]}</td><td><b>{E(c[1])}</b><div class="small">{E(c[5])}</div></td>'
+               f'<td><span class="old">{E(c[2])}</span><div class="small">Left hand points top-right and holds</div></td>'
+               f'<td><span class="new">{E(c[3])}</span><div class="small">Right hand points top-left and holds</div></td></tr>' for c in CLIPS)
+short = (f'<div class="k">Tooth Referral · hand-gesture series</div><h1>Don’t … / Do …</h1>'
+         f'<p class="small">{len(CLIPS)} clips × 8 s · vertical 9:16 · one male host · “Don’t” = the traditional way · “Do” = the Tooth Referral feature</p>'
+         f'<h2>Clip plan and dialogue</h2><table><tr><th>#</th><th>Clip</th><th>Don’t (old way)</th><th>Do (Tooth Referral)</th></tr>{rows}</table>'
+         f'<h2>Full dialogue</h2><div class="box">{E(vo)}</div>')
+doc = os.path.join(D, 'src', '_ow2.html'); js = os.path.join(D, 'src', '_ow2.cjs')
+open(doc, 'w').write(f'<html><head><meta charset="utf-8"><style>{css}</style></head><body>{short}</body></html>')
+open(js, 'w').write(f'''const {{ chromium }} = require('playwright');
+(async () => {{ const b = await chromium.launch(); const p = await b.newPage(); await p.goto('file://{doc}');
+await p.evaluate(() => document.fonts.ready); await p.pdf({{ path: '{PDF2}', format: 'A4', printBackground: true }}); await b.close(); }})();''')
+subprocess.run(['node', js], check=True, cwd='/home/user/awesome-opus-5-5-prompts/reel')
+os.remove(doc); os.remove(js)
