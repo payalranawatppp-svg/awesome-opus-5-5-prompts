@@ -50,7 +50,7 @@ const PLAN: Seg[] = [
   { id: "call", clip: "u04", a: 0.6, b: 7.75 },
   { id: "voicemail", clip: "u05", a: 0.3, b: 4.8 },
   { id: "tenmin", clip: "u06", a: 0.0, b: 6.3 },
-  { id: "missed", clip: "u07", a: 0.3, b: 7.9 },
+  { id: "missed", clip: "u07", a: 1.2, b: 7.9 }, // starts after u07's hang-up (0.4-1.0 s), which did not match the script
   { id: "square", a: 0, b: 6.9 },
   { id: "chat", a: 0, b: 9.5 },
   { id: "barbara", clip: "u08", a: 0.0, b: 6.6 },
