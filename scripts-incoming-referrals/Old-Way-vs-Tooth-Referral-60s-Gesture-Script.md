@@ -52,51 +52,51 @@ A woman in her early 30s who works in dental practice operations: calm, credible
 The timings are targets. VO is the spoken line; GESTURE is the avatar action.
 
 ### 0:00–0:05 | Hook
-- **VO:** "Your referral process is costing you patients. Here's the old way… and here's the Tooth Referral way."
+- **VO:** "Your referrals are leaking patients. The old way… the Tooth Referral way."
 - **GESTURE:**
-  - On "costing you patients", her right index finger rises straight up in front of her chest (a "listen" gesture), with a slight head tilt.
+  - On "leaking patients", her right index finger rises straight up in front of her chest (a "listen" gesture), with a slight head tilt.
   - On "the old way", she flicks the right hand out to the top right.
   - On "the Tooth Referral way", her left hand rises to the top left, with an eyebrow lift and a small smile.
   - Both hands then drop back to the chest.
 
 ### 0:05–0:12 | Pair 1: How referrals arrive
-- **VO (old way):** "Referrals arrive as faxes, PDFs and voicemails…"
+- **VO (old way):** "Faxes, PDFs, voicemails."
 - **GESTURE:** Her right index finger points up-right and holds, with a slight frown and a small head shake.
-- **VO (Tooth Referral):** "…with Tooth Referral, every referral lands in one place, complete, with the X-rays attached."
+- **VO (Tooth Referral):** "One complete referral, X-rays attached."
 - **GESTURE:** Her left index finger points up-left and holds, with a nod and a warm smile. Her right hand returns to the chest.
 
 ### 0:12–0:19 | Pair 2: Talking to the referring office
-- **VO (old way):** "Case updates get buried in email chains and phone tag."
+- **VO (old way):** "Updates buried in email and phone tag."
 - **GESTURE:** Her right finger points up-right. On "phone tag" she gives a small eye-roll toward the camera.
-- **VO (Tooth Referral):** "Here, you and the referring general dentist work in the same case: messages, files and updates stay with the patient."
-- **GESTURE:** Her left finger points up-left. On "the same case" she brings both hands together briefly, palms meeting (a "joined" gesture), then her left hand returns to point.
+- **VO (Tooth Referral):** "You and the referring general dentist work in the same case."
+- **GESTURE:** Her left finger points up-left. On "same case" she brings both hands together briefly, palms meeting (a "joined" gesture), then her left hand returns to point.
 
 ### 0:19–0:26 | Pair 3: Knowing the status
-- **VO (old way):** "When someone's out sick, nobody knows where a patient stands."
+- **VO (old way):** "Someone's out sick, and nobody knows where a patient stands."
 - **GESTURE:** Her right finger points up-right, then her hand turns palm-up with a small shrug.
-- **VO (Tooth Referral):** "Every status change is logged, with a note ready to copy straight into your practice management software."
+- **VO (Tooth Referral):** "Every status is logged, with a note ready for your practice management software."
 - **GESTURE:** Her left finger points up-left. On "logged" she gives a small tap-tap of the finger in the air, as if checking off a box.
 
 ### 0:26–0:33 | Pair 4: Consultation notes
-- **VO (old way):** "Consultation notes typed by hand, one letter at a time."
+- **VO (old way):** "Consultation notes typed by hand."
 - **GESTURE:** Her right finger points up-right, then both hands mime quick typing for half a second.
-- **VO (Tooth Referral):** "Your team drafts them from smart templates, and the doctor signs in seconds with DocuSign."
-- **GESTURE:** Her left finger points up-left. On "signs in seconds" she makes a small, quick signature flick in the air with her left hand.
+- **VO (Tooth Referral):** "Drafted from templates, signed in seconds with DocuSign."
+- **GESTURE:** Her left finger points up-left. On "signed in seconds" she makes a small, quick signature flick in the air with her left hand.
 
 ### 0:33–0:40 | Pair 5: New patients from your website
-- **VO (old way):** "A static form on your website that dumps into an inbox."
+- **VO (old way):** "A website form that dumps into an inbox."
 - **GESTURE:** Her right finger points up-right, then her hand makes a downward "drop" motion.
-- **VO (Tooth Referral):** "Our embedded form sends every new lead straight into your referral list, ready to act on."
+- **VO (Tooth Referral):** "An embedded form that sends every lead straight to your referral list."
 - **GESTURE:** Her left finger points up-left, then her hand sweeps in toward her chest ("brings it to you").
 
 ### 0:40–0:47 | Pair 6: Knowing your numbers
-- **VO (old way):** "Guessing which offices actually send you patients."
+- **VO (old way):** "Guessing who actually sends you patients."
 - **GESTURE:** Her right finger points up-right and her head tilts, with a skeptical look.
-- **VO (Tooth Referral):** "Live analytics show your top referrers, time to first contact, and every referral that's slipping through."
+- **VO (Tooth Referral):** "Live analytics: top referrers, time to first contact, every referral slipping through."
 - **GESTURE:** Her left finger points up-left, then she counts on three fingers: one for "top referrers", two for "time to first contact", three for "slipping through".
 
 ### 0:47–0:55 | Why Tooth Referral is different (both hands)
-- **VO:** "Here's the difference: Tooth Referral is a real, two-way platform, not a form, not an inbox, not AI guesswork. Secure, HIPAA compliant, and set up in minutes."
+- **VO:** "The difference? Tooth Referral is real two-way software. Not a form, not an inbox, not AI guesswork. Secure, HIPAA compliant, set up in minutes."
 - **GESTURE:**
   - Both hands come to the center.
   - On "not a form, not an inbox, not AI guesswork", she makes three small side-to-side "no" waves with her right hand.
@@ -113,16 +113,16 @@ The timings are targets. VO is the spoken line; GESTURE is the avatar action.
 
 ---
 
-## Full voice-over (about 150 words, for TTS or a teleprompter)
+## Full voice-over (about 140 words: about 56 s spoken plus gesture holds, for TTS or a teleprompter)
 
-> Your referral process is costing you patients. Here's the old way… and here's the Tooth Referral way.
-> Referrals arrive as faxes, PDFs and voicemails… with Tooth Referral, every referral lands in one place, complete, with the X-rays attached.
-> Case updates get buried in email chains and phone tag. Here, you and the referring general dentist work in the same case: messages, files and updates stay with the patient.
-> When someone's out sick, nobody knows where a patient stands. Every status change is logged, with a note ready to copy straight into your practice management software.
-> Consultation notes typed by hand, one letter at a time. Your team drafts them from smart templates, and the doctor signs in seconds with DocuSign.
-> A static form on your website that dumps into an inbox. Our embedded form sends every new lead straight into your referral list, ready to act on.
-> Guessing which offices actually send you patients. Live analytics show your top referrers, time to first contact, and every referral that's slipping through.
-> Here's the difference: Tooth Referral is a real, two-way platform, not a form, not an inbox, not AI guesswork. Secure, HIPAA compliant, and set up in minutes.
+> Your referrals are leaking patients. The old way… the Tooth Referral way.
+> Faxes, PDFs, voicemails. One complete referral, X-rays attached.
+> Updates buried in email and phone tag. You and the referring general dentist work in the same case.
+> Someone's out sick, and nobody knows where a patient stands. Every status is logged, with a note ready for your practice management software.
+> Consultation notes typed by hand. Drafted from templates, signed in seconds with DocuSign.
+> A website form that dumps into an inbox. An embedded form that sends every lead straight to your referral list.
+> Guessing who actually sends you patients. Live analytics: top referrers, time to first contact, every referral slipping through.
+> The difference? Tooth Referral is real two-way software. Not a form, not an inbox, not AI guesswork. Secure, HIPAA compliant, set up in minutes.
 > Stop chasing referrals. Start working them, together. Tooth Referral.
 
 ## Suggested labels for the edit (no graphics included here)
