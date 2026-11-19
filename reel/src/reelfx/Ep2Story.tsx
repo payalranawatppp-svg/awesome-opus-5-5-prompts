@@ -50,7 +50,7 @@ const PLAN: Seg[] = [
   { id: "call", clip: "u04", a: 0.6, b: 7.75 },
   { id: "voicemail", clip: "u05", a: 0.3, b: 4.8 },
   { id: "tenmin", clip: "u06", a: 0.0, b: 6.3 },
-  { id: "missed", clip: "u07", a: 1.2, b: 7.9 }, // starts after u07's hang-up (0.4-1.0 s), which did not match the script
+  { id: "missed", clip: "u07", a: 1.2, b: 6.9 }, // starts after u07's hang-up (0.4-1.0 s), which did not match the script
   { id: "square", a: 0, b: 6.9 },
   { id: "chat", a: 0, b: 9.5 },
   { id: "barbara", clip: "u08", a: 0.0, b: 6.6 },
@@ -94,12 +94,20 @@ const Clip: React.FC<{ s: (typeof SEGS)[number]; cutout?: boolean }> = ({ s, cut
   for (const w of WHIPS) { const k = Math.max(0, 1 - Math.abs(g - w) / 6); wx += (g < w ? -1 : 1) * k * 90; wb += k * 22; sc += k * 0.18; }
   const style: React.CSSProperties = { position: "absolute", left: 0, top: 0, width: 1080, height: 1920, transform: `translateX(${wx}px) scale(${sc})`, transformOrigin: "50% 36%", filter: wb > 0.5 ? `blur(${wb}px)` : undefined };
   const edge = (f: number) => Math.min(interpolate(f, [0, 3], [0, 1], clamp), interpolate(f, [s.f1 - s.f0 - 3, s.f1 - s.f0], [1, 0], clamp));
+  if (s.id === "missed" && !cutout) {
+    // u07 from 4.5 s shows Tanya reaching for and fumbling with the ringing phone (doesn't match the script, she's busy with
+    // a patient): hold her "one moment" finger as a freeze with the push-in running, while the call rings out.
+    const fz = RF(MISSED_FREEZE - s.a);
+    const v = <OffthreadVideo src={staticFile(`ep2/${s.clip}.mp4`)} muted trimBefore={RF(s.a)} style={style} />;
+    return <>{frame < fz ? v : <Freeze frame={fz}>{v}</Freeze>}<Audio src={staticFile(`ep2/${s.clip}.mp4`)} trimBefore={RF(s.a)} volume={edge} /></>;
+  }
   return cutout
     ? <OffthreadVideo src={staticFile(`ep2/${s.clip}-cut.webm`)} transparent muted trimBefore={RF(s.a)} style={style} />
     : REVOICED.has(s.clip!)
       ? <><OffthreadVideo src={staticFile(`ep2/${s.clip}.mp4`)} muted trimBefore={RF(s.a)} style={style} /><Audio src={staticFile(`ep2/voice/${s.clip}.wav`)} trimBefore={RF(s.a)} volume={edge} /></>
       : <OffthreadVideo src={staticFile(`ep2/${s.clip}.mp4`)} trimBefore={RF(s.a)} volume={edge} style={style} />;
 };
+const MISSED_FREEZE = 4.5;
 const CUTOUTS = new Set(["u01", "u06", "u11", "u12"]);
 const Footage: React.FC<{ layer: "plate" | "cutout" }> = ({ layer }) => (
   <>
@@ -281,6 +289,25 @@ const Backdrop: React.FC<{ a: number; b: number; clip: string; t: number }> = ({
   );
 };
 
+/** Incoming call alert while Tanya is busy with a patient: a phone chip that shakes on each ring, with expanding rings. */
+const Ringing: React.FC<{ a: number; b: number }> = ({ a, b }) => {
+  const frame = useCurrentFrame();
+  if (frame < a - 1 || frame > b + 6) return null;
+  const p = sp(frame, a, 10, 220), o = life(frame, a, b + 6, 6, 8), t = frame - a;
+  const shake = Math.sin(t * 1.9) * 7 * (Math.floor(t / 15) % 2 === 0 ? 1 : 0.15);
+  return (
+    <div style={{ position: "absolute", left: 0, right: 0, top: 1330, display: "flex", justifyContent: "center", opacity: o, perspective: 900 }}>
+      <div style={{ position: "relative", display: "inline-flex", alignItems: "center", gap: 18, padding: "20px 36px", borderRadius: 999, background: `linear-gradient(135deg, ${AMBER}, #FFD36E)`, color: INK, fontFamily: FONT_UI, fontWeight: 800, fontSize: 42, letterSpacing: "-0.02em", boxShadow: "0 18px 40px rgba(10,6,24,0.45)", transform: `rotateX(${(1 - p) * 80}deg) scale(${0.6 + 0.4 * p})`, transformOrigin: "50% 100%" }}>
+        <div style={{ position: "relative", width: 44, height: 44, transform: `rotate(${shake}deg)` }}>
+          {[0, 1].map((k) => { const r = ((t + k * 15) % 30) / 30; return <div key={k} style={{ position: "absolute", inset: -14 - r * 26, borderRadius: 999, border: `3px solid rgba(26,16,48,${0.45 * (1 - r)})` }} />; })}
+          <Icon d={I_PHONE} size={44} color={INK} />
+        </div>
+        Gentle Dental calling…
+      </div>
+    </div>
+  );
+};
+
 /** Tanya's phone tag as a 3D call log: outgoing to voicemail, the missed call back, then "square one". */
 const PhoneLog: React.FC = () => {
   const frame = useCurrentFrame();
@@ -351,6 +378,7 @@ const Product: React.FC = () => {
       <NoteToast a={T("call", 0.75)} b={T("call", 3.1)} />
       <Chip a={T("call", 3.3)} b={T("call", 5.4)} icon={I_PHONE} text="Calling Gentle Dental" tone="amber" y={1360} />
       <Chip a={T("voicemail", 3.5)} b={S.voicemail.f1} icon={I_PHONE} text="Voicemail · 1" tone="amber" y={1360} />
+      <Ringing a={T("missed", 3.9)} b={T("missed", 5.95)} />
       <Chip a={T("missed", 6.0)} b={S.missed.f1} icon={I_PHONE} text="Missed call · Gentle Dental" tone="amber" y={1360} />
       {/* the new way: Amanda moves it onto the case */}
       <Backdrop a={ch.f0} b={ch.f1} clip="u04" t={2.2} />
@@ -496,7 +524,7 @@ const Sfx: React.FC = () => {
       {s("chime", T("call", 0.75), 0.3)}{s("ring", T("call", 2.6), 0.08)}
       {s("ring", T("voicemail", 0.35), 0.32)}{s("ring", T("voicemail", 2.75), 0.32)}{s("vm-beep", T("voicemail", 4.3), 0.25)}{s("pop-1", T("voicemail", 3.5), 0.18)}
       {[0, 1, 2, 3, 4, 5].map((k) => <React.Fragment key={k}>{s(`tick-${k + 1}`, T("tenmin", 0.1 + k * 0.5), 0.14, 1)}</React.Fragment>)}
-      {s("ring", T("missed", 3.9), 0.34)}{s("ring-cut", T("missed", 5.95), 0.34)}{s("thud", T("missed", 6.05), 0.25)}
+      {s("ring", T("missed", 3.9), 0.34)}{s("ring-cut", T("missed", 5.95), 0.34)}
       {s("whoosh-short", S.square.f0, 0.28)}{s("pop-1", L("tanya_square", 0.0), 0.22)}{s("vm-beep", L("tanya_square", 1.1), 0.12)}{s("ring-cut", L("tanya_square", 2.55), 0.22)}{s("impact", L("tanya_square", 5.0), 0.2)}
       {s("riser", S.chat.f0 - 26, 0.2)}{s("whoosh-short", S.chat.f0, 0.3)}{s("click", L("amanda_stop", 1.9), 0.3)}{s("whoosh-short", L("amanda_stop", 2.7), 0.26)}{s("typing", L("amanda_mention", 0.15), 0.3)}{s("click", L("amanda_mention", 3.5), 0.4)}{s("blip-1", L("amanda_mention", 3.55), 0.25)}
       {s("whoosh-short", S.tail.f0, 0.24)}{s("pop-1", L("amanda_tail", 0.55), 0.2)}{s("pop-2", L("amanda_tail", 1.4), 0.2)}{s("pop-3", L("amanda_tail", 2.2), 0.2)}{s("chime", L("amanda_tail", 2.55), 0.28)}
