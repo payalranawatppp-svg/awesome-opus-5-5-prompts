@@ -85,26 +85,27 @@ SKEP = 'a small sceptical head shake, brows pinched.'
 YES = 'head turns a few degrees toward the raised hand and back to the lens, eyebrows lift, a confident smile and a small nod.'
 # (n, title, old line, new line, beats, emotion, edit labels (old, new)) - lines kept as short as the reference reel
 _C = [
- ('The hook', 'Still doing referrals the old way?', 'Here’s the Tooth Referral way.',
+ ('The hook', 'Don’t run referrals the old way.', 'Do this instead, with Tooth Referral.',
   'one eyebrow raised, head tilted, a playful challenge.', YES, 'Curious, playful challenge, then confident.', ('', '')),
- ('How referrals arrive', 'Faxes. PDFs. Voicemails.', 'Tooth Referral: one complete referral.',
+ ('How referrals arrive', 'Don’t chase faxes, PDFs and voicemails.', 'Do get one complete Tooth Referral, X-rays attached.',
   'a slow, weary head shake across the three words, brows pinched.', YES, 'Mildly exasperated, then sure.', ('Faxes · PDFs · Voicemails', 'One complete referral')),
- ('Updates', 'Email chains.', 'One case. Both offices.', SKEP, YES, 'Wry, then reassuring.', ('Email chains', 'One case, both offices')),
- ('Communication', 'Phone tag.', 'Every message, with the patient.', 'a quick eye-roll and half-smile toward the lens.', YES, 'Wry, then warm.', ('Phone tag', 'Every message with the patient')),
- ('Status', 'Sticky notes.', 'Every step, logged.', 'head tilts, a questioning look.', 'two small confident nods.', 'Questioning, then sure.', ('Sticky notes', 'Every step logged')),
- ('Insurance', 'Blurry card photos.', 'Card requested. Checks tracked.', 'he squints slightly, as if trying to read something.', 'a firm, confident nod.', 'Frustrated, then in control.', ('Blurry card photos', 'Card requested · Checks tracked')),
- ('Consultation notes', 'Typed by hand.', 'Templates. Signed in seconds.', SKEP, 'a satisfied smile and a small nod.', 'Tired, then satisfied.', ('Typed by hand', 'Templates · e-signature')),
- ('Efficiency', 'Same data, three systems.', 'Enter once. Done.', 'brows pinched, a weary half-smile.', 'a firm nod on "once", then a satisfied smile.', 'Weary, then satisfied.', ('Same data × 3 systems', 'Enter once')),
- ('Website leads', 'Web form to an inbox.', 'Leads, straight to your list.', SKEP, YES, 'Matter-of-fact, then upbeat.', ('Form → inbox', 'Leads → your list')),
- ('Your numbers', 'Gut feeling.', 'Live analytics.', 'head tilts, a sceptical squint.', YES, 'Sceptical, then sharp.', ('Gut feeling', 'Live analytics')),
- ('What makes it different', 'Not a form. Not AI hype.', 'Real two-way software. HIPAA compliant.',
+ ('Updates', 'Don’t bury case updates in email chains.', 'Do keep both offices in one shared case.', SKEP, YES, 'Wry, then reassuring.', ('Email chains', 'One case, both offices')),
+ ('Communication', 'Don’t play phone tag with the referring office.', 'Do keep every message with the patient.', 'a quick eye-roll and half-smile toward the lens.', YES, 'Wry, then warm.', ('Phone tag', 'Every message with the patient')),
+ ('Status', 'Don’t track patients on sticky notes.', 'Do log every step, with notes ready to copy.', 'head tilts, a questioning look.', 'two small confident nods.', 'Questioning, then sure.', ('Sticky notes', 'Every step logged')),
+ ('Insurance', 'Don’t verify insurance from blurry texted photos.', 'Do request the card and track every check.', 'he squints slightly, as if trying to read something.', 'a firm, confident nod.', 'Frustrated, then in control.', ('Blurry card photos', 'Card requested · Checks tracked')),
+ ('Consultation notes', 'Don’t type consult notes by hand.', 'Do draft from templates and sign in seconds.', SKEP, 'a satisfied smile and a small nod.', 'Tired, then satisfied.', ('Typed by hand', 'Templates · e-signature')),
+ ('Efficiency', 'Don’t enter the same data in three systems.', 'Do enter it once, and you’re done.', 'brows pinched, a weary half-smile.', 'a firm nod on "once", then a satisfied smile.', 'Weary, then satisfied.', ('Same data × 3 systems', 'Enter once')),
+ ('Website leads', 'Don’t let web leads sit in an inbox.', 'Do send them straight to your referral list.', SKEP, YES, 'Matter-of-fact, then upbeat.', ('Form → inbox', 'Leads → your list')),
+ ('Your numbers', 'Don’t run your referrals on gut feeling.', 'Do watch them in live analytics.', 'head tilts, a sceptical squint.', YES, 'Sceptical, then sharp.', ('Gut feeling', 'Live analytics')),
+ ('What makes it different', 'Don’t settle for a form or AI hype.', 'Do use real two-way software, HIPAA compliant.',
   'a small side-to-side head shake on each "Not".', 'serious, trustworthy eye contact and a slow nod.', 'Emphatic, then trustworthy.', ('Not a form · Not AI hype', 'Two-way · HIPAA compliant')),
- ('The close', 'Stop chasing referrals.', 'Start working them. Together.', 'a small knowing head shake.', 'a warm smile.', 'Confident, warm, final.', ('Stop chasing', 'Start working them')),
+ ('The close', 'Don’t chase referrals.', 'Do work them, together.', 'a small knowing head shake.', 'a warm smile.', 'Confident, warm, final.', ('Stop chasing', 'Start working them')),
 ]
 CLIPS = []
 for i, (t, o, n, oa, na, emo, lab) in enumerate(_C, 1):
     last = ('This is the final clip: the right-hand point holds still to the very last frame, with a confident warm smile into the lens (a clean last frame for the end card).'
             if i == len(_C) else None)
+    lab = (('Don’t: ' + lab[0]) if lab[0] else '', ('Do: ' + lab[1]) if lab[1] else '')
     CLIPS.append(('xx', t, o, n, beats(o, n, oa, na, first=i == 1, last=last), emo, lab))
 
 
@@ -138,7 +139,7 @@ def prompt(c):
         'DIALOGUE (on camera, lip-synced). Exactly one spoken line in this clip. VOICE-OVER: none.',
         f'Speaker: THE HOST, facing the camera. Voice: {VOICE}.',
         f'Line (say it once, word for word, nothing added, nothing left out, with a clear pause of about one second between the two halves): "{c[2]} … {c[3]}"',
-        'Timing: two short, punchy halves with a silent hold between them: the first half at about 0.6 s, the second half at about 4.0 s, each followed by a held pointing pose; finished speaking by about 6.5 s.',
+        'Timing: two halves. The "Don’t…" half from about 0.9 s to 3.5 s, while the left-hand point holds; the "Do…" half from about 4.2 s to 7.2 s, while the right-hand point holds; then the point holds silently to the end.',
         'Lip sync: mouth movement matches every word exactly. No narration, no extra words.',
         'Audio: only the one spoken line and quiet, warm room tone. ' + NEG])
 
@@ -163,14 +164,14 @@ th {{ font-size: 8pt; letter-spacing: .1em; text-transform: uppercase; color: #6
 ul {{ margin: 1mm 0; padding-left: 5mm; }}'''
 
 SUMMARY = (f'{len(CLIPS)} clips of 8 seconds (about {len(CLIPS) * 8 // 60}:{len(CLIPS) * 8 % 60:02d}), vertical 9:16, one male host in a dim, warm studio, in the style of the reference reel: '
-           'for each problem he points to the top-right of the frame for the old way (a few punchy words), then to the top-left for '
-           'the better way (a few punchy words), holding each point like the reference reel. The brand name is said only twice (clips 01–02). Every clip starts on the last frame of the one before, so the clips cut together '
+           'for each problem he points to the top-right of the frame for the traditional way (“Don’t…”), then to the top-left for '
+           'the Tooth Referral feature (“Do…”), holding each point for the whole line, like the reference reel. The brand name is said only twice (clips 01–02). Every clip starts on the last frame of the one before, so the clips cut together '
            'as one continuous take. No graphics are generated: the labels and icons go in during the edit.')
 HOW = ['Generate the 3 reference images first (studio background, host avatar, host start frame), then the clips in order 01–' + f'{len(CLIPS):02d}.',
        'For each clip after 01, use the last frame of the previous clip as the start image (in Flow: extend / use last frame), plus the background and avatar images as ingredients.',
        'His LEFT hand appears on the RIGHT of the frame: put the "old way" labels top-right and the "Tooth Referral" labels top-left, above each finger.',
        'The old way is always his LEFT hand pointing up to the top-right of the frame, held for the whole old-way line; then that hand drops and his RIGHT hand points up to the top-left, held for the whole Tooth Referral line and to the end of the clip. Each next clip starts from that right-hand point, so the cuts are invisible.',
-       'Lines are short on purpose, like the reference reel. Each clip is generated at 8 s with held points; in the edit, trim the silent holds so each pair lands in about 3–5 s (the whole video then runs about 45–55 s).',
+       'Every clip is one “Don’t … / Do …” pair, like the reference reel: the Don’t half names the traditional waste, the Do half names the Tooth Referral feature. Each pair fits in about 7 s of the 8 s clip.',
        'The name “Tooth Referral” is spoken only in clips 01 and 02; after that, the logo and labels carry the brand.',
        'If Flow’s voice drifts between clips, re-record the full voice-over below in ElevenLabs with one male voice and lip-sync to it.']
 
