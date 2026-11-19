@@ -18,7 +18,7 @@ The reference reel ("Don't do this / Do this", 31 s) works like this:
 - We don't use the "Don't / Do" wording. Our pair is **"The old way"** (right hand, up-right) and **"With Tooth Referral"** (left hand, up-left).
 - The video runs 60 s instead of 30 s, and it closes on why Tooth Referral is different.
 
-**Edit note:** the avatar's right hand appears on the right side of the frame. Put "The old way" labels top right and "With Tooth Referral" labels top left, above where each finger points.
+**Edit note:** "right" and "left" for the hands in this script mean the sides of the frame as the viewer sees them (the avatar's own left hand appears on the right of the frame). Put "The old way" labels top right and "With Tooth Referral" labels top left, above where each finger points.
 
 ---
 
