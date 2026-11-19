@@ -58,12 +58,27 @@ NEW_HAND = ('his RIGHT hand (it appears on the LEFT side of the frame) rises to 
             'pointing up toward the TOP-LEFT corner of the frame, and holds there steadily')
 
 # (n, title, old lines, benefit, beats [(time, gesture/head)], emotion, edit labels (old, new))
+RIGHT_UP = ('RIGHT-HAND POINT: his RIGHT hand raised just above shoulder height, index finger extended, pointing up toward the TOP-LEFT '
+            'corner of the frame and held still; his LEFT hand down, relaxed at his side/lower chest, out of the way')
+
+
 def beats(old, new, old_acc, new_acc, first=False, last=False):
-    b = [('0.0–0.4 s', 'Starts in the rest pose.' if first else 'Starts in the rest pose (the last frame of clip xx).'),
-         ('0.4–3.6 s', OLD_HAND[0].upper() + OLD_HAND[1:] + f'; he says "{old}" at about 0.6 s, short and punchy, then holds the point in silence; ' + old_acc),
-         ('3.7–7.0 s', 'The left hand drops back to the chest and ' + NEW_HAND + f'; he says "{new}" at about 4.0 s, then holds the point in silence; ' + new_acc)]
-    b.append(('7.0–8.0 s', last or 'The right hand lowers smoothly; back to the rest pose, eyes on the lens.'))
-    return b
+    start = ('Starts in the rest pose.' if first else
+             'Starts exactly as the last frame of clip xx: the RIGHT-HAND POINT (right hand still raised toward the top-left, left hand down).')
+    switch_in = ('his hands part from the chest' if first else 'his RIGHT hand lowers all the way down, out of the gesture')
+    return [
+        ('0.0–0.4 s', start),
+        ('0.4–0.9 s', f'In one smooth move {switch_in} and his LEFT hand (it appears on the RIGHT side of the frame) rises to just above '
+                          'shoulder height, index finger extended, pointing up toward the TOP-RIGHT corner of the frame.'),
+        ('0.9–3.7 s', f'He HOLDS that left-hand point completely still, finger locked toward the top-right, the WHOLE time he says "{old}". '
+                          'The finger does not move, tap or drop until the line is finished; only his head and face react: ' + old_acc),
+        ('3.7–4.2 s', 'The switch, in one smooth move: his LEFT hand drops all the way down (out of the gesture) as his RIGHT hand (it '
+                          'appears on the LEFT side of the frame) rises to just above shoulder height, index finger extended, pointing up '
+                          'toward the TOP-LEFT corner of the frame. Only one hand is ever up.'),
+        ('4.2–8.0 s', f'He HOLDS that right-hand point completely still, finger locked toward the top-left, the WHOLE time he says "{new}", '
+                          'and KEEPS holding it after the line, all the way to the last frame of the clip (the next clip starts from this pose). '
+                          'Only his head and face react: ' + new_acc + (' ' + last if last else '')),
+    ]
 
 
 SKEP = 'a small sceptical head shake, brows pinched.'
@@ -73,22 +88,22 @@ _C = [
  ('The hook', 'Still doing referrals the old way?', 'Here’s the Tooth Referral way.',
   'one eyebrow raised, head tilted, a playful challenge.', YES, 'Curious, playful challenge, then confident.', ('', '')),
  ('How referrals arrive', 'Faxes. PDFs. Voicemails.', 'Tooth Referral: one complete referral.',
-  'a tiny tap of the finger on each word, as if ticking a list; ' + SKEP, YES, 'Mildly exasperated, then sure.', ('Faxes · PDFs · Voicemails', 'One complete referral')),
+  'a slow, weary head shake across the three words, brows pinched.', YES, 'Mildly exasperated, then sure.', ('Faxes · PDFs · Voicemails', 'One complete referral')),
  ('Updates', 'Email chains.', 'One case. Both offices.', SKEP, YES, 'Wry, then reassuring.', ('Email chains', 'One case, both offices')),
  ('Communication', 'Phone tag.', 'Every message, with the patient.', 'a quick eye-roll and half-smile toward the lens.', YES, 'Wry, then warm.', ('Phone tag', 'Every message with the patient')),
- ('Status', 'Sticky notes.', 'Every step, logged.', 'head tilts, a questioning look.', 'two small taps of the finger in the air (checking boxes); a confident nod.', 'Questioning, then sure.', ('Sticky notes', 'Every step logged')),
- ('Insurance', 'Blurry card photos.', 'Card requested. Checks tracked.', 'he squints slightly, as if trying to read something.', 'one firm tap of the finger in the air; a confident nod.', 'Frustrated, then in control.', ('Blurry card photos', 'Card requested · Checks tracked')),
- ('Consultation notes', 'Typed by hand.', 'Templates. Signed in seconds.', SKEP, 'a tiny signature flick of the finger; a satisfied smile.', 'Tired, then satisfied.', ('Typed by hand', 'Templates · e-signature')),
- ('Efficiency', 'Same data, three systems.', 'Enter once. Done.', 'brows pinched, a weary half-smile.', 'one single firm point on "once"; a satisfied smile.', 'Weary, then satisfied.', ('Same data × 3 systems', 'Enter once')),
+ ('Status', 'Sticky notes.', 'Every step, logged.', 'head tilts, a questioning look.', 'two small confident nods.', 'Questioning, then sure.', ('Sticky notes', 'Every step logged')),
+ ('Insurance', 'Blurry card photos.', 'Card requested. Checks tracked.', 'he squints slightly, as if trying to read something.', 'a firm, confident nod.', 'Frustrated, then in control.', ('Blurry card photos', 'Card requested · Checks tracked')),
+ ('Consultation notes', 'Typed by hand.', 'Templates. Signed in seconds.', SKEP, 'a satisfied smile and a small nod.', 'Tired, then satisfied.', ('Typed by hand', 'Templates · e-signature')),
+ ('Efficiency', 'Same data, three systems.', 'Enter once. Done.', 'brows pinched, a weary half-smile.', 'a firm nod on "once", then a satisfied smile.', 'Weary, then satisfied.', ('Same data × 3 systems', 'Enter once')),
  ('Website leads', 'Web form to an inbox.', 'Leads, straight to your list.', SKEP, YES, 'Matter-of-fact, then upbeat.', ('Form → inbox', 'Leads → your list')),
  ('Your numbers', 'Gut feeling.', 'Live analytics.', 'head tilts, a sceptical squint.', YES, 'Sceptical, then sharp.', ('Gut feeling', 'Live analytics')),
  ('What makes it different', 'Not a form. Not AI hype.', 'Real two-way software. HIPAA compliant.',
-  'a small side-to-side "no" wag of the finger on each "Not".', 'serious, trustworthy eye contact and a slow nod.', 'Emphatic, then trustworthy.', ('Not a form · Not AI hype', 'Two-way · HIPAA compliant')),
+  'a small side-to-side head shake on each "Not".', 'serious, trustworthy eye contact and a slow nod.', 'Emphatic, then trustworthy.', ('Not a form · Not AI hype', 'Two-way · HIPAA compliant')),
  ('The close', 'Stop chasing referrals.', 'Start working them. Together.', 'a small knowing head shake.', 'a warm smile.', 'Confident, warm, final.', ('Stop chasing', 'Start working them')),
 ]
 CLIPS = []
 for i, (t, o, n, oa, na, emo, lab) in enumerate(_C, 1):
-    last = ('On the last word his right hand opens, palm toward the lens, with a confident warm smile, and holds still to the end (a clean last frame for the end card).'
+    last = ('This is the final clip: the right-hand point holds still to the very last frame, with a confident warm smile into the lens (a clean last frame for the end card).'
             if i == len(_C) else None)
     CLIPS.append(('xx', t, o, n, beats(o, n, oa, na, first=i == 1, last=last), emo, lab))
 
@@ -112,13 +127,13 @@ def prompt(c):
         f'Ingredients: the Host studio background image, the Host avatar image. Start image: {start}. Continue from the exact position '
         'in the start image: the clip begins on that frame, with the same camera angle, framing, lighting and background, and the same '
         'pose, hands and expression, and the action continues naturally from there, with no jump, reset or change of outfit. '
-        f'Starting position: {REST}.',
+        f'Starting position: {REST if c[0] == "01" else RIGHT_UP}.',
         LOOK,
         'Background (exactly as the Host studio background image): ' + BG,
         'Character (exactly as the Host avatar image): THE HOST: ' + AV_LOOK,
         f'Emotion: {c[5]}',
-        'Hand gestures and head movement, one by one, in this order (only one hand points at a time; the other hand rests at the chest; '
-        'his eyes stay on the lens, never following the finger): ' + beats,
+        'Hand gestures and head movement, one by one, in this order. One hand points at a time and HOLDS its point the whole time he talks about that side; '
+        'the other hand is down. His eyes stay on the lens, never following the finger: ' + beats,
         'Framing: mid-chest up, centred, locked-off; both raised hands stay fully inside the frame, finger tips well below the top edge.',
         'DIALOGUE (on camera, lip-synced). Exactly one spoken line in this clip. VOICE-OVER: none.',
         f'Speaker: THE HOST, facing the camera. Voice: {VOICE}.',
@@ -154,7 +169,7 @@ SUMMARY = (f'{len(CLIPS)} clips of 8 seconds (about {len(CLIPS) * 8 // 60}:{len(
 HOW = ['Generate the 3 reference images first (studio background, host avatar, host start frame), then the clips in order 01–' + f'{len(CLIPS):02d}.',
        'For each clip after 01, use the last frame of the previous clip as the start image (in Flow: extend / use last frame), plus the background and avatar images as ingredients.',
        'His LEFT hand appears on the RIGHT of the frame: put the "old way" labels top-right and the "Tooth Referral" labels top-left, above each finger.',
-       'Every prompt ends in the same rest pose, so cuts between clips are invisible.',
+       'The old way is always his LEFT hand pointing up to the top-right of the frame, held for the whole old-way line; then that hand drops and his RIGHT hand points up to the top-left, held for the whole Tooth Referral line and to the end of the clip. Each next clip starts from that right-hand point, so the cuts are invisible.',
        'Lines are short on purpose, like the reference reel. Each clip is generated at 8 s with held points; in the edit, trim the silent holds so each pair lands in about 3–5 s (the whole video then runs about 45–55 s).',
        'The name “Tooth Referral” is spoken only in clips 01 and 02; after that, the logo and labels carry the brand.',
        'If Flow’s voice drifts between clips, re-record the full voice-over below in ElevenLabs with one male voice and lip-sync to it.']
