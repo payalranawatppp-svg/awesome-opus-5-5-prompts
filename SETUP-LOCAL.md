@@ -15,7 +15,7 @@ cd awesome-opus-5-5-prompts
 
 ## 2. Skills
 
-- 125 skills are in `.claude/skills/` and work as soon as Claude Code is opened in this folder.
+- 157 skills are in `.claude/skills/` (full list: `docs/memory/INSTALLED-SKILLS.md`) and work as soon as Claude Code is opened in this folder.
 - Two were left out of the repository for licence reasons; install them with their own installers:
   - Remotion best practices: `npx skills add remotion-dev/skills`
   - PDF: already on your claude.ai account (`anthropic-skills:pdf`), nothing to do.
@@ -41,5 +41,5 @@ Render a video: `cd reel && npx remotion render <CompositionId> out.mp4` (ids: `
 - API keys (ElevenLabs): never committed. Keep them in an environment variable, e.g. `ELEVENLABS_API_KEY`.
 - Large rebuildable intermediates (`*-src.mp4`, `*-cut.mp4`, listed in `.gitignore`): `reel/scripts/build_rr_src.sh`
   and `reel/scripts/build_cb_src.sh` rebuild them from the clips in `reel/public/footage/`.
-- Claude Code "memory": these sessions saved none; the decisions and notes are in the skills' `LOCAL.md` files and in
+- Claude Code "memory": `CLAUDE.md` (auto-loaded) imports `docs/memory/PROJECT-MEMORY.md`; the first-message prompt is in `docs/memory/START-NEW-SESSION-PROMPT.md`. Decisions are also in the skills' `LOCAL.md` files and
   the header comment of each composition in `reel/src/reelfx/`.
