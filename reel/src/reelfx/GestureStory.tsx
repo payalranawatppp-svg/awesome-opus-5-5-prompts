@@ -17,7 +17,6 @@ import React from "react";
 import { AbsoluteFill, Audio, Img, OffthreadVideo, Sequence, interpolate, spring, staticFile, useCurrentFrame } from "remotion";
 import anchorsJson from "../data/gx-anchors.json";
 import wordsJson from "../data/gx-voice2-words.json";
-import speechJson from "../data/gx-speech.json";
 import { FontGate } from "../effects";
 import { CaseDetailPage } from "../app/CaseDetail";
 import { IncomingPage } from "../app/Incoming";
@@ -68,17 +67,35 @@ const CLIPS: Clip[] = [
 ];
 /** Each clip becomes pieces: the spoken Don't and Do lines at normal speed, and the silent parts (the lift, the hand switch
  * between the two sides, the return to rest) speed-ramped, so the pauses disappear without a single jump cut. */
-type Piece = { a: number; b: number; rate: number; f0: number; f1: number };
-const SPEECH = speechJson as unknown as Record<string, { d0: number; d1: number; o0: number; o1: number }>;
-const RAMP = { lead: 3.6, gap: 4.2, tail: 3.6 };
+type Piece = { a: number; b: number; rate: number; f0: number; f1: number; seam: boolean; punch: number };
+/** Every silence is cut. Each clip keeps only its spoken words (voice2 word timings): the Don't line and the Do line, each
+ * split again wherever the speaker pauses for more than 0.25 s. Cuts between the Don't and Do lines and between clips are
+ * zoom-through seams (the hand switch is hidden at peak blur); cuts inside a line are punch-in jump cuts. */
 const SEGS = (() => {
   let at = 0;
   return CLIPS.map((c) => {
-    const sp = SPEECH[c.n]; const end = c.n === "12" ? sp.o1 : c.b;
-    const raw: [number, number, number][] = [[c.a, sp.d0, RAMP.lead], [sp.d0, sp.d1, 1], [sp.d1, sp.o0, RAMP.gap], [sp.o0, sp.o1, 1], [sp.o1, end, RAMP.tail]];
+    const raw = (WORDS[`w${c.n}.wav`]?.words ?? []).map((w) => {
+      let st = w.start, en = w.end;
+      if (en - st > 0.8) { if (w.word.trim().startsWith("Don")) st = en - 0.45; else en = st + 0.7; }
+      return { ...w, start: st, end: en };
+    });
+    let ws = raw;
+    if (c.n === "12") { const k = ws.findIndex((w) => w.word.includes("together")); ws = ws.slice(0, k + 1); }
+    const groups: { half: number; words: typeof ws }[] = [];
+    for (const w of ws) {
+      const half = w.start < 4.0 ? 0 : 1; const g = groups[groups.length - 1];
+      if (g && g.half === half && w.start - g.words[g.words.length - 1].end < 0.25) g.words.push(w);
+      else groups.push({ half, words: [w] });
+    }
     const f0 = RF(at); const pieces: Piece[] = [];
-    for (const [a, b, rate] of raw) { if (b - a < 0.02) continue; const p0 = RF(at); at += (b - a) / rate; pieces.push({ a, b, rate, f0: p0, f1: RF(at) }); }
-    return { ...c, b: end, f0, f1: RF(at), pieces };
+    let punch = 1;
+    groups.forEach((g, i) => {
+      const a0 = Math.max(c.a, g.words[0].start - 0.12), b0 = g.words[g.words.length - 1].end + 0.15;
+      const seam = i === 0 || g.half !== groups[i - 1].half;
+      punch = seam ? 1 : punch === 1 ? 1.06 : 1;
+      const p0 = RF(at); at += b0 - a0; pieces.push({ a: a0, b: b0, rate: 1, f0: p0, f1: RF(at), seam, punch });
+    });
+    return { ...c, b: pieces[pieces.length - 1].b, f0, f1: RF(at), pieces };
   });
 })();
 /** Clip time at global frame g inside segment s. */
@@ -328,20 +345,23 @@ const Sfx: React.FC = () => (
  * the swap happens at peak blur, and the incoming shot keeps pushing in from slightly small while the blur clears. Same
  * sign of motion on both sides, so the cut reads as one continuous camera move. */
 const SEAM = 6;
+const ALLP = SEGS.flatMap((x) => x.pieces);
+/** Frames where a zoom-through seam happens (the start of every seam piece except the very first). */
+const SEAMS = ALLP.filter((p, i) => i > 0 && p.seam).map((p) => p.f0);
 const seamAt = (g: number) => {
-  for (const s of SEGS.slice(0, -1)) {
-    const d = g - s.f1; // <0 before the cut, >=0 after
+  for (const c of SEAMS) {
+    const d = g - c;
     if (d >= -SEAM && d < 0) { const k = ease((d + SEAM) / SEAM); return { scale: 1 + 0.09 * k, blur: 16 * k }; }
     if (d >= 0 && d < SEAM) { const k = ease(1 - d / SEAM); return { scale: 1 - 0.04 * k, blur: 16 * k }; }
   }
   return { scale: 1, blur: 0 };
 };
-const SEAMS = SEGS.slice(0, -1).map((s) => s.f1);
+const punchAt = (g: number) => (ALLP.find((p) => g >= p.f0 && g < p.f1)?.punch ?? 1);
 
 const Scene: React.FC = () => {
   const f = useCurrentFrame(); const m = seamAt(f);
   return (
-    <AbsoluteFill style={{ transform: `scale(${1.045 * m.scale})`, transformOrigin: `${ZX}px ${ZY}px`, filter: m.blur > 0.3 ? `blur(${m.blur}px)` : undefined }}>
+    <AbsoluteFill style={{ transform: `scale(${1.045 * m.scale * punchAt(f)})`, transformOrigin: `${ZX}px ${ZY}px`, filter: m.blur > 0.3 ? `blur(${m.blur}px)` : undefined }}>
       {SEGS.map((s) => s.pieces.map((p, i) => <Sequence key={`${s.n}p${i}`} from={p.f0} durationInFrames={p.f1 - p.f0}><Shot s={s} p={p} layer="plate" /></Sequence>))}
       {/* last frame held under the end card */}
       <Sequence from={END_AT} durationInFrames={GX_DURATION - END_AT}><OffthreadVideo src={staticFile("gx/c12.mp4")} muted trimBefore={RF(SEGS[SEGS.length - 1].b - 0.05)} style={{ position: "absolute", width: 1080, height: 1920, transform: `scale(1.035)`, transformOrigin: `${ZX}px ${ZY}px` }} /></Sequence>
