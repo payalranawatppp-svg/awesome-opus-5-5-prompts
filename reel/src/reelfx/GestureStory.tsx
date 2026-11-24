@@ -70,7 +70,7 @@ const CLIPS: Clip[] = [
  * between the two sides, the return to rest) speed-ramped, so the pauses disappear without a single jump cut. */
 type Piece = { a: number; b: number; rate: number; f0: number; f1: number };
 const SPEECH = speechJson as unknown as Record<string, { d0: number; d1: number; o0: number; o1: number }>;
-const RAMP = { lead: 2.2, gap: 2.6, tail: 2.2 };
+const RAMP = { lead: 3.6, gap: 4.2, tail: 3.6 };
 const SEGS = (() => {
   let at = 0;
   return CLIPS.map((c) => {
