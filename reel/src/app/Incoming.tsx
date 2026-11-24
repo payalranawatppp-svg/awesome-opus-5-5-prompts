@@ -6,9 +6,9 @@ type Row = { ini: string; col: string; name: string[]; dob: string; from: string
 const STATUS = { done: ["Consultation completed", "#FCE7F3", "#8A1D5E"] as [string, string, string], fresh: ["New", "#E6E7FD", "#3B2E7E"] as [string, string, string] };
 export const ROWS: Row[] = [
   { ini: "CW", col: "#D21BD0", name: ["Carter", "Wiley"], dob: "11/21/2001", from: [". Gentle", "Dental"], to: ["St. Andrew's", "Family", "Dental"], status: STATUS.done, rec: "11/07/2026, 9:41 AM", upd: "11/07/2026, 10:09 AM", h: 125, hl: true, mail: true, at: 3 },
-  { ini: "CS", col: "#5BD5F2", name: ["Conrad Smith"], dob: "11/03/2000", from: ["North", "Carolina", "Hospital", "Dentistry"], to: ["St. Andrew's", "Family", "Dental"], status: STATUS.fresh, rec: "11/04/2026, 6:39 PM", upd: "11/04/2026, 6:42 PM", h: 153 },
-  { ini: "JC", col: "#5A0E8A", name: ["john carter"], dob: "11/06/1990", from: ["The", "Dental", "Center"], to: ["St. Andrew's", "Family", "Dental"], status: STATUS.fresh, rec: "11/04/2026, 9:04 AM", upd: "11/04/2026, 9:04 AM", h: 126 },
-  { ini: "GM", col: "#C98712", name: ["grorge", "miranda"], dob: "11/11/1997", from: ["Great", "West", "Endodontics"], to: ["St. Andrew's", "Family", "Dental"], status: STATUS.fresh, rec: "11/02/2026, 10:40 AM", upd: "11/02/2026, 10:40 AM", h: 126 },
+  { ini: "CS", col: "#5BD5F2", name: ["Conrad Smith"], dob: "11/03/2000", from: ["Riverside", "Family", "Dentistry"], to: ["St. Andrew's", "Family", "Dental"], status: STATUS.fresh, rec: "11/04/2026, 6:39 PM", upd: "11/04/2026, 6:42 PM", h: 153 },
+  { ini: "JC", col: "#5A0E8A", name: ["John Carter"], dob: "11/06/1990", from: ["Maple", "Grove", "Dental"], to: ["St. Andrew's", "Family", "Dental"], status: STATUS.fresh, rec: "11/04/2026, 9:04 AM", upd: "11/04/2026, 9:04 AM", h: 126 },
+  { ini: "GM", col: "#C98712", name: ["George", "Miranda"], dob: "11/11/1997", from: ["Bright", "Smile", "Dental"], to: ["St. Andrew's", "Family", "Dental"], status: STATUS.fresh, rec: "11/02/2026, 10:40 AM", upd: "11/02/2026, 10:40 AM", h: 126 },
 ];
 const COL = { cb: 414, name: 455, dob: 684, from: 811, to: 945, status: 1056, rec: 1282, upd: 1491, act: 1687 };
 

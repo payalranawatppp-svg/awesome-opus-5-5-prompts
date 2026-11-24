@@ -33,6 +33,7 @@ import { LeadFormsPage } from "./app/LeadForms";
 import { AnalyticsPage } from "./app/Analytics";
 import { ConsultNoteModal, SuccessToast } from "./app/ConsultNote";
 import { AbsoluteFill } from "remotion";
+import { GestureStory, GX_DURATION } from "./reelfx/GestureStory";
 import { APP_W, APP_H } from "./app/AppShell";
 import { KawasakiReveal, KAW_W, KAW_H, KAW_FPS, KAW_DURATION } from "./reelfx/KawasakiReveal";
 import { AN_DURATION, AN_H, AN_W, AnalyticsDemo } from "./reelfx/AnalyticsDemo";
@@ -71,6 +72,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="App-Analytics-FullPage" component={AnalyticsPage} defaultProps={{ chrome: false }} durationInFrames={1} fps={30} width={APP_W} height={4785} />
     <Composition id="App-ConsultNote-Modal" component={() => <AbsoluteFill style={{ background: "#fff" }}><ConsultNoteModal backdrop={false} /><SuccessToast /></AbsoluteFill>} durationInFrames={60} fps={30} width={APP_W} height={869} />
     <Composition id="App-CaseDetail-FullPage" component={CaseDetailPage} defaultProps={{ chrome: false }} durationInFrames={1} fps={30} width={APP_W} height={3053} />
+    <Composition id="Gesture-DontDo" component={GestureStory} durationInFrames={GX_DURATION} fps={30} width={1080} height={1920} />
     <Composition id="Kawasaki-Reveal" component={KawasakiReveal} durationInFrames={KAW_DURATION} fps={KAW_FPS} width={KAW_W} height={KAW_H} />
     <Composition id="Ep4-FrontRow" component={Ep4Story} durationInFrames={EP4_DURATION} fps={30} width={1080} height={1920} />
     <Composition id="CompletionNote-Ep4" component={CompletionNote} durationInFrames={CN_DURATION} fps={30} width={CN_W} height={CN_H} />

@@ -10,8 +10,8 @@ export type CaseData = {
   partner: string;
 };
 export const RECORDED_CASE: CaseData = {
-  clinic: "Gentle dental clinic", doctor: "Dr Lee Davis DDS, DDS", patient: "Carter Wiley", dob: "11/21/2001", age: "24", pronoun: "He/Him",
-  gender: "Male", phone: "789-568-4265", email: "umairasma31@gmail.com", partner: "Apex Dental",
+  clinic: "St. Andrew’s Family Dental", doctor: "Oral Surgery Team", patient: "Carter Wiley", dob: "11/21/2001", age: "24", pronoun: "He/Him",
+  gender: "Male", phone: "789-568-4265", email: "c.wiley@example.com", partner: "Gentle Dental",
 };
 
 const y0 = (y: number) => y - HEAD; // unscrolled page y -> content y
@@ -30,8 +30,8 @@ const Txt: React.FC<{ x: number; y: number; f: string; c?: string; children: Rea
 type Msg = { av: "A" | "logo"; name: string[]; role: string; time: string; body: React.ReactNode; quote?: [string, string] };
 const MENTION = "#1D4E7E";
 export const RECORDED_MSGS: Msg[] = [
-  { av: "A", name: ["Tom Colpack, DDS (Apex Dental)"], role: "Owner Dentist", time: "Nov 7, 9:54 AM", body: <><span style={{ color: MENTION }}>@Barbara Smith</span> I updated the latest xray let me know if you need anything</> },
-  { av: "logo", name: ["Dr Lee Davis DDS, DDS (Gentle dental", "clinic)"], role: "Associate Dentist", time: "Nov 7, 9:55 AM", quote: ["Tom Colpack, DDS (Apex Dental)", "@Barbara Smith I updated the latest xray let me know"], body: <><span style={{ color: MENTION }}>@Tom Colpack, DDS</span> Got the updated x-rays thank you</> },
+  { av: "A", name: ["Barbara (Gentle Dental)"], role: "Front Desk Coordinator", time: "Nov 7, 9:54 AM", body: <><span style={{ color: MENTION }}>@Tanya</span> I updated the latest x-ray, let me know if you need anything</> },
+  { av: "logo", name: ["Tanya (St. Andrew’s Family", "Dental)"], role: "Front Desk Coordinator", time: "Nov 7, 9:55 AM", quote: ["Barbara (Gentle Dental)", "@Tanya I updated the latest x-ray, let me know"], body: <><span style={{ color: MENTION }}>@Barbara</span> Got the updated x-rays, thank you</> },
 ];
 
 /** The Office Communication side panel (x 1371..1870). `top` is the unscrolled page y of the card. */
@@ -48,7 +48,7 @@ export const OfficeComm: React.FC<{ top?: number; partner: string; msgs?: Msg[];
         {msgs.map((m, i) => (
           <div key={i} style={{ position: "relative", padding: "20px 20px 0 90px" }}>
             {m.av === "A"
-              ? <div style={{ position: "absolute", left: 20, top: 23, width: 46, height: 49, borderRadius: 8, background: "#2F7A1F", color: "#fff", font: `400 24px ${FONT}`, display: "flex", alignItems: "center", justifyContent: "center" }}>A</div>
+              ? <div style={{ position: "absolute", left: 20, top: 23, width: 46, height: 49, borderRadius: 8, background: "#2F7A1F", color: "#fff", font: `400 24px ${FONT}`, display: "flex", alignItems: "center", justifyContent: "center" }}>B</div>
               : <Img src={staticFile("app/dcare-avatar.png")} style={{ position: "absolute", left: 20, top: 20, width: 48 }} />}
             <div style={{ font: `700 17.55px ${FONT}`, color: C.text, lineHeight: "27px" }}>{m.name.map((n, k) => <div key={k}>{n}</div>)}</div>
             <div style={{ font: `400 15.3px ${FONT}`, color: C.muted, marginTop: 9, lineHeight: "22px" }}>{m.role}&nbsp;&nbsp;{m.time}</div>

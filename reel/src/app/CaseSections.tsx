@@ -81,7 +81,7 @@ export const LeftSections: React.FC = () => (
     <Tc x={440} cy={2097} s={15.6} c={C.muted}>Visible to both offices.</Tc>
     <Box x={410} y={2119} w={863} h={81} b="#8B5CF6" r={8} style={{ borderWidth: 1.5, boxShadow: "0 0 0 3px rgba(139,92,246,.12)" }} />
     <Tc x={426} cy={2148} s={18.6}>Consultation Note</Tc>
-    <Tc x={426} cy={2174} s={15.6} c={C.muted}>Signed 11/07/2026 · by Barbara Smith</Tc>
+    <Tc x={426} cy={2174} s={15.6} c={C.muted}>Signed 11/07/2026 · by Barbara</Tc>
     <OBtn x={908} y={2134} w={98} h={46} t="View" icon={D.eye} s={18.3} />
     <OBtn x={1016} y={2134} w={89} h={46} t="Edit" icon={D.pen} s={18.3} />
     <OBtn x={1115} y={2134} w={141} h={46} t="Download" icon={D.dl} s={18.3} />
@@ -130,13 +130,13 @@ export const LeftSections: React.FC = () => (
   </>
 );
 export const ACTIVITY: [string, string, string, string?, string?][] = [
-  ["Barbara Smith", "11/7/2026 10:10 am", "“General” was added to the document section"],
-  ["Barbara Smith", "11/7/2026 10:09 am", "consultation completed Referral", "Administrative Note: Consultation completed on 11/07/2026.", "Patient has scheduled surgery on 11/07/2026."],
-  ["Jane White", "11/7/2026 10:04 am", "scheduled Referral"],
-  ["Jane White", "11/7/2026 10:02 am", "updated: x-rays added"],
-  ["Dr Lee Davis DDS, DDS", "11/7/2026 9:55 am", "scheduled Referral", "Administrative Note: Spoke with patient and scheduled on 12/07/2026"],
-  ["Dr Lee Davis DDS, DDS", "11/7/2026 9:45 am", "received Referral"],
-  ["Tom Colpack", "11/7/2026 9:41 am", "new referral created for Gentle dental clinic"],
+  ["Barbara", "11/7/2026 10:10 am", "“General” was added to the document section"],
+  ["Barbara", "11/7/2026 10:09 am", "consultation completed Referral", "Administrative Note: Consultation completed on 11/07/2026.", "Patient has scheduled surgery on 11/07/2026."],
+  ["Amanda", "11/7/2026 10:04 am", "scheduled Referral"],
+  ["Amanda", "11/7/2026 10:02 am", "updated: x-rays added"],
+  ["Tanya", "11/7/2026 9:55 am", "scheduled Referral", "Administrative Note: Spoke with patient and scheduled on 12/07/2026"],
+  ["Tanya", "11/7/2026 9:45 am", "received Referral"],
+  ["Barbara", "11/7/2026 9:41 am", "new referral created for St. Andrew’s Family Dental"],
 ];
 
 const CHIPS: [string, number, number, string, string][] = [
@@ -193,20 +193,20 @@ export const RightSections: React.FC = () => (
     <Pill x={1453} y={2210} h={26} bg="#EDE9FE" c={PURPLE_T} t="Surgery 11/07/2026" s={15.5} w={600} px={10} />
     <Tc x={1402} cy={2298} s={17.6} c={C.purpleText}>Show all 9 notes</Tc>
     {/* note 1 */}
-    <div style={{ position: "absolute", left: 1402, top: P(2360) - 20, width: 40, height: 40, borderRadius: 40, background: "#4F4AA8", color: "#fff", font: `500 15px ${FONT}`, display: "flex", alignItems: "center", justifyContent: "center" }}>JW</div>
-    <Tc x={1457} cy={2352} s={17.7}>Jane White</Tc>
+    <div style={{ position: "absolute", left: 1402, top: P(2360) - 20, width: 40, height: 40, borderRadius: 40, background: "#4F4AA8", color: "#fff", font: `500 15px ${FONT}`, display: "flex", alignItems: "center", justifyContent: "center" }}>AM</div>
+    <Tc x={1457} cy={2352} s={17.7}>Amanda</Tc>
     <Tc x={1457} cy={2377} s={14.9} c={C.muted}>Nov 7, 10:14 AM</Tc>
     <IconAt x={1768} cy={2380} d={D.reply} c="#9CA3AF" s={16} />
     <IconAt x={1795} cy={2380} d={D.pen} c="#9CA3AF" s={16} />
     <div style={{ position: "absolute", left: 1457, top: P(2393), width: 383, height: 55, background: "#F3F4F6", borderLeft: "2px solid #C4B5FD", borderRadius: 3, boxSizing: "border-box", padding: "3px 11px", overflow: "hidden" }}>
-      <div style={{ font: `600 14.9px ${FONT}`, color: "#374151", lineHeight: "23px" }}>Barbara Smith</div>
+      <div style={{ font: `600 14.9px ${FONT}`, color: "#374151", lineHeight: "23px" }}>Barbara</div>
       <div style={{ font: `400 14.9px ${FONT}`, color: C.muted, lineHeight: "22px", whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>Consultation completed on 11/07/2026. Patient has scheduled surgery</div>
     </div>
-    <div style={{ position: "absolute", left: 1457, top: P(2451), width: 400, font: `400 18.5px ${FONT}`, color: "#1F2937", lineHeight: "30.7px" }}><span style={{ color: C.purpleText }}>@Barbara Smith</span> Tooth extraction completed successfully today. Could you please schedule a routine follow-up call with the patient in two weeks (around November 21) to check on healing and recovery?</div>
+    <div style={{ position: "absolute", left: 1457, top: P(2451), width: 400, font: `400 18.5px ${FONT}`, color: "#1F2937", lineHeight: "30.7px" }}><span style={{ color: C.purpleText }}>@Barbara</span> Tooth extraction completed successfully today. Could you please schedule a routine follow-up call with the patient in two weeks (around November 21) to check on healing and recovery?</div>
     <HLine x={1402} y={2618} w={438} />
     {/* note 2 */}
     <div style={{ position: "absolute", left: 1402, top: P(2655) - 20, width: 40, height: 40, borderRadius: 40, background: "#D9A021", color: "#fff", font: `500 15px ${FONT}`, display: "flex", alignItems: "center", justifyContent: "center" }}>BS</div>
-    <Tc x={1457} cy={2647} s={17.7}>Barbara Smith</Tc>
+    <Tc x={1457} cy={2647} s={17.7}>Barbara</Tc>
     <Tc x={1457} cy={2671} s={14.9} c={C.muted}>Nov 7, 10:09 AM</Tc>
     <IconAt x={1795} cy={2672} d={D.reply} c="#9CA3AF" s={16} />
     <Tc x={1457} cy={2701} s={18} c="#374151">Status changed to <b style={{ fontWeight: 600 }}>{"“Consultation Completed”"}</b></Tc>
@@ -225,9 +225,9 @@ export const RightSections: React.FC = () => (
 export const MessagesTab: React.FC<{ patient: string; partner: string; clinic: string }> = ({ patient, partner, clinic }) => {
   const MENTION = "#1D4E7E";
   const msgs: { av: "A" | "logo"; name: string; role: string; time: string; cy: number; body: React.ReactNode; quote?: [string, string] }[] = [
-    { av: "logo", name: "Dr Lee Davis DDS, DDS (Gentle dental clinic)", role: "Associate Dentist", time: "Nov 7, 9:52 AM", cy: 589, body: <><span style={{ color: MENTION }}>@Flora Gibson</span> Seems like the x-ray are from may 2022 do you have the updated x-rays</> },
-    { av: "A", name: "Tom Colpack, DDS (Apex Dental)", role: "Owner Dentist", time: "Nov 7, 9:54 AM", cy: 661, body: <><span style={{ color: MENTION }}>@Barbara Smith</span> I updated the latest xray let me know if you need anything</> },
-    { av: "logo", name: "Dr Lee Davis DDS, DDS (Gentle dental clinic)", role: "Associate Dentist", time: "Nov 7, 9:55 AM", cy: 734, quote: ["Tom Colpack, DDS (Apex Dental)", "@Barbara Smith I updated the latest xray let me know if you need anything"], body: <><span style={{ color: MENTION }}>@Tom Colpack, DDS</span> Got the updated x-ray thank you</> },
+    { av: "logo", name: "Tanya (St. Andrew’s Family Dental)", role: "Front Desk Coordinator", time: "Nov 7, 9:52 AM", cy: 589, body: <><span style={{ color: MENTION }}>@Barbara</span> Seems like the x-rays are from May 2022, do you have the updated x-rays?</> },
+    { av: "A", name: "Barbara (Gentle Dental)", role: "Front Desk Coordinator", time: "Nov 7, 9:54 AM", cy: 661, body: <><span style={{ color: MENTION }}>@Tanya</span> I updated the latest xray let me know if you need anything</> },
+    { av: "logo", name: "Tanya (St. Andrew’s Family Dental)", role: "Front Desk Coordinator", time: "Nov 7, 9:55 AM", cy: 734, quote: ["Barbara (Gentle Dental)", "@Tanya I updated the latest x-ray, let me know if you need anything"], body: <><span style={{ color: MENTION }}>@Barbara</span> Got the updated x-ray thank you</> },
   ];
   return (
     <>
@@ -253,7 +253,7 @@ export const MessagesTab: React.FC<{ patient: string; partner: string; clinic: s
       {msgs.map((m, i) => (
         <React.Fragment key={i}>
           {m.av === "A"
-            ? <div style={{ position: "absolute", left: 736, top: P(m.cy) - 11, width: 45, height: 48, borderRadius: 8, background: "#2F7A1F", color: "#fff", font: `400 24px ${FONT}`, display: "flex", alignItems: "center", justifyContent: "center" }}>A</div>
+            ? <div style={{ position: "absolute", left: 736, top: P(m.cy) - 11, width: 45, height: 48, borderRadius: 8, background: "#2F7A1F", color: "#fff", font: `400 24px ${FONT}`, display: "flex", alignItems: "center", justifyContent: "center" }}>B</div>
             : <Img src={staticFile("app/dcare-avatar.png")} style={{ position: "absolute", left: 734, top: P(m.cy) - 14, width: 48 }} />}
           <Tc x={806} cy={m.cy} s={17.55} w={700}>{m.name} <span style={{ font: `400 15.3px ${FONT}`, color: C.muted, marginLeft: 3 }}>{m.role}&nbsp;&nbsp;{m.time}</span></Tc>
           {m.quote && (

@@ -73,7 +73,7 @@ export type NavKey = "Analytics" | "Referrals" | "Incoming" | "Outgoing" | "Case
  * under the browser top, as in the scrolled recordings. */
 export const HEAD = 97;
 
-export const Sidebar: React.FC<{ active?: NavKey; group?: NavKey; clinic?: string; vh?: Vp }> = ({ active = "Incoming", group = "Referrals", clinic = "Gentle dental clinic", vh = 912 }) => {
+export const Sidebar: React.FC<{ active?: NavKey; group?: NavKey; clinic?: string; vh?: Vp }> = ({ active = "Incoming", group = "Referrals", clinic = "St. Andrew’s Family Dental", vh = 912 }) => {
   const M = VP[vh];
   return (
   <div style={{ position: "absolute", left: 0, top: 0, width: 320, height: APP_H + HEAD + 4000, background: C.sidebar, fontFamily: FONT }}>
@@ -104,15 +104,15 @@ export const Sidebar: React.FC<{ active?: NavKey; group?: NavKey; clinic?: strin
 
 export type User = { ini: string; name: string; role: string; img?: string };
 export const AMANDA: User = { ini: "AM", name: "Amanda", role: "Office Manager" };
-export const DCARE_USER: User = { ini: "LD", name: "Lee Davis", role: "Associate Dentist", img: "app/dcare-avatar.png" };
-export const DEFAULT_USER: User = { ini: "JW", name: "Jane White", role: "Dental Assistant" };
+export const DCARE_USER: User = { ini: "AM", name: "Amanda", role: "Front Desk Coordinator", img: "app/dcare-avatar.png" };
+export const DEFAULT_USER: User = { ini: "AM", name: "Amanda", role: "Office Manager" };
 
 const HBtn: React.FC<{ w: number; t: string; solid?: boolean; h: number; dy: number }> = ({ w, t, solid, h, dy }) => (
   <div style={{ flex: "none", paddingBottom: -dy * 2, width: w, height: h, borderRadius: 4, boxSizing: "border-box", border: solid ? "none" : `1.5px solid ${C.purple}`, background: solid ? C.purple : "#fff", color: solid ? "#fff" : C.purpleText, font: `500 19.9px ${FONT}`, display: "flex", alignItems: "center", justifyContent: "center", whiteSpace: "nowrap" }}>{t}</div>
 );
 
 /** The app header: page title, office switcher, header buttons, signed-in user, and the "Ask" box under the title. */
-export const TopBar: React.FC<{ title?: string; clinic?: string; user?: User; vh?: Vp }> = ({ title = "Incoming Referrals", clinic = "Gentle dental clinic", user = DEFAULT_USER, vh = 912 }) => {
+export const TopBar: React.FC<{ title?: string; clinic?: string; user?: User; vh?: Vp }> = ({ title = "Incoming Referrals", clinic = "St. Andrew’s Family Dental", user = DEFAULT_USER, vh = 912 }) => {
   const M = VP[vh];
   return (
   <>
