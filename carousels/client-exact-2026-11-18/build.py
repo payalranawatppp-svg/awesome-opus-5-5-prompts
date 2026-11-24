@@ -89,23 +89,24 @@ def head(label, h, size, aud=None):
 
 # ============================================================ INSURANCE (client text, word for word)
 INS = [
- (head('Slide 1 · Hook & Audience', 'Endodontists, put down the microscope for a second—don’t worry, you’ll still find the MB2.', 56)
-  + '<div class="body">Pretend you are the patient. How does your office obtain your referred patients\' dental insurance information? Switch from your static, one-way referral form to ToothReferral\'s embedded referral software. Tailored specifically for dental specialists like endodontists and oral surgeons, and general dentists.</div>',
+ (head('Slide 1 · Hook & Audience', 'Endodontists put your front desk on automation without outsourcing!', 60)
+  + '<div class="main">Your patient already has the insurance card in their wallet. Let them send it to you in one secure step.</div>'
+  + '<div class="body">ToothReferral\'s embedded referral software collects your referred patients\' dental insurance for you, built for endodontists, oral surgeons and the general dentists who refer to them.</div>',
   card('ui-static-form.png', 70, 60, 450, rx=12, ry=24, rz=-4, z=-60) + card('ui-insurance-cards.png', 420, 20, 540, rx=10, ry=-20, rz=2, z=60)
-  + tag('Static, one-way form', 60, 360, 'a', -4) + tag('ToothReferral', 640, 380, 'g', 3), True),
+  + tag('Static, one-way form', 60, 360, 'a', -4) + tag('Card collected automatically', 560, 380, 'g', 3), True),
  (head('Slide 2 · The Core Problem', 'The Daily Endodontic Front Desk Struggle', 62)
-  + '<div class="body" style="font-size:25px">Photos in personal texts, blurry faxes, a missing back side, and patients rescheduled because dental insurance cards weren\'t checked in time. That\'s insurance chaos. Say no to data breaches! Switch from old referral forms to ToothReferral referral software.</div>',
+  + '<div class="body" style="font-size:25px">Every new referral starts the same way: call the patient, ask for the card, wait for a reply, then call again. Your front desk spends the day following up instead of scheduling, and the coverage check waits with them.</div>',
   card('ui-static-form.png', 110, 30, 560, rx=14, ry=20, rz=-3, z=-40)
-  + tag('Photo in a personal text', 560, 40, 'a', 4) + tag('Blurry fax · back side missing', 520, 160, 'a', -3)
-  + tag('Rescheduled: coverage not checked', 470, 280, 'a', 2), False),
+  + tag('1 · Call the patient', 560, 40, 'a', 4) + tag('2 · Ask for the card', 540, 160, 'a', -3)
+  + tag('3 · Wait, then call again', 500, 280, 'a', 2), False),
  (head('Slide 3 · The Solution', 'Endodontic offices streamline obtaining your referred patients dental insurance information', 48)
-  + '<div class="body">Stop relying on a static, one-way referral form. Switch to ToothReferral\'s embedded referral software with cloud-based submission. A single click triggers a true HIPAA-compliant secure link with Cloudflare spam protection and technical/physical safeguards. Patients snap front and back dental insurance cards directly from their phones with no account needed.</div>',
+  + '<div class="body">ToothReferral replaces the static, one-way referral form with a referral case both offices share. One click on the case sends the patient a HIPAA-compliant secure link, protected by Cloudflare. The patient photographs the front and back of the card on their phone, no account needed, and both images arrive on the referral with the policy and group numbers.</div>',
   card('ui-secure-link.png', 60, 10, 560, rx=10, ry=18, rz=-2, z=-30) + card('ui-insurance-cards.png', 470, 90, 480, rx=10, ry=-18, rz=2, z=70)
-  + tag('HIPAA-compliant secure link', 70, 300, 'g', -3) + tag('Cloudflare spam protection', 560, 20, 'p', 3), False),
+  + tag('One click: secure link sent', 70, 300, 'g', -3) + tag('Cloudflare protected', 600, 20, 'p', 3), False),
  (head('Slide 4 · Key Benefits & Trust', 'Endodontic out of network offices', 62)
-  + '<div class="body" style="font-size:25px">Are you an out of network endodontic office that files your referred patients\' dental insurance? Switch to ToothReferral referral software to ease more case acceptance with no-calling secure email dental insurance submission. Build patient trust through secure transparency before your staff even calls.</div>',
+  + '<div class="body" style="font-size:25px">Out of network and filing claims for your patients? The coverage details are on the case before anyone picks up the phone, so your team can talk through costs early and patients can say yes with confidence.</div>',
   card('ui-insurance-cards.png', 90, 20, 620, rx=10, ry=16, rz=-2, z=-20) + card('ui-activity.png', 520, 200, 420, rx=10, ry=-18, rz=2, z=80)
-  + tag('Policy & group on file', 90, 340, 'g', -3) + tag('No calls', 760, 40, 'p', 4), False),
+  + tag('Coverage on the case', 90, 340, 'g', -3) + tag('Before the first call', 650, 40, 'p', 4), False),
  (head('Slide 5 · Call to Action', 'Automate Your Endodontic Front Desk', 64)
   + '<div class="body" style="font-size:26px">Start the referral process without a phone call. Switch today and see how ToothReferral referral software replaces your outdated form.</div>',
   card('ui-incoming.png', 60, 20, 600, rx=10, ry=18, rz=-2, z=-30) + card('ui-secure-link.png', 520, 140, 420, rx=10, ry=-18, rz=2, z=80)
@@ -164,7 +165,7 @@ OS = [
   card('ui-secure-link.png', 160, 20, 380, rx=10, ry=18, rz=-2, z=-20) + card('ui-doc.png', 560, 60, 360, rx=10, ry=-18, rz=2, z=60), True),
 ]
 
-POST_INS = ('LinkedIn post copy (client text, kept for use)', open(os.path.join(HERE, '..', 'client-revisions-2026-11-18', 'Saved-Post-Copy-Endo-Insurance-Original.md')).read().split('\n', 1)[1].strip())
+POST_INS = ('LinkedIn post copy', open(os.path.join(HERE, 'Post-Copy-Endo-Insurance-Revised.md')).read().split('\n', 1)[1].strip())
 POST_OS = ('LinkedIn caption', "Three tasks still take hours in most oral surgery practices: emailing case updates to referring dentists, tracking statuses that never reached the practice management software, and typing consultation notes by hand.\n\n"
            "Tooth Referral replaces your referral form with one shared case per referral. The referring general dentist works in the same case, so messages and X-rays stay with the patient. Every status change is recorded, with a note ready to copy into your PMS. Surgical assistants prepare consultation notes from your templates and route them to the oral surgeon to sign with DocuSign.\n\n"
            "Swipe through the three tasks.\n\n#OralSurgery #OralSurgeon #DentalReferrals #DentalPracticeManagement #DentalAssistant")
