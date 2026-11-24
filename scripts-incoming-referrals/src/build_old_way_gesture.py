@@ -2,8 +2,8 @@
 
 Format taken from the user's reference reel (a single presenter in a dim, warm room points to one corner of the frame for the bad
 option and to the other corner for the good option; the pointing hand holds while he talks). One male avatar, vertical 9:16.
-Every clip: the old way in 3-4 very short lines (one hand to the top-right of the frame), then the Tooth Referral benefit in one
-sentence (the other hand to the top-left). Each clip starts on the last frame of the previous clip (resting pose), so the clips
+Every clip: the Don't line (right hand points to the top-LEFT of the frame), hands back to rest, then the Do line (left hand
+points to the top-RIGHT). Each clip starts on the last frame of the previous clip (resting pose), so the clips
 cut together as one take. No graphics are generated: labels and icons are added in the edit.
 Client rules: no names, "general dentist" written out, no "EHR", no "shared inbox", no front-desk blame, no contact CTA, no red."""
 import html, os, subprocess
@@ -58,26 +58,37 @@ NEW_HAND = ('his RIGHT hand (it appears on the LEFT side of the frame) rises to 
             'pointing up toward the TOP-LEFT corner of the frame, and holds there steadily')
 
 # (n, title, old lines, benefit, beats [(time, gesture/head)], emotion, edit labels (old, new))
-RIGHT_UP = ('RIGHT-HAND POINT: his RIGHT hand raised just above shoulder height, index finger extended, pointing up toward the TOP-LEFT '
-            'corner of the frame and held still; his LEFT hand down, relaxed at his side/lower chest, out of the way')
+DONT_UP = ('his RIGHT hand (it appears on the LEFT side of the frame) lifts smoothly from his chest to just above shoulder height, '
+           'index finger extended, other fingers curled, palm facing the camera, pointing up toward the TOP-LEFT corner of the frame; '
+           'his LEFT hand stays resting flat at the centre of his chest')
+DO_UP = ('his LEFT hand (it appears on the RIGHT side of the frame) lifts smoothly from his chest to just above shoulder height, '
+         'index finger extended, other fingers curled, palm facing the camera, pointing up toward the TOP-RIGHT corner of the frame; '
+         'his RIGHT hand stays resting flat at the centre of his chest')
 
 
 def beats(old, new, old_acc, new_acc, first=False, last=False):
-    start = ('Starts in the rest pose.' if first else
-             'Starts exactly as the last frame of clip xx: the RIGHT-HAND POINT (right hand still raised toward the top-left, left hand down).')
-    switch_in = ('his hands part from the chest' if first else 'his RIGHT hand lowers all the way down, out of the gesture')
+    start = ('exactly the host start frame image' if first else 'exactly the last frame of clip xx')
+    end = (last or 'He holds the REST POSE, mouth closed, relaxed half-smile, eyes on the lens, completely still for the last frame '
+           '(the next clip starts from this exact pose).')
     return [
-        ('0.0–0.4 s', start),
-        ('0.4–0.9 s', f'In one smooth move {switch_in} and his LEFT hand (it appears on the RIGHT side of the frame) rises to just above '
-                          'shoulder height, index finger extended, pointing up toward the TOP-RIGHT corner of the frame.'),
-        ('0.9–3.7 s', f'He HOLDS that left-hand point completely still, finger locked toward the top-right, the WHOLE time he says "{old}". '
-                          'The finger does not move, tap or drop until the line is finished; only his head and face react: ' + old_acc),
-        ('3.7–4.2 s', 'The switch, in one smooth move: his LEFT hand drops all the way down (out of the gesture) as his RIGHT hand (it '
-                          'appears on the LEFT side of the frame) rises to just above shoulder height, index finger extended, pointing up '
-                          'toward the TOP-LEFT corner of the frame. Only one hand is ever up.'),
-        ('4.2–8.0 s', f'He HOLDS that right-hand point completely still, finger locked toward the top-left, the WHOLE time he says "{new}", '
-                          'and KEEPS holding it after the line, all the way to the last frame of the clip (the next clip starts from this pose). '
-                          'Only his head and face react: ' + new_acc + (' ' + last if last else '')),
+        ('0.0–1.0 s', f'Starts as {start}: REST POSE, both hands together at the centre of his chest, fingertips lightly touching, '
+                     'mouth closed, eyes on the lens. At 0.3 s, ' + DONT_UP + ' (the lift takes about 0.5 s, smooth, no snap). '
+                     'By 0.9 s the finger is in place and stops moving. Nothing is said yet.'),
+        ('1.0–2.0 s', f'DON’T SIDE. The right-hand point holds completely still toward the top-left. At about 1.0 s he starts saying '
+                     f'"{old}" Face and head only: ' + old_acc + ' The finger does not tap, wave or drift.'),
+        ('2.0–3.0 s', 'Still the same right-hand point, rock steady, toward the top-left. He keeps speaking the Don’t line at a '
+                     'natural, punchy pace. The left hand stays resting on his chest. Shoulders relaxed.'),
+        ('3.0–4.0 s', 'He finishes the Don’t line by about 3.3 s and keeps the point for a short silent beat. From 3.4 s to 3.9 s '
+                     'his right hand lowers smoothly back to the centre of his chest and both hands meet: the REST POSE again, '
+                     'mouth closed, eyes on the lens. No hand is raised at 4.0 s.'),
+        ('4.0–5.0 s', 'From 4.0 s to 4.5 s, ' + DO_UP + ' (smooth, no snap). By 4.5 s the finger is in place and stops moving. '
+                     f'At about 4.6 s he starts saying "{new}"'),
+        ('5.0–6.0 s', 'DO SIDE. The left-hand point holds completely still toward the top-right while he keeps speaking the Do line. '
+                     'Face and head only: ' + new_acc + ' The finger does not tap, wave or drift.'),
+        ('6.0–7.0 s', 'Still the same left-hand point, rock steady, toward the top-right. He finishes the Do line by about 7.0 s. '
+                     'The right hand stays resting on his chest.'),
+        ('7.0–8.0 s', 'From 7.2 s to 7.7 s his left hand lowers smoothly back to the centre of his chest and both hands meet in the '
+                     'REST POSE. ' + end),
     ]
 
 
@@ -87,23 +98,23 @@ YES = 'head turns a few degrees toward the raised hand and back to the lens, eye
 _C = [
  ('The hook', 'Don’t run referrals the old way.', 'Do this instead, with Tooth Referral.',
   'one eyebrow raised, head tilted, a playful challenge.', YES, 'Curious, playful challenge, then confident.', ('', '')),
- ('How referrals arrive', 'Don’t chase faxes, PDFs and voicemails.', 'Do get one complete Tooth Referral, X-rays attached.',
+ ('How referrals arrive', 'Don’t chase faxes, PDFs and voicemails.', 'Do get Tooth Referral: complete, X-rays attached.',
   'a slow, weary head shake across the three words, brows pinched.', YES, 'Mildly exasperated, then sure.', ('Faxes · PDFs · Voicemails', 'One complete referral')),
- ('Updates', 'Don’t bury case updates in email chains.', 'Do keep both offices in one shared case.', SKEP, YES, 'Wry, then reassuring.', ('Email chains', 'One case, both offices')),
- ('Communication', 'Don’t play phone tag with the referring office.', 'Do keep every message with the patient.', 'a quick eye-roll and half-smile toward the lens.', YES, 'Wry, then warm.', ('Phone tag', 'Every message with the patient')),
- ('Status', 'Don’t track patients on sticky notes.', 'Do log every step, with notes ready to copy.', 'head tilts, a questioning look.', 'two small confident nods.', 'Questioning, then sure.', ('Sticky notes', 'Every step logged')),
- ('Insurance', 'Don’t verify insurance from blurry texted photos.', 'Do request the card and track every check.', 'he squints slightly, as if trying to read something.', 'a firm, confident nod.', 'Frustrated, then in control.', ('Blurry card photos', 'Card requested · Checks tracked')),
- ('Consultation notes', 'Don’t type consult notes by hand.', 'Do draft from templates and sign in seconds.', SKEP, 'a satisfied smile and a small nod.', 'Tired, then satisfied.', ('Typed by hand', 'Templates · e-signature')),
- ('Efficiency', 'Don’t enter the same data in three systems.', 'Do enter it once, and you’re done.', 'brows pinched, a weary half-smile.', 'a firm nod on "once", then a satisfied smile.', 'Weary, then satisfied.', ('Same data × 3 systems', 'Enter once')),
- ('Website leads', 'Don’t let web leads sit in an inbox.', 'Do send them straight to your referral list.', SKEP, YES, 'Matter-of-fact, then upbeat.', ('Form → inbox', 'Leads → your list')),
+ ('Updates', 'Don’t bury case updates in email chains.', 'Do share one case with both offices.', SKEP, YES, 'Wry, then reassuring.', ('Email chains', 'One case, both offices')),
+ ('Communication', 'Don’t play phone tag with referring offices.', 'Do keep every message with the patient.', 'a quick eye-roll and half-smile toward the lens.', YES, 'Wry, then warm.', ('Phone tag', 'Every message with the patient')),
+ ('Status', 'Don’t track patients on sticky notes.', 'Do log every step, ready to copy.', 'head tilts, a questioning look.', 'two small confident nods.', 'Questioning, then sure.', ('Sticky notes', 'Every step logged')),
+ ('Insurance', 'Don’t verify insurance from blurry texted photos.', 'Do request the card, track every check.', 'he squints slightly, as if trying to read something.', 'a firm, confident nod.', 'Frustrated, then in control.', ('Blurry card photos', 'Card requested · Checks tracked')),
+ ('Consultation notes', 'Don’t type consult notes by hand.', 'Do use templates and sign in seconds.', SKEP, 'a satisfied smile and a small nod.', 'Tired, then satisfied.', ('Typed by hand', 'Templates · e-signature')),
+ ('Efficiency', 'Don’t enter the same data three times.', 'Do enter it once, and you’re done.', 'brows pinched, a weary half-smile.', 'a firm nod on "once", then a satisfied smile.', 'Weary, then satisfied.', ('Same data × 3 systems', 'Enter once')),
+ ('Website leads', 'Don’t let web leads sit in inboxes.', 'Do send leads straight to your list.', SKEP, YES, 'Matter-of-fact, then upbeat.', ('Form → inbox', 'Leads → your list')),
  ('Your numbers', 'Don’t run your referrals on gut feeling.', 'Do watch them in live analytics.', 'head tilts, a sceptical squint.', YES, 'Sceptical, then sharp.', ('Gut feeling', 'Live analytics')),
- ('What makes it different', 'Don’t settle for a form or AI hype.', 'Do use real two-way software, HIPAA compliant.',
+ ('What makes it different', 'Don’t settle for forms or AI hype.', 'Do use real two-way software, HIPAA compliant.',
   'a small side-to-side head shake on each "Not".', 'serious, trustworthy eye contact and a slow nod.', 'Emphatic, then trustworthy.', ('Not a form · Not AI hype', 'Two-way · HIPAA compliant')),
  ('The close', 'Don’t chase referrals.', 'Do work them, together.', 'a small knowing head shake.', 'a warm smile.', 'Confident, warm, final.', ('Stop chasing', 'Start working them')),
 ]
 CLIPS = []
 for i, (t, o, n, oa, na, emo, lab) in enumerate(_C, 1):
-    last = ('This is the final clip: the right-hand point holds still to the very last frame, with a confident warm smile into the lens (a clean last frame for the end card).'
+    last = ('This is the final clip: he holds the REST POSE with a confident, warm smile into the lens, completely still to the very last frame (a clean last frame for the end card).'
             if i == len(_C) else None)
     lab = (('Don’t: ' + lab[0]) if lab[0] else '', ('Do: ' + lab[1]) if lab[1] else '')
     CLIPS.append(('xx', t, o, n, beats(o, n, oa, na, first=i == 1, last=last), emo, lab))
@@ -123,23 +134,22 @@ def words(c): return len(line(c).replace('…', ' ').split())
 
 def prompt(c):
     start = 'the Host start frame image' if c[0] == '01' else f'the last frame of clip {int(c[0]) - 1:02d}'
-    beats = ' '.join(f'{t}: {g}' for t, g in c[4])
+    beats = ''.join(f'\n{t}: {g}' for t, g in c[4])
     return '\n'.join([
         f'Ingredients: the Host studio background image, the Host avatar image. Start image: {start}. Continue from the exact position '
         'in the start image: the clip begins on that frame, with the same camera angle, framing, lighting and background, and the same '
         'pose, hands and expression, and the action continues naturally from there, with no jump, reset or change of outfit. '
-        f'Starting position: {REST if c[0] == "01" else RIGHT_UP}.',
+        f'Starting position: {REST}.',
         LOOK,
         'Background (exactly as the Host studio background image): ' + BG,
         'Character (exactly as the Host avatar image): THE HOST: ' + AV_LOOK,
         f'Emotion: {c[5]}',
-        'Hand gestures and head movement, one by one, in this order. One hand points at a time and HOLDS its point the whole time he talks about that side; '
-        'the other hand is down. His eyes stay on the lens, never following the finger: ' + beats,
+        'SECOND-BY-SECOND ACTION (follow exactly). Only one hand is ever raised; the pointing hand HOLDS its point, completely still, the whole time he talks about that side; between the two sides both hands return to the rest pose at the chest before the other hand rises. Hand moves are smooth and unhurried, never snapping. His eyes stay on the lens, never following the finger. ' + beats,
         'Framing: mid-chest up, centred, locked-off; both raised hands stay fully inside the frame, finger tips well below the top edge.',
         'DIALOGUE (on camera, lip-synced). Exactly one spoken line in this clip. VOICE-OVER: none.',
         f'Speaker: THE HOST, facing the camera. Voice: {VOICE}.',
         f'Line (say it once, word for word, nothing added, nothing left out, with a clear pause of about one second between the two halves): "{c[2]} … {c[3]}"',
-        'Timing: two halves. The "Don’t…" half from about 0.9 s to 3.5 s, while the left-hand point holds; the "Do…" half from about 4.2 s to 7.2 s, while the right-hand point holds; then the point holds silently to the end.',
+        'Timing: the Don’t line from about 1.0 s to 3.3 s (right hand pointing top-left), both hands back at rest 3.4–4.0 s with no speech, the Do line from about 4.6 s to 7.0 s (left hand pointing top-right), back to rest 7.2–7.7 s. Natural, punchy pace, never rushed.',
         'Lip sync: mouth movement matches every word exactly. No narration, no extra words.',
         'Audio: only the one spoken line and quiet, warm room tone. ' + NEG])
 
@@ -164,13 +174,13 @@ th {{ font-size: 8pt; letter-spacing: .1em; text-transform: uppercase; color: #6
 ul {{ margin: 1mm 0; padding-left: 5mm; }}'''
 
 SUMMARY = (f'{len(CLIPS)} clips of 8 seconds (about {len(CLIPS) * 8 // 60}:{len(CLIPS) * 8 % 60:02d}), vertical 9:16, one male host in a dim, warm studio, in the style of the reference reel: '
-           'for each problem he points to the top-right of the frame for the traditional way (“Don’t…”), then to the top-left for '
+           'for each problem he points to the top-LEFT of the frame for the traditional way (“Don’t…”), returns to rest, then points to the top-RIGHT for '
            'the Tooth Referral feature (“Do…”), holding each point for the whole line, like the reference reel. The brand name is said only twice (clips 01–02). Every clip starts on the last frame of the one before, so the clips cut together '
            'as one continuous take. No graphics are generated: the labels and icons go in during the edit.')
 HOW = ['Generate the 3 reference images first (studio background, host avatar, host start frame), then the clips in order 01–' + f'{len(CLIPS):02d}.',
        'For each clip after 01, use the last frame of the previous clip as the start image (in Flow: extend / use last frame), plus the background and avatar images as ingredients.',
-       'His LEFT hand appears on the RIGHT of the frame: put the "old way" labels top-right and the "Tooth Referral" labels top-left, above each finger.',
-       'The old way is always his LEFT hand pointing up to the top-right of the frame, held for the whole old-way line; then that hand drops and his RIGHT hand points up to the top-left, held for the whole Tooth Referral line and to the end of the clip. Each next clip starts from that right-hand point, so the cuts are invisible.',
+       'Sides are as the viewer sees the video: “Don’t” = LEFT side of the frame, “Do” = RIGHT side. Put the Don’t labels top-left and the Do labels top-right, above each finger.',
+       'Every clip, second by second: rest pose → right hand points top-left and HOLDS through the whole Don’t line → hand back to rest → left hand points top-right and HOLDS through the whole Do line → back to rest. Every clip starts and ends in the same rest pose, so the cuts are invisible.',
        'Every clip is one “Don’t … / Do …” pair, like the reference reel: the Don’t half names the traditional waste, the Do half names the Tooth Referral feature. Each pair fits in about 7 s of the 8 s clip.',
        'The name “Tooth Referral” is spoken only in clips 01 and 02; after that, the logo and labels carry the brand.',
        'If Flow’s voice drifts between clips, re-record the full voice-over below in ElevenLabs with one male voice and lip-sync to it.']
@@ -187,7 +197,7 @@ parts = [f'''<div class="k">Tooth Referral · hand-gesture series · Google Flow
 <h2>3. Host start frame (rest pose) · start image for clip 01</h2><p class="small">References: background + host avatar.</p><div class="prompt">{E(START)}</div></div>''']
 for c in CLIPS:
     beats = ''.join(f'<li><b>{E(t)}</b> — {E(g)}</li>' for t, g in c[4])
-    edit = (f'Labels: top-right “{E(c[6][0])}”; top-left “{E(c[6][1])}”.' if c[6][0] else 'No labels (hook); optional title in the edit.')
+    edit = (f'Labels: top-left “{E(c[6][0])}”; top-right “{E(c[6][1])}”.' if c[6][0] else 'No labels (hook); optional title in the edit.')
     parts.append(f'''<div class="clip"><div class="k">Clip {c[0]} · 8 seconds · start: {'host start frame' if c[0] == '01' else 'last frame of clip ' + f'{int(c[0]) - 1:02d}'}</div><h2>{E(c[1])}</h2>
 <div class="box"><div class="k" style="font-size:8pt">On-camera line · lip-synced · {words(c)} words</div>
 <div style="font-size:11pt"><span class="old">Old way:</span> “{E(c[2])}”<br><span class="new">Tooth Referral:</span> “{E(c[3])}”</div>
@@ -216,8 +226,8 @@ for c in CLIPS: print(c[0], words(c), 'words', round(words(c) / 2.4, 1), 's at 2
 # ---- short version: clip plan + dialogue only (no prompts)
 PDF2 = os.path.join(D, 'Old-Way-vs-Tooth-Referral-Clip-Plan-and-Dialogue.pdf')
 rows = ''.join(f'<tr><td>{c[0]}</td><td><b>{E(c[1])}</b><div class="small">{E(c[5])}</div></td>'
-               f'<td><span class="old">{E(c[2])}</span><div class="small">Left hand points top-right and holds</div></td>'
-               f'<td><span class="new">{E(c[3])}</span><div class="small">Right hand points top-left and holds</div></td></tr>' for c in CLIPS)
+               f'<td><span class="old">{E(c[2])}</span><div class="small">Right hand points top-left and holds (0.9–3.3 s)</div></td>'
+               f'<td><span class="new">{E(c[3])}</span><div class="small">Left hand points top-right and holds (4.5–7.0 s)</div></td></tr>' for c in CLIPS)
 short = (f'<div class="k">Tooth Referral · hand-gesture series</div><h1>Don’t … / Do …</h1>'
          f'<p class="small">{len(CLIPS)} clips × 8 s · vertical 9:16 · one male host · “Don’t” = the traditional way · “Do” = the Tooth Referral feature</p>'
          f'<h2>Clip plan and dialogue</h2><table><tr><th>#</th><th>Clip</th><th>Don’t (old way)</th><th>Do (Tooth Referral)</th></tr>{rows}</table>'
