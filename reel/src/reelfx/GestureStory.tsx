@@ -25,6 +25,8 @@ import { ConsultNoteModal } from "../app/ConsultNote";
 import { LeadFormsPage } from "../app/LeadForms";
 
 const FPS = 30;
+/** Whole edit plays 10% faster (pitch kept: Remotion time-stretches audio). */
+const SPEED = 1.1;
 const RF = (s: number) => Math.round(s * FPS);
 const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
 const F = "Inter, 'Plus Jakarta Sans', sans-serif";
@@ -93,7 +95,7 @@ const SEGS = (() => {
       const a0 = Math.max(c.a, g.words[0].start - 0.12), b0 = g.words[g.words.length - 1].end + 0.15;
       const seam = i === 0 || g.half !== groups[i - 1].half;
       punch = seam ? 1 : punch === 1 ? 1.06 : 1;
-      const p0 = RF(at); at += b0 - a0; pieces.push({ a: a0, b: b0, rate: 1, f0: p0, f1: RF(at), seam, punch });
+      const p0 = RF(at); at += (b0 - a0) / SPEED; pieces.push({ a: a0, b: b0, rate: SPEED, f0: p0, f1: RF(at), seam, punch });
     });
     return { ...c, b: pieces[pieces.length - 1].b, f0, f1: RF(at), pieces };
   });
@@ -328,18 +330,6 @@ const Cards: React.FC = () => {
   return <><DontCard s={s} g={f} zoom={z} /><GlassDo s={s} g={f} zoom={z} /></>;
 };
 
-const Sfx: React.FC = () => (
-  <>
-    {SEGS.map((s) => {
-      const A = ANCH[`c${s.n}`];
-      const out: React.ReactNode[] = [];
-      if (A.dont) out.push(<Sequence key={`${s.n}d`} from={frameOf(s, Math.max(s.a, A.dont.t0))} durationInFrames={RF(1)}><Audio src={staticFile("audio/sfx/whoosh-short.wav")} volume={0.16} /></Sequence>);
-      if (A.do) out.push(<Sequence key={`${s.n}o`} from={frameOf(s, A.do.t0)} durationInFrames={RF(1.2)}><Audio src={staticFile("audio/sfx/shimmer.wav")} volume={0.14} /></Sequence>);
-      return out;
-    })}
-    <Sequence from={END_AT - 6} durationInFrames={RF(2)}><Audio src={staticFile("audio/sfx/chime.wav")} volume={0.25} /></Sequence>
-  </>
-);
 
 /** Zoom-through seam between clips (cut-the-curve skill): the outgoing shot pushes in and blurs over the last 6 frames,
  * the swap happens at peak blur, and the incoming shot keeps pushing in from slightly small while the blur clears. Same
@@ -378,11 +368,28 @@ export const GestureStory: React.FC = () => (
       <Captions />
       <EndCard />
       {/* voice: only the spoken pieces (normal speed); the speed-ramped pieces are silent */}
-      {SEGS.map((s) => s.pieces.filter((p) => p.rate === 1).map((p, i) => <Sequence key={`${s.n}v${i}`} from={p.f0} durationInFrames={p.f1 - p.f0}><Audio src={staticFile(`gx/voice2/c${s.n}.mp3`)} trimBefore={RF(p.a)} volume={(fr) => Math.min(1, fr / 2, (p.f1 - p.f0 - fr) / 3)} /></Sequence>))}
+      {SEGS.map((s) => s.pieces.map((p, i) => <Sequence key={`${s.n}v${i}`} from={p.f0} durationInFrames={p.f1 - p.f0}><Audio src={staticFile(`gx/voice2/c${s.n}.mp3`)} trimBefore={RF(p.a)} playbackRate={p.rate} volume={(fr) => Math.min(1, fr / 2, (p.f1 - p.f0 - fr) / 3)} /></Sequence>))}
       <Audio src={staticFile("audio/music/s13-bed.wav")} volume={(fr) => (fr < END_AT ? 0.07 : 0.13)} loop />
-      {SEAMS.map((f, i) => <Sequence key={`sw${i}`} from={f - 5} durationInFrames={RF(0.8)}><Audio src={staticFile("audio/sfx/whoosh-short.wav")} volume={0.1} /></Sequence>)}
-      <Sfx />
       <AbsoluteFill style={{ pointerEvents: "none", opacity: 0.05, backgroundImage: "radial-gradient(rgba(255,255,255,.6) 0.6px, transparent 0.6px)", backgroundSize: "3px 3px", mixBlendMode: "overlay" }} />
     </AbsoluteFill>
   </FontGate>
 );
+
+/** Event list for the real-sfx skill (seconds on the rendered timeline): card entrances, scene seams, Don't-scene
+ * accents and the end card. Sound effects are added from real CC0 recordings by real-sfx, not synthesized here. */
+export const gxCues = () => {
+  const cues: { t: number; type: string; len?: number; g?: number; n?: number; notes?: string }[] = [];
+  const T = (f: number) => +(f / FPS).toFixed(3);
+  const ACC: Record<string, { type: string; len?: number; g?: number; n?: number }> = {
+    typing: { type: "key", len: 1.2, n: 12, g: 0.55 }, sticky: { type: "paper", g: 0.6 }, email: { type: "paper", g: 0.55 },
+    forms: { type: "paper", g: 0.6 }, phone: { type: "notification", g: 0.45 }, inbox: { type: "tick", g: 0.45 }, chase: { type: "whoosh", len: 0.4, g: 0.45 },
+  };
+  for (const s of SEGS) {
+    const A = ANCH[`c${s.n}`];
+    if (A.dont) { const f = frameOf(s, Math.max(s.a, A.dont.t0)); cues.push({ t: T(f), type: "whoosh", len: 0.45, g: 0.7, notes: `${s.n} don't card` }); const acc = ACC[s.dont]; if (acc) cues.push({ t: T(f + 8), ...acc, notes: `${s.n} don't accent` }); }
+    if (A.do) { const f = frameOf(s, A.do.t0); cues.push({ t: T(f), type: "whoosh", len: 0.5, g: 0.75, notes: `${s.n} do glass card` }); cues.push({ t: T(f + 7), type: "pop", g: 0.5, notes: `${s.n} do card lands` }); }
+  }
+  for (const f of SEAMS) cues.push({ t: T(f - 4), type: "wipe", g: 0.6, notes: "zoom-through seam" });
+  cues.push({ t: T(END_AT - 4), type: "hit", g: 0.7, notes: "end card" }); cues.push({ t: T(END_AT + 10), type: "chime", g: 0.6, notes: "logo" });
+  return cues.sort((a, b) => a.t - b.t);
+};

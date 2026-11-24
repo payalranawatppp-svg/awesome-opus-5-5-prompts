@@ -19,6 +19,13 @@
       "skillPath": "SKILL.md",
       "computedHash": ""
     },
+    "hyperframes-to-after-effects": {
+      "source": "Clipwing/skills",
+      "commit": "edbefcbc3474869e6cc1e8a7ca583b0efd0dab7e",
+      "sourceType": "github",
+      "skillPath": "skills/hyperframes-to-after-effects/SKILL.md",
+      "computedHash": "e395aca23dce2ad9bdfb80e0e6135495b3cb661308d81b1a3aff8a58262d1ed7"
+    },
     "impeccable": {
       "source": "pbakaus/impeccable",
       "sourceType": "github",
