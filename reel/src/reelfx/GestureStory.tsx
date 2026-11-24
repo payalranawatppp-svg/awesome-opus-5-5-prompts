@@ -6,6 +6,9 @@
  *   - Don't: a moving 3D amber scene of the old way (paper forms, faxes, phone tag, sticky notes…), built in CSS 3D.
  *   - Do: a 3D transparent glass card with the real Tooth Referral screens, coded in src/app/ and filmed by a camera that
  *     pans and zooms to the part the line talks about.
+ * Silences are removed with speed ramps inside each clip (spoken lines at 1x, the lift / hand switch / return to rest
+ * at 2.2-2.6x) and zoom-through seams between clips, so it plays as one flow. Voice: an ElevenLabs instant clone of
+ * the host's own Flow voice (speech-to-speech, same timing).
  * Every card sits BEHIND the host: the person cutout (public/gx/cNN-cut.webm, RVM matte) is layered on top, so no graphic
  * ever covers his face, hands or body. Voice: ElevenLabs speech-to-speech (one voice, Chris) at the original timing.
  * Captions from faster-whisper word timings. Clip 12 is cut before the repeated "together".
@@ -13,7 +16,8 @@
 import React from "react";
 import { AbsoluteFill, Audio, Img, OffthreadVideo, Sequence, interpolate, spring, staticFile, useCurrentFrame } from "remotion";
 import anchorsJson from "../data/gx-anchors.json";
-import wordsJson from "../data/gx-voice-words.json";
+import wordsJson from "../data/gx-voice2-words.json";
+import speechJson from "../data/gx-speech.json";
 import { FontGate } from "../effects";
 import { CaseDetailPage } from "../app/CaseDetail";
 import { IncomingPage } from "../app/Incoming";
@@ -62,7 +66,31 @@ const CLIPS: Clip[] = [
   { n: "12", a: 0.3, b: 6.5, dont: "chase", dontLabel: "Chasing referrals", doLabel: "Working them, together",
     scene: { page: "incoming", cam: [[0, 1100, 620, 0.62], [0.5, 900, 680, 0.66], [1, 700, 560, 0.74]] } },
 ];
-const SEGS = (() => { let at = 0; return CLIPS.map((c) => { const f0 = RF(at); at += c.b - c.a; return { ...c, f0, f1: RF(at) }; }); })();
+/** Each clip becomes pieces: the spoken Don't and Do lines at normal speed, and the silent parts (the lift, the hand switch
+ * between the two sides, the return to rest) speed-ramped, so the pauses disappear without a single jump cut. */
+type Piece = { a: number; b: number; rate: number; f0: number; f1: number };
+const SPEECH = speechJson as unknown as Record<string, { d0: number; d1: number; o0: number; o1: number }>;
+const RAMP = { lead: 2.2, gap: 2.6, tail: 2.2 };
+const SEGS = (() => {
+  let at = 0;
+  return CLIPS.map((c) => {
+    const sp = SPEECH[c.n]; const end = c.n === "12" ? sp.o1 : c.b;
+    const raw: [number, number, number][] = [[c.a, sp.d0, RAMP.lead], [sp.d0, sp.d1, 1], [sp.d1, sp.o0, RAMP.gap], [sp.o0, sp.o1, 1], [sp.o1, end, RAMP.tail]];
+    const f0 = RF(at); const pieces: Piece[] = [];
+    for (const [a, b, rate] of raw) { if (b - a < 0.02) continue; const p0 = RF(at); at += (b - a) / rate; pieces.push({ a, b, rate, f0: p0, f1: RF(at) }); }
+    return { ...c, b: end, f0, f1: RF(at), pieces };
+  });
+})();
+/** Clip time at global frame g inside segment s. */
+const clipT = (s: (typeof SEGS)[number], g: number) => {
+  const p = s.pieces.find((q) => g < q.f1) ?? s.pieces[s.pieces.length - 1];
+  return p.a + ((g - p.f0) / FPS) * p.rate;
+};
+/** Global frame of clip time t inside segment s. */
+const frameOf = (s: (typeof SEGS)[number], t: number) => {
+  const p = s.pieces.find((q) => t < q.b) ?? s.pieces[s.pieces.length - 1];
+  return p.f0 + RF((Math.max(p.a, t) - p.a) / p.rate);
+};
 const END_AT = SEGS[SEGS.length - 1].f1;
 export const GX_DURATION = END_AT + RF(3.4);
 
@@ -106,9 +134,9 @@ const AppScene: React.FC<{ sc: DoScene; k: number; w: number; h: number }> = ({ 
 
 const GlassDo: React.FC<{ s: (typeof SEGS)[number]; g: number; zoom: number }> = ({ s, g, zoom }) => {
   const A = ANCH[`c${s.n}`].do; if (!A) return null;
-  const t = s.a + (g - s.f0) / FPS;
+  const t = clipT(s, g);
   const fin = 1 - interpolate(t, [A.t1 - 0.05, A.t1 + 0.3], [0, 1], clamp);
-  const pin = sp(g, s.f0 + RF(A.t0 - s.a + 0.05), 14, 150);
+  const pin = sp(g, frameOf(s, A.t0 + 0.05), 14, 150);
   const vis = Math.min(pin, fin); if (vis <= 0.01) return null;
   const [fx0, fy0] = anchorAt(A, t);
   const fx = ZX + (fx0 - ZX) * zoom, fy = ZY + (fy0 - ZY) * zoom;
@@ -191,9 +219,9 @@ const DontScene: React.FC<{ kind: string; t: number }> = ({ kind, t }) => {
 
 const DontCard: React.FC<{ s: (typeof SEGS)[number]; g: number; zoom: number }> = ({ s, g, zoom }) => {
   const A = ANCH[`c${s.n}`].dont; if (!A) return null;
-  const t = s.a + (g - s.f0) / FPS;
+  const t = clipT(s, g);
   const fin = 1 - interpolate(t, [A.t1 - 0.05, A.t1 + 0.3], [0, 1], clamp);
-  const pin = sp(g, s.f0 + RF(Math.max(s.a, A.t0) - s.a + 0.05), 13, 150);
+  const pin = sp(g, frameOf(s, Math.max(s.a, A.t0) + 0.05), 13, 150);
   const vis = Math.min(pin, fin); if (vis <= 0.01) return null;
   const [fx0, fy0] = anchorAt(A, t);
   const fx = ZX + (fx0 - ZX) * zoom, fy = ZY + (fy0 - ZY) * zoom;
@@ -219,19 +247,19 @@ const DontCard: React.FC<{ s: (typeof SEGS)[number]; g: number; zoom: number }> 
 };
 
 // ------------------------------------------------------------------ footage, cutout, captions, end card
-const Shot: React.FC<{ s: (typeof SEGS)[number]; layer: "plate" | "cut" }> = ({ s, layer }) => {
-  const f = useCurrentFrame(); const g = f + s.f0; const z = zoomOf(g, s);
+const Shot: React.FC<{ s: (typeof SEGS)[number]; p: Piece; layer: "plate" | "cut" }> = ({ s, p, layer }) => {
+  const f = useCurrentFrame(); const g = f + p.f0; const z = zoomOf(g, s);
   const st: React.CSSProperties = { position: "absolute", left: 0, top: 0, width: 1080, height: 1920, transformOrigin: `${ZX}px ${ZY}px`, transform: `scale(${z})` };
   return layer === "plate"
-    ? <OffthreadVideo src={staticFile(`gx/c${s.n}.mp4`)} muted trimBefore={RF(s.a)} style={st} />
-    : <OffthreadVideo src={staticFile(`gx/c${s.n}-cut.webm`)} transparent muted trimBefore={RF(s.a)} style={st} />;
+    ? <OffthreadVideo src={staticFile(`gx/c${s.n}.mp4`)} muted trimBefore={RF(p.a)} playbackRate={p.rate} style={st} />
+    : <OffthreadVideo src={staticFile(`gx/c${s.n}-cut.webm`)} transparent muted trimBefore={RF(p.a)} playbackRate={p.rate} style={st} />;
 };
 
 const Captions: React.FC = () => {
   const f = useCurrentFrame();
   const s = SEGS.find((x) => f >= x.f0 && f < x.f1); if (!s) return null;
-  const t = s.a + (f - s.f0) / FPS;
-  const raw = (WORDS[`v${s.n}.wav`]?.words ?? []).filter((w) => w.end > s.a + 0.05 && w.start < s.b - 0.05).map((w) => (w.word.trim().startsWith("Don") && w.end - w.start > 0.75 ? { ...w, start: w.end - 0.55 } : w));
+  const t = clipT(s, f);
+  const raw = (WORDS[`w${s.n}.wav`]?.words ?? []).filter((w) => w.end > s.a + 0.05 && w.start < s.b - 0.05).map((w) => (w.word.trim().startsWith("Don") && w.end - w.start > 0.75 ? { ...w, start: w.end - 0.55 } : w));
   const ws: Wd[] = [];
   for (const w of raw) {
     const prev = ws[ws.length - 1];
@@ -250,7 +278,7 @@ const Captions: React.FC = () => {
   const group = ws.filter((w) => (isDont ? w.start < 4.0 : w.start >= 4.0));
   if (!group.length || t < group[0].start - 0.15 || t > group[group.length - 1].end + 0.5) return null;
   const tone = isDont ? AMBER : GREEN;
-  const p = sp(f, s.f0 + RF(group[0].start - s.a - 0.15), 16, 220);
+  const p = sp(f, frameOf(s, group[0].start - 0.15), 16, 220);
   return (
     <div style={{ position: "absolute", left: 60, right: 60, top: 1560, display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "6px 14px", transform: `translateY(${(1 - p) * 30}px)`, opacity: p }}>
       {group.map((w, i) => {
@@ -288,26 +316,51 @@ const Sfx: React.FC = () => (
     {SEGS.map((s) => {
       const A = ANCH[`c${s.n}`];
       const out: React.ReactNode[] = [];
-      if (A.dont) out.push(<Sequence key={`${s.n}d`} from={s.f0 + RF(Math.max(0, A.dont.t0 - s.a))} durationInFrames={RF(1)}><Audio src={staticFile("audio/sfx/whoosh-short.wav")} volume={0.16} /></Sequence>);
-      if (A.do) out.push(<Sequence key={`${s.n}o`} from={s.f0 + RF(A.do.t0 - s.a)} durationInFrames={RF(1.2)}><Audio src={staticFile("audio/sfx/shimmer.wav")} volume={0.14} /></Sequence>);
+      if (A.dont) out.push(<Sequence key={`${s.n}d`} from={frameOf(s, Math.max(s.a, A.dont.t0))} durationInFrames={RF(1)}><Audio src={staticFile("audio/sfx/whoosh-short.wav")} volume={0.16} /></Sequence>);
+      if (A.do) out.push(<Sequence key={`${s.n}o`} from={frameOf(s, A.do.t0)} durationInFrames={RF(1.2)}><Audio src={staticFile("audio/sfx/shimmer.wav")} volume={0.14} /></Sequence>);
       return out;
     })}
     <Sequence from={END_AT - 6} durationInFrames={RF(2)}><Audio src={staticFile("audio/sfx/chime.wav")} volume={0.25} /></Sequence>
   </>
 );
 
+/** Zoom-through seam between clips (cut-the-curve skill): the outgoing shot pushes in and blurs over the last 6 frames,
+ * the swap happens at peak blur, and the incoming shot keeps pushing in from slightly small while the blur clears. Same
+ * sign of motion on both sides, so the cut reads as one continuous camera move. */
+const SEAM = 6;
+const seamAt = (g: number) => {
+  for (const s of SEGS.slice(0, -1)) {
+    const d = g - s.f1; // <0 before the cut, >=0 after
+    if (d >= -SEAM && d < 0) { const k = ease((d + SEAM) / SEAM); return { scale: 1 + 0.09 * k, blur: 16 * k }; }
+    if (d >= 0 && d < SEAM) { const k = ease(1 - d / SEAM); return { scale: 1 - 0.04 * k, blur: 16 * k }; }
+  }
+  return { scale: 1, blur: 0 };
+};
+const SEAMS = SEGS.slice(0, -1).map((s) => s.f1);
+
+const Scene: React.FC = () => {
+  const f = useCurrentFrame(); const m = seamAt(f);
+  return (
+    <AbsoluteFill style={{ transform: `scale(${1.045 * m.scale})`, transformOrigin: `${ZX}px ${ZY}px`, filter: m.blur > 0.3 ? `blur(${m.blur}px)` : undefined }}>
+      {SEGS.map((s) => s.pieces.map((p, i) => <Sequence key={`${s.n}p${i}`} from={p.f0} durationInFrames={p.f1 - p.f0}><Shot s={s} p={p} layer="plate" /></Sequence>))}
+      {/* last frame held under the end card */}
+      <Sequence from={END_AT} durationInFrames={GX_DURATION - END_AT}><OffthreadVideo src={staticFile("gx/c12.mp4")} muted trimBefore={RF(SEGS[SEGS.length - 1].b - 0.05)} style={{ position: "absolute", width: 1080, height: 1920, transform: `scale(1.035)`, transformOrigin: `${ZX}px ${ZY}px` }} /></Sequence>
+      <Cards />
+      {SEGS.map((s) => s.pieces.map((p, i) => <Sequence key={`${s.n}c${i}`} from={p.f0} durationInFrames={p.f1 - p.f0}><Shot s={s} p={p} layer="cut" /></Sequence>))}
+    </AbsoluteFill>
+  );
+};
+
 export const GestureStory: React.FC = () => (
   <FontGate>
     <AbsoluteFill style={{ background: "#0B0914" }}>
-      {SEGS.map((s) => <Sequence key={s.n} from={s.f0} durationInFrames={s.f1 - s.f0}><Shot s={s} layer="plate" /></Sequence>)}
-      {/* last frame held under the end card */}
-      <Sequence from={END_AT} durationInFrames={GX_DURATION - END_AT}><OffthreadVideo src={staticFile("gx/c12.mp4")} muted trimBefore={RF(6.45)} style={{ position: "absolute", width: 1080, height: 1920, transform: `scale(1.035)`, transformOrigin: `${ZX}px ${ZY}px` }} /></Sequence>
-      <Cards />
-      {SEGS.map((s) => <Sequence key={`c${s.n}`} from={s.f0} durationInFrames={s.f1 - s.f0}><Shot s={s} layer="cut" /></Sequence>)}
+      <Scene />
       <Captions />
       <EndCard />
-      {SEGS.map((s) => <Sequence key={`v${s.n}`} from={s.f0} durationInFrames={s.f1 - s.f0}><Audio src={staticFile(`gx/voice/c${s.n}.mp3`)} trimBefore={RF(s.a)} volume={(fr) => Math.min(1, fr / 3, (s.f1 - s.f0 - fr) / 3)} /></Sequence>)}
-      <Audio src={staticFile("audio/music/s13-bed.wav")} volume={(fr) => (fr < END_AT ? 0.06 : 0.12)} loop />
+      {/* voice: only the spoken pieces (normal speed); the speed-ramped pieces are silent */}
+      {SEGS.map((s) => s.pieces.filter((p) => p.rate === 1).map((p, i) => <Sequence key={`${s.n}v${i}`} from={p.f0} durationInFrames={p.f1 - p.f0}><Audio src={staticFile(`gx/voice2/c${s.n}.mp3`)} trimBefore={RF(p.a)} volume={(fr) => Math.min(1, fr / 2, (p.f1 - p.f0 - fr) / 3)} /></Sequence>))}
+      <Audio src={staticFile("audio/music/s13-bed.wav")} volume={(fr) => (fr < END_AT ? 0.07 : 0.13)} loop />
+      {SEAMS.map((f, i) => <Sequence key={`sw${i}`} from={f - 5} durationInFrames={RF(0.8)}><Audio src={staticFile("audio/sfx/whoosh-short.wav")} volume={0.1} /></Sequence>)}
       <Sfx />
       <AbsoluteFill style={{ pointerEvents: "none", opacity: 0.05, backgroundImage: "radial-gradient(rgba(255,255,255,.6) 0.6px, transparent 0.6px)", backgroundSize: "3px 3px", mixBlendMode: "overlay" }} />
     </AbsoluteFill>
