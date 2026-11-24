@@ -34,6 +34,7 @@ import { AnalyticsPage } from "./app/Analytics";
 import { ConsultNoteModal, SuccessToast } from "./app/ConsultNote";
 import { AbsoluteFill } from "remotion";
 import { GestureStory, GX_DURATION } from "./reelfx/GestureStory";
+import { Compendium, CP_DURATION } from "./reelfx/Compendium";
 import { APP_W, APP_H } from "./app/AppShell";
 import { KawasakiReveal, KAW_W, KAW_H, KAW_FPS, KAW_DURATION } from "./reelfx/KawasakiReveal";
 import { AN_DURATION, AN_H, AN_W, AnalyticsDemo } from "./reelfx/AnalyticsDemo";
@@ -86,6 +87,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="ToothReferralUgc2" component={ToothUgc2} durationInFrames={UGC2_DURATION} fps={30} width={WIDTH} height={HEIGHT} />
     <Composition id="ToothReferralDepth" component={ToothDepth} durationInFrames={DEPTH_DURATION} fps={30} width={WIDTH} height={HEIGHT} />
     <Composition id="ToothReferralFx" component={ToothFx} durationInFrames={TOOTH_DURATION} fps={30} width={WIDTH} height={HEIGHT} />
+    <Composition id="Dashboard-Compendium" component={Compendium} durationInFrames={CP_DURATION} fps={30} width={1920} height={1080} />
     <Composition id="TR-Dashboard-Tour" component={() => <FontGate><TrDashboardTour scenes={TR_ALL} /></FontGate>} durationInFrames={TR_ALL.reduce((s, x) => s + x.dur, 0)} fps={30} width={WIDTH} height={HEIGHT} />
     <Composition id="TR-V2-Showreel" component={() => <FontGate><TrDashboardTour scenes={TR_V2} /></FontGate>} durationInFrames={TR_V2.reduce((s, x) => s + x.dur, 0)} fps={30} width={WIDTH} height={HEIGHT} />
     {TR_ALL.map(({ id, dur }) => (

@@ -44,7 +44,7 @@ export const DashboardOverview: React.FC = () => {
           <div style={{ scale: String(s), translate: `${-push * 112}px ${push * 160}px` }}>
           <div style={{ width: W, height: H, ...rise(frameIn, 80), borderRadius: 26, overflow: "hidden", boxShadow: "0 40px 120px rgba(0,0,0,0.5)", background: TR.bg, display: "flex" }}>
             <div style={{ width: 320, background: TR.sidebar, padding: "36px 22px", display: "flex", flexDirection: "column", gap: 6 }}>
-              <div style={{ color: "#2E5BC7", fontWeight: 700, fontSize: 26, textAlign: "center" }}>D Care Alliance</div>
+              <div style={{ color: "#2E5BC7", fontWeight: 700, fontSize: 26, textAlign: "center" }}>St. Andrew’s Family Dental</div>
               <Logo width={250} style={{ margin: "14px auto 30px" }} />
               {NAV.map((n, i) => {
                 const p = useIn(8 + i * 3);
@@ -122,7 +122,7 @@ export const NewReferral: React.FC = () => {
               <div style={{ fontSize: 46, fontWeight: 700, flex: 1 }}>New Referral</div>
               <div style={{ fontSize: 26, color: TR.muted }}>Case #4821</div>
             </div>
-            <div style={{ fontSize: 26, color: TR.muted, marginTop: 6 }}>From Dr. Patel · Bright Smile Family Dental</div>
+            <div style={{ fontSize: 26, color: TR.muted, marginTop: 6 }}>From Tanya · Bright Smile Family Dental</div>
             <Field label="Patient" at={8}>
               <Avatar initials="MA" size={52} />
               {typed("Maria Alvarez", frame, 14)}
@@ -173,8 +173,8 @@ export const NewReferral: React.FC = () => {
 // 3. Incoming referrals: a new referral lands at the top of the list.
 
 const ROWS = [
-  { i: "JK", name: "Jonathan Kilbourn", office: "R Dental", st: "Scheduled", c: TR.green, bg: TR.greenSoft },
-  { i: "SS", name: "Sam Smith", office: "Holland General Dentistry", st: "Contacted", c: TR.amber, bg: TR.amberSoft },
+  { i: "MO", name: "Maria Ortiz", office: "Gentle Dental", st: "Scheduled", c: TR.green, bg: TR.greenSoft },
+  { i: "MT", name: "Michael Turner", office: "Gentle Dental", st: "Contacted", c: TR.amber, bg: TR.amberSoft },
 ];
 export const IncomingReferral: React.FC = () => {
   const frame = useCurrentFrame();
@@ -234,9 +234,9 @@ export const OfficeChat: React.FC = () => {
   const frame = useCurrentFrame();
   const card = useIn(0, 18, 130);
   const msgs = [
-    { at: 16, me: false, who: "Dr. Sally Smith", org: "Holland General Dentistry", text: "When can you see this patient?", mention: "@Lee Davis" },
-    { at: 50, me: true, who: "Lee Davis", org: "D Care Alliance", text: "We can get the patient in this week." },
-    { at: 84, me: false, who: "Dr. Sally Smith", org: "Holland General Dentistry", text: "Perfect, X-rays are attached. Thank you!" },
+    { at: 16, me: false, who: "Barbara", org: "Gentle Dental", text: "When can you see this patient?", mention: "@Amanda" },
+    { at: 50, me: true, who: "Amanda", org: "St. Andrew’s Family Dental", text: "We can get the patient in this week." },
+    { at: 84, me: false, who: "Barbara", org: "Gentle Dental", text: "Perfect, X-rays are attached. Thank you!" },
   ];
   const typing = frame >= 34 && frame < 50;
   const unread = frame < 56 ? 2 : 0;
@@ -249,7 +249,7 @@ export const OfficeChat: React.FC = () => {
               <Icon d={ICON.chat} size={40} />
               <div style={{ fontSize: 40, fontWeight: 700, flex: 1 }}>Office Communication</div>
             </div>
-            <div style={{ fontSize: 25, color: TR.muted, marginTop: 8 }}>Messaging with Holland General Dentistry</div>
+            <div style={{ fontSize: 25, color: TR.muted, marginTop: 8 }}>Messaging with Gentle Dental</div>
             <div style={{ marginTop: 16, height: 50 }}>
               {unread > 0 ? <Badge color="#fff" bg={TR.purple}>2 unread @mentions</Badge> : <Badge color={TR.green} bg={TR.greenSoft}>All caught up</Badge>}
             </div>

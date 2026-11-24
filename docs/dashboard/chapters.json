@@ -1,0 +1,161 @@
+{
+ "total": 261.8333333333333,
+ "chapters": [
+  {
+   "key": "incoming",
+   "title": "Incoming Referrals",
+   "start": 4.0,
+   "end": 9.0
+  },
+  {
+   "key": "case",
+   "title": "Case Details",
+   "start": 9.0,
+   "end": 24.0
+  },
+  {
+   "key": "messages",
+   "title": "Messages tab",
+   "start": 24.0,
+   "end": 29.0
+  },
+  {
+   "key": "consult",
+   "title": "Prepare Consultation Note",
+   "start": 29.0,
+   "end": 34.0
+  },
+  {
+   "key": "leadforms",
+   "title": "Website Lead Forms",
+   "start": 34.0,
+   "end": 40.0
+  },
+  {
+   "key": "analytics",
+   "title": "Analytics",
+   "start": 40.0,
+   "end": 58.0
+  },
+  {
+   "key": "dayprep",
+   "title": "Provider's Day-Prep Station",
+   "start": 58.0,
+   "end": 74.0
+  },
+  {
+   "key": "casechat",
+   "title": "Case chat (Office Communication)",
+   "start": 74.0,
+   "end": 90.66666666666667
+  },
+  {
+   "key": "completion",
+   "title": "Completion note, route to doctor, e-sign",
+   "start": 90.66666666666667,
+   "end": 124.66666666666667
+  },
+  {
+   "key": "anwalk",
+   "title": "Analytics walk-through",
+   "start": 124.66666666666667,
+   "end": 184.66666666666666
+  },
+  {
+   "key": "TR-01",
+   "title": "Dashboard overview",
+   "start": 184.66666666666666,
+   "end": 189.16666666666666
+  },
+  {
+   "key": "TR-02",
+   "title": "New referral",
+   "start": 189.16666666666666,
+   "end": 194.16666666666666
+  },
+  {
+   "key": "TR-03",
+   "title": "Incoming referral",
+   "start": 194.16666666666666,
+   "end": 198.66666666666666
+  },
+  {
+   "key": "TR-04",
+   "title": "Office Communication",
+   "start": 198.66666666666666,
+   "end": 203.16666666666666
+  },
+  {
+   "key": "TR-05",
+   "title": "Case lifecycle",
+   "start": 203.16666666666666,
+   "end": 208.16666666666666
+  },
+  {
+   "key": "TR-06",
+   "title": "Analytics KPIs",
+   "start": 208.16666666666666,
+   "end": 212.66666666666666
+  },
+  {
+   "key": "TR-07",
+   "title": "Needs attention",
+   "start": 212.66666666666666,
+   "end": 217.16666666666666
+  },
+  {
+   "key": "TR-08",
+   "title": "Referral journey",
+   "start": 217.16666666666666,
+   "end": 221.66666666666666
+  },
+  {
+   "key": "TR-09",
+   "title": "Insurance link",
+   "start": 221.66666666666666,
+   "end": 226.33333333333334
+  },
+  {
+   "key": "TR-10",
+   "title": "Notification stack",
+   "start": 226.33333333333334,
+   "end": 231.33333333333334
+  },
+  {
+   "key": "TR-11",
+   "title": "Referral funnel",
+   "start": 231.33333333333334,
+   "end": 235.33333333333334
+  },
+  {
+   "key": "TR-12",
+   "title": "Before and after",
+   "start": 235.33333333333334,
+   "end": 240.33333333333334
+  },
+  {
+   "key": "TR-13",
+   "title": "Referral network",
+   "start": 240.33333333333334,
+   "end": 245.33333333333334
+  },
+  {
+   "key": "TR-14",
+   "title": "Case stack",
+   "start": 245.33333333333334,
+   "end": 250.33333333333334
+  },
+  {
+   "key": "TR-15",
+   "title": "Big stats",
+   "start": 250.33333333333334,
+   "end": 254.83333333333334
+  },
+  {
+   "key": "TR-16",
+   "title": "Set up in about 5 minutes",
+   "start": 254.83333333333334,
+   "end": 258.8333333333333
+  }
+ ]
+}

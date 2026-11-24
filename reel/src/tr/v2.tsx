@@ -138,7 +138,7 @@ const NODES = [
   { i: "ES", n: "Endo Specialists" },
   { i: "TF", n: "Toledo Family" },
   { i: "OS", n: "Oral Surgery" },
-  { i: "HG", n: "Holland General" },
+  { i: "GD", n: "Gentle Dental" },
   { i: "PP", n: "Perio Partners" },
   { i: "KD", n: "Kids Dental" },
   { i: "OR", n: "Ortho Studio" },
@@ -287,7 +287,7 @@ const LAYERS: { title: string; body: React.ReactNode }[] = [
           <Icon d={ICON.chat} size={44} />
         </div>
         <div style={{ flex: 1 }}>
-          <div style={{ fontSize: 30, fontWeight: 700, color: TR.ink }}>Dr. Reyes</div>
+          <div style={{ fontSize: 30, fontWeight: 700, color: TR.ink }}>Amanda</div>
           <div style={{ fontSize: 26, color: TR.text, marginTop: 4 }}>“Can we see her Thursday?”</div>
         </div>
         <Badge color="#fff" bg={TR.purple}>2 new</Badge>

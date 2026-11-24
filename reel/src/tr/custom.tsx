@@ -53,10 +53,10 @@ export const ReferralJourney: React.FC = () => {
         <svg width={1080} height={1920} style={{ position: "absolute", left: 0, top: 0 }}>
           <path d="M540 560 C980 760 100 1080 540 1290" fill="none" stroke="rgba(255,255,255,0.35)" strokeWidth={5} strokeDasharray="4 18" strokeLinecap="round" pathLength={1} strokeDashoffset={0} opacity={dash} />
         </svg>
-        <Office name="Bright Smile Family Dental" role="General dentist · Dr. Patel" initials="BS" top={380} at={0} />
+        <Office name="Bright Smile Family Dental" role="Referring general dentist" initials="BS" top={380} at={0} />
         <Office
           name="Endo Specialists"
-          role="Endodontist · Dr. Reyes"
+          role="Endodontist office"
           initials="ES"
           top={1250}
           at={8}
@@ -172,7 +172,7 @@ export const InsuranceLink: React.FC = () => {
 const EVENTS = [
   { t: "New referral created", s: "Toledo Family Dental · Maria Alvarez", c: TR.purple, d: ICON.inbox },
   { t: "Patient added insurance", s: "Delta Dental · verified", c: TR.green, d: ICON.shield },
-  { t: "New message", s: "Dr. Sally Smith: When can you see her?", c: TR.purple, d: ICON.chat },
+  { t: "New message", s: "Barbara: When can you see her?", c: TR.purple, d: ICON.chat },
   { t: "Appointment scheduled", s: "Thursday · 2:30 PM", c: TR.amber, d: ICON.calendar },
   { t: "Case completed", s: "Notes shared with both offices", c: TR.green, d: ICON.check },
 ];
