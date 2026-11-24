@@ -133,16 +133,26 @@ def words(c): return len(line(c).replace('…', ' ').split())
 
 
 def prompt(c):
-    start = 'the Host start frame image' if c[0] == '01' else f'the last frame of clip {int(c[0]) - 1:02d}'
     beats = ''.join(f'\n{t}: {g}' for t, g in c[4])
-    return '\n'.join([
-        f'Ingredients: the Host studio background image, the Host avatar image. Start image: {start}. Continue from the exact position '
-        'in the start image: the clip begins on that frame, with the same camera angle, framing, lighting and background, and the same '
-        'pose, hands and expression, and the action continues naturally from there, with no jump, reset or change of outfit. '
-        f'Starting position: {REST}.',
+    if c[0] == '01':
+        opening = [
+            'CLIP 01 OF 12: this clip sets the host and the background for the whole series. Every later clip continues from this one.',
+            'HOST AVATAR (use this exact man in every clip): ' + AVATAR,
+            'BACKGROUND (use this exact room in every clip): Vertical 9:16 photograph of ' + BG + ' ' + NOANIM,
+            'START FRAME: ' + START,
+            f'Starting position: {REST}.',
+        ]
+    else:
+        prev = f'{int(c[0]) - 1:02d}'
+        opening = [
+            f'Start image: the last image (last frame) of clip {prev}. Continue from the exact position in that image: the clip begins '
+            'on that frame with the same man, same face, hair, beard, black knit sweater, silver chain and ring, the same room and '
+            'background, the same lighting, camera angle and framing, and the same pose and expression. Nothing changes: no jump, no '
+            'reset, no new outfit, no new background.',
+            f'Starting position: {REST}.',
+        ]
+    return '\n'.join(opening + [
         LOOK,
-        'Background (exactly as the Host studio background image): ' + BG,
-        'Character (exactly as the Host avatar image): THE HOST: ' + AV_LOOK,
         f'Emotion: {c[5]}',
         'SECOND-BY-SECOND ACTION (follow exactly). Only one hand is ever raised; the pointing hand HOLDS its point, completely still, the whole time he talks about that side; between the two sides both hands return to the rest pose at the chest before the other hand rises. Hand moves are smooth and unhurried, never snapping. His eyes stay on the lens, never following the finger. ' + beats,
         'Framing: mid-chest up, centred, locked-off; both raised hands stay fully inside the frame, finger tips well below the top edge.',
@@ -177,8 +187,8 @@ SUMMARY = (f'{len(CLIPS)} clips of 8 seconds (about {len(CLIPS) * 8 // 60}:{len(
            'for each problem he points to the top-LEFT of the frame for the traditional way (“Don’t…”), returns to rest, then points to the top-RIGHT for '
            'the Tooth Referral feature (“Do…”), holding each point for the whole line, like the reference reel. The brand name is said only twice (clips 01–02). Every clip starts on the last frame of the one before, so the clips cut together '
            'as one continuous take. No graphics are generated: the labels and icons go in during the edit.')
-HOW = ['Generate the 3 reference images first (studio background, host avatar, host start frame), then the clips in order 01–' + f'{len(CLIPS):02d}.',
-       'For each clip after 01, use the last frame of the previous clip as the start image (in Flow: extend / use last frame), plus the background and avatar images as ingredients.',
+HOW = ['Clip 01’s prompt contains the full host avatar prompt, the background prompt and the start frame, so it sets the look for the whole series. Generate clip 01 first, then 02–' + f'{len(CLIPS):02d}' + ' in order.',
+       'From clip 02 on, the prompt only says to continue from the last image of the previous clip: in Flow, use the previous clip’s last frame as the start image (extend / use last frame).',
        'Sides are as the viewer sees the video: “Don’t” = LEFT side of the frame, “Do” = RIGHT side. Put the Don’t labels top-left and the Do labels top-right, above each finger.',
        'Every clip, second by second: rest pose → right hand points top-left and HOLDS through the whole Don’t line → hand back to rest → left hand points top-right and HOLDS through the whole Do line → back to rest. Every clip starts and ends in the same rest pose, so the cuts are invisible.',
        'Every clip is one “Don’t … / Do …” pair, like the reference reel: the Don’t half names the traditional waste, the Do half names the Tooth Referral feature. Each pair fits in about 7 s of the 8 s clip.',
