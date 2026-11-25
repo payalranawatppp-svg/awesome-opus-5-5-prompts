@@ -25,6 +25,7 @@ START_STILL = ('Photorealistic vertical 9:16 still, documentary look, 35mm, eye 
 
 MAIN = ' '.join([
  'INGREDIENTS: the start-frame still "S2 start frame" + avatar image of Elena + avatar image of Rachel + the corridor background image.',
+ 'USE THE AVATARS FROM THE ATTACHED IMAGES: attached image 1 is the corridor background; attached image 2 is Elena, the woman in her early 40s with a dark brown low bun, gold hoops and a white lab coat over teal scrubs; attached image 3 is Rachel, the woman in her early 30s with a dark brown low ponytail, freckles, navy-blue scrubs and a white ID badge; the start-frame still shows both of them in place. Use these exact two people from their attached images in this video: the same face, skin tone, age, hair, body, outfit, badge and accessories as in each image. Do not create new faces, do not blend or swap faces, do not change anyone\'s clothes or age. Each woman keeps her own face and her own voice for the whole clip.',
  'START IMAGE: "S2 start frame". Continue from it exactly: same two women, same clothes, same positions, same light. No jump, no reset.',
  LOOK, HALL,
  'PEOPLE: exactly two people are in the shot, nobody else ever appears.', ELENA, RACHEL,
@@ -55,6 +56,7 @@ MAIN = ' '.join([
 
 NO_LIPSYNC = ' '.join([
  'INGREDIENTS: the start-frame still "S2 start frame" + avatar image of Elena + avatar image of Rachel + the corridor background image.',
+ 'USE THE AVATARS FROM THE ATTACHED IMAGES: attached image 1 is the corridor background; attached image 2 is Elena, the woman in her early 40s with a dark brown low bun, gold hoops and a white lab coat over teal scrubs; attached image 3 is Rachel, the woman in her early 30s with a dark brown low ponytail, freckles, navy-blue scrubs and a white ID badge; the start-frame still shows both of them in place. Use these exact two people from their attached images in this video: the same face, skin tone, age, hair, body, outfit, badge and accessories as in each image. Do not create new faces, do not blend or swap faces, do not change anyone\'s clothes or age. Each woman keeps her own face and her own voice for the whole clip.',
  'START IMAGE: "S2 start frame". Continue from it exactly: same two women, same clothes, same positions, same light. No jump, no reset.',
  LOOK, HALL,
  'PEOPLE: exactly two people are in the shot, nobody else ever appears.', ELENA, RACHEL,

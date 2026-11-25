@@ -282,6 +282,24 @@ HERO = [
 ]
 
 
+LOOKS = {
+ 'Rachel': 'Rachel Moore, the woman in her early 30s with a dark brown low ponytail, freckles, navy-blue scrubs and a white ID badge',
+ 'Kevin': 'Kevin Tran, the man in his late 20s with short black hair, thin black glasses, a light-blue scrub top over a white long-sleeve tee',
+ 'Ruiz': 'Dr. Elena Ruiz, the woman in her early 40s with a dark brown low bun, gold hoops, a white lab coat over teal scrubs and loupes on her head',
+ 'Whitaker': 'Dr. James Whitaker, the man in his mid 50s with short grey hair, tortoiseshell glasses, a light-blue shirt under a white lab coat',
+ 'Megan': 'Megan Cole, the woman in her late 30s with auburn hair, reading glasses on a beaded lanyard, deep plum scrubs and a grey fleece vest',
+ 'Ethan': 'Ethan, the man in his early 30s with a dark-brown textured quiff, a short trimmed beard and a heather-grey crew-neck sweater',
+}
+
+
+def avatars_line(keys, bg_name, start_note=''):
+    parts = [f'attached image {i + 2} is {LOOKS[k]}' for i, k in enumerate(keys)]
+    return ('USE THE AVATARS FROM THE ATTACHED IMAGES: attached image 1 is the background "' + bg_name + '"; ' + '; '.join(parts) + '. '
+            + start_note + 'Use these exact people from their attached images in this video: the same face, skin tone, age, hair, body, '
+            'outfit, badge and accessories as in each image. Do not create new faces, do not blend or swap faces between people, do not '
+            'change anyone\'s clothes or age. Each person keeps their own face and their own voice for the whole clip.')
+
+
 def prompt(c):
     b = BG[c['bg']]
     who = [CAST[k] for k in c['cast']]
@@ -291,6 +309,7 @@ def prompt(c):
     speakers = [f'{s} ({CAST[LBL[s]]["voice"]}), {tm}: {t}' for s, t, tm in c['lines']]
     p = [
      f'INGREDIENTS: {ing}.',
+     avatars_line(c['cast'], b['name']),
      f'START IMAGE: {c["start"]}. Continue from the exact positions in the start image, no jump, no reset, no change of outfit, hair, props or lighting. Starting positions: {c["pos"]}',
      f'FORMAT: Vertical 9:16, 8 seconds, one continuous shot, 24 fps. {LOOK}',
      f'BACKGROUND: {b["desc"]}',
