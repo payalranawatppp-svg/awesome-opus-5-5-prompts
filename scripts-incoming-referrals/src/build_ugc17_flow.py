@@ -6,7 +6,8 @@ the script section of the PDF only, never inside a Flow prompt (user, 2026-11-25
 background and the full description of every person in the shot, and each clip page carries the avatar image
 prompts for its cast.
 """
-import html, os, subprocess
+import html, os, subprocess, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 D = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 NAME = 'UGC17-Five-Moments-Google-Flow-Prompts'
@@ -155,9 +156,9 @@ CLIPS = [
           ('4.8–7.2 s', 'Dr. Ruiz breaks into a sheepish laugh, shakes her head at herself and lifts both palms in a small "my bad" gesture as she says her last line. Rachel laughs and lowers the phone.'),
           ('7.2–8.0 s', 'Dr. Ruiz shakes her head, still smiling, and turns toward an operatory door; Rachel slips the phone into her pocket.')],
   camera='Handheld walking shot, the camera backs up in front of them at their pace, medium two-shot, then settles still when they stop at 4.2 s. Faces always clear.',
-  lines=[('Dr. Ruiz', "Can you just text me Olivia's X-ray? I'm between patients.", '0.5–3.0 s'),
-         ('Rachel', 'From my phone?', '3.0–4.2 s'),
-         ('Dr. Ruiz', "Yeah, that's a bad idea, isn't it.", '4.8–7.2 s')]),
+  lines=[('Dr. Ruiz', "Can you just text me Olivia's file? I'm running between rooms.", '0.6–3.2 s'),
+         ('Rachel', 'From my phone?', '3.2–4.4 s'),
+         ('Dr. Ruiz', "Yeah, that's a bad idea, isn't it.", '5.0–7.2 s')]),
  dict(id='S3', seg='Case 3: the hallway question nobody remembers (≈35–42 s)', bg='hall', cast=['Rachel', 'Ruiz'],
   start='the background image "Harborview hallway", later in the day; Rachel stands at an open operatory door, Dr. Ruiz arrives from the right',
   pos='Rachel stands beside an open operatory door on the left of frame; Dr. Ruiz enters frame from the right, loupes on her head, mask in hand, heading for the door.',
@@ -372,7 +373,7 @@ h3{color:#2a1a7a;margin:12px 0 4px}table{border-collapse:collapse;width:100%;fon
 
     # clip pages
     for c in CLIPS:
-        p = prompt(c)
+        p = prompt(c) if c['id'] != 'S2' else [__import__('s2_detailed').MAIN]
         h.append(f'<h2 class=pb>Clip {c["id"]} · {esc(c["seg"])}</h2>'
                  f'<p><b>Script direction:</b> {esc(c["pos"])}</p><p><b>Emotion:</b> {esc(c["emotion"])}</p>'
                  + ''.join(f'<div class=dl><span class=k>{esc(s)} ({tm}):</span> {esc(t)}</div>' for s, t, tm in c['lines'])

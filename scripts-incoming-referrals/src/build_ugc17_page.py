@@ -1,7 +1,8 @@
 """Copy-friendly HTML page (one Copy button per prompt) for UGC 17, from the same data as build_ugc17_flow.py."""
 import html, os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from build_ugc17_flow import CAST, BG, CLIPS, VO, HERO, S2_ALTS, DUB_S2, prompt, D
+from build_ugc17_flow import CAST, BG, CLIPS, VO, HERO, prompt, D
+import s2_detailed as S2
 
 E = html.escape
 NM = {'Ruiz': 'Dr. Elena Ruiz', 'Whitaker': 'Dr. James Whitaker', 'Rachel': 'Rachel Moore', 'Kevin': 'Kevin Tran', 'Megan': 'Megan Cole', 'Ethan': 'Ethan'}
@@ -64,13 +65,14 @@ out += s
 
 # 2 clips
 for c in CLIPS:
-    flat = ' '.join(prompt(c))  # one paragraph, single spaces
+    flat = ' '.join(prompt(c)) if c['id'] != 'S2' else S2.MAIN  # one paragraph, single spaces
     out.append(f'<section id="{c["id"]}"><h2>Clip {c["id"]} · {E(c["seg"])}</h2>'
                f'<p class="meta">Ingredients: background “{E(BG[c["bg"]]["name"])}” + ' + ' + '.join(f'avatar “{NM[k]}”' for k in c['cast'])
                + f'. Start image: {E(c["start"])}.</p>'
                + ''.join(f'<div class="dl"><span class="k">{E(sp)} ({tm}):</span> {E(t)}</div>' for sp, t, tm in c['lines'])
+               + (('<p class="meta"><b>Step 1:</b> make this start-frame still first and use it as the start image.</p>' + box('S2 start-frame still (image prompt)', S2.START_STILL, True) + '<p class="meta"><b>Step 2:</b> paste this into Flow.</p>') if c['id'] == 'S2' else '')
                + box(f'Google Flow prompt · {c["id"]}', flat, True)
-               + (('<p class="meta"><b>If Flow refuses S2, try these in order.</b> Backup A is short, drops every clinical word (Dr., X-ray, patients, operatory) and calls her Elena. Backup B has no dialogue at all: it films them from behind, and you add the three lines in ElevenLabs. If A fails with the avatar images attached, run it once with no Ingredients: if it then passes, the Dr. Ruiz avatar image is what Flow blocks, so regenerate that image.</p>' + ''.join(box(t, x, True) for t, x in S2_ALTS) + f'<p class="meta">{E(DUB_S2)}</p>') if c['id'] == 'S2' else '')
+               + (('<p class="meta"><b>No-lip-sync version</b> (use it if Flow still mixes up who says what): the same scene with no speech; add the three lines in ElevenLabs.</p>' + box('Google Flow prompt · S2 (no lip-sync)', S2.NO_LIPSYNC, True) + f'<p class="meta">{E(S2.DUB)}</p>') if c['id'] == 'S2' else '')
                + '<h3>Avatar prompts for this clip</h3><div class="grid">' + ''.join(box(CAST[k]['role'], CAST[k]['avatar']) for k in c['cast']) + '</div>'
                + box('Background image prompt · ' + BG[c['bg']]['name'], BG[c['bg']]['img']) + '</section>')
 
