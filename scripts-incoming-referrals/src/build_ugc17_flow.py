@@ -152,7 +152,7 @@ CLIPS = [
           ('0.5–3.0 s', 'Dr. Ruiz, still walking, says her first line with a quick friendly smile and a light open-hand gesture toward Rachel\'s phone.'),
           ('3.0–4.2 s', 'Rachel lifts her phone slightly and tilts it toward herself, eyebrows up, a small disbelieving smile: says "From my phone?"'),
           ('4.2–4.8 s', 'Dr. Ruiz stops walking, looks at the phone, a beat of realisation.'),
-          ('4.8–7.2 s', 'Dr. Ruiz breaks into a warm laugh, shakes her head at herself and gives Rachel a playful thumbs-up as she says her last line. Rachel laughs and lowers the phone.'),
+          ('4.8–7.2 s', 'Dr. Ruiz breaks into a sheepish laugh, shakes her head at herself and lifts both palms in a small "my bad" gesture as she says her last line. Rachel laughs and lowers the phone.'),
           ('7.2–8.0 s', 'Dr. Ruiz shakes her head, still smiling, and turns toward an operatory door; Rachel slips the phone into her pocket.')],
   camera='Handheld walking shot, the camera backs up in front of them at their pace, medium two-shot, then settles still when they stop at 4.2 s. Faces always clear.',
   lines=[('Dr. Ruiz', "Can you just text me Olivia's X-ray? I'm between patients.", '0.5–3.0 s'),
@@ -240,7 +240,7 @@ S2_ALTS = [
   'Action: the two women walk briskly toward the camera side by side, Elena on the left, Rachel on the right. 0.5–3 s: Elena, still walking, '
   'smiles and gestures lightly toward Rachel\'s phone and says: Can you just text me Olivia\'s file? I\'m running between rooms. '
   '3–4 s: Rachel lifts her phone a little, eyebrows up, and says: From my phone? 4–4.8 s: Elena stops walking and thinks for a beat. '
-  '4.8–7 s: Elena laughs at herself, shakes her head and gives a playful thumbs-up, saying: Yeah, that\'s a bad idea, isn\'t it. '
+  '4.8–7 s: Elena gives a sheepish laugh, shakes her head and lifts both palms in a small "my bad" gesture, saying: Yeah, that\'s a bad idea, isn\'t it. '
   '7–8 s: both smile; Elena turns toward a doorway. '
   'Camera: walks backwards in front of them, medium two-shot, faces clear, then holds still when they stop. '
   'Each line is said once, word for word, lip-synced; only the speaker\'s lips move. Natural room sound only, no music, no text on screen.'),
@@ -251,7 +251,7 @@ S2_ALTS = [
   'Action, filmed from behind as they walk away down the corridor (their faces are not visible while they talk): 0–3 s: the two women walk '
   'side by side, Elena on the left glancing at her watch and gesturing toward Rachel\'s phone, Rachel on the right holding her phone. '
   '3–4.5 s: Rachel holds the phone up a little and tilts her head toward Elena. 4.5–6.5 s: Elena stops, turns her head to Rachel in profile '
-  'and laughs, shaking her head, then gives a playful thumbs-up. 6.5–8 s: Elena steps into a doorway on the right, Rachel slips the phone '
+  'and gives a sheepish laugh, shaking her head and lifting both palms in a small "my bad" gesture. 6.5–8 s: Elena steps into a doorway on the right, Rachel slips the phone '
   'into her pocket, smiling. '
   'Camera: follows a few steps behind at shoulder height, smooth handheld. No dialogue, no speech, natural footsteps and room sound only, no music, no text on screen.'),
 ]
