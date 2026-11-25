@@ -1,7 +1,7 @@
 """Copy-friendly HTML page (one Copy button per prompt) for UGC 17, from the same data as build_ugc17_flow.py."""
 import html, os, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from build_ugc17_flow import CAST, BG, CLIPS, VO, HERO, ALT_S2, prompt, D
+from build_ugc17_flow import CAST, BG, CLIPS, VO, HERO, S2_ALTS, DUB_S2, prompt, D
 
 E = html.escape
 NM = {'Ruiz': 'Dr. Elena Ruiz', 'Whitaker': 'Dr. James Whitaker', 'Rachel': 'Rachel Moore', 'Kevin': 'Kevin Tran', 'Megan': 'Megan Cole', 'Ethan': 'Ethan'}
@@ -70,7 +70,7 @@ for c in CLIPS:
                + f'. Start image: {E(c["start"])}.</p>'
                + ''.join(f'<div class="dl"><span class="k">{E(sp)} ({tm}):</span> {E(t)}</div>' for sp, t, tm in c['lines'])
                + box(f'Google Flow prompt · {c["id"]}', flat, True)
-               + (('<p class="meta"><b>If Flow still refuses S2:</b> use this version. Same scene, the first line says “send me Olivia’s scan” instead of “text me Olivia’s X-ray”.</p>' + box('Google Flow prompt · S2 (backup wording)', ' '.join(prompt(dict(c, lines=ALT_S2))), True)) if c['id'] == 'S2' else '')
+               + (('<p class="meta"><b>If Flow refuses S2, try these in order.</b> Backup A is short, drops every clinical word (Dr., X-ray, patients, operatory) and calls her Elena. Backup B has no dialogue at all: it films them from behind, and you add the three lines in ElevenLabs. If A fails with the avatar images attached, run it once with no Ingredients: if it then passes, the Dr. Ruiz avatar image is what Flow blocks, so regenerate that image.</p>' + ''.join(box(t, x, True) for t, x in S2_ALTS) + f'<p class="meta">{E(DUB_S2)}</p>') if c['id'] == 'S2' else '')
                + '<h3>Avatar prompts for this clip</h3><div class="grid">' + ''.join(box(CAST[k]['role'], CAST[k]['avatar']) for k in c['cast']) + '</div>'
                + box('Background image prompt · ' + BG[c['bg']]['name'], BG[c['bg']]['img']) + '</section>')
 

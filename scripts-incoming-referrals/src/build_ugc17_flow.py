@@ -226,9 +226,36 @@ CLIPS = [
   lines=[('Ethan', 'The dashboard you just saw is Tooth Referral.', '0.5–3.6 s')]),
 ]
 
-ALT_S2 = [('Dr. Ruiz', "Can you send me Olivia's scan from your phone? I'm in a rush.", '0.5–3.0 s'),
-          ('Rachel', 'From my phone?', '3.0–4.2 s'),
-          ('Dr. Ruiz', "Yeah, that's a bad idea, isn't it.", '4.8–7.2 s')]
+RUIZ_SHORT = ('ELENA: woman in her early 40s, warm olive skin, dark brown hair in a neat low bun, small gold hoop earrings, '
+              'white knee-length lab coat open over teal scrubs, a tablet tucked under one arm. Friendly, busy, good-humoured.')
+RACHEL_SHORT = ('RACHEL: woman in her early 30s, shoulder-length dark brown hair in a low ponytail, navy-blue scrubs, white ID badge '
+                'on her chest pocket, holding her phone. Warm and quick.')
+HALL_SHORT = ('A bright, clean office corridor with light-grey floor, white walls, a few open doors on both sides, a round wall clock '
+              'with a plain white face, soft daylight at the far end.')
+S2_ALTS = [
+ ('Backup A: short prompt, no clinical words (lip-synced)',
+  'Vertical 9:16, 8 seconds, one continuous handheld shot, photorealistic, natural daylight, documentary style, light film grain. '
+  'Start from the attached images of Elena and Rachel and the corridor; keep their outfits and faces exactly the same. '
+  + HALL_SHORT + ' ' + RUIZ_SHORT + ' ' + RACHEL_SHORT + ' '
+  'Action: the two women walk briskly toward the camera side by side, Elena on the left, Rachel on the right. 0.5–3 s: Elena, still walking, '
+  'smiles and gestures lightly toward Rachel\'s phone and says: Can you just text me Olivia\'s file? I\'m running between rooms. '
+  '3–4 s: Rachel lifts her phone a little, eyebrows up, and says: From my phone? 4–4.8 s: Elena stops walking and thinks for a beat. '
+  '4.8–7 s: Elena laughs at herself, shakes her head and gives a playful thumbs-up, saying: Yeah, that\'s a bad idea, isn\'t it. '
+  '7–8 s: both smile; Elena turns toward a doorway. '
+  'Camera: walks backwards in front of them, medium two-shot, faces clear, then holds still when they stop. '
+  'Each line is said once, word for word, lip-synced; only the speaker\'s lips move. Natural room sound only, no music, no text on screen.'),
+ ('Backup B: no lip-sync (add the voices later in ElevenLabs)',
+  'Vertical 9:16, 8 seconds, one continuous handheld shot, photorealistic, natural daylight, documentary style, light film grain. '
+  'Start from the attached images of Elena and Rachel and the corridor; keep their outfits and faces exactly the same. '
+  + HALL_SHORT + ' ' + RUIZ_SHORT + ' ' + RACHEL_SHORT + ' '
+  'Action, filmed from behind as they walk away down the corridor (their faces are not visible while they talk): 0–3 s: the two women walk '
+  'side by side, Elena on the left glancing at her watch and gesturing toward Rachel\'s phone, Rachel on the right holding her phone. '
+  '3–4.5 s: Rachel holds the phone up a little and tilts her head toward Elena. 4.5–6.5 s: Elena stops, turns her head to Rachel in profile '
+  'and laughs, shaking her head, then gives a playful thumbs-up. 6.5–8 s: Elena steps into a doorway on the right, Rachel slips the phone '
+  'into her pocket, smiling. '
+  'Camera: follows a few steps behind at shoulder height, smooth handheld. No dialogue, no speech, natural footsteps and room sound only, no music, no text on screen.'),
+]
+DUB_S2 = 'Backup B voice lines (record in ElevenLabs, place over 0.5–3 s, 3–4 s and 4.8–7 s): Elena: "Can you just text me Olivia\'s X-ray? I\'m between patients." Rachel: "From my phone?" Elena: "Yeah, that\'s a bad idea, isn\'t it."'
 
 VO = [  # Ethan voice-overs over the dashboard: in the PDF only, not in any Flow prompt
  ('1', 'Someone leaves, and the referral history leaves with them (12–20 s)', 'Referral timeline and history: entries pop in with a name and a time ("Received · Rachel Moore · Nov 5, 9:12 AM").',
