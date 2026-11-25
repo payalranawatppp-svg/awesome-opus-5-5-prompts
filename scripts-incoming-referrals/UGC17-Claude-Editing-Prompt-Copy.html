@@ -14,7 +14,7 @@ pre{background:var(--card);border:1px solid var(--line);border-radius:12px;paddi
 </style>
 <div class="wrap"><h1>UGC 17 · Claude editing prompt</h1>
 <p class="sub">Ethan as voice-over only, with a 3D glass Tooth Referral dashboard built from scratch for every line. Copy it and paste it into Claude Code in the repo.</p>
-<div class="bar"><button id="cp" type="button">Copy the whole prompt</button><span class="n">3926 words · paste as one message</span></div>
+<div class="bar"><button id="cp" type="button">Copy the whole prompt</button><span class="n">4587 words · paste as one message</span></div>
 <pre id="p">You are editing UGC 17, &quot;Five moments every specialist office knows&quot;, a vertical Tooth Referral video for specialist front desks,
 treatment coordinators and office managers. Build it in the Remotion project in `reel/`. Work autonomously, check every frame,
 then render, commit and push.
@@ -25,7 +25,7 @@ then render, commit and push.
   fixes and the close.
 - **Every time Ethan speaks, the picture is a 3D transparent glass Tooth Referral dashboard**, built from scratch in code. It shows
   exactly what he is saying at that moment, with the story&#x27;s names and offices.
-- The five office scenes (S1–S5) are the Google Flow clips, with their own on-camera dialogue.
+- The five office scenes (S1–S5) are the Google Flow clips. Their dialogue is **re-dubbed** so that every character&#x27;s voice matches their avatar and stays the same in every scene (see 3b).
 - **There is no silence anywhere.** The video goes scene, then voice-over, then scene, back to back.
 
 ## 1. Output
@@ -61,9 +61,8 @@ Put every name, date and message in one file, `reel/src/ugc17/data.ts`. No scree
    - Scale to 1080×1920 with lanczos.
    - Loudness-normalise the dialogue to −16 LUFS.
    - If a clip is missing, stop and list what is missing.
-2. **Ethan&#x27;s voice-over.** Generate it with the ElevenLabs API.
+2. **Ethan&#x27;s voice-over.** Generate it with the ElevenLabs API, using the Ethan voice chosen in 3b.
    - Read the key from the `ELEVENLABS_API_KEY` environment variable. Never print or commit it.
-   - Pick one warm, energetic, conversational American male voice in his early 30s from the account&#x27;s voices, and use it for every line.
    - Settings: model `eleven_multilingual_v2`, stability 0.45, similarity 0.8, style 0.35, speed 1.05, output `mp3_44100_128`.
    - Generate one file per beat (`vo-hook.mp3`, `vo-fix1.mp3` … `vo-fix5.mp3`, `vo-close.mp3`) into `reel/public/ugc17/vo/`.
    - Trim each file&#x27;s leading and trailing silence to 40 ms.
@@ -71,6 +70,53 @@ Put every name, date and message in one file, `reel/src/ugc17/data.ts`. No scree
      that every word matches the script below. Regenerate any take that misses or adds a word.
 3. **Scene word timings.** Transcribe each Flow clip the same way to `reel/src/ugc17/scene-words.json`. Use these timings to trim each
    scene to its spoken lines.
+
+## 3b. Re-dub every character so each voice matches their avatar
+
+Flow gives every clip a random voice, so the same person can sound different from scene to scene, and the voice may not fit their look.
+Re-voice **every spoken line in S1–S5** with ElevenLabs speech-to-speech, so that:
+
+- each character has one fixed voice for the whole video;
+- that voice matches their age, gender and look;
+- the timing and lip-sync stay exactly as Flow made them.
+
+**Voice per character.** Choose a voice for each person from the account&#x27;s voices; list them with the API and pick by labels and preview. If no voice
+fits, create one with ElevenLabs Voice Design from the description below and save it. Write the chosen voice ids into
+`reel/src/ugc17/voices.json` and reuse them for every line.
+
+| Character | Appears in | Avatar | Voice to match |
+|---|---|---|---|
+| Rachel Moore | S1, S2, S3, S4 | woman, early 30s, dark brown low ponytail, navy scrubs | warm, mid-range American female, early 30s, quick and friendly, slightly tired; the same voice in all four scenes |
+| Kevin Tran | S1, S4 | man, late 20s, black hair, glasses, light-blue scrubs | light, friendly American male, late 20s, casual and upbeat |
+| Dr. Elena Ruiz | S2, S3 | woman, early 40s, low bun, white lab coat over teal scrubs | confident, brisk American female, early 40s, warm, a touch of humour; clearly lower and more assured than Rachel |
+| Dr. James Whitaker | S5 | man, mid 50s, grey hair, glasses, lab coat | calm, deep, kind American male, mid 50s, slightly puzzled |
+| Megan Cole | S5 | woman, late 30s, auburn hair, plum scrubs | warm, honest American female, late 30s, hesitant on this line |
+| Ethan (voice-over) | hook, fixes, close | (voice only) | energetic, friendly, conversational American male, early 30s; clearly different from Kevin and Dr. Whitaker |
+
+The two female voices that share scenes, Rachel and Dr. Ruiz, must be easy to tell apart. So must the two male voices in the office, Kevin and Ethan.
+
+**How to re-dub, line by line:**
+
+1. Split each Flow clip&#x27;s audio into one segment per spoken line, using `scene-words.json`: from the first word − 0.05 s to the last word + 0.08 s.
+   Check who speaks each line against the script.
+2. Send each segment to speech-to-speech:
+   - model `eleven_multilingual_sts_v2`, with that character&#x27;s voice id;
+   - `remove_background_noise=true`, stability 0.55, similarity 0.85, output `mp3_44100_128`.
+   - This keeps the original timing, so the lips still match.
+3. Transcribe each result and compare it word for word with the line. If a word is missing, added or mispronounced, run it again with a new
+   seed. If speech-to-speech still fails, use text-to-speech in the same voice and time-stretch it (at most ±8 %) to the original
+   segment length.
+4. Put each re-voiced line back at its exact original start time. Under the whole clip, lay the scene&#x27;s room tone, taken from the
+   non-speech parts of the Flow audio with the voices removed, so the space still sounds real. Crossfade 3 frames at both ends of each line.
+5. Mute the original Flow voices completely, so no double voice is ever heard.
+6. Loudness-match all characters to −16 LUFS per line, so no one is suddenly louder.
+7. Lip-sync check: for every line, compare the re-voiced line&#x27;s word starts with the original Flow word starts. Any word more than 3 frames
+   off gets fixed with a small time-stretch or a new take.
+8. Listen with `earshot`:
+   - `describe` on one line per character, to confirm the gender and age read;
+   - `compare` Rachel&#x27;s lines across S1–S4, which must come out as the same voice.
+
+Save the re-voiced dialogue in `reel/public/ugc17/dub/` as `s1-01-kevin.mp3` etc. and the mapping in `reel/src/ugc17/dub.json`.
 
 ## 4. The voice-over lines (word for word)
 
@@ -348,6 +394,7 @@ Beats:
 5. The Flow watermark is gone in every scene frame.
 6. No red anywhere in our graphics; ✕ chips are amber.
 7. &quot;Tooth Referral&quot; is said once, at the end.
+8. Every character sounds the same in every scene; no original Flow voice is audible anywhere; the lips match the re-dubbed words.
 
 Then render, write `edl.md` (the final beat table with real times) and `beats.png`, and commit and push to `claude/happy-fermat-cuii9h`.
 Report:
