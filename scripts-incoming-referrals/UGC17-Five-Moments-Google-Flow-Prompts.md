@@ -200,7 +200,7 @@ Photorealistic vertical 9:16 still, 35mm, soft key light from camera-left, light
 ```
 INGREDIENTS: background image "Harborview front desk (morning)" + avatar image "Rachel Moore" + avatar image "Kevin Tran".
 
-START IMAGE: the hero still "Harborview front desk with Rachel and Kevin" (generate it first, see the Cast page). Continue from the exact positions in the start image, no jump, no reset, no change of outfit, hair, props or lighting. Starting positions: Rachel sits at the front desk facing the monitors, three-quarter to camera, hands on the keyboard. Kevin stands behind her right shoulder, one hand on the back of her chair.
+START IMAGE: the hero still "Harborview front desk with Rachel and Kevin" (generate it first from the hero still prompt). Continue from the exact positions in the start image, no jump, no reset, no change of outfit, hair, props or lighting. Starting positions: Rachel sits at the front desk facing the monitors, three-quarter to camera, hands on the keyboard. Kevin stands behind her right shoulder, one hand on the back of her chair.
 
 FORMAT: Vertical 9:16, 8 seconds, one continuous shot, 24 fps. Photorealistic, filmed like real behind-the-scenes footage inside a working dental office: handheld with subtle natural sway, Sony FX3 look, 35mm lens, shallow but natural depth of field, soft daylight from windows mixed with overhead office light, true-to-life skin tones and colour, light natural film grain. It must look like a real phone-free documentary moment, not AI, not a commercial, not staged.
 
@@ -475,7 +475,7 @@ Photorealistic empty interior, vertical 9:16: small friendly general-dentist hyg
 ```
 INGREDIENTS: background image "Ethan's studio" + avatar image "Ethan".
 
-START IMAGE: the hero still "Ethan at his desk" (generate it first, see the Cast page). Continue from the exact positions in the start image, no jump, no reset, no change of outfit, hair, props or lighting. Starting positions: Ethan sits at the light-oak desk, centred, forearms resting on the desk, looking straight into the lens.
+START IMAGE: the hero still "Ethan at his desk" (generate it first from the hero still prompt). Continue from the exact positions in the start image, no jump, no reset, no change of outfit, hair, props or lighting. Starting positions: Ethan sits at the light-oak desk, centred, forearms resting on the desk, looking straight into the lens.
 
 FORMAT: Vertical 9:16, 8 seconds, one continuous shot, 24 fps. Photorealistic, filmed like real behind-the-scenes footage inside a working dental office: handheld with subtle natural sway, Sony FX3 look, 35mm lens, shallow but natural depth of field, soft daylight from windows mixed with overhead office light, true-to-life skin tones and colour, light natural film grain. It must look like a real phone-free documentary moment, not AI, not a commercial, not staged.
 

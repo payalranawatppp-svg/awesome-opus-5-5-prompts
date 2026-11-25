@@ -133,7 +133,7 @@ BG = {
 # ---------------------------------------------------------------- clips
 CLIPS = [
  dict(id='S1', seg='Cold open + scene for case 1 (0–7 s)', bg='desk', cast=['Rachel', 'Kevin'],
-  start='the hero still "Harborview front desk with Rachel and Kevin" (generate it first, see the Cast page)',
+  start='the hero still "Harborview front desk with Rachel and Kevin" (generate it first from the hero still prompt)',
   pos='Rachel sits at the front desk facing the monitors, three-quarter to camera, hands on the keyboard. Kevin stands behind her right shoulder, one hand on the back of her chair.',
   emotion='Kevin: light, slightly urgent, apologetic. Rachel: caught off guard, then a stressed little sigh and a helpless half-laugh. Real, quick, relatable, never incompetent: the problem is the missing history, not her.',
   action=[('0.0–0.6 s', 'Rachel types fast; Kevin leans in over her right shoulder, one hand on the chair back, the other pointing loosely at the screen.'),
@@ -195,7 +195,7 @@ CLIPS = [
   lines=[('Dr. Whitaker', 'Daniel Ortiz is back for his cleaning. Did he ever have that implant done?', '0.8–4.4 s'),
          ('Megan', "I… don't know. Nobody ever told us.", '5.0–7.2 s')]),
  dict(id='E1', seg='Hook: Ethan on camera (7–12 s)', bg='studio', cast=['Ethan'],
-  start='the hero still "Ethan at his desk" (generate it first, see the Cast page)',
+  start='the hero still "Ethan at his desk" (generate it first from the hero still prompt)',
   pos='Ethan sits at the light-oak desk, centred, forearms resting on the desk, looking straight into the lens.',
   emotion='Energetic, warm, a knowing "I\'ve been there" smile. Confident, friendly, a creator talking to peers, not a salesman.',
   action=[('0.0–0.5 s', 'Ethan looks into the lens, small knowing smile, eyebrows lift.'),
