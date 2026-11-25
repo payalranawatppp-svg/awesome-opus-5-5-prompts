@@ -115,7 +115,7 @@ Voice: friendly light American male voice, late 20s, casual and upbeat
 ### Dr. Elena Ruiz, associate dentist, Harborview Dental Group
 
 ```
-Photorealistic portrait reference sheet of one woman: early 40s, Latina, warm olive skin, dark brown hair in a neat low bun, minimal makeup, small gold hoop earrings, white knee-length lab coat open over teal scrubs, dental loupes pushed up on top of her head. Confident, friendly expression. Three views side by side (front, three-quarter, profile) plus one waist-up shot, plain light-grey studio background, soft even daylight, 35mm, natural skin texture, no text, no logos.
+Photorealistic portrait reference sheet of one woman: early 40s, warm olive skin, dark brown hair in a neat low bun, minimal makeup, small gold hoop earrings, white knee-length lab coat open over teal scrubs, dental loupes pushed up on top of her head. Confident, friendly expression. Three views side by side (front, three-quarter, profile) plus one waist-up shot, plain light-grey studio background, soft even daylight, 35mm, natural skin texture, no text, no logos.
 ```
 Voice: confident, brisk American female voice, early 40s, warm with a touch of humour
 
@@ -243,9 +243,9 @@ Photorealistic empty interior, vertical 9:16: modern specialist dental office fr
 
 ## Clip S2 · Case 2: "Can you just text me that X-ray?" (≈20–27 s)
 
-**Script direction:** Dr. Ruiz walks toward camera on the left, pulling off a blue nitrile glove; Rachel walks beside her on the right holding her own phone at chest height.
+**Script direction:** Dr. Ruiz walks toward camera on the left, a tablet tucked under one arm; Rachel walks beside her on the right holding her own phone at chest height.
 
-**Emotion:** Dr. Ruiz: rushed, friendly, then catches herself and laughs at the idea. Rachel: polite surprise, eyebrows up, a gentle "really?" look. Light comedy, both likeable.
+**Emotion:** Dr. Ruiz: busy and friendly, then realises and laughs at herself. Rachel: polite surprise, eyebrows up, a gentle "really?" look. Light comedy, both likeable.
 
 - **Dr. Ruiz (0.5–3.0 s):** Can you just text me Olivia's X-ray? I'm between patients.
 - **Rachel (3.0–4.2 s):** From my phone?
@@ -256,17 +256,17 @@ Photorealistic empty interior, vertical 9:16: modern specialist dental office fr
 ```
 INGREDIENTS: background image "Harborview hallway between operatories" + avatar image "Dr. Elena Ruiz" + avatar image "Rachel Moore".
 
-START IMAGE: the background image "Harborview hallway" with Dr. Ruiz and Rachel already walking toward camera from mid-corridor. Continue from the exact positions in the start image, no jump, no reset, no change of outfit, hair, props or lighting. Starting positions: Dr. Ruiz walks toward camera on the left, pulling off a blue nitrile glove; Rachel walks beside her on the right holding her own phone at chest height.
+START IMAGE: the background image "Harborview hallway" with Dr. Ruiz and Rachel already walking toward camera from mid-corridor. Continue from the exact positions in the start image, no jump, no reset, no change of outfit, hair, props or lighting. Starting positions: Dr. Ruiz walks toward camera on the left, a tablet tucked under one arm; Rachel walks beside her on the right holding her own phone at chest height.
 
 FORMAT: Vertical 9:16, 8 seconds, one continuous shot, 24 fps. Photorealistic, filmed like real behind-the-scenes footage inside a working dental office: handheld with subtle natural sway, Sony FX3 look, 35mm lens, shallow but natural depth of field, soft daylight from windows mixed with overhead office light, true-to-life skin tones and colour, light natural film grain. It must look like a real phone-free documentary moment, not AI, not a commercial, not staged.
 
 BACKGROUND: HARBORVIEW hallway between operatories: a bright corridor with light-grey vinyl floor, white walls, open operatory doors on both sides showing the edge of a dental chair and an overhead light, a wall-mounted hand-sanitiser dispenser, a round analogue wall clock with a plain white face (no brand), daylight from the far end of the corridor. Clean, busy-clinic feel.
 
-CHARACTERS (only these people are in the shot): DR. ELENA RUIZ: woman in her early 40s, Latina, warm olive skin, dark brown hair in a neat low bun, minimal makeup, small gold hoop earrings. White knee-length lab coat open over teal scrubs, dental loupes pushed up on top of her head, a surgical mask hanging loose from one ear. Fast, confident, good-humoured; talks while moving, quick decisive hand gestures, laughs at herself easily. RACHEL MOORE: woman in her early 30s, light-medium skin with a few freckles, shoulder-length dark brown hair pulled into a low ponytail with a few loose strands framing her face, natural makeup, small silver stud earrings. Navy-blue short-sleeve scrubs, white ID badge on a retractable clip at her chest pocket, a black pen in the pocket, slim silver watch on her left wrist. Warm, quick and capable, slightly tired around the eyes; expressive hands, talks with small open-palm gestures.
+CHARACTERS (only these people are in the shot): DR. ELENA RUIZ: woman in her early 40s, warm olive skin, dark brown hair in a neat low bun, minimal makeup, small gold hoop earrings. White knee-length lab coat open over teal scrubs, dental loupes pushed up on top of her head, a tablet tucked under one arm. Fast, confident, good-humoured; talks while moving, quick decisive hand gestures, laughs at herself easily. RACHEL MOORE: woman in her early 30s, light-medium skin with a few freckles, shoulder-length dark brown hair pulled into a low ponytail with a few loose strands framing her face, natural makeup, small silver stud earrings. Navy-blue short-sleeve scrubs, white ID badge on a retractable clip at her chest pocket, a black pen in the pocket, slim silver watch on her left wrist. Warm, quick and capable, slightly tired around the eyes; expressive hands, talks with small open-palm gestures.
 
-EMOTION AND ENERGY: Dr. Ruiz: rushed, friendly, then catches herself and laughs at the idea. Rachel: polite surprise, eyebrows up, a gentle "really?" look. Light comedy, both likeable. Natural, energetic and engaging: real people mid-workday, lively faces, eyebrows and eyes that react while listening, small head movements, natural blinks and breathing, hands that move with the words; never stiff, never posed, never over-acted.
+EMOTION AND ENERGY: Dr. Ruiz: busy and friendly, then realises and laughs at herself. Rachel: polite surprise, eyebrows up, a gentle "really?" look. Light comedy, both likeable. Natural, energetic and engaging: real people mid-workday, lively faces, eyebrows and eyes that react while listening, small head movements, natural blinks and breathing, hands that move with the words; never stiff, never posed, never over-acted.
 
-ACTION (second by second): 0.0–0.5 s: Both walk briskly toward camera; Dr. Ruiz snaps off the first glove. 0.5–3.0 s: Dr. Ruiz, still walking, says her first line, pulling off the second glove and flicking a hand toward Rachel's phone; a quick glance back at an operatory door. 3.0–4.2 s: Rachel lifts her phone slightly and tilts it toward herself, eyebrows up, a small disbelieving smile: says "From my phone?" 4.2–4.8 s: Dr. Ruiz stops walking, looks at the phone, a beat of realisation. 4.8–7.2 s: Dr. Ruiz winces with a small laugh, presses her fingertips to her forehead, then points at Rachel with a grin as she says her last line. Rachel laughs and lowers the phone. 7.2–8.0 s: Dr. Ruiz shakes her head, still smiling, and turns toward an operatory door; Rachel slips the phone into her pocket.
+ACTION (second by second): 0.0–0.5 s: Both walk briskly toward camera, friendly and busy; Dr. Ruiz glances at her watch. 0.5–3.0 s: Dr. Ruiz, still walking, says her first line with a quick friendly smile and a light open-hand gesture toward Rachel's phone. 3.0–4.2 s: Rachel lifts her phone slightly and tilts it toward herself, eyebrows up, a small disbelieving smile: says "From my phone?" 4.2–4.8 s: Dr. Ruiz stops walking, looks at the phone, a beat of realisation. 4.8–7.2 s: Dr. Ruiz breaks into a warm laugh, shakes her head at herself and gives Rachel a playful thumbs-up as she says her last line. Rachel laughs and lowers the phone. 7.2–8.0 s: Dr. Ruiz shakes her head, still smiling, and turns toward an operatory door; Rachel slips the phone into her pocket.
 
 CAMERA: Handheld walking shot, the camera backs up in front of them at their pace, medium two-shot, then settles still when they stop at 4.2 s. Faces always clear.
 
@@ -282,7 +282,7 @@ NEGATIVES: no animation, no cartoon, no CGI look, no glossy plastic skin, no on-
 **Dr. Elena Ruiz, associate dentist, Harborview Dental Group**
 
 ```
-Photorealistic portrait reference sheet of one woman: early 40s, Latina, warm olive skin, dark brown hair in a neat low bun, minimal makeup, small gold hoop earrings, white knee-length lab coat open over teal scrubs, dental loupes pushed up on top of her head. Confident, friendly expression. Three views side by side (front, three-quarter, profile) plus one waist-up shot, plain light-grey studio background, soft even daylight, 35mm, natural skin texture, no text, no logos.
+Photorealistic portrait reference sheet of one woman: early 40s, warm olive skin, dark brown hair in a neat low bun, minimal makeup, small gold hoop earrings, white knee-length lab coat open over teal scrubs, dental loupes pushed up on top of her head. Confident, friendly expression. Three views side by side (front, three-quarter, profile) plus one waist-up shot, plain light-grey studio background, soft even daylight, 35mm, natural skin texture, no text, no logos.
 ```
 
 **Rachel Moore, treatment coordinator, Harborview Dental Group (specialist office)**
@@ -317,7 +317,7 @@ FORMAT: Vertical 9:16, 8 seconds, one continuous shot, 24 fps. Photorealistic, f
 
 BACKGROUND: HARBORVIEW hallway between operatories: a bright corridor with light-grey vinyl floor, white walls, open operatory doors on both sides showing the edge of a dental chair and an overhead light, a wall-mounted hand-sanitiser dispenser, a round analogue wall clock with a plain white face (no brand), daylight from the far end of the corridor. Clean, busy-clinic feel.
 
-CHARACTERS (only these people are in the shot): RACHEL MOORE: woman in her early 30s, light-medium skin with a few freckles, shoulder-length dark brown hair pulled into a low ponytail with a few loose strands framing her face, natural makeup, small silver stud earrings. Navy-blue short-sleeve scrubs, white ID badge on a retractable clip at her chest pocket, a black pen in the pocket, slim silver watch on her left wrist. Warm, quick and capable, slightly tired around the eyes; expressive hands, talks with small open-palm gestures. DR. ELENA RUIZ: woman in her early 40s, Latina, warm olive skin, dark brown hair in a neat low bun, minimal makeup, small gold hoop earrings. White knee-length lab coat open over teal scrubs, dental loupes pushed up on top of her head, a surgical mask hanging loose from one ear. Fast, confident, good-humoured; talks while moving, quick decisive hand gestures, laughs at herself easily.
+CHARACTERS (only these people are in the shot): RACHEL MOORE: woman in her early 30s, light-medium skin with a few freckles, shoulder-length dark brown hair pulled into a low ponytail with a few loose strands framing her face, natural makeup, small silver stud earrings. Navy-blue short-sleeve scrubs, white ID badge on a retractable clip at her chest pocket, a black pen in the pocket, slim silver watch on her left wrist. Warm, quick and capable, slightly tired around the eyes; expressive hands, talks with small open-palm gestures. DR. ELENA RUIZ: woman in her early 40s, warm olive skin, dark brown hair in a neat low bun, minimal makeup, small gold hoop earrings. White knee-length lab coat open over teal scrubs, dental loupes pushed up on top of her head, a tablet tucked under one arm. Fast, confident, good-humoured; talks while moving, quick decisive hand gestures, laughs at herself easily.
 
 EMOTION AND ENERGY: Rachel: proactive, quick and professional, a little hopeful. Dr. Ruiz: genuinely busy, kind, distracted, already half in the room. End beat: Rachel's amused "here we go" look at the clock. Natural, no blame. Natural, energetic and engaging: real people mid-workday, lively faces, eyebrows and eyes that react while listening, small head movements, natural blinks and breathing, hands that move with the words; never stiff, never posed, never over-acted.
 
@@ -343,7 +343,7 @@ Photorealistic portrait reference sheet of one woman: early 30s, light-medium sk
 **Dr. Elena Ruiz, associate dentist, Harborview Dental Group**
 
 ```
-Photorealistic portrait reference sheet of one woman: early 40s, Latina, warm olive skin, dark brown hair in a neat low bun, minimal makeup, small gold hoop earrings, white knee-length lab coat open over teal scrubs, dental loupes pushed up on top of her head. Confident, friendly expression. Three views side by side (front, three-quarter, profile) plus one waist-up shot, plain light-grey studio background, soft even daylight, 35mm, natural skin texture, no text, no logos.
+Photorealistic portrait reference sheet of one woman: early 40s, warm olive skin, dark brown hair in a neat low bun, minimal makeup, small gold hoop earrings, white knee-length lab coat open over teal scrubs, dental loupes pushed up on top of her head. Confident, friendly expression. Three views side by side (front, three-quarter, profile) plus one waist-up shot, plain light-grey studio background, soft even daylight, 35mm, natural skin texture, no text, no logos.
 ```
 
 ### Background image prompt

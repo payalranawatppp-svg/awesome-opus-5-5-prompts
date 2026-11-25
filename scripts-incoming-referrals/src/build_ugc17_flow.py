@@ -47,11 +47,11 @@ CAST = {
           'waist-up shot, plain light-grey studio background, soft even daylight, 35mm, natural skin texture, no text, no logos.')),
  'Ruiz': dict(
   role='Dr. Elena Ruiz, associate dentist, Harborview Dental Group',
-  desc=('DR. ELENA RUIZ: woman in her early 40s, Latina, warm olive skin, dark brown hair in a neat low bun, minimal makeup, small gold '
-        'hoop earrings. White knee-length lab coat open over teal scrubs, dental loupes pushed up on top of her head, a surgical mask '
-        'hanging loose from one ear. Fast, confident, good-humoured; talks while moving, quick decisive hand gestures, laughs at herself easily.'),
+  desc=('DR. ELENA RUIZ: woman in her early 40s, warm olive skin, dark brown hair in a neat low bun, minimal makeup, small gold '
+        'hoop earrings. White knee-length lab coat open over teal scrubs, dental loupes pushed up on top of her head, a tablet '
+        'tucked under one arm. Fast, confident, good-humoured; talks while moving, quick decisive hand gestures, laughs at herself easily.'),
   voice='confident, brisk American female voice, early 40s, warm with a touch of humour',
-  avatar=('Photorealistic portrait reference sheet of one woman: early 40s, Latina, warm olive skin, dark brown hair in a neat low bun, '
+  avatar=('Photorealistic portrait reference sheet of one woman: early 40s, warm olive skin, dark brown hair in a neat low bun, '
           'minimal makeup, small gold hoop earrings, white knee-length lab coat open over teal scrubs, dental loupes pushed up on top of her '
           'head. Confident, friendly expression. Three views side by side (front, three-quarter, profile) plus one waist-up shot, plain '
           'light-grey studio background, soft even daylight, 35mm, natural skin texture, no text, no logos.')),
@@ -146,13 +146,13 @@ CLIPS = [
          ('Rachel', 'No idea. Jenna handled that one, and Friday was her last day.', '3.4–6.8 s')]),
  dict(id='S2', seg='Case 2: "Can you just text me that X-ray?" (≈20–27 s)', bg='hall', cast=['Ruiz', 'Rachel'],
   start='the background image "Harborview hallway" with Dr. Ruiz and Rachel already walking toward camera from mid-corridor',
-  pos='Dr. Ruiz walks toward camera on the left, pulling off a blue nitrile glove; Rachel walks beside her on the right holding her own phone at chest height.',
-  emotion='Dr. Ruiz: rushed, friendly, then catches herself and laughs at the idea. Rachel: polite surprise, eyebrows up, a gentle "really?" look. Light comedy, both likeable.',
-  action=[('0.0–0.5 s', 'Both walk briskly toward camera; Dr. Ruiz snaps off the first glove.'),
-          ('0.5–3.0 s', 'Dr. Ruiz, still walking, says her first line, pulling off the second glove and flicking a hand toward Rachel\'s phone; a quick glance back at an operatory door.'),
+  pos='Dr. Ruiz walks toward camera on the left, a tablet tucked under one arm; Rachel walks beside her on the right holding her own phone at chest height.',
+  emotion='Dr. Ruiz: busy and friendly, then realises and laughs at herself. Rachel: polite surprise, eyebrows up, a gentle "really?" look. Light comedy, both likeable.',
+  action=[('0.0–0.5 s', 'Both walk briskly toward camera, friendly and busy; Dr. Ruiz glances at her watch.'),
+          ('0.5–3.0 s', 'Dr. Ruiz, still walking, says her first line with a quick friendly smile and a light open-hand gesture toward Rachel\'s phone.'),
           ('3.0–4.2 s', 'Rachel lifts her phone slightly and tilts it toward herself, eyebrows up, a small disbelieving smile: says "From my phone?"'),
           ('4.2–4.8 s', 'Dr. Ruiz stops walking, looks at the phone, a beat of realisation.'),
-          ('4.8–7.2 s', 'Dr. Ruiz winces with a small laugh, presses her fingertips to her forehead, then points at Rachel with a grin as she says her last line. Rachel laughs and lowers the phone.'),
+          ('4.8–7.2 s', 'Dr. Ruiz breaks into a warm laugh, shakes her head at herself and gives Rachel a playful thumbs-up as she says her last line. Rachel laughs and lowers the phone.'),
           ('7.2–8.0 s', 'Dr. Ruiz shakes her head, still smiling, and turns toward an operatory door; Rachel slips the phone into her pocket.')],
   camera='Handheld walking shot, the camera backs up in front of them at their pace, medium two-shot, then settles still when they stop at 4.2 s. Faces always clear.',
   lines=[('Dr. Ruiz', "Can you just text me Olivia's X-ray? I'm between patients.", '0.5–3.0 s'),
@@ -225,6 +225,10 @@ CLIPS = [
   camera='Same locked-off medium close-up as E1, eye level, no cut.',
   lines=[('Ethan', 'The dashboard you just saw is Tooth Referral.', '0.5–3.6 s')]),
 ]
+
+ALT_S2 = [('Dr. Ruiz', "Can you send me Olivia's scan from your phone? I'm in a rush.", '0.5–3.0 s'),
+          ('Rachel', 'From my phone?', '3.0–4.2 s'),
+          ('Dr. Ruiz', "Yeah, that's a bad idea, isn't it.", '4.8–7.2 s')]
 
 VO = [  # Ethan voice-overs over the dashboard: in the PDF only, not in any Flow prompt
  ('1', 'Someone leaves, and the referral history leaves with them (12–20 s)', 'Referral timeline and history: entries pop in with a name and a time ("Received · Rachel Moore · Nov 5, 9:12 AM").',
