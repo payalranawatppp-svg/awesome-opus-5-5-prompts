@@ -1,0 +1,134 @@
+{
+ "s1-01": {
+  "scene": "s1",
+  "who": "kevin",
+  "file": "ugc17/dub/s1-01-kevin.mp3",
+  "at": 0.78,
+  "end": 3.58,
+  "text": "Lakeside's asking where we are on the Bennett referral.",
+  "seed": 7
+ },
+ "s1-02": {
+  "scene": "s1",
+  "who": "rachel",
+  "file": "ugc17/dub/s1-02-rachel.mp3",
+  "at": 3.54,
+  "end": 7.42,
+  "text": "No idea. Jenna handled that one, and Friday was her last day.",
+  "seed": 7
+ },
+ "s2-01": {
+  "scene": "s2",
+  "who": "ruiz",
+  "file": "ugc17/dub/s2-01-ruiz.mp3",
+  "at": 0.26,
+  "end": 4.0,
+  "text": "Can you just text me Olivia's file? I'm running between rooms.",
+  "seed": 7
+ },
+ "s2-02": {
+  "scene": "s2",
+  "who": "rachel",
+  "file": "ugc17/dub/s2-02-rachel.mp3",
+  "at": 3.78,
+  "end": 5.02,
+  "text": "From my phone?",
+  "seed": 11
+ },
+ "s2-03": {
+  "scene": "s2",
+  "who": "ruiz",
+  "file": "ugc17/dub/s2-03-ruiz.mp3",
+  "at": 5.62,
+  "end": 8.0,
+  "text": "Yeah, that's a bad idea, isn't it?",
+  "seed": 7
+ },
+ "s3-01": {
+  "scene": "s3",
+  "who": "rachel",
+  "file": "ugc17/dub/s3-01-rachel.mp3",
+  "at": 0.68,
+  "end": 4.92,
+  "text": "Doc, Olivia's pano is from 2023. Do we take a new one before her consult?",
+  "seed": 7,
+  "spliced": "consult"
+ },
+ "s3-02": {
+  "scene": "s3",
+  "who": "ruiz",
+  "file": "ugc17/dub/s3-02-ruiz.mp3",
+  "at": 4.76,
+  "end": 6.68,
+  "text": "Good question. Remind me after lunch.",
+  "seed": 23,
+  "tts": true,
+  "tempo": [
+   1.08,
+   1.08
+  ]
+ },
+ "s4-01": {
+  "scene": "s4",
+  "who": "kevin",
+  "file": "ugc17/dub/s4-01-kevin.mp3",
+  "at": 0.86,
+  "end": 2.7,
+  "text": "You're still here?",
+  "seed": 7
+ },
+ "s4-02": {
+  "scene": "s4",
+  "who": "rachel",
+  "file": "ugc17/dub/s4-02-rachel.mp3",
+  "at": 2.78,
+  "end": 7.96,
+  "text": "Re -typing Dr. Ruiz's consult letter. Same letter, new patient name, every time.",
+  "seed": 7
+ },
+ "s5-01": {
+  "scene": "s5",
+  "who": "whitaker",
+  "file": "ugc17/dub/s5-01-whitaker.mp3",
+  "at": 0.82,
+  "end": 5.08,
+  "text": "Daniel Ortiz is back for his cleaning. Did he ever have that implant done?",
+  "seed": 7
+ },
+ "s5-02": {
+  "scene": "s5",
+  "who": "megan",
+  "file": "ugc17/dub/s5-02-megan.mp3",
+  "at": 4.82,
+  "end": 7.62,
+  "text": "I don't know. Nobody ever told us.",
+  "seed": 7
+ },
+ "e1-01": {
+  "scene": "e1",
+  "who": "ethan",
+  "file": "ugc17/dub/e1-01-ethan.mp3",
+  "at": 0.04,
+  "end": 6.3,
+  "text": "Sound familiar? Here are five moments every specialist office knows, and how to handle each one.",
+  "seed": 7
+ },
+ "e2-01": {
+  "scene": "e2",
+  "who": "ethan",
+  "file": "ugc17/dub/e2-01-ethan.mp3",
+  "at": 0.04,
+  "end": 7.0,
+  "text": "None of these are big problems on their own. Together, they're where referrals slip.",
+  "seed": 7
+ },
+ "e3-01": {
+  "scene": "e3",
+  "who": "ethan",
+  "file": "ugc17/dub/e3-01-ethan.mp3",
+  "at": 0.04,
+  "end": 3.48,
+  "text": "The dashboard you just saw is tooth referral,",
+  "seed": 7
+ }
+}

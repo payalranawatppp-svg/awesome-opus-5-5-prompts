@@ -1,0 +1,2618 @@
+{
+ "fps": 30,
+ "total": 2330,
+ "beats": [
+  {
+   "id": "s1",
+   "kind": "scene",
+   "f0": 0,
+   "f1": 175,
+   "pieces": [
+    {
+     "a": 1.02,
+     "b": 3.353,
+     "f0": 0,
+     "f1": 70,
+     "punch": false
+    },
+    {
+     "a": 3.68,
+     "b": 7.18,
+     "f0": 70,
+     "f1": 175,
+     "punch": true
+    }
+   ]
+  },
+  {
+   "id": "e1",
+   "kind": "scene",
+   "f0": 175,
+   "f1": 323,
+   "pieces": [
+    {
+     "a": 0.52,
+     "b": 1.353,
+     "f0": 175,
+     "f1": 200,
+     "punch": false
+    },
+    {
+     "a": 1.84,
+     "b": 5.94,
+     "f0": 200,
+     "f1": 323,
+     "punch": true
+    }
+   ]
+  },
+  {
+   "id": "fix1",
+   "kind": "vo",
+   "f0": 323,
+   "f1": 538,
+   "words": [
+    {
+     "w": "When",
+     "f": 0
+    },
+    {
+     "w": "someone",
+     "f": 5
+    },
+    {
+     "w": "leaves,",
+     "f": 14
+    },
+    {
+     "w": "the",
+     "f": 33
+    },
+    {
+     "w": "referral",
+     "f": 35
+    },
+    {
+     "w": "shouldn't",
+     "f": 44
+    },
+    {
+     "w": "leave",
+     "f": 54
+    },
+    {
+     "w": "with",
+     "f": 59
+    },
+    {
+     "w": "them.",
+     "f": 64
+    },
+    {
+     "w": "Every",
+     "f": 79
+    },
+    {
+     "w": "update",
+     "f": 85
+    },
+    {
+     "w": "and",
+     "f": 95
+    },
+    {
+     "w": "message",
+     "f": 100
+    },
+    {
+     "w": "stays",
+     "f": 109
+    },
+    {
+     "w": "on",
+     "f": 116
+    },
+    {
+     "w": "the",
+     "f": 122
+    },
+    {
+     "w": "case,",
+     "f": 125
+    },
+    {
+     "w": "so",
+     "f": 139
+    },
+    {
+     "w": "it",
+     "f": 142
+    },
+    {
+     "w": "lives",
+     "f": 150
+    },
+    {
+     "w": "in",
+     "f": 156
+    },
+    {
+     "w": "the",
+     "f": 161
+    },
+    {
+     "w": "platform,",
+     "f": 165
+    },
+    {
+     "w": "not",
+     "f": 184
+    },
+    {
+     "w": "one",
+     "f": 187
+    },
+    {
+     "w": "person's",
+     "f": 194
+    },
+    {
+     "w": "head.",
+     "f": 207
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "kind": "scene",
+   "f0": 538,
+   "f1": 708,
+   "pieces": [
+    {
+     "a": 0.8,
+     "b": 3.767,
+     "f0": 538,
+     "f1": 627,
+     "punch": false
+    },
+    {
+     "a": 4.0,
+     "b": 4.767,
+     "f0": 627,
+     "f1": 650,
+     "punch": true
+    },
+    {
+     "a": 5.74,
+     "b": 7.673,
+     "f0": 650,
+     "f1": 708,
+     "punch": false
+    }
+   ]
+  },
+  {
+   "id": "fix2",
+   "kind": "vo",
+   "f0": 708,
+   "f1": 916,
+   "words": [
+    {
+     "w": "Texting",
+     "f": 0
+    },
+    {
+     "w": "X-rays",
+     "f": 16
+    },
+    {
+     "w": "from",
+     "f": 29
+    },
+    {
+     "w": "a",
+     "f": 36
+    },
+    {
+     "w": "personal",
+     "f": 41
+    },
+    {
+     "w": "phone",
+     "f": 52
+    },
+    {
+     "w": "is",
+     "f": 61
+    },
+    {
+     "w": "one",
+     "f": 75
+    },
+    {
+     "w": "of",
+     "f": 79
+    },
+    {
+     "w": "the",
+     "f": 82
+    },
+    {
+     "w": "most",
+     "f": 85
+    },
+    {
+     "w": "common",
+     "f": 91
+    },
+    {
+     "w": "HIPAA",
+     "f": 104
+    },
+    {
+     "w": "slip-ups.",
+     "f": 116
+    },
+    {
+     "w": "Keep",
+     "f": 137
+    },
+    {
+     "w": "it",
+     "f": 140
+    },
+    {
+     "w": "on",
+     "f": 143
+    },
+    {
+     "w": "the",
+     "f": 146
+    },
+    {
+     "w": "case,",
+     "f": 151
+    },
+    {
+     "w": "and",
+     "f": 158
+    },
+    {
+     "w": "open",
+     "f": 169
+    },
+    {
+     "w": "it",
+     "f": 177
+    },
+    {
+     "w": "from",
+     "f": 181
+    },
+    {
+     "w": "any",
+     "f": 186
+    },
+    {
+     "w": "browser.",
+     "f": 193
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "kind": "scene",
+   "f0": 916,
+   "f1": 1107,
+   "pieces": [
+    {
+     "a": 0.8,
+     "b": 7.167,
+     "f0": 916,
+     "f1": 1107,
+     "punch": false
+    }
+   ]
+  },
+  {
+   "id": "fix3",
+   "kind": "vo",
+   "f0": 1107,
+   "f1": 1331,
+   "words": [
+    {
+     "w": "Hallway",
+     "f": 0
+    },
+    {
+     "w": "questions",
+     "f": 14
+    },
+    {
+     "w": "disappear.",
+     "f": 28
+    },
+    {
+     "w": "Put",
+     "f": 55
+    },
+    {
+     "w": "it",
+     "f": 58
+    },
+    {
+     "w": "in",
+     "f": 62
+    },
+    {
+     "w": "a",
+     "f": 65
+    },
+    {
+     "w": "private",
+     "f": 71
+    },
+    {
+     "w": "note",
+     "f": 77
+    },
+    {
+     "w": "and",
+     "f": 88
+    },
+    {
+     "w": "tag",
+     "f": 97
+    },
+    {
+     "w": "the",
+     "f": 105
+    },
+    {
+     "w": "doctor.",
+     "f": 110
+    },
+    {
+     "w": "The",
+     "f": 128
+    },
+    {
+     "w": "answer",
+     "f": 131
+    },
+    {
+     "w": "waits",
+     "f": 139
+    },
+    {
+     "w": "on",
+     "f": 148
+    },
+    {
+     "w": "the",
+     "f": 154
+    },
+    {
+     "w": "case,",
+     "f": 158
+    },
+    {
+     "w": "and",
+     "f": 172
+    },
+    {
+     "w": "the",
+     "f": 178
+    },
+    {
+     "w": "other",
+     "f": 182
+    },
+    {
+     "w": "office",
+     "f": 188
+    },
+    {
+     "w": "never",
+     "f": 199
+    },
+    {
+     "w": "sees",
+     "f": 209
+    },
+    {
+     "w": "it.",
+     "f": 217
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "kind": "scene",
+   "f0": 1331,
+   "f1": 1489,
+   "pieces": [
+    {
+     "a": 1.52,
+     "b": 2.287,
+     "f0": 1331,
+     "f1": 1354,
+     "punch": false
+    },
+    {
+     "a": 2.96,
+     "b": 5.16,
+     "f0": 1354,
+     "f1": 1420,
+     "punch": true
+    },
+    {
+     "a": 5.44,
+     "b": 7.74,
+     "f0": 1420,
+     "f1": 1489,
+     "punch": false
+    }
+   ]
+  },
+  {
+   "id": "fix4",
+   "kind": "vo",
+   "f0": 1489,
+   "f1": 1708,
+   "words": [
+    {
+     "w": "Turn",
+     "f": 0
+    },
+    {
+     "w": "that",
+     "f": 7
+    },
+    {
+     "w": "Word",
+     "f": 14
+    },
+    {
+     "w": "letter",
+     "f": 20
+    },
+    {
+     "w": "into",
+     "f": 28
+    },
+    {
+     "w": "a",
+     "f": 35
+    },
+    {
+     "w": "template",
+     "f": 41
+    },
+    {
+     "w": "once.",
+     "f": 50
+    },
+    {
+     "w": "Patient",
+     "f": 71
+    },
+    {
+     "w": "and",
+     "f": 77
+    },
+    {
+     "w": "doctor",
+     "f": 85
+    },
+    {
+     "w": "details",
+     "f": 94
+    },
+    {
+     "w": "fill",
+     "f": 109
+    },
+    {
+     "w": "themselves",
+     "f": 117
+    },
+    {
+     "w": "in,",
+     "f": 128
+    },
+    {
+     "w": "the",
+     "f": 145
+    },
+    {
+     "w": "doctor",
+     "f": 147
+    },
+    {
+     "w": "signs",
+     "f": 156
+    },
+    {
+     "w": "digitally,",
+     "f": 167
+    },
+    {
+     "w": "and",
+     "f": 192
+    },
+    {
+     "w": "it",
+     "f": 194
+    },
+    {
+     "w": "goes",
+     "f": 197
+    },
+    {
+     "w": "straight",
+     "f": 202
+    },
+    {
+     "w": "back.",
+     "f": 209
+    }
+   ]
+  },
+  {
+   "id": "s5",
+   "kind": "scene",
+   "f0": 1708,
+   "f1": 1874,
+   "pieces": [
+    {
+     "a": 1.34,
+     "b": 3.34,
+     "f0": 1708,
+     "f1": 1768,
+     "punch": false
+    },
+    {
+     "a": 3.42,
+     "b": 4.887,
+     "f0": 1768,
+     "f1": 1812,
+     "punch": true
+    },
+    {
+     "a": 5.04,
+     "b": 5.94,
+     "f0": 1812,
+     "f1": 1839,
+     "punch": false
+    },
+    {
+     "a": 6.02,
+     "b": 7.187,
+     "f0": 1839,
+     "f1": 1874,
+     "punch": true
+    }
+   ]
+  },
+  {
+   "id": "fix5",
+   "kind": "vo",
+   "f0": 1874,
+   "f1": 2058,
+   "words": [
+    {
+     "w": "If",
+     "f": 0
+    },
+    {
+     "w": "a",
+     "f": 5
+    },
+    {
+     "w": "patient",
+     "f": 10
+    },
+    {
+     "w": "declines,",
+     "f": 17
+    },
+    {
+     "w": "mark",
+     "f": 44
+    },
+    {
+     "w": "it",
+     "f": 48
+    },
+    {
+     "w": "on",
+     "f": 51
+    },
+    {
+     "w": "the",
+     "f": 53
+    },
+    {
+     "w": "case",
+     "f": 58
+    },
+    {
+     "w": "with",
+     "f": 62
+    },
+    {
+     "w": "a",
+     "f": 67
+    },
+    {
+     "w": "short",
+     "f": 73
+    },
+    {
+     "w": "note.",
+     "f": 77
+    },
+    {
+     "w": "The",
+     "f": 91
+    },
+    {
+     "w": "referring",
+     "f": 94
+    },
+    {
+     "w": "dentist",
+     "f": 104
+    },
+    {
+     "w": "sees",
+     "f": 116
+    },
+    {
+     "w": "it",
+     "f": 125
+    },
+    {
+     "w": "the",
+     "f": 129
+    },
+    {
+     "w": "same",
+     "f": 133
+    },
+    {
+     "w": "day,",
+     "f": 139
+    },
+    {
+     "w": "not",
+     "f": 152
+    },
+    {
+     "w": "at",
+     "f": 158
+    },
+    {
+     "w": "the",
+     "f": 161
+    },
+    {
+     "w": "next",
+     "f": 164
+    },
+    {
+     "w": "recall.",
+     "f": 169
+    }
+   ]
+  },
+  {
+   "id": "e2",
+   "kind": "scene",
+   "f0": 2058,
+   "f1": 2195,
+   "pieces": [
+    {
+     "a": 0.68,
+     "b": 2.947,
+     "f0": 2058,
+     "f1": 2126,
+     "punch": false
+    },
+    {
+     "a": 4.1,
+     "b": 4.833,
+     "f0": 2126,
+     "f1": 2148,
+     "punch": true
+    },
+    {
+     "a": 5.06,
+     "b": 6.627,
+     "f0": 2148,
+     "f1": 2195,
+     "punch": false
+    }
+   ]
+  },
+  {
+   "id": "e3",
+   "kind": "scene",
+   "f0": 2195,
+   "f1": 2270,
+   "pieces": [
+    {
+     "a": 0.7,
+     "b": 3.2,
+     "f0": 2195,
+     "f1": 2270,
+     "punch": false
+    }
+   ]
+  },
+  {
+   "id": "end",
+   "kind": "end",
+   "f0": 2270,
+   "f1": 2330
+  }
+ ],
+ "captions": [
+  {
+   "w": "Lakeside's",
+   "f": 2,
+   "e": 15,
+   "beat": "s1",
+   "who": "kevin"
+  },
+  {
+   "w": "asking",
+   "f": 15,
+   "e": 22,
+   "beat": "s1",
+   "who": "kevin"
+  },
+  {
+   "w": "where",
+   "f": 22,
+   "e": 29,
+   "beat": "s1",
+   "who": "kevin"
+  },
+  {
+   "w": "we",
+   "f": 29,
+   "e": 33,
+   "beat": "s1",
+   "who": "kevin"
+  },
+  {
+   "w": "are",
+   "f": 33,
+   "e": 38,
+   "beat": "s1",
+   "who": "kevin"
+  },
+  {
+   "w": "on",
+   "f": 38,
+   "e": 42,
+   "beat": "s1",
+   "who": "kevin"
+  },
+  {
+   "w": "the",
+   "f": 42,
+   "e": 47,
+   "beat": "s1",
+   "who": "kevin"
+  },
+  {
+   "w": "Bennett",
+   "f": 47,
+   "e": 52,
+   "beat": "s1",
+   "who": "kevin"
+  },
+  {
+   "w": "referral.",
+   "f": 52,
+   "e": 65,
+   "beat": "s1",
+   "who": "kevin"
+  },
+  {
+   "w": "No",
+   "f": 75,
+   "e": 78,
+   "beat": "s1",
+   "who": "rachel"
+  },
+  {
+   "w": "idea.",
+   "f": 78,
+   "e": 90,
+   "beat": "s1",
+   "who": "rachel"
+  },
+  {
+   "w": "Jenna",
+   "f": 99,
+   "e": 104,
+   "beat": "s1",
+   "who": "rachel"
+  },
+  {
+   "w": "handled",
+   "f": 104,
+   "e": 113,
+   "beat": "s1",
+   "who": "rachel"
+  },
+  {
+   "w": "that",
+   "f": 113,
+   "e": 119,
+   "beat": "s1",
+   "who": "rachel"
+  },
+  {
+   "w": "one,",
+   "f": 119,
+   "e": 126,
+   "beat": "s1",
+   "who": "rachel"
+  },
+  {
+   "w": "and",
+   "f": 134,
+   "e": 137,
+   "beat": "s1",
+   "who": "rachel"
+  },
+  {
+   "w": "Friday",
+   "f": 137,
+   "e": 144,
+   "beat": "s1",
+   "who": "rachel"
+  },
+  {
+   "w": "was",
+   "f": 144,
+   "e": 150,
+   "beat": "s1",
+   "who": "rachel"
+  },
+  {
+   "w": "her",
+   "f": 150,
+   "e": 154,
+   "beat": "s1",
+   "who": "rachel"
+  },
+  {
+   "w": "last",
+   "f": 154,
+   "e": 160,
+   "beat": "s1",
+   "who": "rachel"
+  },
+  {
+   "w": "day.",
+   "f": 160,
+   "e": 170,
+   "beat": "s1",
+   "who": "rachel"
+  },
+  {
+   "w": "Sound",
+   "f": 177,
+   "e": 183,
+   "beat": "e1",
+   "who": "ethan"
+  },
+  {
+   "w": "familiar?",
+   "f": 183,
+   "e": 194,
+   "beat": "e1",
+   "who": "ethan"
+  },
+  {
+   "w": "Here",
+   "f": 202,
+   "e": 206,
+   "beat": "e1",
+   "who": "ethan"
+  },
+  {
+   "w": "are",
+   "f": 206,
+   "e": 213,
+   "beat": "e1",
+   "who": "ethan"
+  },
+  {
+   "w": "five",
+   "f": 214,
+   "e": 220,
+   "beat": "e1",
+   "who": "ethan"
+  },
+  {
+   "w": "moments",
+   "f": 220,
+   "e": 232,
+   "beat": "e1",
+   "who": "ethan"
+  },
+  {
+   "w": "every",
+   "f": 232,
+   "e": 246,
+   "beat": "e1",
+   "who": "ethan"
+  },
+  {
+   "w": "specialist",
+   "f": 246,
+   "e": 259,
+   "beat": "e1",
+   "who": "ethan"
+  },
+  {
+   "w": "office",
+   "f": 259,
+   "e": 270,
+   "beat": "e1",
+   "who": "ethan"
+  },
+  {
+   "w": "knows,",
+   "f": 270,
+   "e": 280,
+   "beat": "e1",
+   "who": "ethan"
+  },
+  {
+   "w": "and",
+   "f": 289,
+   "e": 292,
+   "beat": "e1",
+   "who": "ethan"
+  },
+  {
+   "w": "how",
+   "f": 292,
+   "e": 296,
+   "beat": "e1",
+   "who": "ethan"
+  },
+  {
+   "w": "to",
+   "f": 296,
+   "e": 300,
+   "beat": "e1",
+   "who": "ethan"
+  },
+  {
+   "w": "handle",
+   "f": 300,
+   "e": 307,
+   "beat": "e1",
+   "who": "ethan"
+  },
+  {
+   "w": "each",
+   "f": 307,
+   "e": 313,
+   "beat": "e1",
+   "who": "ethan"
+  },
+  {
+   "w": "one.",
+   "f": 313,
+   "e": 322,
+   "beat": "e1",
+   "who": "ethan"
+  },
+  {
+   "w": "When",
+   "f": 323,
+   "e": 328,
+   "beat": "fix1",
+   "who": "ethan"
+  },
+  {
+   "w": "someone",
+   "f": 328,
+   "e": 337,
+   "beat": "fix1",
+   "who": "ethan"
+  },
+  {
+   "w": "leaves,",
+   "f": 337,
+   "e": 348,
+   "beat": "fix1",
+   "who": "ethan"
+  },
+  {
+   "w": "the",
+   "f": 356,
+   "e": 358,
+   "beat": "fix1",
+   "who": "ethan"
+  },
+  {
+   "w": "referral",
+   "f": 358,
+   "e": 367,
+   "beat": "fix1",
+   "who": "ethan"
+  },
+  {
+   "w": "shouldn't",
+   "f": 367,
+   "e": 377,
+   "beat": "fix1",
+   "who": "ethan"
+  },
+  {
+   "w": "leave",
+   "f": 377,
+   "e": 382,
+   "beat": "fix1",
+   "who": "ethan"
+  },
+  {
+   "w": "with",
+   "f": 382,
+   "e": 387,
+   "beat": "fix1",
+   "who": "ethan"
+  },
+  {
+   "w": "them.",
+   "f": 387,
+   "e": 394,
+   "beat": "fix1",
+   "who": "ethan"
+  },
+  {
+   "w": "Every",
+   "f": 402,
+   "e": 408,
+   "beat": "fix1",
+   "who": "ethan"
+  },
+  {
+   "w": "update",
+   "f": 408,
+   "e": 418,
+   "beat": "fix1",
+   "who": "ethan"
+  },
+  {
+   "w": "and",
+   "f": 418,
+   "e": 423,
+   "beat": "fix1",
+   "who": "ethan"
+  },
+  {
+   "w": "message",
+   "f": 423,
+   "e": 432,
+   "beat": "fix1",
+   "who": "ethan"
+  },
+  {
+   "w": "stays",
+   "f": 432,
+   "e": 439,
+   "beat": "fix1",
+   "who": "ethan"
+  },
+  {
+   "w": "on",
+   "f": 439,
+   "e": 445,
+   "beat": "fix1",
+   "who": "ethan"
+  },
+  {
+   "w": "the",
+   "f": 445,
+   "e": 448,
+   "beat": "fix1",
+   "who": "ethan"
+  },
+  {
+   "w": "case,",
+   "f": 448,
+   "e": 455,
+   "beat": "fix1",
+   "who": "ethan"
+  },
+  {
+   "w": "so",
+   "f": 462,
+   "e": 465,
+   "beat": "fix1",
+   "who": "ethan"
+  },
+  {
+   "w": "it",
+   "f": 465,
+   "e": 473,
+   "beat": "fix1",
+   "who": "ethan"
+  },
+  {
+   "w": "lives",
+   "f": 473,
+   "e": 479,
+   "beat": "fix1",
+   "who": "ethan"
+  },
+  {
+   "w": "in",
+   "f": 479,
+   "e": 484,
+   "beat": "fix1",
+   "who": "ethan"
+  },
+  {
+   "w": "the",
+   "f": 484,
+   "e": 488,
+   "beat": "fix1",
+   "who": "ethan"
+  },
+  {
+   "w": "platform,",
+   "f": 488,
+   "e": 498,
+   "beat": "fix1",
+   "who": "ethan"
+  },
+  {
+   "w": "not",
+   "f": 507,
+   "e": 510,
+   "beat": "fix1",
+   "who": "ethan"
+  },
+  {
+   "w": "one",
+   "f": 510,
+   "e": 517,
+   "beat": "fix1",
+   "who": "ethan"
+  },
+  {
+   "w": "person's",
+   "f": 517,
+   "e": 530,
+   "beat": "fix1",
+   "who": "ethan"
+  },
+  {
+   "w": "head.",
+   "f": 530,
+   "e": 534,
+   "beat": "fix1",
+   "who": "ethan"
+  },
+  {
+   "w": "Can",
+   "f": 540,
+   "e": 543,
+   "beat": "s2",
+   "who": "ruiz"
+  },
+  {
+   "w": "you",
+   "f": 543,
+   "e": 546,
+   "beat": "s2",
+   "who": "ruiz"
+  },
+  {
+   "w": "just",
+   "f": 546,
+   "e": 552,
+   "beat": "s2",
+   "who": "ruiz"
+  },
+  {
+   "w": "text",
+   "f": 552,
+   "e": 558,
+   "beat": "s2",
+   "who": "ruiz"
+  },
+  {
+   "w": "me",
+   "f": 558,
+   "e": 564,
+   "beat": "s2",
+   "who": "ruiz"
+  },
+  {
+   "w": "Olivia's",
+   "f": 564,
+   "e": 578,
+   "beat": "s2",
+   "who": "ruiz"
+  },
+  {
+   "w": "file?",
+   "f": 578,
+   "e": 585,
+   "beat": "s2",
+   "who": "ruiz"
+  },
+  {
+   "w": "I'm",
+   "f": 591,
+   "e": 595,
+   "beat": "s2",
+   "who": "ruiz"
+  },
+  {
+   "w": "running",
+   "f": 595,
+   "e": 600,
+   "beat": "s2",
+   "who": "ruiz"
+  },
+  {
+   "w": "between",
+   "f": 600,
+   "e": 608,
+   "beat": "s2",
+   "who": "ruiz"
+  },
+  {
+   "w": "rooms.",
+   "f": 608,
+   "e": 622,
+   "beat": "s2",
+   "who": "ruiz"
+  },
+  {
+   "w": "From",
+   "f": 629,
+   "e": 632,
+   "beat": "s2",
+   "who": "rachel"
+  },
+  {
+   "w": "my",
+   "f": 632,
+   "e": 637,
+   "beat": "s2",
+   "who": "rachel"
+  },
+  {
+   "w": "phone?",
+   "f": 637,
+   "e": 646,
+   "beat": "s2",
+   "who": "rachel"
+  },
+  {
+   "w": "Yeah,",
+   "f": 655,
+   "e": 667,
+   "beat": "s2",
+   "who": "ruiz"
+  },
+  {
+   "w": "that's",
+   "f": 669,
+   "e": 675,
+   "beat": "s2",
+   "who": "ruiz"
+  },
+  {
+   "w": "a",
+   "f": 675,
+   "e": 678,
+   "beat": "s2",
+   "who": "ruiz"
+  },
+  {
+   "w": "bad",
+   "f": 678,
+   "e": 682,
+   "beat": "s2",
+   "who": "ruiz"
+  },
+  {
+   "w": "idea,",
+   "f": 682,
+   "e": 691,
+   "beat": "s2",
+   "who": "ruiz"
+  },
+  {
+   "w": "isn't",
+   "f": 696,
+   "e": 698,
+   "beat": "s2",
+   "who": "ruiz"
+  },
+  {
+   "w": "it.",
+   "f": 698,
+   "e": 706,
+   "beat": "s2",
+   "who": "ruiz"
+  },
+  {
+   "w": "Texting",
+   "f": 708,
+   "e": 724,
+   "beat": "fix2",
+   "who": "ethan"
+  },
+  {
+   "w": "X-rays",
+   "f": 724,
+   "e": 737,
+   "beat": "fix2",
+   "who": "ethan"
+  },
+  {
+   "w": "from",
+   "f": 737,
+   "e": 744,
+   "beat": "fix2",
+   "who": "ethan"
+  },
+  {
+   "w": "a",
+   "f": 744,
+   "e": 749,
+   "beat": "fix2",
+   "who": "ethan"
+  },
+  {
+   "w": "personal",
+   "f": 749,
+   "e": 760,
+   "beat": "fix2",
+   "who": "ethan"
+  },
+  {
+   "w": "phone",
+   "f": 760,
+   "e": 769,
+   "beat": "fix2",
+   "who": "ethan"
+  },
+  {
+   "w": "is",
+   "f": 769,
+   "e": 783,
+   "beat": "fix2",
+   "who": "ethan"
+  },
+  {
+   "w": "one",
+   "f": 783,
+   "e": 787,
+   "beat": "fix2",
+   "who": "ethan"
+  },
+  {
+   "w": "of",
+   "f": 787,
+   "e": 790,
+   "beat": "fix2",
+   "who": "ethan"
+  },
+  {
+   "w": "the",
+   "f": 790,
+   "e": 793,
+   "beat": "fix2",
+   "who": "ethan"
+  },
+  {
+   "w": "most",
+   "f": 793,
+   "e": 799,
+   "beat": "fix2",
+   "who": "ethan"
+  },
+  {
+   "w": "common",
+   "f": 799,
+   "e": 812,
+   "beat": "fix2",
+   "who": "ethan"
+  },
+  {
+   "w": "HIPAA",
+   "f": 812,
+   "e": 824,
+   "beat": "fix2",
+   "who": "ethan"
+  },
+  {
+   "w": "slip-ups.",
+   "f": 824,
+   "e": 837,
+   "beat": "fix2",
+   "who": "ethan"
+  },
+  {
+   "w": "Keep",
+   "f": 845,
+   "e": 848,
+   "beat": "fix2",
+   "who": "ethan"
+  },
+  {
+   "w": "it",
+   "f": 848,
+   "e": 851,
+   "beat": "fix2",
+   "who": "ethan"
+  },
+  {
+   "w": "on",
+   "f": 851,
+   "e": 854,
+   "beat": "fix2",
+   "who": "ethan"
+  },
+  {
+   "w": "the",
+   "f": 854,
+   "e": 859,
+   "beat": "fix2",
+   "who": "ethan"
+  },
+  {
+   "w": "case,",
+   "f": 859,
+   "e": 866,
+   "beat": "fix2",
+   "who": "ethan"
+  },
+  {
+   "w": "and",
+   "f": 866,
+   "e": 877,
+   "beat": "fix2",
+   "who": "ethan"
+  },
+  {
+   "w": "open",
+   "f": 877,
+   "e": 885,
+   "beat": "fix2",
+   "who": "ethan"
+  },
+  {
+   "w": "it",
+   "f": 885,
+   "e": 889,
+   "beat": "fix2",
+   "who": "ethan"
+  },
+  {
+   "w": "from",
+   "f": 889,
+   "e": 894,
+   "beat": "fix2",
+   "who": "ethan"
+  },
+  {
+   "w": "any",
+   "f": 894,
+   "e": 901,
+   "beat": "fix2",
+   "who": "ethan"
+  },
+  {
+   "w": "browser.",
+   "f": 901,
+   "e": 911,
+   "beat": "fix2",
+   "who": "ethan"
+  },
+  {
+   "w": "Doc,",
+   "f": 921,
+   "e": 933,
+   "beat": "s3",
+   "who": "rachel"
+  },
+  {
+   "w": "Olivia's",
+   "f": 933,
+   "e": 945,
+   "beat": "s3",
+   "who": "rachel"
+  },
+  {
+   "w": "pano",
+   "f": 945,
+   "e": 954,
+   "beat": "s3",
+   "who": "rachel"
+  },
+  {
+   "w": "is",
+   "f": 954,
+   "e": 957,
+   "beat": "s3",
+   "who": "rachel"
+  },
+  {
+   "w": "from",
+   "f": 957,
+   "e": 963,
+   "beat": "s3",
+   "who": "rachel"
+  },
+  {
+   "w": "2023.",
+   "f": 963,
+   "e": 986,
+   "beat": "s3",
+   "who": "rachel"
+  },
+  {
+   "w": "Do",
+   "f": 995,
+   "e": 996,
+   "beat": "s3",
+   "who": "rachel"
+  },
+  {
+   "w": "we",
+   "f": 996,
+   "e": 999,
+   "beat": "s3",
+   "who": "rachel"
+  },
+  {
+   "w": "take",
+   "f": 999,
+   "e": 1004,
+   "beat": "s3",
+   "who": "rachel"
+  },
+  {
+   "w": "a",
+   "f": 1004,
+   "e": 1007,
+   "beat": "s3",
+   "who": "rachel"
+  },
+  {
+   "w": "new",
+   "f": 1007,
+   "e": 1010,
+   "beat": "s3",
+   "who": "rachel"
+  },
+  {
+   "w": "one",
+   "f": 1010,
+   "e": 1015,
+   "beat": "s3",
+   "who": "rachel"
+  },
+  {
+   "w": "before",
+   "f": 1015,
+   "e": 1022,
+   "beat": "s3",
+   "who": "rachel"
+  },
+  {
+   "w": "her",
+   "f": 1022,
+   "e": 1027,
+   "beat": "s3",
+   "who": "rachel"
+  },
+  {
+   "w": "consult?",
+   "f": 1027,
+   "e": 1034,
+   "beat": "s3",
+   "who": "rachel"
+  },
+  {
+   "w": "Good",
+   "f": 1041,
+   "e": 1041,
+   "beat": "s3",
+   "who": "ruiz"
+  },
+  {
+   "w": "question.",
+   "f": 1041,
+   "e": 1049,
+   "beat": "s3",
+   "who": "ruiz"
+  },
+  {
+   "w": "Remind",
+   "f": 1056,
+   "e": 1061,
+   "beat": "s3",
+   "who": "ruiz"
+  },
+  {
+   "w": "me",
+   "f": 1061,
+   "e": 1065,
+   "beat": "s3",
+   "who": "ruiz"
+  },
+  {
+   "w": "after",
+   "f": 1065,
+   "e": 1071,
+   "beat": "s3",
+   "who": "ruiz"
+  },
+  {
+   "w": "lunch.",
+   "f": 1071,
+   "e": 1080,
+   "beat": "s3",
+   "who": "ruiz"
+  },
+  {
+   "w": "Hallway",
+   "f": 1107,
+   "e": 1121,
+   "beat": "fix3",
+   "who": "ethan"
+  },
+  {
+   "w": "questions",
+   "f": 1121,
+   "e": 1135,
+   "beat": "fix3",
+   "who": "ethan"
+  },
+  {
+   "w": "disappear.",
+   "f": 1135,
+   "e": 1152,
+   "beat": "fix3",
+   "who": "ethan"
+  },
+  {
+   "w": "Put",
+   "f": 1162,
+   "e": 1165,
+   "beat": "fix3",
+   "who": "ethan"
+  },
+  {
+   "w": "it",
+   "f": 1165,
+   "e": 1169,
+   "beat": "fix3",
+   "who": "ethan"
+  },
+  {
+   "w": "in",
+   "f": 1169,
+   "e": 1172,
+   "beat": "fix3",
+   "who": "ethan"
+  },
+  {
+   "w": "a",
+   "f": 1172,
+   "e": 1178,
+   "beat": "fix3",
+   "who": "ethan"
+  },
+  {
+   "w": "private",
+   "f": 1178,
+   "e": 1184,
+   "beat": "fix3",
+   "who": "ethan"
+  },
+  {
+   "w": "note",
+   "f": 1184,
+   "e": 1195,
+   "beat": "fix3",
+   "who": "ethan"
+  },
+  {
+   "w": "and",
+   "f": 1195,
+   "e": 1204,
+   "beat": "fix3",
+   "who": "ethan"
+  },
+  {
+   "w": "tag",
+   "f": 1204,
+   "e": 1212,
+   "beat": "fix3",
+   "who": "ethan"
+  },
+  {
+   "w": "the",
+   "f": 1212,
+   "e": 1217,
+   "beat": "fix3",
+   "who": "ethan"
+  },
+  {
+   "w": "doctor.",
+   "f": 1217,
+   "e": 1227,
+   "beat": "fix3",
+   "who": "ethan"
+  },
+  {
+   "w": "The",
+   "f": 1235,
+   "e": 1238,
+   "beat": "fix3",
+   "who": "ethan"
+  },
+  {
+   "w": "answer",
+   "f": 1238,
+   "e": 1246,
+   "beat": "fix3",
+   "who": "ethan"
+  },
+  {
+   "w": "waits",
+   "f": 1246,
+   "e": 1255,
+   "beat": "fix3",
+   "who": "ethan"
+  },
+  {
+   "w": "on",
+   "f": 1255,
+   "e": 1261,
+   "beat": "fix3",
+   "who": "ethan"
+  },
+  {
+   "w": "the",
+   "f": 1261,
+   "e": 1265,
+   "beat": "fix3",
+   "who": "ethan"
+  },
+  {
+   "w": "case,",
+   "f": 1265,
+   "e": 1272,
+   "beat": "fix3",
+   "who": "ethan"
+  },
+  {
+   "w": "and",
+   "f": 1279,
+   "e": 1285,
+   "beat": "fix3",
+   "who": "ethan"
+  },
+  {
+   "w": "the",
+   "f": 1285,
+   "e": 1289,
+   "beat": "fix3",
+   "who": "ethan"
+  },
+  {
+   "w": "other",
+   "f": 1289,
+   "e": 1295,
+   "beat": "fix3",
+   "who": "ethan"
+  },
+  {
+   "w": "office",
+   "f": 1295,
+   "e": 1306,
+   "beat": "fix3",
+   "who": "ethan"
+  },
+  {
+   "w": "never",
+   "f": 1306,
+   "e": 1316,
+   "beat": "fix3",
+   "who": "ethan"
+  },
+  {
+   "w": "sees",
+   "f": 1316,
+   "e": 1324,
+   "beat": "fix3",
+   "who": "ethan"
+  },
+  {
+   "w": "it.",
+   "f": 1324,
+   "e": 1330,
+   "beat": "fix3",
+   "who": "ethan"
+  },
+  {
+   "w": "You're",
+   "f": 1333,
+   "e": 1338,
+   "beat": "s4",
+   "who": "kevin"
+  },
+  {
+   "w": "still",
+   "f": 1338,
+   "e": 1342,
+   "beat": "s4",
+   "who": "kevin"
+  },
+  {
+   "w": "here?",
+   "f": 1342,
+   "e": 1354,
+   "beat": "s4",
+   "who": "kevin"
+  },
+  {
+   "w": "Re-typing",
+   "f": 1358,
+   "e": 1372,
+   "beat": "s4",
+   "who": "rachel"
+  },
+  {
+   "w": "Dr.",
+   "f": 1372,
+   "e": 1380,
+   "beat": "s4",
+   "who": "rachel"
+  },
+  {
+   "w": "Ruiz's",
+   "f": 1383,
+   "e": 1395,
+   "beat": "s4",
+   "who": "rachel"
+  },
+  {
+   "w": "consult",
+   "f": 1395,
+   "e": 1404,
+   "beat": "s4",
+   "who": "rachel"
+  },
+  {
+   "w": "letter.",
+   "f": 1404,
+   "e": 1415,
+   "beat": "s4",
+   "who": "rachel"
+  },
+  {
+   "w": "Same",
+   "f": 1422,
+   "e": 1427,
+   "beat": "s4",
+   "who": "rachel"
+  },
+  {
+   "w": "letter,",
+   "f": 1427,
+   "e": 1436,
+   "beat": "s4",
+   "who": "rachel"
+  },
+  {
+   "w": "new",
+   "f": 1443,
+   "e": 1446,
+   "beat": "s4",
+   "who": "rachel"
+  },
+  {
+   "w": "patient",
+   "f": 1446,
+   "e": 1455,
+   "beat": "s4",
+   "who": "rachel"
+  },
+  {
+   "w": "name,",
+   "f": 1455,
+   "e": 1463,
+   "beat": "s4",
+   "who": "rachel"
+  },
+  {
+   "w": "every",
+   "f": 1468,
+   "e": 1474,
+   "beat": "s4",
+   "who": "rachel"
+  },
+  {
+   "w": "time.",
+   "f": 1474,
+   "e": 1484,
+   "beat": "s4",
+   "who": "rachel"
+  },
+  {
+   "w": "Turn",
+   "f": 1489,
+   "e": 1496,
+   "beat": "fix4",
+   "who": "ethan"
+  },
+  {
+   "w": "that",
+   "f": 1496,
+   "e": 1503,
+   "beat": "fix4",
+   "who": "ethan"
+  },
+  {
+   "w": "Word",
+   "f": 1503,
+   "e": 1509,
+   "beat": "fix4",
+   "who": "ethan"
+  },
+  {
+   "w": "letter",
+   "f": 1509,
+   "e": 1517,
+   "beat": "fix4",
+   "who": "ethan"
+  },
+  {
+   "w": "into",
+   "f": 1517,
+   "e": 1524,
+   "beat": "fix4",
+   "who": "ethan"
+  },
+  {
+   "w": "a",
+   "f": 1524,
+   "e": 1530,
+   "beat": "fix4",
+   "who": "ethan"
+  },
+  {
+   "w": "template",
+   "f": 1530,
+   "e": 1539,
+   "beat": "fix4",
+   "who": "ethan"
+  },
+  {
+   "w": "once.",
+   "f": 1539,
+   "e": 1550,
+   "beat": "fix4",
+   "who": "ethan"
+  },
+  {
+   "w": "Patient",
+   "f": 1560,
+   "e": 1566,
+   "beat": "fix4",
+   "who": "ethan"
+  },
+  {
+   "w": "and",
+   "f": 1566,
+   "e": 1574,
+   "beat": "fix4",
+   "who": "ethan"
+  },
+  {
+   "w": "doctor",
+   "f": 1574,
+   "e": 1583,
+   "beat": "fix4",
+   "who": "ethan"
+  },
+  {
+   "w": "details",
+   "f": 1583,
+   "e": 1598,
+   "beat": "fix4",
+   "who": "ethan"
+  },
+  {
+   "w": "fill",
+   "f": 1598,
+   "e": 1606,
+   "beat": "fix4",
+   "who": "ethan"
+  },
+  {
+   "w": "themselves",
+   "f": 1606,
+   "e": 1617,
+   "beat": "fix4",
+   "who": "ethan"
+  },
+  {
+   "w": "in,",
+   "f": 1617,
+   "e": 1627,
+   "beat": "fix4",
+   "who": "ethan"
+  },
+  {
+   "w": "the",
+   "f": 1634,
+   "e": 1636,
+   "beat": "fix4",
+   "who": "ethan"
+  },
+  {
+   "w": "doctor",
+   "f": 1636,
+   "e": 1645,
+   "beat": "fix4",
+   "who": "ethan"
+  },
+  {
+   "w": "signs",
+   "f": 1645,
+   "e": 1656,
+   "beat": "fix4",
+   "who": "ethan"
+  },
+  {
+   "w": "digitally,",
+   "f": 1656,
+   "e": 1671,
+   "beat": "fix4",
+   "who": "ethan"
+  },
+  {
+   "w": "and",
+   "f": 1681,
+   "e": 1683,
+   "beat": "fix4",
+   "who": "ethan"
+  },
+  {
+   "w": "it",
+   "f": 1683,
+   "e": 1686,
+   "beat": "fix4",
+   "who": "ethan"
+  },
+  {
+   "w": "goes",
+   "f": 1686,
+   "e": 1691,
+   "beat": "fix4",
+   "who": "ethan"
+  },
+  {
+   "w": "straight",
+   "f": 1691,
+   "e": 1698,
+   "beat": "fix4",
+   "who": "ethan"
+  },
+  {
+   "w": "back.",
+   "f": 1698,
+   "e": 1706,
+   "beat": "fix4",
+   "who": "ethan"
+  },
+  {
+   "w": "Daniel",
+   "f": 1710,
+   "e": 1718,
+   "beat": "s5",
+   "who": "whitaker"
+  },
+  {
+   "w": "Ortiz",
+   "f": 1718,
+   "e": 1729,
+   "beat": "s5",
+   "who": "whitaker"
+  },
+  {
+   "w": "is",
+   "f": 1729,
+   "e": 1738,
+   "beat": "s5",
+   "who": "whitaker"
+  },
+  {
+   "w": "back",
+   "f": 1738,
+   "e": 1743,
+   "beat": "s5",
+   "who": "whitaker"
+  },
+  {
+   "w": "for",
+   "f": 1743,
+   "e": 1748,
+   "beat": "s5",
+   "who": "whitaker"
+  },
+  {
+   "w": "his",
+   "f": 1748,
+   "e": 1753,
+   "beat": "s5",
+   "who": "whitaker"
+  },
+  {
+   "w": "cleaning.",
+   "f": 1753,
+   "e": 1763,
+   "beat": "s5",
+   "who": "whitaker"
+  },
+  {
+   "w": "Did",
+   "f": 1771,
+   "e": 1773,
+   "beat": "s5",
+   "who": "whitaker"
+  },
+  {
+   "w": "he",
+   "f": 1773,
+   "e": 1776,
+   "beat": "s5",
+   "who": "whitaker"
+  },
+  {
+   "w": "ever",
+   "f": 1776,
+   "e": 1780,
+   "beat": "s5",
+   "who": "whitaker"
+  },
+  {
+   "w": "have",
+   "f": 1780,
+   "e": 1785,
+   "beat": "s5",
+   "who": "whitaker"
+  },
+  {
+   "w": "that",
+   "f": 1785,
+   "e": 1790,
+   "beat": "s5",
+   "who": "whitaker"
+  },
+  {
+   "w": "implant",
+   "f": 1790,
+   "e": 1800,
+   "beat": "s5",
+   "who": "whitaker"
+  },
+  {
+   "w": "done?",
+   "f": 1800,
+   "e": 1808,
+   "beat": "s5",
+   "who": "whitaker"
+  },
+  {
+   "w": "I",
+   "f": 1814,
+   "e": 1817,
+   "beat": "s5",
+   "who": "megan"
+  },
+  {
+   "w": "don't",
+   "f": 1817,
+   "e": 1825,
+   "beat": "s5",
+   "who": "megan"
+  },
+  {
+   "w": "know.",
+   "f": 1825,
+   "e": 1834,
+   "beat": "s5",
+   "who": "megan"
+  },
+  {
+   "w": "Nobody",
+   "f": 1843,
+   "e": 1850,
+   "beat": "s5",
+   "who": "megan"
+  },
+  {
+   "w": "ever",
+   "f": 1850,
+   "e": 1857,
+   "beat": "s5",
+   "who": "megan"
+  },
+  {
+   "w": "told",
+   "f": 1857,
+   "e": 1864,
+   "beat": "s5",
+   "who": "megan"
+  },
+  {
+   "w": "us.",
+   "f": 1864,
+   "e": 1874,
+   "beat": "s5",
+   "who": "megan"
+  },
+  {
+   "w": "If",
+   "f": 1874,
+   "e": 1879,
+   "beat": "fix5",
+   "who": "ethan"
+  },
+  {
+   "w": "a",
+   "f": 1879,
+   "e": 1884,
+   "beat": "fix5",
+   "who": "ethan"
+  },
+  {
+   "w": "patient",
+   "f": 1884,
+   "e": 1891,
+   "beat": "fix5",
+   "who": "ethan"
+  },
+  {
+   "w": "declines,",
+   "f": 1891,
+   "e": 1909,
+   "beat": "fix5",
+   "who": "ethan"
+  },
+  {
+   "w": "mark",
+   "f": 1918,
+   "e": 1922,
+   "beat": "fix5",
+   "who": "ethan"
+  },
+  {
+   "w": "it",
+   "f": 1922,
+   "e": 1925,
+   "beat": "fix5",
+   "who": "ethan"
+  },
+  {
+   "w": "on",
+   "f": 1925,
+   "e": 1927,
+   "beat": "fix5",
+   "who": "ethan"
+  },
+  {
+   "w": "the",
+   "f": 1927,
+   "e": 1932,
+   "beat": "fix5",
+   "who": "ethan"
+  },
+  {
+   "w": "case",
+   "f": 1932,
+   "e": 1936,
+   "beat": "fix5",
+   "who": "ethan"
+  },
+  {
+   "w": "with",
+   "f": 1936,
+   "e": 1941,
+   "beat": "fix5",
+   "who": "ethan"
+  },
+  {
+   "w": "a",
+   "f": 1941,
+   "e": 1947,
+   "beat": "fix5",
+   "who": "ethan"
+  },
+  {
+   "w": "short",
+   "f": 1947,
+   "e": 1951,
+   "beat": "fix5",
+   "who": "ethan"
+  },
+  {
+   "w": "note.",
+   "f": 1951,
+   "e": 1959,
+   "beat": "fix5",
+   "who": "ethan"
+  },
+  {
+   "w": "The",
+   "f": 1965,
+   "e": 1968,
+   "beat": "fix5",
+   "who": "ethan"
+  },
+  {
+   "w": "referring",
+   "f": 1968,
+   "e": 1978,
+   "beat": "fix5",
+   "who": "ethan"
+  },
+  {
+   "w": "dentist",
+   "f": 1978,
+   "e": 1990,
+   "beat": "fix5",
+   "who": "ethan"
+  },
+  {
+   "w": "sees",
+   "f": 1990,
+   "e": 1999,
+   "beat": "fix5",
+   "who": "ethan"
+  },
+  {
+   "w": "it",
+   "f": 1999,
+   "e": 2003,
+   "beat": "fix5",
+   "who": "ethan"
+  },
+  {
+   "w": "the",
+   "f": 2003,
+   "e": 2007,
+   "beat": "fix5",
+   "who": "ethan"
+  },
+  {
+   "w": "same",
+   "f": 2007,
+   "e": 2013,
+   "beat": "fix5",
+   "who": "ethan"
+  },
+  {
+   "w": "day,",
+   "f": 2013,
+   "e": 2023,
+   "beat": "fix5",
+   "who": "ethan"
+  },
+  {
+   "w": "not",
+   "f": 2026,
+   "e": 2032,
+   "beat": "fix5",
+   "who": "ethan"
+  },
+  {
+   "w": "at",
+   "f": 2032,
+   "e": 2035,
+   "beat": "fix5",
+   "who": "ethan"
+  },
+  {
+   "w": "the",
+   "f": 2035,
+   "e": 2038,
+   "beat": "fix5",
+   "who": "ethan"
+  },
+  {
+   "w": "next",
+   "f": 2038,
+   "e": 2043,
+   "beat": "fix5",
+   "who": "ethan"
+  },
+  {
+   "w": "recall.",
+   "f": 2043,
+   "e": 2055,
+   "beat": "fix5",
+   "who": "ethan"
+  },
+  {
+   "w": "None",
+   "f": 2060,
+   "e": 2066,
+   "beat": "e2",
+   "who": "ethan"
+  },
+  {
+   "w": "of",
+   "f": 2066,
+   "e": 2071,
+   "beat": "e2",
+   "who": "ethan"
+  },
+  {
+   "w": "these",
+   "f": 2071,
+   "e": 2077,
+   "beat": "e2",
+   "who": "ethan"
+  },
+  {
+   "w": "are",
+   "f": 2077,
+   "e": 2084,
+   "beat": "e2",
+   "who": "ethan"
+  },
+  {
+   "w": "big",
+   "f": 2084,
+   "e": 2095,
+   "beat": "e2",
+   "who": "ethan"
+  },
+  {
+   "w": "problems",
+   "f": 2095,
+   "e": 2108,
+   "beat": "e2",
+   "who": "ethan"
+  },
+  {
+   "w": "on",
+   "f": 2108,
+   "e": 2114,
+   "beat": "e2",
+   "who": "ethan"
+  },
+  {
+   "w": "their",
+   "f": 2114,
+   "e": 2117,
+   "beat": "e2",
+   "who": "ethan"
+  },
+  {
+   "w": "own.",
+   "f": 2117,
+   "e": 2126,
+   "beat": "e2",
+   "who": "ethan"
+  },
+  {
+   "w": "Together,",
+   "f": 2128,
+   "e": 2141,
+   "beat": "e2",
+   "who": "ethan"
+  },
+  {
+   "w": "they're",
+   "f": 2155,
+   "e": 2160,
+   "beat": "e2",
+   "who": "ethan"
+  },
+  {
+   "w": "where",
+   "f": 2160,
+   "e": 2165,
+   "beat": "e2",
+   "who": "ethan"
+  },
+  {
+   "w": "referrals",
+   "f": 2165,
+   "e": 2181,
+   "beat": "e2",
+   "who": "ethan"
+  },
+  {
+   "w": "slip.",
+   "f": 2181,
+   "e": 2194,
+   "beat": "e2",
+   "who": "ethan"
+  },
+  {
+   "w": "The",
+   "f": 2197,
+   "e": 2200,
+   "beat": "e3",
+   "who": "ethan"
+  },
+  {
+   "w": "dashboard",
+   "f": 2200,
+   "e": 2211,
+   "beat": "e3",
+   "who": "ethan"
+  },
+  {
+   "w": "you",
+   "f": 2211,
+   "e": 2218,
+   "beat": "e3",
+   "who": "ethan"
+  },
+  {
+   "w": "just",
+   "f": 2218,
+   "e": 2223,
+   "beat": "e3",
+   "who": "ethan"
+  },
+  {
+   "w": "saw",
+   "f": 2223,
+   "e": 2233,
+   "beat": "e3",
+   "who": "ethan"
+  },
+  {
+   "w": "is",
+   "f": 2233,
+   "e": 2244,
+   "beat": "e3",
+   "who": "ethan"
+  },
+  {
+   "w": "Tooth",
+   "f": 2244,
+   "e": 2252,
+   "beat": "e3",
+   "who": "ethan"
+  },
+  {
+   "w": "Referral.",
+   "f": 2252,
+   "e": 2266,
+   "beat": "e3",
+   "who": "ethan"
+  }
+ ]
+}

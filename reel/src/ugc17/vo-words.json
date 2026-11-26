@@ -1,0 +1,1045 @@
+{
+ "vo-close.wav": {
+  "text": "None of these are big problems on their own. Together, they're where referrals slip. The dashboard you just saw is tooth referral.",
+  "words": [
+   {
+    "word": " None",
+    "start": 0.0,
+    "end": 0.18,
+    "p": 0.947
+   },
+   {
+    "word": " of",
+    "start": 0.18,
+    "end": 0.34,
+    "p": 0.999
+   },
+   {
+    "word": " these",
+    "start": 0.34,
+    "end": 0.5,
+    "p": 0.995
+   },
+   {
+    "word": " are",
+    "start": 0.5,
+    "end": 0.66,
+    "p": 0.994
+   },
+   {
+    "word": " big",
+    "start": 0.66,
+    "end": 0.84,
+    "p": 0.993
+   },
+   {
+    "word": " problems",
+    "start": 0.84,
+    "end": 1.26,
+    "p": 0.998
+   },
+   {
+    "word": " on",
+    "start": 1.26,
+    "end": 1.48,
+    "p": 0.985
+   },
+   {
+    "word": " their",
+    "start": 1.48,
+    "end": 1.6,
+    "p": 0.998
+   },
+   {
+    "word": " own.",
+    "start": 1.6,
+    "end": 1.86,
+    "p": 1.0
+   },
+   {
+    "word": " Together,",
+    "start": 2.06,
+    "end": 2.36,
+    "p": 0.997
+   },
+   {
+    "word": " they're",
+    "start": 2.76,
+    "end": 2.9,
+    "p": 0.967
+   },
+   {
+    "word": " where",
+    "start": 2.9,
+    "end": 3.0,
+    "p": 0.993
+   },
+   {
+    "word": " referrals",
+    "start": 3.0,
+    "end": 3.5,
+    "p": 0.955
+   },
+   {
+    "word": " slip.",
+    "start": 3.5,
+    "end": 3.84,
+    "p": 0.998
+   },
+   {
+    "word": " The",
+    "start": 4.14,
+    "end": 4.26,
+    "p": 0.992
+   },
+   {
+    "word": " dashboard",
+    "start": 4.26,
+    "end": 4.68,
+    "p": 0.989
+   },
+   {
+    "word": " you",
+    "start": 4.68,
+    "end": 4.92,
+    "p": 0.994
+   },
+   {
+    "word": " just",
+    "start": 4.92,
+    "end": 5.1,
+    "p": 0.994
+   },
+   {
+    "word": " saw",
+    "start": 5.1,
+    "end": 5.38,
+    "p": 0.998
+   },
+   {
+    "word": " is",
+    "start": 5.38,
+    "end": 5.62,
+    "p": 0.997
+   },
+   {
+    "word": " tooth",
+    "start": 5.62,
+    "end": 5.9,
+    "p": 0.695
+   },
+   {
+    "word": " referral.",
+    "start": 5.9,
+    "end": 6.24,
+    "p": 0.568
+   }
+  ]
+ },
+ "vo-fix1.wav": {
+  "text": "When someone leaves, the referral shouldn't leave with them. Every update and message stays on the case, so it lives in the platform, not one person's head.",
+  "words": [
+   {
+    "word": " When",
+    "start": 0.0,
+    "end": 0.18,
+    "p": 0.95
+   },
+   {
+    "word": " someone",
+    "start": 0.18,
+    "end": 0.48,
+    "p": 0.997
+   },
+   {
+    "word": " leaves,",
+    "start": 0.48,
+    "end": 0.84,
+    "p": 0.998
+   },
+   {
+    "word": " the",
+    "start": 1.1,
+    "end": 1.16,
+    "p": 0.996
+   },
+   {
+    "word": " referral",
+    "start": 1.16,
+    "end": 1.46,
+    "p": 0.988
+   },
+   {
+    "word": " shouldn't",
+    "start": 1.46,
+    "end": 1.8,
+    "p": 0.992
+   },
+   {
+    "word": " leave",
+    "start": 1.8,
+    "end": 1.96,
+    "p": 0.998
+   },
+   {
+    "word": " with",
+    "start": 1.96,
+    "end": 2.14,
+    "p": 0.995
+   },
+   {
+    "word": " them.",
+    "start": 2.14,
+    "end": 2.38,
+    "p": 0.998
+   },
+   {
+    "word": " Every",
+    "start": 2.64,
+    "end": 2.84,
+    "p": 0.996
+   },
+   {
+    "word": " update",
+    "start": 2.84,
+    "end": 3.18,
+    "p": 0.99
+   },
+   {
+    "word": " and",
+    "start": 3.18,
+    "end": 3.34,
+    "p": 0.994
+   },
+   {
+    "word": " message",
+    "start": 3.34,
+    "end": 3.62,
+    "p": 0.997
+   },
+   {
+    "word": " stays",
+    "start": 3.62,
+    "end": 3.88,
+    "p": 0.986
+   },
+   {
+    "word": " on",
+    "start": 3.88,
+    "end": 4.06,
+    "p": 0.997
+   },
+   {
+    "word": " the",
+    "start": 4.06,
+    "end": 4.18,
+    "p": 0.998
+   },
+   {
+    "word": " case,",
+    "start": 4.18,
+    "end": 4.4,
+    "p": 0.999
+   },
+   {
+    "word": " so",
+    "start": 4.62,
+    "end": 4.72,
+    "p": 0.993
+   },
+   {
+    "word": " it",
+    "start": 4.72,
+    "end": 5.0,
+    "p": 0.819
+   },
+   {
+    "word": " lives",
+    "start": 5.0,
+    "end": 5.2,
+    "p": 0.991
+   },
+   {
+    "word": " in",
+    "start": 5.2,
+    "end": 5.36,
+    "p": 0.978
+   },
+   {
+    "word": " the",
+    "start": 5.36,
+    "end": 5.5,
+    "p": 0.997
+   },
+   {
+    "word": " platform,",
+    "start": 5.5,
+    "end": 5.84,
+    "p": 0.993
+   },
+   {
+    "word": " not",
+    "start": 6.12,
+    "end": 6.24,
+    "p": 0.998
+   },
+   {
+    "word": " one",
+    "start": 6.24,
+    "end": 6.46,
+    "p": 0.983
+   },
+   {
+    "word": " person's",
+    "start": 6.46,
+    "end": 6.9,
+    "p": 0.998
+   },
+   {
+    "word": " head.",
+    "start": 6.9,
+    "end": 7.04,
+    "p": 0.999
+   }
+  ]
+ },
+ "vo-fix2.wav": {
+  "text": "Texting x-rays from a personal phone is one of the most common HIPAA slip-ups. Keep it on the case and open it from any browser.",
+  "words": [
+   {
+    "word": " Texting",
+    "start": 0.0,
+    "end": 0.52,
+    "p": 0.969
+   },
+   {
+    "word": " x",
+    "start": 0.52,
+    "end": 0.72,
+    "p": 0.452
+   },
+   {
+    "word": "-rays",
+    "start": 0.72,
+    "end": 0.98,
+    "p": 0.976
+   },
+   {
+    "word": " from",
+    "start": 0.98,
+    "end": 1.2,
+    "p": 0.997
+   },
+   {
+    "word": " a",
+    "start": 1.2,
+    "end": 1.38,
+    "p": 0.997
+   },
+   {
+    "word": " personal",
+    "start": 1.38,
+    "end": 1.72,
+    "p": 0.996
+   },
+   {
+    "word": " phone",
+    "start": 1.72,
+    "end": 2.04,
+    "p": 0.997
+   },
+   {
+    "word": " is",
+    "start": 2.04,
+    "end": 2.5,
+    "p": 0.994
+   },
+   {
+    "word": " one",
+    "start": 2.5,
+    "end": 2.64,
+    "p": 0.998
+   },
+   {
+    "word": " of",
+    "start": 2.64,
+    "end": 2.74,
+    "p": 0.998
+   },
+   {
+    "word": " the",
+    "start": 2.74,
+    "end": 2.84,
+    "p": 0.998
+   },
+   {
+    "word": " most",
+    "start": 2.84,
+    "end": 3.02,
+    "p": 0.996
+   },
+   {
+    "word": " common",
+    "start": 3.02,
+    "end": 3.46,
+    "p": 0.999
+   },
+   {
+    "word": " HIPAA",
+    "start": 3.46,
+    "end": 3.86,
+    "p": 0.895
+   },
+   {
+    "word": " slip",
+    "start": 3.86,
+    "end": 4.04,
+    "p": 0.986
+   },
+   {
+    "word": "-ups.",
+    "start": 4.04,
+    "end": 4.3,
+    "p": 0.881
+   },
+   {
+    "word": " Keep",
+    "start": 4.56,
+    "end": 4.68,
+    "p": 0.996
+   },
+   {
+    "word": " it",
+    "start": 4.68,
+    "end": 4.78,
+    "p": 0.996
+   },
+   {
+    "word": " on",
+    "start": 4.78,
+    "end": 4.88,
+    "p": 0.993
+   },
+   {
+    "word": " the",
+    "start": 4.88,
+    "end": 5.02,
+    "p": 0.991
+   },
+   {
+    "word": " case",
+    "start": 5.02,
+    "end": 5.28,
+    "p": 0.999
+   },
+   {
+    "word": " and",
+    "start": 5.28,
+    "end": 5.64,
+    "p": 0.755
+   },
+   {
+    "word": " open",
+    "start": 5.64,
+    "end": 5.9,
+    "p": 0.998
+   },
+   {
+    "word": " it",
+    "start": 5.9,
+    "end": 6.04,
+    "p": 0.991
+   },
+   {
+    "word": " from",
+    "start": 6.04,
+    "end": 6.2,
+    "p": 0.996
+   },
+   {
+    "word": " any",
+    "start": 6.2,
+    "end": 6.42,
+    "p": 0.998
+   },
+   {
+    "word": " browser.",
+    "start": 6.42,
+    "end": 6.76,
+    "p": 0.998
+   }
+  ]
+ },
+ "vo-fix3.wav": {
+  "text": "Hallway questions disappear. Put it in a private note and tag the doctor. The answer waits on the case, and the other office never sees it.",
+  "words": [
+   {
+    "word": " Hallway",
+    "start": 0.0,
+    "end": 0.48,
+    "p": 0.948
+   },
+   {
+    "word": " questions",
+    "start": 0.48,
+    "end": 0.92,
+    "p": 0.991
+   },
+   {
+    "word": " disappear.",
+    "start": 0.92,
+    "end": 1.5,
+    "p": 0.997
+   },
+   {
+    "word": " Put",
+    "start": 1.84,
+    "end": 1.94,
+    "p": 0.998
+   },
+   {
+    "word": " it",
+    "start": 1.94,
+    "end": 2.06,
+    "p": 0.991
+   },
+   {
+    "word": " in",
+    "start": 2.06,
+    "end": 2.16,
+    "p": 0.994
+   },
+   {
+    "word": " a",
+    "start": 2.16,
+    "end": 2.36,
+    "p": 0.996
+   },
+   {
+    "word": " private",
+    "start": 2.36,
+    "end": 2.58,
+    "p": 0.998
+   },
+   {
+    "word": " note",
+    "start": 2.58,
+    "end": 2.92,
+    "p": 0.998
+   },
+   {
+    "word": " and",
+    "start": 2.92,
+    "end": 3.24,
+    "p": 0.912
+   },
+   {
+    "word": " tag",
+    "start": 3.24,
+    "end": 3.5,
+    "p": 0.996
+   },
+   {
+    "word": " the",
+    "start": 3.5,
+    "end": 3.66,
+    "p": 0.997
+   },
+   {
+    "word": " doctor.",
+    "start": 3.66,
+    "end": 4.0,
+    "p": 0.993
+   },
+   {
+    "word": " The",
+    "start": 4.28,
+    "end": 4.38,
+    "p": 0.998
+   },
+   {
+    "word": " answer",
+    "start": 4.38,
+    "end": 4.64,
+    "p": 0.999
+   },
+   {
+    "word": " waits",
+    "start": 4.64,
+    "end": 4.92,
+    "p": 0.996
+   },
+   {
+    "word": " on",
+    "start": 4.92,
+    "end": 5.12,
+    "p": 0.997
+   },
+   {
+    "word": " the",
+    "start": 5.12,
+    "end": 5.26,
+    "p": 0.998
+   },
+   {
+    "word": " case,",
+    "start": 5.26,
+    "end": 5.5,
+    "p": 1.0
+   },
+   {
+    "word": " and",
+    "start": 5.72,
+    "end": 5.94,
+    "p": 0.998
+   },
+   {
+    "word": " the",
+    "start": 5.94,
+    "end": 6.06,
+    "p": 0.998
+   },
+   {
+    "word": " other",
+    "start": 6.06,
+    "end": 6.28,
+    "p": 0.999
+   },
+   {
+    "word": " office",
+    "start": 6.28,
+    "end": 6.64,
+    "p": 0.984
+   },
+   {
+    "word": " never",
+    "start": 6.64,
+    "end": 6.98,
+    "p": 0.999
+   },
+   {
+    "word": " sees",
+    "start": 6.98,
+    "end": 7.24,
+    "p": 0.998
+   },
+   {
+    "word": " it.",
+    "start": 7.24,
+    "end": 7.44,
+    "p": 0.999
+   }
+  ]
+ },
+ "vo-fix4.wav": {
+  "text": "Turn that word letter into a template once. Patient and doctor details fill themselves in, the doctor signs digitally, and it goes straight back.",
+  "words": [
+   {
+    "word": " Turn",
+    "start": 0.0,
+    "end": 0.24,
+    "p": 0.88
+   },
+   {
+    "word": " that",
+    "start": 0.24,
+    "end": 0.48,
+    "p": 0.988
+   },
+   {
+    "word": " word",
+    "start": 0.48,
+    "end": 0.68,
+    "p": 0.966
+   },
+   {
+    "word": " letter",
+    "start": 0.68,
+    "end": 0.92,
+    "p": 0.812
+   },
+   {
+    "word": " into",
+    "start": 0.92,
+    "end": 1.18,
+    "p": 0.993
+   },
+   {
+    "word": " a",
+    "start": 1.18,
+    "end": 1.36,
+    "p": 0.997
+   },
+   {
+    "word": " template",
+    "start": 1.36,
+    "end": 1.66,
+    "p": 0.999
+   },
+   {
+    "word": " once.",
+    "start": 1.66,
+    "end": 2.04,
+    "p": 0.952
+   },
+   {
+    "word": " Patient",
+    "start": 2.38,
+    "end": 2.58,
+    "p": 0.921
+   },
+   {
+    "word": " and",
+    "start": 2.58,
+    "end": 2.84,
+    "p": 0.987
+   },
+   {
+    "word": " doctor",
+    "start": 2.84,
+    "end": 3.12,
+    "p": 0.949
+   },
+   {
+    "word": " details",
+    "start": 3.12,
+    "end": 3.62,
+    "p": 0.995
+   },
+   {
+    "word": " fill",
+    "start": 3.62,
+    "end": 3.9,
+    "p": 0.986
+   },
+   {
+    "word": " themselves",
+    "start": 3.9,
+    "end": 4.28,
+    "p": 0.994
+   },
+   {
+    "word": " in,",
+    "start": 4.28,
+    "end": 4.6,
+    "p": 0.997
+   },
+   {
+    "word": " the",
+    "start": 4.82,
+    "end": 4.9,
+    "p": 0.983
+   },
+   {
+    "word": " doctor",
+    "start": 4.9,
+    "end": 5.2,
+    "p": 0.964
+   },
+   {
+    "word": " signs",
+    "start": 5.2,
+    "end": 5.56,
+    "p": 0.996
+   },
+   {
+    "word": " digitally,",
+    "start": 5.56,
+    "end": 6.08,
+    "p": 0.987
+   },
+   {
+    "word": " and",
+    "start": 6.4,
+    "end": 6.48,
+    "p": 0.997
+   },
+   {
+    "word": " it",
+    "start": 6.48,
+    "end": 6.58,
+    "p": 0.993
+   },
+   {
+    "word": " goes",
+    "start": 6.58,
+    "end": 6.74,
+    "p": 0.998
+   },
+   {
+    "word": " straight",
+    "start": 6.74,
+    "end": 6.98,
+    "p": 0.995
+   },
+   {
+    "word": " back.",
+    "start": 6.98,
+    "end": 7.24,
+    "p": 0.999
+   }
+  ]
+ },
+ "vo-fix5.wav": {
+  "text": "If a patient declines, mark it on the case with a short note. The referring dentist sees it the same day, not at the next recall.",
+  "words": [
+   {
+    "word": " If",
+    "start": 0.0,
+    "end": 0.16,
+    "p": 0.966
+   },
+   {
+    "word": " a",
+    "start": 0.16,
+    "end": 0.34,
+    "p": 0.987
+   },
+   {
+    "word": " patient",
+    "start": 0.34,
+    "end": 0.58,
+    "p": 0.999
+   },
+   {
+    "word": " declines,",
+    "start": 0.58,
+    "end": 1.16,
+    "p": 0.997
+   },
+   {
+    "word": " mark",
+    "start": 1.46,
+    "end": 1.6,
+    "p": 0.994
+   },
+   {
+    "word": " it",
+    "start": 1.6,
+    "end": 1.7,
+    "p": 0.996
+   },
+   {
+    "word": " on",
+    "start": 1.7,
+    "end": 1.78,
+    "p": 0.994
+   },
+   {
+    "word": " the",
+    "start": 1.78,
+    "end": 1.92,
+    "p": 0.983
+   },
+   {
+    "word": " case",
+    "start": 1.92,
+    "end": 2.08,
+    "p": 0.999
+   },
+   {
+    "word": " with",
+    "start": 2.08,
+    "end": 2.24,
+    "p": 0.997
+   },
+   {
+    "word": " a",
+    "start": 2.24,
+    "end": 2.42,
+    "p": 0.992
+   },
+   {
+    "word": " short",
+    "start": 2.42,
+    "end": 2.56,
+    "p": 0.998
+   },
+   {
+    "word": " note.",
+    "start": 2.56,
+    "end": 2.82,
+    "p": 0.969
+   },
+   {
+    "word": " The",
+    "start": 3.02,
+    "end": 3.12,
+    "p": 0.994
+   },
+   {
+    "word": " referring",
+    "start": 3.12,
+    "end": 3.46,
+    "p": 0.994
+   },
+   {
+    "word": " dentist",
+    "start": 3.46,
+    "end": 3.88,
+    "p": 0.986
+   },
+   {
+    "word": " sees",
+    "start": 3.88,
+    "end": 4.16,
+    "p": 0.996
+   },
+   {
+    "word": " it",
+    "start": 4.16,
+    "end": 4.3,
+    "p": 0.991
+   },
+   {
+    "word": " the",
+    "start": 4.3,
+    "end": 4.42,
+    "p": 0.971
+   },
+   {
+    "word": " same",
+    "start": 4.42,
+    "end": 4.64,
+    "p": 1.0
+   },
+   {
+    "word": " day,",
+    "start": 4.64,
+    "end": 4.96,
+    "p": 0.998
+   },
+   {
+    "word": " not",
+    "start": 5.06,
+    "end": 5.26,
+    "p": 0.998
+   },
+   {
+    "word": " at",
+    "start": 5.26,
+    "end": 5.36,
+    "p": 0.993
+   },
+   {
+    "word": " the",
+    "start": 5.36,
+    "end": 5.46,
+    "p": 0.995
+   },
+   {
+    "word": " next",
+    "start": 5.46,
+    "end": 5.64,
+    "p": 0.999
+   },
+   {
+    "word": " recall.",
+    "start": 5.64,
+    "end": 6.02,
+    "p": 0.995
+   }
+  ]
+ },
+ "vo-hook.wav": {
+  "text": "Sound familiar? Here are five moments every specialist office knows and how to handle each one.",
+  "words": [
+   {
+    "word": " Sound",
+    "start": 0.0,
+    "end": 0.32,
+    "p": 0.991
+   },
+   {
+    "word": " familiar?",
+    "start": 0.32,
+    "end": 0.7,
+    "p": 0.992
+   },
+   {
+    "word": " Here",
+    "start": 0.98,
+    "end": 1.08,
+    "p": 0.996
+   },
+   {
+    "word": " are",
+    "start": 1.08,
+    "end": 1.32,
+    "p": 0.997
+   },
+   {
+    "word": " five",
+    "start": 1.32,
+    "end": 1.56,
+    "p": 0.635
+   },
+   {
+    "word": " moments",
+    "start": 1.56,
+    "end": 1.92,
+    "p": 0.992
+   },
+   {
+    "word": " every",
+    "start": 1.92,
+    "end": 2.28,
+    "p": 0.979
+   },
+   {
+    "word": " specialist",
+    "start": 2.28,
+    "end": 2.74,
+    "p": 0.821
+   },
+   {
+    "word": " office",
+    "start": 2.74,
+    "end": 3.12,
+    "p": 0.975
+   },
+   {
+    "word": " knows",
+    "start": 3.12,
+    "end": 3.46,
+    "p": 0.999
+   },
+   {
+    "word": " and",
+    "start": 3.46,
+    "end": 3.84,
+    "p": 0.582
+   },
+   {
+    "word": " how",
+    "start": 3.84,
+    "end": 4.0,
+    "p": 0.999
+   },
+   {
+    "word": " to",
+    "start": 4.0,
+    "end": 4.14,
+    "p": 0.999
+   },
+   {
+    "word": " handle",
+    "start": 4.14,
+    "end": 4.38,
+    "p": 1.0
+   },
+   {
+    "word": " each",
+    "start": 4.38,
+    "end": 4.62,
+    "p": 0.999
+   },
+   {
+    "word": " one.",
+    "start": 4.62,
+    "end": 4.92,
+    "p": 0.999
+   }
+  ]
+ }
+}
