@@ -27,6 +27,7 @@ import { DayPrepClean, DAYPREP_DURATION, DAYPREP_W, DAYPREP_H } from "./reelfx/D
 import { CaseChat, CASECHAT_DURATION, CASECHAT_W, CASECHAT_H } from "./reelfx/CaseChat";
 import { CompletionNote, CN_DURATION, CN_W, CN_H } from "./reelfx/CompletionNote";
 import { Ep4Story, EP4_DURATION } from "./reelfx/Ep4Story";
+import { UGC17, UGC17_DURATION } from "./ugc17/UGC17";
 import { IncomingPage } from "./app/Incoming";
 import { CaseDetailPage } from "./app/CaseDetail";
 import { LeadFormsPage } from "./app/LeadForms";
@@ -76,6 +77,7 @@ export const RemotionRoot: React.FC = () => (
     <Composition id="Gesture-DontDo" component={GestureStory} durationInFrames={GX_DURATION} fps={30} width={1080} height={1920} />
     <Composition id="Kawasaki-Reveal" component={KawasakiReveal} durationInFrames={KAW_DURATION} fps={KAW_FPS} width={KAW_W} height={KAW_H} />
     <Composition id="Ep4-FrontRow" component={Ep4Story} durationInFrames={EP4_DURATION} fps={30} width={1080} height={1920} />
+    <Composition id="UGC17-FiveMoments" component={UGC17} durationInFrames={UGC17_DURATION} fps={30} width={1080} height={1920} />
     <Composition id="CompletionNote-Ep4" component={CompletionNote} durationInFrames={CN_DURATION} fps={30} width={CN_W} height={CN_H} />
     <Composition id="CaseChat-Clean"component={CaseChat} durationInFrames={CASECHAT_DURATION} fps={30} width={CASECHAT_W} height={CASECHAT_H} />
     <Composition id="DayPrep-Clean" component={DayPrepClean} durationInFrames={DAYPREP_DURATION} fps={30} width={DAYPREP_W} height={DAYPREP_H} />
