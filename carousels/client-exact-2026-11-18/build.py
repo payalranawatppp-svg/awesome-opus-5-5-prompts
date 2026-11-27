@@ -79,7 +79,7 @@ def slide(n, total, tag_, text, visual, dark=False):
     return (f'<html><head><meta charset="utf-8"><style>{CSS}{UI.CSS}</style></head><body class="{"dark" if dark else ""}"><div class="dots"></div>'
             f'<div class="page"><div class="top"><img src="{LOGO}"><span class="pg">{tag_} · {n}/{total}</span></div>{text}'
             f'<div class="stage">{visual}</div>'
-            f'<div class="foot"><span>toothreferral.com</span><span>{"Swipe →" if n < total else "Just refer it."}</span></div></div></body></html>')
+            f'<div class="foot"><span>toothreferral.com</span><span>{"Swipe →" if n < total else ""}</span></div></div></body></html>')
 
 
 def head(label, h, size, aud=None):
@@ -119,7 +119,7 @@ INS = [
       ('General Dentist', 'Refers patients instantly without administrative delays or waiting on insurance card collection.'),
       ('The Patient', 'A fast, 1-click HIPAA-secure mobile upload with zero account creation required.')]) + '</div>',
   card('ui-insurance-cards.png', 300, 10, 480, rx=12, ry=-14, rz=1, z=0), False),
- (head('Slide 7 · Upgrade Your Referral Workflow', 'Move Beyond Basic Web Forms. Just Refer It.', 58)
+ (head('Slide 7 · Upgrade Your Referral Workflow', 'Move Beyond Basic Web Forms.', 58)
   + '<div class="rows">'
   + ''.join(f'<div class="row"><b>{a}</b><span>{E(t)}</span></div>' for a, t in [
       ('Stop Chasing Cards & Data', 'Generic web forms leave gaps. ToothReferral delivers complete, HIPAA-compliant patient coverage directly to the referral record.'),
@@ -225,7 +225,11 @@ def run(pages, measure=False, pdf_out=None):
             dst = os.path.join(HERE, 'preview', f'{"os" if "Oral" in pdf_out else "ins"}-{i + 1:02d}.png')
             os.replace(p.replace('.html', '.png'), dst); pngs.append(dst)
         lay = img2pdf.get_layout_fun((1080, 1350))  # points; 4x pixels inside = ~288 dpi equivalent at full size
-        open(os.path.join(HERE, pdf_out), 'wb').write(img2pdf.convert(pngs, layout_fun=lay))
+        from PIL import Image
+        jpgs = []
+        for q in pngs:  # high-quality JPEG (4:4:4, q92) keeps text crisp at 4x and keeps each PDF well under 30 MB
+            j = q.replace('.png', '.jpg'); Image.open(q).convert('RGB').save(j, quality=92, subsampling=0, optimize=True); jpgs.append(j)
+        open(os.path.join(HERE, pdf_out), 'wb').write(img2pdf.convert(jpgs, layout_fun=lay))
     for p in paths: os.remove(p)
     return R
 
