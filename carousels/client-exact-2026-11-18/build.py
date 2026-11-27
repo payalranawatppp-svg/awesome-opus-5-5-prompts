@@ -199,7 +199,7 @@ def build(slides, tag_, post, out):
     probe = lambda v: f'<div style="position:absolute;left:20px;top:0;width:1080px;height:600px">{v}</div>' if v else ''
     hs = run([slide(i, total, tag_, t, probe(v), d) for i, (t, v, d) in enumerate(slides, 1)], measure=True)
     pages = [slide(i, total, tag_, t, fit(v, (hs[i - 1]['stage'], hs[i - 1]['content'])), d) for i, (t, v, d) in enumerate(slides, 1)]
-    pages.append(text_page(*post))
+    # caption page removed (user, 2026-11-27): the LinkedIn copy lives in the Post-Copy .md files
     res = run(pages, pdf_out=out)
     for i, r in enumerate(res[:total], 1):
         if r['issues']: print(tag_, i, r)
