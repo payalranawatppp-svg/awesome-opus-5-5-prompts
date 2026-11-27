@@ -224,3 +224,13 @@ Where they live: **project skills** load automatically from `.claude/skills/` wh
 ## MCP connectors used in this project
 
 Google Drive (backup storage, recordings), ElevenLabs (voices, dubbing, sound), Gmail (read), GitHub, vidIQ, earshot (audio listening, local MCP), Claude Docs. 21st needs re-authorising.
+
+## Obscura (installed 27 Nov 2026)
+
+Rust headless browser for AI agents (github.com/h4ckf0r0day/obscura, Apache-2.0, v0.2.7): V8 JavaScript, Chrome DevTools
+Protocol (drop-in for Puppeteer/Playwright), screenshots, screencast, PDF export, page extraction.
+- CLI: `obscura` + `obscura-worker` in `/usr/local/bin` (default release build: rendering, no stealth transport).
+  Example: `obscura fetch https://example.com --eval "document.title"`.
+- Skill: `.claude/skills/obscura/SKILL.md` (CLI, CDP, MCP and rendering workflows).
+- Local install: download `obscura-x86_64-linux.tar.gz` (or the macOS/Windows archive) from the GitHub Releases page,
+  extract, and put both binaries on PATH. The project publishes no checksums.
